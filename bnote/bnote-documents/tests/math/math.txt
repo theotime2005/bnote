@@ -1,0 +1,46 @@
+Priorité des opérateurs:
+`,8 - 3 - 2
+`,3 - 6 / 3
+`,6 / 7 - 1
+`,3 + 3 / 2
+
+les blocs:
+`,(3 - 1) / (2 + 1)
+`,(3 - 1) (2 + 1)
+`,(3pi)
+Les fonctions:
+`,rad(90)
+`,cos(pi/2)
+`,cos(pi)
+`,cos(pi+0.2)
+`,2 * ln(e)
+
+L'exposant:
+`,2^3
+`,2^3+1
+`,cos^2(pi+0.2)
+
+Les variables:
+`,a = 3
+`,b = 5
+`,5 * ab
+
+Les opérateurs unaires
+`,3+-2
+`,tan-1
+`,tan-1+2
+`,tan(-1)
+
+Les opérateurs baltringue
+Factorielle:
+`,5!
+ou fact(5)
+Racine nième (racine cubique de 9)
+`,nroot{3}{9}
+
+Les enchaînements d'expressions
+`,a=3+1
+`,b=1+1
+`,c=ab
+
+`,r * 2

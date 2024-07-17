@@ -1,0 +1,2225 @@
+﻿b.note
+v3.0.0
+
+
+Manuel d’utilisation
+(2024-06-25)
+	
+
+  
+  
+________________
+
+SOMMAIRE
+Description        7
+Présentation        7
+Caractéristiques        8
+Architecture matérielle        8
+Les touches de b.note        9
+Le bouton marche-arrêt        9
+Les touches de commandes        9
+Les curseurs routines        9
+Le clavier braille        10
+Mise en route        10
+Utilisation d’un menu        11
+Utilisation d’une boîte de dialogue        11
+Le menu principal de b.note        12
+Usb-a et usb-b        12
+Bluetooth-applications        12
+nn%        12
+Le menu applications de b.note        12
+Usb        13
+Bluetooth (0 à 4)        13
+Document (0 à 5)        13
+Explorateur        13
+Préférences        13
+Transport        13
+Éteindre        13
+Les applications        14
+Présentation        14
+L’explorateur de fichiers        14
+Présentation et déplacement dans le dossier courant        14
+Sélection multiple        15
+Corbeille        16
+Menu de l’explorateur de fichiers        16
+Menu Fichier        16
+Menu Edition        17
+Menu Bibliothèque Eole        17
+Cette fonction permet de rechercher et de télécharger un ouvrage. La première étape consiste à entrer l’identifiant et le mot de passe utilisateur de la bibliothèque.        17
+Menu Aller à        17
+Menu Sauvegardes        18
+Bouton Applications        18
+Menu des dossiers spéciaux bluetooth et sauvegardes        18
+Menu de la corbeille        18
+Menu Fichier        18
+L’éditeur        19
+Le menu de l’éditeur        19
+Fichier        19
+Edition        20
+Aller à        20
+Recherche        21
+Insertion        21
+Signets        21
+Math        21
+Vocalisation        22
+Bouton Applications        22
+Le lecteur Daisy        23
+Audio        23
+Wikipedia        24
+Les préférences        25
+Le détail des préférences        25
+Horloge        25
+Batterie        26
+Synthèse        26
+USB        26
+Bluetooth        26
+Wifi        27
+Interface utilisateur        27
+Menu principal        27
+Explorateur        28
+Editeur        28
+Mathématique        28
+Musique        28
+Agenda        28
+Jeux de mots et de calcul        29
+Clavier        29
+Veille        29
+Mise à jour        29
+Test (menu seulement)        29
+Restauration (menu seulement)        29
+Versions        30
+L’agenda        31
+Fonctionnement de base        31
+Navigation dans l'application        31
+Utilisation du calendrier        31
+Le menu événement        32
+Le menu Aller        32
+Le menu rechercher        33
+Le menu Gestion de l'agenda        33
+Paramètres de l'agenda        33
+Les lecteurs audio        35
+Audio        35
+Menu du lecteur audio        35
+Menu Liste de lecture        35
+Menu Elément        35
+Radio        36
+Menu du lecteur radio        36
+Menu Radio        36
+Menu Lecteur        36
+Les jeux éducatifs        37
+Jeux de mots        37
+Jeux de calcul        37
+Le Chronomètre        38
+Le Traducteur        39
+Les jeux        40
+Mines        40
+Règle du jeu        40
+Affichage et déplacements        40
+Mastermind        41
+Règle du jeu        41
+Affichage et déplacements        41
+L’utilisation connectée avec un lecteur d’écran        42
+USB        42
+Bluetooth        42
+ANNEXE - Éditeur - Recherche.        43
+ANNEXE - Éditeur - Mathématique.        43
+Description        43
+Calculatrice en mode texte        44
+Généralités        44
+Les blocs        44
+Les constantes        44
+Les opérateurs        45
+Les fonctions à un argument        45
+Les fonctions à plusieurs arguments        46
+Calculatrice en braille mathématique Français        47
+Généralités        47
+Les blocs        47
+Les constantes        47
+Les opérateurs        47
+Les fonctions à un argument        48
+Les fonctions à plusieurs arguments        49
+Calculatrice en braille mathématique UEB        50
+Généralités        50
+Les nombres        50
+Les constantes        50
+Les blocs        50
+Les opérateurs        51
+Les fonctions à un argument        51
+Les fonctions à plusieurs arguments        51
+Exemples        52
+ANNEXE - Clavier braille en USB        54
+ANNEXE - Clavier braille unimanuel        55
+ANNEXE - Fonctions des curseurs routines        56
+ANNEXE - Jumelage Bluetooth        57
+Jumelage avec un PC        57
+Jumelage avec une tablette ou un smartphone Android        57
+Jumelage avec une tablette ou un smartphone Apple        57
+ANNEXE - Transfert de fichiers en Bluetooth        58
+Transfert du PC vers b.note        58
+Transfert de b.note vers le PC        58
+Transfert d’une Tablette (ou smartphone) android vers b.note        59
+Transfert de b.note vers une Tablette (ou smartphone) android        59
+ANNEXE - Raccourcis clavier de commande        60
+Fonctions du pavé de gauche        60
+Fonctions du pavé de droite        60
+ANNEXE - Raccourcis du clavier braille        62
+Généraux        62
+Menu / Boîte de dialogue        62
+Editeur        62
+Explorateur de fichiers        64
+Lecteur audio        64
+Radio        65
+ANNEXE - Caractères Braille informatique 8 points        65
+ANNEXE - Fonctions braille 10 points        1
+ANNEXE - Mise à jour des applications        1
+
+
+________________
+
+
+
+
+  Description
+b.note est une plage braille pouvant se connecter en USB ou en Bluetooth à de nombreux ordinateurs, tablettes ou smartphones.
+
+
+b.note est aussi un bloc-notes braille autonome qui possède un explorateur de fichiers, un éditeur permettant d’organiser, de lire et de modifier ses documents, une calculatrice scientifique, un lecteur de fichier MP3, un lecteur de web radio et de podcast, lecture et écriture de document en braille musical.
+    Présentation
+Face supérieure:
+* Un afficheur braille de 20 ou 40 cellules de 8 points chacune,
+* Des curseurs routines à double contact situés immédiatement au-dessus de chaque cellule braille,
+* Un clavier braille 10 touches dont les touches de pouce se situent en dessous de l’afficheur braille et les 8 autres touches au-dessus de la ligne de curseurs routines,
+* 2 pavés de 4 touches disposées en croix, ils sont situés à droite et à gauche de l’afficheur braille.
+
+
+Face inférieure :
+* Une trappe vissée permet d’accéder exceptionnellement à la SD-Card de l’appareil.
+* Sur b.note génération 2, 2 grilles à l’avant permettent l’émission sonore des 2 hauts parleurs intégrés.
+
+
+Côté latéral gauche :
+* Un trou permet l’introduction d’un trombone pour réinitialiser le système en cas de dysfonctionnement.
+* Un connecteur USB de type ‘C’ permet le rechargement de l’appareil ou le dialogue avec un autre système,
+* Une prise audio jack  (3,5mm) pour le branchement d’un casque.
+* Un bouton glissière permet la mise en marche ou l’arrêt de l’appareil,
+
+
+Côté arrière :
+* Sur b.note génération 2, une prise USB permet de brancher une clef USB pour le transfert de documents. 
+________________
+
+
+    Caractéristiques
+* Afficheur 20 ou 40 cellules,
+* 20 ou 40 curseurs routines,
+* Clavier braille 10 touches,
+* 2 pavés de 4 touches,
+* Processeurs : STM32L1 / ARM Cortex-A53, quad core, 1.4GHz,
+* RAM: 512MB LPDDR2 (900MHz),
+* Carte SD 64GB,
+* Wifi : 2.4GHz 802.11ac dual band,
+* Bluetooth : 4.2 LS BLE,
+* Audio out : Jack 3,5mm et haut-parleurs intégrés (bnote génération 2),
+* USB type A pour clef USB (bnote génération 2),
+* USB type C pour alimentation ou branchement à un ordinateur,
+* Batterie : 3.7V 6000mAh (22.2 W),
+* Charge rapide avec un adaptateur secteur USB C (protocole PD Universel 2.0),
+Charge à 30% en 25 min., 80% en 1h30.
+* Autonomie : supérieure à 14 heures,
+* Dimensions : 235 (20 cel.) / 365 (40 cel.) x 105 x 27 mm,
+* Poids : 500 gr. (20 cel.) / 600 gr. (40 cel.).
+    Architecture matérielle
+b.note est  un système bi-processeurs,
+Il intègre un microcontrôleur 32 bits qui gère :
+   * l’alimentation du système,
+   * les claviers,
+   * le bouton marche-arrêt,
+   * le connecteur USB,
+Ce processeur assure à lui seul le fonctionnement de l’appareil en tant que plage braille USB.
+
+
+Pour les autres utilisations de b.note, un deuxième processeur beaucoup plus puissant assure les fonctions :
+   * Bluetooth,
+   * Applications internes (explorateur de fichiers, bloc-notes, lecteur multimédia)
+   * Synthèse vocale.
+
+
+Dès que le besoin s’en fait sentir, le second processeur est mis en route. Seule une extinction de l’appareil, par un appui long sur le bouton marche-arrêt, suspend l’alimentation du second processeur.
+________________
+
+
+  Les touches de b.note
+    Le bouton marche-arrêt                 
+Le bouton marche-arrêt est un bouton à glissière qu’il faut tirer vers soi pour l’actionner.
+Il permet de mettre en route et d’éteindre l’appareil. 
+Un appui court place l’appareil dans un mode “transport”. Un appui long (> à 3 sec.) éteint l’appareil. Voir “Mise en route”
+    Les touches de commandes
+b.note est équipé de 2 blocs de 4 touches disposées en croix 
+
+
+Fonctions du pavé de gauche :
+   * L'appui sur la touche en haut ouvre le menu de b.note,
+   * L’appui sur la touche en bas est la touche d’entrée/sortie dans le menu de l’application,
+   * L’appui sur la touche à droite est la touche d’avance de l’afficheur braille,
+   * L’appui sur la touche à gauche est la touche de recul de l’afficheur braille.
+
+
+Fonctions du pavé de droite :
+Ces 4 touches sont utilisées pour simuler les flèches. Dans les menus, par exemple, les flèches droite et gauche permettent de sélectionner l’élément de menu suivant ou précédant.
+
+
+Pour une description détaillée des fonctions des touches de commande se reporter au chapitre “ANNEXE - Raccourcis clavier de commande”.
+    Les curseurs routines
+Les curseurs routines sont des touches à double contact : un appui léger sur une de ces touches déclenche le premier contact, un appui fort déclenche le second contact.
+
+
+Par défaut les fonctions des curseurs routines sont les suivantes :
+   * Un appui léger (premier contact) sur le premier curseur routine déclenche la fonction de recul de l’afficheur braille.
+   * Un appui léger sur n’importe quelle autre touche déclenche l’avance de l’afficheur. Ainsi, lorsqu’il arrive en fin de lecture, l'utilisateur n'a pas à chercher un bouton particulier, il peut appuyer sur n’importe quel curseur routine pour passer à l’affichage suivant.
+   * Un appui fort (second contact) permet de réaliser la fonctionnalité traditionnelle d’un curseur routine, soit l’action sur un objet ou le positionnement du curseur pour un texte.
+
+
+Les fonctions attribuées aux curseurs routines peuvent être réassignées (Voir l’annexe “Fonctions des curseurs routines”.)
+    Le clavier braille
+Le clavier braille de b.note est composé de 8 touches et de 2 touches de pouce.
+Chacune des 8 touches correspond à un point braille.
+Elles sont disposées de gauche à droite ainsi : '7 3 2 1 4 5 6 8'
+Les 2 touches de pouce sont nommées de gauche à droite '9' et 'A'.
+
+
+Le clavier braille s'utilise en appuyant et en relâchant simultanément une ou plusieurs touches. Les fonctions ou caractères générés selon la combinaison de touches appuyées seront décrites plus loin dans ce document :
+   * Pour la saisie en braille informatique, voir l’annexe “Caractères Braille informatique 8 points”,
+   * Pour toutes les fonctions autres que les caractères disponibles habituellement sur un clavier PC, voir l’annexe “Fonctions Braille 10 points”
+   * Pour l’utilisation du clavier braille en mode uni-manuel, voir l’annexe : “clavier braille unimanuel”.
+
+Certaines de ces fonctions (Ctrl, Alt, Maj, Windows et Insert) sont des modificateurs, qui doivent précéder l'appui de la combinaison braille sur laquelle ils s'appliquent.
+
+
+  Mise en route
+Pour démarrer b.note, il suffit de tirer vers soi le bouton glissière situé sur le flanc gauche de l'appareil.
+L'afficheur braille se met immédiatement sous tension et affiche son menu principal.
+
+
+Une fois l’appareil démarré :
+      * Un appui court place l’appareil dans un mode “transport”. Dans cet état toutes les touches sont sans effet et l’afficheur braille reste en position tous points baissés. Seule une nouvelle sollicitation du bouton marche-arrêt peut le sortir de ce mode.
+      * Un appui long (> à 3 sec.) place l’appareil en veille. Dans ce mode, l’alimentation du second processeur est coupée tout comme celle de l’afficheur braille.
+Après son démarrage, b.note affiche son menu principal:
+“usb-a usb-b bluetooth-applications nn%”
+Il suffit de valider ‘usb-a’ ou ‘usb-b’ pour que le système passe à l’écoute de son port USB sur l’une des 2 émulations de port série. 
+Si l’on souhaite un autre fonctionnement (Bluetooth, applications internes), il convient de valider ‘bluetooth-applications’ ce qui mettra en route le second processeur du système.
+nn% indique le pourcentage de batterie.
+Le retour dans le menu principal de b.note est déclenché par l’appui sur la touche en haut du pavé de gauche.
+Une fois le second processeur démarré, le menu principal est complété :
+“usb-a usb-b <Liste des canaux bluetooth connectés> <liste des documents en édition> explorateur préférences transport éteindre”
+    Utilisation d’un menu
+Un menu apparaît comme une ligne composée d’une suite de labels.
+Ces labels peuvent être composés de plusieurs mots, dans ce cas le point braille 8 remplace l’espace comme séparateur de mot.
+Le premier label est le titre du menu, il est suivi du caractère ‘:’.
+Les labels suivants sont des boutons actionnables qui sont séparés par des espaces.
+Le point braille 7 et 8 clignote au-dessous du premier caractère du bouton, cela signifie que le bouton est focusé. Un bouton focusé est celui qui sera actionné par 9A au clavier braille.
+Les boutons de menus peuvent être activés par raccourci clavier en tapant directement la lettre de raccourci quand le menu est affiché. La lettre de raccourci est indiquée par le point Braille 8 levé.
+
+
+A l’ouverture d’un menu, le début de plage braille présente l’objet focusé.
+
+
+Il existe deux méthodes pour parcourir un menu :
+      1. Vous pouvez avancer ou reculer l’afficheur braille sur le menu (appui léger sur les curseurs routines ou touche droite et gauche du pavé de gauche) puis actionner un des boutons du menu en appuyant de façon plus forte sur un des curseurs routines situés au-dessus de ce bouton.
+      2. Vous pouvez déplacer le focus sur les différents boutons du menu (flèche à droite / gauche du pavé de droite). L’afficheur se déplace de façon à présenter en début de plage le bouton focusé. Vous pouvez alors actionner ce bouton (9A au clavier braille).
+    Utilisation d’une boîte de dialogue
+Une boîte de dialogue permet de présenter des objets possédant des valeurs associées, certaines de ces valeurs peuvent-être modifiables.
+Une boîte de dialogue ressemble à un menu, elle se manipule de la même façon. Elle possède toujours un bouton “Ok” pour la fermer en validant son contenu et un bouton “Annuler” pour abandonner les modifications. Ce bouton “Annuler” est présent uniquement dans les boîtes de dialogue où des modifications sont possibles.
+Tout comme pour les menus, les points 7 et 8 clignotant montrent l’élément focusé, le point 8 levé signale la lettre de raccourci qui sera activée en tapant Alt+lettre (au clavier braille 8A + comb. braille de la lettre).
+
+
+En dehors des boutons on peut trouver dans une boîte de dialogue :
+      * objet texte
+      * objet éditable
+      * objet liste
+Les objets éditables et les objets liste possèdent un nom et présentent une valeur associée. Ils s’affichent sous la forme “nom-valeur”.
+
+
+Les objets texte ont un rôle purement informatif, l’action sur un objet texte est sans effet. Ils ne possèdent pas de valeur et s’affichent sous la forme “nom”.
+
+
+Les objets éditables permettent la modification de leur valeur. L’action sur une boîte éditable fait apparaître des points 78 clignotants sous chaque caractère de sa valeur indiquant que le texte est sélectionné. La frappe de caractères au clavier braille remplace cette valeur. Un nouvel actionnement sur la boîte éditable la refermera à l’édition.
+
+
+Les objets liste permettent de sélectionner une valeur dans une liste définie, il suffit pour cela de focuser la liste et de faire dérouler les valeurs avec les touches flèches en haut/bas du pavé de droite.
+
+
+    Le menu principal de b.note
+Ce menu existe en 2 versions selon que le second processeur ait démarré ou non.
+Ce chapitre décrit le menu principal dans sa première version, on parlera de menu applications pour la seconde version, il est décrit dans le chapitre suivant.
+      Usb-a et usb-b
+Ces 2 boutons permettent l’utilisation de b.note en plage braille connectée en USB port série.
+Dans ce mode toutes les actions de touches sont transmises à l’appareil connecté, l’afficheur braille sera rafraîchit à sa demande.
+      Bluetooth-applications
+Ce bouton permet d’entrer dans les applications de b.note, cela déclenche l’allumage du second processeur. Une trentaine de secondes plus tard, ce menu principal devient le menu applications.
+      nn%
+Ce dernier élément est une information qui indique le niveau de la batterie, il ne permet aucune action.
+    Le menu applications de b.note
+Ce menu se substitue au menu principal dès que le second processeur est démarré.
+Pour alléger le menu d’application, des paramètres de l’application préférences permettent de placer la plupart de ces applications dans le menu principal, dans un sous menu ‘plus d’app.’ ou bien encore de les rendre invisibles.
+      Usb
+même rôle que dans le menu précédent.
+      Bluetooth (0 à 4)
+Le nombre de ces boutons dépend du nombre de connexions Bluetooth en cours, le texte associé à ces boutons est le nom du système Bluetooth auquel b.note est connecté. L’action de l’un de ces boutons permet de connecter le clavier et l’afficheur braille de b.note au système Bluetooth (PC, tablette ou smartphone).
+Si aucune connexion Bluetooth n’est active, il n’y a aucun bouton de ce type dans le menu. 
+      Document (0 à 5)
+Ces boutons permettent de retourner sur un document en cours d’édition, le texte associé à ses boutons est le nom du fichier du document ouvert.
+Lorsque le bouton commence par ‘*-’ cela indique que le document est ouvert en lecture seule.
+Si aucun document n’est en cours d’édition, il n’y a aucun bouton de ce type dans le menu.
+      Explorateur
+Ce bouton permet de lancer l’application explorateur de fichiers (Voir chap. Applications>Explorateur de fichier).
+      Préférences
+Ce bouton permet de lancer l’application préférences ((Voir chap. Applications>Préférences).
+      Transport
+L’action de ce bouton est équivalente à un appui court du bouton marche-arrêt de l'appareil (Voir chap. Mise en route)
+      Éteindre
+L’action de ce bouton est équivalente à un appui long du bouton marche-arrêt de l'appareil (Voir chap. Mise en route)
+
+
+  Les applications
+    Présentation
+Les applications de b.note sont composées d’un explorateur de fichiers, d’un éditeur et d’une page de préférences.
+Une application audio permet de construire des listes de lecture pour jouer des fichiers audio.
+Une application radio permet de choisir une radio et de l’écouter.
+Un jeu de démineur et un jeu de mastermind sont activables sur le paramètre ‘jeux’ des préférences, par défaut ces 2 applications ne sont pas visibles.
+
+
+    L’explorateur de fichiers
+L’explorateur de fichiers présente la liste des fichiers et des dossiers contenus dans le dossier courant.
+Ce dernier est initialement le dossier de base ‘mes documents’ de b.note mais il peut changer en fonction des actions de l’utilisateur.
+En amont du dossier de base ‘mes documents’, un dossier racine possédant les éléments de la fonction de menu ‘aller à’ est présenté. C’est une méthode alternative à cette fonction pour aller sur un de ses éléments (corbeille, clef usb…).
+
+
+Afin de classer localement les différents documents, l’explorateur possède des fonctions qui permettent de créer/effacer des sous dossiers et de réaliser des copies/déplacements de dossier à dossier.
+
+
+Les fichiers peuvent être échangés en bluetooth avec un PC ou un smartphone. L’explorateur de fichier peut compresser et extraire des archives au format zip.
+
+
+L’explorateur possède son propre menu, celui-ci est détaillé ci-après.
+      Présentation et déplacement dans le dossier courant
+Les dossiers puis les fichiers du dossier courant sont présentés par ordre alphabétique.
+Chaque élément de ce dossier correspond à une ligne braille, on se déplace donc dans cette liste avec la flèche en haut ou en bas du pavé de droite.
+
+
+Une action sur un dossier déclenche son affichage, il devient le dossier courant.
+Une action sur un fichier déclenche son ouverture dans l’éditeur s’il est d’un format ci dessous:
+      * ".txt" : Documents texte brut,
+      * ".mbe" : Documents d’Esysuite,
+      * ".docx" : Document Microsoft Word,
+      * “xlsx” : Documents Microsoft Excel,
+      * ".odt" : Document Libre office Word,
+      * ".pdf" : Document Adobe Acrobat,
+      * “.rtf” : Document ‘rich text format’,
+      * ".brf" : Document ‘Braille Ready Format’ de Duxburry, ils sont supportés en table braille française ou US, en grade1 ou grade2,
+      *  ".epub" : Format e-books (livres numériques)
+Lorsque l’éditeur ouvre un fichier d’un format autre que “.txt” il convertit le fichier au format .txt, si le fichier a déjà été converti un message vous invitera à déplacer ou effacer la conversion précédente.
+
+
+Une action sur un fichier .zip déclenche une ouverture du document dans le lecteur Daisy de b.note si c’est un ouvrage compressé Daisy.
+
+
+Une action sur un fichier de mise à jour .whl.zip déclenche l’installation de cette version et sa définition comme application lancée au démarrage si elle réussie.
+
+
+Note : Les fichiers .musicxml peuvent être lus, jouer et éditer sur le b.note. Une documentation indépendante que vous trouverez à côté de cette documentation décrit son fonctionnement.
+
+
+Le recul de l’afficheur (touche gauche du pavé de gauche) permet de visualiser le nom du dossier courant. Un appui fort sur les curseurs routines situés au-dessus de ce nom entraîne l’affichage du dossier parent. La touche braille 9 (Correction) permet également cette manœuvre.
+
+
+Chaque élément du dossier est préfixé par les lettres “f” ou “d” indiquant son type (fichier ou dossier). Ainsi un fichier test.txt se présentera sous la forme “f test.txt” et un dossier histoire sous la forme “d histoire”.
+
+
+A la suite du nom de fichier on trouvera sa taille sous la forme “(x mo)”, “(x ko)”, “(x octets)”.
+
+
+Dans cette liste il est possible de taper des caractères, b.note se placera sur le fichier ou dossier qui commence par cette séquence, on pourra ainsi se déplacer très rapidement dans la liste. 
+Une fois la séquence trouvée il est possible de passer à la suivante avec F3.
+      Sélection multiple
+Les fonctions copier et couper peuvent s'exécuter sur une liste de fichiers. L’explorateur de fichier permet, de ce fait, de sélectionner un ensemble de dossiers/fichiers.
+
+
+Lorsqu’un élément fait partie de la sélection, il est présenté préfixé par le caractère s, ainsi un fichier test.txt se présentera sous la forme “sf test.txt”.
+Lorsqu’un élément ne fait pas partie de la sélection, il est présenté préfixé par le caractère n, ainsi un fichier test.txt se présentera sous la forme “nf test.txt”.
+
+
+Pour commencer une sélection, faire F8 (braille 1259) ; pour clore une sélection, faire Echap. (braille 1245A).
+Lorsque la sélection est activée, vous pouvez vous déplacer d’élément en élément et faire Espace (braille A) pour sélectionner/désélectionner le fichier/dossier présenté.
+
+
+Pour sélectionner tout le contenu du dossier courant vous pouvez faire le raccourci CTRL+a. 
+      Corbeille
+Lorsque vous supprimez des fichiers ou des dossiers, ils sont placés dans la corbeille. Vous pouvez visualiser le contenu de la corbeille (via le menu Dossier>corbeille) et rétablir un fichier effacé par erreur. Vous pouvez supprimer définitivement des fichiers ou des dossiers qui se trouvent dans la corbeille.
+
+
+Note : La gestion de la corbeille est à la charge de l’utilisateur, elle ne cesse de se remplir à chaque effacement et il faudra que l’utilisateur fasse de temps à autre le ménage dans son contenu.
+      Menu de l’explorateur de fichiers
+Le menu de l’explorateur de fichiers s’affiche après l’appui sur la touche en bas du pavé gauche. Un autre appui sur cette touche permet de revenir au dossier de l’explorateur de fichier.
+Le bouton “applications” de ce menu permet de sortir de l’explorateur et de revenir au menu d’applications.
+Menu Fichier
+      * nouveau (contient un sous menu)
+      * texte (Ctrl + n): Création d’un nouveau fichier au format TXT dans le dossier courant, son contenu pourra être créé grâce à l’éditeur.
+      * Musique (bxml) : Création d’un nouveau fichier partition braille musical au format natif dans le dossier courant.
+      * Musique (musicxml) : Création d’un nouveau fichier partition braille musical au format générique musicxml dans le dossier courant.
+      * dossier (Ctrl + d): Création d’un nouveau dossier dans le dossier courant.
+      * envoyer vers : Envoi du fichier en Bluetooth vers un autre système. Voir ANNEXE - Transfert de fichiers en Bluetooth.
+      * renommer (F2): Permet de redéfinir le nom d’un dossier ou d’un fichier.
+      * supprimer (Suppr): Efface les fichiers et dossiers sélectionnés et les place dans la corbeille. Ils pourront être récupérés via le dossier “corbeille” si besoin.
+      * compresser : Crée un fichier compressé qui portera le nom du premier fichier ou dossier sélectionné.
+      * extraire : Décompresse le fichier zip sélectionné.
+      * actualiser (F5) : Permet de reconstruire la liste de dossiers/fichiers affichés. 
+      * ouvrir (Entrée): Ouvre le dossier dans l’explorateur ou le fichier dans l’application reconnaissant son type.
+      * ouvrir en lecture (Ctrl + Entrée): Ouvre le document dans l’éditeur en lecture seule.
+      * récents : Affiche une liste de fichiers récemment ouverts pour une réouverture rapide du document.
+      * rechercher : Permet de rechercher un fichier dans le dossier courant et ses sous dossiers ou depuis le dossier racine (‘bnote-documents’).
+      * ouvrir en lecture seule (ctrl+entrée) non visible dans le menu : ouvre le fichier document dans l'éditeur en mode lecture seul.
+Menu Edition
+      * début de sélection (F8) : Cette fonction permet d’entrer dans le mode sélection (voir sous chapitre de la page précédente “sélection multiple”).
+      * fin de sélection (Echap) : (cette fonction apparaît quand le mode sélection  est actif) termine le mode de selection
+      * copier (Ctrl + c) : Copie dans le presse papier l’ensemble des fichiers et dossiers sélectionnés. Cette fonction ne fait que référencer les dossiers/fichiers dans le presse papier, il faudra donc enchaîner la fonction de collage avant d’effacer ou de renommer les éléments sélectionnés.
+      * couper (Ctrl + x) : Même fonction que copier à la différence que les éléments d’origine seront automatiquement effacés après le collage.
+      * coller (Ctrl + v) : N'apparaît qu'après avoir sélectionné couper ou copié. Place l’ensemble des fichiers et dossiers copiés ou coupés dans le dossier courant.
+      * sélectionner tout (Ctrl + a) : Sélectionne tous les dossiers/fichiers du dossier courant.
+
+
+
+
+Menu Bibliothèque Eole 
+      * recherche simplifiée
+      * recherche avancée
+ Cette fonction permet de rechercher et de télécharger un ouvrage. La première étape consiste à entrer l’identifiant et le mot de passe utilisateur de la bibliothèque.
+Menu Aller à
+      * mes documents : Affiche le contenu du dossier “mes documents” où sont stockés vos documents.
+      * clef USB : Affiche la clef USB connectée à l’appareil.
+      * bluetooth : Affiche le contenu du dossier “bluetooth” où sont stockés les fichiers reçus via le bluetooth.
+      * corbeille : Affiche le contenu du dossier “corbeille” où sont stockés les fichiers effacés.
+      * mes sauvegardes : Affiche le contenu du dossier “sauvegardes” où sont stockés les fichiers de sauvegarde.
+      * dossier parent : Affiche le contenu du dossier parent.
+Menu Sauvegardes
+      * sauvegarder : Créé dans le dossier “sauvegardes” un fichier zip contenant l’intégralité du dossier “mes documents”. Ce fichier pourra être transféré en Bluetooth vers une autre machine, par la fonction “envoyer vers”.
+      * restaurer : Restaure  le dossier “mes documents” à partir d’un fichier de sauvegarde qui devra se trouver dans le dossier ”sauvegardes”.
+Bouton Applications
+      * Ce bouton permet de revenir au menu d’applications. 
+      Menu des dossiers spéciaux bluetooth et sauvegardes
+Dans ces dossiers, le menu est incomplet, il n’affiche que les fonctions qui sont pertinentes.
+      Menu de la corbeille
+Dans ce dossier, un certains nombres de fonctions du menu sont supprimés, le menu fichier se présente comme ci-dessous :
+Menu Fichier
+      * Rétablir : Rétablit l’ensemble des fichiers et dossiers sélectionnés dans la corbeille à son emplacement d’origine (l’emplacement avant la mise à la corbeille).
+      * Supprimer définitivement : Efface de manière définitive l’ensemble des fichiers et dossiers sélectionnés.
+      * Vider la corbeille : Supprime de manière définitive tous les dossiers et fichiers contenus dans la corbeille.
+      * actualiser (F5) : Permet de reconstruire la liste de dossiers/fichiers affichés. 
+
+
+________________
+    L’éditeur
+L’éditeur présente le contenu d’un document de texte composé de paragraphes.
+
+
+Ces paragraphes sont découpés en lignes d’un nombre de caractères fixes définis par l’utilisateur. Par défaut, ce nombre de caractères est identique à celui de la plage braille de l’appareil (20 ou 40 selon le modèle).
+
+
+Le curseur d’édition est représenté par les points 7 et 8 clignotants sous le caractère suivant le point d’insertion.
+Un texte sélectionné est aussi indiqué avec les points 7 et 8 clignotants.
+
+
+L’avance et le recul de l’afficheur braille (touches droite et gauche du pavé de gauche) déplace le curseur en début d’afficheur uniquement si un texte n’est pas sélectionné. Ainsi l’avance et le recul de l’afficheur permet de voir la sélection de texte.
+
+
+Un raccourci clavier Ins+F permet de sortir de l’édition du document pour entrer en recherche incrémentale.
+Il suffit de taper la séquence de caractères pour que l’éditeur se place sur la première occurrence, F3 permet de passer aux suivantes.
+Si de nouveau caractères sont tapés après 1 seconde ils seront interprétés comme une nouvelle séquence à rechercher.
+Cette recherche est indifférente aux accents et à la casse des caractères (min/maj).
+Le raccourci clavier Echappement permet de sortir de ce mode.
+
+
+Les documents peuvent être lus en braille informatique ou en braille abrégé.
+Voir ANNEXE - raccourcis clavier de commande.
+
+
+L’éditeur possède un ensemble de fonctions permettant de se déplacer dans le document. Voir ANNEXE - Raccourcis clavier.
+
+
+L’éditeur possède son propre menu qui est détaillé ci-après.
+      Le menu de l’éditeur
+Le menu de l’éditeur s’affiche après l’appui sur la touche en bas du pavé gauche. Un autre appui sur cette touche permet de revenir à l’éditeur.
+Le bouton “applications” de ce menu permet de sortir de l’éditeur et de revenir au menu d’applications.
+Fichier
+      * Fermer (Ctrl + F4) : Ferme le document, si le document a été modifié une proposition de sauvegarde sera faite.
+      * Enregistrer (Ctrl + s) : Sauve les modifications réalisées.
+      * Nettoyage : Permet de supprimer toutes les séries de lignes vides consécutives du document. Cette fonction est utile après la l’importation d’un fichier .pdf par exemple, où les lignes vides peuvent être nombreuses.
+      * Statistiques : Affiche une boîte de dialogue indiquant le nombre de paragraphes / mots / caractères contenus dans le document.
+      * Exporter en brf : Permet d’enregistrer le document au format .brf. Les paramètres de l’enregistrement qui seront demandés sont : la langue d’encodage, le type de braille, la longueur de ligne, le nombre de lignes par page, le nombre de page par fichier et une page de garde optionnelle.
+      * Envoyer la sélection vers : Lorsqu’une sélection de texte est réalisée, cette fonction permet d’envoyer par un canal bluetooth chacun de ces caractères comme ci ils étaient saisies au clavier braille. Il faudra s’assurer au préalable que le système recevant les caractères est dans une configuration permettant de recevoir ces caractères (bloc note au premier plan par exemple sous Windows).
+
+
+Edition
+      * Annuler (Ctrl + z) : Annule la dernière opération réalisée, une frappe ou des effacements successifs espacés de moins de 5 secondes seront vus comme une seule opération.
+      * Rétablir (Ctrl + y) : Rétablit l’opération précédemment annulée.
+      * sélection (contient un sous menu): 
+      * Début de sélection (F8) :  Entre dans le mode de sélection, dans ce mode les fonctions de déplacement du curseur deviennent des fonctions d’extension de la sélection.
+      * fin de sélection (esc) : sort du mode de sélection
+      * Jusqu’au début doc : sélectionne depuis la position du curseur jusqu’au début du document courant .
+      * Jusqu’à la fin du doc : sélectionne depuis la position du curseur jusqu’à la fin du document courant.
+      * Sélectionner tout (ctrl+a) : Sélectionne tout le document courant.
+      * Couper (Ctrl + x) : Copie le texte sélectionné dans le presse papier et l’efface du document.
+      * Copier (Ctrl + c) : Copie le texte sélectionné dans le presse papier.
+      * Coller  (Ctrl + v) : Colle le contenu du presse papier dans le document à la position du curseur.
+      * Curseur : Affiche une boîte de dialogue montrant les coordonnées du curseur. Ces dernières peuvent être modifiées afin de déplacer le curseur.
+      * Avance braille en abrégé : Arme/Désarme un paramètre réalisant une lecture en abrégé lors de l’avance de l’afficheur. 
+Aller à
+Ce menu permet de déplacer le curseur en début/fin de document/paragraphe.
+Recherche
+      * Rechercher (Ctrl + f) : Affiche une boîte de dialogue permettant de rechercher une suite de caractères dans le texte à partir de la position du curseur. Voir ANNEXE Éditeur - Recherche.
+      * Remplacer (Ctrl + h) : Affiche une boîte de dialogue quasiment identique à la boîte de dialogue rechercher. Elle comporte une zone supplémentaire permettant de noter la suite de caractères qui viendra remplacer le texte trouvé. 
+      * Suivant (F3) : Sélectionne la prochaine occurrence du texte recherché.
+      * Remplacer et suiv. (F4) : Remplace le texte recherché et sélectionne la prochaine occurrence du texte recherché.
+      * Précédent (Maj + F3) : Sélectionne l’occurrence précédente du texte recherché.
+      * Remplacer et pré. (Maj + F4) : Remplace le texte recherché et sélectionne l’occurrence précédente du texte recherché.
+      * Remplacer tout (F5) : Remplace toutes les occurrences du texte recherché par le texte de remplacement.
+Insertion
+      * Résultat : Insère le résultat du dernier calcul mathématique.
+      * Date : Insère  la date à l’endroit où se trouve le curseur sous une forme “jour de la semaine,  jour du mois, mois, année” soit  “mercredi 25 mars 2020” par exemple.
+      * Signature : Insère le contenu du fichier “signature.txt” qui se trouve dans le dossier “Document” de b.note. La fonction est sans effet si un tel fichier n’a pas été créé préalablement.
+Signets
+      * Insérer / Effacer (Ctrl + F2 / Ctrl + Maj + F2) : Pose un signet à la position du curseur ou le retire s’il y en a déjà un à cet endroit.
+      * Suivant (F2) : Descend le curseur dans le document jusqu’au premier signet rencontré. Ce déplacement repart en début de document si aucun signet n’est rencontré. 
+      * Précédent (Maj + F2) : Monte le curseur dans le document jusqu’au premier signet rencontré. Ce déplacement repart en fin de document si aucun signet n’est rencontré.
+      * Effacer tout : Supprime tous les signets du document.
+Math
+L’éditeur est capable de reconnaître des expressions mathématiques et de les évaluer. Voir ANNEXE - Éditeur - Mathématique.
+      * Évaluation ligne  (Ctrl + m) : Réalise le calcul de l’expression mathématique de la ligne sur laquelle se trouve le curseur.
+      * Évaluation bloc  (Ctrl + t) : Réalise le calcul des expressions mathématiques situées sur un ensemble de lignes consécutives. Le calcul partira de la première ligne du bloc quelque soit la position du curseur dans ce bloc.
+Vocalisation
+      * Document (Ctrl + d) : Lance la lecture du document à partir du paragraphe dans lequel se trouve le curseur.
+      * Paragraphe (Ctrl + r) : Lance la lecture du paragraphe dans lequel se trouve le curseur.
+      * Volume : Ouvre une boîte de dialogue contenant 2 boutons permettant d’augmenter ou de diminuer le volume, un retour vocal permet de se rendre compte de l’effet du réglage.
+      * Vitesse : Comme pour le volume mais agit sur la vitesse d’élocution de la synthèse vocale.
+Bouton Applications
+      * Ce bouton permet de revenir au menu d’applications. 
+________________
+    Le lecteur Daisy
+Cette application s’ouvre lorsque l’on fait une action sur un fichier compressé au format Daisy (.zip) depuis l’explorateur de fichiers.
+Elle est très similaire à l’éditeur, la différence est que l’ouvrage ouvert ne peut pas être modifié ou copié.
+Le lecteur ne lit pour l’instant que les fichiers daisy 2 de la bibliothèque Eole
+
+
+On distingue 2 type d’ouvrage Daisy :
+      * Les ouvrages purement audio, seul un sommaire de l’ouvrage est disponible en texte, c’est lui qui sera affiché comme document. Il sera possible de se placer sur une ligne avant de lancer la lecture sur le chapitre pointé.
+      * Les ouvrages mixtes, dont le contenu est disponible aussi bien sous forme sonore que textuelle. Dans ce type d’ouvrage on pourra se déplacer dans le texte et lancer la lecture à partir du paragraphe pointé. Le sommaire de l’ouvrage est accessible avec la fonction de menu Fichier>Sommaire.
+
+
+
+
+Le seul menu qui se démarque de l’éditeur est le menu Audio qui remplace le menu vocalisation.
+Audio
+      * Joue (Ctrl + r ou Entrée) : Lance la lecture du paragraphe dans lequel se trouve le curseur.
+      * Pause / Reprise (Ctrl + d ou Espace) : Lance la lecture du document à partir du paragraphe dans lequel se trouve le curseur. Cette fonction permet de relancer la lecture du point où elle s’est arrêtée (par la fonction stop, si le document a été fermé ou si b.note a été éteint).
+      * Stop : Arrête la lecture du document
+      * Volume : Ouvre une boîte de dialogue contenant 2 boutons permettant d’augmenter ou de diminuer le volume.
+________________
+    Wikipedia
+L’application Wikipedia vous donne accès à l’encyclopédie en ligne Wikipedia.
+
+
+A son ouverture l’application affiche une boîte de dialogue qui permet de réaliser une recherche sur wikipédia.
+Le résultat de la recherche est affiché dans un document qui ressemble à celui de l’éditeur. Ce document n’est pas modifiable, mais la sélection de texte pour une copie dans un des fichiers de l’éditeur peut-être réalisée.
+Il suffira de faire Entrée (b9A) dans ce document ou d’activer le menu ‘Fichier>Recherche’ pour ré-ouvrir la boîte de dialogue.
+
+
+La boîte de dialogue de recherche Wikipédia est constituée des objets suivants : 
+         * une zone éditable ‘Recherche’ pour entrer le texte à rechercher,
+         * une liste ‘Suggestion’ qui liste les articles wikipédia trouvé en fonction du texte recherché,
+         * un bouton ‘ok’ pour afficher dans un document la page wikipédia correspondant au choix sélectionné dans l’objet liste ‘Suggestion’
+         * un bouton ‘Annuler’ qui referme la boîte de dialogue sans rien faire.
+________________
+
+
+    Les préférences
+Cette application présente sous la forme d’une page l’ensemble des paramètres de b.note.
+
+
+On trouvera dans cette page :
+         * La date et l’heure
+         * les informations sur la batterie
+         * Les réglages de la vocalisation
+         * Les réglage de l’usb
+         * Les paramètres bluetooth
+         * Les paramètres wifi
+         * Les paramètres de l’interface utilisateur
+         * Les paramètres de l’explorateur
+         * Les paramètres de l’éditeur
+         * Les paramètres mathématique
+         * Les paramètres de la musique
+         * Les paramètres de l’agenda
+         * Les paramètres de l’apprentissage du braille
+         * Les réglages des claviers
+         * Les paramètres de mise en veille
+         * Les paramètres de mise à jour
+         * Les informations de version
+
+
+Dans cette page il est possible de taper des caractères, b.note se placera là où se trouve la séquence de caractères tapées, on pourra ainsi se déplacer très rapidement dans la page. 
+Une fois la séquence trouvée il est possible de passer à la suivante avec F3.
+Une action sur la ligne affichée déclenche la boîte de dialogue permettant de modifier le paramètre, une modification dans le paramétrage de l’appareil est ainsi très rapide.
+
+
+Le parcours des menus est la seconde façon de modifier le paramétrage de b.note, ils sont détaillés ci-dessous. 
+
+
+      Le détail des préférences
+Horloge
+         * Date et heure : Ces paramètres permettent de dater les documents qui seront modifiés par l’éditeur. 
+         * Synchro date : Réglé sur ‘oui’ ce paramètre permet une mise à la date et l’heure automatique sur le web à chaque démarrage de l’appareil. Cette fonctionnalité fonctionne uniquement avec un bnote connecté en wifi.
+Batterie
+         * Batterie : Cette ligne affiche le niveau de batterie en pourcentage, l’état du chargeur et enfin la tension et le courant de batterie.
+Synthèse
+         * volume et vitesse : Ces paramètres permettent de régler le volume et la vitesse d’élocution de de la synthèse vocale. Sur bnote génération 2, le volume peut avoir des valeurs différentes si le casque est branché ou non.
+         * langue : Ce paramètre permet de sélectionner la langue de la synthèse vocale.
+         * synthèse : Ce paramètre permet de choisir la synthèse vocale entre cerence, picotts, mbrola et espeak.
+         * voix : Ce paramètre permet de choisir une voix pour une langue et une synthèse vocale définies.
+         * casque : Ce paramètre uniquement visible sur b.note génération 2 n’est pas modifiable, il permet de savoir si un casque audio est détecté. La sortie son est basculée sur le casque lorsqu’un casque est branché.
+USB
+         * clavier usb-a-hid et usb-b-hid : Ces paramètres permettent de connaître la façon dont seront envoyées les combinaisons braille lors du fonctionnement sur l’un des 2 port série USB, soit comme un clavier USB, soit directement au lecteur d’écran. Ces paramètres sont modifiables indépendamment mais c’est normalement le lecteur d’écran qui les prend en charge, il est donc probable  que la modification effectuée ici ne dure pas. Voir ANNEXE - Clavier braille en USB.
+         * simulation esys : Ce paramètre permet à bnote de se faire passer pour un Esys et de bénéficier ainsi d’une connexion avec d’anciennes applications. 
+Bluetooth
+         * alimentation : Il est possible de couper l’alimentation du module bluetooth afin d’augmenter l’autonomie de l’appareil.
+         * nom : L’adaptateur bluetooth à pour nom par défaut “Esys-bnote-nnnn” où “nnnn” est le numéro de série de l’appareil. Vous pouvez cependant personnaliser la dernière partie de ce nom. Pour que le changement de nom soit effectif, il faudra redémarrer b.note.
+         * visibilité : Vous pouvez rendre l’adaptateur bluetooth visible pour permettre une auto détection de celui-ci pour un jumelage. Ce paramètre restera dans l’état défini, il conviendra de le remettre en invisible pour éviter des jumelages intempestifs.
+         * Liste des appareils appairés : Cette ligne énumère les appareils jumelés, elle conduit à une boîte de dialogue permettant d’effacer un jumelage.
+         * Automatisation : Cette section n’est visible qu’une fois des appareils appairés. Chaque appareil appairé est présenté sur une ligne qui présente en cas de connexion qu’elle sera la réaction de b.note, ne rien faire ou basculer automatiquement dans le mode de fonctionnement bluetooth.
+         * simulation esys : Ce paramètre permet à bnote de se faire passer pour un Esys et de bénéficier ainsi d’une connexion avec d’anciennes applications. 
+Wifi
+         * alimentation : Il est possible de couper l’alimentation du module wifi afin d’augmenter l’autonomie de l’appareil.
+         * Connecté à : Cette ligne présente le ssid du point d’accès sur lequel b.note est connecté, l’adresse ip de b.note  et la force du signal.
+         * Favoris :  Cette ligne liste les ssid des points d’accès enregistrés, une action sur cette ligne permet de définir un ssid/mot de passe d’un nouveau point d’accès. Dans cette boîte de dialogue un bouton rechercher permet de voir les points d’accès à proximité.
+         * région : Ce paramètre permet de modifier le paramètre de région du module wifi, ce paramètre est à modifier uniquement en cas de changement de pays.
+Interface utilisateur
+         * langue message : Ce paramètre permet de choisir la langue de l’ensemble des messages de b.note. 
+         * langue braille : Ce paramètre permet de sélectionner la table braille utilisée.
+         * Type de braille : Cette ligne définit le braille utilisé pour l’affichage des menus, des boîtes de dialogue, de la liste des dossiers/fichiers de l’explorateur et de la page des préférences. Il est possible de choisir entre un braille informatique (8 points), un braille intégral ou un braille abrégé.
+         * espaces dans les labels : lorsque ce paramètre est réglé sur non, les espaces dans les labels et les zones éditables des menus et des boîtes de dialogue sont affichés en braille avec le point 8 levé.
+         * raccourcis visibles : Ce paramètre autorise la visualisation des raccourcis à côté de chaque élément de menu.
+         * mode développeur : Réglé sur oui, vous pouvez télécharger les versions en cours de développement et avoir accès dans le menu principal à un squelette d’application qui permet d’appréhender l’utilisation des menus et boîtes de dialogue.
+         * importer préférences (menu seulement) : Cette fonction permet de restaurer un jeu de préférences précédemment sauvegardé par la fonction “exporter préférence”.
+         * exporter préférences (menu seulement) :  Cette fonction permet de sauvegarder les préférences courantes dans un fichier situé dans le dossier “préférences” à la racine de l’explorateur de fichier.
+Menu principal
+On trouve dans cette rubrique un paramètre par application permettant de choisir son affichage dans le menu principal, les 3 possibilités sont les suivantes:
+         * Affichage dans le menu principal,
+         * Affichage dans le sous menu “plus d’app.” du menu principal,
+         * Invisible.
+Explorateur
+         * Vider le dossier bluetooth : Ce paramètre réglé sur ‘oui’ efface automatiquement le dossier bluetooth à l’extinction de l’appareil. C’est dans ce dossier que sont transférés les fichiers en bluetooth.
+         * Vider la corbeille à l’extinction : Ce paramètre permet de vider automatiquement la corbeille à l’extinction de l’appareil.
+         * Nombre de fichiers récents : Ce paramètre permet de dimensionner la liste des fichiers récents de l’explorateur de fichiers.
+Editeur
+         * Type de braille : Cette ligne définit le braille utilisé pour l’affichage des documents dans l’éditeur. Il est possible de choisir entre un braille informatique (8 points), un braille intégral ou un braille abrégé.
+         * longueur de ligne : Cette ligne affiche une boîte de dialogue pour régler le nombre maximum de caractères d’une ligne de l’éditeur. Les paragraphes de texte sont découpés en plusieurs lignes où les mots sont insécables. Par défaut, ce paramètre est égal au nombre de cellules de l’afficheur braille (20 ou 40) de façon à ne jamais trouver de mots coupés en fin d’afficheur.
+         * Avance afficheur : Deux types de déplacement de l’afficheur sont disponibles, le mode “normal” où chaque ligne de l’éditeur est présentée et le mode “significatif” ou les lignes vides disparaissent.
+         * Défilement automatique de l’afficheur : Ce paramètre permet de définir le nombre de secondes entre chaque avance automatique de l’afficheur braille.
+         * Curseur visible : Ce paramètre permet de masquer l’affichage en braille du curseur dans le texte (points braille 7 et 8 clignotants)
+         * Points 78 visibles : Ce paramètre permet de masquer les points 7 et 8 des afficheurs braille de l’éditeur.
+Mathématique
+         * format : 2 formats d’affichage des résultats sont disponibles, standard ou scientifique (notation à exposant de 10)
+         * précision : Ce paramètre définit le nombre de décimales du résultat.
+         * fraction : Ce paramètre permet d’afficher le résultat sous forme de fraction lorsque cela est possible.
+         * angle : Ce paramètre permet de définir l’unité d’angle de la calculatrice, soit degré ou radian.
+Musique
+Voir fichier de documentation bnote-musique.
+Agenda
+Voir chapitre Agenda.
+Jeux de mots et de calcul
+Voir chapitre Jeux de mots et de calcul.
+Clavier
+         * Mode : Ce paramètre permet de passer le clavier braille dans l’un de ces modes unimanuel, voir ANNEXE - Clavier braille unimanuel.
+         * Braille 78 : Ce paramètre conditionne l’appui sur le point b7 ou l’appui sur le point b8.
+S’il est réglé sur ‘caractère’ le caractère de la table braille choisie est généré.
+S’il est réglé sur fonction l’appui sur b7 réalise la fonction Correction (backspace) et lui sur b8 fait Entrée.
+Une fois réglé sur fonction les touches 9 et A font espace toutes les deux.
+         * inversion : Ce paramètre permet d’inverser les fonctions assignées au pavé de 4 touches de gauche avec celle du pavé de droite.
+         * Appui léger, fort, contigu, double léger, double fort : Ces paramètres permettent de régler le fonctionnement des touches curseurs routines, voir ANNEXE - Fonctions des curseurs routines.
+Veille
+         * Délai pour transport : Ce paramètre définit le nombre de minutes pendant lesquelles l’absence  d’activité conduira à la mise automatique de l’appareil en mode transport. Une valeur à 0 permet d’invalider ce mécanisme.
+         * Délai pour extinction : Ce paramètre définit le nombre de minutes pendant lesquelles l’absence  d’activité conduira à l’extinction automatique de l’appareil. Une valeur à 0 permet d’invalider ce mécanisme.
+Mise à jour
+Pour que cette fonctionnalité fonctionne, il faut que le b.note soit connecté à une borne wifi.
+         * Vérification automatiques des mises à jour : Ce paramètre activé, le système fera une requête réseau pour savoir si une mise à jour est disponible, si oui il préviendra l’utilisateur.
+         * Rechercher une mise à jour (menu seulement) : Cette fonction permet de lancer une recherche de mise à jour manuellement.
+Test (menu seulement)
+         * Cette fonction uniquement accessible par le menu permet de lever et de descendre cycliquement tous les points braille. L’arrêt du test est déclenché par l’appui sur une des touches du pavé de touches de droite ou de gauche.
+Restauration (menu seulement)
+         * Cette fonction permet de restaurer les paramètres des fonctions internes de b.note, son usage est exceptionnel.
+Versions
+         * Type : Cette ligne affiche le type exact de l’appareil et son numéro de série.
+         * Applications : Cette ligne donne la version du logiciel applications. Une action sur cette ligne permet de sélectionner l’application bnote qui sera lancée à la mise en route.
+         * firmware : Cette ligne donne la version du logiciel intégré sur le premier processeur.
+         * sdcard : Cette ligne donne la version de l’image linux du second processeur.
+         * génération 2 : Si la valeur de ce paramètre est oui, alors bnote est de seconde génération, il dispose de haut-parleurs internes et d’une prise USB permettant le branchement d’une clef.
+         * Linux : Cette ligne affiche la version du noyau linux de bnote
+
+
+
+
+________________
+
+
+    L’agenda
+L’application Agenda a été développée par Théotime Berthod, dans le cadre de l’ouverture du développement d’applications par des personnes extérieures à la société Eurobraille. Nous lui adressons tous nos remerciements pour sa participation.
+
+
+Cette application permet de noter des événements ou, dans le cadre scolaire, des devoirs à réaliser. Elle dispose également d'un calendrier intégré.
+      Fonctionnement de base
+Lors de sa première ouverture, l'application affichera «aucun événement». Cet affichage ne changera pas tant qu’un élément n’aura pas été ajouté. Si des éléments figurent déjà dans l'agenda, ils s'afficheront sous forme d'une liste avec
+         * La date,
+         * Une indication sur l'état de l'événement,
+         * Le sujet (titre) de l'événement (matière scolaire),
+         * Le contenu de l'événement (sa description).
+      Navigation dans l'application
+L'application agenda possède différents modes de présentation. Pour y accéder, vous n'avez qu'à appuyer sur la touche 9 (retour arrière).
+Les modes sont listés ci-dessous:
+         * Voir à partir d'aujourd'hui: Affiche tous les événements à partir de la date de l'appareil,
+         * Pour aujourd'hui: N'affiche que les événements pour la date de l'appareil,
+         * Non fait: N'affiche que les événements non fait à partir de la date de l'appareil,
+         * Tout l'agenda: Affiche tous les événements contenu dans votre agenda,
+         * Calendrier: Passe en mode calendrier.
+Note : à côté de chaque mode sauf le calendrier, sont indiqués entre parenthèses le nombre d'événements correspondant à ce mode.
+      Utilisation du calendrier
+Lorsque vous basculez l'application en mode calendrier, vous vous retrouvez sur la date du jour. Pour naviguer de jour en jour, utilisez les flèches haut et bas du pavé de droite (haut pour précédant, bas pour suivant). Pour aller 7 jours plus loin ou revenir 7 jours en arrière, vous pouvez utiliser les flèches gauche et droite du pavé de droite (gauche pour revenir, droite pour avancer).
+Si vous vous trouvez sur un jour qui contient des événements, vous verrez un "*" avant la date, puis le nombre d'événement et si il y en a, le nombre d'événements non fait entre parenthèses. Pour afficher les événements à faire pour la date sur laquelle vous vous trouvez, pressez la touche entrée et  la liste des événements à faire pour le jour choisi sera affichée. Pour revenir dans le calendrier, vous n'aurez qu'à presser la touche retour arrière et une seconde fois si vous souhaitez revenir au choix des différentes présentations..
+
+
+      Le menu événement
+Nouveau (CTRL+n):
+Ouvre une boîte de dialogue permettant de créer un nouvel événement. Cette boîte contient 3 premiers champs permettant d'entrer successivement le jour, le mois puis l'année. Si vous êtes en mode standard, la date du jour suivant sera entrée par défaut. En revanche, si vous êtes en mode calendrier ou en mode affichage date, ce sera la date du jour sélectionné qui sera entrée automatiquement.
+Le champ suivant est le champ sujet ou vous pouvez entrer le sujet (titre) de votre événement. Le champ contenu est le champ dans lequel vous pouvez entrer la description de l'événement. Vous pouvez valider l'ajout avec le bouton «créer».
+
+
+Modifier (entrée):
+Ouvre une boîte de dialogue contenant les mêmes champs que pour la création d'événement, mais avec les informations de l'événement sélectionné. Cette boîte de dialogue contient également une case à cocher permettant de définir l'état (fait/non fait), de l'événement.
+
+
+Changer le statut (CTRL+t):
+Change l'état de l'événement sélectionné, si l'état est sur « non fait » il passe à « fait » et inversement.
+
+
+Supprimer (suppr.):
+Affiche un message d'avertissement. Si vous validez, l'événement sera supprimé de votre agenda.
+
+
+Effacer les éléments expirés (CTRL+delete):
+Après confirmation, supprime les éléments antérieurs à la date du jour.
+
+
+      Le menu Aller
+Semaine précédente (b235+espace (MAJ+TAB)): Renvoi au premier jour contenant des éléments de la semaine précédente.
+Semaine suivante (tabulation): Renvoie au premier jour contenant des éléments de la semaine suivante.
+Jour précédent (Flèche gauche du pavé de droite): Renvoi au premier élément du jour précédent.
+Jour suivant (flèche droite du pavé de droite): Renvoi au premier élément du jour suivant.
+Remarque: Le menu aller disparaît lorsque l'application est en mode calendrier, aujourd'hui ou affichage date.
+
+
+      Le menu rechercher
+Rechercher une date (CTRL+D): Ouvre une boîte de dialogue contenant trois champs à remplir (jour, mois, année). Une fois le bouton rechercher validé, vous serez redirigé sur la date entrée dans le calendrier. Si la date est invalide, vous serez invité à recommencer.
+Rechercher un élément (CTRL+F): Cette fonction permet de rechercher (dans tout l'agenda), un mot et d'afficher tous les événements qui contiennent ce mot. Vous pouvez choisir de chercher parmi les sujets, parmi les contenus ou parmis tout l'agenda. Une case permettant de rechercher les événements faits ou non est également disponible. Une fois que le bouton rechercher sera validé, un message vous informera du nombre d'occurrences trouvées. Si le message indique au moins une occurrence, le bouton ok vous permettra d'accéder à la liste de ces éléments. Sinon, vous serez invité à reformuler votre recherche.
+
+
+      Le menu Gestion de l'agenda
+Exporter l'agenda (CTRL+e):
+Permet de copier le fichier .csv contenant l'agenda dans le dossier Mes documents. Note: Un fichier .csv est un tableau lisible par les différents tableurs comme LibreOffice, Excel etc...
+
+
+Importer un fichier d'agenda (CTRL+i):
+Ouvre une boîte de dialogue permettant d'importer un fichier .csv dans votre agenda. Après avoir choisi votre fichier, celui-ci sera importé dans votre agenda.
+ATTENTION: Lors de l'importation, le fichier doit respecter les caractéristiques suivantes:
+• Être au format .csv,
+• Les séparateurs doivent être des ";",
+• La première ligne doit contenir les 4 éléments suivants: « date ", « subject ", « content ", " todo ", et il doit rester une ligne vide à la fin du fichier,
+• La date doit être écrite sous la forme « jj/mm/aaaa »,
+• La colonne « todo » ne contient que des 0 et 1 (0 pour « non fait » et 1 pour « fait »).
+
+
+Vider l'agenda:
+Cette fonction peut servir dans le cas où votre fichier d'agenda est endommagé, que des erreurs sont présentes ou que vous souhaitez vider votre agenda. Si vous confirmez l'effacement, votre fichier d'agenda sera restauré à son état d'origine, c'est-à-dire vide.
+
+
+À propos de l'application:
+Cette boîte de dialogue contient des informations relatives à la version de l'application.
+
+
+      Paramètres de l'agenda
+Les paramètres de l'agenda sont disponibles dans les préférences de l'appareil, dans la section agenda.
+Afficher l'agenda: Case à cocher permettant d'afficher ou non l'application Agenda dans le menu principal.
+Si cette case n'est pas cochée, les autres paramètres ne seront pas affichés.
+Présentation par défaut (standard, aujourd'hui, non fait, calendrier): Détermine sous quelle forme doivent apparaître les éléments lors de l'ouverture de l'application au démarrage de l'appareil.
+"Au démarrage, signaler les événements non fait pour le jour même": Affiche un avertissement lors du démarrage de B.note si des événements pour la date actuelle ne sont pas encore marqués comme fait.
+"Au démarrage, signaler les événements non fait pour le lendemain": Même fonction que celle ci-dessus, mais pour les événements à faire le jour suivant.
+Remarque: Si les 2 options sont activées, sera d'abord affiché une alerte pour le jour même, puis pour le jour suivant si vous choisissez le bouton "fermer". Si vous cliquez sur "afficher", la liste des événements non faits pour le jour correspondant à l'alerte sera affichée. Si vous basculez l'état de tous les éléments de la liste sur fait, vous serez automatiquement redirigé vers la présentation par défaut de l'agenda.
+Remarque supplémentaire: Il n'est pas possible de créer de nouveaux événements lors du parcours d'une liste de rappel. Vous pouvez à tout moment retrouver les présentations classiques dans le menu "afficher" ou revenir à la présentation standard avec la touche échappement.
+
+
+Petite astuce:
+Entre chaque arrêt du B.Note, l'agenda garde l'affichage que vous avez sélectionné, même si vous quittez puis retournez dans l'application. Si vous ne savez plus quel mode d'affichage est activé, il vous suffit de déclencher le défilement arrière de l'afficheur pour avoir le nom du mode sélectionné.
+
+
+________________
+
+
+    Les lecteurs audio
+ b.note dispose de 2 lecteurs audio qui sont visibles ou non selon le paramètre ‘mp3 visible’ ou ‘radio visible’’  des préférences.
+
+
+Des raccourcis clavier sont disponible pour modifier le volume et réaliser la fonction pause/joue :
+         * touche en bas + touche à droite de pavé de gauche ou Ctrl+’+’ au clavier braille : volume plus,
+         * touche en bas + touche à gauche de pavé de gauche ou Ctrl+’-’ au clavier braille : volume moins,
+         * touche en haut +touche à gauche du pavé de gauche : pause/joue.
+
+
+      Audio
+Un lecteur de fichiers audio permet d’écouter des fichiers .mp3, .wma et .ogg.
+
+
+Ce lecteur vous permet de construire une liste de lecture à partir de fichiers que vous aurez placé dans le b.note 
+Menu du lecteur audio
+Menu Liste de lecture
+         * ouvrir (Ctrl+o): Ouverture d’une boîte de dialogue permettant de choisir une liste de lecture.
+         * enregistrer (Ctrl+s): Enregistrement de la liste de lecture courante.
+         * supprimer: Effacement d’une liste choisie parmi les listes de lecture enregistrées.
+         * supprimer tout: Effacement de toutes les listes enregistrées.
+Menu Elément
+         * ajouter (Ctrl+a): Ajouter un dossier ou un fichier à la liste de lecture courante.
+         * supprimer (Suppr.): Effacement de l’élément affiché.
+         * supprimer tout: Effacement de la liste de lecture affichée.
+         * mettre au début (Ctrl+h): Place l’élément affiché en début de liste.
+         * mettre à la fin (Ctrl+e): Place l’élément affiché en fin de liste.
+         * monter (Ctrl+u): Remonte d’une ligne l’élément affiché.
+         * descendre( Ctrl+d): Descend d’une ligne l’élément affiché.
+
+
+Menu Lecteur
+         * jouer l’élément (Entrée): Jouer l’élément affiché.
+         * jouer la liste (Ctrl+l): Jouer la liste.
+         * suivant (Ctrl+f): Pendant la lecture de la liste, cette fonction permet de passer à l’écoute de l’élément suivant.
+         * précédent (Ctrl+b):  Pendant la lecture de la liste, cette fonction permet de passer à l’écoute de l’élément précédent.
+         * pause (Ctrl+p): Permet de suspendre l’écoute, la répétition de cette fonction relancera l’écoute.
+         * stop (Ctrl+t): Arrête l’écoute.
+         * position (F2): Ouvre une boîte de dialogue permettant en pourcentage de modifier la position de lecture dans l’élément jouer.
+         * volume: Ouvre une boîte de dialogue permettant la modification du volume.
+      Radio
+Un lecteur de web radio est disponible, pour qu’il fonctionne il faut bien sûr que b.note soit connecté à un point d’accès wifi (voir chapitre Préférences ).
+
+
+Une web radio possède les caractéristiques suivantes :
+         * Un nom.
+         * Une origine : Téléchargée sur un serveur de référence ou définie manuellement par l’utilisateur.
+         * Une url de flux.
+
+
+Entrée (b9A) sur une radio de la liste permet de la lancer ou de l’arrêter.
+Menu du lecteur radio
+Menu Radio
+         * radio par url (Ctrl+u): Ouverture d’une boîte de dialogue permettant de définir une nouvelle radio en lui donnant un nom et une url de flux.
+Note: Si le nom de cette nouvelle radio entre en conflit avec l’une de celles qui sont téléchargées du serveur, elle la remplace. Le seul moyen de la retrouver sera d’effacer la radio définie par cette fonction.
+         * supprimer la radio (Suppr.): Cette fonction efface la radio courante.
+         * mettre la liste à jour depuis internet (Ctrl + n): Mise à jour de toutes les radios définies par le serveur sans perdre les radios définies manuellement.
+Menu Lecteur
+            * jouer (Ctrl+l): Cette fonction lance la lecture de la radio courante.
+            * arrêter (Ctrl+t): Cette fonction arrête la lecture de la radio.
+            * volume: Cette fonction permet d’ouvrir une boîte de dialogue permettant de régler le volume de la radio.
+
+
+
+
+
+
+
+
+________________
+
+
+    Les jeux éducatifs
+
+
+Cet ensemble d'applications à pour vocation l’apprentissage du braille de façon ludique.
+Elle compte actuellement 2 applications, "jeux de mots" et "jeux de calcul". Elles sont accessibles depuis le menu principal du b.note.
+Jeux de mots
+Le but de ce jeu est de reproduire le mot écrit. L'afficheur est divisé en 2 parties:
+- La partie gauche avec le mot écrit,
+- La partie droite où s'affichera ce que l'utilisateur saisit.
+
+
+Le menu record :
+- Voir pour ce niveau: Affiche le score pour le niveau sélectionné,
+- Effacer pour ce niveau: Remet le score du niveau à 0.
+
+
+Les autres options :
+- Passer au mot suivant: Permet de passer à une autre proposition de mot,
+- Changer de langue: Permet de basculer les propositions de mots du Français en Anglais et réciproquement, 
+- Changer de niveau: Permet de changer de niveau avec plus ou moins de lettres,
+- Réinitialiser l'application: Permet de restaurer l'application dans son état d'origine.
+
+
+Les niveaux
+Lors de la première ouverture de l'application, vous serez invité à choisir un niveau. Les niveaux sont divisés comme suit:
+- Les 4 points du haut : 1245,
+- Les 6 points : 123456 (pas de majuscule),
+- Les 8 points.
+Note: Le dernier niveau est conservé à l'extinction de l'appareil.
+Jeux de calcul
+Le but de ce jeu est d'écrire le résultat d'un calcul. Il faut résoudre des opérations qui peuvent être des additions ou des multiplications.
+
+
+Le jeu se présente sous la forme suivante:
+- L’opération suivie du signe égal,
+- Un curseur clignotant pour saisir le résultat.
+
+
+Le menu record :
+- Voir pour cette table: Affiche le score obtenu pour la table sélectionnée,
+- Effacer pour cette table: Efface le score pour la table sélectionnée.
+
+
+Les autres options :
+- Changer de table, permet de choisir une autre table d'opérations,
+- Réinitialiser l'application: Restaure le jeu à son état d'origine.
+
+
+Les tables
+Lors de la première ouverture, vous devrez choisir une table. Chaque table est indiquée par un chiffre et le signe de son opération. Par exemple, la table de multiplication de 3 sera indiqué: "3*" et la table d'addition de 3 "3+".
+
+
+Note : La dernière table est conservée à l'extinction de l'appareil.
+
+
+Paramètres des applications
+            * Voir les apps: Affiche ou masque l'ensemble des jeux dans le menu principal,
+            * Autoriser le vocal:
+            *  Auto: annonce la proposition à chaque fois et peut être répétée en appuyant sur l'un des curseurs au-dessus du mot exemple,
+            * Demander: N'énonce le mot que lors d'un appuie sur l'un des curseur au-dessus du mot exemple,
+            * Jamais: N'énonce pas le mot;
+            * Conserver les espaces: Permet de retirer les espaces accidentels en début ou en fin de mot,
+            * Permettre la mauvaise frappe: Permet ou non à l'utilisateur de saisir un caractère n'étant pas le bon.
+
+
+Note: Pour cette dernière option, si l'utilisateur choisit de la désactiver, il ne pourra plus déplacer le curseur. À la fin de sa saisie, le message sera affiché automatiquement. Si l'utilisateur laisse cette option active, il pourra déplacer son curseur normalement. Il faudra alors presser la touche entrée une fois le mot tapé pour que la vérification soit faite.
+
+
+    Le Chronomètre
+Cette application possède à la fois un chronomètre et un minuteur. Lors de son utilisation, l'afficheur indique le temps écoulé, et l'état (arrêté, démarré, en pause).
+
+
+Pour lancer ou stopper le chronomètre, appuyez simplement sur la touche entrée ou sur un curseur au-dessus du message d'état. Lorsque le chronomètre est activé, les valeurs affichées sont les heures, les minutes et les secondes.
+
+
+Vous pouvez obtenir le temps en centième de seconde en mettant en pause le chronomètre ou en appuyant sur l'un des curseurs au-dessus du temps écoulé.
+
+
+Pour effacer le temps écoulé, appuyez simplement sur la touche retour arrière.
+
+
+Menu marqueur
+- Ajouter un marqueur: Capture le temps au moment du déclenchement de l'action et vous propose d'entrer un nom,
+- Voir les marqueurs: Affiche une boîte de dialogue permettant la gestion des marqueurs.
+
+
+Lancer un minuteur
+Pour lancer un minuteur, appuyez sur l'option du même nom dans la barre de menu. Indiquez le nombre d'heures, de minutes et de secondes, puis appuyez sur ok.
+Une fois le temps écoulé, vous serez automatiquement redirigé vers l'application, même si vous vous trouvez ailleurs dans le B.note.
+
+
+Gestion des marqueurs
+
+
+Lorsque vous ouvrez la boîte de gestion des marqueurs, la liste des différents temps capturés s'affiche. Pour savoir quel nom a été donné à un marqueur, naviguez jusqu'à lui et appuyez sur "voir le nom". Vous pouvez renommer et supprimer un marqueur. Lorsque vous avez terminé, appuyez sur "fermer" ou sur échappement.
+
+
+    Le Traducteur
+Cette application fonctionne uniquement lorsque le b.note est connecté en wifi à internet.
+Elle possède possède 2 zones de texte.
+La première permet de définir le texte à traduire,
+La seconde présente le texte traduit.
+
+
+Les touches haut/bas du pavé de droite permettent de sélectionner une langue pour chacune des 2 zones.
+
+
+Cette application dispose d’un menu permettant :
+            * Le choix des langues,
+            * L’inversion les langues choisies,
+            * L’envoi en bluetooth de la traduction,
+            * L’effacement de la première zone de texte.
+________________
+
+
+    Les jeux
+ b.note dispose de 2 jeux qui sont visibles ou non selon le paramètre ‘jeux visibles’ des préférences.
+      Mines
+Règle du jeu
+mines est un jeu dont le principe est de découvrir des positions sur une grille en évitant de découvrir une position ou se trouve une bombe.
+La découverte d’une position entraîne la découverte de toutes les positions adjacentes qui ne sont pas à proximité d’une bombe.
+Si une position découverte contient un nombre cela correspond au nombre de bombes à proximité de cette position.
+Le but du jeu est de découvrir en un minimum de temps l’ensemble des positions sans bombe.
+Affichage et déplacements
+La grille se présente sur l’afficheur braille sous la forme : 
+numéro de ligne, positions de la grille, temps écoulé
+
+
+Les valeurs des positions sont les suivantes :
+‘*’ : Position non découverte,
+‘ ‘ ou un nombre : Position découverte
+‘b’ : position où un ebombe a été définie
+
+
+les déplacements du curseur signalé par les points braille 7 et 8 dans la grille se font avec le pavé de droite, les caractères pouvant être tapés au clavier braille sont :
+‘ ‘ : ordre de découverte de la position
+‘b’ : déclaration d’une bombe à cette position
+________________
+
+
+      Mastermind
+Règle du jeu
+le mastermind consiste à proposer une séquence de chiffres, le système répondra en indiquant le nombre de chiffres existants et le nombre de chiffres correctement placés dans la séquence à deviner.
+Le but du jeu est de deviner la séquence en un minimum de propositions.
+
+
+Affichage et déplacements
+Chaque proposition est affichée sur une ligne avec son résultat.
+On peut se déplacer dans cette liste de propositions avec les touches haut et bas du pavé de droite.
+La touche entrée (b9A) permet d’entrer une nouvelle proposition.
+
+
+________________
+
+
+  L’utilisation connectée avec un lecteur d’écran
+b.note peut communiquer avec un autre système par son connecteur USB ou en Bluetooth.
+Son utilisation n’est pas différente de l’utilisation d’une plage braille traditionnelle.
+
+
+Pour plus d’informations, reportez-vous à la documentation du lecteur d’écran et à celle de son pilote pour b.note.
+
+
+b.note possède malgré tout quelques particularités décrites ci-dessous.
+    USB
+b.note est capable de se présenter comme un clavier azerty indépendamment du lecteur d’écran. Ainsi b.note pourra réaliser de façon autonome toutes les combinaisons braille ou bien passer ces combinaisons au lecteur d’écran qui se chargera de réaliser les caractères ou fonctions correspondantes. Cela donne lieu à 2 modes de saisie. (Voir ANNEXE - Clavier braille en USB)
+
+
+Les lecteurs d’écran Jaws et Nvda prennent en charge ce fonctionnement.
+
+
+Pour NVDA : L’appui simultané sur le pavé de gauche, des touches en bas et à droite ou des les touches en bas et à gauche permet de basculer d'un mode de saisie à l'autre.
+
+
+            * Le premier mode permet de posséder un clavier braille complet qui à la possibilité de réaliser tous les raccourcis claviers en Ctrl+touche ou Alt+touche.
+            * Le second mode permet d’utiliser la frappe en abrégé de NVDA.
+
+
+Note : Une case à cocher dans préférence braille permet de changer ce mode.
+
+
+Pour Jaws : Le mode de fonctionnement est dans un fichier du pilote "Program File/Freedom Scientific/Jaws2020/Driver/Braille/esysiris/eurobraille.ini" le nom du paramètre est UseHidKeyboard=0 ou 1.
+
+
+    Bluetooth
+Le bluetooth peut être utilisé pour connecter b.note à un lecteur d’écran et pour transférer des fichiers entre b.note et un ordinateur sous Windows ou un système sous Android. Voir l’annexe "Jumelage Bluetooth” et Transfert de fichiers en Bluetooth.
+________________
+
+
+  ANNEXE - Éditeur - Recherche.
+La recherche d’une séquence de caractères dans l’éditeur peut se faire soit en descendant dans le document (F3), soit en remontant dans le document (Maj + F3).
+
+
+Plusieurs paramètres permettent d’affiner la recherche :
+            * Ignore casse : Si cette option est positionnée sur oui, un caractère alphabétique est identifié quelque soit sa casse (caractère en Majuscule / Minuscule)
+            * Masque accents : Si oui un caractère est identifié quelque soit son accentuation, ainsi é, è ê, ë et e devienne le même caractère.
+            * mot entier : Si oui, seuls les mots complets sont identifiés à la séquence de recherche.
+
+
+  ANNEXE - Éditeur - Mathématique.
+    Description
+L’éditeur de b.note intègre des fonctions de calcul permettant l’évaluation d’un paragraphe mathématique ou d’un bloc de paragraphes.
+
+
+Un paragraphe ne doit contenir qu’une seule expression mathématique, on ne peut pas mélanger texte et expression mathématique au sein d’un même paragraphe. Ce paragraphe peut se présenter sur plusieurs lignes dans l’éditeur en fonction de la longueur de ligne définie.
+
+
+Ces fonctions d’évaluation se trouvent dans le Menu Math de l’éditeur. 
+
+
+Il est possible d’écrire des séquences mathématiques en texte 8 points selon un langage décrit ci-dessous ou en braille Mathématique Français.
+
+
+En texte :
+Pour qu’un paragraphe du document soit reconnu comme une  expression mathématique il faut qu’il commence par une séquence b6, b2.
+Un bloc de plusieurs paragraphes mathématiques sera constitué de plusieurs paragraphes commençant chacun par la séquence b6,b2.
+
+
+En braille mathématique :
+La séquence de début de paragraphe est b6, b3.
+
+
+En braille UEB:
+La séquence de début de paragraphe est b56, b56.
+
+
+    Calculatrice en mode texte
+      Généralités
+Les espaces ne sont pas significatifs.
+
+
+Les caractères majuscules sont convertis en minuscule avant analyse.
+
+
+Les nombres peuvent être saisis avec une notation à exposant de 10 contractée.
+Par exemple, 2000 peut-être noté 2e3 et 0.02 2e-2.
+
+
+Tout caractère ne faisant pas partie d’un mot réservé est assimilé à une variable, ainsi “2a” par exemple sera interprété comme 2 fois “a” si la variable a été auparavant définie.
+on peut donc écrire :
+a=2
+2a
+ce qui donnera après évaluation 4. 
+
+
+Le résultat d’une évaluation est automatiquement stocké dans une variable nommée ‘r’, ainsi il sera possible d’enchaîner une évaluation avec une autre grâce à cette variable.
+
+
+Une variable peut aussi être définie sur plusieurs caractères, au sein d’un bloc “label de variable”. La variable toto s’écrit donc {toto}. 
+
+
+Il est possible de définir des énumérations de valeur pour les fonctions statistiques, une énumération de valeur doit toujours être un bloc à l’intérieur duquel se trouve chaque valeur ou expression mathématique séparé par des ‘;’.
+Exemple : (12; {titi}=(3 - 1) (2 + 1); 45; 1+2; 55)
+
+
+      Les blocs
+( )
+	parenthèses
+	[]
+	crochets
+	{}
+	label de variable
+	      Les constantes
+pi
+	3.14...
+	e
+	2.7...
+	
+
+      Les opérateurs
++
+	addition
+	-
+	soustraction
+	*
+	multiplication
+	/
+	division
+	%
+	modulo (reste de la division)
+	^
+	exposant
+	=
+	affectation
+	
+
+	
+
+	      Les fonctions à un argument
+ln
+	logarithme népérien
+	log
+	logarithme base 10
+	sqrt
+	racine carré
+	deg
+	conversion en degré
+	rad
+	conversion en radian
+	!
+	factorielle (placé à la suite de l’argument)
+	sin
+	sinus
+	cos
+	cosinus
+	tan
+	tangente
+	cot
+	cotangente
+	asin
+	arc sinus
+	acos
+	arc cosinus
+	atan
+	arc tangente
+	acot
+	arc cotangente
+	sh ou sinh
+	sinus hyperbolique
+	ch ou cosh
+	cosinus hyperbolique
+	th ou tanh
+	tangente hyperbolique
+	coth
+	cotangente hyperbolique
+	ash ou asinh
+	arc sinus hyperbolique
+	ach ou acosh
+	arc cosinus hyperbolique
+	ath ou atanh
+	arc tangente hyperbolique
+	acoth
+	arc cotangente hyperbolique
+	
+
+Note : Pour appliquer un exposant sur une fonction on peut écrire par exemple cos^2(45) ou cos(45)^2
+      Les fonctions à plusieurs arguments
+nroot
+	racine nième (suivie de n puis de la valeur)
+	nbr
+	nombre d’éléments
+	max
+	maximum
+	min
+	minimum
+	sum
+	somme
+	ave
+	moyenne
+	qua1
+	quartile 1
+	qua2, med
+	quartile 2 ou médian
+	qua3
+	quartile 3
+	var
+	Variance
+	dev
+	Deviation / Ecart type
+	comb
+	Combinaison
+	arr
+	Arrangement
+	________________
+
+
+    Calculatrice en braille mathématique Français
+      Généralités
+Les espaces ne sont pas significatifs.
+
+
+Les caractères majuscules sont convertis en minuscule avant analyse.
+
+
+Les nombres peuvent être saisis avec une notation à exposant de 10 contractée.
+Par exemple, 2000 peut-être noté 2E3 et 0.02 2E-2.
+
+
+Le résultat d’une évaluation est automatiquement stocké dans une variable nommée ‘r’, ainsi il sera possible d’enchaîner une évaluation avec une autre grâce à cette variable.
+
+
+Il est possible de définir des énumérations de valeur pour les fonctions statistiques, une énumération de valeurs doit toujours être un bloc à l’intérieur duquel se trouve chaque valeur ou expression mathématique séparé par la combinaison braille 23.
+      Les blocs
+56 … 23
+	bloc
+	236 … 356
+	parenthèses
+	12356 … 23456
+	crochets
+	46,236 … 46,356
+	accolades
+	5,56… 5,23
+	label de variable
+	      Les constantes
+pi ou 45,1234
+	3.14...
+	e
+	2.7...
+	      Les opérateurs
+235
+	addition
+	36
+	soustraction
+	35
+	multiplication
+	34 ou 25
+	division
+	5,5,34
+	modulo (reste de la division)
+	4
+	exposant
+	2356
+	affectation
+	
+
+	
+
+	
+
+      Les fonctions à un argument
+123,1345
+	logarithme népérien
+	123,135,1245
+	logarithme base 10
+	345
+	racine carré
+	145,15,1245
+	conversion en degré
+	1235,1,145
+	conversion en radian
+	456,35
+	factorielle (placé à la suite de l’argument)
+	234,24,1345 ou 346
+	sinus
+	14,135,234 ou 46,346
+	cosinus
+	2345,1,1345 ou 2346
+	tangente
+	14,135,2345 ou 46,2346
+	cotangente
+	1,1235,14,2344,24,1345 ou 45,346
+	arc sinus
+	1,1235,14,14,135,234 ou 45,46,346
+	arc cosinus
+	1,1235,14,2345,1,1345 ou 45,2346
+	arc tangente
+	1,1235,14,14,135,2345 ou 45,46,2346
+	arc cotangente
+	234,24,1345,125
+	sinus hyperbolique
+	14,135,234,125
+	cosinus hyperbolique
+	23445,1,1345,125
+	tangente hyperbolique
+	14,135,2345,125
+	cotangente hyperbolique
+	1,1235,234,24,1345,125
+	arc sinus hyperbolique
+	1,1235,14,135,234,125
+	arc cosinus hyperbolique
+	1,1235,23445,1,1345,125
+	arc tangente hyperbolique
+	1,1235,14,135,2345,125
+	arc cotangente hyperbolique
+	      Les fonctions à plusieurs arguments
+6,4
+	racine nième (suivie de n puis de la valeur)
+	1345,12
+	nombre d’éléments
+	134,1,1346
+	maximum
+	134,224,1346
+	minimum
+	234,135,134
+	somme
+	134,135,13456
+	moyenne
+	12345,136,1,16
+	quartile 1
+	12345,136,1,126
+	quartile 2 ou médian
+	12345,136,1,146
+	quartile 3
+	1236,1,1235
+	Variance
+	15,14,1,1235,2345
+	Deviation / Ecart type
+	14,135,134,12,24,1345
+	Combinaison
+	1,1235,1235,1,1345,1245
+	Arrangement
+	________________
+
+
+    Calculatrice en braille mathématique UEB
+      Généralités
+Les espaces ne sont pas significatifs, la ligne entière sera considérée comme une expression mathématique
+
+
+Seuls les caractères en minuscule sont autorisés.
+
+
+Le résultat d’une évaluation est automatiquement stocké dans une variable nommée ‘r’, ainsi il sera possible d’enchaîner une évaluation avec une autre grâce à cette variable.
+
+
+Il est possible de définir des énumérations de valeur pour les fonctions statistiques, une énumération de valeurs doit toujours être un bloc à l’intérieur duquel se trouve chaque valeur ou expression mathématique séparé par la combinaison braille b6.
+      Les nombres
+Ils sont précédés de la comb. braille (⠼)
+caractère = valeur braille
+0 = b245
+1 = b1
+2 = b12
+3 = b14
+4 = b145
+5 = b15
+6 = b124
+7 = b1245
+8 = b125
+9 = b24
+DECIMAL = b256
+espace = b5
+      Les constantes
+Pi = b45 + b1234
+e = b15 + b4
+      Les blocs
+Bloc de fraction = b12356 … b23456
+Parenthèse = b5 + b126 … b5 + b345
+Crochet = b46 + b126 … b46 + b345
+accolade = b456 + b126 … b456 + b345
+Racine = b146 … b346
+Racine nième = b146 b35 n  … b346
+
+
+      Les opérateurs
+Égal = b5 + b2356
+Addition = b5 + b235
+Soustraction = b5 + b36
+Division = b5 + b34 ou b34 si derrière un nombre
+Modulo = b456, b1256
+Multiplication = b5 + b236 ou b6 + b35
+exposant = b35
+      Les fonctions à un argument
+Logarithme népérien = b123 + b1345
+Logarithme base 10 = b123 + b135 + b1245
+Sinus = b234 + b24 + b1345
+Cosinus = b14 + b135 + b234
+Tangente = b2345 + b1 + b1345
+Cotangente = b14 + b135 + b2345
+Arc sinus = b1 + b1235 + b14 + b234 + b24 + b1345
+Arc cosinus = b1 + b1235 + b14 + b14 + b135 + b234
+Arc tangente = b1 + b1235 + b14 + b2345 + b1 + b1345
+Arc cotangente = b1 + b1235 + b14 + b14 + b135 + b2345
+Sinus hyperbolique = b234 + b24 + b1345 + b125
+Cosinus hyperbolique = b14 + b135 + b234 + b125
+Tangente hyperbolique = b2345 + b1 + b1345 + b125
+Cotangente hyperbolique = b14 + b135 + b2345 + b125
+Arc sinus hyperbolique = b1 + b1235 + b234 + b24 + b1345 + b125
+Arc cosinus hyperbolique = b1 + b1235 + b14 + b135 + b234 + b125
+Arc tangente hyperbolique = b1 + b1235 + b2345 + b1 + b1345 + b125
+Arc tangente hyperbolique = b1 + b1235 + b14 + b135 + b2345 + b125
+Radian = b1235 + b1 + b145
+Degré = b145 + b15 + b1245
+Factorielle = b235
+      Les fonctions à plusieurs arguments
+Somme = b234 + b136 + b134
+Max = b134 + b1 + b1346
+Min = b134 + b24 + b1345
+Nombre = b1345 + b12
+Moyenne = b1 + b1236 + b15
+Variance = b1236 + b1 + b1235
+Deviation = b145 + b15 + b1236
+Combinaison = b14 + b135 + b134 + b12
+Arrangement = b1 + b1235 + b1235
+Médian = b134 + b15 + b145
+Quartile 1 = b12345 + b136 + b1 + b1
+Quartile 2 = b12345 + b136 + b1 + b12
+Quartile 3 = b12345 + b136 + b1 + b14
+
+
+séparateur d’arguments = b6
+répétition d’argument = b5 + b36 + b4 + b345
+
+
+      Exemples
+1200 = 1200 : "⠼⠁⠃⠚⠚"
+1 200 = 1200 : "⠼⠁⠐⠃⠚⠚"
+8.93 = 8.93 : "⠼⠓⠲⠊⠉"
+operateurs
+8 - 3 - 2 = 3 : "⠼⠓⠐⠤⠼⠉⠐⠤⠼⠃"
+3 + 5 = 8 : "⠼⠉ ⠐⠖ ⠼⠑"
+9 / 12 = 3 / 4 : "⠼⠊ ⠐⠌ ⠼⠁⠃"
+9 / 12 = ¾ : "⠼⠊⠐⠌⠁⠃"
+9 / 12 = 3 / 4 : "⠼⠊⠌⠁⠃"
+1 - 9 / 12 = 1 / 4 : "⠼⠁ ⠐⠤ ⠼⠊ ⠐⠌ ⠼⠁⠃"
+<<1/2> + <1/3>> / 1 + 1 = 5 / 12 : "⠷⠷⠼⠁⠐⠌⠃⠾ ⠐⠖ ⠷⠼⠁⠐⠌⠉⠾ ⠐⠌ ⠼⠁⠐⠖⠼⠁⠾"
+-3 - 2 = -5 : "⠐⠤⠼⠉⠐⠤⠼⠃"
+1 + 4! = 25 : "⠼⠁ ⠐⠖ ⠼⠙⠖"
+(modulo) 3 | 2 = 1 : "⠼⠉ ⠸⠳ ⠼⠃"
+parenthèses
+(3 - 1) / (2 + 1) = 2 / 3: "⠐⠣⠼⠉⠐⠤⠼⠁⠐⠜ ⠐⠌ ⠐⠣⠼⠃⠐⠖⠼⠁⠐⠜"
+(3 - 1) (2 + 1) = 6 : "⠐⠣⠼⠉⠐⠤⠼⠁⠐⠜ ⠐⠣⠼⠃⠐⠖⠼⠁⠐⠜"
+fonctions trigonométriques
+cos(pi/2) = 0 : "⠉⠕⠎ ⠐⠣ ⠘⠏⠐⠌⠼⠃ ⠐⠜"
+exposant
+3^2 = 9 : "⠼⠉⠔⠼⠃"
+3^2 + 1 = 10 : "⠼⠉⠔⠼⠃⠐⠖⠼⠁"
+2^10 = 1024 : "⠼⠃⠔⠼⠁⠚"
+autres functions
+2 * ln(e) = 2 : "⠼⠃ ⠐⠦ ⠇⠝⠐⠣⠑⠐⠜"
+SQRT 9 = 3 : "⠩⠼⠊⠬"
+SQRT<9+1> = 3.16 : "⠩⠼⠊⠐⠖⠼⠁⠬"
+CUBEROOT<8> = 2 : "⠩⠔⠼⠉⠼⠓⠬"
+cos(pi/2) = 0 : "⠉⠕⠎ ⠐⠣ ⠘⠏⠌⠼⠃ ⠐⠜":
+pi : "⠘⠏"
+paramètres
+3^2 = 27 : "⠼⠉⠔⠼⠉":
+r+1 = 28 : "⠗ ⠐⠖ ⠼⠁"
+x = 2 : "⠭ ⠐⠶ ⠼⠃"
+y = 4 : "⠽ ⠐⠶ ⠼⠙"
+x^y = 16 : "⠭⠔⠽”
+2x = 4 : "⠼⠃⠭"
+fonctions statistiques
+Somme : sum(2.5,3) = 11 / 2 : "⠎⠥⠍⠐⠣ ⠼⠃⠲⠑ ⠠ ⠼⠉ ⠐⠜"
+Maximum : max(3,4) = 4 : "⠍⠁⠭⠐⠣ ⠼⠉ ⠠ ⠼⠙ ⠐⠜"
+Minimum : min(2,6) = 2 : "⠍⠊⠝⠐⠣ ⠼⠃ ⠠ ⠼⠋ ⠐⠜"
+Nbr d'élts : nbr(1;3;5;7) = 4 : "⠝⠃⠐⠣ ⠼⠁ ⠠ ⠼⠉ ⠠ ⠼⠑ ⠠ ⠼⠛ ⠐⠜"
+Moyenne : ave(7;13) = 10 : "⠁⠧⠑⠐⠣ ⠼⠛ ⠠ ⠼⠁⠉ ⠐⠜"
+Médiane : med(1;3;5;7) = 4 : "⠍⠑⠙⠐⠣ ⠼⠁ ⠠ ⠼⠉ ⠠ ⠼⠑ ⠠ ⠼⠛ ⠐⠜"
+Médiane : med(1;2;3;5;7) = 3 :"⠍⠑⠙⠐⠣ ⠼⠁ ⠠ ⠼⠃ ⠠ ⠼⠉ ⠠ ⠼⠑ ⠠ ⠼⠛ ⠐⠜"
+Quartiles : QUA1(1;2;3;5;7) = 2 : "⠟⠥⠁⠁⠐⠣ ⠼⠁ ⠠ ⠼⠃ ⠠ ⠼⠉ ⠠ ⠼⠑ ⠠ ⠼⠛ ⠐⠜"
+Variance : VAR(2;5) = 2.25 : "⠧⠁⠗⠐⠣ ⠼⠃ ⠠ ⠼⠑ ⠐⠜"
+Écart type : DEV(2;6) = 2 : "⠙⠑⠧ ⠐⠣ ⠼⠃ ⠠ ⠼⠋ ⠐⠜"
+Nombre de combinaisons : COMB(96;6) = 927048304 : "⠉⠕⠍⠃ ⠐⠣ ⠼⠊⠋ ⠠ ⠼⠋ ⠐⠜"
+Nombre d'arrangements :  ARR(49;6) = 10068347520 : "⠁⠗⠗ ⠐⠣ ⠼⠙⠊ ⠠ ⠼⠋ ⠐⠜"
+Répétition : SUM(2->3;3->6) = 24 : "⠎⠥⠍⠐⠣⠼⠃⠐⠤⠈⠜⠼⠉⠠⠼⠉⠐⠤⠈⠜⠼⠋⠐⠜"
+
+
+
+
+________________
+  ANNEXE - Clavier braille en USB
+Lorsque l’appareil est connecté en USB, les caractères et fonctions du clavier braille peuvent être envoyés de différentes façons :
+            * USB-HID : Les caractères et fonctions sont générés comme le sont ceux d’un clavier USB traditionnel. Cette génération est totalement indépendante du système d’exploitation et du lecteur d’écran utilisé.
+            * Pilote : Les caractères et fonctions sont envoyés au pilote du lecteur d’écran. Ce fonctionnement est totalement dépendant du lecteur d’écran utilisé.
+Le basculement d’un mode de fonctionnement à l’autre est généralement assuré par le lecteur d’écran ou le logiciel en communication avec b.note. Il est toutefois possible de savoir dans quel mode de fonctionnement on se trouve et de le changer manuellement
+________________
+  ANNEXE - Clavier braille unimanuel
+Le clavier braille dispose de différents modes de fonctionnement que l’on sélectionne dans applications préférence clavier>braille.
+
+
+Standard :
+A chaque relâche complète du clavier braille la combinaison braille précédemment appuyée est générée. Il est toutefois possible de changer une combinaison avant sa relâche en modifiant les touches appuyées et en attendant un moment avant la relâche totale de la combinaison.
+
+
+Unimanuel 1 :
+Cela consiste à taper les points braille en plusieurs appuis successifs ou combinés sur les touches, puis à valider la somme de ces appuis avec la touche braille A.
+Si la touche A fait partie de la combinaison braille, il faudra la taper en combinaison avec un autre point, puis la ré-appuyer seule pour valider la combinaison.
+
+
+Unimanuel 2 :
+C'est un mode de fonctionnement un peu plus rapide en ce sens que la validation du code se fait automatiquement.
+Le clavier braille se trouve divisé en 2 parties, d'un côté les points 1,2,3,7,9 et de l'autre les points 4,5,6,8,A. Il suffit de taper la première partie de la combinaison braille en une ou plusieurs frappes, puis de taper en une seule frappe la seconde partie, la combinaison braille est alors générée.
+Pour les combinaisons braille ne possédant des points que dans une seule partie, il suffit d'appuyer sur la touche braille A pour les valider.
+
+
+Unimanuel 3 :
+Ce mode de fonctionnement permet la saisie de combinaison braille en utilisant que la moitié gauche du clavier (points 1,2,3,7). Après saisie de la première moitié de la combinaison braille, la seconde moitié est saisie selon la correspondance suivante : 1-4, 2-5, 3-6, 7-8, 9-A.
+Les touches 9 et A, tapées avec une des 2 moitiés, sont prises en compte comme telles.
+La touche 9 ou A est utilisée pour générer Correction ou Espace mais aussi pour valider les combinaisons braille qui ne possèdent pas de seconde moitié.
+La touche 4 frappée seule permet de saisir des combinaisons braille qui ne possèdent pas de première moitié.
+
+
+Unimanuel 4 :
+Ce mode de fonctionnement est le même que le précédent mais en utilisant les points 4,5,6,8,A. Pour taper la première moitié de la combinaison, on utilise la correspondance suivante 4-1, 5-2, 6-3, 8-7 et A-9. C'est la touche braille 1 qui permettra de saisir des combinaisons braille sans première moitié.
+
+
+
+
+  ANNEXE - Fonctions des curseurs routines
+Différentes actions sont possibles sur les curseurs routines :
+            * Appui léger (premier contact)
+            * Appui fort (second contact)
+            * 2 Appuis légers successifs (double clic premier contact)
+            * 2 appuis forts successifs (double clic second contact)
+            * Appui sur 2 curseurs routines contigus
+
+
+A chacune de ces actions, une fonction différente peut être attribuée. Par défaut les fonctions sont les suivantes :
+
+
+Actions
+	Fonctions par défaut
+	Appui léger sur premier curseur routine
+	Recul de l’afficheur braille
+	Appui léger sur n’importe quel autre curseur routine
+	Avance de l’afficheur braille
+	Appui fort
+	Action à la position
+	2 Appuis légers successifs
+	Même fonction que le double clic à la souris, dans un texte cela sélectionne le mot par exemple
+	2 appuis forts successifs
+	Même fonction que le double clic à la souris, dans un texte cela sélectionne le mot par exemple
+	Appui sur 2 curseurs routines contigus
+	Menu contextuel (pour les lecteurs d'écran)
+	________________
+
+
+  ANNEXE - Jumelage Bluetooth
+Le jumelage Bluetooth d’un appareil avec b.note est assez simple :
+
+
+Cette opération de jumelage est à réaliser une seule fois. L’appareil enregistre une liste de périphériques jumelés.
+    Jumelage avec un PC
+            * Démarrer b.note et sélectionner “bluetooth-applications” dans le menu principal.
+            * Activer le Bluetooth sur le PC que vous voulez jumeler. Faire ensuite une recherche de périphérique. b.note doit apparaître sous le nom “Esys-bnote-xxxxx”.
+            * Lancer le jumelage en le validant sur le PCl. Un port série est ouvert (COMn sur un PC), c’est ce canal qui sera utilisé par le lecteur d’écran.
+
+
+    Jumelage avec une tablette ou un smartphone Android
+            * Démarrer b.note et sélectionner “bluetooth-applications” dans le menu principal.
+            * Activé le Bluetooth sur la tablette, pour se faire, aller dans Paramètres>Connectivité de l’appareil et choisir Bluetooth
+            * Dans la liste des appareils disponibles vous devez voir b.note apparaître sous le nom “Esys-bnote-xxxxx”. Lancer le jumelage en cliquant dessus.
+            * “Esys-bnote-xxxxx” passe alors dans la liste des appareils associés.
+
+
+    Jumelage avec une tablette ou un smartphone Apple
+            * Démarrer b.note et sélectionner “bluetooth-applications” dans le menu principal.
+            * Sur votre appareil Apple aller dans paramètres / accessibilité / voice over / braille
+            * Dans la liste des appareils disponibles vous devez voir b.note apparaître sous le nom “Esys-bnote-xxxxx”. Lancer le jumelage en cliquant dessus.
+            * “Esys-bnote-xxxxx” passe alors dans la liste des appareils associés.
+
+
+
+
+
+
+
+
+  ANNEXE - Transfert de fichiers en Bluetooth
+    Transfert du PC vers b.note
+            * Vérifiez que votre b.note est visible en bluetooth (menu préférences>bluetooth dans l’explorateur de fichier de b.note).
+            * Ouvrir sur le PC l’explorateur de fichiers Windows.
+            * Ouvrir le menu contextuel sur le fichier choisi (clic droit de la souris) et choisir “Envoyer vers>Périphérique Bluetooth. Vous pouvez aussi sélectionner un ensemble de fichiers.
+            * Choisir Esys-bnote dans la liste des appareils proposés puis cliquer sur Suivant.
+
+
+Une fois reçu, le fichier est placé dans le dossier nommé “bluetooth” sur b.note.
+Cet emplacement est réservé à la réception de fichiers, il est donc impératif de déplacer les fichiers reçus dans un dossier de son choix pour pouvoir ouvrir le fichier avec l’éditeur.
+Il est recommandé de maintenir le dossier “Mes documents/bluetooth” vide car la présence dans ce dossier d’un fichier de même nom entraînera l’échec du transfert.
+
+
+Note:
+L’envoi de fichier est également accessible sous Windows en cliquant sur l’icône Bluetooth de la barre de notification (systray). Après le choix du périphérique Bluetooth, il faudra sélectionner les fichiers à envoyer.
+    Transfert de b.note vers le PC
+            * Aller dans l’explorateur de fichiers de b.note.
+            * Se placer sur le fichier que vous voulez transférer. Il est également possible de sélectionner plusieurs fichiers pour un envoi groupé.
+            * Sélectionner la fonction du menu Fichier>Envoyer vers.
+            * Choisir dans la liste des périphériques le nom de l’ordinateur qui doit recevoir les fichiers.
+            * Une boîte de dialogue vous indique que vous devez placer le PC en réception de fichiers. Sur le PC, cliquer sur l’icône Bluetooth de la barre de notification et choisir “Recevoir un fichier”. Ensuite sur b.note, cliquez sur Ok pour lancer le transfert.
+
+
+Une fois le transfert réalisé, une boîte de dialogue “Enregistrer sous” s’ouvre sur le PC, elle vous permet de choisir le dossier dans lequel vous souhaitez placer le fichier reçu.
+
+
+Note : Si un dossier ou plusieurs fichiers ont été sélectionnés pour un envoi groupé, c’est un fichier compressé (.zip) qui sera reçu sur le PC. Ce fichier aura pour nom celui du premier fichier de la sélection.
+
+
+    Transfert d’une Tablette (ou smartphone) android vers b.note
+Vérifiez que votre b.note est visible en bluetooth (menu préférences>bluetooth dans l’explorateur de fichier de b.note).
+Il faut ensuite activer le bluetooth sur la tablette (ou le smartphone), puis l’appairer à l’appareil Braille (en cliquant sur le périphérique qui est présent dans la liste “Appareils disponibles").
+L’envoi de fichier se fait simplement en partageant le fichier avec bluetooth et en choisissant votre appareil braille dans la liste.
+
+
+    Transfert de b.note vers une Tablette (ou smartphone) android 
+            * Aller dans l’explorateur de fichiers de b.note.
+            * Se placer sur le fichier que vous voulez transférer. Il est également possible de sélectionner plusieurs fichiers pour un envoi groupé.
+            * Sélectionner la fonction du menu Fichier>Envoyer vers.
+            * Choisir dans la liste des périphériques le nom de l’ordinateur qui doit recevoir les fichiers.
+            * Une boîte de dialogue vous indique que vous devez placer le PC en réception de fichiers, cliquez sur Ok pour ignorer cette boîte de dialogue et lancer le transfert.
+            * Une notification de transfert de fichier s’ouvre sur votre tablette / smartphone, acceptez le transfert.
+
+
+Une fois le transfert réalisé, le fichier est placé parmi les “Fichiers reçus”.
+
+
+Note : Si un dossier ou plusieurs fichiers ont été sélectionnés pour un envoi groupé, c’est un fichier compressé (.zip) qui sera reçu. Ce fichier aura pour nom celui du premier fichier de la sélection.
+________________
+  ANNEXE - Raccourcis clavier de commande
+    Fonctions du pavé de gauche
+            * L’appui sur la touche en haut déclenche le retour au menu applications de b.note,
+            * L’appui sur la touche en bas est la touche d’entrée/sortie dans le menu d'une application de b.note,
+            * L’appui sur la touche à droite est la touche d’avance de l’afficheur braille,
+            * L’appui sur la touche à gauche est la touche de recul de l’afficheur braille.
+            * L’appui sur la touche en bas et touche à droite augmente le volume du lecteur de média,
+            * L’appui sur la touche en bas et touche à gauche diminue le volume du lecteur de média,
+            * l’appui sur la touche en haut et touche à gauche met en pause ou relance la lecture du média en cours.
+
+
+Dans l’éditeur,
+            * L’appui simultané sur les touches en haut et à droite bascule la fonction d’avance de l’afficheur entre avance en braille informatique ou braille abrégé,
+            * L’appui simultané sur les touches en haut et en bas lance la lecture automatique du document, l’afficheur braille est avancé sur le texte à une vitesse dépendant du texte affiché.
+            * L’appui simultané sur les touches à gauche et à droite du pavé de gauche diminue la vitesse d’élocution de la synthèse vocale,
+
+
+    Fonctions du pavé de droite
+Ces 4 touches sont utilisées pour simuler les flèches de direction.
+
+
+Dans l’éditeur,
+            * Les flèches permettent de déplacer le curseur,
+            * L’appui simultané sur les flèches en haut et à gauche déplace le curseur en début de document,
+            * L’appui simultané sur les flèches en haut et à droite déplace le curseur en fin de document,
+            * L’appui simultané sur les flèches en bas et à gauche baisse le volume de la synthèse vocale,
+            * L’appui simultané sur les flèches en bas et à droite augmente le volume de la synthèse vocale.
+            * L’appui simultané sur les flèches à gauche et à droite augmente la vitesse d’élocution de la synthèse vocale.
+
+
+Dans l’explorateur de fichiers,
+            * Les flèches haut et bas permettent de parcourir la liste des documents,
+            * L’appui simultané sur les flèches en haut et à gauche sélectionne le premier élément de la liste des documents,
+            * L’appui simultané sur les flèches en haut et à droite sélectionne le dernier élément de la liste des documents.
+
+
+Dans les menus,
+            * Les flèches droite et gauche permettent de sélectionner l’élément de menu suivant ou précédant.
+            * L’appui simultané sur les flèches en haut et à gauche sélectionne le premier élément de menu,
+            * L’appui simultané sur les flèches en haut et à droite sélectionne le dernier élément de menu.
+
+
+________________
+
+
+  ANNEXE - Raccourcis du clavier braille
+    Généraux
+Ctrl++ / Ctrl+-                                Permet d’augmenter/diminuer le volume des médias,
+Ctrl+A / Ctrl+C / Ctrl +X / Ctrl+V        Tout sélectionner / Copier / Couper /         Coller,
+Ctrl+Tab /Ctrl+Maj_Tab                Permet de basculer d’une application à une autre,
+Win+caractère                Permet de basculer sur une autre application (caractère = ‘1’ à ‘4’ pour les applications bluetooth, ‘5’ à ‘9’ pour les différents éditeurs ouverts et la lettre de raccourci du menu pour les autres applications. ‘e’ pour l’explorateur de fichier, ‘p’ pour les préférences…).
+    Menu / Boîte de dialogue
+Début        Premier élément
+Fin        Dernier élément
+Droite        Elément suivant
+Gauche        Elément de précédent
+Tab        Elément suivant (avec sortie mode édition pour les boîtes de dialogue)
+Maj+Tab        Elément précédent (avec sortie mode édition pour les boîtes de dialogue)
+    Editeur
+FONCTIONS :
+Ctrl+S        Sauvegarder
+F2         Aller au signet suivant
+Maj+F2        Aller au signet précédent
+Ctrl+F2        Insérer/Supprimer signet
+Ctrl+Maj+F2        Supprimer tous les signets
+Ctrl+F4        Fermeture du document avec demande de sauvegarde
+Ctrl+F        Recherche
+Ctrl+H        Recherche et Remplace
+F3         Recherche suivant
+Maj+F3        Recherche précédent
+F4        Remplace et recherche suivant
+Maj+F4        Remplace et recherche précédent
+F5        Remplacer tout
+F8        Début sélection
+Echap.        Fin de sélection / Fin de recherche incrémentale
+Ctrl+D        Lecture document à partir du paragraphe courant
+Ctrl+R        Lecture paragraphe courant
+Ctrl+M                Evaluation ligne mathématique
+Ctrl+T                Evaluation bloc de lignes mathématique
+Ctrl+Z                Défaire la dernière saisie
+Ctrl+Y                Refaire la dernière saisie
+Ins+F                Entrée en mode recherche incrémentale / Echap. pour en sortir
+________________
+
+
+DÉPLACEMENTS CURSEUR (Avec Maj ou après F8 : modifie la sélection):
+Début        Début de ligne
+Fin        Fin de ligne
+Droite        Caractère à droite
+Gauche        Caractère à gauche
+Haut        Ligne précédente
+Bas        Ligne suivante
+Page suivante        Déplacement de 20 lignes vers la fin du document
+Page précédente        Déplacement de 20 lignes vers le début du document
+Ctrl+Début        Début de document
+Ctrl+Fin        Fin de document
+Ctrl+Droite        Mot suivant
+Ctrl+Gauche        Mot précédent
+Ctrl+Haut        Paragraphe précédent
+Ctrl+Bas        Paragraphe suivant
+Ctrl+Page suivante        Déplacement de 50 lignes vers la fin du document
+Ctrl+Page précédente        Déplacement de 50 lignes vers le début du document
+
+
+    Explorateur de fichiers
+Entrée        Ouvre le dossier ou le fichier
+Ctrl+Entrée        Ouvre un fichier de l’éditeur en lecture seule
+Ctrl+n        Nouveau fichier
+Ctrl+d        Nouveau dossier
+Ctrl+u        Ejection de la clef USB (lorsque l’on se trouve dessus)
+F2        Renomme le fichier ou dossier sélectionné
+F3        Recherche suivant (pour la recherche incrémental)
+F5        Rafraîchit le dossier courant (très utile pour le dossier bluetooth) 
+F8        Début sélection
+Echap.        Fin de sélection
+Espace        Inverse la sélection de l’élément courant
+Correction        Affiche le contenu du dossier parent
+Effacement        Efface les fichiers/dossiers sélectionnés
+Début        Premier élément de la liste de fichiers
+Fin        Dernier élément de la liste de fichiers
+    Lecteur audio
+Ctrl+o        Ouverture d’une liste de lecture
+Ctrl+s        Enregistrement d’une liste de lecture
+Ctrl+a        Ajoute un élément ou tous les élément d’un dossier à la liste de lecture
+Efface        Supprime l’élément affiché
+Ctrl+h        Déplace l’élément en début de liste
+Ctrl+e        Déplace l’élément en fin de liste
+Ctrl+u        Remonte l’élément d’une ligne
+Ctrl+d        Descend l’élément d’une ligne
+Ctrl+I ou entrée        Joue l’élément
+Ctrl+l        Joue la liste
+Ctrl+f        Passe à l’élément suivant dans la liste en cours de lecture
+Ctrl+b        Passe à l’élément précédent dans la liste en cours de lecture
+Ctrl+p        Pause/continuer la lecture
+Ctrl+t        Arrête la lecture
+F2        modification de la position courante  de lecture
+
+
+    Radio
+Ctrl+u        Définition d’une nouvelle radio par son url
+Efface        Supprime une radio
+Ctrl+n        Reconstruit la liste des radios depuis le serveur Eurobraille
+Ctrl+l        Lecture de la radio courante
+Ctrl+t        Arrêt de la lecture
+
+
+  ANNEXE - Caractères Braille informatique 8 points
+La table braille utilisée par Esysuite correspond à la table braille informatique définie en 2007 par la commission Evolution du Braille Français pour le jeu de caractères CP-1252.
+Code ANSI - Combinaison braille - Description du caractère
+
+
+0 - 123458 - Nul
+1 - 1234678 - début d'en - tête
+2 - 1258 - début de texte
+3 - 123468 - fin de texte
+4 - 14578 - fin de transmission
+5 - 158 - Demande
+6 - 12478 - Confirmation
+7 - 12458 - Sonnerie
+8 - 12578 - retour arrière
+9 - 124678 - tabulation horizontale
+10 - 24568 - Interligne
+11 - 138 - tabulation verticale
+12 - 12378 - avancement de page
+13 - 13478 - retour chariot
+14 - 13458 - Maj. out
+15 - 2368 - Maj. in
+16 - 123478 - data link escape
+17 - 1234578 - commande de périph. 1
+18 - 123578 - commande de périph. 2
+19 - 23478 - commande de périph. 3
+20 - 234578 - commande de périph. 4
+21 - 13678 - confirmation négative
+22 - 123678 - Synchronisation
+23 - 245678 - fin de transmission de bloc
+24 - 134678 - Annulation
+25 - 12368 - fin de support
+26 - 15678 - Substitution
+27 - 125678 - Échappement
+28 - 14678 - séparateur de fichier
+29 - 12678 - séparateur de groupe
+30 - 2357 - séparateur d'enregistrement
+31 - 2367 - séparateur d'unité
+32 - - Espace
+33 - 235 - point d'exclamation
+34 - 2356 - Guillemets
+35 - 34568 - Dièse
+36 - 357 - Dollar
+37 - 3468 - pour cent
+38 - 1234568 - et commercial
+39 - 3 - Apostrophe
+40 - 236 - parenthèse gauche
+41 - 356 - parenthèse droite
+42 - 35 - Astérisque
+43 - 23578 - Plus
+44 - 2 - virgule
+45 - 36 - Tiret
+46 - 256 - Point
+47 - 34 - barre oblique, slash
+48 - 3456 - Zéro
+49 - 16 - Un
+50 - 126 - Deux
+51 - 146 - Trois
+52 - 1456 - Quatre
+53 - 156 - Cinq
+54 - 1246 - Six
+55 - 12456 - Sept
+56 - 1256 - Huit
+57 - 246 - Neuf
+58 - 25 - deux points
+59 - 23 - point virgule
+60 - 238 - Inférieur
+61 - 235678 - Égal
+62 - 567 - Supérieur
+63 - 26 - point d'interrogation
+64 - 345 - a commercial, at, "arrobas"
+65 - 17 - a majuscule
+66 - 127 - b majuscule
+67 - 147 - c majuscule
+68 - 1457 - d majuscule
+69 - 157 - e majuscule
+70 - 1247 - f majuscule
+71 - 12457 - g majuscule
+72 - 1257 - h majuscule
+73 - 247 - i majuscule
+74 - 2457 - j majuscule
+75 - 137 - k majuscule
+76 - 1237 - l majuscule
+77 - 1347 - m majuscule
+78 - 13457 - n majuscule
+79 - 1357 - o majuscule
+80 - 12347 - p majuscule
+81 - 123457 - q majuscule
+82 - 12357 - r majuscule
+83 - 2347 - s majuscule
+84 - 23457 - t majuscule
+85 - 1367 - u majuscule
+86 - 12367 - v majuscule
+87 - 24567 - w majuscule
+88 - 13467 - x majuscule
+89 - 134567 - y majuscule
+90 - 13567 - z majuscule
+91 - 23678 - crochet gauche
+92 - 348 - barre oblique inversée
+93 - 35678 - crochet droit
+94 - 4 - accent circonflexe
+95 - 578 - souligné
+96 - 6 - accent grave
+97 - 1 - a minuscule
+98 - 12 - b minuscule
+99 - 14 - c minuscule
+100 - 145 - d minuscule
+101 - 15 - e minuscule
+102 - 124 - f minuscule
+103 - 1245 - g minuscule
+104 - 125 - h minuscule
+105 - 24 - i minuscule
+106 - 245 - j minuscule
+107 - 13 - k minuscule
+108 - 123 - l minuscule
+109 - 134 - m minuscule
+110 - 1345 - n minuscule
+111 - 135 - o minuscule
+112 - 1234 - p minuscule
+113 - 12345 - q minuscule
+114 - 1235 - r minuscule
+115 - 234 - s minuscule
+116 - 2345 - t minuscule
+117 - 136 - u minuscule
+118 - 1236 - v minuscule
+119 - 2456 - w minuscule
+120 - 1346 - x minuscule
+121 - 13456 - y minuscule
+122 - 1356 - z minuscule
+123 - 2378 - accolade gauche
+124 - 4568 - barre verticale
+125 - 5678 - accolade droite
+126 - 38 - tilde
+127 - 1238 - caractère d'annulation
+128 - 1578 - euro
+129 - 12345678 - non utilisé
+130 - 67 - guillemet - virgule inférieur
+131 - 1248 - f hameçon minuscule
+132 - 56 - guillemet-virg. double inférieur
+133 - 368 - points de suspension
+134 - 3568 - obèle
+135 - 3567 - double obèle
+136 - 48 - lettre modif. accent circonflexe
+137 - 34678 - pour mille
+138 - 234678 - s caron majuscule
+139 - 57 - guillemet simple vers la gauche
+140 - 2467 - oe majuscule
+141 - 12345678 - non utilisé
+142 - 135678 - z caron majuscule
+143 - 12345678 - non utilisé
+144 - 12345678 - non utilisé
+145 - 68 - guillemet - apostrophe culbutée
+146 - 37 - guillemet - apostrophe
+147 - 378 - guillemet - apost. dbl. culbutée
+148 - 678 - guillemet - apostrophe double
+149 - 124578 - puce
+150 - 478 - tiret demi - cadratin
+151 - 4578 - tiret cadratin
+152 - 467 - petit tilde avec chasse
+153 - 23458 - marque de commerce
+154 - 23468 - s caron minuscule
+155 - 58 - guillemet simple vers la droite
+156 - 2468 - oe minuscule
+157 - 12345678 - non utilisé
+158 - 13568 - z caron minuscule
+159 - 145678 - y tréma majuscule
+160 - 7 - espace insécable
+161 - 2358 - point d'exclamation inversé
+162 - 1478 - centime
+163 - 237 - livre
+164 - 45 - symbole monétaire
+165 - 25678 - yen
+166 - 458 - barre verticale interrompue
+167 - 12348 - paragraphe <alinéa>
+168 - 46 - tréma avec chasse
+169 - 148 - copyright
+170 - 1678 - indicateur ordinal féminin
+171 - 23568 - guillemet gauche
+172 - 2567 - négation
+173 - 78 - trait d'union conditionnel
+174 - 12358 - marque déposée
+175 - 1348 - macron avec chasse
+176 - 267 - degré
+177 - 3678 - plus ou moins
+178 - 457 - exposant deux
+179 - 4567 - exposant trois
+180 - 5 - accent aigu avec chasse
+181 - 257 - micro
+182 - 45678 - pied de mouche <fin de paragraphe>
+183 - 8 - point médian
+184 - 456 - cédille avec chasse
+185 - 47 - exposant un
+186 - 2678 - indicateur ordinal masculin
+187 - 23567 - guillemet droit
+188 - 1368 - un quart
+189 - 468 - un demi
+190 - 13468 - trois quarts
+191 - 268 - point d'interrogation inversé
+192 - 123567 - a accent grave majuscule
+193 - 1235678 - a accent aigu majuscule
+194 - 167 - a accent circonflexe majuscule
+195 - 178 - a tilde majuscule
+196 - 34567 - a tréma majuscule
+197 - 27 - a rond en chef majuscule
+198 - 3457 - ae majuscule
+199 - 123467 - c cédille majuscule
+200 - 23467 - e accent grave majuscule
+201 - 1234567 - e accent aigu majuscule
+202 - 1267 - e acc. circonflexe majuscule
+203 - 12467 - e tréma majuscule
+204 - 2478 - i accent grave majuscule
+205 - 347 - i accent aigu majuscule
+206 - 1467 - i acc. circonflexe majuscule
+207 - 124567 - i tréma majuscule
+208 - 1278 - eth majuscule
+209 - 134578 - n tilde majuscule
+210 - 13578 - o accent grave majuscule
+211 - 3467 - o accent aigu majuscule
+212 - 14567 - o acc. circonflexe majuscule
+213 - 1378 - o tilde majuscule
+214 - 24678 - o tréma majuscule
+215 - 3578 - multiplication
+216 - 345678 - o maj. barré obliquement
+217 - 234567 - u accent grave majuscule
+218 - 2345678 - u accent aigu majuscule
+219 - 1567 - u acc. circonflexe majuscule
+220 - 12567 - u tréma majuscule
+221 - 1345678 - y accent aigu majuscule
+222 - 24578 - thorn majuscule
+223 - 2348 - s dur min., szet allemand
+224 - 12356 - a accent grave minuscule
+225 - 123568 - a accent aigu minuscule
+226 - 168 - a accent circonflexe minuscule
+227 - 18 - a tilde minuscule
+228 - 34578 - a tréma minuscule
+229 - 28 - a rond en chef minuscule
+230 - 3458 - ae minuscule
+231 - 12346 - c cédille minuscule
+232 - 2346 - e accent grave minuscule
+233 - 123456 - e accent aigu minuscule
+234 - 1268 - e acc. circonflexe minuscule
+235 - 12468 - e tréma minuscule
+236 - 248 - i grave minuscule
+237 - 3478 - i aigu minuscule
+238 - 1468 - i circonflexe minuscule
+239 - 124568 - i tréma minuscule
+240 - 128 - eth minuscule
+241 - 1245678 - n tilde minuscule
+242 - 1358 - o grave minuscule
+243 - 346 - o aigu minuscule
+244 - 14568 - o circonflexe minuscule
+245 - 4678 - o tilde minuscule
+246 - 358 - o tréma minuscule
+247 - 2578 - division
+248 - 568 - o minuscule barré obliquement
+249 - 23456 - u grave minuscule
+250 - 234568 - u aigu minuscule
+251 - 1568 - u circonflexe minuscule
+252 - 12568 - u tréma minuscule
+253 - 134568 - y accent aigu minuscule
+254 - 2458 - thorn minuscule
+255 - 2568 - y tréma minuscule
+
+
+________________
+
+
+  ANNEXE - Fonctions braille 10 points
+Ces combinaisons servent à générer toutes les touches d'un clavier PC, autres que les caractères. Elles sont également appelées bramigraphs. Graph fait penser au fait que les points braille utilisés pour générer une action, ont souvent une logique graphique qui permet de simplifier leur apprentissage.
+Exemples :
+            * La fonction début, qui a pour effet d'aller en début de ligne dans une zone d'édition, ou de se positionner en début de liste, se fait en utilisant la combinaison b123A, (points 1 2 3 en même temps que l'espace). Sa fonction symétrique, fin, qui a pour effet d'aller en fin de ligne dans une zone d'édition, ou de se positionner en fin de liste, se fera en utilisant les points braille symétriques, en conservant l'espace donc b456A (points 4 5 6 en même temps que l'espace).
+            * Les 4 flèches peuvent également se générer avec des fonctions braille 10 points. Bien que l'on puisse les utiliser avec le joystick 2, il peut être plus commode de les générer ainsi lors d’une suite de raccourcis. On remarquera que les 4 flèches utilisent toujours la touche A (espace), combinée avec l’un des 4 points de la lettre w en braille (b2456). La flèche haut utilisera le point du haut du w on tapera donc b4A ; la flèche bas utilisera le point du bas du w, on tapera donc b6A ; la flèche gauche utilisera le point de gauche du w, on tapera donc b2A ; enfin la flèche droite se tapera b5A.
+        
+            * Les fonctions de F1 à F12 se génèrent en utilisant les 12 premières lettres de l'alphabet en combinaison avec la touche braille 9, exemple b19 pour F1 jusque b1239 pour F12.
+
+
+Liste détaillée :                          
+EDITION :
+9 - Correction
+A - Espace
+9A - Entrée
+35A – Insertion (Utilisé comme commutateur => 2 appuis pour simuler un appui-relâche)
+36A - Effacement
+
+
+NAVIGATION :
+123A - Début
+456A - Fin
+2A - Gauche
+5A - Droite
+4A - Haut
+6A - Bas
+13A - Page précédente
+46A - Page suivante
+
+
+AUTRES :
+1245A - Echappement
+256A - Tab
+235A - Maj_Tab
+1346A - Impression écran
+12A – Pause / Break
+14A ou 569 - Menu contextuel
+Fonctions
+19 - F1
+129 - F2
+149 - F3
+1459 - F4
+159 - F5
+1249 - F6
+12459 - F7
+1259 - F8
+249 - F9
+2459 - F10
+139 - F11
+1239 - F12
+
+
+COMMUTATEUR :
+2456A ou 12349 - Menu démarrer Windows
+79 - Majuscule verrouillé (Caps lock du clavier PC)
+89 - Majuscule déverrouillé (Caps unlock du clavier PC)
+39 - Verrouillage du pavé numérique
+69 - Déverrouillage du pavé numérique
+7A - Maj
+78A - Ctrl
+178A - Ctrl verrouillé
+478A - Ctrl déverrouillé
+8A - Alt
+18A - Alt verrouillé
+48A - Alt déverrouillé
+
+
+Autres combinaisons
+135A Ins verrouillé
+345A Ins déverrouillé
+________________
+
+
+  ANNEXE - Mise à jour des applications
+               1. Transférer le fichier ”.whl.zip” de mise à jour par la fonction de transfert de fichier bluetooth (voir ANNEXE - Transfert de fichiers en Bluetooth).
+               2. Depuis l’explorateur de fichiers de b.note, appuyez sur la touche bas du pavé de gauche pour entrer dans le menu et faire une action sur “aller à” puis “bluetooth” pour afficher le contenu de ce dossier.
+               3. Faites action sur le fichier .whl.zip que vous voulez installer.
+               4. Une boîte de dialogue de confirmation s’affiche, si vous la validez la mise à jour sera réalisée et un redémarrage sera réalisé.
+               5. Vous pouvez après redémarrage effacer le fichier .whl.zip devenu inutile.
+
+
+
+
+© 2021-2024 - Eurobraille sa         /

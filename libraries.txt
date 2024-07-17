@@ -1,0 +1,13 @@
+# Update installed package.
+# sudo apt-get update -q
+# sudo apt-get upgrade -y -q
+
+# Install packages.
+# sudo apt-get install vlc -y -q
+
+# Remove package.
+# sudo apt-get remove timidity -y -q
+# sudo apt-get install timidity -y -q
+
+# Cleanup libraries.
+# sudo apt-get autoremove -q -y

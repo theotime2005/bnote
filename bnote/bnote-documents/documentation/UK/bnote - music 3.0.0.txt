@@ -1,0 +1,787 @@
+﻿Table des matières
+Introduction	1
+Opening a file :	1
+The musicxml files	1
+The bxml files :	2
+Create or edit a file :	2
+Create a file :	2
+Edit a file :	2
+Recommendations for editing a file :	2
+The notes :	2
+The bar lines	3
+The spaces in braille music sheet	3
+Isolated elements on a line	3
+Appendix	3
+Invented codes for compatibility with the musicxml format	3
+Recognised signs :	4
+Notes rests and octaves :	4
+Clefs :	5
+Accidentals, key and time signatures :	6
+Rythmic group :	7
+Chords :	7
+Slurs and ties :	7
+Bar lines and repeats :	7
+Nuances :	8
+Ornaments :	8
+Keyboard music :	8
+Midi programs :	9
+
+Introduction
+b.note can now read and edit music sheets from ink to braille and vice-versa.
+To the extent possible, we will use the official notation of musical Braille and adapt it if necessary as specified in this manual.
+It is possible to open music sheets that have been prepared by blind users from a score editor such as musescore or others. They can also be found online.
+Each software having its own file format, we will use the musicxml file format, which is the most portable among all existing score editors. If you have a file from musescore, in its own format which is mscz, you can export it from this same software to a musicxml file. The same applies to other existing score editors.
+Conversely, you can type a music sheet in Braille, listen to it and convert it to musicxml to share it with sighted people.
+b.note will use two types of files:
+- musicxml files that allow exchanges between the blind and the sighted,
+- bxml files which is a native format created by eurobraille that will keep information not included in the musicxml format.
+You can customize the information you want to see in Braille when you open a file to read it, to see the clefs indications or not etc. However, if you want to create or modify a music sheet, much more information will need to be displayed so that the software can properly handle difficulties related, for example, to the values of larger or smaller notes.
+In Braille, a whole note C is written like a sixteenth C note for example. In order to avoid any errors in the interpretation of the score by the software, for now, it will be mandatory to use an eight-dot input mode that will be explained later below.
+Opening a file :
+Like any other file in b.note, the music files will open from the explorer; just go to that file or enter and press a hard click with the routine cursor keys on its name.
+Two types of files can be used :
+The musicxml files
+Any score editor for the sighted is capable of recording music scores in musicxml format. These files contain multiple information such as :
+    • The title of the music sheet
+    • its subtitle
+    • its composer
+    • its author
+    • the number of parts and their characteristics
+    • the bar lines
+    • the indication of key signature
+    • and of course the various bars and notes involved, etc…
+All these information can be shown in Braille, however, you may not want to display all these information on the music sheet to facilitate the reading. Some choices are already set by default, yet you can adapt them to your wishes, using the settings app, in the main menu, from the music section.
+For the musicxml files, you can pick the following choices :
+    • Edit mode, since version 2.6, four modes are available :
+        ◦ The braille read mode, enables you to totally customize the score braille appearance, but it will be unpossible to listen or edit the score
+        ◦ The listen mode, some braille presentation choices will be imposed, in order to enable a correct listening of the score, but it will not be possible to edit the score
+        ◦ The edition mode, some braille presentation choices will be imposed, in order to enable the edition of the score, with no risc of loosing information when saving the file.
+        ◦ At last the expert mode, enables all the braille presentation choices, the listening and the edition of the score, but some important informations could be voluntarily or not be lost when saving the file.
+    • Music notes in braille : you can choose to see the notes in 6 dots with groupings when you find 4 x sixteenth notes for instance, or in 6 dots without groupings or in 8 dots.
+    • Chords : you may choose to see ascending and descending chords. This option can currently only be used for the whole music sheet (not for the instrument, or left/right hand on a keyboard).
+    • Fingering : you can display the fingering whether you are confortable playing the music sheet or not.
+    • Clef : they are not really useful in braille, but mainly to know what the sighted people use.
+    • Part : each part can be named with the name, short name, or a specific ID as this is in the musicxml file.
+    • Bar line b123 : you can choose to see each bar with space, or space followed by dots 123 then space again, as braille music allows it. This mode is currently mandatory to edit a score so the software reads the bars correctly.
+    • Bar number : it will allow the user to locate a specific location in the piece, for example to play bar 9 again.
+    • Bar number every : will allow the user to see the bar numbers, every 8 bars for example.
+    • Section : a section is the corresponding part of an instrument. You can choose to see the whole part straight, by part as the sighted people see it or by choosing a number of bars per section.
+    • Bars per section : if you choose to see a specific number of bars per section, you can choose the value of this number.
+    • Annotations : these are the indications in the music sheet indicating ways to play a part.
+    • Text excluding music : these are the indications of title, subtitle, composer and author that may be present in the scores, they will be specified at the beginning of the Braille score.
+    • Lyrics : you can choose to see them after each note so you can make sure this is a good match between the note and the associated text, at the beginning or at the end of the section.
+The bxml files :
+This is a type of files dedicated to the music application of b.note. Similar to the musicxml files, they will also store information on specific features to our application, as well as specific indications to musical braille.
+The existence of these two types of files, musicxml and bxml, will also allow the user to adjust the settings of what he/she wants to see in braille for each of these formats.
+In the settings application from the music section, you will have the same settings as for the musixml files detailed in chapter 1.1, but with this additional parameter :
+Karaoke : this function is already planned but does not work yet with b.note. It will allow the speech synthesis to read the sentences that the user must sing, before he/she sings them, in order to remember the lyrics more easily.
+Create or edit a file :
+Create a file :
+From the b.note file explorer, you can create a new file ; you need to go to the file menu, select new, then musicxml or bxml. The bxml format might be better as it can contain additional information compared to the musicxml format, especially as the music application improves. Then follow the recommendations in Chapter 2.3.
+Edit a file :
+After opening an existing file, you can edit it. Then you will have to follow the recommendations in chapter 2.3.
+Recommendations for editing a file :
+In the current state of the b.note music software, it is mandatory to follow the following steps to get correct results.
+The notes :
+In musical braille, writing notes is complicated as a braille code can have several meanings:
+    • Whole notes are written like sixteenth notes
+    • Half notes like 32nd notes
+    • Quarter note like 64th notes
+    • Eight notes like 128th notes
+    • For example, if you have 4 sixteenth notes on the same beat, the grouping of notes option would be useful to write the first note in sixteenth notes (so as a whole note) and the next three as eighth notes thanks to the grouping of notes option.
+The b.note music software does not currently manage all cases properly, so you will be requested to use an 8-point Braille notation for note entry.
+The whole, the halves, the quarters and the eight notes will be written as usual, the 16th, 32nd, 64th and 128th notes will be written as usual, but dot 7 will need to be added. Once the file is saved, you can review the notation if you no longer have to modify the score.
+The bar lines
+In musical braille, each bar is usually separated from the next one with space. However, isolated 123 dots symbol could be used to mark the bar line. It is necessary to use the 123 dot symbol as a bar separator so that the software can read each bar properly.
+Indeed, space does not only represent the bar line, but can also be found as separator of time signature, key signature etc… 
+Once the file is saved, you can review the notation if you no longer have to modify the score.
+The spaces in braille music sheet
+In order to be properly recognized, some elements must be written in isolation, at the beginning of a line followed by a space, or surrounded by a space before and after. This is the case for:
+    • Time signature
+    • Key signature
+    • Annotations on music sheet
+    • Clefs
+    • Numbered parts
+Isolated elements on a line
+Titles, subtitles, composers, authors and simple score header texts are usually written in Braille paper at the beginning of the score, with no specific indication of the nature of the element. 
+In musicxml, each type of element is specifically described, so as to be presented correctly in ink. It will be necessary to prefix these indications of title or other with the appropriate code, which was invented for the purpose, see appendix.
+Appendix
+Invented codes for compatibility with the musicxml format
+Meaning
+Braille code
+Work number, at the beginning of the score
+56,23,23,2456,1345,25
+Work title, at the beginning of the score
+56,23,23,2456,2345,25
+Credit text, at the beginning of the score
+56,23,23,14,2456,25
+Credit title, at the beginning of the score
+56,23,23,14,2345,25
+Credit sub-title, at the beginning of the score
+56,23,23,14,234,25
+Credit composer, at the beginning of the score
+56,23,23,14,14,25
+Credit lyricist, at the beginning of the score
+56,23,23,14,123,25
+Credit arranger, at the beginning of the score
+56,23,23,14,1,25
+Credit rights, at the beginning of the score
+56,23,23,14,1235,25
+Name of the track, at the beginning of each
+56,23,23,1234
+Chromatic transpose
+56,23,3,2345,1235,36,part,25,number of semi-tons
+Diatonic transpose
+56,23,3,2345,1235,145,24,36,part,25,number of notes
+Octave transpose
+56,23,3,2345,1235,135,14,36,part,25,number of octaves
+Doubled transpose
+56,23,3,2345,1235,145,135,part,25,empty or yes or no
+Midi program
+56,23,3,134,1234,parte,25,number from 1 to 128
+Midi channel
+56,23,3,134,14,part,25,channel from 1 to 16
+Midi volume
+56,23,3,134,1236,part,25,volume from 0 to 127
+Descending chords
+46,46,345
+Ascending chords
+456,456,345
+C maxima, value of 8 whole notes, same for other notes or rests
+13456,45,14,45,14,45,14,13456
+C long, same for other notes or rests
+13456,45,14,45,14,13456
+C, 16th note, same for other notes or rests
+134567
+C, 32nd, same for other notes or rests
+13457
+C, 64th, same for other notes or rests
+14567
+C, 128th, same for other notes or rests
+1457
+C, 256th, same for other notes or rests
+C, 16th note, same for other notes or rests
+C 512th, same for other notes or rests
+134578
+C 1024th, same for other notes or rests
+145678
+Recognised signs :
+Notes rests and octaves :
+Meaning
+Braille code
+C eighth
+145
+D eighth
+15
+E eighth
+124
+F eighth
+1245
+G eighth
+125
+A eighth
+24
+B eighth
+245
+Rest eighth
+1346
+C quarter
+1456
+D quarter
+156
+E quarter
+1246
+F quarter
+12456
+G quarter
+1256
+A quarter
+246
+B quarter
+2456
+Rest quarter
+1236
+C half
+1345
+D half
+135
+E half
+1234
+F half
+12345
+G half
+1235
+A half
+234
+B half
+2345
+Rest half
+136
+C whole
+13456
+D whole
+1356
+E whole
+12346
+F wholee
+123456
+G whole
+12356
+A whole
+2346
+B whole
+23456
+Rest whole
+134
+C 128th
+1457
+D 128th
+157
+E 128th
+1247
+F 128th
+12457
+G 128th
+1257
+A 128th
+247
+B 128th
+2457
+Rest 128th
+13467
+C 64th
+14567
+D 64th
+1567
+E 64th
+12467
+F 64th
+124567
+G 64th
+12567
+A 64th
+2467
+B 64th
+24567
+Rest 64th
+12367
+C 32nd
+13457
+D 32nd
+1357
+E 32nd
+12347
+F 32nd
+123457
+G 32nd
+12357
+A 32nd
+2347
+B 32nd
+23457
+Rest 32nd
+1367
+C 16th
+134567
+D 16th
+13567
+E 16th
+123467
+F 16th
+1234567
+G 16th
+123567
+A 16th
+23467
+B 16th
+234567
+Rest 16th
+1347
+C 256th
+14578
+D 256th
+1578
+E 256th
+12478
+F 256th
+124578
+G 256th
+12578
+A 256th
+2478
+B 256th
+24578
+Rest 256th
+134678
+C brève
+13456,45,14,13456
+D brève
+1356,45,14,1356
+E brève
+12346,45,14,12346
+F brève
+123456,45,14,123456
+G brève
+12356,45,14,12356
+A brève
+2346,45,14,2346
+B brève
+23456,45,14,23456
+Rest 2 wholes
+134,45,14,134
+C long
+13456,45,14,45,14,13456
+D long
+1356,45,14,45,14,1356
+E long
+12346,45,14,45,14,12346
+F long
+123456,45,14,45,14,123456
+G long
+12356,45,14,45,14,12356
+A long
+2346,45,14,45,14,2346
+B long
+23456,45,14,45,14,23456
+Rest 4 whole
+134,45,14,45,14,134
+C maxima
+13456,45,14,45,14,45,14,13456
+D maxima
+1356,45,14,45,14,45,14,1356
+E maxima
+12346,45,14,45,14,45,14,12346
+F maxima
+123456,45,14,45,14,45,14,123456
+G maxima
+12356,45,14,45,14,45,14,12356
+A maxima
+2346,45,14,45,14,45,14,2346
+B maxima
+23456,45,14,45,14,45,14,23456
+Rest 8 whole
+134,45,14,45,14,45,14,134
+Octave 1
+4
+Octave 2
+45
+Octave 3
+456
+Octave 4
+5
+Octave 5
+46
+Octave 6
+56
+Octave 7
+6
+Octave 0
+4,4
+Octave 8
+6,6
+Clefs :
+Meaning
+Braille code
+G clef, treble
+345,34,123
+G clef in the left hand part
+345,34,13
+F clef, bass
+345,3456,123
+F clef in the right hand part
+345,3456,13
+C clef, alto clef for viola or high clef for bass
+345,346,123
+G clef line 1
+345,34,4,123
+G clef line 2
+345,34,45,123
+G clef line 3
+345,34,456,123
+G clef line 4
+345,34,5,123
+G clef line 5
+345,34,46,123
+F clef line 1
+345,3456,4,123
+F clef line 2
+345,3456,45,123
+F clef line 3
+345,3456,456,123
+F clef line 4
+345,3456,5,123
+F clef line 5
+345,3456,46,123
+G clef left hand line 1
+345,34,4,13
+G clef left hand line 2
+345,34,45,13
+G clef left hand line 3
+345,34456,13
+G clef left hand line 4
+345,34,5,13
+G clef left hand line 5
+345,34,46,13
+F clef right hand line 1
+345,3456,4,13
+F clef right hand line 2
+345,3456,45,13
+F clef right hand line 3
+345,3456,456,13
+F clef right hand line 4
+345,3456,5,13
+F clef right hand line 5
+345,3456,46,13
+C clef line 1
+345,346,4,123
+C clef line 2
+345,346,45,123
+C clef line 3
+345,346,456,123
+C clef line 4
+345,346,5,123
+C clef line 5
+345,346,46,123
+To generate all above clefs with an octava above, meaning that notes must be played an octave higher, add 3456,125 after the clef's code ; for example':
+G clef with small 8 above 345,34,123,3456,125
+To generate all above clefs with an octava below, meaning that notes must be played an octave lower, add 3456,236 after the clef's code ; for example':
+G clef with small 8 below 345,34,123,3456,236
+Accidentals, key and time signatures :
+Meaning
+Braille code
+Sharp
+146
+Double sharp
+146,146
+Flat
+126
+Double flat
+126,126
+Natural
+16
+¼ step higher
+4,146
+1/4 step lower
+4,126
+3/4 step higher
+456,146
+3/4 step lower
+456,126
+C or "common" time
+46,14
+Barred C or "cut" time
+456,14
+4 4 time signature with 2 numbers
+3456,145,256
+1 sharp key
+146
+2 sharp key
+146,146
+3 sharp key
+146,146,146
+4 sharp key
+3456,145,146
+5 sharp key
+3456,15,146
+6 sharp key
+3456,124,146
+7 sharp key
+3456,1245,146
+1 flat key
+126
+2 flat key
+126,126
+3 flat key
+126,126,126
+4 flat key
+3456,145,126
+5 flat key
+3456,15,126
+6 flat key
+3456,124,126
+7 flat key
+3456,1245,126
+Rythmic group :
+Meaning
+Braille code
+Triplet
+23
+Chords :
+Meaning
+Braille code
+Second
+34
+Third
+346
+Fourth
+3456
+Fifth
+35
+Sixth
+356
+Seventh
+25
+Octave
+36
+Full-measure in-accord
+126,345
+Slurs and ties :
+Meaning
+Braille code
+Slur between two notes or chords
+14
+Start phrasing slur over more than four notes or chords
+14,14
+End phrasing slur over more than four notes or chords
+14
+Start phrasing slur over more than four notes or chords
+56,12
+End phrasing slur over more than four notes or chords
+45,23
+Single-note tie
+4,14
+3.2.7. Fingering :
+Meaning
+Braille code
+First finger, keyboard
+1
+Second finger, keyboard
+12
+Third finger, keyboard
+123
+Fourth finger, keyboard
+2
+Fifth fingel, keyboard
+13
+Bar lines and repeats :
+Meaning
+Braille code
+Braille bar line for special uses
+123
+Double bar at end of composition
+126,13
+Double bar at end of bar or section
+126,13,3
+Double bar followed by dots„ beginning of repeat
+126,2356
+double bar with dots preceding„ end of repeat
+126,23
+First ending (volta)
+3456,2
+Second ending (volta)
+3456,23
+Third ending (volta)
+3456,25
+Fourth ending (volta)
+3456,256
+Nuances :
+Meaning
+Braille code
+Staccato (dt)
+236
+Staccatissimo (àpear-shaped dot)
+6,236
+Accent (horizontal "v" pointing to the right)
+46,236
+Full breath
+6,34
+Fermata, pause
+126,123
+Diverging lines (crescendo)
+345,14
+End of diverging lines
+345,25
+Converging lines (decrescendo)
+345,145
+End of convrging lines
+345,256
+Ornaments :
+Meaning
+Braille code
+Trill
+235
+Appoggiatura
+5,26
+Short appoggiatura (formerly grace note)
+26
+Short trill
+5,235
+Extended short trill
+56,235
+Mordent
+5,235,123
+Extended mordent
+56,235,123
+Arpeggio up
+345,13
+Upward arpeggio through two or more staves
+5,345,13
+Arpeggio down
+345,13,13
+Downward arpeggio through two or more staves
+5,345,13,13
+Keyboard music :
+Meaning
+Braille code
+Piano, right hand part
+46,345
+Piano, left hand part
+456,345
+Piano, solo part to be accompanied
+5,345
+Piano, right hand part when intervals read up
+46,345,345
+Piano, left hand part when intervals read down
+456,345,345
+Piano, ped. or other indication for pedal down
+126,14
+Piano, star or other indication for pedal up
+16,14
+organ pedal part
+45,345
+Midi programs :
+In MIDI, the instrument sound is selected by a program number. The following list shows which instrument sound corresponds to each of the 128 possible GM Program Numbers. There are 128 program numbers. The numbers can be displayed as values 1 to 128, or, alternatively, as 0 to 127. The 0 to 127 numbering is usually only used internally by the synthesizer; the vast majority of MIDI devices, digital audio workstations and professional MIDI sequencers display these Program Numbers as shown in the list (1–128).
+Piano
+1 Acoustic Grand Piano or Piano 1
+2 Bright Acoustic Piano or Piano 2
+3 Electric Grand Piano or Piano 3 (usually modeled after Yamaha CP70)
+4 Honky-tonk Piano
+5 Electric Piano 1 (usually a Rhodes piano)
+6 Electric Piano 2 (usually an FM piano patch)
+7 Harpsichord
+8 Clavinet
+Chromatic Percussion
+9 Celesta
+10 Glockenspiel
+11 Music Box
+12 Vibraphone
+13 Marimba
+14 Xylophone
+15 Tubular Bells
+16 Dulcimer or Santoor
+Organ
+17 Drawbar Organ or Organ 1
+18 Percussive Organ or Organ 2
+19 Rock Organ or Organ 3
+20 Church Organ
+21 Reed Organ
+22 Accordion
+23 Harmonica
+24 Bandoneon or Tango Accordion
+Guitar
+25 Acoustic Guitar (nylon)
+26 Acoustic Guitar (steel)
+27 Electric Guitar (jazz)
+28 Electric Guitar (clean, usually resembling a Fender Stratocaster ran through a Roland Jazz Chorus amp)
+29 Electric Guitar (muted)
+30 Electric Guitar (overdriven)
+31 Electric Guitar (distortion)
+32 Electric Guitar (harmonics)
+Bass
+33 Acoustic Bass
+34 Electric Bass (finger)
+35 Electric Bass (picked)
+36 Electric Bass (fretless)
+37 Slap Bass 1
+38 Slap Bass 2
+39 Synth Bass 1
+40 Synth Bass 2
+Strings
+41 Violin
+42 Viola
+43 Cello
+44 Contrabass
+45 Tremolo Strings
+46 Pizzicato Strings
+47 Orchestral Harp
+48 Timpani
+Ensemble
+49 String Ensemble 1
+50 String Ensemble 2
+51 Synth Strings 1
+52 Synth Strings 2
+53 Choir Aahs
+54 Voice Oohs (or Doos)
+55 Synth Voice or Synth Choir
+56 Orchestra Hit
+Brass
+57 Trumpet
+58 Trombone
+59 Tuba
+60 Muted Trumpet
+61 French Horn
+62 Brass Section
+63 Synth Brass 1
+64 Synth Brass 2
+Reed
+65 Soprano Sax
+66 Alto Sax
+67 Tenor Sax
+68 Baritone Sax
+69 Oboe
+70 English Horn
+71 Bassoon
+72 Clarinet
+Pipe
+73 Piccolo
+74 Flute
+75 Recorder
+76 Pan Flute
+77 Blown bottle
+78 Shakuhachi
+79 Whistle
+80 Ocarina
+Synth Lead
+81 Lead 1 (square, often chorused)
+82 Lead 2 (sawtooth, often chorused)
+83 Lead 3 (triangle, or calliope, usually resembling a woodwind)
+84 Lead 4 (sine, or chiff)
+85 Lead 5 (charang, a guitar-like lead)
+86 Lead 6 (voice)
+87 Lead 7 (fifths)
+88 Lead 8 (bass and lead or solo lead)
+Synth Pad
+89 Pad 1 (new age, pad stacked with a bell, often derived from "Fantasia" patch from Roland D-50)
+90 Pad 2 (warm, a mellower saw pad)
+91 Pad 3 (polysynth or poly, a saw-like percussive pad resembling an early 1980s polyphonic synthesizer)
+92 Pad 4 (choir, similar to "synth voice")
+93 Pad 5 (bowed glass or bowed, a sound resembling a glass harmonica)
+94 Pad 6 (metallic, often created from a grand piano sample played with the attack removed)
+95 Pad 7 (halo, choir-like pad)
+96 Pad 8 (sweep, pad with a pronounced "wah" filter effect)
+Synth Effects
+97 FX 1 (rain, a bright pluck with echoing pulses)
+98 FX 2 (soundtrack, a bright perfect fifth pad)
+99 FX 3 (crystal, a synthesized bell sound)
+100 FX 4 (atmosphere, usually a classical guitar-like sound)
+101 FX 5 (brightness, a fast-attack stacked pad with choir or bell)
+102 FX 6 (goblins, a slow-attack pad with chirping or murmuring sounds)
+103 FX 7 (echoes or echo drops, similar to "rain")
+104 FX 8 (sci-fi or star theme, usually an electric guitar-like pad)
+Ethnic
+105 Sitar
+106 Banjo
+107 Shamisen
+108 Koto
+109 Kalimba
+110 Bag pipe
+111 Fiddle
+112 Shanai
+Percussive
+113 Tinkle Bell
+114 Agogô or cowbell
+115 Steel Drums
+116 Woodblock
+117 Taiko Drum
+118 Melodic Tom or 808 Toms
+119 Synth Drum
+120 Reverse Cymbal
+Sound Effects
+121 Guitar Fret Noise
+122 Breath Noise
+123 Seashore
+124 Bird Tweet
+125 Telephone Ring
+126 Helicopter
+127 Applause
+128 Gunshot

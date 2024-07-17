@@ -1,0 +1,63 @@
+Predznak na početku retka za formulu (6,2):
+',
+
+Operatori
+plus (235:
+',10 + 2
+minus (36):
+',10 - 2
+puta (35):
+',10 * 2
+podijeljeno (256):
+',10 / 2
+
+Prioritet operatora:
+',8 - 3 - 2
+',3 - 6 / 3
+',6 / 7 - 1
+',3 + 3 / 2
+
+Blokovi:
+',(3 - 1) / (2 + 1)
+',(3 - 1) (2 + 1)
+',(3pi)
+
+Funkcije:
+',rad(90)
+',cos(pi/2)
+',cos(pi)
+',cos(pi+0.2)
+',2 * ln(e)
+
+Eksponent:
+Cirkumfleks (567):
+',2^3
+',2^3+1
+',cos^2(pi+0.2)
+
+Varijable:
+Jednako (123456)
+',a = 3
+',b = 5
+',5 * ab
+
+Unutarni operatori:
+',3+-2
+',tan-1
+',tan-1+2
+',tan(-1)
+
+Operatori Balringa:
+Faktorijele:
+Uskličnik (5)
+',5!
+ili fact(5)
+Treći korijen (kubični korijen od 9)
+',nroot{3}{9}
+
+Nizovi izraza:
+',a=3+1
+',b=1+1
+',c=ab
+
+',r * 2

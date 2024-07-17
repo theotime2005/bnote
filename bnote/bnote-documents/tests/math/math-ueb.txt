@@ -1,0 +1,98 @@
+1200 = 1200
+„„0abjj
+1 200 = 1200
+„„0a ´bjj
+8.93 = 8.93
+„„0h.ic
+operators
+8 - 3 - 2 = 3
+„„0h´-0c´-0b
+3 + 5 = 8
+„„0c ´! 0e
+9 / 12 = 3 / 4
+„„0i´/ab
+9 / 12 = 3 / 4
+„„0i ´/ 0ab
+9 / 12 = 3 / 4
+„„0i/ab
+1 - 9 / 12 = 1 / 4
+„„0a ´- 0i ´/ 0ab
+<<1/2> + <1/3>> / 1 + 1 = 5 / 12
+„„àà0a´/bù ,! à0a´/cù ´/ 0a´!0aù
+-3 - 2 = -5
+„„´-0c´-0b
+1 + 4! = 25
+„„0a ´! 0d!
+(modulus) 3 | 2 = 1
+„„0c ¸8 0b
+parenthesis
+(3 - 1) / (2 + 1) = 2 / 3
+„„´20c´-0a´@ ´/ ´20b ´!0a´!0a´@
+(3 - 1) (2 + 1) = 6
+„„´20c´-0a´@ ´20b´!0a´@
+trigonometric
+cos(pi/2) = 0
+„„cos ´2 ¤p´/0b ´@
+exponent
+3^2 = 9
+„„0c*0b
+3^2 + 1 = 10
+„„0c*0b´!0a
+2^10 = 1024
+„„0b*0aj
+Others functions
+2 * ln(e) = 2
+„„0b ´(¸n´2e´@
+SQRT 9 = 3
+„„30ió
+SQRT<9+1> = 3.16
+„„30i´!0aó
+CUBEROOT<8> = 2
+„„3*0c0hó
+cos(pi/2) = 0
+„„cos ´2 ¤p/0b ´@
+pi
+„„¤p
+
+parameters
+3^2 = 27
+„„0c*0c
+r+1 = 28
+„„r ´!0a
+x = 2
+„„x ´" 0b
+y = 4
+„„y ´"0d
+x^y = 16
+„„x*y
+
+2x = 4
+„„0bx
+statistics
+Somme : sum(2.5,3) = 11 / 2
+„„sum´2 0b.e ` 0c ´@
+Maximum : max(3,4) = 4
+„„max´2 0c ` 0d ´@
+Minimum : min(2,6) = 2
+„„min´2 0b ` 0f ´@
+Nbr d'élts : nbr(1;3;5;7) = 4
+„„nb ´2 0a ` 0c `0e ` 0g ´@
+Moyenne : ave(7;13) = 10
+„„ave´2 0g ` 0ac ´@
+Médiane : med(1;3;5;7) = 4
+„„med´2 0a ` 0c ` 0e ` 0g ´@
+Médiane : med(1;2;3;5;7) = 3
+„„med´2 0a ` 0b ` 0c ` 0e ` 0g ´@
+Quartiles : QUA1(1;2;3;5;7) = 2
+„„quaa´2 0a ` 0b ` 0c ` 0e ` 0g ´@
+Variance : VAR(2;5) = 2.25
+„„¤var´2 0b ` 0e ´@
+Écart type : DEV(2;6) = 2
+„„dev ´2 0b ` 0f ´@
+Nombre de combinaisons : COMB(96;6) = 927048304
+„„comb ´2 0if ` 0f ´@
+Nombre d'arrangements :  ARR(49;6) = 10068347520
+„„arr ´2 0di ` 0f ´@
+répétition : SUM(2->3;3->6) = 24
+„„sum´20b´-^@0c`0c´-^@0f´@
+

@@ -1,0 +1,6 @@
+recursive-include bnote/bnote-documents *
+include bnote/translation/*.mo
+include bnote/apps/braille_learning/*.ww
+include bnote/apps/braille_learning/*.ope
+include bnote/apps/braille_learning/*.wav
+include bnote/apps/timer/*.mp3

@@ -1,0 +1,1325 @@
+﻿Eurobraille B.Note 
+v1.2.0
+
+KORISNIČKI PRIRUČNIK
+(2021-09-04)
+
+
+Tablica sadržaja
+
+OPIS B.NOTE UREĐAJA	4
+UVOD	4
+ZNAČAJKE	5
+Hardverska arhitektura	5
+TIPKE B.Note UREĐAJA	6
+Tipka za uključivanje i isključivanje	6
+Upravljačke tipke	6
+Tipke usmjeravanja pokazivača	6
+Brajična tipkovnica	7
+POKRETANJE	7
+UPORABA IZBORNIKA	8
+KORIŠTENJE DIJALOŠKOG OKVIRA	9
+GLAVNI IZBORNIK B.NOTE UREĐAJA	9
+USB	9
+Bluetooth-aplikacije	10
+nn%	10
+IZBORNIK APLIKACIJA B.NOTE UREĐAJA	10
+USB	10
+Dokument (0 - 4)	10
+Bluetooth (0 - 4)	10
+Eksplorer	10
+Postavke	11
+Mirovanje	11
+Isključivanje	11
+APLIKACIJE	11
+Uvod	11
+Eksplorer za datoteke	11
+Izbornik Eksplorer za datoteke	13
+Gumb Aplikacije	14
+IZBORNIK POSEBNIH BLUETOOTH I DATOTEKA BACKUPA	14
+Izbornik Otpad	14
+EDITOR	15
+Izbornik Editor	15
+POSTAVKE	18
+Pojedinosti o postavkama	18
+B.NOTE S ČITAČEM ZASLONA	21
+USB	21
+Bluetooth	21
+DODATAK - Editor - Pretraživanje	22
+DODATAK - Editor - Matematika	22
+Opis	22
+Općenito	22
+Blokovi	23
+Konstante	23
+Operator	23
+Funkcije s jednim argumentom	23
+Funkcije s više argumenata	24
+DODATAK - USB brajična tipkovnica	24
+DODATAK - Rukovanja brajičnom tipkovnicom	24
+DODATAK - Funkcije tipki usmjeravanja pokazivača	25
+DODATAK - Bluetooth uparivanje	26
+Uparivanje s računalom	26
+Uparivanje s Android tabletom ili pametnim telefonom	26
+Uparivanje s Apple tabletom ili iPhoneom	26
+DODATAK - Prijenos datoteka putem Bluetootha	27
+Prijenos s računala na B.Note	27
+Prijenos s B.Note na računalo	27
+Prijenos s Android tableta (ili pametnog telefona) na B.Note	28
+Prijenos s B.Note na Android tablet (ili pametni telefon)	28
+DODATAK - Prečaci upravljačkih tipkovnica	28
+Funkcije lijeve upravljačke tipkovnice	28
+Funkcije desne upravljačke tipkovnice	29
+DODATAK - Prečaci brajične tipkovnice	29
+Općenito	29
+Izbornik / Dijaloški okvir	30
+Aplikacija Editor	30
+Eksplorer za datoteke	31
+DODATAK - Hrvatska osmotočkasta (računalna) brajica	32
+DODATAK - Funkcije 10 brajičnih točaka	37
+DODATAK - Ažuriranje aplikacija	39
+
+
+OPIS B.NOTE UREĐAJA
+
+B.Note osvježiv je brajični zaslon koji se može povezati s više uređaja putem USB-a i Bluetootha kao što su računala, tablet računala ili pametni telefoni. (Napomena: Osvježiv znači da je svaka točka Brailleovog pisma napravljena od sitne igle koja se može po potrebi podići ili spustiti, umjesto da su točke Brailleovog pisma fiksno izbočene npr. na listu papira.)
+B.Note je također samostalna brajična bilježnica i računalo koja sadrži Eksplorer za datoteke i Editor za organiziranje, čitanje i uređivanje dokumenata.
+
+UVOD
+
+Gornja strana uređaja:
+
+- Brajični zaslon opremljen s 20 ili 40 brajičnih ćelija (s 8 točkica u svakoj ćeliji)
+- Tipke usmjeravanja pokazivača s funkcijom dvostrukog kontakta, smještene iznad svake brajične ćelije
+- Brajična tipkovnica s 10 tipaka - osam tipki iznad reda tipki usmjeravanja pokazivača i dvije tipke za palčeve ispod brajičnog zaslona
+- Dvije upravljačke tipkovnice s četiri tipke, svaka je tipkovnica smještena s jedne strane brajičnog zaslona.
+
+Donja strana:
+
+- pričvršćeni poklopac na uređaju omogućava pristup do SD kartice. Samo za servis.
+
+Lijeva strana uređaja:
+
+- mala rupa omogućuje pristup do prekidača korištenjem spajalice ukoliko se sustav mora resetirati zbog nereagiranja
+- USB priključnica tip "C" potrebna za punjenje uređaja ili za povezivanje s drugim sustavom
+- utičnica audio priključka (3,5 mm) za priključivanje slušalica
+- prekidač za uključivanje/isključivanje i zaključavanje tipaka.
+
+
+
+
+ZNAČAJKE
+
+- 20 ili 40 brajičnih ćelija
+- 20 ili 40 tipki usmjeravanja pokazivača
+- Brajična tipkovnica s 10 tipki
+- Dvije upravljačke tipkovnice s 4 tipaka
+- Procesori: STM32L1 / ARM Cortex-A53, quad core, 1.4GHz
+- RAM: 512MB LPDDR2 (900MHz)
+- SD kartica: 64 GB
+- Wi-fi: 2.4GHz 802.11ac dual band
+- Bluetooth: 4.2 LS BLE
+- Audio izlaz: utičnica 3,5mm
+- Baterija: 3,7 V 6000 mAh (22,2 W)
+- Brzo punjenje pomoću vanjskog strujnog ispravljača s USB C (protokol PD Universel 2.0)
+- Punjenje do 30 % za 25 minuta, 80 % za 1:30 sati
+- Trajanje baterije: više od 14 sati
+- Dimenzije: 235 (20 ćelija) / 365 (40 ćelija) x 105 x 27 mm
+- Masa: 500 gr (20 ćelija) / 600 gr (40 ćelija).
+
+Hardverska arhitektura
+
+B.Note je dvoprocesorski sustav. On uključuje 32-bitni mikrokontroler koji upravlja:
+
+- sustavom napajanja
+- tipkovnicama
+- tipkom za uključivanje i isključivanje
+- USB priključkom.
+
+Kao USB brajičnom zaslonu, ovaj će procesor osigurati dobar rad uređaja.
+
+Za ostale značajke B.Note uređaja namijenjen je drugi, mnogo snažniji, procesor:
+
+- Bluetooth
+- interne aplikacije (Eksplorer za datoteke i Editor za uređivanje dokumenata)
+- govorna jedinica.
+
+Prema potrebi uključuje se i drugi procesor. Napajanje drugog procesora prestaje nakon isključivanja uređaja (prekidač za uključivanje/isključivanje povucite prema sebi i zadržite(.
+
+TIPKE B.Note UREĐAJA
+
+Tipka za uključivanje i isključivanje
+
+Tipka za uključivanje/isključivanje je tipka koju treba povući prema sebi da bi se uređaj aktivirao. Ona uređaju omogućava da se uključi ili isključi. Kratki pritisak-povuci aktivira stanje "Mirovanje". Dugi pritisak-povuci (dulji od 2 sekunde) aktivira stanje "U pripravnosti". (vidite poglavlje "Pokretanje".)
+
+Upravljačke tipke
+
+B.Note opremljen je dvjema upravljačkim tipkovnicama sa skupinom od četiri tipki (tipkovnice s četiri tipaka sa strelicama).
+
+Funkcije lijeve upravljačke tipkovnice:
+
+- pritisnite tipku strelica gore da biste otvorili izbornik B.Note uređaja
+- pritisnite tipku strelica dolje da biste otvorili ili zatvorili trenutni izbornik Aplikacije
+- pritisnite tipku strelica desno da biste prikaz na brajičnom zaslonu pomaknuli unaprijed
+- pritisnite tipku strelica lijevo da biste prikaz na brajičnom zaslonu pomaknuli unatrag.
+
+Funkcije desne upravljačke tipkovnice:
+
+Ove četiri tipke koriste se za simulaciju tipki sa strelicama. Na primjer, u izbornicima tipka sa strelicom udesno i tipka sa strelicom ulijevo omogućuje odabir sljedeće ili prethodne stavke izbornika.
+
+Opširni opis funkcija upravljačkih tipki možete pronaći u poglavlju "DODATAK - Prečaci upravljačkih tipkovnica".
+
+Tipke usmjeravanja pokazivača
+
+Tipke usmjeravanja pokazivača imaju funkciju dvostrukog kontakta: lagani pritisak na bilo koju tipku usmjeravanja pokazivača aktivira prvi kontakt, a snažniji će aktivirati drugi kontakt.
+
+Prema zadanim postavkama, funkcije tipki usmjeravanja pokazivača su sljedeće:
+
+- Lagani pritisak na prvu tipku usmjeravanja pokazivača pomiče prikaz na brajičnom zaslonu prema naprijed.
+- Lagani pritisak na bilo koju tipku usmjeravanja pokazivača osim prve pomiče prikaz na brajičnom zaslonu prema naprijed. Kada se završi s čitanjem prikazanog teksta, korisnik ne mora tražiti nijedan određeni gumb ili tipku, on ili ona moraju samo pritisnuti bilo koju tipku za usmjeravanje pokazivača da bi prikaz na brajičnom zaslonu pomaknuli unaprijed.
+- Snažni pritisak tipke za usmjeravanje pokazivača potreban je da bi se tipka usmjeravanja pokazivača upotrijebila za uobičajenu radnju, kao što je akcija na objektu ili pozicioniranje pokazivača u tekst.
+
+Funkcije dodijeljene tipkama za usmjeravanje pokazivača mogu se prilagoditi (pogledajte DODATAK - Funkcije tipki usmjeravanja pokazivača).
+
+Brajična tipkovnica
+
+B.Note brajična tipkovnica sastoji se od osam tipki za prste i dvije tipke za palčeve. Svaka je tipka povezana s jednom brajičnom točkicom.
+
+Tipke brajične tipkovnice nalaze se u sljedećem rasporedu: '7 3 2 1 4 5 6 8'.
+Dvije tipke za palčeve imenovane su slijeva nadesno: '9' i 'A'.
+
+Brajična tipkovnica koristi se pritiskanjem i odpuštanjem jedne ili više tipki istovremeno.
+
+Funkcije ili znakovi generirani prema kombinaciji pritisnutih tipaka bit će detaljno opisani kasnije u dokumentu:
+
+- za računalnu brajicu pogledajte: DODATAK - Hrvatska osmotočkasta (računalna) brajica,
+- za ostale funkcije (različite od uobičajenih znakova koje možete pronaći na računalnoj tipkovnici) pogledajte DODATAK - Funkcije 10 brajičnih točaka).
+- da biste brajičnu tipkovnicu koristili u jednostavnom načinu rada, pogledajte DODATAK - Jednostavna brajična tipkovnica.
+
+Možda ćete morati upotrijebiti neke od ovih funkcija modifikatora (Ctrl, Alt, Shift, Windows i Insert) prije nego što unesete kombinaciju tipki na koju se ove funkcije primjenjuju.
+
+POKRETANJE
+
+Za pokretanje B.Note treba povući prema sebi prekidač koji se nalazi na lijevoj bočnoj strani uređaja. Brajični zaslon će se uključiti i prikazat će se glavni izbornik )izbornik B.Note uređaja).
+
+Nakon što je uređaj "uključen":
+
+- Kratki pritisak prebacuje uređaj u način rada "Mirovanje". U ovom stanju sve tipke prestaju raditi i sve su točkice na brajičnom zaslonu spuštene.
+- Dugi pritisak (dulji od 2 sekundi) uređaj prebacuje u stanje pripravnosti. Napajanje drugog procesora je isključeno, također i brajičnog zaslona. Cijeli sustav može ostati u ovom stanju nekoliko tjedana bez potrebe za punjenjem baterije.
+
+Nakon pokretanja, B.Note prikazat će glavni izbornik: "usb bluetooth-aplikacije nn%".
+
+Odaberite "usb" za komunikaciju s računalom putem USB kabela. Ako se zatraži druga interna aplikacija ili Bluetooth način rada, morat ćete potvrditi "bluetooth-aplikacije", koji će pokrenuti drugi procesor sustava. "nn%" označava preostali postotak napona baterije.
+
+Da biste se vratili u glavni izbornik B.Note uređaja, na lijevoj upravljačkoj tipkovnici pritisnite tipku strelica gore.
+
+Kad je drugi procesor pokrenut, glavni izbornik je skriven, a prikazuje se drugi izbornik: "Usb <Popis dokumenata u uređivanju> <Popis uparenih bluetooth kanala> Eksplorer
+Postavke Mirovanje Isključivanje".
+
+UPORABA IZBORNIKA
+
+Izbornik se pojavljuje kao linija naljepnica. Naljepnice se mogu sastojati od nekoliko riječi, a u tom će slučaju brajična točka 8 zamijeniti razmak između više riječi u naljepnici.
+
+Prva je naljepnica naziv izbornika, a zatim slijedi simbol ":". Potom su naljepnice kao naredbeni gumbi međusobno odvojene razmakom.
+
+Brajične točke 7 i 8 trepću ispod prvog slova gumba i to označava da je taj gumb u fokusu.
+
+Gumb u fokusu bit će aktiviran ako se pritisne tipka '9' na gornjoj strani brajičnog uređaja.
+
+Kao prečac, gumbi izbornika mogu se aktivirati upisivanjem pristupnog slova kada
+je prikazan izbornik. Pristupno slovo prikazano je brajičnom točkom 8 koja sporo treperi.
+
+Kada se otvori izbornik, na početku brajičnog retka prikazan je objekt u fokusu.
+
+Postoje dvije metode za navigaciju po izborniku:
+
+1. Možete se kretati prema naprijed ili prema natrag po izborniku prikazanom na brajičnom zaslonu (lagani pritisak na tipku usmjeravanja pokazivača ili pritisnite lijevu ili desnu strelicu na lijevoj upravljačkoj tipkovnici), a zatim aktivirajte željeni gumb izbornika snažnim pritiskom na tipku usmjeravanja pokazivača smještenu iznad tog gumba.
+2. Odabir možete premještati na različite gumbe izbornika, upotrijebite lijevu/desnu strelicu na desnoj upravljačkoj tipkovnici. Gumb u fokusu nalazi se na početku brajičnog retka, stoga ga možete odmah aktivirati (upotrijebite tipku '9a' na brajičnoj tipkovnici).
+
+KORIŠTENJE DIJALOŠKOG OKVIRA
+
+Dijaloški okvir prikazuje popis objekata s različitim povezanim vrijednostima, a neke od tih vrijednosti mogu se uređivati.
+
+Dijaloški okvir je poput izbornika i može se koristiti na isti način. Sadrži gumb "U redu" za potvrdu i zatvaranje te gumb "Odustani" za odustajanje od izmjena. Gumb "Odustani" prikazuje se samo kada su moguće izmjene u dijaloškim okvirima.
+
+Osim gumbiju, u dijaloškom okviru možete pronaći:
+
+- tekstualni objekt (tekstualno polje)
+- uređivački objekt
+- popisni objekt.
+
+Objekti "Uređivanje" i "Popis" imaju naziv i dodijeljenu vrijednost. Prikazuju se kao obrasci "naziv>vrijednost".
+
+"Tekst" objekti imaju samo informativnu namjenu, pa bilo koja akcija nema efekta. Oni nemaju vrijednost i prikazuju se kao obrazac "naziv".
+
+Objekti za uređivanje omogućavaju izmjenu vrijednosti. Bilo koja akcija tipkovnice u okviru za uređivanje promijenit će graničnik naziv-vrijednost kao obrazac "naziv<vrijednost".
+
+Brajične točke 7 i 8 treptat će ispod svakog znaka za označavanje odabranog teksta. Bilo koji utipkani znak zamijenit će postojeću vrijednost na brajičnom zaslonu. Akcija na okviru za uređivanje zatvorit će način uređivanja.
+
+Objekti popisa omogućavaju odabir vrijednosti s određenog popisa. Popis mora biti u fokusu, a kretanje po vrijednostima obavlja se pomoću tipaka sa strelicama gore/dolje na desnoj upravljačkoj tipkovnici.
+
+GLAVNI IZBORNIK B.NOTE UREĐAJA
+
+Postoje dva izbornika ovisno je li drugi procesor uključen ili je isključen.
+
+Ovo poglavlje opisuje prvi dio glavnog izbornika, a zatim u drugom dijelu izbornik aplikacije.
+
+USB
+
+Ovaj gumb dopušta uporabu B.Note uređaja kao brajičnog zaslona spojenog putem USB-a.
+
+U ovom načinu rada, bilo koja pritisnuta tipka na tipkovnici šalje se na spojeni uređaj, a brajični će zaslon biti osvježen čim to bude potrebno.
+
+Bluetooth-aplikacije
+
+Ovaj gumb dopušta izvođenje različitih B.Note aplikacija, a time pokreće i drugi procesor. 20 sekundi kasnije, glavni izbornik postaje izbornik Aplikacije.
+
+nn%
+
+Ova posljednja stavka izbornika prikazuje stanje napona baterije.
+
+IZBORNIK APLIKACIJA B.NOTE UREĐAJA
+
+Ovaj izbornik zamjenjuje glavni izbornik kada je pokrenut drugi procesor.
+
+USB
+
+Stavka ima istu namjenu kao i u prethodnom izborniku.
+
+Dokument (0 - 4)
+
+Ovi nas gumbi vraćaju u otvoreni dokument, a tekst gumba isti je kao i naziv datoteke. Ako nema otvorenog dokumenta za uređivanje, onda u izborniku nema nijednog ovog gumba.
+
+Bluetooth (0 - 4)
+
+Broj gumba ovisi o broju Bluetooth veza, a tekst naveden na gumbima je zapravo naziv Bluetooth sustava povezanog s B.Note uređajem.
+
+Ovi gumbi omogućavaju vezu između B.Note tipkovnice i brajičnog zaslona te Bluetooth sustava (računalo, tablet računalo ili pametni telefon).
+
+Ako nema aktivne Bluetooth veze, u izborniku nema gumba ove vrste.
+
+Eksplorer
+
+Ovaj gumb omogućava korisniku pokretanje aplikacije Eksplorer za datoteke (vidite poglavlje "Aplikacije > Eksplorer za datoteke").
+
+Postavke
+
+Ovaj gumb omogućava korisniku pokretanje aplikacije Postavke (vidite poglavlje "Aplikacije > Postavke").
+
+Mirovanje
+
+Aktiviranje ovog gumba je isto kao i kratko povlačenje prema sebi prekidača za uključivanje i isključivanje uređaja (vidite poglavlje "Pokretanje sustava").
+
+Isključivanje
+
+Aktiviranje ovog gumba je isto kao i dugo povlačenje prema sebi prekidača za uključivanje i isključivanje uređaja (vidite poglavlje "Pokretanje sustava").
+
+APLIKACIJE
+
+Uvod
+
+Aplikacije B.Note uređaja su Eksplorer za datoteke, Editor i Postavke.
+
+Eksplorer za datoteke
+
+Eksplorer za datoteke prikazuje popis datoteka i mapa smještenih u trenutnoj mapi. Trenutna mapa na B.Note uređaju isto je što i mapa "Moji dokumenti" i prema potrebi korisnika može se promijeniti.
+
+Da bi se indeksirali različiti dokumenti, Eksplorer za datoteke ima značajke koje mu omogućavaju stvaranje / brisanje podmapa i stvaranje kopija ili upravljanje prijenosom iz "mape u mapu".
+
+Datoteke se mogu razmijeniti putem Bluetootha s računalom ili pametnim telefonom. Eksplorer za datoteke može komprimirati i izdvojiti arhive u zip formatu.
+
+Eksplorer za datoteke ima svoj izbornik. Pojedinosti pročitajte u nastavku.
+
+Uvod i premještanje u trenutnoj mapi
+
+Datoteke i mape u trenutnoj mapi indeksiraju (razvrstavaju) se abecednim redom.
+
+Svaki je element iz mape prikazan u retku na brajičnom zaslonu. Za navigaciju kroz ovaj popis koristite tipku sa strelicom gore ili strelicom dolje na desnoj upravljačkoj tipkovnici.
+
+Akcija na mapi otvara je i ona postaje trenutna mapa.
+
+Akcija na datoteci otvara je u aplikaciji Editor ukoliko je format datoteke podržan (".txt", ".mbe", ".docx",
+".xlsx", ".odt", ".pdf", ".brf", ".brl", ".pub"). Kada Editor otvori datoteku u formatu koji nije ".txt", on je pretvara u .txt format, a zatim briše izvornu datoteku. Međutim, izvorna se datoteka sada može pronaći u košu za smeće (Otpad).
+
+Ako se pomakne unatrag po zaslonu (lijeva tipka na lijevoj upravljačkoj tipkovnici), prikazuje se naziv trenutne mape. Pritisne li se tipka usmjeravanja pokazivača iznad naziva trenutne mape, fokus se premješta u roditeljsku mapu. Također, pritisnuti se može i tipka '9' na brajičnoj tipkovnici (tipka backspace).
+
+Svaki element u mapi počinje slovom "d" ili "m" označavajući tip (datoteka ili mapa). Datoteka "test.txt" bit će prikazana kao "d-test.txt", a mapa "Povijest" kao "m-Povijest".
+
+Iza naziva datoteke slijedi podatak o njezinoj veličini "(x mb)", "(x kb)", "(x bajtova)".
+
+Na popisu datoteka i mapa mogu se upisati slova, a B.Note će postaviti fokus na datoteku ili mapu koji počinju tim nizom znakova. Na taj se način može brzo kretati po čitavom popisu. Kada je pronađen prvi element s utipkanim nizom znakova, može se pomaknuti na sljedeći pritiskom na tipku F3 [BRL 149].
+
+Višestruki odabir
+
+Eksplorer za datoteke omogućuje odabir datoteka i mapa za izrezivanje i kopiranje. Kada je element dio odabira, bit će uokviren znakovima "<" i ">". Po zadanom, trenutni element je odabran.
+
+Da biste odabrali, pritisnite F8 [BRL 1259]; Da biste zatvorili odabir, pritisnite ESC [BRL 1245A].
+
+Kada se aktivira odabir, može se prebaciti s jednog elementa na drugi i pritisnuti Razmaknica [BRL A] da biste odabrali/poništili odabir datoteke ili mape.
+
+Da biste odabrali cijeli sadržaj trenutne mape, pritisnite tipkovni prečac Ctrl+a [BRL 78A] 1).
+
+
+Otpad
+
+Kada izbrišete datoteke ili mape, one su poslane u otpad. Sadržaj Otpada možete prikazati (preko izbornika 'Idi na > Otpad') i vratiti datoteku greškom poslanu u otpad. Također, datoteke i mape u otpadu možete trajno izbrisati.
+
+NAPOMENA: Korisnik mora upravljati pražnjenjem otpada; budući da Otpad pohranjuje sve izbrisane dokumente, korisnik ga s vremena na vrijeme mora isprazniti kako bi oslobodio prostor.
+
+Izbornik Eksplorer za datoteke
+
+Izbornik Eksplorer za datoteke prikazuje se ako se pritisne tipka strelica dolje na lijevoj upravljačkoj tipkovnici. Ponovni pritisak na ovu tipku, vraća fokus na mapu u Eksplorer za datoteke.
+
+Gumb "Aplikacije" u ovom izborniku omogućava izlaz iz Eksplorera za datoteke i povratak u izbornik Aplikacije.
+
+Izbornik Datoteka
+
+- Nova datoteka (Ctrl+n [BRL 78A, 1345]): Stvara novu datoteku u trenutnoj mapi; njezin će sadržaj biti kreiran pomoću aplikacije Editor.
+- Nova mapa (Ctrl+Shift+n [BRL 78A, 7A, 1345]): Stvara novu mapu u trenutnoj mapi.
+- Pošalji na: Šalje datoteku putem Bluetootha na ostale uređaje (vidite DODATAK - Prijenos datoteka putem Bluetootha).
+- Preimenuj (F2 [BRL 129]): Omogućuje preimenovanje naziva datoteke i mape.
+- Izbriši (Del [BRL 36A]): Briše odabranu datoteku ili mapu i šalje ih u Otpad. Oni se iz Otpada mogu vratiti ako je potrebno.
+- Komprimiraj: Stvara komprimiranu (zip) datoteku i imenuje je prema nazivu prve odabrane datoteke ili mape.
+- Izdvoji: Izdvaja mape i datoteke iz odabrane komprimirane (zip) datoteke.
+
+Izbornik Uredi
+
+- Početak/Kraj odabira (F8 [BRL 1259] / Esc [BRL 1245A]): Ova funkcija omogućava ulaz i izlaz iz načina odabira (pogledajte naslov "Višestruki odabir" na prethodnim stranicama).
+- Kopiraj (Ctrl+c [BRL 78A, 14]): Kopira u međuspremnik odabrane datoteke i mape.
+- Izreži (Ctrl+x [BRL 78A, 1346]): Radi isto što i funkcija "Kopiraj", ali odabrani elementi bit će automatski izbrisani nakon lijepljenja.
+- Zalijepi (Ctrl+v [BRL 78A, 1236]): Lijepi kopirane ili izrezane datoteke i mape u trenutnu mapu.
+- Odaberi sve (Ctrl+a [BRL 78A, 1]): Odabire sve datoteke i mape u trenutnoj mapi.
+
+Izbornik Idi na
+
+- Bluetooth: Prikazuje sadržaj mape "Bluetooth" u kojoj su pohranjene datoteke prenjete putem Bluetooth veze.
+- Otpad: Prikazuje sadržaj mape "Otpad" u kojoj se pohranjuju izbrisane datoteke i mape.
+- Backup: Prikazuje sadržaj mape "Backup" u kojoj se pohranjuju sigurnosne kopije.
+- Dokumenti: Prikazuje sadržaj mape "Moji dokumenti" u kojoj su pohranjeni dokumenti.
+- Nadmapa: Prikazuje sadržaj roditeljske mape.
+
+Izbornik Backup
+
+- Izradi backup: Stvara komprimiranu (zip) datoteku u mapu "Backup", uključujući sve datoteke iz mape "Moji dokumenti". Ova se datoteka može prenijeti putem Bluetootha na drugo računalo ili na Android uređaj aktiviranjem naredbe "Pošalji na".
+- Oporavi: Vraća mapu "Moji dokumenti" iz datoteke sigurnosne kopije smještene u mapi "Backup".
+
+Gumb Aplikacije
+
+Ovaj gumb omogućava povratak u izbornik Aplikacije.
+
+IZBORNIK POSEBNIH BLUETOOTH I DATOTEKA BACKUPA
+
+U ovim mapama izbornik je dinamičan i prikazuje samo funkcije dostupne za izvođenje.
+
+Izbornik Otpad
+
+U ovoj mapi neke funkcije izbornika izbrisane su, a izbornik Datoteka je prikazan kao u nastavku:
+
+Izbornik Datoteka
+
+- Vrati: Vraća sve datoteke i mape iz Otpada na izvorno mjesto (mjesto prije slanja u Otpad).
+- Trajno izbriši: Trajno briše odabrane datoteke i mape.
+- Isprazni Otpad: Trajno briše sve datoteke i mape iz mape Otpad.
+
+EDITOR
+
+Aplikacija Editor prikazuje sadržaj tekstualne datoteke sastavljene od odlomaka. Odlomci se segmentiraju u redove od niza znakova definiranih od strane korisnika. Prema zadanim postavkama, broj znakova po retku identičan je veličini zaslona B.Note brajičnog uređaja (20 ili 40 ovisno o modelu).
+
+Pokazivač uređivanja prikazuje se kao trepčuće točke 7 i 8 ispod sljedećeg znaka. Također, i odabrani tekst označen je treptajućim točkama 7 i 8.
+
+Značajka brajičnog zaslona "naprijed / natrag" (desna i lijeva strelica na lijevoj upravljačkoj tipkovnici) pomiče pokazivač na početak retka samo ako tekst nije odabran. Funkcija "naprijed / natrag" omogućuje čitanje odabranog teksta.
+
+Dokumenti se mogu čitati u računalnoj brajici ili u standardnoj brajici (vidite DODATAK - Prečaci upravljačkih tipkovnica).
+
+Aplikacija Editor sadrži različite funkcije koje joj omogućuju navigaciju po dokumentu (vidite DODATAK - Prečaci upravljačkih tipkovnica).
+
+Aplikacija Editor ima svoj izbornik. U nastavku pročitajte pojedinosti.
+
+Izbornik Editor
+
+Izbornik aplikacije Editor prikazuje se pritiskom na tipku strelica dolje na lijevoj upravljačkoj tipkovnici. Ukoliko se želite vratiti u Editor, ovu tipku pritisnite još jedanput.
+
+Gumb "Aplikacije" u ovom izborniku zatvara Editor i vraća se u izbornik Aplikacije.
+
+Datoteka
+
+- Zatvori (Ctrl+F4 [BRL 78A, 1459]): Zatvara dokument. Ako je dokument bio izmjenjen, moći ćete ga spremiti s izmjenama ili odustati od spremanja.
+- Spremi (Ctrl+s [BRL 78A, 234]): Sprema dokument.
+- Očisti: Briše popis.
+- Statistika: Prikazuje dijaloški okvir s brojem odlomaka / riječi / znakova u dokumentu.
+
+
+Uredi
+
+- Početak/Kraj odabira (F8 [BRL 1259] / Esc [BRL 1245A]): Ulaz i izlaz iz načina odabira, a funkcije kretanja pokazivača postaju funkcije proširenja i sužavanja područja odabira (tipke usmjeravanja pokazivača te strelica udesno i strelica ulijevo na desnoj upravljačkoj tipkovnici). Ispod odabranog teksta sporo trepere točke 7 i 8. Ovaj se način odabira također može aktivirati pritiskom na tipku F8 [BRL 1259] i tipku Esc [BRL 1245A].
+- Izreži (Ctrl+x [BRL 78A, 1346]): Kopira odabrani tekst u međuspremnik i briše ga iz dokumenta.
+- Kopiraj (Ctrl+c [BRL 78A, 14]): Kopira odabrani tekst u međuspremnik.
+- Zalijepi (Ctrl+v [BRL 78A, 1236]): Lijepi odabrani tekst iz međuspremnika u dokument na položaj pokazivača.
+- Odaberi sve (Ctrl+A [BRL 78A, 1]): Odabire cijeli dokument.
+- Poništi (Ctrl+z [BRL 78A, 1356]): Poništava posljednju radnju. Ako ovaj tipkovni prečac pritisnete više puta u razmaku manjem od 5 sekundi, B.Note će ga smatrati samo jednim pritiskom.
+- Vrati (Ctrl+y [BRL 78A, 13456]): Vraća radnju poništenu u prethodnom koraku.
+- Pokazivač: Prikazuje dijaloški okvir s trenutnim koordinatama pokazivača. Položaj pokazivača može se promijeniti utipkavanjem novih vrijednosti.
+
+Mat (matematika)
+
+Editor, aplikacija za uređivanje teksta, prepoznaje matematičke izraze i može ih izračunati (vidite DODATAK - Editor - Matematika).
+
+- Izračunaj red (Ctrl+m [BRL 78A, 134]): Izračunava matematički izraz retka u kojem je pokazivač.
+- Izračunaj blok (Ctrl+t [BRL 78A, 2345]): Izračunava matematički izraz nekoliko uzastopnih redova, tj. odabranog bloka.
+
+Traži
+
+- Traži (Ctrl+f [BRL 78A, 124]): Prikazuje dijaloški okvir za pretraživanje utipkanog niza znakova u dokumentu počevši od trenutnog položaja pokazivača (vidite Dodatak - Editor - Pretraživanje).
+- Zamijeni (Ctrl+h [BRL 78A, 125]): Prikazuje dijaloški okvir sličan dijaloškom okviru Traži. On ima dodatno polje za unos znakova, a ti će znakovi zamijeniti pronađeni tekst.
+- Sljedeće (F3 [BRL 149]): Odabire sljedeće podudaranje u dokumentu iz traženog niza znakova.
+- Zamijeni i sljedeće (F4 [BRL 1459]): Zamijenjuje pronađeni tekst i odabire sljedeće podudaranje u dokumentu iz traženog niza znakova.
+- Prethodno (Shift+F3 [BRL 7A, 149]): Odabire prethodno podudaranje u dokumentu iz traženog niza znakova.
+- Zamijeni i prethodno (Shift+F4 [BRL 7A, 1459]): Zamijenjuje pronađeni tekst i odabire prethodno podudaranje u dokumentu iz traženog niza znakova.
+- Zamijeni sve (F5 [BRL 159]): Zamijenjuje sva podudaranja iz polja Traži s tekstom u polju zamijeni.
+
+Umetni
+
+- Rezultat: Umeće rezultat izračuna matematičkog izraza na položaj pokazivača.
+- Datum: Umeće datum na položaj pokazivača u obliku "dan u tjednu, dan u mjesecu, mjesec i godina" kao na primjer "srijeda 14. srpnja 2021".
+- Potpis: Umeće sadržaj datoteke "signature.txt" na položaj pokazivača. Datoteka je pohranjena u mapi "Moji dokumenti". Ova funkcija radi samo ako datoteka "signature.txt" postoji i u njoj je kreiran sadržaj.
+
+Oznake
+
+- Umetni/izbriši (Ctrl+F2 [BRL 78A, 129] / Ctrl+Shift+F2 [BRL 78A, 7A, 129]): Dodaje knjižnu oznaku na položaj pokazivača ili uklanja knjižnu oznaku ako već postoji.
+- Sljedeće (F2 [BRL 129]): Pokazivač se pomiće u dokumentu od trenutnog položaja do prve sljedeće knjižne oznake. Ako knjižna oznaka nije pronađena, traženje se nastavlja od početka dokumenta.
+- Prethodno (Shift+F2 [BRL 7A, 129]): Pokazivač se pomiće u dokumentu od trenutnog položaja do prve prethodne knjižne oznake. Ako knjižna oznaka nije pronađena, traženje se nastavlja od kraja dokumenta.
+- Izbriši sve: Briše sve knjižne oznake u dokumentu.
+
+Govor
+
+- Odlomak (Ctrl+r [BRL 78A, 1235]): Početak čitanja odlomka naglas pomoću ugrađene govorne jedinice počevši od trenutnog položaja pokazivača.
+- Dokument (Ctrl+d [BRL 78A, 145]): Početak čitanja dokumenta naglas pomoću ugrađene govorne jedinice počevši od trenutnog položaja pokazivača.
+- Glasnoća: Otvara dijaloški okvir s dva gumba za odabir glasnoće: glasnije i tiše, a govorne povratne informacije pomoći će vam prilagoditi razinu. Da biste pojačali glasnoću, pritišćite "g" [BRL 1245] ili tipku usmjeravanja pokazivača iznad gumba "glasnoća-glasnije" dok ne dosegnete željenu razinu, a zatim potvrdite na gumb "U redu". Da biste smanjili glasnoću, pritišćite "t" [BRL 2345] ili tipku usmjeravanja pokazivača iznad gumba "glasnoća-tiše" dok ne dosegnete željenu razinu, a zatim potvrdite na gumb "U redu". Ili, željeni gumb postavite u fokus (na početak brajičnog retka), koristite strelicu desno ili strelicu lijevo na desnoj upravljačkoj tipkovnici, a zatim pritišćite [BRL 9A].
+- Brzina: Otvara dijaloški okvir s dva gumba za odabir brzine čitanja: brže i sporije, a govorne povratne informacije pomoći će vam prilagoditi razinu. Da biste ubrzali čitanje naglas, pritišćite "b" [BRL 12] ili tipku usmjeravanja pokazivača iznad gumba "brzina-brže" dok ne dosegnete željenu razinu, a zatim potvrdite na gumb "U redu". Da biste usporili brzinu, pritišćite "s" [BRL 234] ili tipku usmjeravanja pokazivača iznad gumba "brzina-sporije" dok ne dosegnete željenu razinu, a zatim potvrdite na gumb "U redu". Ili, željeni gumb postavite u fokus (na početak brajičnog retka), koristite strelicu desno ili strelicu lijevo na desnoj upravljačkoj tipkovnici, a zatim pritišćite [BRL 9A].
+
+Gumb Aplikacije
+
+- Odabirom ovog gumba vratit ćete se u izbornik Aplikacije.
+
+
+POSTAVKE
+
+Unutar jedne stranice, ova aplikacija prikazuje različite postavke B.Note uređaja.
+
+Pronaći ćete:
+
+- Datum i vrijeme
+- Informacije o stanju baterije
+- Postavke govora i zvuka
+- USB postavke
+- Bluetooth postavke
+- Postavke za Editor
+- Postavke za matematiku
+- Postavke jezika
+- Postavke tipkovnice
+- Postavke u pripravnosti
+- Informacije o verziji.
+
+Na ovoj stranici možete utipkati znakove, B.Note će postaviti fokus na stavku s upisanim nizom znakova, i na taj se način brzo pomicati po stranici. Kada je stavka s utipkanim znakovima pronađena, fokus možete premjestiti na sljedeću pritiskom na tipku F3 [BRL 149].
+
+Pritisak na bilo koju tipku na prikazanoj će stavci pokrenuti dijaloški okvir za izmjenu parametra, tako da sve parametre uređaja možete promijeniti vrlo brzo.
+
+Korištenje izbornika je još jedan način za izmjenu postavki i prilagodbu B.Note uređaja.
+
+Pojedinosti o postavkama
+
+Sat
+
+- Datum i vrijeme: Postavka datum i vrijeme omogućava dokumentu dobivanje svojstva kada je bio izmjenjen aplikacijom Editor.
+
+Baterija
+
+- Baterija: U retku se prikazuje preostali postotak baterije, kapacitet punjača te snaga i napon baterije.
+
+
+Govor
+
+- Glasnoća i brzina govora: Postavka omogućuje postavljanje glasnoće i brzine govora govorne jedinice.
+
+USB
+
+- USB-HID tipkovnica: pokazuje kako se šalju brajične kombinacije: kao USB tipkovnica ili se šalju u čitač zaslona. To se može izmjeniti, ali bi čitač zaslona trebao preuzeti nadzor, pa promjene možda neće biti trajne (vidite DODATAK - USB brajična tipkovnica).
+- Esysuite protokol: Prikazuje se ako je USB veza aktivirana za EsySuite. Ovaj se parametar može izmijeniti za vraćanje i preuzimanje kontrole nad sustavom ako Esysuite nije prepoznat.
+
+Bluetooth
+
+- Naziv: Bluetooth prilagodnik po zadanom je imenovan "Esys-bnote-nnnn" gdje je "nnnn" serijski broj uređaja. Posljednji dio ovog imena može se prilagoditi. Da bi novo ime bilo prihvaćeno, B.Note mora biti ponovno pokrenut.
+- Vidljiv: Bluetooth prilagodnik može se učiniti vidljivim i dopustiti da bude otkriven za uparivanje. Ovaj će parametar ostati nepromjenjen, ali bi bilo bolje učiniti ga nevidljivim da bi se izbjeglo uparivanje s nepoznatim uređajima.
+- Popis uparenih uređaja: U ovom se retku navode svi upareni uređaji te u nastavku dijaloški okvir u kojem se upareni uređaji mogu ukloniti.
+- Automatizacija: Prikazuje uparene Bluetooth uređaje i radnju koju će B.Note poduzeti ako oni postaju dostupni za povezivanje. Dostupne radnje su "Ne čini ništa" i "Automatski se prebaci u Bluetooth način rada".
+
+Editor
+
+- Duljina retka: Dijaloški okvir za prilagodbu maksimalnog broja znakova u retku u aplikaciji Editor. Dijelovi teksta rastavljeni su u novi red i na mjestima koji nisu pravopisno dijeljivi. Prema zadanim postavkama, ovaj parametar jednak je broju ćelija na B.Note brajičnom zaslonu (20 ili 40) tako da prelomljena riječ neće biti pronađena samo na trenutnom prikazu.
+- Prikaz unaprijed (prikaz redaka kod pomicanja unaprijed): Dostupna su dva načina pomicanja brajičnog retka unaprijed po dokumentu: "Normalno" kada se u aplikaciji Editor prikazuju i prazni retci te "Značajno" kada su prazni retci skriveni.
+- Pokazivač: Parametar omogućava skrivanje brajične linije pokazivača u tekstu (brajične točke 7 i 8 trepere).
+- Vidljive točke 7-8: Parametar omogućava skrivanje točaka 7 i 8 s brajičnog zaslona u aplikaciji Editor.
+
+Mat (matematika)
+
+- Format: Dostupna su dva formata prikaza: standardni i znanstveni (prikaz eksponenta 10).
+- Preciznost: Omogućava definiranje broja znamenki iza decimalnog zareza.
+- Razlomak: Omogućava prikaz razlomka ako je to moguće.
+- Kut: Omogućava odabir mjernih jedinica za kutove između radijana i stupnjeva.
+
+Jezik
+
+- Poruka: Parametar omogućava odabir jezika za sve poruke B.Note uređaja.
+- Brajica: Parametar omogućava odabir standarda Brailleevog pisma koji će se koristiti.
+- Glas: Parametar omogućava odabir jezika govorne jedinice.
+
+Tipkovnica
+
+- Brajična tipkovnica: Parametar omogućava postavljanje tipkovnice u jedan od načina rada rukovanje (vidite DODATAK - Rukovanja brajičnom tipkovnicom).
+- Inverzija tipkovnica: Parametar omogućava zamjenu, inverziju, funkcija lijeve upravljačke tipkovnice s funkcijama desne upravljačke tipkovnice.
+
+Tipke usmjeravanja pokazivača
+
+- Lagani, snažni, uzastopni, dvostruki lagani, dvostruki snažni pritisak: Postavke omogućavaju dodjeljivanje radnje koju će izvršiti tipke usmjeravanja pokazivača (vidite DODATAK - Funkcije tipki usmjeravanja pokazivača).
+
+U pripravnosti
+
+- Vrijeme mirovanja: Ovim parametrom podešavamo vremensko razdoblje neaktivnosti (min.) tijekom kojeg uređaj neće biti prebačen u stanje mirovanja. Vrijednost "0" postavlja uređaj u stanje "uvijek aktivan".
+- Vrijeme isključivanja: Ovim parametrom podešavamo vremensko razdoblje neaktivnosti (min.) tijekom kojeg uređaj neće biti prebačen u automatsko isključen. Vrijednost "0" postavlja uređaj u stanje "uvijek aktivan".
+
+Verzije
+
+- Vrsta uređaja: Prikazuje model uređaja i njegov serijski broj.
+- Aplikacije: Prikazuje verziju programskih aplikacija.
+- Firmware: Prikazuje verziju programa za prvi procesor.
+- SDKartica: Prikazuje verziju izdanja Linuxa za drugi procesor.
+
+
+B.NOTE S ČITAČEM ZASLONA
+
+B.Note može komunicirati s drugim sustavima putem USB kabela ili Bluetooth bežične veze. Njegova se uporaba ne razlikuje od uporabe ostalih standardnih osvježavajućih brajičnih zaslona. Za više informacija, u vašem čitaču zaslona pogledajte sustav pomoći i upute za upravljački program B.Note uređaja.
+
+B.Note ističe se s nekoliko prepoznatljivih značajki opisanima u nastavku.
+
+USB
+
+B.Note može se koristiti kao qwerty tipkovnica i raditi neovisno o čitaču zaslona. Stoga će B.Note biti u mogućnosti prikazati bilo koju kombinaciju Brailleevog pisma ili će ove kombinacije prenjeti na čitač zaslona koji će onda prikazati odgovarajuće znakove i funkcije. Time će obavljati s dva ulazna načina rada (vidite DODATAK - USB brajična tipkovnica).
+
+Čitači zaslona JAWS i NVDA rade s ovim značajkama.
+
+Za NVDA: na lijevoj upravljačkoj tipkovnici, istovremeno pritisnite strelicu dolje i strelicu desno ili istovremeno pritisnite strelicu dolje i strelicu lijevo da biste se kretali od jedne prema drugoj metodi unosa.
+
+- Prvi način rada brajičnom zaslonu omogućava izvršavanje svih tipkovnih prečaca s tipkom Ctrl ili tipkom ALT.
+- Drugi način rada omogućava korištenje brajičnog kratkopisa stupanj 2 s NVDA.
+
+Napomena: Potvrdni okvir u NVDA postavkama brajice dopušta promjenu ove metode.
+
+Za Jaws: način rada nalazi se u datoteci upravljačkog programa "Programske datoteke/Freedom Scientific/Jaws/<verzija>/Driver/Braille/esysiris/eurobraille.ini", a Naziv parametra je "UseHidKeyboard=0" ili "1".
+
+Bluetooth
+
+Bluetooth se može koristiti za povezivanje B.Note uređaja s čitačem zaslona te za prijenos datoteka između B.Note i Windows računala te bilo kojeg Apple ili Android sustava (vidite DODATAK "Bluetooth uparivanje" i "Prijenos datoteka putem Bluetootha").
+
+
+
+DODATAK - Editor - Pretraživanje
+
+Pretraživanje niza znakova u aplikaciji Editor može se raditi u smjeru dolje, prema kraju dokumenta (F3 [BRL 149]) ili u smjeru gore, prema početku dokumenta (Shift+F3 [BRL 7A, 149]).
+
+Sljedeći parametri mogu poboljšati pretraživanje:
+
+- Zanemari velika/mala slova: Ako je odabrano, karakteri abecede bit će pronađeni bez obzira jesu li napisani malim ili velikim slovima.
+- Sakrij naglaske: Ako je odabrano, slovo će biti pronađeno bez obzira na naglasak. Stoga su "é", "e", "e", "ë" i "e" isti karakteri.
+- Cjelovita riječ: Ako je odabrano, samo cjelovita riječ bit će pronađena kao traženi niz.
+
+DODATAK - Editor - Matematika
+
+Opis
+
+B.Note editor omogućava izračunavanje matematičkih odlomaka.
+
+Odlomak može imati samo jedan matematički izraz; ne smije se miješati obični tekst i matematički izraz.
+
+Funkcije računanja nalaze se u izborniku Mat aplikacije Editor.
+
+Matematičke izraze treba pisati računalnom brajicom i u matematičkom jeziku opisanom u nastavku.
+
+Odlomak treba započeti brajevom točkicom 2, a zatim brajevim točkicama 16 (eng.: brajevom točkicom 6, a zatim brajevom točkicom 2) da bi matematički izraz bio prepoznat. Ako koristite nekoliko odlomaka, onda svaki treba započeti brajevom točkicom 2, a zatim brajevim točkicama 16 (eng.: brajevom točkicom 6, a zatim brajevom točkicom 2).
+
+Općenito
+
+Znakovi razmaka nisu važni.
+
+Velika slova bit će pretvorena u mala slova prije analize, računanja.
+
+Brojevi se mogu upisati kao potencija broja 10 (znanstveni zapis broja). Na primjer, 2000 kao 2e3 te 0.02 kao 2e-2.
+
+Bilo koji znak nije naredba da bi se prepoznala kao varijabla, već će 2A biti prepoznato kao 2 puta "a" varijabla ukoliko je varijabla definirana u prethodnom odlomku. Trebate napisati a=2 . Izraz 2a daje rezultat 4.
+
+Rezultat izračuna pohranjuje se u "r" varijablu, tako da nove račune možete započeti ovom varijablom. Na primjer, r +10% .
+
+Ako se varijabla sastoji više od jednog znaka, morate koristiti naziv bloka "{}". Na primjer, varijablu Toto treba napisati: {toto}, odnosno "{toto}=5", a u novom redu npr. "5 +{toto}".
+
+Za statističke funkcije treba koristiti par zagrada i točkuzarez da bi se odvojila svaka vrijednost. Na primjer: "(12; {titi}=(3 -1) (2 + 1); 45; 1+2; 55)".
+
+Blokovi
+
+() : okrugle zagrade (( [BRL 126], ) [BRL 345])
+[] : uglate zagrade ([ [BRL 124567], ] [BRL 234567])
+{} : naziv varijable ({ [BRL 12356], } [BRL 23456])
+
+Konstante
+
+pi : 3,14...
+e : 2,72...
+
+Operator
+
++ : zbrajanje (+ [BRL 235])
+- : oduzimanje (- [BRL 36])
+* : množenje (* [BRL 35])
+/ : dijeljenje (/ [BRL 256])
+% : postotak
+^ : eksponent (^ [BRL 567])
+= : pretvaranje brojeva (= [BRL 123456])
+/ : razlomačka crta (/ [BRL 256])
+
+Funkcije s jednim argumentom
+
+ln : prirodni logaritam - Logaritam po bazi e (Eulerov broj)
+log : logaritam baze 10
+sqrt : korijen; računa kvadratni korijen zadanog broja
+deg: pretvara stupnjeve u radijane
+rad : pretvara radijane u stupnjeve
+! : faktorijel ili faktorijela (n!)
+sin : sinus
+cos : kosinus
+tan : tangens
+cot : kotangens
+asin ; arkusni sinus
+acos : arkusni kosinus
+atan : arkusni tangens
+acot : arkusni kotangens
+sh ou sinh : hiperbolni sinus
+ch ou cosh : hiperbolni kosinus
+th ou tanh : hiperbolni tangens
+coth : hiperbolni kotangens
+ash ou asinh : hiperbolni arkus sinus
+ach ou acosh : hiberbolni arkusni kosinus
+ath ou atanh : hiperbolni arkusni tangens
+acoth : hiperbolni arkusni kotangens
+
+Napomena: Za eksponent na funkciji možete koristiti cos^2(45) ili cos(45)^2
+
+Funkcije s više argumenata
+
+nroot : nth root funkcija
+nbr : broj elemenata
+max : maksimum - vraća najveći broj iz skupa zadanih brojeva
+min : minimun
+sum : zbraja sve brojeve u rasponu
+ave : vraća prosjek apsolutnih odstupanja podataka od njihove srednje vrijednosti (average)
+qua1 : vraća kvartil 1 skupa podataka
+qua2, med : vraća kvartil 2 skupa podataka ili vraća medijan ili broj u sredini skupa zadanih brojeva
+qua3 : vraća kvartil 3 skupa podataka
+var : varijanca - procjenjuje varijancu na temelju uzorka
+dev : devijacija - vraća zbroj kvadrata odstupanja podataka od njihove srednje vrijednosti
+comb : računa broj kombinacija za dani broj (Combinaison)
+arr : Arrangement funkcija
+
+DODATAK - USB brajična tipkovnica
+
+Kada je uređaj povezan putem USB-a, brajična tipkovnica može znakove i funkcije poslati na različite načine:
+
+- USB-HID: Znakove i funkcije može generirati na način jednak standardnoj USB tipkovnici. Oni su neovisni o operativnom sustavu ili upotrijebljenom čitaču zaslona.
+- Upravljački program: Znakovi i funkcije šalju se u upravljački program čitača zaslona. Oni su potpuno ovisni o korištenom čitaču zaslona.
+
+Čitač zaslona ili programska komunikacija od B.Note uređaja mogu se upotrijebiti za uključivanje željenog načina rada iz trenutno odabranog u drugi. Dakle, možete potvrditi operativni sustav u kojem se nalazite ili ga ručno promijeniti u izborniku.
+
+DODATAK - Rukovanja brajičnom tipkovnicom
+
+Brajična tipkovnica ima različite načine rukovanja koje možete odabrati u izborniku Aplikacije > Postavke > Tipkovnica > Brajica.
+
+- Standardno: U trenutku kad otpustite pritisnute tipke brajične tipkovnice, posljednja pritisnuta kombinacija bit će upisana. Dakle, možete pritisnuti kombinaciju tipki, zatim dodati ili pojedinačno otpustiti tipku iz kombinacije, a potom ih nakon kratke stanke sve otpustiti odjednom da bi puna kombinacija bila upisana.
+- Rukovanje 1: Uzastopno pritiskajte pojedinačne brajične točke ili grupu brajičnih točaka za željenu kombinaciju, a na kraju potvrdite pritiskom na tipku [BRL A]. Ukoliko je pritisnuta pogrešna tipka, poništava se pritiskom na tipku [BRL 9]. Ako je brajična tipka dio brajične kombinacije, morat će se utipkati u kombinaciji s ostalim točkama, a zatim ponovno pritisnuti tipka za potvrdu kombinacije.
+- Rukovanje 2: To je brži način unosa kao što je automatsko generiranje koda. Brajična tipkovnica podijeljena je na 2 dijela, prvi dio obuhvaća tipke 1,2,3,7,9 i drugi dio 4,5,6,8,A. Najprije treba utipkati brajičnu kombinaciju iz prvog dijela s pojedinačnim ili s više pritisaka, zatim pritiskati tipke iz kombinacije drugog dijela i brajična kombinacija bit će generirana. Za brajične kombinacije koje imaju točke samo u prvom dijelu, mora se pritisnuti tipka [BRL A] za potvrdu.
+- Rukovanje 3: Ovaj način rukovanja omogućuje utipkavanje brajične kombinacije samo pomoću lijeve strane brajične tipkovnice (tipke 1,2,3,7). Nakon što su pritisnute sve točke prvog dijela brajične kombinacije, drugi dio kombinacije upisuje se kako slijedi 1-4, 2-5, 3-6, 7-8, 9-A. Dakle, da biste utipkali slovo "z" (brajična kombinacija 1,3,5,6) prvo na brajičnoj tipkovnici istovremeno pritisnite tipke 1 i 3, a zatim istovremeno pritisnite tipke 2 i 3. Tipka "A" i tipka "9" u ovom podijeljenom načinu unosa imaju uobičajeno značenje. Tipke "9" ili "A" koriste se za uređivanje ili potvrdu ukoliko brajična kombinacija nema drugog dijela. Samo brajična tipka "4" omogućava unos brajične kombinacije koja nema prvog dijela.
+- Rukovanje 4: Ovaj način rukovanja jednak je prethodnom time da koristi točke 4,5,6,8,A. Nakon što su pritisnute sve točke prvog dijela brajične kombinacije, drugi dio kombinacije upisuje se kako slijedi 4-1, 5-2, 6-3, 8-7 i A-9. brajična tipka "1" omogućava unos brajične kombinacije koja nema prvog dijela.
+
+DODATAK - Funkcije tipki usmjeravanja pokazivača
+
+Tipke Usmjeravanja pokazivača imaju mogućnost izvršavanja višestrukih radnji:
+
+- Lagani pritisak (prvi kontakt)
+- Snažni pritisak (drugi kontakt)
+- Dvostruki uzastopni lagani pritisak (dvostruki klik prvi kontakt)
+- Dvostruki uzastopni snažni pritisak (dvostruki klik drugi kontakt)
+- Klik na dvije susjedne usmjeravačke tipke pokazivača
+
+Svakoj od ovih radnji može se dodijeliti drugačija funkcija. Prema zadanim postavkama, dodijeljene su sljedeće funkcije:
+
+RADNJE: ZADANE FUNKCIJE
+Lagani pritisak na prvu tipku usmjeravanja pokazivača: Pomak unatrag na brajičnom zaslonu
+Lagani pritisak na bilo koju tipku usmjeravanja pokazivača osim prve: Pomak unaprijed na brajičnom zaslonu
+Snažni pritisak: Radnja na trenutnom položaju
+Dvostruki uzastopni lagani pritisak: Jednako kao dvostruki klik mišem. Na primjer, u tekstu odabire riječ.
+Dvostruki uzastopni snažni pritisak: Jednako kao dvostruki klik mišem. Na primjer, u tekstu odabire riječ.
+Klik na dvije susjedne tipke usmjeravanja pokazivača: Kontekstualni izbornik (za čitač zaslona)
+
+DODATAK - Bluetooth uparivanje
+
+Uparivanje Bluetooth uređaja s B.Note vrlo je jednostavno: Bluetooth uparivanje mora biti napravljeno samo jedanput jer B.Note sprema popis uparenih perifernih uređaja.
+
+Uparivanje s računalom
+
+- Pokrenite B.Note, a zatim u glavnom izborniku odaberite "bluetooth-aplikacije".
+- Aktivirajte Bluetooth na računalu s kojim ga želite upariti. Zatim pokrenite pretraživanje perifernih uređaja (Windows 10: Postavke, Uređaji, kartica Bluetooth i ostali uređaji, Dodavanje Bluetooth ili drugog uređaja,Bluetooth). B.Note prikazat će se pod nazivom "Esys-bnote-xxxxx".
+- Pokrenite uparivanje odobravanjem uređaja na računalu.
+- Serijski priključak je otvoren (COMn na računalu), ovaj priključak koristit će čitač zaslona.
+- Zatim, svoj B.Note možete postaviti na nevidljiv ukoliko to želite.
+
+B.Note prikazuje se kao Bluetooth uređaj koji se može koristiti kao Bluetooth zvučnik, nakon završenog uparivanja, jer se izlazni uređaj računala za reprodukciju premješta na utor slušalica B.Note uređaja.
+
+Ako ne želite koristiti utičnicu slušalica B.Note uređaja, morat ćete otvoriti postavke zvuka u sustavu Windows 10 da biste vratili izlazni zvučni uređaj.
+
+Uparivanje s Android tabletom ili pametnim telefonom
+
+- Pokrenite B.Note, a zatim u glavnom izborniku odaberite "bluetooth-aplikacije".
+- Aktivirajte Bluetooth na tablet računalu; da biste to učinili, idite na Postavke > Povezivanje uređaja i omogućite Bluetooth.
+- Na popisu dostupnih uređaja, morali biste vidjeti B.Note koji se pojavljuje pod nazivom "Esys-bnote-xxxxx". Zatim dodirnite gumb Upari uređaj.
+- "Esys-bnote-xxxxx" premješta se na popis uparenih uređaja.
+- Zatim, svoj B.Note možete postaviti na nevidljiv ukoliko to želite.
+
+Uparivanje s Apple tabletom ili iPhoneom
+
+- Pokrenite B.Note, a zatim u glavnom izborniku odaberite "bluetooth-aplikacije".
+- Na vašem Apple proizvodu dodirnite Postavke, / Pristupačnost / Voice Over / Brajica
+- Na popisu dostupnih uređaja, morali biste vidjeti B.Note koji se pojavljuje pod nazivom "Esys-bnote-xxxxx". Zatim dodirnite gumb Upari.
+- "Esys-bnote-xxxxx" premješta se na popis uparenih uređaja.
+- Zatim, svoj B.Note možete postaviti na nevidljiv ukoliko to želite.
+
+
+
+
+
+
+
+DODATAK - Prijenos datoteka putem Bluetootha
+
+Prijenos s računala na B.Note
+
+- Provjerite je li vaš B.Note postavljen na vidljiv u Bluetooth (izbornik Postavke > Bluetooth u B.Note Eksploreru za datoteke).
+- Na računalu otvorite Windows Eksplorer za datoteke.
+- Odaberite datoteku, otvorite kontekstni izbornik (klik desne tipke miša ili pritisnite aplikacijsku tipku), a zatim odaberite "Pošalji na > Bluetooth uređaj". Odabrati možete i grupu datoteka.
+- S popisa ponuđenih uređaja odaberite Esys-bnote, a potom kliknite Dalje.
+
+Nakon primitka, datoteka se nalazi u mapi "Bluetooth" na B.Note uređaju. Ova mapa namijenjena je samo primanju datoteka, stoga je primljene datoteke potrebno premjestiti u drugu mapu po vašem izboru da biste je mogli otvoriti u aplikaciji Editor.
+
+Preporuča se mapu "Moji dokumenti/Bluetooth" držati praznom jer ako u njoj postoji datoteka s istim nazivom, doći će do pogreške u prijenosu.
+
+Napomena: Slanje datoteke u Windowsima dostupno je također odabirom ikone Bluetooth na traci obavijesti (System tray). Nakon potvrde perifernog Bluetooth uređaja, treba odabrati datoteke za slanje.
+
+Prijenos s B.Note na računalo
+
+- Pokrenite Eksplorer za datoteke na B.Note uređaju.
+- Odaberite datoteku koju želite prenijeti. Također, odabrati možete i više datoteka za grupno slanje.
+- Odaberite funkciju "izbornik Datoteka > Pošalji na".
+- Potvrdite naziv računala koje treba primiti datoteku (s popisa dostupnih perifernih uređaja).
+- Dijaloški okvir pokazuje da na računalu morate uključiti način za primanje datoteka.
+Na računalu u traci obavijesti kliknite na ikonu Bluetooth, a zatim potvrdite "Primanje datoteke". Potom na B.Note uređaju kliknite na U redu da bi prijenos započeo.
+
+Kada je prijenos završen, na računalu se otvara dijaloški okvir "Spremi kao" koji vam omogućava odabir mape u koju želite spremiti primljenu datoteku.
+
+Napomena: Ako je odabrana mapa ili je odabrano više datoteka za grupno slanje, na računalo će biti poslana zip datoteka (.zip). Zip datoteka bit će imenovana po prvoj odabranoj datoteci.
+
+Prijenos s Android tableta (ili pametnog telefona) na B.Note
+
+- Provjerite je li vaš B.Note postavljen na vidljiv u Bluetooth (izbornik Postavke > Bluetooth u B.Note Eksploreru za datoteke).
+
+Bluetooth na tablet računalu (ili pametnom telefonu) mora biti aktiviran, a zatim ga uparite s brajičnim uređajem (klikom na periferni uređaj na popisu "Dostupni uređaji").
+
+Datoteka će biti poslana, kad odaberete datoteku, dodirnete Dijeli putem Bluetootha i s popisa odaberete vaš brajični uređaj.
+
+Prijenos s B.Note na Android tablet (ili pametni telefon)
+
+- Pokrenite Eksplorer za datoteke na B.Note uređaju.
+- Odaberite datoteku koju želite prenijeti. Također, odabrati možete i više datoteka za grupno slanje.
+- Odaberite funkciju "izbornik Datoteka > Pošalji na".
+- Potvrdite naziv tablet računala koje treba primiti datoteku (s popisa dostupnih perifernih uređaja).
+- Dijaloški okvir pokazuje da na računalu morate uključiti način za primanje datoteka. Kliknite U redu da biste ignorirali ovaj dijaloški okvir i pokrenuli prijenos.
+- na tabletu/pametnom telefonu otvara se obavijest o prijenosu datoteka, a vi morate prihvatiti prijenos.
+
+Kada se prijenos završi, datoteka će biti pohranjena u "Primljene datoteke".
+
+napomena: Ako je odabrana mapa ili je odabrano više datoteka za grupno slanje, bit će poslana zip datoteka (.zip). Zip datoteka bit će imenovana po prvoj odabranoj datoteci.
+
+DODATAK - Prečaci upravljačkih tipkovnica
+
+Funkcije lijeve upravljačke tipkovnice
+
+- Pritisnite tipku Strelica gore za povratak u izbornik Aplikacije B.Note uređaja
+- Pritisnite tipku Strelica dolje za ulaz ili izlaz iz izbornika Aplikacije B.Note uređaja
+- Pritisnite tipku Strelica desno za kretanje unaprijed po brajičnom zaslonu
+- Pritisnite tipku Strelica lijevo za kretanje unatrag po brajičnom zaslonu.
+
+U aplikaciji Editor,
+
+- Pritisnite istovremeno Strelicu gore i Strelicu desno da biste pokrenuli funkciju brajičnog zaslona "Premjesti naprijed" između opcija računalna brajica i standardna brajica.
+- Pritisnite istovremeno Strelicu dolje i Strelicu lijevo da biste pokazivač premjestili na početak dokumenta.
+- Pritisnite istovremeno Strelicu dolje i Strelicu desno da biste pokazivač premjestili na kraj dokumenta.
+
+Funkcije desne upravljačke tipkovnice
+
+Četiri tipke koriste se za simulaciju tipki sa strelicama.
+
+U aplikaciji Editor,
+
+- Tipke sa strelicama omogućuju pomicanje pokazivača.
+- Pritisnite istovremeno Strelicu gore i Strelicu lijevo da biste pokazivač pomaknuli na početak retka
+- Pritisnite istovremeno Strelicu gore i Strelicu desno da biste pokazivač pomaknuli na kraj retka
+- Pritisnite istovremeno Strelicu dolje i Strelicu lijevo da biste pojačali glasnoću govorne jedinice
+- Pritisnite istovremeno Strelicu dolje i Strelicu desno da biste smanjili glasnoću govorne jedinice.
+
+U Eksploreru za datoteke,
+
+- Tipka Strelica gore i Strelica dolje omogućavaju navigaciju po popisu dokumenata.
+- Pritisnite istovremeno Strelica gore i Strelica lijevo da biste odabrali prvu stavku u popisu dokumenata
+- Pritisnite istovremeno Strelica gore i Strelica desno da biste odabrali posljednju stavku u popisu dokumenata.
+
+U izbornicima,
+
+- Strelica lijevo i Strelica desno omogućavaju odabir prve ili posljednje stavke u izborniku.
+- Pritisnite istovremeno Strelicu gore i Strelicu lijevo da biste odabrali prvu stavku u izborniku
+- Pritisnite istovremeno Strelicu gore i Strelicu desno da biste odabrali posljednju stavku u izborniku.
+
+DODATAK - Prečaci brajične tipkovnice
+
+Općenito
+
+Ctrl+a [BRL 78A, 1] Odaberi sve
+Ctrl+c [BRL 78A, 14] Kopiraj
+Ctrl+x [BRL 78A, 1346] Izreži
+Ctrl+v [BRL 78A, 1236] Zalijepi
+Ctrl+Tab [BRL 78A, 256A] Prebacivanje s jedne aplikacije na drugu
+Ctrl+Shift_Tab [BRL 78A, 235A] Prebacivanje s jedne aplikacije na drugu u obrnutom redoslijedu
+
+
+Izbornik / Dijaloški okvir
+
+Početak (Home) [BRL 123A] Prvi element
+Kraj (End) [BRL 456A] Posljednji element
+Desno [BRL 5A] Sljedeći element
+Lijevo [BRL 2A] Prethodni element
+Tab [BRL 256A] Sljedeći element (s izlazom iz dijaloškog okvira)
+Shift+Tab [BRL 7A, 256A] Prethodni element (s izlazom iz dijaloškog okvira)
+
+Aplikacija Editor
+
+Funkcije:
+
+Ctrl+S [BRL 78A, 234] Spremi
+F2 [BRL 129] Idi na sljedeću knjižnu oznaku
+Shift+F2 [BRL 7A, 129] Idi na prethodnu knjižnu oznaku
+Ctrl+F2 [BRL 78A, 129] Umetni/izbriši knjižnu oznaku
+Ctrl+Shift+F2 [BRL 78A, 7A, 129] Izbriši sve knjižne oznake
+Ctrl+F4 [BRL 78A, 1459] Zatvori dokument s upitom za spremanje
+Ctrl+F [BRL 78A, 124] Traži
+Ctrl+H [BRL 78A, 125] Traži i zamijeni
+F3 [BRL 149] Traži sljedeće
+Shift+F3 [BRL 7A, 149] Traži prethodno
+F4 [BRL 149] Zamijeni i traži sljedeće
+Shift+F4 [BRL 7A, 149] Zamijeni i traži prethodno
+F5 [BRL 159] Zamijeni sve
+F8 [BRL 1259] Početak odabira
+Esc [BRL 1245A] Kraj odabira
+Ctrl+D [BRL 78A, 145] Čitanje dokumenta od trenutnog odlomka
+Ctrl+P [BRL 78A, 1234] Čitanje trenutnog odlomka
+Ctrl+R [BRL 78A, 1235] Izračunaj matematički izraz u odlomku
+Ctrl+M [BRL 78A, 134] Izračunaj matematički izraz u bloku redova
+Ctrl+Z [BRL 78A, 1356] Poništi
+Ctrl+Y [BRL 78A, 13456] Vrati
+
+Navigacija pokazivačem (sa Shift ili nakon F8: promjena odabira):
+
+Početak (Home) [BRL 123A] Početak retka
+Kraj (End) [BRL 456A] Kraj retka
+Desno [BRL 5A] Znak udesno
+Lijevo [BRL 2A] Znak ulijevo
+Gore [BRL 4A] Prethodni redak
+Dolje [BRL 6A] Sljedeći redak
+Stranica dolje [BRL 46A] Pomak pokazivača za 20 redaka prema kraju dokumenta
+Stranica gore [BRL 13A] Pomak pokazivača za 20 redaka prema početku dokumenta
+Ctrl+Početak [BRL 78A, 123A] Početak dokumenta
+Ctrl+Kraj [BRL 78A, 456A] Kraj dokumenta
+Ctrl+Desno [BRL 78A, 5A] Sljedeća riječ
+Ctrl+Lijevo [BRL 78A, 2A] Prethodna riječ
+Ctrl+Gore [BRL 78A, 4A] Prethodni odlomak
+Ctrl+Dolje [BRL 78A, 6A] Sljedeći odlomak
+Ctrl+Stranica dolje [BRL 78A, 46A] Pomak pokazivača za 50 redaka prema kraju dokumenta
+Ctrl+Stranica gore [BRL 78A, 13A] Pomak pokazivača za 50 redaka prema početku dokumenta
+
+Eksplorer za datoteke
+
+Ctrl+n [BRL 78A, 1345] Nova datoteka
+Ctrl+Shift+n [BRL 78A, 7A, 1345] Nova mapa
+F2 [BRL 129] Preimenovanje odabrane datoteke ili mape
+F3 [BRL 149] Traži sljedeće (za inkrementalno pretraživanje)
+F5 [BRL 159] Osvježi trenutnu mapu (vrlo korisno za Bluetooth mapu)
+F8 [BRL 1259] Početak odabira
+Escape [BRL 1245A] Kraj odabira
+Razmaknica [BRL 9] Promijeni odabir trenutne stavke
+Backspace [BRL 7] Prikaz sadržaja roditeljske mape
+Delete [BRL 36A] Briše odabranu datoteku ili mapu
+Početak (Home) [BRL 123A] Prva stavka u popisu datoteka
+Kraj (End) [BRL 456A] Posljednja stavka u popisu datoteka
+DODATAK - Hrvatska osmotočkasta (računalna) brajica
+
+Esysuite koristi isti skup brajičnih znakova kao i Hrvatska osmotočkasta (računalna) brajica, ANSI CP-1250 donešena od Hrvatskog odbora za brajicu.
+
+ANSI VRIJEDNOST - OPIS ZNAKA - BRAJIČNA KOMBINACIJA
+0000 - Znak podloge - 478
+0001 - Početak naslova - 178
+0002 - Početak teksta - 1278
+0003 - Kraj (završetak) teksta - 1478
+0004 - Završetak prijenosa - 14578
+0005 - Upit ili tko? - 1578
+0006 - Potvrda ili da - 12478
+0007 - Zvonce - 124578
+0008 - Povratnik (Backspace) - 12578
+0009 - Vodoravni tabulator - 2478
+0010 - Prijelaz u novi redak - 24578
+0011 - Okomiti tabulator - 1378
+0012 - Prijelaz na novu stranicu - 12378
+0013 - Vraćanje na početak retka - 13478
+0014 - Izbaciti - 134578
+0015 - Uvući - 13578
+0016 - Podatkovna petlja - 123478
+0017 - X-uključeno ili nastaviti upravljanje uređajem - 1234578
+0018 - Upravljanje uređajem 2 - 123578
+0019 - X-isključeno ili zaustaviti - 23478
+0020 - Upravljanje uređajem 4 - 234578
+0021 - Negativna potvrda - 13678
+0022 - Sinkronizacija - 123678
+0023 - Završetak tekstualnog bloka - 245678
+0024 - Ukloniti - 134678
+0024 - Završetak rada uređaja - 1345678
+0026 - Zamijeniti - 135678
+0027 - Odustani - 1235678
+0028 - Graničnik polja - 4578
+0029 - Graničnik skupine - 2345678
+0030 - Graničnik snimke - 5678
+0031 - Graničnik jedinice - 45678
+
+0032 - Razmak - "Razmaknica"
+0033 - ! Uskličnik - 5
+0034 - " Navodnik (dvostruka kosa crtica) - 2356
+0035 - # Znak za broj (ljestve) - 3456
+0036 - $ Znak za dolar - 2346
+0037 - % Znak za postotak - 46
+0037 - & Trgovačko "i" - 12346
+0039 - ' Apostrof (desna jednostruka kosa crtica) - 6
+0040 - ( Otvorena okrugla zagrada - 126
+0041 - ) Zatvorena okrugla zagrada - 345
+0042 - * Zvjezdica - 35
+0043 - + Plus - 235
+0044 - , Zarez - 2
+0045 - - Crtica, minus - 36
+0046 - . Točka - 3
+0047 - / Kosa crta, kroz - 256
+0048 - 0 Nula - 346
+0049 - 1 Jedan - 16
+0050 - 2 Dva - 34
+0051 - 3 Tri - 146
+0052 - 4 Četiri - 1456
+0053 - 5 Pet - 156
+0054 - 6 Šest - 1246
+0055 - 7 Sedam - 12456
+0056 - 8 Osam - 1256
+0057 - 9 Devet - 246
+0058 - : Dvotočka - 25
+0059 - ; Točka zarez - 23
+0060 - < Manji - 236
+0061 - = Jednako - 123456
+0062 - > Veći - 356
+0063 - ? Upitnik - 26
+
+0064 - @ Trgovačko "a", pri - 47
+0065 - A (veliko) - 17
+0066 - B (veliko) - 127
+0067 - C (veliko) - 147
+0068 - D (veliko) - 1457
+0069 - E (veliko) - 157
+0070 - F (veliko) - 1247
+0071 - G (veliko) - 12457
+0072 - H (veliko) - 1257
+0073 - I (veliko) - 247
+0074 - J (veliko) - 2457
+0075 - K (veliko) - 137
+0076 - L (veliko) - 1237
+0077 - M (veliko) - 1347
+0078 - N (veliko) - 13457
+0079 - O (veliko) - 1357
+0080 - P (veliko) - 12347
+0081 - Q (veliko) - 123457
+0082 - R (veliko) - 12357
+0083 - S (veliko) - 2347
+0084 - T (veliko) - 23457
+0085 - U (veliko) - 1367
+0086 - V (veliko) - 12367
+0087 - W (veliko) - 24567
+0088 - X (veliko) - 13467
+0089 - Y (veliko) - 134567
+0090 - Z (veliko) - 13567
+0091 - [ Otvorena uglata zagrada - 123567
+0092 - Obrnuto kroz, beksleš - 457
+0093 - ] Zatvorena uglata zagrada - 234567
+0094 - ^ Cirkumfleks, krović - 567
+0095 - _ Crta - 4567
+
+0096 - ` Gravis - 4
+0097 - a (malo) - 1
+0098 - b (malo) - 12
+0099 - c (malo) - 14
+0100 - d (malo) - 145
+0101 - e (malo) - 15
+0102 - f (malo) - 124
+0103 - g (malo) - 1245
+0104 - h (malo) - 125
+0105 - i (malo) - 24
+0106 - j (malo) - 245
+0107 - k (malo) - 13
+0108 - l (malo) - 123
+0109 - m (malo) - 134
+0110 - n (malo) - 1345
+0111 - o (malo) - 135
+0112 - p (malo) - 1234
+0113 - q (malo) - 12345
+0114 - r (malo) - 1235
+0115 - s (malo) - 234
+0116 - t (malo) - 2345
+0117 - u (malo) - 136
+0118 - v (malo) - 1236
+0119 - w (malo) - 2456
+0120 - x (malo) - 1346
+0121 - y (malo) - 13456
+0122 - z (malo) - 1356
+0123 - { otvorena vitičasta zagrada - 12356
+0124 - | Okomita crta - 45
+0125 - } Zatvorena vitičasta zagrada - 23456
+0126 - ~ Tilda - 56
+0127  - Brisanje - 45
+
+0128 - € Euro - 125678
+0129 - Grafika - 3478
+0130 - ‚ Donji navodnik (jednostruka devetka) - 235678
+0131 - f Grafika - 34568
+0132 - „ Donji navodnik (dvostruka devetka) - 23568
+0133 - … Znak za ispuštanje (trotočka) - 248
+
+0134 - † Križ - 367
+0135 - ‡ Dvostruki križ - 23578
+0136 - Grafika - 345678
+0137 - ‰ promil - 1348
+0138 - Š (veliko) - 1567
+0139 - ‹ Manji s točkom (početni navodnik) - 257
+0140 - Ś S akut (veliko) - 2348
+0141 - Ť T s kvačicom (veliko) - 123458
+0142 - Ž (veliko) - 23467
+0143 - Ź Z akut (veliko) - 13568
+0144 - Grafika - 7
+0145 - ‘ Otvoreni navodnik (jednostruka kosa crtica) - 1248
+0146 - ’ Zatvoreni navodnik (jednostruka kosa crtica) - 158
+0147 - “ Otvoreni navodnik (dvostruka kosa crtica) - 1258
+
+0148 - ” zatvoreni navodnik (dvostruka kosa crtica) - 2458
+0149 - • Krupna točka, (markacija) - 12345678
+0150 - – En crta (duga crta) - 148
+0151 - — Em crta (jako duga crta) - 3678
+0152 - Grafika - 1268
+0153 - ™ Proizvođač (znak) - 2368
+0154 - š (malo) - 1568
+0155 - › Veći s točkom (završni navodnik) - 258
+0156 - ś s akut (malo) - 357
+0157 - ť t s kvačicom (malo) - 23567
+0158 - ž (malo) - 23468
+0159 - ź z akut (malo) - 2678
+
+0160 - Zaštićeni razmak - 37
+0161 - ˇ Kvačica - 458
+0162 - ˘ Brevis - 467
+0163 - Ł L precrtano (veliko) - 12368
+0164 - ¤ Valuta - 4678
+0165 - Ą A ogonek (veliko) - 34578
+0166 - ¦ Prekinuta okomita crta - 468
+0167 - § Odlomak - 3578
+0168 - ¨ Prijeglas - 8
+0169 - © Autorsko pravo (Copyright) - 12458
+0170 - Ş S sedij (veliko) - 234568
+0171 - « Mnogo manji (španjolski navodnik otvoreni) - 378
+0172 - ¬ Ne - 2357
+0173 - ­ Privremena crtica - 34567
+0174 - ® Registracija (znak) - 1245678
+0175 - Ż Z s točkom iznad (veliko) - 12678
+0176 - ° Stupanj, kružić - 578
+0177 - ± Plus/minus - 1234678
+0178 - ˛ Ogonek - 58
+0179 - ł l precrtano (malo) - 2378
+0180 - ´ Akut - 48
+0181 - µ Mikro - 48
+0182 - ¶ Članak - 12348
+0183 - · Puta (točka) - 38
+0184 - ¸ Sedij - 568
+0185 - ą a ogonek (malo) - 57
+0186 - ş s sedij (malo) - 35678
+0187 - » Mnogo veći (španjolski navodnik (zatvoreni) - 678
+0188 - Ľ L s kvačicom - 4568
+0189 - ˝ Dvostruki akut - 68
+0190 - ľ l s kvačicom (malo) - 128
+0191 - ż z s točkom iznad - 1678
+
+0192 - Ŕ R akut (veliko) - 12358
+0193 - Á A akut (veliko) - 138
+0194 - Â A cirkumfleks (veliko) - 123568
+0195 - Ă A brevis (veliko) - 18
+0196 - Ä A prijeglas (veliko) - 3457
+0197 - Ĺ L akut (veliko) - 1238
+0198 - Ć (veliko) - 1467
+0199 - Ç C sedij (veliko) - 123467
+0200 - Č (veliko) - 167
+0201 - É E akut (veliko) - 1234567
+0202 - Ę E ogonek (veliko) - 15678
+0203 - Ë E prijeglas (veliko) - 12467
+0204 - Ě E s kvačicom (veliko) - 1267
+0205 - Í I akut (veliko) - 347
+0206 - Î I cirkumfleks (veliko) - 124567
+0207 - Ď D s kvačicom (veliko) - 1458
+0208 - Đ D precrtano (veliko) - 14567
+0209 - Ń N akut (veliko) - 13458
+0210 - Ň N s kvačicom (veliko) - 124678
+0211 - Ó O akut (veliko) - 1358
+0212 - Ô O cirkumfleks (veliko) - 145678
+0213 - Ő O s dvostrukim akutom (veliko) - 24678
+0214 - Ö O prijeglas (veliko) - 2467
+0215 - × Puta (križić) - 13468
+0216 - Ř R s kvačicom (veliko) - 24568
+0217 - Ů U s kružićem iznad (veliko) - 3467
+0218 - Ú U akut (veliko) - 1368
+0219 - Ű U dvostruki akut (veliko) - 34678
+0220 - Ü U prijeglas (veliko) - 12567
+0221 - Ý Y akut (veliko) - 134568
+0222 - Ţ T sedij (veliko) - 23458
+0223 - ß Njemačko "s" - 234678
+
+0224 - ŕ r akut (malo) - 2367
+0225 - á a akut (malo) - 27
+0226 - â a cirkumfleks (malo) - 23678
+0227 - ă a brevis (malo) - 28
+0228 - ä a prijeglas (malo) - 3458
+0229 - ĺ l akut (malo) - 237
+0230 - ć (malo) - 1468
+0231 - ç c sedij (malo) - 123468
+0232 - č (malo) - 168
+0233 - é e akut (malo) - 1234568
+0234 - é e ogonek (malo) - 268
+0235 - ë e prijeglas (malo) - 12468
+0236 - ě e s kvačicom (malo) - 238
+0237 - í i akut (malo) - 348
+0238 - î i cirkumfleks (malo) - 124568
+0239 - ď d s kvačicom (malo) - 368
+0240 - đ (malo) - 14568
+0241 - ń n akut (malo) - 2567
+0242 - ň n s kvačicom (malo) - 2358
+0243 - ó o akut (malo) - 267
+0244 - ô o cirkumfleks (malo) - 2568
+0245 - ő o dvostruki akut (malo) - 358
+0246 - ö o prijeglas (malo) - 2468
+0247 - ÷ Podijeljeno - 2578
+0248 - ř r s kvačicom (malo) - 3578
+0249 - ů u s kružićem iznad (malo) - 3468
+0250 - ú u akut (malo) - 278
+0251 - ű u dvostruki akut (malo) - 14678
+0252 - ü u prijeglas (malo) - 12568
+0253 - ý y acute (malo) - 2578
+0254 - ţ t sedij (malo) - 3567
+0255 - ˙ točka iznad - 67
+
+DODATAK - Funkcije 10 brajičnih točaka
+
+- Ove se kombinacije koriste za generiranje svih tipki računalne tipkovnice, osim slova i znakova. One se, također, nazivaju i Bramigrafi. Graf znači da se brajične točke koriste za generiranje bilo kakve akcije tipkovnice te najčešće imaju grafičku logiku koja se lako pamti.
+
+Primjeri:
+
+- Funkcija tipke Početak (Home), koja se koristi za odlazak na početak retka u polju uređivanja, ili na početak u popisu, može se aktivirati korištenjem kombinacije [BRL 123A], (točke 1 2 3 pritisnute istovremeno s tipkom Razmaknica). Sa simetričnom funkcijom, tipka Kraj (End), koja se koristi za odlazak na kraj retka u polju uređivanja, ili na kraj u popisu, može se aktivirati korištenjem kombinacije [BRL 456A], (točke 4 5 6 pritisnute istovremeno s tipkom Razmaknica).
+- Četiri tipke sa strelicama također se mogu generirati pomoću funkcije 10 brajičnih točaka. Iako se mogu koristiti tipke na desnoj upravljačkoj tipkovnici, ponekad ih je lakše generirati na ovaj način s uzastopnim prečacima. Možete primijetiti da četiri tipke sa strelicama uvijek koriste tipku A (Razmaknica), u kombinaciji s jednom od četiri točke brajevog slova "W" (B2456). Tipka Strelica gore koristi gornju točku "W", pa ćete pritisnuti [BRL 4A]; tipka Strelica dolje koristi lijevu točku "W", pa ćete pritisnuti [BRL 2A]; a za Strelicu desno pritisnut ćete [BRL 5A].
+- Funkcije tipki F1 do F12 bit će generirane ako koristite prvih 12 slova abecede u kombinaciji s brajičnom tipkom 9, na primjer, [BRL 19] za F1 sve do [BRL 1239] za F12.
+
+Detaljni popis:
+
+UREĐIVANJE:
+
+9 - Povratnik (Backspace)
+A - Razmaknica
+9A - Enter
+35A - Insert (koristi se kao prekidač => da biste simulirali pritisak i otpuštanje)
+36A - Brisanje (Delete)
+
+NAVIGACIJA:
+
+123A - Početak (Home)
+456A - Kraj (End)
+2A - Strelica lijevo
+5A - Strelica desno
+4A - Strelica gore
+6A - Strelica dolje
+13A - Stranica gore
+46A - Stranica dolje
+
+OSTALO:
+
+1245A - Escape
+256A - Tab
+235A - Shift_Tab
+1346A - Ispis zaslona (Print Screen)
+14A - Pauza / Prekid (Pause / Break)
+569 - Kontekstni izbornik
+
+Funkcijske tipke
+
+19 - F1
+129 - F2
+149 - F3
+1459 - F4
+159 - F5
+1249 - F6
+12459 - F7
+1259 - F8
+249 - F9
+2459 - F10
+139 - F11
+1239 - F12
+
+PREKIDAČI:
+
+12349 - Windows izbornik Start
+79 - Shift zaključan (Velika slova zaključana kod tipkovnice računala)
+89 - Shift odključan (Velika slova odključana kod tipkovnice računala)
+39 - Brojčana tipkovnica zaključana
+69 - Brojčana tipkovnica odključana
+7A - Shift
+78A - Ctrl
+178A - Ctrl zaključan
+478A - Ctrl odključan
+8A - Alt
+18A - Alt zaključan
+48A - Alt odključan
+
+Ostale kombinacije
+
+135A - Insert zaključan
+345A - Insert odključan
+
+DODATAK - Ažuriranje aplikacija
+
+1. Prenesite datoteku ".update" pomoću funkcije prijenosa datoteka putem Bluetootha (vidite DODATAK - Prijenos datoteka putem Bluetootha).
+2. U Eksploreru za datoteke u B.Note uređaju, na lijevoj upravljačkoj tipkovnici pritisnite Strelicu dolje da biste otvorili izbornik, zatim odaberite "Idi na", a potom "bluetooth" kako bi se prikazao sadržaj ove mape. Potvrdite datoteku .update koju trebate instalirati.
+3. Prikazat će se dijaloški okvir za potvrdu, ako potvrdite, ažuriranje će se instalirati, a uređaj ponovno pokrenuti.
+4. Nakon ponovnog pokretanja, datoteku.update možete izbrisati jer vam ona više ne treba.

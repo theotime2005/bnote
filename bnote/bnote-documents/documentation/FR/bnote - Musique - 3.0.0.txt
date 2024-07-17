@@ -1,0 +1,789 @@
+﻿Table des matières
+Introduction	1
+Ouverture d'un fichier :	1
+Les fichiers musicxml	1
+Les fichiers bxml :	3
+Création ou édition d'un fichier :	3
+Création d'un fichier :	3
+Édition d'un fichier :	3
+Recommandations pour l'édition d'un fichier :	3
+Les notes :	3
+Les barres de mesure :	4
+Les espaces dans une partition braille :	4
+Les éléments isolés sur une ligne :	4
+Annexe :	4
+Codes inventés pour la compatibilité avec le format musicxml :	4
+Signes reconnus :	5
+Notes silences et octaves :	5
+Clefs :	7
+Altérations et armatures :	8
+Groupes rythmiques :	9
+Accords :	9
+Liaisons et syncopes :	9
+Doigté :	10
+Barres de mesure et reprises :	10
+Nuances :	10
+Ornements :	10
+Musique de clavier :	11
+
+Introduction
+b.note permet désormais de gérer les partitions musicales du noir vers le braille et inversement.
+Nous utiliserons dans la mesure du possible la notation officielle du braille musical et nous l'adapterons en cas de besoin comme il sera précisé dans ce manuel.
+Il est possible d'ouvrir des partitions qui auront été préparées par des voyants à partir d'un éditeur de partition tel que musescore ou autre. On pourra également en trouver depuis internet.
+Chaque logiciel ayant son propre format de fichier, nous utiliserons le format de fichier musicxml, qui est le plus portable entre tous les éditeurs de partition existant. Si vous disposez d'un fichier provenant de musescore, dans son format propre qui est mscz en général, vous pourrez l'exporter depuis ce même logiciel en fichier musicxml. De même pour les autres éditeurs existant.
+Inversement, vous pourrez taper une partition en braille, l'écouter et la convertir en musicxml pour la partager avec des voyants.
+b.note utilisera deux types de fichiers :
+les fichiers musicxml qui permettent les échanges entre les aveugles et les voyants,
+les fichiers bxml qui est un format natif créé par eurobraille qui permettra de conserver des informations non comprises dans le format musicxml.
+Vous pourrez personnaliser les informations que vous voulez voir en braille lorsque vous ouvrez un fichier pour le lire, voir les indications de clefs ou non etc. Par contre, si vous voulez créer ou modifier une partition, il faudra faire afficher beaucoup plus d'informations pour que le logiciel puisse gérer correctement les difficultés liées par exemple aux valeurs de notes plus grandes ou plus petites. En effet, en braille un do ronde s'écrit comme un do double croche par exemple. Pour éviter toute erreur d'interprétation de la partition par le logiciel, pour l'instant, il sera obligatoire d'utiliser un mode de saisie en huit points qui sera expliqué plus loin.
+
+Ouverture d'un fichier :
+Comme tout autre fichier dans le b.note, les fichiers de musique s'ouvriront depuis l'explorateur ; il suffit de se rendre sur ce fichier et de faire entrée ou de faire un clic fort avec les curseurs routines sur son nom.
+Deux types de fichiers seront utilisables :
+Les fichiers musicxml
+Tout éditeur de partition pour les voyants est capable d'enregistrer des partitions au format musicxml. Ces fichiers contiennent de multiples informations telles que
+    • Le titre de la partition
+    • son sous-titre
+    • son compositeur
+    • son auteur
+    • le nombre de parties et leurs caractéristiques
+    • l'indication de mesure
+    • l'indication d'armure
+    • et bien sûr les différentes mesures et notes qui la composent etc…
+Toutes ces informations pourront être montrées en braille, pourtant, vous souhaiterez peut-être ne pas voir toutes les informations pour faciliter la découverte ou la lecture de la partition. Certains choix sont déjà effectués par défaut, pourtant, vous pourrez les adapter à votre guise, à l'aide de l'application préférences, dans le menu principal, à la rubrique musique.
+Pour les fichiers musicxml, vous pourrez modifier les choix suivants :
+    • Mode édition, depuis la version 2.6, il y a 4 modes possible :
+        ◦ Le mode lecture braille, dans lequel vous pourrez personnaliser entièrement l’affichage braille de la partition, mais il ne sera pas possible d’écouter ou de modifier le contenu.
+        ◦ Le mode écoute, dans lequel des choix de présentation braille seront imposés pour permettre une écoute audio correcte, mais il ne sera pas possible de modifier le contenu.
+        ◦ Le mode édition, dans lequel des choix de présentation braille seront imposés, afin de permettre la modification du fichier, sans risque de perte de donnée lors de l’enregistrement du fichier. L’écoute est possible.
+        ◦ Enfin le mode expert, permettra de paramétrer à sa guise la présentation braille, d’écouter et de modifier le contenu du fichier, mais des pertes d’informations volontaires ou non seront possible lors de l’enregistrement du fichier.
+    • Notes en braille, vous pourrez choisir de les voir en 6 points avec les groupements en cas de 4 double-croches par exemple, en 6 points sans les groupements ou encore en 8 points, voir plus loin.
+    • Intervalles, vous pourrez choisir de les voir en ascendant ou en descendant, pour l'instant, ce choix est valable pour toute la partition et non selon l'instrument ou la main droite ou gauche pour les instruments à clavier.
+    • Doigté, vous pourrez les afficher ou non selon l'étape de votre apprentissage de la partition
+    • Clef, elles n'ont pas tellement d'intérêt en braille, sinon de savoir celles qui sont utilisées pour les voyants
+    • Partie, chacune peut être représentée par son nom, son nom abrégé ou son identifiant tels qu'ils existent dans le fichier musicxml
+    • Barre de mesure b123, vous pourrez choisir de voir chaque barre de mesure uniquement par un espace, ou par l'espace suivi des points 123 puis de nouveau d'un espace, comme la musique braille le permet ; ce dernier mode est pour l'instant obligatoire pour éditer une partition afin que le logiciel interprète correctement les mesures.
+    • numéro de mesure, cela permet de se repérer dans le morceau par exemple pour reprendre à la mesure 9.
+    • Numéro de mesure tous les, permettra si l'on a choisi de voir les numéros de mesure, de ne les voir que tous les 8 mesures par exemple.
+    • Affichage, permettra de présenter le fichier en montrant les différentes parties l'une après l'autre, ou en tronçonnant le morceau en section, chaque section de partie étant présentée à chaque section.
+    • Section, une section est un tronçon de la partie correspondante à un instrument. Vous pourrez choisir de voir toute la partie d'un seul trait, par système telle que le voyant la voit ou en choisissant un nombre de mesure par section.
+    • Mesures par section, si dans le paramètre section, vous avez choisi de voir un nombre de mesures par section, vous pourrez ici choisir la valeur de ce nombre.
+    • Annotations, ce sont les indications présentes dans la partition indiquant des façons de jouer un passage.
+    • Texte hors musique, ce sont les indications de titre, sous-titre, compositeur et auteur parfois présents dans les partitions, elles seront au début de la partition braille.
+    • Paroles, vous pourrez choisir de les voir après chaque note afin de ne pas avoir de doute sur la correspondance entre la note et le texte associé, au début de la section ou à la fin de la section.
+Les fichiers bxml :
+Il s'agit d'un type de fichier propre à l'application musicale du b.note. Très proche dans sa structure des fichiers musicxml, ils permettront en plus de stocker des informations sur des fonctionnalités propres à notre application, ainsi que des indications propres au braille musical.
+L'existence des deux types de fichiers, musicxml et bxml, permettra également de régler différemment les paramètres de ce que l'on veut voir en braille pour chacun de ces formats.
+Dans l'application préférences à la rubrique musique, vous aurez lez mêmes réglages que pour les fichiers musixml détaillés au chapitre 1.1, complétés du paramètre suivant :
+Karaoke, cette fonction est déjà prévue mais ne fonctionne pas encore sur le b.note, elle permettra de faire lire à la synthèse vocale les phrases que vous devrez chanter, avant que vous ne deviez les chanter, afin de vous remémorer les paroles.
+
+Création ou édition d'un fichier :
+Création d'un fichier :
+Depuis l'explorateur du b.note, vous pourrez créer un nouveau fichier en allant dans le menu fichier, nouveau, musicxml ou bxml. Le format bxml sera préférable car il peut contenir des informations supplémentaires par rapport au format musicxml, surtout au fur et à mesure de l'évolution de l'application musicale. Il vous faudra ensuite suivre les recommandations du chapitre 2.3.
+Édition d'un fichier :
+Après avoir ouvert un fichier existant, vous pourrez le modifier. Il vous faudra ensuite suivre les recommandations du chapitre 2.3. Vous pourrez choisir le paramètre "mode édition" à oui, pour ne pas avoir à modifier d'autres paramètres.
+Recommandations pour l'édition d'un fichier :
+Dans l'état actuel du logiciel musical du b.note, il est impératif pour obtenir un résultat correct de suivre les conseils suivants :
+Les notes :
+En braille musical, l'écriture des notes est complexifiée par le fait que un code braille peut avoir plusieurs significations :
+    • Les rondes s'écrivent comme les double-croches
+    • Les blanches s'écrivent comme les triple-croches
+    • Les noires comme les quadruple-croches
+    • Les croches comme les quintuple-croches
+    • Les groupements de notes peuvent par exemple faire que si l'on a 4 double-croches dans le même temps, on puisse écrire la première en double-croche (donc comme une ronde) et les trois suivantes comme des croches.
+Le logiciel musical du b.note ne permet pas actuellement de gérer correctement tous ces cas, c'est pourquoi nous vous demanderons d'utiliser une notation en braille 8 points pour la saisie des notes.
+Les rondes, blanches, noires et croches s'écriront comme d'habitude, les double triple quadruple et quintuple croches s'écriront comme d'habitude, mais en leur ajoutant le point 7. Une fois le fichier enregistré, vous pourrez revoir la notation traditionnelle si vous n'avez plus à modifier la partition.
+Les barres de mesure :
+En braille musical, chaque mesure est le plus souvent séparée de la suivante par un espace, pourtant, on peut utilisé le symbole points 123 isolé pour marquer la barre de mesure. Pour que le logiciel interprète correctement chaque mesure, pour l'instant, il est obligatoire d'utiliser le symbole points 123 comme séparateur de mesure.
+En effet, l'espace ne représente pas uniquement la barre de mesure, mais peut également se trouver comme séparateur d'indication de mesure, d'armure etc… 
+Une fois le fichier enregistré, vous pourrez revoir la notation traditionnelle si vous n'avez plus à modifier la partition.
+Les espaces dans une partition braille :
+Afin d'être correctement reconnus, certains éléments doivent être écrits isolément, en début de ligne suivi d'un espace, ou entourés par un espace avant et après. C'est le cas pour :
+    • Les indications de mesure
+    • L'armure
+    • Les annotations dans une partition
+    • Les clefs
+    • Les indications de partie
+Les éléments isolés sur une ligne :
+Les titres, sous-titres, compositeurs, auteurs et simples textes d'en-tête de partition, sont habituellement écrits en braille papier en début de la partition, sans indication particulière indiquant la nature de l'élément. En musicxml, chaque type d'élément est spécifiquement décrit, de manière à être présenté correctement en noir. Il faudra préfixer ces indications de titre ou autre par le code adéquat, qui a été inventé pour le besoin, voir annexe.
+Annexe :
+Codes inventés pour la compatibilité avec le format musicxml :
+Signification
+Code braille
+Numéro de travail en début de partition, work number
+56,23,23,2456,1345,25
+Titre du travail en début de partition, work title
+56,23,23,2456,2345,25
+Texte en début de partition, credit words
+56,23,23,14,2456,25
+Titre en début de partition, credit title
+56,23,23,14,2345,25
+Sous-titre en début de partition, credit sub-title
+56,23,23,14,234,25
+Compositeur en début de partition, credit composer
+56,23,23,14,14,25
+Parolier, en début de partition, credit lyricist
+56,23,23,14,123,25
+Arrangeur en début de partition, credit arranger
+56,23,23,14,1,25
+Copyrights en début de partition, credit rights
+56,23,23,14,1235,25
+Nom de piste, en début de chacune
+56,23,23,1234
+Transposition chromatique
+56,23,3,2345,1235,36,partie,25,nombre de demi-tons
+Transposition diatonique
+56,23,3,2345,1235,145,24,36,partie,25,nombre de notes
+Transposition octave
+56,23,3,2345,1235,135,14,36,partie,25,nombre d'octaves
+Transposition doublage
+56,23,3,2345,1235,145,135,partie,25,rien ou yes ou no
+Midi programme
+56,23,3,134,1234,partie,25,nombre de 1 à 128
+Midi canal
+56,23,3,134,14,partie,25,canal de 1 à 16
+Midi volume
+56,23,3,134,1236,partie,25,volume de 0 à 127
+Intervalle descendant
+46,46,345
+Intervalle ascendant
+456,456,345
+Do maxima, valeur de 8 rondes, identique pour les autres notes ou silences
+13456,45,14,45,14,45,14,13456
+Do longue, identique pour les autres notes ou silences
+13456,45,14,45,14,13456
+Do double-croche, 16th, identique pour les autres notes ou silences
+134567
+Do triple-croche, 32nd, identique pour les autres notes ou silences
+13457
+Do quadruple-croche, 64th, identique pour les autres notes ou silences
+14567
+Do quintuple-croche, 128th, identique pour les autres notes ou silences
+1457
+Do sextuple-croche, 256th, identique pour les autres notes ou silences
+1345678
+Do 512th, identique pour les autres notes ou silences
+134578
+Do 1024th, identique pour les autres notes ou silences
+145678
+Signes reconnus :
+Notes silences et octaves :
+Signification
+Code braille
+Do croche
+145
+Ré croche
+15
+Mi croche
+124
+Fa croche
+1245
+Sol croche
+125
+La croche
+24
+Si croche
+245
+Demi soupir
+1346
+Do noire
+1456
+Ré noire
+156
+Mi noire
+1246
+Fa noire
+12456
+Sol noire
+1256
+La noire
+246
+Si noire
+2456
+Soupir
+1236
+Do blanche
+1345
+Ré blanche
+135
+Mi blanche
+1234
+Fa blanche
+12345
+Sol blanche
+1235
+La blanche
+234
+Si blanche
+2345
+Demi pause
+136
+Do ronde
+13456
+Ré ronde
+1356
+Mi ronde
+12346
+Fa ronde
+123456
+Sol ronde
+12356
+La ronde
+2346
+Si ronde
+23456
+Pause
+134
+Do quintuple croche
+1457
+Ré quintuple croche
+157
+Mi quintuple croche
+1247
+Fa quintuple croche
+12457
+Sol quintuple croche
+1257
+La quintuple croche
+247
+Si quintuple croche
+2457
+32me de soupir
+13467
+Do quadruple croche
+14567
+Ré quadruple croche
+1567
+Mi quadruple croche
+12467
+Fa quadruple croche
+124567
+Sol quadruple croche
+12567
+La quadruple croche
+2467
+Si quadruple croche
+24567
+16me de soupir
+12367
+Do triple croche
+13457
+Ré triple croche
+1357
+Mi triple croche
+12347
+Fa triple croche
+123457
+Sol triple croche
+12357
+La triple croche
+2347
+Si triple croche
+23457
+8me de soupir
+1367
+Do double croche
+134567
+Ré double croche
+13567
+Mi double croche
+123467
+Fa double croche
+1234567
+Sol double croche
+123567
+La double croche
+23467
+Si double croche
+234567
+Quart de soupir
+1347
+Do sextuple croche
+14578
+Ré sextuple croche
+1578
+Mi sextuple croche
+12478
+Fa sextuple croche
+124578
+Sol sextuple croche
+12578
+La sextuple croche
+2478
+Si sextuple croche
+24578
+128me de soupir
+134678
+Do brève
+13456,45,14,13456
+Ré brève
+1356,45,14,1356
+Mi brève
+12346,45,14,12346
+Fa brève
+123456,45,14,123456
+Sol brève
+12356,45,14,12356
+La brève
+2346,45,14,2346
+Si brève
+23456,45,14,23456
+2 pauses
+134,45,14,134
+Do longue
+13456,45,14,45,14,13456
+Ré longue
+1356,45,14,45,14,1356
+Mi longue
+12346,45,14,45,14,12346
+Fa longue
+123456,45,14,45,14,123456
+Sol longue
+12356,45,14,45,14,12356
+La longue
+2346,45,14,45,14,2346
+Si longue
+23456,45,14,45,14,23456
+4 pauses
+134,45,14,45,14,134
+Do maxima
+13456,45,14,45,14,45,14,13456
+Ré maxima
+1356,45,14,45,14,45,14,1356
+Mi maxima
+12346,45,14,45,14,45,14,12346
+Fa maxima
+123456,45,14,45,14,45,14,123456
+Sol maxima
+12356,45,14,45,14,45,14,12356
+La maxima
+2346,45,14,45,14,45,14,2346
+Si maxima
+23456,45,14,45,14,45,14,23456
+8 pauses
+134,45,14,45,14,45,14,134
+Octave 1
+4
+Octave 2
+45
+Octave 3
+456
+Octave 4
+5
+Octave 5
+46
+Octave 6
+56
+Octave 7
+6
+Octave 0
+4,4
+Octave 8
+6,6
+Clefs :
+Signification
+Code braille
+Clef de sol, soprano
+345,34,123
+Clef de sol dans la partie main gauche
+345,34,13
+Clef de fa, basse
+345,3456,123
+Clef de fa dans la partie main droite
+345,3456,13
+Clef de do, clef alto pour alto (instrument) ou clef haute pour basse
+345,346,123
+Clef de sol 1re ligne
+345,34,4,123
+Clef de sol 2me ligne
+345,34,45,123
+Clef de sol 3me ligne
+345,34,456,123
+Clef de sol 4me ligne
+345,34,5,123
+Clef de sol 5me ligne
+345,34,46,123
+Clef de fa 1re ligne
+345,3456,4,123
+Clef de fa 2me ligne
+345,3456,45,123
+Clef de fa 3me ligne
+345,3456,456,123
+Clef de fa 4me ligne
+345,3456,5,123
+Clef de fa 5me ligne
+345,3456,46,123
+Clef de sol main gauche 1re ligne
+345,34,4,13
+Clef de sol main gauche 2me ligne
+345,34,45,13
+Clef de sol main gauche 3me ligne
+345,34456,13
+Clef de sol main gauche 4me ligne
+345,34,5,13
+Clef de sol main gauche 5me ligne
+345,34,46,13
+Clef de fa main droite 1re ligne
+345,3456,4,13
+Clef de fa main droite 2me ligne
+345,3456,45,13
+Clef de fa main droite 3me ligne
+345,3456,456,13
+Clef de fa main droite 4me ligne
+345,3456,5,13
+Clef de fa main droite 5me ligne
+345,3456,46,13
+Clef de do 1re ligne
+345,346,4,123
+Clef de do 2me ligne
+345,346,45,123
+Clef de do 3me ligne
+345,346,456,123
+Clef de do 4me ligne
+345,346,5,123
+Clef de do 5me ligne
+345,346,46,123
+Pour obtenir toutes les clefs précédentes avec un octava au-dessus, signifiant qu'il faut jourer un octave au-dessus, on rajoutera 3456,125 après le code de la clef ; par exemple':
+Clef de sol avec petit 8 au-dessus 345,34,123,3456,125
+Pour obtenir toutes les clefs précédentes avec un octava au-dessous, signifiant qu'il faut jouer un octave au-dessous, on rajoutera 3456,236 après le code de la clef ; par exemple':
+Clef de sol avec petit 8 au-dessous 345,34,123,3456,236
+Altérations et armatures :
+Signification
+Code braille
+Dièse
+146
+Double dièse
+146,146
+Bémol
+126
+Double bémol
+126,126
+Bécarre
+16
+1/4 de ton au-dessus
+4,146
+1/4 de ton au-dessous
+4,126
+3/4 de ton au-dessus
+456,146
+3/4 de ton au-dessous
+456,126
+Armature de mesure C ou mesure "banale"
+46,14
+Armature de mesure C barré
+456,14
+Armature de mesure 4 4 ou autre
+3456,145,256
+Armature de clef 1 dièse
+146
+Armature de clef 2 dièses
+146,146
+Armature de clef 3 dièses
+146,146,146
+Armature de clef 4 dièses
+3456,145,146
+Armature de clef 5 dièses
+3456,15,146
+Armature de clef 6 dièses
+3456,124,146
+Armature de clef 7 dièses
+3456,1245,146
+Armature de clef 1 bémol
+126
+Armature de clef 2 bémols
+126,126
+Armature de clef 3 bémols
+126,126,126
+Armature de clef 4 bémols
+3456,145,126
+Armature de clef 5 bémols
+3456,15,126
+Armature de clef 6 bémols
+3456,124,126
+Armature de clef 7 bémols
+3456,1245,126
+Groupes rythmiques :
+Signification
+Code braille
+Triolet
+23
+Accords :
+Signification
+Code braille
+Seconde
+34
+Tierce
+346
+Quarte
+3456
+Quinte
+35
+Sixte
+356
+Septième
+25
+Octave
+36
+Copule de mesure complète
+126,345
+Liaisons et syncopes :
+Signification
+Code braille
+Liaison entre 2 notes ou accords
+14
+Début de liaison de phrasé sur plus de 4 notes ou accords
+14,14
+Fin de liaison de phrasé sur plus de 4 notes ou accords
+14
+Début de liaison de phrasé sur plus de 4 notes ou accords
+56,12
+Fin de liaison de phrasé sur plus de 4 notes ou accords
+45,23
+Syncope sur une seule note
+4,14
+Doigté :
+Signification
+Code braille
+Clavier 1er doigt
+1
+Clavier 2me doigt
+12
+Clavier 3me doigt
+123
+Clavier 4me doigt
+2
+Clavier 5me doigt
+13
+Barres de mesure et reprises :
+Signification
+Code braille
+Barre de mesure en braille pour usages spéciaux
+123
+Barre de mesure double à la fin du morceau
+126,13
+Barre de mesure double à la fin d'une mesure ou d'une section
+126,13,3
+Répétition en noir, double barre suivie de points, début de reprise
+126,2356
+Répétition en noir, double barre précédée de points, fin de reprise
+126,23
+répétition en noir, première fin (volta)
+3456,2
+répétition en noir, seconde fin (volta)
+3456,23
+répétition en noir, troisième fin (volta)
+3456,25
+répétition en noir, quatrième fin (volta)
+3456,256
+Nuances :
+Signification
+Code braille
+Staccato (point)
+236
+Staccatissimo (point en forme de poire)
+6,236
+Accent ("v" horizontal pointant vers la droite)
+46,236
+Respiration complète
+6,34
+Point d'orgue
+126,123
+Lignes divergentes (crescendo)
+345,14
+Fin de lignes divergentes
+345,25
+Lignes convergentes decrescendo
+345,145
+Fin de lignes convrgentes
+345,256
+Ornements :
+Signification
+Code braille
+Trille
+235
+Appogiature
+5,26
+Appogiature courte (autrefois note d'agrément)
+26
+Mordant supérieur
+5,235
+Mordant supérieur prolongé
+56,235
+Mordant inférieur
+5,235,123
+Mordant inférieur prolongé
+56,235,123
+Arpège montant
+345,13
+Arpège montant traversant 2 ou plusieurs portées
+5,345,13
+Arpège descendant
+345,13,13
+Arpège descendant travrsant 2 ouplusieurs portées
+5,345,13,13
+Musique de clavier :
+Signification
+Code braille
+Piano, partie de main droite
+46,345
+Piano, partie de main gauche
+456,345
+Piano, partie solo à accompagner
+5,345
+Piano, partie de main droite quand les intervalles se lisent enmontant
+46,345,345
+Piano, partie de main gauche quand les intervalles se lisent en descendant
+456,345,345
+Piano, pédale ou autre indication d'appui sur la pédale
+126,14
+Piano, étoile ou autre indication de levée de pédale
+16,14
+orgue, partie de pédales d'orgue
+45,345
+Programmes midi
+Le son des instruments que vous pourrez entendre lors de l'écoute d'un fichier, dépend de son programme midi. Ils sont définis par des numéros de 1 à 128 sur les synthétiseurs ou de 0 à 127 dans les programmes informatiques qui les gèrent. Nous utiliserons la numérotation de 1 à 128 pour être plus en accord avec les synthétiseurs.
+Voici la liste des instruments dans la norme general midi.
+Pianos
+1 Grand piano acoustique
+2 Piano acoustique
+3 Grand piano électrique
+4 Piano bastringue
+5 Rhodes
+6 Piano avec effet chorus
+7 Clavecin
+8 Clavinet
+Percussions chromatiques
+9 Célesta
+10 Glockenspiel
+11 Boîte à musique
+12 Vibraphone
+13 Marimba
+14 Xylophone
+15 Cloches tubulaires
+16 Dulcimer
+Orgues
+17 Orgue Hammond
+18 Orgue percussif
+19 Orgue rock
+20 Orgue d'église
+21 Harmonium
+22 Accordéon
+23 Harmonica
+24 Bandonéon
+Guitares
+25 Guitare classique
+26 Guitare folk
+27 Guitare électrique - Jazz
+28 Guitare électrique - son clair
+29 Guitare électrique - sourdine
+30 Guitare avec overdrive
+31 Guitare avec distorsion
+32 Harmoniques de guitare
+Basses
+33 Basse acoustique sans frettes
+34 Basse électrique jouée au doigt
+35 Basse électrique jouée au médiator
+36 Basse sans frettes
+37 Basse slapée 1
+38 Basse slapée 2
+39 Synthétiseur basse 1
+40 Synthétiseur basse 2
+Cordes, et instruments classiques
+41 Violon
+42 Violon alto
+43 2A Violoncelle
+44 Contrebasse
+45 Cordes en trémolo
+46 Cordes en pizzicato
+47 Harpe
+48 Timbales
+Ensembles
+49 Ensemble acoustique à Cordes 1
+50 Ensemble acoustique à Cordes 2
+51 Synthétiseur de cordes 1
+52 Synthétiseur de cordes 2
+53 Chœur - Aah
+54 Chœur - Ooh
+55 Voix synthétique
+56 Coup d'orchestre
+Cuivres
+57 Trompette
+58 Trombone
+59 Tuba
+60 Trompette en sourdine
+61 Cor d'harmonie
+62 Section de cuivres
+63 Synthétiseur de Cuivres 1
+64 Synthétiseur de Cuivres 2
+Bois (instruments à anches)
+65 Saxophone soprano
+66 Saxophone alto
+67 Saxophone ténor
+68 Saxophone baryton
+69 Hautbois
+70 Cor anglais
+71 Basson
+72 Clarinette
+Flûtes
+73 Piccolo
+74 Flûte
+75 Flûte à bec
+76 Flûte de Pan
+77 Bouteille soufflée
+78 Shakuhachi
+79 Sifflet
+80 Ocarina
+Synthé - Solo
+81 Signal carré (Lead 1 (square))
+82 Signal en dents de scie (Lead 2 (sawtooth))
+83 Orgue à vapeur (Lead 3 (calliope lead))
+84 Chiffer (Lead 4 (chiff lead))
+85 Charang (Lead 5 (charang))
+86 Voix solo (Lead 6 (voice))
+87 Signal en dents de scie en quinte (Lead 7 (fifths))
+88 Basse & Solo (Lead 8 (bass + lead))
+Synthé - Ensembles
+89 Fantaisie (Pad 1 (new age))
+90 Son chaleureux (Pad 2 (warm))
+91 Polysynthé (Pad 3 (polysynth))
+92 Chœur (Pad 4 (choir))
+93 Archet (Pad 5 (bowed))
+94 Son métallique (Pad 6 (metallic))
+95 Halo (Pad 7 (halo))
+96 Balai (Pad 8 (sweep))
+Synthé - Effets
+97 Pluie de glace
+98 Trames sonores
+99 Cristal
+100 Atmosphère
+101 Brillance
+102 Gobelins (Goblins)
+103 Échos
+104 Espace (Sci-Fi)
+Instruments ethniques
+105 Sitar
+106 Banjo
+107 Shamisen
+108 Koto
+109 Kalimba
+110 Cornemuse
+111 Viole
+112 Shehnai
+Percussions
+113 Clochettes
+114 Agogo
+115 Steel drum
+116 Wood-block
+117 Timbales
+118 Tom mélodique
+119 Tambour synthétique
+120 Cymbale inversée
+Bruitages
+121 Guitare - bruit de frette
+122 Respiration
+123 Rivage
+124 Gazouillis
+125 Sonnerie de téléphone
+126 Hélicoptère
+127 Applaudissements
+128 Coup de feu
