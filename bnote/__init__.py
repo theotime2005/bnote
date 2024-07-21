@@ -12,6 +12,9 @@
  Version in anothers forms are not tolerate !
  '''
 
+import os
 from bnote.tools.yaupdater import YAUpdater
 
 __version__ = YAUpdater.get_version_from_running_project("pyproject.toml")
+if 'PYCHARM_HOSTED' in os.environ or 'SSH_CLIENT' in os.environ or 'SSH_TTY' in os.environ:
+    __version__+=" Remote"
