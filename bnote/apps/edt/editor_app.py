@@ -179,7 +179,7 @@ class EditorApp(EditorBaseApp):
         self._current_dialog = ui.UiInfoDialogBox(message=messages[activity], action=self._exec_cancel_dialog)
 
     def _exec_send_to(self):
-        if not self.__dialog_is_reading_file():
+        if not self._EditorBaseApp__dialog_is_reading_file():
             if not len(BnoteApp.bluetooth_devices):
                 self._current_dialog = ui.UiInfoDialogBox(message=_("not device connected"), action=self._exec_cancel_dialog)
                 return
