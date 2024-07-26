@@ -137,7 +137,7 @@ class EditorApp(EditorBaseApp):
         return None, None
 
     def _exec_export_brf(self):
-        if not self.__dialog_is_reading_file():
+        if not self._dialog_is_reading_file():
             self._current_dialog = ui.UiDialogBox(
                 name=_("export to braille"),
                 item_list=[
@@ -179,7 +179,7 @@ class EditorApp(EditorBaseApp):
         self._current_dialog = ui.UiInfoDialogBox(message=messages[activity], action=self._exec_cancel_dialog)
 
     def _exec_send_to(self):
-        if not self.__dialog_is_reading_file():
+        if not self._dialog_is_reading_file():
             if not len(BnoteApp.bluetooth_devices):
                 self._current_dialog = ui.UiInfoDialogBox(message=_("not device connected"), action=self._exec_cancel_dialog)
                 return
