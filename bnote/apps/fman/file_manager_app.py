@@ -2124,6 +2124,20 @@ class FileManagerApp(BnoteApp):
             if focused_file.is_dir():
                 self.__init_new_current_folder_and_build_braille_line(focused_file)
             elif focused_file.is_file():
+                if str(focused_file).endswith(".whl.zip") and not str(self.__current_folder).startswith(str(FileManager.get_backup_path())) and not str(self.__current_folder).startswith(str(Trash.get_trash_path())):
+                    bnote_whl_file, version = YAUpdater.get_version(focused_file)
+                    if version != "":
+                        self._current_dialog = ui.UiMessageDialogBox(
+                            name=_("information"),
+                            message=_("do you want to install the version {} ?").format(version),
+                            buttons=[
+                                ui.UiButton(name=_("&yes"), action=self._exec_install_version_with_yaupdater,
+                                            action_param={"file": focused_file}),
+                                ui.UiButton(name=_("&no"), action=self._exec_cancel_dialog),
+                            ],
+                            action_cancelable=self._exec_cancel_dialog,
+                        )
+                        return
                 if str(self.__current_folder).startswith(str(FileManager.get_bluetooth_path())) or \
                         str(self.__current_folder).startswith(str(FileManager.get_backup_path())) or \
                         str(self.__current_folder).startswith(str(Trash.get_trash_path())):
@@ -2173,20 +2187,6 @@ class FileManagerApp(BnoteApp):
                 elif extension in Mp3App.known_extension():
                     RecentFile().add_file_to_list(focused_file.name, focused_file)
                     self.__activate_mp3_apps(**{'filename': focused_file})
-                elif str(focused_file).endswith(".whl.zip"):
-                    bnote_whl_file, version = YAUpdater.get_version(focused_file)
-                    if version != "":
-                        self._current_dialog = ui.UiMessageDialogBox(
-                            name=_("information"),
-                            message=_("do you want to install the version {} ?").format(version),
-                            buttons=[
-                                ui.UiButton(name=_("&yes"), action=self._exec_install_version_with_yaupdater,
-                                            action_param={"file": focused_file}),
-                                ui.UiButton(name=_("&no"), action=self._exec_cancel_dialog),
-                            ],
-                            action_cancelable=self._exec_cancel_dialog,
-                        )
-                        return
                 elif extension == ".zip":
                     self._current_dialog=ui.UiMessageDialogBox(
                         name=_("unzip"),
