@@ -1990,7 +1990,7 @@ class SettingsApp(BnoteApp):
         )
 
     def _exec_yes_install(self):
-        file = f"{UPDATE_FOLDER_URL}/{self.update.file_to_install}"
+        file = self.update.file_to_install
         self._current_dialog = ui.UiInfoDialogBox(_("downloading..."))
         YAUpdater(file, "/home/pi/all_bnotes/", self.refresh_install_message, self.yaupdater_ended)
 
