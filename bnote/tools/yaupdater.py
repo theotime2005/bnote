@@ -21,14 +21,29 @@ import pkg_resources
 
 
 from bnote.debug.colored_log import ColoredLogger, YAUPDATER_LOG
+from bnote.tools.settings import Settings
 
 log = ColoredLogger(__name__)
 log.setLevel(YAUPDATER_LOG)
 
 # UPDATE_FOLDER_URL = 'https://update.eurobraille.fr/radio/download/bnote/bnote3.x.x'
-UPDATE_FOLDER_URL = 'https://api.github.com/repos/theotime2005/bnote/releases'
+UPDATE_FOLDER_URL = Settings().data['update']['search_update_to']
 INSTALL_FOLDER = Path("/home/pi/all_bnotes")
 
+def test_new_source(source) -> bool:
+    """
+    Return True if the link is a valid source.
+    :param source: the link to test.
+    :return: Boolean
+    """
+    response = requests.get(source)
+    if response.status_code==200 and "bnote" in source:
+        return True
+    return False
+
+def change_update_source():
+    global UPDATE_FOLDER_URL
+    UPDATE_FOLDER_URL = Settings().data['update']['search_update_to']
 
 # Objectifs :
 # - Installer une version de bnote à partir d'un tar.gz créé par poetry
@@ -401,7 +416,7 @@ class YAUpdaterFinder:
             for release in releases:
                 # Get the link only for the update
                 for asset in release['assets']:
-                    if asset['content-type']=="application/zip":
+                    if asset['content_type']=="application/zip":
                         file_link = asset['browser_download_url']
                 if not file_link:
                     self.version_to_install="failed"
