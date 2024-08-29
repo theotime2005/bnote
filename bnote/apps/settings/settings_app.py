@@ -32,7 +32,8 @@ from bnote.tools.quick_search import QuickSearch
 from bnote.tools.settings import Settings, BLUETOOTH_BASE_NAME
 from bnote.tools.sync_date import SyncDate
 from bnote.tools.translate import Translate
-from bnote.tools.yaupdater import UPDATE_FOLDER_URL, YAUpdater, YAUpdaterFinder, YAVersionFinder
+from bnote.tools.yaupdater import UPDATE_FOLDER_URL, YAUpdater, YAUpdaterFinder, YAVersionFinder, test_new_source, \
+    change_update_source
 from bnote.tools.volume import Volume
 from bnote.tools.volume_speed_dialog_box import VolumeDialogBox, SpeedDialogBox
 from bnote.tools.io_util import Gpio
@@ -232,6 +233,7 @@ class SettingsApp(BnoteApp):
             ('stm32', 'standby_transport'): {'action': self.__dialog_set_stm32, 'action_param': {'section': 'stm32', 'key': 'standby_transport'}},
             ('stm32', 'standby_shutdown'): {'action': self.__dialog_set_stm32, 'action_param': {'section': 'stm32', 'key': 'standby_shutdown'}},
             ('update', 'auto_check'): {'action': self.__dialog_set_settings, 'action_param': {'section': 'update', 'key': 'auto_check'}},
+            ('update', 'search_update_to'): {'action': self._exec_change_update_source, 'action_param': {'section': 'update, source'}},
             ('version', 'application'): {'action': self.__dialog_application_version, 'action_param': {'section': 'version', 'key': 'application'}},
         }
 
@@ -441,8 +443,9 @@ class SettingsApp(BnoteApp):
                     name=_("u&pdate"),
                     menu_item_list=[
                         ui.UiMenuItem(name=_("check update"), action=self._exec_check_update),
-                        ui.UiMenuItem(name=_("&auto check"), **self.__action_and_action_param[('update', 'auto_check')])
+                        ui.UiMenuItem(name=_("&auto check"), **self.__action_and_action_param[('update', 'auto_check')]),
                         ui.UiMenuItem(name=_("&install an other version"), action=self._exec_get_update_history),
+                        ui.UiMenuItem(name=_("&search update to"), **self.__action_and_action_param[('update', 'search_update_to')]),
                     ]
                 ),
 
@@ -715,6 +718,7 @@ class SettingsApp(BnoteApp):
             self.__append_line_in_document(param_label=_("update available"), param_value=version_to_install)
         else:
             self.__append_line_in_document(param_label=_("your b.note is up to date"))
+        self.__append_line_in_document(param_label=_("update source"), param_value=Settings().data['update']['search_update_to'], dialog_box_name=_("update"), dialog_box_param_name=_("source"), section='update', key='search_update_to')
         # Versions
         self.__append_line_in_document()
         self.__append_line_in_document(param_label=_("versions"), is_tab_stop=True)
@@ -2043,6 +2047,7 @@ class SettingsApp(BnoteApp):
             return
         elif not self.update.files:
             self._current_dialog=UiInfoDialogBox(message=_("No version available through this source."), action=self._exec_cancel_dialog)
+            return
         update_list = []
         for version in self.update.files:
             update_list.append(version['version'])
@@ -2584,6 +2589,37 @@ class SettingsApp(BnoteApp):
 
     def _update_menu_items(self):
         pass
+
+    def _exec_change_update_source(self, **kwargs):
+        actual_source = Settings().data['update']['search_update_to']
+        self._current_dialog=ui.UiDialogBox(
+            name=_("update source"),
+            item_list=[
+                ui.UiEditBox(name=_("source &url"), value=("url", actual_source)),
+                ui.UiButton(name=_("&ok"), action=self._exec_valid_change_update_source),
+                ui.UiButton(name=_("&set default"), action=self._exec_set_default_source),
+                ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
+            ],
+            action_cancelable=self._exec_cancel_dialog
+        )
+
+    def _exec_set_default_source(self):
+        Settings().data['update']['search_update_to'] = Settings().DEFAULT_VALUES['update']['search_update_to']
+        Settings().save()
+        self._put_in_function_queue(FunctionId.FUNCTION_SETTINGS_CHANGE, **{'section': 'update', 'key': 'search_update_to'})
+        change_update_source()
+
+    def _exec_valid_change_update_source(self):
+        kwargs=self._current_dialog.get_values()
+        new_source = kwargs['url']
+        if test_new_source(new_source):
+            Settings().data['update']['search_update_to'] = new_source
+            Settings().save()
+            self._put_in_function_queue(FunctionId.FUNCTION_SETTINGS_CHANGE, **{'section': 'update', 'key': 'search_update_to'})
+            change_update_source()
+            return True
+        else:
+            self._current_dialog=UiInfoDialogBox(message=_("source not valid..."), action=self._exec_change_update_source)
 
     def __dialog_application_version(self, section, key, **kwargs):
         versions = YAVersionFinder.find_versions()

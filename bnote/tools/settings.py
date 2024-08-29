@@ -111,7 +111,7 @@ class Settings(metaclass=SingletonMeta):
                                                     'use_vocal': "auto",
                                                     'keep_spaces': False,
                                                     'write_all': True},
-                               'update': {'auto_check': False},
+                               'update': {'auto_check': False, 'search_update_to': 'https://api.github.com/repos/theotime2005/bnote/releases'},
                                'eole': {'user_name': '', 'token': ''},
                                'translator': {
                                    'base_language': "French",
@@ -203,7 +203,7 @@ class Settings(metaclass=SingletonMeta):
                                                   'use_vocal': ("auto", "ask", "no"),
                                                   'keep_spaces': (True, False),
                                                   'write_all': (True, False)},
-                             'update': {'auto_check': (True, False)},
+                             'update': {'auto_check': (True, False), 'search_update_to': 'https://api.github.com/repos/devel-erb/bnote/releases'},
                              'eole': {'user_name': '', 'token': ''},
                              'stm32': {'name': '',
                                        'len': range(0, 81),
