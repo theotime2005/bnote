@@ -13,12 +13,15 @@ import time
 from collections import OrderedDict
 from enum import Enum
 from pathlib import Path
+from stat import FILE_ATTRIBUTE_NORMAL
+
 import bnote.__init__ as version
 from bnote.apps.bnote_app import BnoteApp, FunctionId
 from bnote.apps.fman.file_manager import FileManager
 
 from datetime import datetime
 
+from bnote.apps.fman.file_manager_app import FileManagerApp
 from bnote.speech.speech import SpeechManager
 from bnote.stm32 import stm32_keys
 from bnote.stm32.braille_device_characteristics import braille_device_characteristics
@@ -34,6 +37,7 @@ from bnote.tools.volume import Volume
 from bnote.tools.volume_speed_dialog_box import VolumeDialogBox, SpeedDialogBox
 from bnote.tools.io_util import Gpio
 import bnote.ui as ui
+from bnote.ui import UiDialogBox, UiInfoDialogBox
 from bnote.wifi.wifi_nmcli_command import WifiNmcliCommand
 from bnote.wifi.wifi_tools import WifiTools
 from bnote.wifi.wifi_country import WifiCountry
@@ -110,6 +114,7 @@ class SettingsApp(BnoteApp):
         if not self.test:
             self.__update_document(update_computers_and_paired_device=True)
             # Check update if settings agree.
+            self.is_in_dialog = False
             if Settings().data['update']['auto_check']:
                 self._put_in_function_queue(FunctionId.FUNCTION_CHECK_UPDATE)
             # Sync date if setting agree.
@@ -226,7 +231,7 @@ class SettingsApp(BnoteApp):
             ('stm32', 'keyboard_double_strong_press'): {'action': self.__dialog_set_stm32, 'action_param': {'section': 'stm32', 'key': 'keyboard_double_strong_press'}},
             ('stm32', 'standby_transport'): {'action': self.__dialog_set_stm32, 'action_param': {'section': 'stm32', 'key': 'standby_transport'}},
             ('stm32', 'standby_shutdown'): {'action': self.__dialog_set_stm32, 'action_param': {'section': 'stm32', 'key': 'standby_shutdown'}},
-            # ('update', 'auto_check'): {'action': self.__dialog_set_settings, 'action_param': {'section': 'update', 'key': 'auto_check'}},
+            ('update', 'auto_check'): {'action': self.__dialog_set_settings, 'action_param': {'section': 'update', 'key': 'auto_check'}},
             ('version', 'application'): {'action': self.__dialog_application_version, 'action_param': {'section': 'version', 'key': 'application'}},
         }
 
@@ -436,9 +441,8 @@ class SettingsApp(BnoteApp):
                     name=_("u&pdate"),
                     menu_item_list=[
                         ui.UiMenuItem(name=_("check update"), action=self._exec_check_update),
-                        # FIXME auto_check affiche un message à chaque fois que l'on rentre dans les préférences pour dire "système à jour", il est trop bavard.
-                        # FIXME Il faudrait que ce soit fait dans internal pour que quelqu'un qui ne rentre pas dans les préférences soit prévenu.
-                        # ui.UiMenuItem(name=_("&auto check"), **self.__action_and_action_param[('update', 'auto_check')]),
+                        ui.UiMenuItem(name=_("&auto check"), **self.__action_and_action_param[('update', 'auto_check')])
+                        ui.UiMenuItem(name=_("&install an other version"), action=self._exec_get_update_history),
                     ]
                 ),
 
@@ -705,7 +709,7 @@ class SettingsApp(BnoteApp):
         self.__append_line_in_document()
         # Update
         self.__append_line_in_document(param_label=_("update"), is_tab_stop=True)
-        # self.__append_line_in_document(param_label=_("automatically check for updates"), param_value=self.__get_settings_value('update', 'auto_check'), dialog_box_name=_("update"), dialog_box_param_name=_("&auto checking"), section='update', key='auto_check')
+        self.__append_line_in_document(param_label=_("automatically check for updates"), param_value=self.__get_settings_value('update', 'auto_check'), dialog_box_name=_("update"), dialog_box_param_name=_("&auto checking"), section='update', key='auto_check')
         version_to_install = self.update.version_to_install
         if version_to_install and version_to_install != 'up_to_date' and version_to_install != 'failed':
             self.__append_line_in_document(param_label=_("update available"), param_value=version_to_install)
@@ -1951,11 +1955,12 @@ class SettingsApp(BnoteApp):
         self.__test_step()
 
     def _exec_check_update(self):
+        self.is_in_dialog = True
         self._current_dialog = ui.UiInfoDialogBox(
             message=_("searching update..."))
-        self.__check_update(True)
+        self.__check_update()
 
-    def __check_update(self, with_dlg):
+    def __check_update(self):
         self.update = YAUpdaterFinder(Settings().data['system']['developer'], self.end_thread_check_update)
 
     def end_thread_check_update(self):
@@ -1963,15 +1968,16 @@ class SettingsApp(BnoteApp):
 
     def _thread_check_update_ended(self, **kwargs):
         if self.update.version_to_install == 'up_to_date':
-            self._current_dialog = ui.UiInfoDialogBox(
-                message=_("your b.note is up to date"),
-                action=self._exec_cancel_dialog)
+            if self.is_in_dialog:
+                self._current_dialog = ui.UiInfoDialogBox(message=_("your b.note is up to date"), action=self._exec_cancel_dialog)
+            return
         elif self.update.version_to_install == 'failed':
-            self._current_dialog = ui.UiInfoDialogBox(
-                message=_("connexion failed, try again."),
-                action=self._exec_cancel_dialog)
+            if self.is_in_dialog:
+                self._current_dialog = ui.UiInfoDialogBox(message=_("connexion failed, try again."), action=self._exec_cancel_dialog)
+            return
         else:
             self._exec_ask_download()
+        self.is_in_dialog=False
 
     def _exec_ask_download(self):
         message=_("the version {} of applications is available. Do you want to install it?").format(self.update.version_to_install)
@@ -2024,6 +2030,40 @@ class SettingsApp(BnoteApp):
         # Change message and restart service to restart the new bnoteapp.
         self.refresh_install_message(_("install done, restart new version..."))
         self._put_in_function_queue(FunctionId.ASK_TERMINATE_BNOTE_AND_RESTART_SERVICE)
+
+    def _exec_get_update_history(self):
+        self._current_dialog = ui.UiInfoDialogBox(message=_("searching update..."))
+        self.update = YAUpdaterFinder(Settings().data['system']['developer'], self._end_get_update_history)
+
+    def _end_get_update_history(self):
+        if self.update.version_to_install == 'failed':
+            self._current_dialog = ui.UiInfoDialogBox(
+                message=_("connexion failed, try again."),
+                action=self._exec_cancel_dialog)
+            return
+        elif not self.update.files:
+            self._current_dialog=UiInfoDialogBox(message=_("No version available through this source."), action=self._exec_cancel_dialog)
+        update_list = []
+        for version in self.update.files:
+            update_list.append(version['version'])
+        self._current_dialog=UiDialogBox(
+            name=_("version history"),
+            item_list=[
+                ui.UiListBox(name=_("&select a version to install"), value=("version", update_list)),
+                ui.UiButton(name=_("&install"), action=self._exec_valid_select_version),
+                ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog)
+            ],
+            action_cancelable=self._exec_cancel_dialog
+        )
+
+    def _exec_valid_select_version(self):
+        kwargs=self._current_dialog.get_values()
+        for version in self.update.files:
+            if version['version']==kwargs['version']:
+                file = version['link']
+                break
+        self._current_dialog = ui.UiInfoDialogBox(_("downloading..."))
+        YAUpdater(file, "/home/pi/all_bnotes/", self.refresh_install_message, self.yaupdater_ended)
 
     def _exec_about_bnote(self):
         bnote_list=[
@@ -2399,7 +2439,7 @@ class SettingsApp(BnoteApp):
             self._end_scan_wifi(**kwargs)
             done = True
         elif function_id == FunctionId.FUNCTION_CHECK_UPDATE:
-            self.__check_update(False)
+            self.__check_update()
             done = True
         elif function_id == FunctionId.FUNCTION_CHECK_UPDATE_ENDED:
             self._thread_check_update_ended(**kwargs)
