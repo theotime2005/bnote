@@ -397,14 +397,24 @@ class YAUpdaterFinder:
             releases = response.json()
             current_version = YAUpdater.get_version_from_running_project("pyproject.toml")
 
+            file_link =None
             for release in releases:
+                # Get the link only for the update
+                for asset in release['assets']:
+                    if asset['content-type']=="application/zip":
+                        file_link = asset['browser_download_url']
+                if not file_link:
+                    self.version_to_install="failed"
+                    return
                 file_version = release['tag_name']
                 if file_version.startswith('v'):
                     file_version = file_version[1:]
-                if self.is_allowed_version(file_version) and not self.is_first_str_version_greater_or_equal(current_version, file_version):
-                    if file_to_install is None or not self.is_first_str_version_greater_or_equal(version_to_install, file_version):
-                        version_to_install = file_version
-                        file_to_install = release['assets'][0]['browser_download_url']
+                if self.is_allowed_version(file_version):
+                    files.append({'version': file_version, 'link': file_link})
+                    if not self.is_first_str_version_greater_or_equal(current_version, file_version):
+                        if file_to_install is None or not self.is_first_str_version_greater_or_equal(version_to_install, file_version):
+                            version_to_install = file_version
+                            file_to_install = file_link
         except requests.exceptions.RequestException as err:
             print(f"Request error: {err}")
             version_to_install = 'failed'
