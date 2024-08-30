@@ -87,7 +87,7 @@ class YAUpdater:
                     if bnote_whl_file:
                         log.error(f"{bnote_whl_file.stem=}")
                         # DP FIXME La version retournée est celle du nom de fichier, on pourrait aller chercher le fichier file.distinfo/METADATA ligne version=
-                        pattern_version = r'bnote-(?P<version>[0-9]\.[0-9]\.[0-9]?(a|b|rc)?\d+)-py3-none-any'
+                        pattern_version = r'bnote-(?P<version>[0-9]+\.[0-9]+\.[0-9]+(a|b|rc)?\d*)-py3-none-any'
                         match = re.match(pattern_version, str(bnote_whl_file.stem))
                         if match:
                             if 'version' in match.groupdict().keys() and match.group('version'):
