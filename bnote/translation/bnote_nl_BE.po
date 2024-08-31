@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-31 14:20+0200\n"
+"POT-Creation-Date: 2024-08-31 15:53+0200\n"
 "PO-Revision-Date: 2024-04-29 11:11+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -20,7 +20,7 @@ msgstr "lege lijst"
 
 #: ../ui/ui_message_dialog_box.py:53 ../ui/ui_message_dialog_box.py:63
 #: ../apps/music/music_app.py:1190 ../apps/settings/settings_app.py:1408
-#: ../apps/settings/settings_app.py:2665 ../apps/skeleton/skeleton_app.py:128
+#: ../apps/settings/settings_app.py:2668 ../apps/skeleton/skeleton_app.py:128
 #: ../apps/timer/timer_app.py:202 ../apps/braille_learning/operation_app.py:146
 #: ../apps/braille_learning/operation_app.py:196
 #: ../apps/braille_learning/write_word_app.py:245
@@ -44,7 +44,7 @@ msgstr "informatie"
 #: ../apps/settings/settings_app.py:1474 ../apps/settings/settings_app.py:1495
 #: ../apps/settings/settings_app.py:1546 ../apps/settings/settings_app.py:1657
 #: ../apps/settings/settings_app.py:1728 ../apps/settings/settings_app.py:1795
-#: ../apps/settings/settings_app.py:2599 ../apps/settings/settings_app.py:2668
+#: ../apps/settings/settings_app.py:2602 ../apps/settings/settings_app.py:2671
 #: ../apps/edt/editor_app.py:194 ../apps/edt/editor_app.py:211
 #: ../apps/edt/editor_base_app.py:758 ../apps/edt/editor_base_app.py:803
 #: ../apps/edt/editor_base_app.py:1265 ../apps/wikipedia/wikipedia_app.py:197
@@ -99,9 +99,9 @@ msgstr "&ok"
 #: ../apps/settings/settings_app.py:1496 ../apps/settings/settings_app.py:1547
 #: ../apps/settings/settings_app.py:1620 ../apps/settings/settings_app.py:1658
 #: ../apps/settings/settings_app.py:1729 ../apps/settings/settings_app.py:1796
-#: ../apps/settings/settings_app.py:2059 ../apps/settings/settings_app.py:2109
-#: ../apps/settings/settings_app.py:2601 ../apps/settings/settings_app.py:2636
-#: ../apps/settings/settings_app.py:2685 ../apps/settings/settings_app.py:2723
+#: ../apps/settings/settings_app.py:2059 ../apps/settings/settings_app.py:2112
+#: ../apps/settings/settings_app.py:2604 ../apps/settings/settings_app.py:2639
+#: ../apps/settings/settings_app.py:2688 ../apps/settings/settings_app.py:2726
 #: ../apps/edt/editor_app.py:151 ../apps/edt/editor_app.py:195
 #: ../apps/edt/editor_app.py:213 ../apps/edt/editor_base_app.py:694
 #: ../apps/edt/editor_base_app.py:804 ../apps/edt/editor_base_app.py:861
@@ -200,7 +200,7 @@ msgid "crash"
 msgstr "&crash"
 
 #: ../ui/ui_file_manager_tools.py:184 ../apps/settings/settings_app.py:292
-#: ../apps/settings/settings_app.py:581 ../apps/settings/settings_app.py:2683
+#: ../apps/settings/settings_app.py:581 ../apps/settings/settings_app.py:2686
 msgid "settings"
 msgstr "instellingen"
 
@@ -368,7 +368,7 @@ msgstr "muziek"
 msgid "&file"
 msgstr "&bestand"
 
-#: ../apps/music/music_app.py:98 ../apps/settings/settings_app.py:2096
+#: ../apps/music/music_app.py:98 ../apps/settings/settings_app.py:2099
 #: ../apps/edt/editor_app.py:55 ../apps/wikipedia/wikipedia_app.py:51
 #: ../apps/daisy/daisy_app.py:78 ../apps/eole/eole_search_dialog_box.py:57
 #: ../apps/eole/eole_search_dialog_box.py:74 ../apps/timer/timer_app.py:152
@@ -382,7 +382,7 @@ msgstr "&sluiten"
 msgid "&save"
 msgstr "&opslaan"
 
-#: ../apps/music/music_app.py:103 ../apps/settings/settings_app.py:2684
+#: ../apps/music/music_app.py:103 ../apps/settings/settings_app.py:2687
 #: ../apps/edt/editor_app.py:150 ../apps/agenda/agenda_app.py:605
 msgid "&export"
 msgstr "&exporteren"
@@ -835,8 +835,8 @@ msgstr "diminuendo"
 #: ../apps/music/music_app.py:1083 ../apps/music/music_app.py:1097
 #: ../apps/music/music_app.py:1113 ../apps/music/music_app.py:1132
 #: ../apps/music/music_app.py:1180 ../apps/music/music_app.py:1201
-#: ../apps/settings/settings_app.py:2104 ../apps/settings/settings_app.py:2697
-#: ../apps/settings/settings_app.py:2741 ../apps/edt/editor_app.py:208
+#: ../apps/settings/settings_app.py:2107 ../apps/settings/settings_app.py:2700
+#: ../apps/settings/settings_app.py:2744 ../apps/edt/editor_app.py:208
 #: ../apps/edt/editor_base_app.py:689 ../apps/timer/timer_app.py:131
 #: ../apps/braille_learning/operation_app.py:173
 #: ../apps/braille_learning/operation_app.py:184
@@ -872,8 +872,8 @@ msgstr ""
 #: ../apps/music/music_app.py:984 ../apps/music/music_app.py:995
 #: ../apps/music/music_app.py:1011 ../apps/music/music_app.py:1029
 #: ../apps/music/music_app.py:1193 ../apps/settings/settings_app.py:1992
-#: ../apps/settings/settings_app.py:2107 ../apps/settings/settings_app.py:2700
-#: ../apps/settings/settings_app.py:2744 ../apps/edt/editor_base_app.py:692
+#: ../apps/settings/settings_app.py:2110 ../apps/settings/settings_app.py:2703
+#: ../apps/settings/settings_app.py:2747 ../apps/edt/editor_base_app.py:692
 #: ../apps/timer/timer_app.py:134 ../apps/braille_learning/operation_app.py:176
 #: ../apps/braille_learning/operation_app.py:187
 #: ../apps/braille_learning/write_word_app.py:225
@@ -897,8 +897,8 @@ msgstr "&ja"
 #: ../apps/music/music_app.py:985 ../apps/music/music_app.py:996
 #: ../apps/music/music_app.py:1012 ../apps/music/music_app.py:1030
 #: ../apps/music/music_app.py:1194 ../apps/settings/settings_app.py:1993
-#: ../apps/settings/settings_app.py:2108 ../apps/settings/settings_app.py:2702
-#: ../apps/settings/settings_app.py:2745 ../apps/edt/editor_base_app.py:693
+#: ../apps/settings/settings_app.py:2111 ../apps/settings/settings_app.py:2705
+#: ../apps/settings/settings_app.py:2748 ../apps/edt/editor_base_app.py:693
 #: ../apps/timer/timer_app.py:136 ../apps/braille_learning/operation_app.py:177
 #: ../apps/braille_learning/operation_app.py:188
 #: ../apps/braille_learning/write_word_app.py:226
@@ -1661,7 +1661,7 @@ msgstr "versies"
 msgid "&search update to"
 msgstr "&update lijst via web"
 
-#: ../apps/settings/settings_app.py:452 ../apps/settings/settings_app.py:2092
+#: ../apps/settings/settings_app.py:452 ../apps/settings/settings_app.py:2095
 msgid "about"
 msgstr "over"
 
@@ -2351,7 +2351,7 @@ msgstr "update beschikbaar"
 msgid "your b.note is up to date"
 msgstr "je b.note is up to date"
 
-#: ../apps/settings/settings_app.py:721 ../apps/settings/settings_app.py:2596
+#: ../apps/settings/settings_app.py:721 ../apps/settings/settings_app.py:2599
 #, fuzzy
 msgid "update source"
 msgstr "update"
@@ -2377,7 +2377,7 @@ msgstr "applicaties"
 msgid "application versions"
 msgstr "applicaties"
 
-#: ../apps/settings/settings_app.py:738 ../apps/settings/settings_app.py:2630
+#: ../apps/settings/settings_app.py:738 ../apps/settings/settings_app.py:2633
 #, fuzzy
 msgid "version"
 msgstr "versies"
@@ -2751,8 +2751,8 @@ msgstr "seconden"
 
 #: ../apps/settings/settings_app.py:1744 ../apps/settings/settings_app.py:1758
 #: ../apps/settings/settings_app.py:1811 ../apps/settings/settings_app.py:1825
-#: ../apps/settings/settings_app.py:2179 ../apps/settings/settings_app.py:2259
-#: ../apps/settings/settings_app.py:2284
+#: ../apps/settings/settings_app.py:2182 ../apps/settings/settings_app.py:2262
+#: ../apps/settings/settings_app.py:2287
 msgid "value not valid..."
 msgstr "waarde niet geldig..."
 
@@ -2781,7 +2781,7 @@ msgstr "verbinding mislukt, probeer het opnieuw."
 msgid "the version {} of applications is available. Do you want to install it?"
 msgstr "de versie {} van toepassingen is beschikbaar. Wil je het downloaden?"
 
-#: ../apps/settings/settings_app.py:2000 ../apps/settings/settings_app.py:2070
+#: ../apps/settings/settings_app.py:2000 ../apps/settings/settings_app.py:2073
 msgid "downloading..."
 msgstr "downloaden..."
 
@@ -2790,7 +2790,7 @@ msgstr "downloaden..."
 msgid "unable to update."
 msgstr "kan de update niet installeren."
 
-#: ../apps/settings/settings_app.py:2035 ../apps/settings/settings_app.py:2675
+#: ../apps/settings/settings_app.py:2035 ../apps/settings/settings_app.py:2678
 msgid "install done, restart new version..."
 msgstr ""
 
@@ -2813,39 +2813,43 @@ msgstr "selecteer &wijziging van noot"
 msgid "&install"
 msgstr "&toevoegen"
 
-#: ../apps/settings/settings_app.py:2075
+#: ../apps/settings/settings_app.py:2067
+msgid "this version is already installed"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:2078
 msgid "device: {}"
 msgstr "toesteltype: {}"
 
-#: ../apps/settings/settings_app.py:2076
+#: ../apps/settings/settings_app.py:2079
 msgid "serial number: {}"
 msgstr "serienummer: {}"
 
-#: ../apps/settings/settings_app.py:2077
+#: ../apps/settings/settings_app.py:2080
 msgid "subtype: {}"
 msgstr "subtype: {}"
 
-#: ../apps/settings/settings_app.py:2078
+#: ../apps/settings/settings_app.py:2081
 msgid "line length: {}"
 msgstr "lijnlengte: {}"
 
-#: ../apps/settings/settings_app.py:2081
+#: ../apps/settings/settings_app.py:2084
 msgid "option: esysuite"
 msgstr "optie: esysuite"
 
-#: ../apps/settings/settings_app.py:2083
+#: ../apps/settings/settings_app.py:2086
 msgid "applications: {}"
 msgstr "applicaties: {}"
 
-#: ../apps/settings/settings_app.py:2084
+#: ../apps/settings/settings_app.py:2087
 msgid "firmware: {}"
 msgstr "firmware: {}"
 
-#: ../apps/settings/settings_app.py:2085
+#: ../apps/settings/settings_app.py:2088
 msgid "sdcard: {}"
 msgstr "sd-kaart: {}"
 
-#: ../apps/settings/settings_app.py:2087
+#: ../apps/settings/settings_app.py:2090
 msgid ""
 "{}\n"
 "{}\n"
@@ -2859,91 +2863,91 @@ msgstr ""
 "Email: {}\n"
 "Website: {}"
 
-#: ../apps/settings/settings_app.py:2105
+#: ../apps/settings/settings_app.py:2108
 msgid "do you want to reset parameters?"
 msgstr "wil je de parameters opnieuw instellen?"
 
-#: ../apps/settings/settings_app.py:2182
+#: ../apps/settings/settings_app.py:2185
 msgid "value not valid. It must be between {} and {}."
 msgstr "waarde niet geldig. Het moet tussen {} en {} zijn."
 
-#: ../apps/settings/settings_app.py:2598
+#: ../apps/settings/settings_app.py:2601
 msgid "source &url"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2600
+#: ../apps/settings/settings_app.py:2603
 #, fuzzy
 msgid "&set default"
 msgstr "standaard"
 
-#: ../apps/settings/settings_app.py:2622
+#: ../apps/settings/settings_app.py:2625
 #, fuzzy
 msgid "source not valid..."
 msgstr "waarde niet geldig..."
 
-#: ../apps/settings/settings_app.py:2628
+#: ../apps/settings/settings_app.py:2631
 #, fuzzy
 msgid "bnote versions"
 msgstr "versies"
 
-#: ../apps/settings/settings_app.py:2634
+#: ../apps/settings/settings_app.py:2637
 msgid "&switch to"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2635 ../apps/settings/settings_app.py:2722
+#: ../apps/settings/settings_app.py:2638 ../apps/settings/settings_app.py:2725
 #: ../apps/timer/timer_app.py:149 ../apps/agenda/agenda_app.py:72
 #: ../apps/games/mines_app.py:81 ../apps/games/master_mind_app.py:82
 #: ../apps/media/mp3_app.py:103 ../apps/media/mp3_app.py:572
 msgid "&delete"
 msgstr "&verwijderen"
 
-#: ../apps/settings/settings_app.py:2654
+#: ../apps/settings/settings_app.py:2657
 msgid "bnote version cannot be deleted."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2659
+#: ../apps/settings/settings_app.py:2662
 msgid "bnote version is the default one and cannot be deleted."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2661
+#: ../apps/settings/settings_app.py:2664
 #, fuzzy
 msgid "bnote version deleted."
 msgstr "&bnote zichtbaar"
 
-#: ../apps/settings/settings_app.py:2663
+#: ../apps/settings/settings_app.py:2666
 msgid "deletion failed."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2681
+#: ../apps/settings/settings_app.py:2684
 #, fuzzy
 msgid "export settings"
 msgstr "instellingen"
 
-#: ../apps/settings/settings_app.py:2683 ../apps/skeleton/skeleton_app.py:102
+#: ../apps/settings/settings_app.py:2686 ../apps/skeleton/skeleton_app.py:102
 #: ../apps/agenda/agenda_app.py:574 ../apps/fman/file_manager_app.py:833
 msgid "&file name"
 msgstr "&bestandsnaam"
 
-#: ../apps/settings/settings_app.py:2698
+#: ../apps/settings/settings_app.py:2701
 #, fuzzy
 msgid "the settings file already exists. Do you want to replace it?"
 msgstr "{} bestaat al. wil je het vervangen?"
 
-#: ../apps/settings/settings_app.py:2718
+#: ../apps/settings/settings_app.py:2721
 #, fuzzy
 msgid "import a settings file"
 msgstr "&importeer agendabestand"
 
-#: ../apps/settings/settings_app.py:2720
+#: ../apps/settings/settings_app.py:2723
 #, fuzzy
 msgid "setting"
 msgstr "instellingen"
 
-#: ../apps/settings/settings_app.py:2721 ../apps/agenda/agenda_app.py:540
+#: ../apps/settings/settings_app.py:2724 ../apps/agenda/agenda_app.py:540
 msgid "&import"
 msgstr "&importeren"
 
-#: ../apps/settings/settings_app.py:2742
+#: ../apps/settings/settings_app.py:2745
 #, fuzzy
 msgid ""
 "this file will be replace the existing settings file. Do you want to "
@@ -2952,7 +2956,7 @@ msgstr ""
 "het bestand word geïmporteerd in de map van mijn documenten, wil je "
 "verdergaan?"
 
-#: ../apps/settings/settings_app.py:2755 ../apps/fman/file_manager_app.py:2266
+#: ../apps/settings/settings_app.py:2758 ../apps/fman/file_manager_app.py:2266
 #, fuzzy
 msgid "failed to import the file, check the source and try again."
 msgstr ""

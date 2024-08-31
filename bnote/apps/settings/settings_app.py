@@ -2055,14 +2055,17 @@ class SettingsApp(BnoteApp):
             name=_("version history"),
             item_list=[
                 ui.UiListBox(name=_("&select a version to install"), value=("version", update_list)),
-                ui.UiButton(name=_("&install"), action=self._exec_valid_select_version),
+                ui.UiButton(name=_("&install"), action=self._exec_valid_install_other_version),
                 ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog)
             ],
             action_cancelable=self._exec_cancel_dialog
         )
 
-    def _exec_valid_select_version(self):
+    def _exec_valid_install_other_version(self):
         kwargs=self._current_dialog.get_values()
+        if kwargs['version']==YAUpdater.get_version_from_running_project("pyproject.toml"):
+            self._current_dialog=ui.UiInfoDialogBox(message=_("this version is already installed"), action=self._exec_cancel_dialog)
+            return
         for version in self.update.files:
             if version['version']==kwargs['version']:
                 file = version['link']
