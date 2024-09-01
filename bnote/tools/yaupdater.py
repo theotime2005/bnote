@@ -46,25 +46,6 @@ def change_update_source():
     global UPDATE_FOLDER_URL
     UPDATE_FOLDER_URL = Settings().data['update']['search_update_to']
 
-
-# Objectifs :
-# - Installer une version de bnote à partir d'un tar.gz créé par poetry
-# - Possibilité de télécharger le tar.gz ou d'utiliser un tar.gz déja sur bnote.
-# -
-
-# Génération du tar.gz sur une machine de dev :
-# pi@raspberrypi:~/bnote $ poetry build
-# Building bnote (3.0.0-beta.5)
-#   - Building sdist
-#   - Built bnote-3.0.0b5.tar.gz
-#   - Building wheel
-#   - Built bnote-3.0.0b5-py3-none-any.whl
-# pi@raspberrypi:~/bnote $ ls
-# bnote  dist  PKG-INFO  poetry.lock  pyproject.toml  README.md  tests
-# pi@raspberrypi:~/bnote $ ls dist
-# bnote-3.0.0b5-py3-none-any.whl  bnote-3.0.0b5.tar.gz
-# Remarque : Le nom du fichier tar.gz est créé sous la forme name-version.tar.gz (name et version issus du fichier pyproject.toml)
-
 class YAUpdater:
     __WHL_ZIP_EXTENSION = ".whl.zip"
     __WHL_EXTENSION = ".whl"

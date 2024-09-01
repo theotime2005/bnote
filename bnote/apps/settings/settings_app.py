@@ -38,7 +38,6 @@ from bnote.tools.volume import Volume
 from bnote.tools.volume_speed_dialog_box import VolumeDialogBox, SpeedDialogBox
 from bnote.tools.io_util import Gpio
 import bnote.ui as ui
-from bnote.ui import UiDialogBox, UiInfoDialogBox
 from bnote.wifi.wifi_nmcli_command import WifiNmcliCommand
 from bnote.wifi.wifi_tools import WifiTools
 from bnote.wifi.wifi_country import WifiCountry

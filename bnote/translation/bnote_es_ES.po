@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-01 16:51+0200\n"
+"POT-Creation-Date: 2024-09-02 16:42+0200\n"
 "PO-Revision-Date: 2023-11-20 09:39+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -27,15 +27,15 @@ msgid "empty list"
 msgstr ""
 
 #: ../ui/ui_message_dialog_box.py:52 ../ui/ui_message_dialog_box.py:62
-#: ../apps/music/music_app.py:1240 ../apps/settings/settings_app.py:1910
-#: ../apps/settings/settings_app.py:3200 ../apps/skeleton/skeleton_app.py:129
+#: ../apps/music/music_app.py:1240 ../apps/settings/settings_app.py:1909
+#: ../apps/settings/settings_app.py:3199 ../apps/skeleton/skeleton_app.py:129
 #: ../apps/timer/timer_app.py:205 ../apps/braille_learning/operation_app.py:148
 #: ../apps/braille_learning/operation_app.py:198
 #: ../apps/braille_learning/write_word_app.py:254
-#: ../apps/agenda/agenda_app.py:603 ../apps/agenda/agenda_app.py:695
-#: ../apps/agenda/agenda_app.py:722 ../apps/agenda/agenda_app.py:749
-#: ../apps/agenda/agenda_app.py:860 ../apps/agenda/agenda_app.py:868
-#: ../apps/agenda/agenda_app.py:930 ../apps/fman/file_manager_app.py:2140
+#: ../apps/agenda/agenda_app.py:598 ../apps/agenda/agenda_app.py:677
+#: ../apps/agenda/agenda_app.py:704 ../apps/agenda/agenda_app.py:731
+#: ../apps/agenda/agenda_app.py:842 ../apps/agenda/agenda_app.py:850
+#: ../apps/agenda/agenda_app.py:912 ../apps/fman/file_manager_app.py:2140
 #: ../apps/games/mines_app.py:139 ../apps/games/master_mind_app.py:140
 #: ../apps/media/mp3_app.py:622 ../apps/media/mp3_app.py:700
 #: ../apps/media/radio_app.py:168 ../apps/media/radio_app.py:372
@@ -48,11 +48,11 @@ msgstr ""
 #: ../apps/music/music_app.py:1129 ../apps/music/music_app.py:1143
 #: ../apps/music/music_app.py:1160 ../apps/music/music_app.py:1179
 #: ../apps/music/music_app.py:1231 ../apps/music/music_app.py:1255
-#: ../apps/settings/settings_app.py:1844 ../apps/settings/settings_app.py:1913
-#: ../apps/settings/settings_app.py:1976 ../apps/settings/settings_app.py:1997
-#: ../apps/settings/settings_app.py:2048 ../apps/settings/settings_app.py:2160
-#: ../apps/settings/settings_app.py:2232 ../apps/settings/settings_app.py:2299
-#: ../apps/settings/settings_app.py:3131 ../apps/settings/settings_app.py:3203
+#: ../apps/settings/settings_app.py:1843 ../apps/settings/settings_app.py:1912
+#: ../apps/settings/settings_app.py:1975 ../apps/settings/settings_app.py:1996
+#: ../apps/settings/settings_app.py:2047 ../apps/settings/settings_app.py:2159
+#: ../apps/settings/settings_app.py:2231 ../apps/settings/settings_app.py:2298
+#: ../apps/settings/settings_app.py:3130 ../apps/settings/settings_app.py:3202
 #: ../apps/edt/editor_app.py:199 ../apps/edt/editor_app.py:217
 #: ../apps/edt/editor_base_app.py:760 ../apps/edt/editor_base_app.py:805
 #: ../apps/edt/editor_base_app.py:1269 ../apps/wikipedia/wikipedia_app.py:197
@@ -68,26 +68,25 @@ msgstr ""
 #: ../apps/braille_learning/operation_app.py:232
 #: ../apps/braille_learning/write_word_app.py:218
 #: ../apps/braille_learning/write_word_app.py:258
-#: ../apps/agenda/agenda_app.py:400 ../apps/agenda/agenda_app.py:451
-#: ../apps/agenda/agenda_app.py:666 ../apps/agenda/agenda_app.py:685
-#: ../apps/agenda/agenda_app.py:698 ../apps/agenda/agenda_app.py:725
-#: ../apps/agenda/agenda_app.py:739 ../apps/agenda/agenda_app.py:752
-#: ../apps/agenda/agenda_app.py:790 ../apps/agenda/agenda_app.py:854
-#: ../apps/agenda/agenda_app.py:875 ../apps/agenda/agenda_app.py:903
-#: ../apps/fman/file_manager_app.py:622 ../apps/fman/file_manager_app.py:650
-#: ../apps/fman/file_manager_app.py:684 ../apps/fman/file_manager_app.py:706
-#: ../apps/fman/file_manager_app.py:797 ../apps/fman/file_manager_app.py:1000
-#: ../apps/fman/file_manager_app.py:1135 ../apps/fman/file_manager_app.py:1149
-#: ../apps/fman/file_manager_app.py:1323 ../apps/fman/file_manager_app.py:1341
-#: ../apps/fman/file_manager_app.py:1509 ../apps/fman/file_manager_app.py:2177
-#: ../apps/games/mines_app.py:142 ../apps/games/mines_app.py:163
-#: ../apps/games/mines_app.py:186 ../apps/games/mines_app.py:407
-#: ../apps/games/master_mind_app.py:143 ../apps/games/master_mind_app.py:168
-#: ../apps/games/master_mind_app.py:207 ../apps/games/master_mind_app.py:219
-#: ../apps/games/master_mind_app.py:380 ../apps/media/mp3_app.py:247
-#: ../apps/media/mp3_app.py:485 ../apps/media/mp3_app.py:625
-#: ../apps/media/mp3_app.py:703 ../apps/media/mp3_app.py:810
-#: ../apps/media/radio_app.py:375
+#: ../apps/agenda/agenda_app.py:395 ../apps/agenda/agenda_app.py:446
+#: ../apps/agenda/agenda_app.py:667 ../apps/agenda/agenda_app.py:680
+#: ../apps/agenda/agenda_app.py:707 ../apps/agenda/agenda_app.py:721
+#: ../apps/agenda/agenda_app.py:734 ../apps/agenda/agenda_app.py:772
+#: ../apps/agenda/agenda_app.py:836 ../apps/agenda/agenda_app.py:857
+#: ../apps/agenda/agenda_app.py:885 ../apps/fman/file_manager_app.py:622
+#: ../apps/fman/file_manager_app.py:650 ../apps/fman/file_manager_app.py:684
+#: ../apps/fman/file_manager_app.py:706 ../apps/fman/file_manager_app.py:797
+#: ../apps/fman/file_manager_app.py:1000 ../apps/fman/file_manager_app.py:1135
+#: ../apps/fman/file_manager_app.py:1149 ../apps/fman/file_manager_app.py:1323
+#: ../apps/fman/file_manager_app.py:1341 ../apps/fman/file_manager_app.py:1509
+#: ../apps/fman/file_manager_app.py:2177 ../apps/games/mines_app.py:142
+#: ../apps/games/mines_app.py:163 ../apps/games/mines_app.py:186
+#: ../apps/games/mines_app.py:407 ../apps/games/master_mind_app.py:143
+#: ../apps/games/master_mind_app.py:168 ../apps/games/master_mind_app.py:207
+#: ../apps/games/master_mind_app.py:219 ../apps/games/master_mind_app.py:380
+#: ../apps/media/mp3_app.py:247 ../apps/media/mp3_app.py:485
+#: ../apps/media/mp3_app.py:625 ../apps/media/mp3_app.py:703
+#: ../apps/media/mp3_app.py:810 ../apps/media/radio_app.py:375
 msgid "&ok"
 msgstr ""
 
@@ -103,13 +102,13 @@ msgstr ""
 #: ../apps/music/music_app.py:938 ../apps/music/music_app.py:977
 #: ../apps/music/music_app.py:1007 ../apps/music/music_app.py:1085
 #: ../apps/music/music_app.py:1111 ../apps/music/music_app.py:1197
-#: ../apps/music/music_app.py:1275 ../apps/settings/settings_app.py:1977
-#: ../apps/settings/settings_app.py:1998 ../apps/settings/settings_app.py:2049
-#: ../apps/settings/settings_app.py:2123 ../apps/settings/settings_app.py:2161
-#: ../apps/settings/settings_app.py:2233 ../apps/settings/settings_app.py:2300
-#: ../apps/settings/settings_app.py:2568 ../apps/settings/settings_app.py:2626
-#: ../apps/settings/settings_app.py:3133 ../apps/settings/settings_app.py:3171
-#: ../apps/settings/settings_app.py:3220 ../apps/settings/settings_app.py:3259
+#: ../apps/music/music_app.py:1275 ../apps/settings/settings_app.py:1976
+#: ../apps/settings/settings_app.py:1997 ../apps/settings/settings_app.py:2048
+#: ../apps/settings/settings_app.py:2122 ../apps/settings/settings_app.py:2160
+#: ../apps/settings/settings_app.py:2232 ../apps/settings/settings_app.py:2299
+#: ../apps/settings/settings_app.py:2567 ../apps/settings/settings_app.py:2625
+#: ../apps/settings/settings_app.py:3132 ../apps/settings/settings_app.py:3170
+#: ../apps/settings/settings_app.py:3219 ../apps/settings/settings_app.py:3258
 #: ../apps/edt/editor_app.py:151 ../apps/edt/editor_app.py:200
 #: ../apps/edt/editor_app.py:219 ../apps/edt/editor_base_app.py:695
 #: ../apps/edt/editor_base_app.py:806 ../apps/edt/editor_base_app.py:864
@@ -122,13 +121,13 @@ msgstr ""
 #: ../apps/translator/translator_app.py:197
 #: ../apps/braille_learning/operation_app.py:168
 #: ../apps/braille_learning/write_word_app.py:219
-#: ../apps/agenda/agenda_app.py:401 ../apps/agenda/agenda_app.py:452
-#: ../apps/agenda/agenda_app.py:507 ../apps/agenda/agenda_app.py:521
-#: ../apps/agenda/agenda_app.py:565 ../apps/agenda/agenda_app.py:592
-#: ../apps/agenda/agenda_app.py:610 ../apps/agenda/agenda_app.py:623
-#: ../apps/agenda/agenda_app.py:688 ../apps/agenda/agenda_app.py:701
-#: ../apps/agenda/agenda_app.py:742 ../apps/agenda/agenda_app.py:755
-#: ../apps/agenda/agenda_app.py:792 ../apps/agenda/agenda_app.py:905
+#: ../apps/agenda/agenda_app.py:396 ../apps/agenda/agenda_app.py:447
+#: ../apps/agenda/agenda_app.py:502 ../apps/agenda/agenda_app.py:516
+#: ../apps/agenda/agenda_app.py:560 ../apps/agenda/agenda_app.py:587
+#: ../apps/agenda/agenda_app.py:605 ../apps/agenda/agenda_app.py:618
+#: ../apps/agenda/agenda_app.py:670 ../apps/agenda/agenda_app.py:683
+#: ../apps/agenda/agenda_app.py:724 ../apps/agenda/agenda_app.py:737
+#: ../apps/agenda/agenda_app.py:774 ../apps/agenda/agenda_app.py:887
 #: ../apps/fman/file_manager_app.py:623 ../apps/fman/file_manager_app.py:651
 #: ../apps/fman/file_manager_app.py:685 ../apps/fman/file_manager_app.py:707
 #: ../apps/fman/file_manager_app.py:798 ../apps/fman/file_manager_app.py:838
@@ -147,17 +146,17 @@ msgstr ""
 msgid "&cancel"
 msgstr ""
 
-#: ../ui/ui_checkbox.py:20 ../apps/settings/settings_app.py:1926
-#: ../apps/settings/settings_app.py:1933
+#: ../ui/ui_checkbox.py:20 ../apps/settings/settings_app.py:1925
+#: ../apps/settings/settings_app.py:1932
 msgid "yes"
 msgstr ""
 
 #: ../ui/ui_checkbox.py:20 ../apps/music/music_app.py:1195
 #: ../apps/music/music_app.py:1219 ../apps/music/music_app.py:1225
 #: ../apps/music/music_app.py:1226 ../apps/music/music_app.py:1250
-#: ../apps/settings/settings_app.py:1623 ../apps/settings/settings_app.py:1634
-#: ../apps/settings/settings_app.py:1695 ../apps/settings/settings_app.py:1697
-#: ../apps/settings/settings_app.py:1928 ../apps/settings/settings_app.py:1935
+#: ../apps/settings/settings_app.py:1622 ../apps/settings/settings_app.py:1633
+#: ../apps/settings/settings_app.py:1694 ../apps/settings/settings_app.py:1696
+#: ../apps/settings/settings_app.py:1927 ../apps/settings/settings_app.py:1934
 #: ../apps/braille_learning/operation_app.py:382
 #: ../apps/braille_learning/write_word_app.py:404
 msgid "no"
@@ -183,9 +182,9 @@ msgstr ""
 msgid "trash"
 msgstr ""
 
-#: ../ui/ui_file_manager_tools.py:181 ../apps/settings/settings_app.py:765
-#: ../apps/settings/settings_app.py:770 ../apps/settings/settings_app.py:773
-#: ../apps/settings/settings_app.py:776 ../apps/fman/file_manager_app.py:419
+#: ../ui/ui_file_manager_tools.py:181 ../apps/settings/settings_app.py:764
+#: ../apps/settings/settings_app.py:769 ../apps/settings/settings_app.py:772
+#: ../apps/settings/settings_app.py:775 ../apps/fman/file_manager_app.py:419
 msgid "bluetooth"
 msgstr ""
 
@@ -205,8 +204,8 @@ msgstr ""
 msgid "crash"
 msgstr ""
 
-#: ../ui/ui_file_manager_tools.py:186 ../apps/settings/settings_app.py:436
-#: ../apps/settings/settings_app.py:849 ../apps/settings/settings_app.py:3218
+#: ../ui/ui_file_manager_tools.py:186 ../apps/settings/settings_app.py:435
+#: ../apps/settings/settings_app.py:848 ../apps/settings/settings_app.py:3217
 msgid "settings"
 msgstr ""
 
@@ -242,48 +241,48 @@ msgstr ""
 msgid "n"
 msgstr ""
 
-#: ../tools/yaupdater.py:123 ../apps/fman/file_manager_app.py:1074
+#: ../tools/yaupdater.py:104 ../apps/fman/file_manager_app.py:1074
 msgid "download in progress..."
 msgstr ""
 
-#: ../tools/yaupdater.py:161 ../tools/yaupdater.py:186
+#: ../tools/yaupdater.py:142 ../tools/yaupdater.py:167
 msgid "error: bad zip file {archive_path=}"
 msgstr ""
 
-#: ../tools/yaupdater.py:166 ../tools/yaupdater.py:191
+#: ../tools/yaupdater.py:147 ../tools/yaupdater.py:172
 msgid "no file libraries.txt found in {archive_path=}"
 msgstr ""
 
-#: ../tools/yaupdater.py:216
+#: ../tools/yaupdater.py:197
 msgid "error: no .whl file in update"
 msgstr ""
 
-#: ../tools/yaupdater.py:219
+#: ../tools/yaupdater.py:200
 msgid "install packages..."
 msgstr ""
 
-#: ../tools/yaupdater.py:230
+#: ../tools/yaupdater.py:211
 msgid "install dependencies done"
 msgstr ""
 
-#: ../tools/yaupdater.py:245
+#: ../tools/yaupdater.py:226
 msgid "extract archive in progress..."
 msgstr ""
 
-#: ../tools/yaupdater.py:332 ../tools/yaupdater.py:361
+#: ../tools/yaupdater.py:313 ../tools/yaupdater.py:342
 msgid "linux os update"
 msgstr ""
 
-#: ../tools/yaupdater.py:335 ../tools/yaupdater.py:380
+#: ../tools/yaupdater.py:316 ../tools/yaupdater.py:361
 msgid "linux os updates done"
 msgstr ""
 
-#: ../tools/yaupdater.py:351
+#: ../tools/yaupdater.py:332
 #, python-brace-format
 msgid "Error: {error_string}"
 msgstr ""
 
-#: ../tools/yaupdater.py:375
+#: ../tools/yaupdater.py:356
 #, python-brace-format
 msgid "error: {erreur}"
 msgstr ""
@@ -358,7 +357,7 @@ msgstr ""
 msgid "file {} type not supported."
 msgstr ""
 
-#: ../apps/music/music_app.py:92 ../apps/settings/settings_app.py:956
+#: ../apps/music/music_app.py:92 ../apps/settings/settings_app.py:955
 msgid "music"
 msgstr ""
 
@@ -371,11 +370,11 @@ msgstr ""
 msgid "&file"
 msgstr ""
 
-#: ../apps/music/music_app.py:99 ../apps/settings/settings_app.py:2613
+#: ../apps/music/music_app.py:99 ../apps/settings/settings_app.py:2612
 #: ../apps/edt/editor_app.py:54 ../apps/wikipedia/wikipedia_app.py:50
 #: ../apps/daisy/daisy_app.py:78 ../apps/eole/eole_search_dialog_box.py:58
 #: ../apps/eole/eole_search_dialog_box.py:75 ../apps/timer/timer_app.py:155
-#: ../apps/agenda/agenda_app.py:934 ../apps/agenda/agenda_app.py:970
+#: ../apps/agenda/agenda_app.py:916 ../apps/agenda/agenda_app.py:952
 #: ../apps/fman/file_manager_app.py:878
 msgid "&close"
 msgstr ""
@@ -385,16 +384,16 @@ msgstr ""
 msgid "&save"
 msgstr ""
 
-#: ../apps/music/music_app.py:104 ../apps/settings/settings_app.py:3219
-#: ../apps/edt/editor_app.py:150 ../apps/agenda/agenda_app.py:619
+#: ../apps/music/music_app.py:104 ../apps/settings/settings_app.py:3218
+#: ../apps/edt/editor_app.py:150 ../apps/agenda/agenda_app.py:614
 msgid "&export"
 msgstr ""
 
-#: ../apps/music/music_app.py:106 ../apps/settings/settings_app.py:360
+#: ../apps/music/music_app.py:106 ../apps/settings/settings_app.py:359
 msgid "&musicxml"
 msgstr ""
 
-#: ../apps/music/music_app.py:109 ../apps/settings/settings_app.py:395
+#: ../apps/music/music_app.py:109 ../apps/settings/settings_app.py:394
 msgid "&bxml"
 msgstr ""
 
@@ -426,9 +425,9 @@ msgstr ""
 msgid "&key signature"
 msgstr ""
 
-#: ../apps/music/music_app.py:122 ../apps/settings/settings_app.py:372
-#: ../apps/settings/settings_app.py:407 ../apps/settings/settings_app.py:979
-#: ../apps/settings/settings_app.py:1043
+#: ../apps/music/music_app.py:122 ../apps/settings/settings_app.py:371
+#: ../apps/settings/settings_app.py:406 ../apps/settings/settings_app.py:978
+#: ../apps/settings/settings_app.py:1042
 msgid "&clef"
 msgstr ""
 
@@ -460,22 +459,22 @@ msgstr ""
 msgid "pa&use"
 msgstr ""
 
-#: ../apps/music/music_app.py:142 ../apps/settings/settings_app.py:452
+#: ../apps/music/music_app.py:142 ../apps/settings/settings_app.py:451
 #: ../apps/edt/editor_base_app.py:227 ../apps/daisy/daisy_app.py:105
 #: ../apps/media/radio_app.py:82
 msgid "&volume"
 msgstr ""
 
-#: ../apps/music/music_app.py:143 ../apps/settings/settings_app.py:453
+#: ../apps/music/music_app.py:143 ../apps/settings/settings_app.py:452
 #: ../apps/edt/editor_base_app.py:228
 msgid "&speed"
 msgstr ""
 
-#: ../apps/music/music_app.py:145 ../apps/settings/settings_app.py:643
+#: ../apps/music/music_app.py:145 ../apps/settings/settings_app.py:642
 #: ../apps/edt/editor_app.py:86 ../apps/wikipedia/wikipedia_app.py:70
 #: ../apps/daisy/daisy_app.py:107 ../apps/braille_learning/operation_app.py:75
 #: ../apps/braille_learning/write_word_app.py:107
-#: ../apps/agenda/agenda_app.py:119 ../apps/fman/file_manager_app.py:378
+#: ../apps/agenda/agenda_app.py:114 ../apps/fman/file_manager_app.py:378
 #: ../apps/fman/file_manager_app.py:390 ../apps/fman/file_manager_app.py:400
 #: ../apps/fman/file_manager_app.py:412 ../apps/fman/file_manager_app.py:426
 #: ../apps/fman/file_manager_app.py:439 ../apps/fman/file_manager_app.py:449
@@ -511,8 +510,8 @@ msgstr ""
 msgid "&lyricist"
 msgstr ""
 
-#: ../apps/music/music_app.py:185 ../apps/settings/settings_app.py:1015
-#: ../apps/settings/settings_app.py:1080
+#: ../apps/music/music_app.py:185 ../apps/settings/settings_app.py:1014
+#: ../apps/settings/settings_app.py:1079
 msgid "&credit words"
 msgstr ""
 
@@ -521,13 +520,13 @@ msgid "&part"
 msgstr ""
 
 #: ../apps/music/music_app.py:191 ../apps/music/music_app.py:583
-#: ../apps/settings/settings_app.py:390 ../apps/settings/settings_app.py:427
-#: ../apps/settings/settings_app.py:1019 ../apps/settings/settings_app.py:1084
+#: ../apps/settings/settings_app.py:389 ../apps/settings/settings_app.py:426
+#: ../apps/settings/settings_app.py:1018 ../apps/settings/settings_app.py:1083
 msgid "&lyrics"
 msgstr ""
 
 #: ../apps/music/music_app.py:194 ../apps/music/music_app.py:610
-#: ../apps/settings/settings_app.py:429 ../apps/settings/settings_app.py:1088
+#: ../apps/settings/settings_app.py:428 ../apps/settings/settings_app.py:1087
 msgid "&karaoke"
 msgstr ""
 
@@ -535,9 +534,9 @@ msgstr ""
 msgid "&keyboard signs"
 msgstr ""
 
-#: ../apps/music/music_app.py:204 ../apps/settings/settings_app.py:370
-#: ../apps/settings/settings_app.py:405 ../apps/settings/settings_app.py:975
-#: ../apps/settings/settings_app.py:1039
+#: ../apps/music/music_app.py:204 ../apps/settings/settings_app.py:369
+#: ../apps/settings/settings_app.py:404 ../apps/settings/settings_app.py:974
+#: ../apps/settings/settings_app.py:1038
 msgid "&fingering"
 msgstr ""
 
@@ -838,20 +837,20 @@ msgstr ""
 #: ../apps/music/music_app.py:1126 ../apps/music/music_app.py:1140
 #: ../apps/music/music_app.py:1156 ../apps/music/music_app.py:1176
 #: ../apps/music/music_app.py:1228 ../apps/music/music_app.py:1252
-#: ../apps/settings/settings_app.py:2621 ../apps/settings/settings_app.py:3232
-#: ../apps/settings/settings_app.py:3277 ../apps/edt/editor_app.py:213
+#: ../apps/settings/settings_app.py:2620 ../apps/settings/settings_app.py:3231
+#: ../apps/settings/settings_app.py:3276 ../apps/edt/editor_app.py:213
 #: ../apps/edt/editor_base_app.py:690 ../apps/timer/timer_app.py:134
 #: ../apps/braille_learning/operation_app.py:175
 #: ../apps/braille_learning/operation_app.py:186
 #: ../apps/braille_learning/operation_app.py:229
 #: ../apps/braille_learning/write_word_app.py:231
 #: ../apps/braille_learning/write_word_app.py:242
-#: ../apps/agenda/agenda_app.py:200 ../apps/agenda/agenda_app.py:408
-#: ../apps/agenda/agenda_app.py:459 ../apps/agenda/agenda_app.py:470
-#: ../apps/agenda/agenda_app.py:650 ../apps/agenda/agenda_app.py:682
-#: ../apps/agenda/agenda_app.py:736 ../apps/agenda/agenda_app.py:787
-#: ../apps/agenda/agenda_app.py:845 ../apps/agenda/agenda_app.py:900
-#: ../apps/agenda/agenda_app.py:912 ../apps/agenda/agenda_app.py:966
+#: ../apps/agenda/agenda_app.py:195 ../apps/agenda/agenda_app.py:403
+#: ../apps/agenda/agenda_app.py:454 ../apps/agenda/agenda_app.py:465
+#: ../apps/agenda/agenda_app.py:645 ../apps/agenda/agenda_app.py:664
+#: ../apps/agenda/agenda_app.py:718 ../apps/agenda/agenda_app.py:769
+#: ../apps/agenda/agenda_app.py:827 ../apps/agenda/agenda_app.py:882
+#: ../apps/agenda/agenda_app.py:894 ../apps/agenda/agenda_app.py:948
 #: ../apps/fman/file_manager_app.py:2212 ../apps/games/mines_app.py:404
 #: ../apps/games/master_mind_app.py:204 ../apps/media/mp3_app.py:516
 msgid "warning"
@@ -871,16 +870,16 @@ msgstr ""
 #: ../apps/music/music_app.py:902 ../apps/music/music_app.py:918
 #: ../apps/music/music_app.py:1023 ../apps/music/music_app.py:1034
 #: ../apps/music/music_app.py:1050 ../apps/music/music_app.py:1069
-#: ../apps/music/music_app.py:1244 ../apps/settings/settings_app.py:2500
-#: ../apps/settings/settings_app.py:2624 ../apps/settings/settings_app.py:3235
-#: ../apps/settings/settings_app.py:3280 ../apps/edt/editor_base_app.py:693
+#: ../apps/music/music_app.py:1244 ../apps/settings/settings_app.py:2499
+#: ../apps/settings/settings_app.py:2623 ../apps/settings/settings_app.py:3234
+#: ../apps/settings/settings_app.py:3279 ../apps/edt/editor_base_app.py:693
 #: ../apps/timer/timer_app.py:137 ../apps/braille_learning/operation_app.py:178
 #: ../apps/braille_learning/operation_app.py:189
 #: ../apps/braille_learning/write_word_app.py:234
 #: ../apps/braille_learning/write_word_app.py:245
-#: ../apps/agenda/agenda_app.py:411 ../apps/agenda/agenda_app.py:462
-#: ../apps/agenda/agenda_app.py:473 ../apps/agenda/agenda_app.py:606
-#: ../apps/agenda/agenda_app.py:653 ../apps/fman/file_manager_app.py:722
+#: ../apps/agenda/agenda_app.py:406 ../apps/agenda/agenda_app.py:457
+#: ../apps/agenda/agenda_app.py:468 ../apps/agenda/agenda_app.py:601
+#: ../apps/agenda/agenda_app.py:648 ../apps/fman/file_manager_app.py:722
 #: ../apps/fman/file_manager_app.py:768 ../apps/fman/file_manager_app.py:1062
 #: ../apps/fman/file_manager_app.py:1397 ../apps/fman/file_manager_app.py:1586
 #: ../apps/fman/file_manager_app.py:1639 ../apps/fman/file_manager_app.py:1797
@@ -896,16 +895,16 @@ msgstr ""
 #: ../apps/music/music_app.py:903 ../apps/music/music_app.py:919
 #: ../apps/music/music_app.py:1024 ../apps/music/music_app.py:1035
 #: ../apps/music/music_app.py:1051 ../apps/music/music_app.py:1070
-#: ../apps/music/music_app.py:1245 ../apps/settings/settings_app.py:2501
-#: ../apps/settings/settings_app.py:2625 ../apps/settings/settings_app.py:3237
-#: ../apps/settings/settings_app.py:3281 ../apps/edt/editor_base_app.py:694
+#: ../apps/music/music_app.py:1245 ../apps/settings/settings_app.py:2500
+#: ../apps/settings/settings_app.py:2624 ../apps/settings/settings_app.py:3236
+#: ../apps/settings/settings_app.py:3280 ../apps/edt/editor_base_app.py:694
 #: ../apps/timer/timer_app.py:139 ../apps/braille_learning/operation_app.py:179
 #: ../apps/braille_learning/operation_app.py:190
 #: ../apps/braille_learning/write_word_app.py:235
 #: ../apps/braille_learning/write_word_app.py:246
-#: ../apps/agenda/agenda_app.py:412 ../apps/agenda/agenda_app.py:463
-#: ../apps/agenda/agenda_app.py:474 ../apps/agenda/agenda_app.py:608
-#: ../apps/agenda/agenda_app.py:654 ../apps/fman/file_manager_app.py:723
+#: ../apps/agenda/agenda_app.py:407 ../apps/agenda/agenda_app.py:458
+#: ../apps/agenda/agenda_app.py:469 ../apps/agenda/agenda_app.py:603
+#: ../apps/agenda/agenda_app.py:649 ../apps/fman/file_manager_app.py:723
 #: ../apps/fman/file_manager_app.py:769 ../apps/fman/file_manager_app.py:1065
 #: ../apps/fman/file_manager_app.py:1399 ../apps/fman/file_manager_app.py:1588
 #: ../apps/fman/file_manager_app.py:1641 ../apps/fman/file_manager_app.py:1799
@@ -1235,132 +1234,132 @@ msgstr ""
 msgid "group of 10 notes"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:95 ../apps/settings/settings_app.py:1290
-#: ../apps/settings/settings_app.py:1531 ../apps/settings/settings_app.py:1543
-#: ../apps/settings/settings_app.py:1582 ../apps/settings/settings_app.py:1596
+#: ../apps/settings/settings_app.py:94 ../apps/settings/settings_app.py:1289
+#: ../apps/settings/settings_app.py:1530 ../apps/settings/settings_app.py:1542
+#: ../apps/settings/settings_app.py:1581 ../apps/settings/settings_app.py:1595
 msgid "unknown"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:362 ../apps/settings/settings_app.py:397
-#: ../apps/settings/settings_app.py:959 ../apps/settings/settings_app.py:1023
+#: ../apps/settings/settings_app.py:361 ../apps/settings/settings_app.py:396
+#: ../apps/settings/settings_app.py:958 ../apps/settings/settings_app.py:1022
 msgid "&edit and play mode"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:364 ../apps/settings/settings_app.py:399
-#: ../apps/settings/settings_app.py:495 ../apps/settings/settings_app.py:963
-#: ../apps/settings/settings_app.py:1027
+#: ../apps/settings/settings_app.py:363 ../apps/settings/settings_app.py:398
+#: ../apps/settings/settings_app.py:494 ../apps/settings/settings_app.py:962
+#: ../apps/settings/settings_app.py:1026
 msgid "braille &type"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:366 ../apps/settings/settings_app.py:401
+#: ../apps/settings/settings_app.py:365 ../apps/settings/settings_app.py:400
 msgid "notes d&ots"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:368 ../apps/settings/settings_app.py:403
-#: ../apps/settings/settings_app.py:971 ../apps/settings/settings_app.py:1035
+#: ../apps/settings/settings_app.py:367 ../apps/settings/settings_app.py:402
+#: ../apps/settings/settings_app.py:970 ../apps/settings/settings_app.py:1034
 msgid "&ascending chords"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:373 ../apps/settings/settings_app.py:409
-#: ../apps/settings/settings_app.py:983 ../apps/settings/settings_app.py:1047
+#: ../apps/settings/settings_app.py:372 ../apps/settings/settings_app.py:408
+#: ../apps/settings/settings_app.py:982 ../apps/settings/settings_app.py:1046
 msgid "&parts"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:375 ../apps/settings/settings_app.py:411
-#: ../apps/settings/settings_app.py:987 ../apps/settings/settings_app.py:1051
+#: ../apps/settings/settings_app.py:374 ../apps/settings/settings_app.py:410
+#: ../apps/settings/settings_app.py:986 ../apps/settings/settings_app.py:1050
 msgid "&measure b123"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:377 ../apps/settings/settings_app.py:413
+#: ../apps/settings/settings_app.py:376 ../apps/settings/settings_app.py:412
 msgid "measure &number"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:379 ../apps/settings/settings_app.py:415
+#: ../apps/settings/settings_app.py:378 ../apps/settings/settings_app.py:414
 msgid "measure &every"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:381 ../apps/settings/settings_app.py:417
-#: ../apps/settings/settings_app.py:999 ../apps/settings/settings_app.py:1063
+#: ../apps/settings/settings_app.py:380 ../apps/settings/settings_app.py:416
+#: ../apps/settings/settings_app.py:998 ../apps/settings/settings_app.py:1062
 #: ../apps/games/mines_app.py:76 ../apps/games/master_mind_app.py:77
 msgid "&view"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:382 ../apps/settings/settings_app.py:419
-#: ../apps/settings/settings_app.py:1003 ../apps/settings/settings_app.py:1067
+#: ../apps/settings/settings_app.py:381 ../apps/settings/settings_app.py:418
+#: ../apps/settings/settings_app.py:1002 ../apps/settings/settings_app.py:1066
 msgid "&section"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:384 ../apps/settings/settings_app.py:421
+#: ../apps/settings/settings_app.py:383 ../apps/settings/settings_app.py:420
 msgid "measures per sec&tion"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:386 ../apps/settings/settings_app.py:423
-#: ../apps/settings/settings_app.py:1011 ../apps/settings/settings_app.py:1076
+#: ../apps/settings/settings_app.py:385 ../apps/settings/settings_app.py:422
+#: ../apps/settings/settings_app.py:1010 ../apps/settings/settings_app.py:1075
 msgid "&words"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:388 ../apps/settings/settings_app.py:425
+#: ../apps/settings/settings_app.py:387 ../apps/settings/settings_app.py:424
 msgid "cre&dit words"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:441
+#: ../apps/settings/settings_app.py:440
 msgid "&clock"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:443
+#: ../apps/settings/settings_app.py:442
 msgid "&time"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:444 ../apps/edt/editor_app.py:73
+#: ../apps/settings/settings_app.py:443 ../apps/edt/editor_app.py:73
 msgid "&date"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:445
+#: ../apps/settings/settings_app.py:444
 msgid "&auto sync"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:450 ../apps/edt/editor_base_app.py:221
+#: ../apps/settings/settings_app.py:449 ../apps/edt/editor_base_app.py:221
 msgid "&vocalize"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:454
+#: ../apps/settings/settings_app.py:453
 msgid "&language"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:455
+#: ../apps/settings/settings_app.py:454
 msgid "s&ynthesis"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:456
+#: ../apps/settings/settings_app.py:455
 msgid "voi&ce"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:460
+#: ../apps/settings/settings_app.py:459
 msgid "&usb"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:462
+#: ../apps/settings/settings_app.py:461
 msgid "usb-&a-hid keyboard"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:464
+#: ../apps/settings/settings_app.py:463
 msgid "usb-&b-hid keyboard"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:466 ../apps/settings/settings_app.py:478
-#: ../apps/settings/settings_app.py:795
+#: ../apps/settings/settings_app.py:465 ../apps/settings/settings_app.py:477
+#: ../apps/settings/settings_app.py:794
 msgid "simulation &esys"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:470 ../apps/fman/file_manager_app.py:230
+#: ../apps/settings/settings_app.py:469 ../apps/fman/file_manager_app.py:230
 msgid "&bluetooth"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:472 ../apps/settings/settings_app.py:484
+#: ../apps/settings/settings_app.py:471 ../apps/settings/settings_app.py:483
 msgid "&power"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:473 ../apps/fman/file_manager_app.py:621
+#: ../apps/settings/settings_app.py:472 ../apps/fman/file_manager_app.py:621
 #: ../apps/fman/file_manager_app.py:649 ../apps/fman/file_manager_app.py:705
 #: ../apps/fman/file_manager_app.py:796 ../apps/fman/file_manager_app.py:1322
 #: ../apps/fman/file_manager_app.py:1340 ../apps/games/mines_app.py:162
@@ -1368,1167 +1367,1176 @@ msgstr ""
 msgid "&name"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:474
+#: ../apps/settings/settings_app.py:473
 msgid "&visibility"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:476 ../apps/settings/settings_app.py:777
+#: ../apps/settings/settings_app.py:475 ../apps/settings/settings_app.py:776
 msgid "&paired devices"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:482
+#: ../apps/settings/settings_app.py:481
 msgid "&wifi"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:485 ../apps/settings/settings_app.py:807
+#: ../apps/settings/settings_app.py:484 ../apps/settings/settings_app.py:806
 msgid "&favorites"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:486
+#: ../apps/settings/settings_app.py:485
 msgid "countr&y"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:489
+#: ../apps/settings/settings_app.py:488
 msgid "user &interface"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:491
+#: ../apps/settings/settings_app.py:490
 msgid "&message language"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:493
+#: ../apps/settings/settings_app.py:492
 msgid "&braille language"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:497 ../apps/settings/settings_app.py:831
+#: ../apps/settings/settings_app.py:496 ../apps/settings/settings_app.py:830
 msgid "spaces in &label"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:499 ../apps/settings/settings_app.py:836
+#: ../apps/settings/settings_app.py:498 ../apps/settings/settings_app.py:835
 msgid "visible &shortcuts"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:501 ../apps/settings/settings_app.py:840
+#: ../apps/settings/settings_app.py:500 ../apps/settings/settings_app.py:839
 msgid "&developer mode"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:503
+#: ../apps/settings/settings_app.py:502
 msgid "&import settings"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:504
+#: ../apps/settings/settings_app.py:503
 msgid "&export settings"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:508
+#: ../apps/settings/settings_app.py:507
 msgid "main me&nu"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:510 ../apps/settings/settings_app.py:847
+#: ../apps/settings/settings_app.py:509 ../apps/settings/settings_app.py:846
 #: ../apps/internal.py:264
 msgid "&explorer"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:512 ../apps/settings/settings_app.py:851
+#: ../apps/settings/settings_app.py:511 ../apps/settings/settings_app.py:850
 #: ../apps/internal.py:265
 msgid "&settings"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:514 ../apps/settings/settings_app.py:576
-#: ../apps/settings/settings_app.py:855 ../apps/internal.py:266
+#: ../apps/settings/settings_app.py:513 ../apps/settings/settings_app.py:575
+#: ../apps/settings/settings_app.py:854 ../apps/internal.py:266
 msgid "a&genda"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:515 ../apps/settings/settings_app.py:859
+#: ../apps/settings/settings_app.py:514 ../apps/settings/settings_app.py:858
 #: ../apps/internal.py:267 ../apps/media/radio_app.py:64
 msgid "&radio"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:516 ../apps/settings/settings_app.py:863
+#: ../apps/settings/settings_app.py:515 ../apps/settings/settings_app.py:862
 msgid "&audio"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:517 ../apps/settings/settings_app.py:867
+#: ../apps/settings/settings_app.py:516 ../apps/settings/settings_app.py:866
 #: ../apps/internal.py:269
 msgid "wi&kipedia"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:519 ../apps/settings/settings_app.py:871
+#: ../apps/settings/settings_app.py:518 ../apps/settings/settings_app.py:870
 #: ../apps/internal.py:270
 msgid "&timer"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:520 ../apps/settings/settings_app.py:875
+#: ../apps/settings/settings_app.py:519 ../apps/settings/settings_app.py:874
 #: ../apps/internal.py:99 ../apps/internal.py:127 ../apps/internal.py:271
 msgid "trans&lator"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:522
+#: ../apps/settings/settings_app.py:521
 msgid "write &word"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:524 ../apps/settings/settings_app.py:883
+#: ../apps/settings/settings_app.py:523 ../apps/settings/settings_app.py:882
 msgid "&operation"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:526 ../apps/settings/settings_app.py:887
+#: ../apps/settings/settings_app.py:525 ../apps/settings/settings_app.py:886
 #: ../apps/internal.py:274
 msgid "&mines"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:527 ../apps/settings/settings_app.py:891
+#: ../apps/settings/settings_app.py:526 ../apps/settings/settings_app.py:890
 msgid "ma&stermind"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:532
+#: ../apps/settings/settings_app.py:531
 msgid "e&xplorer"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:534
+#: ../apps/settings/settings_app.py:533
 msgid "empty the &bluetooth folder once shutdown"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:536
+#: ../apps/settings/settings_app.py:535
 msgid "empty the &trash folder once shutdown"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:538
+#: ../apps/settings/settings_app.py:537
 msgid "&number of recent files"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:543
+#: ../apps/settings/settings_app.py:542
 msgid "&editor"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:545 ../apps/settings/settings_app.py:827
-#: ../apps/settings/settings_app.py:915 ../apps/edt/editor_app.py:144
+#: ../apps/settings/settings_app.py:544 ../apps/settings/settings_app.py:826
+#: ../apps/settings/settings_app.py:914 ../apps/edt/editor_app.py:144
 msgid "&braille type"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:547
+#: ../apps/settings/settings_app.py:546
 msgid "&line length"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:549 ../apps/settings/settings_app.py:923
+#: ../apps/settings/settings_app.py:548 ../apps/settings/settings_app.py:922
 msgid "&forward display"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:551 ../apps/settings/settings_app.py:927
+#: ../apps/settings/settings_app.py:550 ../apps/settings/settings_app.py:926
 msgid "&autoscroll display"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:553 ../apps/settings/settings_app.py:931
+#: ../apps/settings/settings_app.py:552 ../apps/settings/settings_app.py:930
 msgid "&cursor visible"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:555
+#: ../apps/settings/settings_app.py:554
 msgid "&dot78 visible"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:560
+#: ../apps/settings/settings_app.py:559
 msgid "mat&h"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:562 ../apps/settings/settings_app.py:941
+#: ../apps/settings/settings_app.py:561 ../apps/settings/settings_app.py:940
 msgid "&format"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:563 ../apps/settings/settings_app.py:945
+#: ../apps/settings/settings_app.py:562 ../apps/settings/settings_app.py:944
 msgid "&precision"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:564
+#: ../apps/settings/settings_app.py:563
 msgid "f&raction"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:565 ../apps/settings/settings_app.py:952
+#: ../apps/settings/settings_app.py:564 ../apps/settings/settings_app.py:951
 msgid "&angle"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:569
+#: ../apps/settings/settings_app.py:568
 msgid "&music"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:578
+#: ../apps/settings/settings_app.py:577
 msgid "default &presentation"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:580
+#: ../apps/settings/settings_app.py:579
 msgid "&report events not done"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:586 ../apps/settings/settings_app.py:1103
+#: ../apps/settings/settings_app.py:585 ../apps/settings/settings_app.py:1102
 msgid "write word and operation"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:588
+#: ../apps/settings/settings_app.py:587
 msgid "use the &vocalize"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:590
+#: ../apps/settings/settings_app.py:589
 msgid "&keep the spaces"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:592
+#: ../apps/settings/settings_app.py:591
 msgid "&allow all characters"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:598
+#: ../apps/settings/settings_app.py:597
 msgid "&keyboard"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:600
+#: ../apps/settings/settings_app.py:599
 msgid "&mode"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:601 ../apps/settings/settings_app.py:1123
+#: ../apps/settings/settings_app.py:600 ../apps/settings/settings_app.py:1122
 msgid "b78"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:602
+#: ../apps/settings/settings_app.py:601
 msgid "&invertion"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:604
+#: ../apps/settings/settings_app.py:603
 msgid "&light press"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:606
+#: ../apps/settings/settings_app.py:605
 msgid "&strong press"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:608
+#: ../apps/settings/settings_app.py:607
 msgid "&consecutive press"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:610
+#: ../apps/settings/settings_app.py:609
 msgid "&double light press"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:612
+#: ../apps/settings/settings_app.py:611
 msgid "double st&rong press"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:617
+#: ../apps/settings/settings_app.py:616
 msgid "&standby"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:619
+#: ../apps/settings/settings_app.py:618
 msgid "&transport"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:621
+#: ../apps/settings/settings_app.py:620
 msgid "&shutdown"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:626
+#: ../apps/settings/settings_app.py:625
 msgid "u&pdate"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:628
+#: ../apps/settings/settings_app.py:627
 msgid "check update"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:629
+#: ../apps/settings/settings_app.py:628
 msgid "&auto check"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:631
+#: ../apps/settings/settings_app.py:630
 msgid "&install an other version"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:632
+#: ../apps/settings/settings_app.py:631
 msgid "&search update to"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:634
+#: ../apps/settings/settings_app.py:633
 msgid "&delete file after installed"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:639 ../apps/settings/settings_app.py:2609
+#: ../apps/settings/settings_app.py:638 ../apps/settings/settings_app.py:2608
 msgid "about"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:641
+#: ../apps/settings/settings_app.py:640
 msgid "&test"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:642
+#: ../apps/settings/settings_app.py:641
 msgid "&reset"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:668 ../apps/settings/settings_app.py:709
-#: ../apps/settings/settings_app.py:710
+#: ../apps/settings/settings_app.py:667 ../apps/settings/settings_app.py:708
+#: ../apps/settings/settings_app.py:709
 msgid "time"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:670 ../apps/settings/settings_app.py:712
-#: ../apps/settings/settings_app.py:713 ../apps/media/mp3_app.py:804
+#: ../apps/settings/settings_app.py:669 ../apps/settings/settings_app.py:711
+#: ../apps/settings/settings_app.py:712 ../apps/media/mp3_app.py:804
 msgid "date"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:672 ../apps/settings/settings_app.py:721
+#: ../apps/settings/settings_app.py:671 ../apps/settings/settings_app.py:720
 msgid "battery"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:674 ../apps/settings/settings_app.py:726
-#: ../apps/settings/settings_app.py:727 ../apps/edt/editor_base_app.py:1006
+#: ../apps/settings/settings_app.py:673 ../apps/settings/settings_app.py:725
+#: ../apps/settings/settings_app.py:726 ../apps/edt/editor_base_app.py:1006
 #: ../apps/media/mp3_app.py:146 ../apps/media/mp3_app.py:859
 #: ../apps/media/radio_app.py:394
 msgid "volume"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:676 ../apps/settings/settings_app.py:732
-#: ../apps/settings/settings_app.py:733 ../apps/settings/settings_app.py:817
-#: ../apps/settings/settings_app.py:822
+#: ../apps/settings/settings_app.py:675 ../apps/settings/settings_app.py:731
+#: ../apps/settings/settings_app.py:732 ../apps/settings/settings_app.py:816
+#: ../apps/settings/settings_app.py:821
 msgid "language"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:678 ../apps/settings/settings_app.py:744
+#: ../apps/settings/settings_app.py:677 ../apps/settings/settings_app.py:743
 msgid "jack"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:680 ../apps/settings/settings_app.py:749
+#: ../apps/settings/settings_app.py:679 ../apps/settings/settings_app.py:748
 msgid "keyboard USB-A-HID"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:683 ../apps/settings/settings_app.py:754
+#: ../apps/settings/settings_app.py:682 ../apps/settings/settings_app.py:753
 msgid "keyboard USB-B-HID"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:687 ../apps/settings/settings_app.py:775
+#: ../apps/settings/settings_app.py:686 ../apps/settings/settings_app.py:774
 msgid "paired devices"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:689 ../apps/settings/settings_app.py:803
-#: ../apps/settings/settings_app.py:804
+#: ../apps/settings/settings_app.py:688 ../apps/settings/settings_app.py:802
+#: ../apps/settings/settings_app.py:803
 msgid "connected to"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:691 ../apps/settings/settings_app.py:815
+#: ../apps/settings/settings_app.py:690 ../apps/settings/settings_app.py:814
 msgid "message language"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:694 ../apps/settings/settings_app.py:820
+#: ../apps/settings/settings_app.py:693 ../apps/settings/settings_app.py:819
 msgid "braille language"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:697 ../apps/settings/settings_app.py:1155
+#: ../apps/settings/settings_app.py:696 ../apps/settings/settings_app.py:1154
 msgid "transport timeout minute (0 none)"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:700 ../apps/settings/settings_app.py:1160
+#: ../apps/settings/settings_app.py:699 ../apps/settings/settings_app.py:1159
 msgid "shutdown timeout minute (0 none)"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:715
+#: ../apps/settings/settings_app.py:714
 msgid "auto sync date"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:717
+#: ../apps/settings/settings_app.py:716
 msgid "clock"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:717
+#: ../apps/settings/settings_app.py:716
 msgid "auto &sync date"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:725 ../apps/settings/settings_app.py:735
-#: ../apps/settings/settings_app.py:737
+#: ../apps/settings/settings_app.py:724 ../apps/settings/settings_app.py:734
+#: ../apps/settings/settings_app.py:736
 msgid "synthesis"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:727 ../apps/settings/settings_app.py:730
+#: ../apps/settings/settings_app.py:726 ../apps/settings/settings_app.py:729
 #: ../apps/edt/editor_base_app.py:1006 ../apps/edt/editor_base_app.py:1030
 #: ../apps/media/mp3_app.py:859 ../apps/media/radio_app.py:394
 msgid "&value"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:729 ../apps/settings/settings_app.py:730
+#: ../apps/settings/settings_app.py:728 ../apps/settings/settings_app.py:729
 #: ../apps/edt/editor_base_app.py:1030
 msgid "speed"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:737
+#: ../apps/settings/settings_app.py:736
 msgid "&synthesis"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:739 ../apps/settings/settings_app.py:740
+#: ../apps/settings/settings_app.py:738 ../apps/settings/settings_app.py:739
 msgid "voice"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:740
+#: ../apps/settings/settings_app.py:739
 msgid "&voice"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:748
+#: ../apps/settings/settings_app.py:747
 msgid "usb"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:751 ../apps/settings/settings_app.py:756
-#: ../apps/settings/settings_app.py:1121 ../apps/settings/settings_app.py:1125
-#: ../apps/settings/settings_app.py:1129 ../apps/settings/settings_app.py:1548
+#: ../apps/settings/settings_app.py:750 ../apps/settings/settings_app.py:755
+#: ../apps/settings/settings_app.py:1120 ../apps/settings/settings_app.py:1124
+#: ../apps/settings/settings_app.py:1128 ../apps/settings/settings_app.py:1547
 msgid "keyboard"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:751
+#: ../apps/settings/settings_app.py:750
 msgid "usb-a hid mode"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:756
+#: ../apps/settings/settings_app.py:755
 msgid "usb-b hid mode"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:759 ../apps/settings/settings_app.py:761
-#: ../apps/settings/settings_app.py:792 ../apps/settings/settings_app.py:794
+#: ../apps/settings/settings_app.py:758 ../apps/settings/settings_app.py:760
+#: ../apps/settings/settings_app.py:791 ../apps/settings/settings_app.py:793
 msgid "simulation esys"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:766 ../apps/settings/settings_app.py:800
+#: ../apps/settings/settings_app.py:765 ../apps/settings/settings_app.py:799
 msgid "power"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:767 ../apps/settings/settings_app.py:1975
+#: ../apps/settings/settings_app.py:766 ../apps/settings/settings_app.py:1974
 msgid "bluetooth power"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:767 ../apps/settings/settings_app.py:801
+#: ../apps/settings/settings_app.py:766 ../apps/settings/settings_app.py:800
 msgid "&powered"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:769 ../apps/settings/settings_app.py:1620
-#: ../apps/settings/settings_app.py:1631 ../apps/media/radio_app.py:143
+#: ../apps/settings/settings_app.py:768 ../apps/settings/settings_app.py:1619
+#: ../apps/settings/settings_app.py:1630 ../apps/media/radio_app.py:143
 msgid "name"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:770
+#: ../apps/settings/settings_app.py:769
 msgid "&bnote name"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:772
+#: ../apps/settings/settings_app.py:771
 msgid "visible"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:773
+#: ../apps/settings/settings_app.py:772
 msgid "&bnote visible"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:786
+#: ../apps/settings/settings_app.py:785
 msgid "bluetooth auto switch"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:799
+#: ../apps/settings/settings_app.py:798
 msgid "wifi"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:801 ../apps/settings/settings_app.py:1996
+#: ../apps/settings/settings_app.py:800 ../apps/settings/settings_app.py:1995
 msgid "wifi power"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:804
+#: ../apps/settings/settings_app.py:803
 msgid "&connected"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:806 ../apps/settings/settings_app.py:807
+#: ../apps/settings/settings_app.py:805 ../apps/settings/settings_app.py:806
 msgid "favorites"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:809
+#: ../apps/settings/settings_app.py:808
 msgid "country"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:810
+#: ../apps/settings/settings_app.py:809
 msgid "wlan country"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:814 ../apps/settings/settings_app.py:827
-#: ../apps/settings/settings_app.py:831 ../apps/settings/settings_app.py:835
-#: ../apps/settings/settings_app.py:840 ../apps/settings/settings_app.py:847
-#: ../apps/settings/settings_app.py:851 ../apps/settings/settings_app.py:855
-#: ../apps/settings/settings_app.py:859 ../apps/settings/settings_app.py:863
-#: ../apps/settings/settings_app.py:867 ../apps/settings/settings_app.py:871
-#: ../apps/settings/settings_app.py:875 ../apps/settings/settings_app.py:879
-#: ../apps/settings/settings_app.py:883 ../apps/settings/settings_app.py:887
-#: ../apps/settings/settings_app.py:891
+#: ../apps/settings/settings_app.py:813 ../apps/settings/settings_app.py:826
+#: ../apps/settings/settings_app.py:830 ../apps/settings/settings_app.py:834
+#: ../apps/settings/settings_app.py:839 ../apps/settings/settings_app.py:846
+#: ../apps/settings/settings_app.py:850 ../apps/settings/settings_app.py:854
+#: ../apps/settings/settings_app.py:858 ../apps/settings/settings_app.py:862
+#: ../apps/settings/settings_app.py:866 ../apps/settings/settings_app.py:870
+#: ../apps/settings/settings_app.py:874 ../apps/settings/settings_app.py:878
+#: ../apps/settings/settings_app.py:882 ../apps/settings/settings_app.py:886
+#: ../apps/settings/settings_app.py:890
 msgid "user interface"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:817
+#: ../apps/settings/settings_app.py:816
 msgid "message"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:822
+#: ../apps/settings/settings_app.py:821
 msgid "braille"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:825 ../apps/settings/settings_app.py:913
+#: ../apps/settings/settings_app.py:824 ../apps/settings/settings_app.py:912
 msgid "braille type"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:829
+#: ../apps/settings/settings_app.py:828
 msgid "spaces in label"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:833
+#: ../apps/settings/settings_app.py:832
 msgid "visible shortcuts"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:838
+#: ../apps/settings/settings_app.py:837
 msgid "developer mode"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:844
+#: ../apps/settings/settings_app.py:843
 msgid "main menu"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:845 ../apps/settings/settings_app.py:895
-#: ../apps/settings/settings_app.py:898 ../apps/settings/settings_app.py:903
-#: ../apps/settings/settings_app.py:908 ../apps/fman/file_manager_app.py:370
+#: ../apps/settings/settings_app.py:844 ../apps/settings/settings_app.py:894
+#: ../apps/settings/settings_app.py:897 ../apps/settings/settings_app.py:902
+#: ../apps/settings/settings_app.py:907 ../apps/fman/file_manager_app.py:370
 #: ../apps/fman/file_manager_app.py:383 ../apps/fman/file_manager_app.py:396
 #: ../apps/fman/file_manager_app.py:432 ../apps/fman/file_manager_app.py:444
 #: ../apps/fman/file_manager_app.py:455
 msgid "explorer"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:853 ../apps/settings/settings_app.py:1092
-#: ../apps/settings/settings_app.py:1095 ../apps/settings/settings_app.py:1099
-#: ../apps/agenda/agenda_app.py:64 ../apps/agenda/agenda_app.py:1541
+#: ../apps/settings/settings_app.py:852 ../apps/settings/settings_app.py:1091
+#: ../apps/settings/settings_app.py:1094 ../apps/settings/settings_app.py:1098
+#: ../apps/agenda/agenda_app.py:62 ../apps/agenda/agenda_app.py:1535
 msgid "agenda"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:857 ../apps/media/radio_app.py:59
+#: ../apps/settings/settings_app.py:856 ../apps/media/radio_app.py:59
 msgid "radio"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:861
+#: ../apps/settings/settings_app.py:860
 msgid "audio"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:865 ../apps/wikipedia/wikipedia_app.py:41
+#: ../apps/settings/settings_app.py:864 ../apps/wikipedia/wikipedia_app.py:41
 #: ../apps/wikipedia/wikipedia_app.py:193
 msgid "wikipedia"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:869 ../apps/timer/timer_app.py:53
+#: ../apps/settings/settings_app.py:868 ../apps/timer/timer_app.py:53
 msgid "timer"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:873 ../apps/translator/translator_app.py:87
+#: ../apps/settings/settings_app.py:872 ../apps/translator/translator_app.py:87
 msgid "translator"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:877
+#: ../apps/settings/settings_app.py:876
 msgid "write_word"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:879
+#: ../apps/settings/settings_app.py:878
 msgid "&write word"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:881
+#: ../apps/settings/settings_app.py:880
 msgid "operation"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:885 ../apps/games/mines_app.py:61
+#: ../apps/settings/settings_app.py:884 ../apps/games/mines_app.py:61
 msgid "mines"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:889 ../apps/games/master_mind_app.py:63
+#: ../apps/settings/settings_app.py:888 ../apps/games/master_mind_app.py:63
 msgid "mastermind"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:896
+#: ../apps/settings/settings_app.py:895
 msgid "empty the bluetooth folder once shutdown"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:899
+#: ../apps/settings/settings_app.py:898
 msgid "&empty the bluetooth once shutdown"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:901
+#: ../apps/settings/settings_app.py:900
 msgid "empty the trash folder once shutdown"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:904
+#: ../apps/settings/settings_app.py:903
 msgid "&empty the trash once shutdown"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:906
+#: ../apps/settings/settings_app.py:905
 msgid "number of recent files"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:908
+#: ../apps/settings/settings_app.py:907
 msgid "files &number"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:912 ../apps/settings/settings_app.py:915
-#: ../apps/settings/settings_app.py:919 ../apps/settings/settings_app.py:923
-#: ../apps/settings/settings_app.py:927 ../apps/settings/settings_app.py:931
-#: ../apps/settings/settings_app.py:935 ../apps/edt/editor_app.py:43
+#: ../apps/settings/settings_app.py:911 ../apps/settings/settings_app.py:914
+#: ../apps/settings/settings_app.py:918 ../apps/settings/settings_app.py:922
+#: ../apps/settings/settings_app.py:926 ../apps/settings/settings_app.py:930
+#: ../apps/settings/settings_app.py:934 ../apps/edt/editor_app.py:43
 #: ../apps/edt/editor_base_app.py:1266
 #: ../apps/eole/eole_search_dialog_box.py:66 ../apps/media/mp3_app.py:244
 msgid "editor"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:917
+#: ../apps/settings/settings_app.py:916
 msgid "line length"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:919
+#: ../apps/settings/settings_app.py:918
 msgid "lines &length"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:921
+#: ../apps/settings/settings_app.py:920
 msgid "forward display"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:925
+#: ../apps/settings/settings_app.py:924
 msgid "autoscroll display"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:929
+#: ../apps/settings/settings_app.py:928
 msgid "cursor visible"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:933
+#: ../apps/settings/settings_app.py:932
 msgid "dot78 visible"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:935
+#: ../apps/settings/settings_app.py:934
 msgid "&dot 78 visible"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:939 ../apps/settings/settings_app.py:941
-#: ../apps/settings/settings_app.py:945 ../apps/settings/settings_app.py:949
-#: ../apps/settings/settings_app.py:952
+#: ../apps/settings/settings_app.py:938 ../apps/settings/settings_app.py:940
+#: ../apps/settings/settings_app.py:944 ../apps/settings/settings_app.py:948
+#: ../apps/settings/settings_app.py:951
 msgid "math"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:940
+#: ../apps/settings/settings_app.py:939
 msgid "format"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:943
+#: ../apps/settings/settings_app.py:942
 msgid "precision"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:947
+#: ../apps/settings/settings_app.py:946
 msgid "fraction"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:949
+#: ../apps/settings/settings_app.py:948
 msgid "&fraction result"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:951
+#: ../apps/settings/settings_app.py:950
 msgid "angle"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:957
+#: ../apps/settings/settings_app.py:956
 msgid "musicxml edit and play mode"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:959 ../apps/settings/settings_app.py:963
-#: ../apps/settings/settings_app.py:967 ../apps/settings/settings_app.py:971
-#: ../apps/settings/settings_app.py:975 ../apps/settings/settings_app.py:979
-#: ../apps/settings/settings_app.py:983 ../apps/settings/settings_app.py:987
-#: ../apps/settings/settings_app.py:991 ../apps/settings/settings_app.py:995
-#: ../apps/settings/settings_app.py:999 ../apps/settings/settings_app.py:1003
-#: ../apps/settings/settings_app.py:1007 ../apps/settings/settings_app.py:1011
-#: ../apps/settings/settings_app.py:1015 ../apps/settings/settings_app.py:1019
+#: ../apps/settings/settings_app.py:958 ../apps/settings/settings_app.py:962
+#: ../apps/settings/settings_app.py:966 ../apps/settings/settings_app.py:970
+#: ../apps/settings/settings_app.py:974 ../apps/settings/settings_app.py:978
+#: ../apps/settings/settings_app.py:982 ../apps/settings/settings_app.py:986
+#: ../apps/settings/settings_app.py:990 ../apps/settings/settings_app.py:994
+#: ../apps/settings/settings_app.py:998 ../apps/settings/settings_app.py:1002
+#: ../apps/settings/settings_app.py:1006 ../apps/settings/settings_app.py:1010
+#: ../apps/settings/settings_app.py:1014 ../apps/settings/settings_app.py:1018
 msgid "music xml"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:961
+#: ../apps/settings/settings_app.py:960
 msgid "musicxml braille type"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:965
+#: ../apps/settings/settings_app.py:964
 msgid "musicxml notes dots"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:967 ../apps/settings/settings_app.py:1031
+#: ../apps/settings/settings_app.py:966 ../apps/settings/settings_app.py:1030
 msgid "&notes dots"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:969
+#: ../apps/settings/settings_app.py:968
 msgid "musicxml ascending chords"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:973
+#: ../apps/settings/settings_app.py:972
 msgid "musicxml fingering"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:977
+#: ../apps/settings/settings_app.py:976
 msgid "musicxml clef"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:981
+#: ../apps/settings/settings_app.py:980
 msgid "musicxml parts"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:985
+#: ../apps/settings/settings_app.py:984
 msgid "musicxml measure b123"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:989
+#: ../apps/settings/settings_app.py:988
 msgid "musicxml measure number"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:991 ../apps/settings/settings_app.py:1055
+#: ../apps/settings/settings_app.py:990 ../apps/settings/settings_app.py:1054
 msgid "&measure number"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:993
+#: ../apps/settings/settings_app.py:992
 msgid "musicxml measure every"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:995 ../apps/settings/settings_app.py:1059
+#: ../apps/settings/settings_app.py:994 ../apps/settings/settings_app.py:1058
 msgid "&measure every"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:997
+#: ../apps/settings/settings_app.py:996
 msgid "musicxml view"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1001
+#: ../apps/settings/settings_app.py:1000
 msgid "musicxml section"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1005
+#: ../apps/settings/settings_app.py:1004
 msgid "musicxml measures per section"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1007 ../apps/settings/settings_app.py:1072
+#: ../apps/settings/settings_app.py:1006 ../apps/settings/settings_app.py:1071
 msgid "&measures per section"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1009
+#: ../apps/settings/settings_app.py:1008
 msgid "musicxml words"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1013
+#: ../apps/settings/settings_app.py:1012
 msgid "musicxml credit words"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1017
+#: ../apps/settings/settings_app.py:1016
 msgid "musicxml lyrics"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1021
+#: ../apps/settings/settings_app.py:1020
 msgid "bxml edit and play mode"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1023 ../apps/settings/settings_app.py:1027
-#: ../apps/settings/settings_app.py:1031 ../apps/settings/settings_app.py:1035
-#: ../apps/settings/settings_app.py:1039 ../apps/settings/settings_app.py:1043
-#: ../apps/settings/settings_app.py:1047 ../apps/settings/settings_app.py:1051
-#: ../apps/settings/settings_app.py:1055 ../apps/settings/settings_app.py:1059
-#: ../apps/settings/settings_app.py:1063 ../apps/settings/settings_app.py:1067
-#: ../apps/settings/settings_app.py:1071 ../apps/settings/settings_app.py:1076
-#: ../apps/settings/settings_app.py:1080 ../apps/settings/settings_app.py:1084
-#: ../apps/settings/settings_app.py:1088
+#: ../apps/settings/settings_app.py:1022 ../apps/settings/settings_app.py:1026
+#: ../apps/settings/settings_app.py:1030 ../apps/settings/settings_app.py:1034
+#: ../apps/settings/settings_app.py:1038 ../apps/settings/settings_app.py:1042
+#: ../apps/settings/settings_app.py:1046 ../apps/settings/settings_app.py:1050
+#: ../apps/settings/settings_app.py:1054 ../apps/settings/settings_app.py:1058
+#: ../apps/settings/settings_app.py:1062 ../apps/settings/settings_app.py:1066
+#: ../apps/settings/settings_app.py:1070 ../apps/settings/settings_app.py:1075
+#: ../apps/settings/settings_app.py:1079 ../apps/settings/settings_app.py:1083
+#: ../apps/settings/settings_app.py:1087
 msgid "music bxml"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1025
+#: ../apps/settings/settings_app.py:1024
 msgid "bxml braille type"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1029
+#: ../apps/settings/settings_app.py:1028
 msgid "bxml notes dots"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1033
+#: ../apps/settings/settings_app.py:1032
 msgid "bxml ascending chords"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1037
+#: ../apps/settings/settings_app.py:1036
 msgid "bxml fingering"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1041
+#: ../apps/settings/settings_app.py:1040
 msgid "bxml clef"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1045
+#: ../apps/settings/settings_app.py:1044
 msgid "bxml parts"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1049
+#: ../apps/settings/settings_app.py:1048
 msgid "bxml measure b123"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1053
+#: ../apps/settings/settings_app.py:1052
 msgid "bxml measure number"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1057
+#: ../apps/settings/settings_app.py:1056
 msgid "bxml measure every"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1061
+#: ../apps/settings/settings_app.py:1060
 msgid "bxml view"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1065
+#: ../apps/settings/settings_app.py:1064
 msgid "bxml section"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1069
+#: ../apps/settings/settings_app.py:1068
 msgid "bxml measures per section"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1074
+#: ../apps/settings/settings_app.py:1073
 msgid "bxml words"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1078
+#: ../apps/settings/settings_app.py:1077
 msgid "bxml credit words"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1082
+#: ../apps/settings/settings_app.py:1081
 msgid "bxml lyrics"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1086
+#: ../apps/settings/settings_app.py:1085
 msgid "bxml karaoke"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1093
+#: ../apps/settings/settings_app.py:1092
 msgid "default presentation"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1095
+#: ../apps/settings/settings_app.py:1094
 msgid "&presentation"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1097
+#: ../apps/settings/settings_app.py:1096
 msgid "at startup, report events not done"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1099
+#: ../apps/settings/settings_app.py:1098
 msgid "report events"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1104
+#: ../apps/settings/settings_app.py:1103
 msgid "use the vocal synthesis"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1106 ../apps/settings/settings_app.py:1110
-#: ../apps/settings/settings_app.py:1114
+#: ../apps/settings/settings_app.py:1105 ../apps/settings/settings_app.py:1109
+#: ../apps/settings/settings_app.py:1113
 msgid "braille learning"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1106
+#: ../apps/settings/settings_app.py:1105
 msgid "&vocal"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1108
+#: ../apps/settings/settings_app.py:1107
 msgid "keeping spaces"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1110
+#: ../apps/settings/settings_app.py:1109
 msgid "&spaces"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1112
+#: ../apps/settings/settings_app.py:1111
 msgid "allow the wrong hit"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1114
+#: ../apps/settings/settings_app.py:1113
 msgid "&allow all"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1118
+#: ../apps/settings/settings_app.py:1117
 msgid "keyboards"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1119
+#: ../apps/settings/settings_app.py:1118
 msgid "mode"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1121
+#: ../apps/settings/settings_app.py:1120
 msgid "braille keyboard mode"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1125
+#: ../apps/settings/settings_app.py:1124
 msgid "braille keyboard b78"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1127
+#: ../apps/settings/settings_app.py:1126
 msgid "invertion"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1129
+#: ../apps/settings/settings_app.py:1128
 msgid "inversion"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1131 ../apps/settings/settings_app.py:1133
+#: ../apps/settings/settings_app.py:1130 ../apps/settings/settings_app.py:1132
 msgid "light press"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1133 ../apps/settings/settings_app.py:1137
-#: ../apps/settings/settings_app.py:1141 ../apps/settings/settings_app.py:1145
-#: ../apps/settings/settings_app.py:1149
+#: ../apps/settings/settings_app.py:1132 ../apps/settings/settings_app.py:1136
+#: ../apps/settings/settings_app.py:1140 ../apps/settings/settings_app.py:1144
+#: ../apps/settings/settings_app.py:1148
 msgid "routing keyboard"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1135 ../apps/settings/settings_app.py:1137
+#: ../apps/settings/settings_app.py:1134 ../apps/settings/settings_app.py:1136
 msgid "strong press"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1139
+#: ../apps/settings/settings_app.py:1138
 msgid "consecutive press"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1141
+#: ../apps/settings/settings_app.py:1140
 msgid "consecutive"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1143
+#: ../apps/settings/settings_app.py:1142
 msgid "double light press"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1145
+#: ../apps/settings/settings_app.py:1144
 msgid "double light"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1147
+#: ../apps/settings/settings_app.py:1146
 msgid "double strong press"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1149
+#: ../apps/settings/settings_app.py:1148
 msgid "double strong"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1154 ../apps/settings/settings_app.py:1157
-#: ../apps/settings/settings_app.py:1162
+#: ../apps/settings/settings_app.py:1153 ../apps/settings/settings_app.py:1156
+#: ../apps/settings/settings_app.py:1161
 msgid "standby"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1157 ../apps/internal.py:173
+#: ../apps/settings/settings_app.py:1156 ../apps/internal.py:173
 msgid "transport"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1162 ../apps/internal.py:174
+#: ../apps/settings/settings_app.py:1161 ../apps/internal.py:174
 msgid "shutdown"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1168 ../apps/settings/settings_app.py:1171
-#: ../apps/settings/settings_app.py:1180 ../apps/settings/settings_app.py:1182
-#: ../apps/settings/settings_app.py:2497
+#: ../apps/settings/settings_app.py:1167 ../apps/settings/settings_app.py:1170
+#: ../apps/settings/settings_app.py:1179 ../apps/settings/settings_app.py:1181
+#: ../apps/settings/settings_app.py:2496
 msgid "update"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1169
+#: ../apps/settings/settings_app.py:1168
 msgid "automatically check for updates"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1171
+#: ../apps/settings/settings_app.py:1170
 msgid "&auto checking"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1175
+#: ../apps/settings/settings_app.py:1174
 msgid "update available"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1177 ../apps/settings/settings_app.py:2481
+#: ../apps/settings/settings_app.py:1176 ../apps/settings/settings_app.py:2480
 msgid "your b.note is up to date"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1178 ../apps/settings/settings_app.py:3128
+#: ../apps/settings/settings_app.py:1177 ../apps/settings/settings_app.py:3127
 msgid "update source"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1180
+#: ../apps/settings/settings_app.py:1179
 msgid "source"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1182
+#: ../apps/settings/settings_app.py:1181
 msgid "delete file from explorer after installation"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1182
+#: ../apps/settings/settings_app.py:1181
 msgid "&delete after installed"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1186
+#: ../apps/settings/settings_app.py:1185
 msgid "versions"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1198
+#: ../apps/settings/settings_app.py:1197
 msgid "device type"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1200
+#: ../apps/settings/settings_app.py:1199
 msgid "applications"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1201
+#: ../apps/settings/settings_app.py:1200
 msgid "application versions"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1201 ../apps/settings/settings_app.py:3165
+#: ../apps/settings/settings_app.py:1200 ../apps/settings/settings_app.py:3164
 msgid "version"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1204
+#: ../apps/settings/settings_app.py:1203
 msgid "firmware"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1207
+#: ../apps/settings/settings_app.py:1206
 msgid "sdcard"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1208
+#: ../apps/settings/settings_app.py:1207
 msgid "sdcard space"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1210
+#: ../apps/settings/settings_app.py:1209
 msgid "generation 2"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1454
+#: ../apps/settings/settings_app.py:1453
 msgid "Total: {:.1f} GiB, Used: {:.1f} GiB, Free: {:.1f} GiB"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1532
+#: ../apps/settings/settings_app.py:1531
 msgid "inactive"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1534
+#: ../apps/settings/settings_app.py:1533
 msgid "discharging"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1535
+#: ../apps/settings/settings_app.py:1534
 msgid "charging"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1537
+#: ../apps/settings/settings_app.py:1536
 msgid "fast charging"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1539
+#: ../apps/settings/settings_app.py:1538
 msgid "out of order"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1544 ../apps/settings/settings_app.py:1614
-#: ../apps/settings/settings_app.py:1673 ../apps/settings/settings_app.py:1693
+#: ../apps/settings/settings_app.py:1543 ../apps/settings/settings_app.py:1613
+#: ../apps/settings/settings_app.py:1672 ../apps/settings/settings_app.py:1692
 msgid "standard"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1545
+#: ../apps/settings/settings_app.py:1544
 msgid "light"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1546
+#: ../apps/settings/settings_app.py:1545
 msgid "basic"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1547
+#: ../apps/settings/settings_app.py:1546
 msgid "basic light"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1613
+#: ../apps/settings/settings_app.py:1612
 msgid "degree"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1613
+#: ../apps/settings/settings_app.py:1612
 msgid "radian"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1614
+#: ../apps/settings/settings_app.py:1613
 msgid "scientific"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1615 ../apps/settings/settings_app.py:1626
+#: ../apps/settings/settings_app.py:1614 ../apps/settings/settings_app.py:1625
 msgid "expert"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1615 ../apps/settings/settings_app.py:1626
+#: ../apps/settings/settings_app.py:1614 ../apps/settings/settings_app.py:1625
 msgid "read"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1615 ../apps/settings/settings_app.py:1626
+#: ../apps/settings/settings_app.py:1614 ../apps/settings/settings_app.py:1625
 msgid "edit"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1616 ../apps/settings/settings_app.py:1627
+#: ../apps/settings/settings_app.py:1615 ../apps/settings/settings_app.py:1626
 msgid "listen"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1617 ../apps/settings/settings_app.py:1628
-#: ../apps/settings/settings_app.py:1637 ../apps/settings/settings_app.py:1662
+#: ../apps/settings/settings_app.py:1616 ../apps/settings/settings_app.py:1627
+#: ../apps/settings/settings_app.py:1636 ../apps/settings/settings_app.py:1661
 msgid "dot 8"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1617 ../apps/settings/settings_app.py:1628
-#: ../apps/settings/settings_app.py:1637 ../apps/settings/settings_app.py:1662
+#: ../apps/settings/settings_app.py:1616 ../apps/settings/settings_app.py:1627
+#: ../apps/settings/settings_app.py:1636 ../apps/settings/settings_app.py:1661
 #: ../apps/edt/editor_app.py:144 ../apps/edt/editor_app.py:159
 msgid "grade 1"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1618 ../apps/settings/settings_app.py:1629
+#: ../apps/settings/settings_app.py:1617 ../apps/settings/settings_app.py:1628
 msgid "8 dots"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1618 ../apps/settings/settings_app.py:1629
+#: ../apps/settings/settings_app.py:1617 ../apps/settings/settings_app.py:1628
 msgid "6 dots"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1619 ../apps/settings/settings_app.py:1630
+#: ../apps/settings/settings_app.py:1618 ../apps/settings/settings_app.py:1629
 msgid "6 dots with group"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1620 ../apps/settings/settings_app.py:1631
+#: ../apps/settings/settings_app.py:1619 ../apps/settings/settings_app.py:1630
 msgid "abbreviation"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1621 ../apps/settings/settings_app.py:1632
+#: ../apps/settings/settings_app.py:1620 ../apps/settings/settings_app.py:1631
 msgid "by section"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1621 ../apps/settings/settings_app.py:1632
+#: ../apps/settings/settings_app.py:1620 ../apps/settings/settings_app.py:1631
 msgid "by part"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1622 ../apps/settings/settings_app.py:1633
+#: ../apps/settings/settings_app.py:1621 ../apps/settings/settings_app.py:1632
 msgid "total part"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1622 ../apps/settings/settings_app.py:1633
+#: ../apps/settings/settings_app.py:1621 ../apps/settings/settings_app.py:1632
 msgid "system"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1622 ../apps/settings/settings_app.py:1633
+#: ../apps/settings/settings_app.py:1621 ../apps/settings/settings_app.py:1632
 msgid "number"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1623 ../apps/settings/settings_app.py:1634
+#: ../apps/settings/settings_app.py:1622 ../apps/settings/settings_app.py:1633
 msgid "after each note"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1624 ../apps/settings/settings_app.py:1635
+#: ../apps/settings/settings_app.py:1623 ../apps/settings/settings_app.py:1634
 msgid "before each section"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1625 ../apps/settings/settings_app.py:1636
+#: ../apps/settings/settings_app.py:1624 ../apps/settings/settings_app.py:1635
 msgid "after each section"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1637 ../apps/settings/settings_app.py:1662
+#: ../apps/settings/settings_app.py:1636 ../apps/settings/settings_app.py:1661
 #: ../apps/edt/editor_app.py:144 ../apps/edt/editor_app.py:159
 msgid "grade 2"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1638 ../apps/settings/settings_app.py:1642
-#: ../apps/settings/settings_app.py:1644 ../apps/settings/settings_app.py:1646
-#: ../apps/settings/settings_app.py:1648 ../apps/settings/settings_app.py:1650
-#: ../apps/settings/settings_app.py:1652 ../apps/settings/settings_app.py:1654
-#: ../apps/settings/settings_app.py:1656 ../apps/settings/settings_app.py:1658
-#: ../apps/settings/settings_app.py:1660
+#: ../apps/settings/settings_app.py:1637 ../apps/settings/settings_app.py:1641
+#: ../apps/settings/settings_app.py:1643 ../apps/settings/settings_app.py:1645
+#: ../apps/settings/settings_app.py:1647 ../apps/settings/settings_app.py:1649
+#: ../apps/settings/settings_app.py:1651 ../apps/settings/settings_app.py:1653
+#: ../apps/settings/settings_app.py:1655 ../apps/settings/settings_app.py:1657
+#: ../apps/settings/settings_app.py:1659
 msgid "invisible"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:1637 ../apps/settings/settings_app.py:1639
+#: ../apps/settings/settings_app.py:1641 ../apps/settings/settings_app.py:1643
+#: ../apps/settings/settings_app.py:1645 ../apps/settings/settings_app.py:1647
+#: ../apps/settings/settings_app.py:1649 ../apps/settings/settings_app.py:1651
+#: ../apps/settings/settings_app.py:1653 ../apps/settings/settings_app.py:1655
+#: ../apps/settings/settings_app.py:1657 ../apps/settings/settings_app.py:1659
+msgid "in main apps menu"
 msgstr ""
 
 #: ../apps/settings/settings_app.py:1638 ../apps/settings/settings_app.py:1640
@@ -2537,298 +2545,289 @@ msgstr ""
 #: ../apps/settings/settings_app.py:1650 ../apps/settings/settings_app.py:1652
 #: ../apps/settings/settings_app.py:1654 ../apps/settings/settings_app.py:1656
 #: ../apps/settings/settings_app.py:1658 ../apps/settings/settings_app.py:1660
-msgid "in main apps menu"
-msgstr ""
-
-#: ../apps/settings/settings_app.py:1639 ../apps/settings/settings_app.py:1641
-#: ../apps/settings/settings_app.py:1643 ../apps/settings/settings_app.py:1645
-#: ../apps/settings/settings_app.py:1647 ../apps/settings/settings_app.py:1649
-#: ../apps/settings/settings_app.py:1651 ../apps/settings/settings_app.py:1653
-#: ../apps/settings/settings_app.py:1655 ../apps/settings/settings_app.py:1657
-#: ../apps/settings/settings_app.py:1659 ../apps/settings/settings_app.py:1661
 msgid "in more apps menu"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1663
+#: ../apps/settings/settings_app.py:1662
 msgid "normal"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1663
+#: ../apps/settings/settings_app.py:1662
 msgid "significative"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1666 ../apps/settings/settings_app.py:1669
+#: ../apps/settings/settings_app.py:1665 ../apps/settings/settings_app.py:1668
 msgid "send to screen reader"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1667 ../apps/settings/settings_app.py:1670
+#: ../apps/settings/settings_app.py:1666 ../apps/settings/settings_app.py:1669
 msgid "active"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1674
+#: ../apps/settings/settings_app.py:1673
 msgid "unimanual1"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1675
+#: ../apps/settings/settings_app.py:1674
 msgid "unimanual2"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1676
+#: ../apps/settings/settings_app.py:1675
 msgid "unimanual3"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1677
+#: ../apps/settings/settings_app.py:1676
 msgid "unimanual4"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1679
+#: ../apps/settings/settings_app.py:1678
 msgid "character"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1680
+#: ../apps/settings/settings_app.py:1679
 msgid "function"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1693 ../apps/agenda/agenda_app.py:44
+#: ../apps/settings/settings_app.py:1692 ../apps/agenda/agenda_app.py:42
 msgid "not done"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1694 ../apps/agenda/agenda_app.py:1489
-#: ../apps/agenda/agenda_app.py:1543
+#: ../apps/settings/settings_app.py:1693 ../apps/agenda/agenda_app.py:1483
+#: ../apps/agenda/agenda_app.py:1537
 msgid "today"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1694 ../apps/agenda/agenda_app.py:1555
+#: ../apps/settings/settings_app.py:1693 ../apps/agenda/agenda_app.py:1549
 msgid "calendar"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1695
+#: ../apps/settings/settings_app.py:1694
 msgid "for the same day"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1695
+#: ../apps/settings/settings_app.py:1694
 msgid "for the next day"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1696
+#: ../apps/settings/settings_app.py:1695
 msgid "for the same day and the next day"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1697
+#: ../apps/settings/settings_app.py:1696
 msgid "auto"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1697
+#: ../apps/settings/settings_app.py:1696
 msgid "ask"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1710
+#: ../apps/settings/settings_app.py:1709
 msgid "none"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1711
+#: ../apps/settings/settings_app.py:1710
 msgid "backward-forward"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1712
+#: ../apps/settings/settings_app.py:1711
 msgid "click"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1713
+#: ../apps/settings/settings_app.py:1712
 msgid "double click"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1714
+#: ../apps/settings/settings_app.py:1713
 msgid "windows key"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1715
+#: ../apps/settings/settings_app.py:1714
 msgid "context menu"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1758
+#: ../apps/settings/settings_app.py:1757
 msgid "auto switch"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1758
+#: ../apps/settings/settings_app.py:1757
 msgid "do nothing"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1845 ../apps/settings/settings_app.py:2051
+#: ../apps/settings/settings_app.py:1844 ../apps/settings/settings_app.py:2050
 msgid "&remove"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1851
+#: ../apps/settings/settings_app.py:1850
 msgid "bluetooth adapter is not powered"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1911
+#: ../apps/settings/settings_app.py:1910
 msgid "bnote must restart for the name change to take effect."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1919
+#: ../apps/settings/settings_app.py:1918
 msgid "restarting..."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1947
+#: ../apps/settings/settings_app.py:1946
 msgid "not connected"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1949 ../apps/settings/settings_app.py:1966
+#: ../apps/settings/settings_app.py:1948 ../apps/settings/settings_app.py:1965
 msgid "power off"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2015 ../apps/settings/settings_app.py:2084
+#: ../apps/settings/settings_app.py:2014 ../apps/settings/settings_app.py:2083
 msgid "command failed"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2042 ../apps/settings/settings_app.py:2116
-#: ../apps/settings/settings_app.py:2155
+#: ../apps/settings/settings_app.py:2041 ../apps/settings/settings_app.py:2115
+#: ../apps/settings/settings_app.py:2154
 msgid "ssid"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2050
+#: ../apps/settings/settings_app.py:2049
 msgid "&set first"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2052 ../apps/settings/settings_app.py:2122
+#: ../apps/settings/settings_app.py:2051 ../apps/settings/settings_app.py:2121
 #: ../apps/media/mp3_app.py:110
 msgid "&add"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2059
+#: ../apps/settings/settings_app.py:2058
 msgid "wifi adapter is not powered"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2100
+#: ../apps/settings/settings_app.py:2099
 msgid "deletion failed"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2115
+#: ../apps/settings/settings_app.py:2114
 msgid "&scan"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2119 ../apps/fman/file_manager_app.py:999
+#: ../apps/settings/settings_app.py:2118 ../apps/fman/file_manager_app.py:999
 msgid "password"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2132
+#: ../apps/settings/settings_app.py:2131
 msgid "scanning..."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2194
+#: ../apps/settings/settings_app.py:2193
 msgid "add failed"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2223
+#: ../apps/settings/settings_app.py:2222
 msgid "hours"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2226
+#: ../apps/settings/settings_app.py:2225
 msgid "minutes"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2229
+#: ../apps/settings/settings_app.py:2228
 msgid "seconds"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2248 ../apps/settings/settings_app.py:2262
-#: ../apps/settings/settings_app.py:2315 ../apps/settings/settings_app.py:2329
-#: ../apps/settings/settings_app.py:2696 ../apps/settings/settings_app.py:2776
-#: ../apps/settings/settings_app.py:2801
+#: ../apps/settings/settings_app.py:2247 ../apps/settings/settings_app.py:2261
+#: ../apps/settings/settings_app.py:2314 ../apps/settings/settings_app.py:2328
+#: ../apps/settings/settings_app.py:2695 ../apps/settings/settings_app.py:2775
+#: ../apps/settings/settings_app.py:2800
 msgid "value not valid..."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2290
+#: ../apps/settings/settings_app.py:2289
 msgid "day"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2293
+#: ../apps/settings/settings_app.py:2292
 msgid "month"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2296
+#: ../apps/settings/settings_app.py:2295
 msgid "year"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2469 ../apps/settings/settings_app.py:2547
+#: ../apps/settings/settings_app.py:2468 ../apps/settings/settings_app.py:2546
 msgid "searching update..."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2486 ../apps/settings/settings_app.py:2553
+#: ../apps/settings/settings_app.py:2485 ../apps/settings/settings_app.py:2552
 msgid "connexion failed, try again."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2494
+#: ../apps/settings/settings_app.py:2493
 msgid "the version {} of applications is available. Do you want to install it?"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2508 ../apps/settings/settings_app.py:2583
+#: ../apps/settings/settings_app.py:2507 ../apps/settings/settings_app.py:2582
 msgid "downloading..."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2530 ../apps/fman/file_manager_app.py:2257
+#: ../apps/settings/settings_app.py:2529 ../apps/fman/file_manager_app.py:2257
 msgid "unable to update."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2543 ../apps/settings/settings_app.py:3210
+#: ../apps/settings/settings_app.py:2542 ../apps/settings/settings_app.py:3209
 #: ../apps/fman/file_manager_app.py:2267
 msgid "install done, restart new version..."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2557
+#: ../apps/settings/settings_app.py:2556
 msgid "No version available through this source."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2564
+#: ../apps/settings/settings_app.py:2563
 msgid "version history"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2566
+#: ../apps/settings/settings_app.py:2565
 msgid "&select a version to install"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2567
+#: ../apps/settings/settings_app.py:2566
 msgid "&install"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2576
+#: ../apps/settings/settings_app.py:2575
 msgid "this version is already installed"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2588
+#: ../apps/settings/settings_app.py:2587
 msgid "device: {}"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2589
+#: ../apps/settings/settings_app.py:2588
 msgid "serial number: {}"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2590
+#: ../apps/settings/settings_app.py:2589
 msgid "subtype: {}"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2591
+#: ../apps/settings/settings_app.py:2590
 msgid "line length: {}"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2594
+#: ../apps/settings/settings_app.py:2593
 msgid "option: esysuite"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2596
+#: ../apps/settings/settings_app.py:2595
 msgid "applications: {}"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2597
+#: ../apps/settings/settings_app.py:2596
 msgid "firmware: {}"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2598
+#: ../apps/settings/settings_app.py:2597
 msgid "sdcard: {}"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2600
+#: ../apps/settings/settings_app.py:2599
 msgid ""
 "{}\n"
 "{}\n"
@@ -2837,89 +2836,89 @@ msgid ""
 "Website: {}"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2622
+#: ../apps/settings/settings_app.py:2621
 msgid "do you want to reset parameters?"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2699
+#: ../apps/settings/settings_app.py:2698
 msgid "value not valid. It must be between {} and {}."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3130
+#: ../apps/settings/settings_app.py:3129
 msgid "source &url"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3132
+#: ../apps/settings/settings_app.py:3131
 msgid "&set default"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3156
+#: ../apps/settings/settings_app.py:3155
 msgid "source not valid..."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3163
+#: ../apps/settings/settings_app.py:3162
 msgid "bnote versions"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3169
+#: ../apps/settings/settings_app.py:3168
 msgid "&switch to"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3170 ../apps/settings/settings_app.py:3258
-#: ../apps/timer/timer_app.py:152 ../apps/agenda/agenda_app.py:75
+#: ../apps/settings/settings_app.py:3169 ../apps/settings/settings_app.py:3257
+#: ../apps/timer/timer_app.py:152 ../apps/agenda/agenda_app.py:73
 #: ../apps/games/mines_app.py:82 ../apps/games/master_mind_app.py:83
 #: ../apps/media/mp3_app.py:104 ../apps/media/mp3_app.py:573
 msgid "&delete"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3189
+#: ../apps/settings/settings_app.py:3188
 msgid "bnote version cannot be deleted."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3194
+#: ../apps/settings/settings_app.py:3193
 msgid "bnote version is the default one and cannot be deleted."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3196
+#: ../apps/settings/settings_app.py:3195
 msgid "bnote version deleted."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3198
+#: ../apps/settings/settings_app.py:3197
 msgid "deletion failed."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3216
+#: ../apps/settings/settings_app.py:3215
 msgid "export settings"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3218 ../apps/skeleton/skeleton_app.py:103
-#: ../apps/agenda/agenda_app.py:587 ../apps/fman/file_manager_app.py:834
+#: ../apps/settings/settings_app.py:3217 ../apps/skeleton/skeleton_app.py:103
+#: ../apps/agenda/agenda_app.py:582 ../apps/fman/file_manager_app.py:834
 msgid "&file name"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3233
+#: ../apps/settings/settings_app.py:3232
 msgid "the settings file already exists. Do you want to replace it?"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3253
+#: ../apps/settings/settings_app.py:3252
 msgid "import a settings file"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3255
+#: ../apps/settings/settings_app.py:3254
 msgid "setting"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3257 ../apps/agenda/agenda_app.py:553
+#: ../apps/settings/settings_app.py:3256 ../apps/agenda/agenda_app.py:548
 msgid "&import"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3278
+#: ../apps/settings/settings_app.py:3277
 msgid ""
 "this file will be replace the existing settings file. Do you want to "
 "continue?"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3291 ../apps/fman/file_manager_app.py:2277
+#: ../apps/settings/settings_app.py:3290 ../apps/fman/file_manager_app.py:2277
 msgid "failed to import the file, check the source and try again."
 msgstr ""
 
@@ -3310,8 +3309,8 @@ msgstr ""
 
 #: ../apps/edt/editor_base_app.py:154 ../apps/edt/editor_base_app.py:156
 #: ../apps/edt/editor_base_app.py:168 ../apps/edt/editor_base_app.py:170
-#: ../apps/agenda/agenda_app.py:98 ../apps/agenda/agenda_app.py:506
-#: ../apps/agenda/agenda_app.py:520 ../apps/fman/file_manager_app.py:155
+#: ../apps/agenda/agenda_app.py:96 ../apps/agenda/agenda_app.py:501
+#: ../apps/agenda/agenda_app.py:515 ../apps/fman/file_manager_app.py:155
 #: ../apps/fman/file_manager_app.py:190 ../apps/fman/file_manager_app.py:837
 msgid "fi&nd"
 msgstr ""
@@ -3343,7 +3342,7 @@ msgstr ""
 msgid "replace &all"
 msgstr ""
 
-#: ../apps/edt/editor_base_app.py:193 ../apps/agenda/agenda_app.py:85
+#: ../apps/edt/editor_base_app.py:193 ../apps/agenda/agenda_app.py:83
 #: ../apps/fman/file_manager_app.py:226
 msgid "&goto"
 msgstr ""
@@ -3434,12 +3433,12 @@ msgid "the file is not completely read"
 msgstr ""
 
 #: ../apps/edt/editor_base_app.py:857 ../apps/edt/editor_base_app.py:859
-#: ../apps/edt/editor_base_app.py:884 ../apps/agenda/agenda_app.py:514
+#: ../apps/edt/editor_base_app.py:884 ../apps/agenda/agenda_app.py:509
 msgid "find"
 msgstr ""
 
 #: ../apps/edt/editor_base_app.py:862 ../apps/edt/editor_base_app.py:890
-#: ../apps/agenda/agenda_app.py:590 ../apps/media/mp3_app.py:131
+#: ../apps/agenda/agenda_app.py:585 ../apps/media/mp3_app.py:131
 msgid "&next"
 msgstr ""
 
@@ -4087,492 +4086,476 @@ msgstr ""
 msgid "bluetooth listening"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:45
+#: ../apps/agenda/agenda_app.py:43
 msgid "done"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:68
+#: ../apps/agenda/agenda_app.py:66
 msgid "&event"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:70 ../apps/games/mines_app.py:66
+#: ../apps/agenda/agenda_app.py:68 ../apps/games/mines_app.py:66
 #: ../apps/games/master_mind_app.py:67
 msgid "&new"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:72
+#: ../apps/agenda/agenda_app.py:70
 msgid "&modify"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:73
+#: ../apps/agenda/agenda_app.py:71
 msgid "&change status"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:78
+#: ../apps/agenda/agenda_app.py:76
 msgid "delete e&xpired events"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:81
+#: ../apps/agenda/agenda_app.py:79
 msgid "delete &completed events"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:87
+#: ../apps/agenda/agenda_app.py:85
 msgid "&previous week"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:90
+#: ../apps/agenda/agenda_app.py:88
 msgid "&next week"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:93
+#: ../apps/agenda/agenda_app.py:91
 msgid "previous d&ay"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:94
+#: ../apps/agenda/agenda_app.py:92
 msgid "next &day"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:100
+#: ../apps/agenda/agenda_app.py:98
 msgid "find &date"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:102
+#: ../apps/agenda/agenda_app.py:100
 msgid "find in a&genda"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:107
+#: ../apps/agenda/agenda_app.py:105
 msgid "agenda &gestion"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:109
+#: ../apps/agenda/agenda_app.py:107
 msgid "&import agenda file"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:111
+#: ../apps/agenda/agenda_app.py:109
 msgid "&export agenda file"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:113
+#: ../apps/agenda/agenda_app.py:111
 msgid "e&mpty agenda"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:116
-msgid "a&bout"
-msgstr ""
-
-#: ../apps/agenda/agenda_app.py:202
+#: ../apps/agenda/agenda_app.py:197
 msgid ""
 "your agenda file is corrupt. You can copy the file in your document folder, "
 "but app can't open it. What do you want to do?"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:204
+#: ../apps/agenda/agenda_app.py:199
 msgid "&save and delete file"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:205
+#: ../apps/agenda/agenda_app.py:200
 msgid "&erase agenda"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:214
+#: ../apps/agenda/agenda_app.py:209
 msgid "agenda saving"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:219
+#: ../apps/agenda/agenda_app.py:214
 msgid "the file has been correctly copy and the agenda has clear"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:352
+#: ../apps/agenda/agenda_app.py:347
 msgid "from today's ({})"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:353
+#: ../apps/agenda/agenda_app.py:348
 msgid "for today ({})"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:354
+#: ../apps/agenda/agenda_app.py:349
 msgid "not done ({})"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:355
+#: ../apps/agenda/agenda_app.py:350
 msgid "all agenda ({})"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:356
+#: ../apps/agenda/agenda_app.py:351
 msgid "calendar {}"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:387
+#: ../apps/agenda/agenda_app.py:382
 msgid "title of event"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:389
+#: ../apps/agenda/agenda_app.py:384
 msgid "content of event"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:391
+#: ../apps/agenda/agenda_app.py:386
 msgid "new event"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:394 ../apps/agenda/agenda_app.py:445
-#: ../apps/agenda/agenda_app.py:503
+#: ../apps/agenda/agenda_app.py:389 ../apps/agenda/agenda_app.py:440
+#: ../apps/agenda/agenda_app.py:498
 msgid "&day"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:395 ../apps/agenda/agenda_app.py:446
-#: ../apps/agenda/agenda_app.py:504
+#: ../apps/agenda/agenda_app.py:390 ../apps/agenda/agenda_app.py:441
+#: ../apps/agenda/agenda_app.py:499
 msgid "&month"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:396 ../apps/agenda/agenda_app.py:447
-#: ../apps/agenda/agenda_app.py:505
+#: ../apps/agenda/agenda_app.py:391 ../apps/agenda/agenda_app.py:442
+#: ../apps/agenda/agenda_app.py:500
 msgid "&year"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:398 ../apps/agenda/agenda_app.py:448
+#: ../apps/agenda/agenda_app.py:393 ../apps/agenda/agenda_app.py:443
 msgid "&subject"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:399 ../apps/agenda/agenda_app.py:449
+#: ../apps/agenda/agenda_app.py:394 ../apps/agenda/agenda_app.py:444
 msgid "co&ntent"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:409
+#: ../apps/agenda/agenda_app.py:404
 msgid "do you really want to delete this event of your agenda?"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:443
+#: ../apps/agenda/agenda_app.py:438
 msgid "modify event"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:450
+#: ../apps/agenda/agenda_app.py:445
 msgid "&is done"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:460
+#: ../apps/agenda/agenda_app.py:455
 msgid "do you really want to erase these events?"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:471
+#: ../apps/agenda/agenda_app.py:466
 msgid "do you really want to delete the done events?"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:501
+#: ../apps/agenda/agenda_app.py:496
 msgid "find date"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:516
+#: ../apps/agenda/agenda_app.py:511
 msgid "&element to find"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:517
+#: ../apps/agenda/agenda_app.py:512
 msgid "cri&terion"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:517 ../apps/agenda/agenda_app.py:808
-#: ../apps/agenda/agenda_app.py:813 ../apps/agenda/agenda_app.py:1547
+#: ../apps/agenda/agenda_app.py:512 ../apps/agenda/agenda_app.py:790
+#: ../apps/agenda/agenda_app.py:795 ../apps/agenda/agenda_app.py:1541
 msgid "all"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:517 ../apps/agenda/agenda_app.py:809
-#: ../apps/agenda/agenda_app.py:814
+#: ../apps/agenda/agenda_app.py:512 ../apps/agenda/agenda_app.py:791
+#: ../apps/agenda/agenda_app.py:796
 msgid "subject"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:517 ../apps/agenda/agenda_app.py:810
-#: ../apps/agenda/agenda_app.py:815
+#: ../apps/agenda/agenda_app.py:512 ../apps/agenda/agenda_app.py:792
+#: ../apps/agenda/agenda_app.py:797
 msgid "content"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:519
+#: ../apps/agenda/agenda_app.py:514
 msgid "&not done"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:557 ../apps/agenda/agenda_app.py:627
-#: ../apps/agenda/agenda_app.py:639 ../apps/fman/file_manager_app.py:229
+#: ../apps/agenda/agenda_app.py:552 ../apps/agenda/agenda_app.py:622
+#: ../apps/agenda/agenda_app.py:634 ../apps/fman/file_manager_app.py:229
 msgid "usb &key"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:562 ../apps/agenda/agenda_app.py:632
-#: ../apps/agenda/agenda_app.py:637 ../apps/fman/file_manager_app.py:228
+#: ../apps/agenda/agenda_app.py:557 ../apps/agenda/agenda_app.py:627
+#: ../apps/agenda/agenda_app.py:632 ../apps/fman/file_manager_app.py:228
 msgid "my &documents"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:568
+#: ../apps/agenda/agenda_app.py:563
 msgid "import agenda"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:579
+#: ../apps/agenda/agenda_app.py:574
 msgid "My agenda {}"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:585
+#: ../apps/agenda/agenda_app.py:580
 msgid "export agenda"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:588
+#: ../apps/agenda/agenda_app.py:583
 msgid "file &location"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:588 ../apps/agenda/agenda_app.py:601
+#: ../apps/agenda/agenda_app.py:583 ../apps/agenda/agenda_app.py:596
 msgid "my documents"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:588
+#: ../apps/agenda/agenda_app.py:583
 msgid "choose folder"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:604
+#: ../apps/agenda/agenda_app.py:599
 msgid ""
 "the file will be exported to the my documents folder. Do you want to "
 "continue?"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:621
+#: ../apps/agenda/agenda_app.py:616
 msgid "&back"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:643
+#: ../apps/agenda/agenda_app.py:638
 msgid "select a destination folder"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:651
+#: ../apps/agenda/agenda_app.py:646
 msgid "are you sure you want to delete all content of the agenda?"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:661
-msgid "about agenda"
-msgstr ""
-
-#: ../apps/agenda/agenda_app.py:663
-msgid ""
-"agenda, version {}, copyright (C){} Theotime Berthod.\n"
-"In collaboration with Eurobraille.\n"
-"For suggestions or problems, contact Eurobraille or directly the application "
-"developer to {}."
-msgstr ""
-
-#: ../apps/agenda/agenda_app.py:696 ../apps/agenda/agenda_app.py:750
+#: ../apps/agenda/agenda_app.py:678 ../apps/agenda/agenda_app.py:732
 msgid "you can't use the ';' in text"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:716
+#: ../apps/agenda/agenda_app.py:698
 msgid "the agenda has been correctly deleted."
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:720
+#: ../apps/agenda/agenda_app.py:702
 msgid "unable to delete the file, an unexpected error occurred."
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:823
+#: ../apps/agenda/agenda_app.py:805
 msgid "1 event found"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:825
+#: ../apps/agenda/agenda_app.py:807
 msgid "{} events found"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:831
+#: ../apps/agenda/agenda_app.py:813
 msgid "no event found"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:840
+#: ../apps/agenda/agenda_app.py:822
 msgid "importing..."
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:847
+#: ../apps/agenda/agenda_app.py:829
 msgid ""
 "the file {} does not comply with the application's convention. Refer to the "
 "documentation for more information."
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:862
+#: ../apps/agenda/agenda_app.py:844
 msgid ""
 "the file was correctly imported, with the exception of 1 event that already "
 "existed."
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:865
+#: ../apps/agenda/agenda_app.py:847
 msgid ""
 "the file was correctly imported, with the exception of {} events that "
 "already existed."
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:869
+#: ../apps/agenda/agenda_app.py:851
 msgid "the file has been correctly imported"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:886
+#: ../apps/agenda/agenda_app.py:868
 msgid "select folder"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:893
+#: ../apps/agenda/agenda_app.py:875
 msgid "the file has been correctly exported in {} folder"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:901
+#: ../apps/agenda/agenda_app.py:883
 msgid ""
 "this file already exists, try with another name or delete the previous file"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:913
+#: ../apps/agenda/agenda_app.py:895
 msgid "error during the exportation, verify your agenda and try again"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:926
+#: ../apps/agenda/agenda_app.py:908
 msgid "you have 1 event not done for today."
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:928
+#: ../apps/agenda/agenda_app.py:910
 msgid "you have {} events not done for today."
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:933 ../apps/agenda/agenda_app.py:969
+#: ../apps/agenda/agenda_app.py:915 ../apps/agenda/agenda_app.py:951
 msgid "&display"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:962
+#: ../apps/agenda/agenda_app.py:944
 msgid "you have 1 event not done for tomorrow."
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:964
+#: ../apps/agenda/agenda_app.py:946
 msgid "you have {} events not done for tomorrow."
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1027 ../apps/agenda/agenda_app.py:1030
-#: ../apps/agenda/agenda_app.py:1033
+#: ../apps/agenda/agenda_app.py:1021 ../apps/agenda/agenda_app.py:1024
+#: ../apps/agenda/agenda_app.py:1027
 msgid "a date is composed of a day, a month and a year."
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1038
+#: ../apps/agenda/agenda_app.py:1032
 msgid "a date is composed of numbers, seperate with /"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1040
+#: ../apps/agenda/agenda_app.py:1034
 msgid "the days range from 01 to 31."
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1042
+#: ../apps/agenda/agenda_app.py:1036
 msgid "12 months ago, numbered from 01 to 12."
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1231
+#: ../apps/agenda/agenda_app.py:1225
 msgid "monday"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1232
+#: ../apps/agenda/agenda_app.py:1226
 msgid "tuesday"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1233
+#: ../apps/agenda/agenda_app.py:1227
 msgid "wednesday"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1234
+#: ../apps/agenda/agenda_app.py:1228
 msgid "thursday"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1235
+#: ../apps/agenda/agenda_app.py:1229
 msgid "friday"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1236
+#: ../apps/agenda/agenda_app.py:1230
 msgid "saturday"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1237
+#: ../apps/agenda/agenda_app.py:1231
 msgid "sunday"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1240
+#: ../apps/agenda/agenda_app.py:1234
 msgid "january"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1241
+#: ../apps/agenda/agenda_app.py:1235
 msgid "february"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1242
+#: ../apps/agenda/agenda_app.py:1236
 msgid "march"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1243
+#: ../apps/agenda/agenda_app.py:1237
 msgid "april"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1244
+#: ../apps/agenda/agenda_app.py:1238
 msgid "may"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1245
+#: ../apps/agenda/agenda_app.py:1239
 msgid "june"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1246
+#: ../apps/agenda/agenda_app.py:1240
 msgid "july"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1247
+#: ../apps/agenda/agenda_app.py:1241
 msgid "august"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1248
+#: ../apps/agenda/agenda_app.py:1242
 msgid "september"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1249
+#: ../apps/agenda/agenda_app.py:1243
 msgid "october"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1250
+#: ../apps/agenda/agenda_app.py:1244
 msgid "november"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1251
+#: ../apps/agenda/agenda_app.py:1245
 msgid "december"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1493
+#: ../apps/agenda/agenda_app.py:1487
 msgid "1 event"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1495
+#: ../apps/agenda/agenda_app.py:1489
 msgid "{} events"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1501
+#: ../apps/agenda/agenda_app.py:1495
 msgid "{} not done"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1524
+#: ../apps/agenda/agenda_app.py:1518
 msgid "Show"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1533
+#: ../apps/agenda/agenda_app.py:1527
 msgid "no event..."
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1545
+#: ../apps/agenda/agenda_app.py:1539
 msgid "event not done"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1549
+#: ../apps/agenda/agenda_app.py:1543
 msgid "to do for {}"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1551
+#: ../apps/agenda/agenda_app.py:1545
 msgid "to do for tomorrow"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1553
+#: ../apps/agenda/agenda_app.py:1547
 msgid "to do for today"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1557
+#: ../apps/agenda/agenda_app.py:1551
 msgid "find {}"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1559
+#: ../apps/agenda/agenda_app.py:1553
 msgid "select the display"
 msgstr ""
 
