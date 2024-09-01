@@ -2264,7 +2264,9 @@ class FileManagerApp(BnoteApp):
             self._put_in_function_queue(FunctionId.UNABLE_TO_UPDATE)
         else:
             # Change message and restart service to restart the new bnoteapp.
-            self.refresh_install_message("install done, restart new version...")
+            self.refresh_install_message(_("install done, restart new version..."))
+            if Settings().data['update']['delete_after_installed']:
+                self._exec_permanent_deletion_yes_dialog()
             self._put_in_function_queue(FunctionId.ASK_TERMINATE_BNOTE_AND_RESTART_SERVICE)
 
     def __import_settings(self):

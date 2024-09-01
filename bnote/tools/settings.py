@@ -113,6 +113,7 @@ class Settings(metaclass=SingletonMeta):
                                    'keep_spaces': False,
                                    'write_all': True},
                                'update': {'auto_check': False,
+                                          'delete_after_installed': False,
                                           'search_update_to': 'https://api.github.com/repos/theotime2005/bnote/releases'},
                                'eole': {'user_name': '', 'token': ''},
                                'translator': {
@@ -208,6 +209,7 @@ class Settings(metaclass=SingletonMeta):
                                  'keep_spaces': (True, False),
                                  'write_all': (True, False)},
                              'update': {'auto_check': (True, False),
+                                        'delete_after_installed': (True, False),
                                         'search_update_to': 'https://api.github.com/repos/devel-erb/bnote/releases'},
                              'eole': {'user_name': '', 'token': ''},
                              'stm32': {'name': '',
