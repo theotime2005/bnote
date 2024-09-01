@@ -30,8 +30,6 @@ class AgendaApp(BnoteApp):
         Class construtor
         :param put_in_function_queue:  (for multi-threading) queue of functions ask to bnote Internal class
         """
-        # app information
-        self.version = "2024-06-02"
         # Filter creation
         self.dater = ""
         self.filter = False
@@ -61,7 +59,7 @@ class AgendaApp(BnoteApp):
 
     def __create_menu(self):
         return ui.UiMenuBar(
-            name=_("agenda") + "-" + self.version,
+            name=_("agenda"),
             is_root=True,
             menu_item_list=[
                 ui.UiMenuBar(
@@ -113,9 +111,6 @@ class AgendaApp(BnoteApp):
                         ui.UiMenuItem(name=_("e&mpty agenda"), action=self._exec_empty_agenda),
                     ]
                 ),
-                ui.UiMenuItem(name=_("a&bout"), action=self._exec_about,
-                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                              shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F1),
                 ui.UiMenuItem(name=_("&applications"), action=self._exec_application),
             ],
         )
@@ -656,19 +651,6 @@ class AgendaApp(BnoteApp):
             action_cancelable=self._exec_cancel_dialog,
         )
 
-    def _exec_about(self):
-        self._current_dialog = ui.UiMessageDialogBox(
-            name=_("about agenda"),
-            message=_(
-                "agenda, version {}, copyright (C){} Theotime Berthod.\nIn collaboration with Eurobraille.\nFor suggestions or problems, contact Eurobraille or directly the application developer to {}.").format(
-                self.version, datetime.datetime.now().year, "acres.louer.0l@icloud.com"),
-            buttons=[
-                ui.UiButton(name=_("&ok"), action=self._exec_cancel_dialog),
-            ],
-            action_cancelable=self._exec_cancel_dialog,
-        )
-        return True
-
     # --------------------
     # Dialogbox functions.
 
@@ -1010,17 +992,29 @@ class AgendaApp(BnoteApp):
 
     def compare_date(self, date) -> bool:
         """
-        Compare the date with the date of day.
-        Return True if day is superior, False else.
+        Compare the date with the current date.
+        Return True if the input date is later than the current date, False otherwise.
         """
-        day = self.get_date().split("/")
+        day = self.get_date().split("/")  # Assuming get_date() returns a date in "dd/mm/yyyy" format
         date = date.split("/")
-        if int(date[2]) >= int(day[2]):
-            if int(date[1]) > int(day[1]):
-                return True
-            elif int(date[1]) == int(day[1]) and int(date[0]) >= int(day[0]):
-                return True
-        return False
+
+        # Compare years
+        if int(date[2]) > int(day[2]):
+            return True
+        elif int(date[2]) < int(day[2]):
+            return False
+
+        # If years are equal, compare months
+        if int(date[1]) > int(day[1]):
+            return True
+        elif int(date[1]) < int(day[1]):
+            return False
+
+        # If months are equal, compare days
+        if int(date[0]) > int(day[0]):
+            return True
+        else:
+            return False
 
     def test_date(self, date_teste):
         if date_teste[0] == "/":
