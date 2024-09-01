@@ -637,12 +637,22 @@ class SettingsApp(BnoteApp):
                 ),
 
                 ui.UiMenuItem(name=_("about"), action=self._exec_about_bnote),
+                ui.UiMenuBar(
+                    name=_("deve&lopment"),
+                    action=self.menu_development,
+                    menu_item_list=[
+                        ui.UiMenuItem(name=_("&restart apps"), action=self._exec_restart_app),
+                    ]
+                ),
 
                 ui.UiMenuItem(name=_("&test"), action=self._exec_test),
                 ui.UiMenuItem(name=_("&reset"), action=self._exec_reset),
                 ui.UiMenuItem(name=_("&applications"), action=self._exec_application),
             ],
         )
+
+    def menu_development(self):
+        return
 
     # self.document_area est une liste de dictionnaire. Chaque dictionnaire contient les infos utiles pour contruire
     # une ligne du document.
@@ -2615,6 +2625,26 @@ class SettingsApp(BnoteApp):
             action_cancelable=self._exec_cancel_dialog
         )
 
+    def _exec_restart_app(self):
+        self._current_dialog=ui.UiMessageDialogBox(
+            name=_("warning"),
+            message=_("do you want to restart the application?"),
+            buttons=[
+                ui.UiButton(name=_("&yes"), action=self._exec_valid_restart_app),
+                ui.UiButton(name=_("&no"), action=self._exec_cancel_dialog),
+            ],
+            action_cancelable=self._exec_cancel_dialog
+        )
+
+    def _exec_valid_restart_app(self):
+        self._current_dialog = ui.UiInfoDialogBox(message=_("restarting..."))
+        restart = threading.Thread(target=self.restart_app)
+        restart.start()
+
+    def restart_app(self):
+        time.sleep(1.0)
+        self._put_in_function_queue(FunctionId.ASK_TERMINATE_BNOTE_AND_RESTART_SERVICE)
+
     def _exec_reset(self):
         # Ask confirmation.
         self._current_dialog = ui.UiMessageDialogBox(
@@ -3120,7 +3150,11 @@ class SettingsApp(BnoteApp):
         self.__refresh_braille_display()
 
     def _update_menu_items(self):
-        pass
+        # display development menu only if version is into developer
+        if Settings().data['system']['developer']:
+            self._menu.get_object(self.menu_development).unhide()
+        else:
+            self._menu.get_object(self.menu_development).hide()
 
     def _exec_change_update_source(self, **kwargs):
         actual_source = Settings().data['update']['search_update_to']
