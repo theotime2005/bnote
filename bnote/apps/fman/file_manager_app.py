@@ -11,35 +11,34 @@ import threading
 import time
 from pathlib import Path
 
+import bnote.ui as ui
+from bnote.apps.bnote_app import BnoteApp, FunctionId, MAX_EDITOR_APP
+from bnote.apps.daisy.daisy import DaisyReader
+from bnote.apps.daisy.daisy_app import DaisyApp
 from bnote.apps.edt.editor_app import EditorApp
 from bnote.apps.eole.eole_api import EoleApi
 from bnote.apps.eole.eole_crypto import EoleCrypto
 from bnote.apps.eole.eole_search_dialog_box import EoleSearchDialogBox
-from bnote.apps.media.mp3_app import Mp3App
-from bnote.apps.music.music_app import MusicApp
-from bnote.apps.daisy.daisy_app import DaisyApp
-from bnote.tools import bt_util
-from bnote.tools.io_util import Gpio
-import bnote.ui as ui
-from bnote.tools.clipboard import CLIP_FILE
-from bnote.tools.keyboard import Keyboard
-from bnote.apps.bnote_app import BnoteApp, FunctionId, MAX_EDITOR_APP
-from bnote.tools.quick_search import QuickSearch
-# from bnote.edt.editor import *
-from bnote.apps.fman.file_manager import FileManager, Trash
 from bnote.apps.fman.copy_move_tread import CopyMoveThread
 from bnote.apps.fman.delete_thread import DeleteThread
+# from bnote.edt.editor import *
+from bnote.apps.fman.file_manager import FileManager, Trash
 from bnote.apps.fman.recent_file import RecentFile
 from bnote.apps.fman.restore_from_trash_tread import RestoreFromTrashThread
 from bnote.apps.fman.send_to_thread import SendToThread
-from bnote.apps.fman.zip_thread import ZipThread
 from bnote.apps.fman.unzip_thread import UnZipThread
-from bnote.tools.yaupdater import YAUpdater
-from bnote.tools.settings import SETTINGS_FILE, Settings
-from bnote.apps.daisy.daisy import DaisyReader, DaisyReaderException
-
+from bnote.apps.fman.zip_thread import ZipThread
+from bnote.apps.media.mp3_app import Mp3App
+from bnote.apps.music.music_app import MusicApp
 # Set up the logger for this file
 from bnote.debug.colored_log import ColoredLogger, FILE_MANAGER_APP_LOG
+from bnote.tools import bt_util
+from bnote.tools.clipboard import CLIP_FILE
+from bnote.tools.io_util import Gpio
+from bnote.tools.keyboard import Keyboard
+from bnote.tools.quick_search import QuickSearch
+from bnote.tools.settings import Settings
+from bnote.tools.yaupdater import YAUpdater
 
 log = ColoredLogger(__name__)
 log.setLevel(FILE_MANAGER_APP_LOG)
@@ -106,27 +105,27 @@ class FileManagerApp(BnoteApp):
 
     def __create_file_manager_file_new_menu(self):
         return ui.UiMenuBar(name=_("&New"),
-                         menu_item_list=[
-                             ui.UiMenuItem(name=_("text(.&txt)"), action=self._exec_new_text_file,
-                                        shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
-                                        shortcut_key='N'),
-                             ui.UiMenuItem(name=_("music(.&bxml)"), action=self._exec_new_bxml_file,
-                                        shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
-                                        shortcut_key='B'),
-                             ui.UiMenuItem(name=_("music(.music&xml)"), action=self._exec_new_musicxml_file,
-                                        shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
-                                        shortcut_key='M'),
-                             ui.UiMenuItem(name=_("&folder"), action=self._exec_new_folder,
-                                        shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
-                                        shortcut_key='D'),
-                         ])
+                            menu_item_list=[
+                                ui.UiMenuItem(name=_("text(.&txt)"), action=self._exec_new_text_file,
+                                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                                              shortcut_key='N'),
+                                ui.UiMenuItem(name=_("music(.&bxml)"), action=self._exec_new_bxml_file,
+                                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                                              shortcut_key='B'),
+                                ui.UiMenuItem(name=_("music(.music&xml)"), action=self._exec_new_musicxml_file,
+                                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                                              shortcut_key='M'),
+                                ui.UiMenuItem(name=_("&folder"), action=self._exec_new_folder,
+                                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                                              shortcut_key='D'),
+                            ])
 
     def __create_file_manager_eole_menu(self):
         return ui.UiMenuBar(name=_("&eole library"),
-                         menu_item_list=[
-                             ui.UiMenuItem(name=_("&simplified search"), action=self._exec_eole_simplified_search),
-                             ui.UiMenuItem(name=_("&advanced search"), action=self._exec_eole_advanced_search),
-                         ])
+                            menu_item_list=[
+                                ui.UiMenuItem(name=_("&simplified search"), action=self._exec_eole_simplified_search),
+                                ui.UiMenuItem(name=_("&advanced search"), action=self._exec_eole_advanced_search),
+                            ])
 
     def __create_file_manager_file_menu(self):
         return ui.UiMenuBar(
@@ -134,27 +133,28 @@ class FileManagerApp(BnoteApp):
             menu_item_list=[self.__create_file_manager_file_new_menu(),
                             ui.UiMenuItem(name=_("&send to"), action=self._exec_send_to),
                             ui.UiMenuItem(name=_("&rename"), action=self._exec_rename,
-                                       shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                                       shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F2),
+                                          shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                                          shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F2),
                             ui.UiMenuItem(name=_("dele&te"), action=self._exec_delete,
-                                       shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                                       shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_DELETE),
+                                          shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                                          shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_DELETE),
                             ui.UiMenuItem(name=_("&zip"), action=self._exec_zip),
                             ui.UiMenuItem(name=_("&unzip"), action=self._exec_unzip),
                             ui.UiMenuItem(name=_("&actualize"), action=self._exec_actualize,
-                                       shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                                       shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F5),
+                                          shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                                          shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F5),
                             ui.UiMenuItem(name=_("&open"), action=self._exec_open,
-                                       shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                                       shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_RETURN
-                                       ),
+                                          shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                                          shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_RETURN
+                                          ),
                             ui.UiMenuItem(name=_("o&pen to read"), action=self._exec_read_only,
-                                       shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
-                                       shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_RETURN
-                                       ),
+                                          shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                                          shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_RETURN
+                                          ),
                             ui.UiMenuItem(name=_("re&cents"), action=self._exec_recent_file),
                             ui.UiMenuItem(name=_("fi&nd"), action=self._exec_find_file,
-                                       shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='F'),
+                                          shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                                          shortcut_key='F'),
                             ],
         )
 
@@ -163,32 +163,34 @@ class FileManagerApp(BnoteApp):
             name=_("&file"),
             menu_item_list=[self.__create_file_manager_file_new_menu(),
                             ui.UiMenuItem(name=_("safely &unmount usb stick"),
-                                       action=self._exec_unmount_all_usb_flash_drives,
-                                       shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='U'),
+                                          action=self._exec_unmount_all_usb_flash_drives,
+                                          shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                                          shortcut_key='U'),
                             ui.UiMenuItem(name=_("&send to"), action=self._exec_send_to),
                             ui.UiMenuItem(name=_("&rename"), action=self._exec_rename,
-                                       shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                                       shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F2),
+                                          shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                                          shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F2),
                             ui.UiMenuItem(name=_("dele&te"), action=self._exec_delete,
-                                       shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                                       shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_DELETE),
+                                          shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                                          shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_DELETE),
                             ui.UiMenuItem(name=_("&zip"), action=self._exec_zip),
                             ui.UiMenuItem(name=_("&unzip"), action=self._exec_unzip),
                             ui.UiMenuItem(name=_("&actualize"), action=self._exec_actualize,
-                                       shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                                       shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F5),
+                                          shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                                          shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F5),
                             ui.UiMenuItem(name=_("&open"), action=self._exec_open,
-                                       shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                                       shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_RETURN
-                                       ),
+                                          shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                                          shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_RETURN
+                                          ),
                             ui.UiMenuItem(name=_("o&pen to read"), action=self._exec_read_only,
-                                       shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
-                                       shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_RETURN
-                                       ),
+                                          shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                                          shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_RETURN
+                                          ),
                             ui.UiMenuItem(name=_("re&cents"), action=self._exec_recent_file),
                             ui.UiMenuItem(name=_("fi&nd"), action=self._exec_find_file,
-                                       shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='F'),
-            ],
+                                          shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                                          shortcut_key='F'),
+                            ],
         )
 
     def __create_file_manager_edit_menu(self):
@@ -196,25 +198,25 @@ class FileManagerApp(BnoteApp):
             name=_("&edit"),
             menu_item_list=[
                 ui.UiMenuItem(name=_("&start selection"),
-                           action=self._exec_start_selection,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F8),
+                              action=self._exec_start_selection,
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                              shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F8),
                 ui.UiMenuItem(name=_("&end selection"),
-                           action=self._exec_end_selection, is_hide=True,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_ESCAPE),
+                              action=self._exec_end_selection, is_hide=True,
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                              shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_ESCAPE),
                 ui.UiMenuItem(name=_("cu&t"), action=self._exec_cut,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
-                           shortcut_key='X'),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                              shortcut_key='X'),
                 ui.UiMenuItem(name=_("&copy"), action=self._exec_copy,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
-                           shortcut_key='C'),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                              shortcut_key='C'),
                 ui.UiMenuItem(name=_("&paste"), action=self._exec_paste,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
-                           shortcut_key='V'),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                              shortcut_key='V'),
                 ui.UiMenuItem(name=_("select &all"), action=self._exec_select_all,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
-                           shortcut_key='A'),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                              shortcut_key='A'),
             ],
         )
 
@@ -230,8 +232,8 @@ class FileManagerApp(BnoteApp):
                 ui.UiMenuItem(name=_("my back&ups"), action=self._exec_goto_backup),
                 ui.UiMenuItem(name=_("c&rash"), action=self._exec_goto_crash),
                 ui.UiMenuItem(name=_("p&arent directory"), action=self._exec_goto_parent_directory,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_BACKSPACE),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                              shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_BACKSPACE),
             ],
         )
 
@@ -252,8 +254,8 @@ class FileManagerApp(BnoteApp):
                 ui.UiMenuItem(name=_("permanently &delete"), action=self._exec_delete),
                 ui.UiMenuItem(name=_("&empty the trash"), action=self._exec_empty_the_trash),
                 ui.UiMenuItem(name=_("&actualize"), action=self._exec_actualize,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F5),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                              shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F5),
             ],
         )
 
@@ -262,16 +264,16 @@ class FileManagerApp(BnoteApp):
             name=_("&edit"),
             menu_item_list=[
                 ui.UiMenuItem(name=_("start &selection"),
-                           action=self._exec_start_selection,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F8),
+                              action=self._exec_start_selection,
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                              shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F8),
                 ui.UiMenuItem(name=_("end &selection"),
-                           action=self._exec_end_selection, is_hide=True,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_ESCAPE),
+                              action=self._exec_end_selection, is_hide=True,
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                              shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_ESCAPE),
                 ui.UiMenuItem(name=_("select &all"), action=self._exec_select_all,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
-                           shortcut_key='A'),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                              shortcut_key='A'),
             ],
         )
 
@@ -280,11 +282,11 @@ class FileManagerApp(BnoteApp):
             name=_("&file"),
             menu_item_list=[
                 ui.UiMenuItem(name=_("dele&te"), action=self._exec_delete,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_DELETE),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                              shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_DELETE),
                 ui.UiMenuItem(name=_("&actualize"), action=self._exec_actualize,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F5),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                              shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F5),
             ],
         )
 
@@ -293,19 +295,19 @@ class FileManagerApp(BnoteApp):
             name=_("&edit"),
             menu_item_list=[
                 ui.UiMenuItem(name=_("start &selection"),
-                           action=self._exec_start_selection,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F8),
+                              action=self._exec_start_selection,
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                              shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F8),
                 ui.UiMenuItem(name=_("end &selection"),
-                           action=self._exec_end_selection, is_hide=True,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_ESCAPE),
+                              action=self._exec_end_selection, is_hide=True,
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                              shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_ESCAPE),
                 ui.UiMenuItem(name=_("cu&t"), action=self._exec_cut,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
-                           shortcut_key='X'),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                              shortcut_key='X'),
                 ui.UiMenuItem(name=_("select &all"), action=self._exec_select_all,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
-                           shortcut_key='A'),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                              shortcut_key='A'),
             ],
         )
 
@@ -314,10 +316,10 @@ class FileManagerApp(BnoteApp):
             name=_("&file"),
             menu_item_list=[
                 ui.UiMenuItem(name=_("safely &unmount usb stick"), action=self._exec_unmount_all_usb_flash_drives,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='U'),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='U'),
                 ui.UiMenuItem(name=_("&actualize"), action=self._exec_actualize,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F5),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                              shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F5),
             ],
         )
 
@@ -327,8 +329,8 @@ class FileManagerApp(BnoteApp):
             name=_("&file"),
             menu_item_list=[
                 ui.UiMenuItem(name=_("&actualize"), action=self._exec_actualize,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F5),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                              shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F5),
             ],
         )
 
@@ -337,28 +339,28 @@ class FileManagerApp(BnoteApp):
             name=_("&file"),
             menu_item_list=[
                 ui.UiMenuItem(name=_("safely &unmount usb stick"), action=self._exec_unmount_all_usb_flash_drives,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='U'),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='U'),
                 self.__create_file_manager_file_new_menu(),
                 ui.UiMenuItem(name=_("&open"), action=self._exec_open,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_RETURN
-                           ),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                              shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_RETURN
+                              ),
                 ui.UiMenuItem(name=_("&open to read"), action=self._exec_read_only,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_RETURN
-                           ),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                              shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_RETURN
+                              ),
                 ui.UiMenuItem(name=_("&send to"), action=self._exec_send_to),
                 ui.UiMenuItem(name=_("&rename"), action=self._exec_rename,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F2),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                              shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F2),
                 ui.UiMenuItem(name=_("dele&te"), action=self._exec_delete,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_DELETE),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                              shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_DELETE),
                 ui.UiMenuItem(name=_("&zip"), action=self._exec_zip),
                 ui.UiMenuItem(name=_("&unzip"), action=self._exec_unzip),
                 ui.UiMenuItem(name=_("&actualize"), action=self._exec_actualize,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F5),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                              shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F5),
             ],
         )
 
@@ -583,7 +585,6 @@ class FileManagerApp(BnoteApp):
                 message=_("unable to unplug safely the usb flash disk."),
                 action=self._exec_cancel_dialog
             )
-
 
     def _exec_new_bxml_file(self, **kwargs):
         self._exec_new_file(type=_(".bxml"))
@@ -827,11 +828,12 @@ class FileManagerApp(BnoteApp):
         self.__reset_extend_selection()
 
     def _exec_find_file(self):
-        self._current_dialog=ui.UiDialogBox(
+        self._current_dialog = ui.UiDialogBox(
             name=_("find file"),
             item_list=[
                 ui.UiFileEditBox(name=_("&file name"), value=("name", "")),
-                ui.UiListBox(name=_("find &in"), value=("find", [_("current folder"), _("in the b.note")]), current_index=0),
+                ui.UiListBox(name=_("find &in"), value=("find", [_("current folder"), _("in the b.note")]),
+                             current_index=0),
                 ui.UiButton(name=_("fi&nd"), action=self._exec_valid_find_file),
                 ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
             ],
@@ -839,57 +841,57 @@ class FileManagerApp(BnoteApp):
         )
 
     def _exec_valid_find_file(self):
-        kwargs=self._current_dialog.get_values()
-        if kwargs['find']==_("current folder"):
-            files_list=self._exec_find_in_folders(self.__current_folder, kwargs['name'])
+        kwargs = self._current_dialog.get_values()
+        if kwargs['find'] == _("current folder"):
+            files_list = self._exec_find_in_folders(self.__current_folder, kwargs['name'])
         else:
-            files_list={}
+            files_list = {}
             # On parcour chaque dossier indépendemment
-            backup=self._exec_find_in_folders(FileManager.get_backup_path(), kwargs['name'])
+            backup = self._exec_find_in_folders(FileManager.get_backup_path(), kwargs['name'])
             if backup:
                 files_list.update(backup)
-            bluetooth=self._exec_find_in_folders(FileManager.get_bluetooth_path(), kwargs['name'])
+            bluetooth = self._exec_find_in_folders(FileManager.get_bluetooth_path(), kwargs['name'])
             if bluetooth:
                 files_list.update(bluetooth)
-            crash=self._exec_find_in_folders(FileManager.get_crash_path(), kwargs['name'])
+            crash = self._exec_find_in_folders(FileManager.get_crash_path(), kwargs['name'])
             if crash:
                 files_list.update(crash)
-            documents=self._exec_find_in_folders(FileManager.get_documents_path(), kwargs['name'])
+            documents = self._exec_find_in_folders(FileManager.get_documents_path(), kwargs['name'])
             if documents:
                 files_list.update(documents)
-            usb=self._exec_find_in_folders(FileManager.get_usb_flash_drive_path(), kwargs['name'])
+            usb = self._exec_find_in_folders(FileManager.get_usb_flash_drive_path(), kwargs['name'])
             if usb:
                 files_list.update(usb)
         if files_list:
             # On récupère les noms de fichier
-            lst=[]
+            lst = []
             for element in files_list.keys():
                 lst.append(element)
-            self._current_dialog=ui.UiDialogBox(
+            self._current_dialog = ui.UiDialogBox(
                 name=_("file found {}").format(len(lst)),
                 item_list=[
                     ui.UiListBox(name=_("file"), value=("list", lst)),
                     ui.UiButton(name=_("&show in folder"), action=self._exec_show_in_folder,
-                             action_param={'folder': files_list}),
+                                action_param={'folder': files_list}),
                     ui.UiButton(name=_("&open file"), action=self._exec_show_in_folder,
-                             action_param={'folder': files_list, 'open': True}),
+                                action_param={'folder': files_list, 'open': True}),
                     ui.UiButton(name=_("&close"), action=self._exec_cancel_dialog),
                 ],
                 action_cancelable=self._exec_cancel_dialog,
             )
         else:
-            self._current_dialog=ui.UiInfoDialogBox(message=_("no file found"), action=self._exec_cancel_dialog)
+            self._current_dialog = ui.UiInfoDialogBox(message=_("no file found"), action=self._exec_cancel_dialog)
 
     def _exec_find_in_folders(self, arb, text_to_find):
-        list_file=FileManagerApp.__list_dir(arb)
-        text_to_find=text_to_find.lower()
-        file_lst={}
+        list_file = FileManagerApp.__list_dir(arb)
+        text_to_find = text_to_find.lower()
+        file_lst = {}
         for file in list_file:
             if file.is_file():
-                if file.name.lower().find(text_to_find)>=0:
-                    file_lst[file.name]=file
+                if file.name.lower().find(text_to_find) >= 0:
+                    file_lst[file.name] = file
             else:
-                path=self._exec_find_in_folders(file, text_to_find)
+                path = self._exec_find_in_folders(file, text_to_find)
                 if path:
                     file_lst.update(path)
         if file_lst:
@@ -897,7 +899,7 @@ class FileManagerApp(BnoteApp):
         return False
 
     def _exec_show_in_folder(self, folder, open=False):
-        kwargs=self._current_dialog.get_values()
+        kwargs = self._current_dialog.get_values()
         # Goto the folder
         self.__init_new_current_folder_and_build_braille_line(folder[kwargs['list']])
         self._exec_activate_parent()
@@ -909,14 +911,14 @@ class FileManagerApp(BnoteApp):
         self.__init_new_current_folder_and_build_braille_line(self.__current_folder)
 
     def _exec_recent_file(self):
-        lst=RecentFile().send_list()
+        lst = RecentFile().send_list()
         if not lst:
-            self._current_dialog=ui.UiInfoDialogBox(message=_("not recent file"), action=self._exec_cancel_dialog)
+            self._current_dialog = ui.UiInfoDialogBox(message=_("not recent file"), action=self._exec_cancel_dialog)
             return False
-        name_files=[]
+        name_files = []
         for name in lst:
             name_files.append(name[0])
-        self._current_dialog=ui.UiDialogBox(
+        self._current_dialog = ui.UiDialogBox(
             name=_("recent files"),
             item_list=[
                 ui.UiListBox(name=_("file list"), value=("file", name_files), current_index=0),
@@ -928,11 +930,13 @@ class FileManagerApp(BnoteApp):
         )
 
     def _exec_open_recent_file(self, lst):
-        kwargs=self._current_dialog.get_values()
+        kwargs = self._current_dialog.get_values()
         for element in lst:
-            if element[0]==kwargs['file']:
+            if element[0] == kwargs['file']:
                 if not Path.exists(Path(element[2])):
-                    self._current_dialog=ui.UiInfoDialogBox(message=_("this file does not exist, it will be removed from the list."), action=RecentFile().delete_file, action_param={'name': kwargs['file']})
+                    self._current_dialog = ui.UiInfoDialogBox(
+                        message=_("this file does not exist, it will be removed from the list."),
+                        action=RecentFile().delete_file, action_param={'name': kwargs['file']})
                     return False
                 self.__init_new_current_folder_and_build_braille_line(Path(element[2]))
                 self._exec_activate_parent()
@@ -944,7 +948,7 @@ class FileManagerApp(BnoteApp):
                 return self._exec_activate_child()
 
     def _exec_ask_open_editor_recent_file(self):
-        self._current_dialog=ui.UiDialogBox(
+        self._current_dialog = ui.UiDialogBox(
             name=_("open"),
             item_list=[
                 ui.UiCheckBox(name=_("&read only"), value=("mode", False)),
@@ -954,7 +958,7 @@ class FileManagerApp(BnoteApp):
         )
 
     def _exec_valid_open_editor_recent_file(self):
-        kwargs=self._current_dialog.get_values()
+        kwargs = self._current_dialog.get_values()
         self.__activate_child(read_only=kwargs['mode'])
 
     def _exec_eole_simplified_search(self):
@@ -1056,7 +1060,8 @@ class FileManagerApp(BnoteApp):
                     message=_("{} already exists. do you want to replace it?").format(ui_filename),
                     buttons=[
                         ui.UiButton(name=_("&yes"), action=self.__exec_eole_do_prepare_download,
-                                 action_param={'url_name': url_name, 'filename': filename, 'no_test_existing': True}),
+                                    action_param={'url_name': url_name, 'filename': filename,
+                                                  'no_test_existing': True}),
                         ui.UiButton(name=_("&no"), action=self._exec_end_of_eole_information_dialog),
                     ],
                     action_cancelable=self._exec_cancel_dialog,
@@ -1105,7 +1110,8 @@ class FileManagerApp(BnoteApp):
             else:
                 error_message = _("error can't download the file. error is {}.").format(kwargs['error_message'])
                 if kwargs['error_message'] == EoleApi().access_token():
-                    error_message = _("unable to download the book, your access token is invalid, check your login password.")
+                    error_message = _(
+                        "unable to download the book, your access token is invalid, check your login password.")
 
                 self._current_dialog = ui.UiInfoDialogBox(
                     message=error_message,
@@ -1129,7 +1135,7 @@ class FileManagerApp(BnoteApp):
                     buttons=[ui.UiButton(name=_("&ok"), action=self._exec_end_of_eole_information_dialog)],
                     message=summary,
                     action_cancelable=self._exec_end_of_eole_information_dialog,
-                    )
+                )
                 # Ask a refresh when self._current_dialog is changed.
                 self._put_in_function_queue(FunctionId.FUNCTION_FORCE_REFRESH_DIALOG_IN_DIALOG)
 
@@ -1389,7 +1395,7 @@ class FileManagerApp(BnoteApp):
                 message=_("file {} exists. do you want to replace it?").format(ui_filename),
                 buttons=[
                     ui.UiButton(name=_("&yes"), action=self.__new_file,
-                             action_param={"filename": filename, 'type': kwargs['type'], "no_test_existing": True}),
+                                action_param={"filename": filename, 'type': kwargs['type'], "no_test_existing": True}),
                     ui.UiButton(name=_("&no"), action=self._exec_cancel_dialog),
                 ],
                 action_cancelable=self._exec_cancel_dialog,
@@ -1501,7 +1507,7 @@ class FileManagerApp(BnoteApp):
             message=_("put {} into Bluetooth reception mode (Windows 10 only).").format(send_to_machine),
             buttons=[
                 ui.UiButton(name=_("&ok"), action=self.__send_to,
-                         action_param={'machine': send_to_machine, 'mac_address': send_to_mac_address}),
+                            action_param={'machine': send_to_machine, 'mac_address': send_to_mac_address}),
                 ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
             ],
             action_cancelable=self._exec_cancel_dialog,
@@ -1578,7 +1584,7 @@ class FileManagerApp(BnoteApp):
                 message=_("{} already exists. do you want to replace it?").format(ui_filename),
                 buttons=[
                     ui.UiButton(name=_("&yes"), action=self.__zip,
-                             action_param={"zip_file": filename, "no_test_existing": True}),
+                                action_param={"zip_file": filename, "no_test_existing": True}),
                     ui.UiButton(name=_("&no"), action=self._exec_cancel_dialog),
                 ],
                 action_cancelable=self._exec_cancel_dialog,
@@ -1631,7 +1637,7 @@ class FileManagerApp(BnoteApp):
                 message=_("{} already exists. do you want to replace it?").format(ui_filename),
                 buttons=[
                     ui.UiButton(name=_("&yes"), action=self.__backup,
-                             action_param={"backup_file": filename, "no_test_existing": True}),
+                                action_param={"backup_file": filename, "no_test_existing": True}),
                     ui.UiButton(name=_("&no"), action=self._exec_cancel_dialog),
                 ],
                 action_cancelable=self._exec_cancel_dialog,
@@ -1679,7 +1685,8 @@ class FileManagerApp(BnoteApp):
         backup_filename = kwargs["backup_file"]
 
         self._current_dialog = ui.UiInfoDialogBox(message=_("restoring {}% {}").format("   ", ""))
-        self.__unzip_thread = UnZipThread(FileManager.get_backup_path() / backup_filename, FileManager.get_documents_path(),
+        self.__unzip_thread = UnZipThread(FileManager.get_backup_path() / backup_filename,
+                                          FileManager.get_documents_path(),
                                           on_progress=self.__on_progress,
                                           on_ask_replace=self.__on_ask_replace, on_end=self.__end_restore)
         self.__unzip_thread.start()
@@ -1750,7 +1757,7 @@ class FileManagerApp(BnoteApp):
                 if 'error' in kwargs:
                     error = kwargs['error']
                 self._current_dialog = ui.UiInfoDialogBox(message="{} ({})".format(error, filename),
-                                                       action=self._exec_cancel_dialog)
+                                                          action=self._exec_cancel_dialog)
         self.__unzip_thread = None
         return True
 
@@ -1788,13 +1795,13 @@ class FileManagerApp(BnoteApp):
             message=_("file {} exists. do you want to replace it?").format(filename),
             buttons=[
                 ui.UiButton(name=_("&yes"), action=self.__ask_replace_yes,
-                         action_param={'operation': operation}),
+                            action_param={'operation': operation}),
                 ui.UiButton(name=_("&no"), action=self.__ask_replace_no,
-                         action_param={'operation': operation}),
+                            action_param={'operation': operation}),
                 ui.UiButton(name=_("yes for &all"), action=self.__ask_replace_yes_for_all,
-                         action_param={'operation': operation}),
+                            action_param={'operation': operation}),
                 ui.UiButton(name=_("no for a&ll"), action=self.__ask_replace_no_for_all,
-                         action_param={'operation': operation}),
+                            action_param={'operation': operation}),
             ],
             action_cancelable=action_cancelable,
         )
@@ -2124,7 +2131,9 @@ class FileManagerApp(BnoteApp):
             if focused_file.is_dir():
                 self.__init_new_current_folder_and_build_braille_line(focused_file)
             elif focused_file.is_file():
-                if str(focused_file).endswith(".whl.zip") and not str(self.__current_folder).startswith(str(FileManager.get_backup_path())) and not str(self.__current_folder).startswith(str(Trash.get_trash_path())):
+                if str(focused_file).endswith(".whl.zip") and not str(self.__current_folder).startswith(
+                        str(FileManager.get_backup_path())) and not str(self.__current_folder).startswith(
+                    str(Trash.get_trash_path())):
                     bnote_whl_file, version = YAUpdater.get_version(focused_file)
                     if version != "":
                         self._current_dialog = ui.UiMessageDialogBox(
@@ -2166,7 +2175,7 @@ class FileManagerApp(BnoteApp):
                                 item_list=[
                                     ui.UiListBox(name=_("langue"), value=('language', ["FR", "US"]), current_index=0),
                                     ui.UiButton(name=_("&ok"), action=self._exec_brf_type_dialog,
-                                             action_param={'filename': focused_file}),
+                                                action_param={'filename': focused_file}),
                                     ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
                                 ]
                             )
@@ -2188,7 +2197,7 @@ class FileManagerApp(BnoteApp):
                     RecentFile().add_file_to_list(focused_file.name, focused_file)
                     self.__activate_mp3_apps(**{'filename': focused_file})
                 elif extension == ".zip":
-                    self._current_dialog=ui.UiMessageDialogBox(
+                    self._current_dialog = ui.UiMessageDialogBox(
                         name=_("unzip"),
                         message=_("Unzip file {}?").format(focused_file.name),
                         buttons=[
@@ -2429,12 +2438,13 @@ class FileManagerApp(BnoteApp):
                         not self.__files[self.__focused_file_index].is_symlink():
                     self.__selected_files = [self.__files[self.__focused_file_index]]
 
-        self.__ui_line = ui.UiFileManagerLine(parent_name=self.__current_folder, parent_action=self._exec_activate_parent,
-                                           file_name=self.__files[self.__focused_file_index],
-                                           file_action=self._exec_activate_child,
-                                           selected=self.__files[self.__focused_file_index] in self.__selected_files,
-                                           is_selectable=self.__extend_selection
-                                           )
+        self.__ui_line = ui.UiFileManagerLine(parent_name=self.__current_folder,
+                                              parent_action=self._exec_activate_parent,
+                                              file_name=self.__files[self.__focused_file_index],
+                                              file_action=self._exec_activate_child,
+                                              selected=self.__files[self.__focused_file_index] in self.__selected_files,
+                                              is_selectable=self.__extend_selection
+                                              )
 
     def _exec_activate_parent(self):
         self.__activate_parent()
@@ -2599,4 +2609,3 @@ class FileManagerApp(BnoteApp):
                 self.__build_braille_line()
                 # Set the old braille offset
                 self.__ui_line.braille_display.set_start_pos(old_start_pos)
-

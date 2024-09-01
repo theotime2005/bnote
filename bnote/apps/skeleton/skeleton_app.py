@@ -20,6 +20,7 @@ class SkeletonApp(BnoteApp):
     """
     Skeleton application.
     """
+
     def __init__(self, put_in_function_queue):
         """
         Class construtor
@@ -48,8 +49,8 @@ class SkeletonApp(BnoteApp):
                     ]),
                 ui.UiMenuItem(name=_("&say hello"), action=self._exec_say_hello),
                 ui.UiMenuItem(name=_("&about"), action=self._exec_about,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                           shortcut_key = Keyboard.BrailleFunction.BRAMIGRAPH_F1),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                              shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F1),
             ],
         )
 
@@ -89,21 +90,21 @@ class SkeletonApp(BnoteApp):
         self._current_dialog = ui.UiDialogBox(
             name=_("example"),
             item_list=[
-                 ui.UiMultiLinesBox(
-                     name=_("&multilineseditbox"),
-                     value=("message", "line 1\nline 2\nline 3"),
-                     is_read_only=False),
-                 ui.UiMultiLinesBox(
-                     name=_("&read_only_multilineseditbox"),
-                     value=("message", "line 1\nline 2\nline 3"),
-                     is_read_only=True),
-                 ui.UiEditBox(name=_("&editbox"), value=("editbox", "Text to edit")),
-                 ui.UiListBox(name=_("&listbox"), value=("line", ["line 1", "line 2", "line 3"]), current_index=1),
+                ui.UiMultiLinesBox(
+                    name=_("&multilineseditbox"),
+                    value=("message", "line 1\nline 2\nline 3"),
+                    is_read_only=False),
+                ui.UiMultiLinesBox(
+                    name=_("&read_only_multilineseditbox"),
+                    value=("message", "line 1\nline 2\nline 3"),
+                    is_read_only=True),
+                ui.UiEditBox(name=_("&editbox"), value=("editbox", "Text to edit")),
+                ui.UiListBox(name=_("&listbox"), value=("line", ["line 1", "line 2", "line 3"]), current_index=1),
                 ui.UiFileEditBox(name=_("&file name"), value=("file", "")),
                 ui.UiLabel(name=_("this is a label")),
-                 ui.UiCheckBox(name=_("&checkbox"), value=("checkbox", True)),
-                 ui.UiButton(name=_("&ok"), action=self._exec_valid_sample_dialog),
-                 ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog)
+                ui.UiCheckBox(name=_("&checkbox"), value=("checkbox", True)),
+                ui.UiButton(name=_("&ok"), action=self._exec_valid_sample_dialog),
+                ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog)
             ],
             action_cancelable=self._exec_cancel_dialog,
         )
@@ -265,7 +266,3 @@ class SkeletonApp(BnoteApp):
         braille_static = BnoteApp.lou.to_dots_8(self.__text)
         braille_blinking = "\u2800" * len(braille_static)
         self._braille_display.set_data_line(self.__text, braille_static, braille_blinking, 0)
-
-
-
-

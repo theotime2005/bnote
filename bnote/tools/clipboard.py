@@ -5,14 +5,12 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 from pathlib import Path
 from bnote.apps.fman.file_manager import FileManager
 from bnote.debug.colored_log import ColoredLogger, CLIPBOARD_LOG
 
 log = ColoredLogger(__name__)
 log.setLevel(CLIPBOARD_LOG)
-
 
 CLIP_FILE = ".bnote_clipboard.txt"
 

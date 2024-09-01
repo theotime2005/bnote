@@ -5,13 +5,14 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 import string
+
+# Setup the logger for this file
+from .colored_log import ColoredLogger, EDITOR_MARKERS_LOG, logging
 from .coordinates import Coordinates
 from .marker import Marker
 from .pos import Pos
-# Setup the logger for this file
-from .colored_log import ColoredLogger, EDITOR_MARKERS_LOG, logging
+
 log = ColoredLogger(__name__, level=EDITOR_MARKERS_LOG)
 
 

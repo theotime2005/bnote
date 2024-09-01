@@ -11,6 +11,7 @@ class Coordinates:
     Coordinates definition
     A column, a line and a paragraph (0 based)
     """
+
     def __init__(self, column, line, paragraph):
         self.paragraph = paragraph
         self.line = line
@@ -75,4 +76,3 @@ class Coordinates:
             return True
         else:
             return self > other
-

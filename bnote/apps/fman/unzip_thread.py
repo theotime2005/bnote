@@ -8,6 +8,7 @@
 import threading
 import time
 import zipfile
+
 from bnote.apps.fman.file_manager import FileManager
 from bnote.debug.colored_log import ColoredLogger, UNZIP_THREAD_LOG
 
@@ -87,4 +88,3 @@ class UnZipThread(threading.Thread):
                 self.__on_end(operation='unzip', success=unzip_success,
                               filename=self.__zip_file_name, destination=self.__destination,
                               error=zip_error)
-

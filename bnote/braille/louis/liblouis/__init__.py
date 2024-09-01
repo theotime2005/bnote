@@ -81,6 +81,8 @@ fileSystemEncoding = "mbcs" if _is_windows else getfilesystemencoding()
 #: Specifies the encoding to use when converting from byte strings to unicode strings.
 #: @type: str
 conversionEncoding = "utf_%d_le" % (wideCharBytes * 8)
+
+
 # }
 
 # Some general utility functions
@@ -103,7 +105,7 @@ ENCODING_ERROR_HANDLER = "surrogatepass" if _is_py3 else "strict"
 
 
 def createEncodedByteString(
-    x, encoding=conversionEncoding, errors=ENCODING_ERROR_HANDLER
+        x, encoding=conversionEncoding, errors=ENCODING_ERROR_HANDLER
 ):
     return _unicode_type(x).encode(encoding, errors)
 
@@ -252,17 +254,17 @@ def translate(tableList, inbuf, typeform=None, cursorPos=0, mode=0):
     outPos = (c_int * inlen.value)()
     cursorPos = c_int(cursorPos)
     if not liblouis.lou_translate(
-        tablesString,
-        inbuf,
-        byref(inlen),
-        outbuf,
-        byref(outlen),
-        typeformbuf,
-        None,
-        outPos,
-        inPos,
-        byref(cursorPos),
-        mode,
+            tablesString,
+            inbuf,
+            byref(inlen),
+            outbuf,
+            byref(outlen),
+            typeformbuf,
+            None,
+            outPos,
+            inPos,
+            byref(cursorPos),
+            mode,
     ):
         raise RuntimeError(
             "Can't translate: tables %s, inbuf %s, typeform %s, cursorPos %s, mode %s"
@@ -305,14 +307,14 @@ def translateString(tableList, inbuf, typeform=None, mode=0):
     if typeform:
         typeformbuf = _createTypeformbuf(outlen.value, typeform)
     if not liblouis.lou_translateString(
-        tablesString,
-        inbuf,
-        byref(inlen),
-        outbuf,
-        byref(outlen),
-        typeformbuf,
-        None,
-        mode,
+            tablesString,
+            inbuf,
+            byref(inlen),
+            outbuf,
+            byref(outlen),
+            typeformbuf,
+            None,
+            mode,
     ):
         raise RuntimeError(
             "Can't translate: tables %s, inbuf %s, typeform %s, mode %s"
@@ -357,17 +359,17 @@ def backTranslate(tableList, inbuf, typeform=None, cursorPos=0, mode=0):
     outPos = (c_int * inlen.value)()
     cursorPos = c_int(cursorPos)
     if not liblouis.lou_backTranslate(
-        tablesString,
-        inbuf,
-        byref(inlen),
-        outbuf,
-        byref(outlen),
-        typeformbuf,
-        None,
-        outPos,
-        inPos,
-        byref(cursorPos),
-        mode,
+            tablesString,
+            inbuf,
+            byref(inlen),
+            outbuf,
+            byref(outlen),
+            typeformbuf,
+            None,
+            outPos,
+            inPos,
+            byref(cursorPos),
+            mode,
     ):
         raise RuntimeError(
             "Can't back translate: tables %s, inbuf %s, typeform %s, cursorPos %d, mode %d"
@@ -410,14 +412,14 @@ def backTranslateString(tableList, inbuf, typeform=None, mode=0):
     if isinstance(typeform, list):
         typeformbuf = _createTypeformbuf(outlen.value)
     if not liblouis.lou_backTranslateString(
-        tablesString,
-        inbuf,
-        byref(inlen),
-        outbuf,
-        byref(outlen),
-        typeformbuf,
-        None,
-        mode,
+            tablesString,
+            inbuf,
+            byref(inlen),
+            outbuf,
+            byref(outlen),
+            typeformbuf,
+            None,
+            mode,
     ):
         raise RuntimeError(
             "Can't back translate: tables %s, inbuf %s, mode %d"

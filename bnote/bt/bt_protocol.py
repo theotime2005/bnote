@@ -5,10 +5,10 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 from enum import Enum
 
 from bnote.debug.colored_log import ColoredLogger, BT_PROTOCOL_LOG
+
 log = ColoredLogger(__name__)
 log.setLevel(BT_PROTOCOL_LOG)
 
@@ -70,8 +70,8 @@ class Message(object):
             # Check consistancy of message checking the length in the message and the real length of the message.
             if int.from_bytes(args[0][Message.MESSAGE_LENGTH_INDEX:Message.MESSAGE_LENGTH_INDEX + 2], byteorder="big",
                               signed=False) == len(args[0]):
-                self._length = len(args[0]) # 2 bytes for length + 1 byte for the key + 1 byte for the sub key +
-                                            # x data bytes.
+                self._length = len(args[0])  # 2 bytes for length + 1 byte for the key + 1 byte for the sub key +
+                # x data bytes.
                 self._key = args[0][Message.MESSAGE_KEY_INDEX:Message.MESSAGE_KEY_INDEX + 1]  # La clef
                 self._subkey = args[0][Message.MESSAGE_SUBKEY_INDEX:Message.MESSAGE_SUBKEY_INDEX + 1]
                 # Extract and convert the data
@@ -82,11 +82,11 @@ class Message(object):
                 if isinstance(kwargs['data'], int):
                     # If data is an int, we must compute the number of bytes needed for its representation.
                     # FIXME The number of bytes is depending of value but protocol wait for a trame allways the same length.
-                    self._length = 4 + (kwargs['data'].bit_length() + 7) // 8   # 2 length bytes + 1 key byte
-                                                                                # + 1 subkey byte + x data bytes.
+                    self._length = 4 + (kwargs['data'].bit_length() + 7) // 8  # 2 length bytes + 1 key byte
+                    # + 1 subkey byte + x data bytes.
                 else:
                     self._length = 4 + len(kwargs['data'])  # 2 length bytes + 1 key byte +
-                                                            # 1 subkey byte + x data bytes.
+                    # 1 subkey byte + x data bytes.
                 self._key = kwargs['key']
                 self._subkey = kwargs['subkey']
                 self._data = kwargs['data']
@@ -202,5 +202,3 @@ class BtProtocol:
                         return message
                     else:
                         log.warning("Error received {} instead of ETX".format(byte))
-
-

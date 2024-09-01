@@ -23,5 +23,3 @@ class SelectSheet(Exception):
         self.sheet_list = sheet_list
         self.message = message
         super().__init__(self.message)
-
-

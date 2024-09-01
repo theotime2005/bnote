@@ -1,4 +1,6 @@
-from.braille import *
+from .braille import *
+
+
 class l111ll1ll1_opy_:
     l1l11111l_opy_ = b2356
     l1ll1l1l_opy_ = b235

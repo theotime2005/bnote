@@ -6,9 +6,9 @@ build-backend = "setuptools.build_meta"
 name = "bnote"
 version = "3.0.200b2"
 description = "bnote application"
-authors = [{name = "Eurobraille team"}]
+authors = [{ name = "Eurobraille team" }]
 requires-python = ">=3.11, <3.12"
-dependencies= [
+dependencies = [
     "pyserial ==3.5, <3.6",
     "rpi-gpio ==0.7.1",
     "python-vlc ==3.0.20123",
@@ -32,7 +32,7 @@ dependencies= [
     "pyproject_hooks ==1.1.0",
     "build ==1.2.1",
     "translate ==3.6.1"
-    ]
+]
 
 [tool.setuptools.package-dir]
 bnote = "bnote"

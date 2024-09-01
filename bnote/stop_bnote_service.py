@@ -7,4 +7,3 @@
 import os
 
 os.popen('sudo systemctl stop bnote.service')
-

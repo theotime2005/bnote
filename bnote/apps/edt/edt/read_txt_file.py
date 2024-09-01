@@ -5,8 +5,6 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
-import time
 '''
 # Setup the logger for this file
 from bnote.debug import logging, READ_TXT_FILE_LOG

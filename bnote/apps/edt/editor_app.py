@@ -6,22 +6,21 @@
 """
 
 import datetime
-import time
-from bnote.apps.edt.editor_base_app import EditorBaseApp
-from bnote.stm32.braille_device_characteristics import braille_device_characteristics
-from bnote.tools.settings import Settings
-import bnote.ui as ui
+import math as mathlib
+from pathlib import Path
+
 import bnote.apps.edt.edt as editor
 import bnote.apps.edt.math_opy as math
-# import bnote.apps.edt.math as math
-from bnote.tools.keyboard import Keyboard
-from bnote.apps.fman.file_manager import FileManager
+import bnote.ui as ui
 from bnote.apps.bnote_app import BnoteApp, FunctionId
-from pathlib import Path
-import math as mathlib
-
+from bnote.apps.edt.editor_base_app import EditorBaseApp
+from bnote.apps.fman.file_manager import FileManager
 # Set up the logger for this file
 from bnote.debug.colored_log import ColoredLogger, EDITOR_APP_LOG, logging
+from bnote.stm32.braille_device_characteristics import braille_device_characteristics
+# import bnote.apps.edt.math as math
+from bnote.tools.keyboard import Keyboard
+from bnote.tools.settings import Settings
 
 log = ColoredLogger(__name__)
 log.setLevel(EDITOR_APP_LOG)
@@ -53,10 +52,10 @@ class EditorApp(EditorBaseApp):
                     name=_("&file"),
                     menu_item_list=[
                         ui.UiMenuItem(name=_("&close"), action=self._exec_close,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
-                                   shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F4),
+                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                                      shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F4),
                         ui.UiMenuItem(name=_("&save"), action=self._exec_save,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='S'),
+                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='S'),
                         ui.UiMenuItem(name=_("clean&up"), action=self._exec_cleanup),
                         ui.UiMenuItem(name=_("sta&tistics"), action=self._exec_statistics),
                         ui.UiMenuItem(name=_("&export to .brf"), action=self._exec_export_brf),
@@ -79,9 +78,9 @@ class EditorApp(EditorBaseApp):
                     name=_("&math"), action=EditorApp.MATH_MENU_ID,
                     menu_item_list=[
                         ui.UiMenuItem(name=_("&line evaluation"), action=self._exec_math_line_eval,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='M'),
+                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='M'),
                         ui.UiMenuItem(name=_("&bloc evaluation"), action=self._exec_math_bloc_eval,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='T'),
+                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='T'),
                     ]),
                 self.create_sub_menu_vocalize(),
                 ui.UiMenuItem(name=_("&applications"), action=self._exec_application),
@@ -142,7 +141,8 @@ class EditorApp(EditorBaseApp):
                 name=_("export to braille"),
                 item_list=[
                     ui.UiListBox(name=_("language &encoding"), value=("language", ["FR", "US"]), current_index=0),
-                    ui.UiListBox(name=_("&braille type"), value=("braille", [_("grade 1"), _("grade 2")]), current_index=0),
+                    ui.UiListBox(name=_("&braille type"), value=("braille", [_("grade 1"), _("grade 2")]),
+                                 current_index=0),
                     ui.UiEditBox(name=_("line &length"), value=("line", "32")),
                     ui.UiEditBox(name=_("lines by &page"), value=("page", "21")),
                     ui.UiEditBox(name=_("&pages by &file"), value=("file", "100")),
@@ -171,20 +171,25 @@ class EditorApp(EditorBaseApp):
             first_page = kwargs['first_page']
         except ValueError:
             return self._exec_end_export(activity="failed")
-        export = editor.WriteBrfFile(self._get_line, str(self._original_file_name), braille_language, braille_type, line_length, page_line, file, first_page, language_encoding, self._exec_end_export)
+        export = editor.WriteBrfFile(self._get_line, str(self._original_file_name), braille_language, braille_type,
+                                     line_length, page_line, file, first_page, language_encoding, self._exec_end_export)
         export.start()
 
     def _exec_end_export(self, activity):
-        messages = {'failed': _("the value of character per line, line per page and page per file must be an integer."), 'success': _("exporting was successful."), 'exist': _("an element of the same name already exists, remove it and try again.")}
+        messages = {'failed': _("the value of character per line, line per page and page per file must be an integer."),
+                    'success': _("exporting was successful."),
+                    'exist': _("an element of the same name already exists, remove it and try again.")}
         self._current_dialog = ui.UiInfoDialogBox(message=messages[activity], action=self._exec_cancel_dialog)
 
     def _exec_send_to(self):
         if not self._dialog_is_reading_file():
             if not len(BnoteApp.bluetooth_devices):
-                self._current_dialog = ui.UiInfoDialogBox(message=_("not device connected"), action=self._exec_cancel_dialog)
+                self._current_dialog = ui.UiInfoDialogBox(message=_("not device connected"),
+                                                          action=self._exec_cancel_dialog)
                 return
             elif self.editor.selection() is None:
-                self._current_dialog = ui.UiInfoDialogBox(message=_("you must select text to send"), action=self._exec_cancel_dialog)
+                self._current_dialog = ui.UiInfoDialogBox(message=_("you must select text to send"),
+                                                          action=self._exec_cancel_dialog)
                 return
             bluetooth_list = list(BnoteApp.bluetooth_devices.values())
             self._current_dialog = ui.UiDialogBox(
@@ -206,10 +211,11 @@ class EditorApp(EditorBaseApp):
                 break
         self._current_dialog = ui.UiMessageDialogBox(
             name=_("warning"),
-            message=_("check that the braille type of the document corresponds to the braille type of the screen reader."),
+            message=_(
+                "check that the braille type of the document corresponds to the braille type of the screen reader."),
             buttons=[
                 ui.UiButton(name=_("&ok"), action=self._send_to,
-                         action_param={'id_': id_}),
+                            action_param={'id_': id_}),
                 ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
             ],
             action_cancelable=self._exec_cancel_dialog,
@@ -225,8 +231,9 @@ class EditorApp(EditorBaseApp):
         self._put_in_function_queue(FunctionId.FUNCTION_OPEN_TRANSLATOR, **{'source': self.editor.selection()})
 
     def _send_to(self, id_):
-        selection=self.editor.selection().replace("’", "'")
-        self._put_in_function_queue(FunctionId.FUNCTION_OPEN_BLUETOOTH, **{'device': id_, 'text': selection, 'encoding': braille_device_characteristics.get_keyboard_language_country()})
+        selection = self.editor.selection().replace("’", "'")
+        self._put_in_function_queue(FunctionId.FUNCTION_OPEN_BLUETOOTH, **{'device': id_, 'text': selection,
+                                                                           'encoding': braille_device_characteristics.get_keyboard_language_country()})
 
     # >>> Key events
     def input_command(self, data, modifier, key_id) -> bool:
@@ -268,6 +275,7 @@ class EditorApp(EditorBaseApp):
             # Specific commands treatment.
             pass
         return done
+
     # <<< End of key events.
 
     def input_function(self, *args, **kwargs) -> bool:
@@ -283,7 +291,6 @@ class EditorApp(EditorBaseApp):
         # Call base class decoding.
         done = super().input_function(*args, **kwargs)
         return done
-
 
     # >>> Specifics menu actions.
     def _exec_math_line_eval(self):
@@ -311,14 +318,14 @@ class EditorApp(EditorBaseApp):
                 self._current_dialog = ui.UiInfoDialogBox(message=msg, action=self._exec_cancel_dialog)
             else:
                 self._current_dialog = ui.UiInfoDialogBox(message=_("Error forgotten formula start marks"),
-                                                       action=self._exec_cancel_dialog)
+                                                          action=self._exec_cancel_dialog)
         except ValueError as er:
             self._current_dialog = ui.UiInfoDialogBox(message=er.__str__(), action=self._exec_cancel_dialog)
         except TypeError as er:
             self._current_dialog = ui.UiInfoDialogBox(message=er.__str__(), action=self._exec_cancel_dialog)
         except math.MathException as er:
             self._current_dialog = ui.UiInfoDialogBox(message=_("Error:{} at pos:{}").format(er.__str__(), er.pos),
-                                                   action=self._exec_cancel_dialog)
+                                                      action=self._exec_cancel_dialog)
 
     def _exec_math_bloc_eval(self):
         # Determine the start of bloc.
@@ -366,10 +373,10 @@ class EditorApp(EditorBaseApp):
                 self._current_dialog = ui.UiInfoDialogBox(message=er.__str__(), action=self._exec_cancel_dialog)
             except math.MathException as er:
                 self._current_dialog = ui.UiInfoDialogBox(message=_("error:{} at pos:{}").format(er.__str__(), er.pos),
-                                                       action=self._exec_cancel_dialog)
+                                                          action=self._exec_cancel_dialog)
         else:
             self._current_dialog = ui.UiInfoDialogBox(message=_("error forgotten formula start marks"),
-                                                   action=self._exec_cancel_dialog)
+                                                      action=self._exec_cancel_dialog)
 
     def _exec_insert_result(self):
         """
@@ -400,7 +407,7 @@ class EditorApp(EditorBaseApp):
                             self.editor.function(editor.Editor.Functions.PUT_STRING, **{'text': "{}".format(result)})
                 except math.MathException as er:
                     self._current_dialog = ui.UiInfoDialogBox(message=_("no result"),
-                                                           action=self._exec_cancel_dialog)
+                                                              action=self._exec_cancel_dialog)
 
     def _exec_insert_date(self):
         # Reset LC_TIME parameters to take the current language system
@@ -467,4 +474,3 @@ class EditorApp(EditorBaseApp):
             if EDITOR_APP_LOG <= logging.INFO:
                 log.info("{}".format(tree))
         return math_expression
-

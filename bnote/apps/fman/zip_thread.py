@@ -5,14 +5,14 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 import os
 import threading
 import zipfile
-from bnote.apps.fman.file_manager import FileManager, Trash
 
+from bnote.apps.fman.file_manager import FileManager, Trash
 # Setup the logger for this file
 from bnote.debug.colored_log import ColoredLogger, ZIP_THREAD_LOG
+
 log = ColoredLogger(__name__)
 log.setLevel(ZIP_THREAD_LOG)
 
@@ -25,7 +25,7 @@ class ZipThread(threading.Thread):
         # FIXME : Vérifier que c'est une liste de fichier
         log.info("type(files)={}".format(type(files)))
         self.__files = files
-        self.__exclude_files = exclude_files    # Les fichiers à exclure du zip
+        self.__exclude_files = exclude_files  # Les fichiers à exclure du zip
         self.__zip_file_name = zip_file_name
         self.__zip_file = None
         self.__base_folder = base_folder

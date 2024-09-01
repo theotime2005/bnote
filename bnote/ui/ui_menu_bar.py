@@ -4,12 +4,11 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+# Setup the logger for this file
+from bnote.debug.colored_log import ColoredLogger, UI_LOG
 from bnote.tools.keyboard import Keyboard
 from bnote.tools.settings import Settings
 from .ui_container import UiContainer
-
-# Setup the logger for this file
-from bnote.debug.colored_log import ColoredLogger, UI_LOG
 
 log = ColoredLogger(__name__)
 log.setLevel(UI_LOG)

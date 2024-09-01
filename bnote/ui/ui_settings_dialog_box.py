@@ -4,14 +4,12 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+# Set up the logger for this file
+from bnote.debug.colored_log import ColoredLogger, UI_LOG
 from .ui_button import UiButton
 from .ui_checkbox import UiCheckBox
 from .ui_dialog_box import UiDialogBox
 from .ui_edit_box import UiEditBox
-from .ui_label import UiLabel
-
-# Set up the logger for this file
-from bnote.debug.colored_log import ColoredLogger, UI_LOG
 from .ui_list_box import UiListBox
 
 log = ColoredLogger(__name__)
@@ -34,7 +32,6 @@ class UiSettingsDialogBox(UiDialogBox):
                 objects_list.append(UiListBox(value_name, ("value_str", list(valid_values)), valid_values.index(value)))
             else:
                 objects_list.append(UiEditBox(value_name, ("value_str", value)))
-
 
         # Append Ok and Cancel buttons.
         objects_list.append(UiButton(name=_("&ok"), action=self.do_validation))

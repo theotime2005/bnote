@@ -5,11 +5,9 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 import xml.sax
 
 # Setup the logger for this file
-from bnote.apps.bnote_app import BnoteApp
 from .colored_log import ColoredLogger, READ_MBE_FILE_LOG
 
 log = ColoredLogger(__name__)
@@ -80,8 +78,8 @@ class ReadMbeFile:
                 if self.is_span:
                     self.span_data += content
                 # else:
-                    # store all text external to the span
-                    # !!! this branch generate multiple space before and after span content
+                # store all text external to the span
+                # !!! this branch generate multiple space before and after span content
                 #    self.current_data += content
 
     def read_file(self, lou, write_lines):

@@ -5,12 +5,14 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-from pathlib import Path
-from bnote.braille.lou import Lou
 import time
+from pathlib import Path
+
+from bnote.braille.lou import Lou
+
 
 # Setup the logger for this file
-#from .colored_log import ColoredLogger, READ_BRF_FILE_LOG
+# from .colored_log import ColoredLogger, READ_BRF_FILE_LOG
 # log = ColoredLogger(__name__, level=READ_BRF_FILE_LOG)
 
 

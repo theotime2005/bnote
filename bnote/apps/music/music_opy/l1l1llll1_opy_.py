@@ -8,6 +8,8 @@ from .l11lll11l_opy_ import l1l11l1l1_opy_
 from .l1l11l111_opy_ import *
 from .l11llll1l_opy_ import l1l11l11l_opy_
 from .l1l111ll1_opy_ import *
+
+
 class l1l11ll1l_opy_:
     def __init__(self, lou, l1l1lllll_opy_, l1l11ll11_opy_, l11llll11_opy_):
         self.lou = lou
@@ -20,10 +22,13 @@ class l1l11ll1l_opy_:
         self._11lllll1_opy_ = None
         self._1l11111l_opy_ = []
         self._11ll1lll_opy_ = None
+
     def l11lll1ll_opy_(self, line):
         self._11llllll_opy_.write(line)
+
     def l1l111lll_opy_(self, line):
         self._1l111l11_opy_.write(line)
+
     def l1ll111l1_opy_(self, l1l11llll_opy_):
         l1l111111_opy_ = 0
         while True:
@@ -39,7 +44,8 @@ class l1l11ll1l_opy_:
         try:
             self._11llllll_opy_ = open("trace_braille_musicxml_to_model.txt", "w", encoding="utf-8")
             self._1l111l11_opy_ = open(self._1l1ll111_opy_, 'wb')
-            l11lll11l_opy_ = l1l11l1l1_opy_(self.lou, self.l11lll1ll_opy_, self._1l1l11ll_opy_, self._1l11111l_opy_, (self.l11llll11_opy_, 'music_xml'))
+            l11lll11l_opy_ = l1l11l1l1_opy_(self.lou, self.l11lll1ll_opy_, self._1l1l11ll_opy_, self._1l11111l_opy_,
+                                            (self.l11llll11_opy_, 'music_xml'))
             l1l11l1ll_opy_ = l11lll11l_opy_.l11ll1ll1_opy_()
             l1l11l111_opy_ = l11lll1l1_opy_(self.l11lll1ll_opy_, l1l11l1ll_opy_)
             l1l11l111_opy_.l1l1111l1_opy_()

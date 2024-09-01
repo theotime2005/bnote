@@ -16,8 +16,8 @@ from bnote.debug.colored_log import ColoredLogger, LOU_LOG
 log = ColoredLogger(__name__)
 log.setLevel(LOU_LOG)
 
-class Lou:
 
+class Lou:
     # [grade1, grade2, dots-8, dots-6]
     language_dict = {
         'ar_LB': (b'ar-ar-g1.utb', b'ar-ar-g2.ctb', b'ar-ar-comp8.utb', b'ar-ar-g1.utb'),
@@ -75,6 +75,7 @@ class Lou:
     def text_to_grade1(self, txt, cursor=0):
         with self.lou_mutex:
             return self.__text_to_grade1(txt, cursor)
+
     def __text_to_grade1(self, txt, cursor=0):
         """
         Convert a text to grade1 txt with 2 index list and an int.
@@ -321,7 +322,6 @@ def main():
     text_grade1 = "⢁"
     print("backconvertion:<{}> -> <{}>".format(text_grade1, converter.to_text_8(text_grade1)))
     return
-
 
     print("----- Test grade2 :")
     # (text_grade2, index1_origin, index_text, pos) = converter.text_to_grade2("The Beatles were an English rock band formed in Liverpool in 1960.")

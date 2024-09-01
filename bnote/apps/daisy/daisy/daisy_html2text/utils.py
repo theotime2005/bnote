@@ -46,7 +46,7 @@ def dumb_css_parser(data: str) -> Dict[str, Dict[str, str]]:
     data += ";"
     importIndex = data.find("@import")
     while importIndex != -1:
-        data = data[0:importIndex] + data[data.find(";", importIndex) + 1 :]
+        data = data[0:importIndex] + data[data.find(";", importIndex) + 1:]
         importIndex = data.find("@import")
 
     # parse the css. reverted from dictionary comprehension in order to
@@ -61,9 +61,9 @@ def dumb_css_parser(data: str) -> Dict[str, Dict[str, str]]:
 
 
 def element_style(
-    attrs: Dict[str, Optional[str]],
-    style_def: Dict[str, Dict[str, str]],
-    parent_style: Dict[str, str],
+        attrs: Dict[str, Optional[str]],
+        style_def: Dict[str, Dict[str, str]],
+        parent_style: Dict[str, str],
 ) -> Dict[str, str]:
     """
     :type attrs: dict
@@ -236,7 +236,7 @@ def reformat_table(lines: List[str], right_margin: int) -> List[str]:
         if num_cols < max_cols:
             cols += [""] * (max_cols - num_cols)
         elif max_cols < num_cols:
-            max_width += [len(x) + right_margin for x in cols[-(num_cols - max_cols) :]]
+            max_width += [len(x) + right_margin for x in cols[-(num_cols - max_cols):]]
             max_cols = num_cols
 
         max_width = [

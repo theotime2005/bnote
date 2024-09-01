@@ -26,7 +26,8 @@ class UiFileManagerTools:
                     log.debug("trash")
                     original_path = Trash.original_file(filename)
                     deletion_date = Trash.deletion_date(filename)
-                    msg, pos = self._convert_to_braille_text(braille_type, _("deleted on {}").format(deletion_date.strftime(_("%A %d %B %Y %H:%M:%S"))))
+                    msg, pos = self._convert_to_braille_text(braille_type, _("deleted on {}").format(
+                        deletion_date.strftime(_("%A %d %B %Y %H:%M:%S"))))
                     friendly_name = UiFileManagerTools.friendly_file_name(original_path, True)
                     return "".join((_("d "), original_path.name,
                                     self._convert_file_to_braille_text(braille_type, " ({}) ".format(friendly_name)),
@@ -47,9 +48,11 @@ class UiFileManagerTools:
                     log.debug("trash")
                     original_path = Trash.original_file(filename)
                     deletion_date = Trash.deletion_date(filename)
-                    msg, pos = self._convert_to_braille_text(braille_type, _("deleted on {}").format(deletion_date.strftime(_("%A %d %B %Y %H:%M:%S"))))
+                    msg, pos = self._convert_to_braille_text(braille_type, _("deleted on {}").format(
+                        deletion_date.strftime(_("%A %d %B %Y %H:%M:%S"))))
                     return "".join((_("f "), original_path.name,
-                                    self._convert_file_to_braille_text(braille_type, " ({}) ".format(UiFileManagerTools.friendly_file_name(original_path, True))),
+                                    self._convert_file_to_braille_text(braille_type, " ({}) ".format(
+                                        UiFileManagerTools.friendly_file_name(original_path, True))),
                                     msg))
                 else:
                     return "".join((_("f "),
@@ -162,7 +165,6 @@ class UiFileManagerTools:
         else:
             text_grade = BnoteApp.lou.to_text_8(braille)
         return text_grade, pos
-
 
     @staticmethod
     def friendly_file_name(filename, replace_backup=False):

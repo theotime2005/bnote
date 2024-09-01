@@ -3,7 +3,9 @@ Copyright (c)2021 eurobraille
 This software is the proprietary of eurobraille and may not be copied,
 distributed, published,or disclosed without express prior written permission.
 """
-class l111111_opy_ :
+
+
+class l111111_opy_:
     l11111ll_opy_ = 'P1'
     l11l_opy_ = 'default'
     l1lll1l_opy_ = 'df'

@@ -50,6 +50,7 @@ except NameError:
             raise CalledProcessError(retcode, cmd, output=output)
         return output
 
+
     def check_call(*popenargs, **kwargs):
         """Run command with arguments.  Wait for command to complete.  If
         the exit code was zero then return, otherwise raise

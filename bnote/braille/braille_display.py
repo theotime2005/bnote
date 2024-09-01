@@ -5,7 +5,6 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 from enum import Enum
 import threading
 from bnote.tools.keyboard import Keyboard
@@ -29,8 +28,8 @@ class BrailleDisplay:
     class FunctionId(Enum):
         FORWARD = object()
         BACKWARD = object()
-        RIGHT = object()        # first param is the offset wanted value (default value is 1)
-        LEFT = object()         # first param is the offset wanted value (default value is 1)
+        RIGHT = object()  # first param is the offset wanted value (default value is 1)
+        LEFT = object()  # first param is the offset wanted value (default value is 1)
         START = object()
         END = object()
         FAKE_FUNCTION_ID_NOT_DECODED = object()
@@ -105,11 +104,11 @@ class BrailleDisplay:
         return False
 
     def __init__(self):
-        self._text_line = ""                                # The full line of text
-        self._static_dots_line = ""                         # The statics dots line of data
-        self._dynamic_dots_line = ""                        # The dynamics dots line of data
+        self._text_line = ""  # The full line of text
+        self._static_dots_line = ""  # The statics dots line of data
+        self._dynamic_dots_line = ""  # The dynamics dots line of data
         self._start_pos = 0
-        self._mutex = threading.Lock()                      # equal to threading.Semaphore(1)
+        self._mutex = threading.Lock()  # equal to threading.Semaphore(1)
 
         # Tell that buffers have been updated and must be sent to Braille device.
         self.new_data_available_event = threading.Event()
@@ -243,7 +242,8 @@ class BrailleDisplay:
             True if start position has changed.
             False if start position was already in the last part of the line.
         """
-        return self._move_right(len(self._text_line) - self.get_start_pos() - braille_device_characteristics.get_braille_display_length())
+        return self._move_right(
+            len(self._text_line) - self.get_start_pos() - braille_device_characteristics.get_braille_display_length())
 
     def _move_right(self, offset) -> bool:
         """
@@ -300,4 +300,3 @@ class BrailleDisplay:
             self._start_pos = len(self._text_line) - braille_display_length
         else:
             self._start_pos = position - half_display_length
-

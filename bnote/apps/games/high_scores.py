@@ -10,12 +10,12 @@ from pathlib import Path
 from ast import literal_eval
 # Setup the logger for this file
 from bnote.debug.colored_log import ColoredLogger, MINES_APP_LOG
+
 log = ColoredLogger(__name__)
 log.setLevel(MINES_APP_LOG)
 
 
 class Scores:
-
     SCORES_MAX = 3
 
     def __init__(self, scores_array=None):
@@ -115,7 +115,6 @@ class HighScores:
         scores_json = json.loads(data_table[3])
         self.data['level_3'] = Scores(literal_eval(scores_json)['scores'])
 
-
     def __save(self):
         data_on_disk = None
         # Construct JSON data
@@ -178,7 +177,6 @@ def test():
     # scores.add_score('level_1', 'toto', 8)
     print(scores)
 
-
     # scores = Scores()
     # scores.add_score('toto', 10)
     # scores.add_score('titi', 5)
@@ -200,5 +198,3 @@ def test():
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     test()
-
-

@@ -6,6 +6,7 @@
 """
 
 import string
+
 from .pos import Pos
 
 
@@ -78,4 +79,3 @@ class Caret:
     def xml_render(self):
         caret_template = string.Template('    <caret start_x="${sx}" start_y="${sy}" end_x="${ex}" end_y="${ey}" />')
         return [caret_template.substitute(sx=self.start.x, sy=self.start.y, ex=self.end.x, ey=self.end.y)]
-

@@ -24,6 +24,7 @@ class MasterMindApp(BnoteApp):
     """
     MasterMind application.
     """
+
     def __init__(self, put_in_function_queue):
         """
         Class construtor
@@ -182,7 +183,8 @@ class MasterMindApp(BnoteApp):
                     break
         if not self._mastermind.check_tokens(proposition):
             self._current_dialog = ui.UiInfoDialogBox(
-                message=_("invalid proposition, proposition must be {} numbers must be between 1 to 6.").format(self._mastermind.nb_tokens()),
+                message=_("invalid proposition, proposition must be {} numbers must be between 1 to 6.").format(
+                    self._mastermind.nb_tokens()),
                 action=self._edit_proposition,
             )
         else:
@@ -362,7 +364,7 @@ class MasterMindApp(BnoteApp):
         return False
 
     def __last_line(self):
-        if self._current_line != len(self._mastermind_doc) -1:
+        if self._current_line != len(self._mastermind_doc) - 1:
             self._current_line = len(self._mastermind_doc) - 1
             return True
         return False
@@ -372,11 +374,11 @@ class MasterMindApp(BnoteApp):
             self._current_dialog = ui.UiDialogBox(
                 name=_("cursor"),
                 item_list=[
-                     ui.UiEditBox(name=_("value"),
-                               value=('value', self._last_proposition)
-                               ),
-                     ui.UiButton(name=_("&ok"), action=self._exec_valid_proposition_dialog),
-                     ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog)
+                    ui.UiEditBox(name=_("value"),
+                                 value=('value', self._last_proposition)
+                                 ),
+                    ui.UiButton(name=_("&ok"), action=self._exec_valid_proposition_dialog),
+                    ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog)
                 ],
                 action_cancelable=self._exec_cancel_dialog,
             )
@@ -403,7 +405,3 @@ class MasterMindApp(BnoteApp):
             braille_static = BnoteApp.lou.to_dots_8(line)
             braille_blinking = "\u2800" * len(braille_static)
         self._braille_display.set_data_line(line, braille_static, braille_blinking, 0)
-
-
-
-

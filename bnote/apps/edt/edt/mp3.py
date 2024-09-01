@@ -8,8 +8,6 @@
 import string
 from xml.sax import saxutils
 
-from .pos import Pos
-
 
 # -----------------------------------------------
 # Caret definition
@@ -29,4 +27,3 @@ class Mp3:
                 file=saxutils.escape(str(self.mp3_file.as_posix())),
                 offset=saxutils.escape(str(self.mp3_offset))
             )]
-

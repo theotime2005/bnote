@@ -29,10 +29,12 @@ def speak(text, lang_id=None, synthesis=None, voice=None, volume=None, speed=Non
     if synthesis is None:
         synthesis = Settings().data['speech']['synthesis']
     if voice is None:
-        voice =  Settings().data['speech']['voice']
-    log.warning(f"{SpeechManager().is_enable()} {text=} {lang_id=} {synthesis=} {voice=} {headphone=} {volume=} {speed=} {purge_before_speak=}")
+        voice = Settings().data['speech']['voice']
+    log.warning(
+        f"{SpeechManager().is_enable()} {text=} {lang_id=} {synthesis=} {voice=} {headphone=} {volume=} {speed=} {purge_before_speak=}")
 
-    SpeechManager().speak(text_to_speak=text, lang_id=lang_id, synthesis=synthesis, voice=voice, headphone=headphone,  volume=volume, speed=speed,
+    SpeechManager().speak(text_to_speak=text, lang_id=lang_id, synthesis=synthesis, voice=voice, headphone=headphone,
+                          volume=volume, speed=speed,
                           purge_before_speak=purge_before_speak)
 
 

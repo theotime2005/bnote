@@ -73,37 +73,37 @@ class ESpeakWave(Wave):
         super().__init__()
         # cf http://espeak.sourceforge.net/languages.html
         self.lang_voice_id = {
-                "ar_LB": (("M", "ar"),),
-                "cs_CZ": (("M", "cs"),),
-                "da_DK": (("M", "da"),),
-                "de_CH": (("M", "de"),),
-                "de_DE": (("M", "de"),),
-                "el_GR": (("M", "el"),),
-                "en_GB": (("M", "en"),),
-                "en_US": (("M", "en-us"),),
-                "es_ES": (("M", "es"),),
-                "fr_CH": (("M", "fr"),),
-                "fr_FR": (("M", "fr"),),
-                # "he_IL": _("Hebrew (Israel)"),
-                "hr_HR": (("M", "hr"),),
-                "it_CH": (("M", "it"),),
-                "it_IT": (("M", "it"),),
-                "is_IS": (("M", "is"),),
+            "ar_LB": (("M", "ar"),),
+            "cs_CZ": (("M", "cs"),),
+            "da_DK": (("M", "da"),),
+            "de_CH": (("M", "de"),),
+            "de_DE": (("M", "de"),),
+            "el_GR": (("M", "el"),),
+            "en_GB": (("M", "en"),),
+            "en_US": (("M", "en-us"),),
+            "es_ES": (("M", "es"),),
+            "fr_CH": (("M", "fr"),),
+            "fr_FR": (("M", "fr"),),
+            # "he_IL": _("Hebrew (Israel)"),
+            "hr_HR": (("M", "hr"),),
+            "it_CH": (("M", "it"),),
+            "it_IT": (("M", "it"),),
+            "is_IS": (("M", "is"),),
             #  "lt_LT": _("Lithuanian (Lituania)"),
-                "nb_NO": (("M", "no"),),
-                "nl_BE": (("M", "nl"),),
-                "nl_NL": (("M", "nl"),),
-                "pl_PL": (("M", "pl"),),
-                "pt_PT": (("M", "pt"),),
-                "ru_RU": (("M", "ru"),),
-                "sk_SK": (("M", "sk"),),
-                "sl_SI": (("M", "sk"),),
-                "sv_SE": (("M", "sv"),),
-                "af_ZA": (("M", "af"),),
-              #  "xh_ZA": (("M", "af"),), (Xhosa (South Africa))
-              #  "zu_ZA": (("M", "af"),), (Zulu (South Africa))
-                "sw_KE": (("M", "sw"),),
-         }
+            "nb_NO": (("M", "no"),),
+            "nl_BE": (("M", "nl"),),
+            "nl_NL": (("M", "nl"),),
+            "pl_PL": (("M", "pl"),),
+            "pt_PT": (("M", "pt"),),
+            "ru_RU": (("M", "ru"),),
+            "sk_SK": (("M", "sk"),),
+            "sl_SI": (("M", "sk"),),
+            "sv_SE": (("M", "sv"),),
+            "af_ZA": (("M", "af"),),
+            #  "xh_ZA": (("M", "af"),), (Xhosa (South Africa))
+            #  "zu_ZA": (("M", "af"),), (Zulu (South Africa))
+            "sw_KE": (("M", "sw"),),
+        }
 
     def to_wave(self, text_to_speak, language, voice, file_name, speed, volume):
         if volume is None:
@@ -122,14 +122,18 @@ class MBrolaWave(Wave):
             "ar_LB": (("M", "ar1"), ('M', "ar2")),
             "cs_CZ": (("F", "cz1"), ("M", "cz2")),
             # "da_DK": "da",
-            "de_CH": (("F", "de1"), ("M", "de2"), ("F", "de3"), ("M", "de4"), ("F", "de5"), ("M", "de6"), ("F", "de7"), ("M", "de8")),
-            "de_DE": (("F", "de1"), ("M", "de2"), ("F", "de3"), ("M", "de4"), ("F", "de5"), ("M", "de6"), ("F", "de7"), ("M", "de8")),
+            "de_CH": (("F", "de1"), ("M", "de2"), ("F", "de3"), ("M", "de4"), ("F", "de5"), ("M", "de6"), ("F", "de7"),
+                      ("M", "de8")),
+            "de_DE": (("F", "de1"), ("M", "de2"), ("F", "de3"), ("M", "de4"), ("F", "de5"), ("M", "de6"), ("F", "de7"),
+                      ("M", "de8")),
             "el_GR": (("M", "gr1"), ("M", "gr2")),
             "en_GB": (("M", "en1"),),
             "en_US": (("F", "us1"), ("M", "us2"), ("M", "us3")),
             "es_ES": (("M", "es1"), ("M", "es2"), ("F", "es3"), ("M", "es4")),
-            "fr_CH": (("M", "fr1"),("F", "fr2"), ("M", "fr3"), ("M", "fr3"), ("F", "fr4"), ("M", "fr5"), ("M", "fr6"), ("M", "fr7")),
-            "fr_FR": (("M", "fr1"),("F", "fr2"), ("M", "fr3"), ("M", "fr3"), ("F", "fr4"), ("M", "fr5"), ("M", "fr6"), ("M", "fr7")),
+            "fr_CH": (("M", "fr1"), ("F", "fr2"), ("M", "fr3"), ("M", "fr3"), ("F", "fr4"), ("M", "fr5"), ("M", "fr6"),
+                      ("M", "fr7")),
+            "fr_FR": (("M", "fr1"), ("F", "fr2"), ("M", "fr3"), ("M", "fr3"), ("F", "fr4"), ("M", "fr5"), ("M", "fr6"),
+                      ("M", "fr7")),
             "he_IL": (("M", "hb1"), ("F", "hb2")),
             "hr_HR": (("M", "cr1"),),
             "it_CH": (("M", "it1"), ("F", "it2"), ("M", "it3"), ("F", "it4")),
@@ -140,7 +144,7 @@ class MBrolaWave(Wave):
             "nl_BE": (("M", "nl1"), ("M", "nl2"), ("F", "nl3")),
             "nl_NL": (("M", "nl1"), ("M", "nl2"), ("F", "nl3")),
             "pl_PL": (("F", "pl1"),),
-            "pt_PT": (("F", "pt1"), ("M", "br1"), ("M", "br2"), ("M", "br3"),  ("F", "br4")),
+            "pt_PT": (("F", "pt1"), ("M", "br1"), ("M", "br2"), ("M", "br3"), ("F", "br4")),
             # "ru_RU": "ru",
             # "sl_SI": "sk",
             "sv_SE": (("M", "sw1"), ("F", "sw2")),
@@ -189,8 +193,11 @@ class CerenceWave(Wave):
             "da_DK": (("M", "magnus"), ("F", "sara"),),
             "de_DE": (("F", "anna"), ("M", "markus"), ("F", "petra"), ("M", "yannick"),),
             "el_GR": (("F", "melina"), ("M", "nikos"),),
-            "en_GB": (("M", "daniel"), ("F", "kate"), ("M", "malcolm"), ("M", "oliver"), ("F", "serena"), ("F", "stephanie"),),
-            "en_US": (("F", "allison"), ("F", "ava"), ("M", "evan"), ("M", "nathan"), ("F", "samantha"), ("F", "susan"), ("M", "tom"), ("F", "zoe"),),
+            "en_GB": (
+                ("M", "daniel"), ("F", "kate"), ("M", "malcolm"), ("M", "oliver"), ("F", "serena"),
+                ("F", "stephanie"),),
+            "en_US": (("F", "allison"), ("F", "ava"), ("M", "evan"), ("M", "nathan"), ("F", "samantha"), ("F", "susan"),
+                      ("M", "tom"), ("F", "zoe"),),
             "es_ES": (("M", "jorge"), ("F", "marisol"), ("F", "monica"),),
             "fr_FR": (("F", "audrey"), ("F", "aurélie"), ("M", "thomas"),),
             "he_IL": (("F", "carmit"),),
@@ -215,11 +222,11 @@ class CerenceWave(Wave):
     def to_wave(self, text_to_speak, language, voice, file_name, speed, volume):
         # Do not try to speak if the voice is not installed.
         if self.is_voice_installed(voice):
-
             # Construct the command line
             # prompter_to_wave --speedRate=150 --useCaseName="audrey" --textToSpeak="bonjour il fait beau" --audioScenario=file --configDir="/usr/local/lib/cerence/voices/config"
             # export LD_LIBRARY_PATH="/usr/local/openssl-1.1.1/lib:/usr/local/lib/cerence:$LD_LIBRARY_PATH" && prompter_to_wave --speedRate=150 --useCaseName="audrey" --textToSpeak="bonjour il fait beau" --audioScenario=file --configDir="/usr/local/lib/cerence/voices/config"
-            command_line = "export LD_LIBRARY_PATH=\"/usr/local/openssl-1.1.1/lib:/usr/local/lib/cerence:$LD_LIBRARY_PATH\" && prompter_to_wave --useCaseName=\"{}\" --textToSpeak=\"{}\" --audioScenario=file --configDir=\"{}\" --speedRate={}".format(voice, text_to_speak, CerenceWave.PROMPTER_CONFIG_DIR, speed)
+            command_line = "export LD_LIBRARY_PATH=\"/usr/local/openssl-1.1.1/lib:/usr/local/lib/cerence:$LD_LIBRARY_PATH\" && prompter_to_wave --useCaseName=\"{}\" --textToSpeak=\"{}\" --audioScenario=file --configDir=\"{}\" --speedRate={}".format(
+                voice, text_to_speak, CerenceWave.PROMPTER_CONFIG_DIR, speed)
 
             # Convert the text into wave file.
             process = os.popen(command_line)
@@ -248,17 +255,16 @@ class CerenceWave(Wave):
                         if 'local' in usecase:
                             voice_type = usecase['local']
                             # print(f"{voice_type=}")
-                            if 'voice_config'in voice_type and 'uses' in voice_type['voice_config']:
+                            if 'voice_config' in voice_type and 'uses' in voice_type['voice_config']:
                                 voice_config_name = voice_type['voice_config']['uses']
 
         if 'voice_config' in CerenceWave.json_config:
             for voice_config in CerenceWave.json_config['voice_config']:
                 if 'name' in voice_config and voice_config['name'] == voice_config_name:
                     file_name_pattern = "".join((CerenceWave.PROMPTER_VOICE_DIR, '/', voice_config['language'], '/',
-                                                 'speech/components/' , voice_config['language'], '_',
+                                                 'speech/components/', voice_config['language'], '_',
                                                  voice_config['voice'], '_', voice_config['operating_point'], '_*.dat'))
                     if len(glob.glob(file_name_pattern)):
                         return True
 
         return False
-

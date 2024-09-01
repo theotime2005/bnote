@@ -4,15 +4,13 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
-import unicodedata
 
 from bnote.apps.bnote_app import BnoteApp
 from bnote.braille.braille_display import BrailleDisplay
-from bnote.tools.keyboard import Keyboard
-from .ui_object import UiObject
-
 # Set up the logger for this file
 from bnote.debug.colored_log import ColoredLogger, UI_LOG
+from bnote.tools.keyboard import Keyboard
+from .ui_object import UiObject
 
 log = ColoredLogger(__name__)
 log.setLevel(UI_LOG)
@@ -129,6 +127,7 @@ class UiContainer(UiObject):
     """
     Return the display offset of focused object from id_array_object given by get_presentation.
     """
+
     def __get_focused_object_pos_from_id(self, id_array_objects):
         # DP FIXME optimize the research of focused object...
         focused_object_id = self.ui_objects[self._get_focused_object_index()].get_id()
@@ -225,7 +224,8 @@ class UiContainer(UiObject):
         """
         text_objects, braille_objects, braille_blinking_objects, id_array_objects = super().get_presentation()
         if self._is_root:
-            text_separator, braille_separator, pos = BnoteApp.lou.convert_to_braille(self._braille_type, UiContainer.CONTAINER_PARENT_SEPARATOR)
+            text_separator, braille_separator, pos = BnoteApp.lou.convert_to_braille(self._braille_type,
+                                                                                     UiContainer.CONTAINER_PARENT_SEPARATOR)
             first_loop = True
             for ui_object in self.ui_objects:
                 text_object, braille_object, braille_blinking, id_array_object = ui_object.get_presentation()
@@ -238,7 +238,8 @@ class UiContainer(UiObject):
                     id_array_objects = [*id_array_objects, *([0] * len(braille_separator)), *id_array_object]
                     if first_loop:
                         # First separator (parent:child) is different of next (child child...)
-                        text_separator, braille_separator, pos = BnoteApp.lou.convert_to_braille(self._braille_type, UiContainer.CONTAINER_CHILD_SEPARATOR)
+                        text_separator, braille_separator, pos = BnoteApp.lou.convert_to_braille(self._braille_type,
+                                                                                                 UiContainer.CONTAINER_CHILD_SEPARATOR)
                         first_loop = False
         return text_objects, braille_objects, braille_blinking_objects, id_array_objects
 
@@ -347,7 +348,7 @@ class UiContainer(UiObject):
                 Keyboard.BrailleFunction.BRAMIGRAPH_END: self._focus_to_last,
                 Keyboard.BrailleFunction.BRAMIGRAPH_TAB: self._tab,
                 Keyboard.BrailleFunction.BRAMIGRAPH_SHIFT_TAB: self._shift_tab,
-                }
+            }
             func = switcher.get(bramigraph, None)
             if func is not None:
                 # Execute function

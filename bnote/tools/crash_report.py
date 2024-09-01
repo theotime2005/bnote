@@ -5,7 +5,6 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 from bnote.stm32.braille_device_characteristics import braille_device_characteristics
 from bnote.apps.fman.file_manager import FileManager
 import bnote.__init__ as version
@@ -86,7 +85,6 @@ def generate_report():
 
 if __name__ == '__main__':
     try:
-        a = 1/0
+        a = 1 / 0
     except ZeroDivisionError:
         generate_report()
-

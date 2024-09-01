@@ -5,7 +5,6 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 import os
 import shlex
 import subprocess
@@ -15,6 +14,7 @@ from enum import Enum
 
 # Setup the logger for this file
 from bnote.debug.colored_log import ColoredLogger, BT_UTIL_LOG
+
 log = ColoredLogger(__name__)
 log.setLevel(BT_UTIL_LOG)
 
@@ -95,6 +95,7 @@ def bluetooth_on_off(on=None):
             x.kill()
             return on
 
+
 def bluetooth_pretty_host_name():
     args = shlex.split("hostnamectl --pretty")
     with subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE) as x:
@@ -129,6 +130,7 @@ def get_paired_devices():
     # Get the paired_devices
     return find_computers_thread.paired_devices
 
+
 # Remarque : Il faut que le PC sous W10 soit en mode réception de fichier Bluetooth
 # pour que le service OPUSH soit trouvé. (donc passer en réception fichier avant d'appeler find_opush_channel)
 def find_opush_channel(addr):
@@ -141,7 +143,6 @@ def find_opush_channel(addr):
     search = pattern.search(sdptool_results)
     if search is not None:
         return int(search.group(1))
-
 
 # def get_device_class(device):
 #     """
@@ -219,4 +220,3 @@ def find_opush_channel(addr):
 #     PalmSizePc = 0x00000014
 #     WearableComputer = 0x00000018
 #     Tablet = 0x0000001d
-

@@ -5,8 +5,6 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
-import os
 from striprtf.striprtf import rtf_to_text
 
 

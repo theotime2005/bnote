@@ -25,6 +25,7 @@ class RadioApp(BnoteApp):
     """
     Skeleton application.
     """
+
     def __init__(self, put_in_function_queue):
         """
         Class construtor
@@ -63,21 +64,21 @@ class RadioApp(BnoteApp):
                     name=_("&radio"),
                     menu_item_list=[
                         ui.UiMenuItem(name=_("&radio by url"), action=self._exec_radio_dialog,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='U'),
+                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='U'),
                         ui.UiMenuItem(name=_("&delete radio"), action=self.__delete_radio,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                                   shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_DELETE),
+                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                                      shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_DELETE),
                         ui.UiMenuItem(name=_("&web update list"), action=self._exec_web_update_list,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='N'),
+                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='N'),
                         # ui.UiMenuItem(name=_("&local update list"), action=self._exec_local_update_list),
                     ]),
                 ui.UiMenuBar(
                     name=_("&play"),
                     menu_item_list=[
                         ui.UiMenuItem(name=_("&start"), action=self.__exec_play_radio,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='L'),
+                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='L'),
                         ui.UiMenuItem(name=_("&stop"), action=self._exec_stop,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='T'),
+                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='T'),
                         ui.UiMenuItem(name=_("&volume"), action=self._exec_volume),
                     ]),
             ],
@@ -140,12 +141,12 @@ class RadioApp(BnoteApp):
             name=_("add radio"),
             item_list=[
                 ui.UiEditBox(name=_("name"),
-                          value=('name', BnoteApp.braille_form(self.dialog_radio_name))
-                          ),
+                             value=('name', BnoteApp.braille_form(self.dialog_radio_name))
+                             ),
                 ui.UiEditBox(name=_("url"),
-                          # value=('url', BnoteApp.braille_form("http://direct.fipradio.fr/live/fip-webradio6.mp3"))
-                          value=('url', BnoteApp.braille_form(self.dialog_radio_url))
-                          ),
+                             # value=('url', BnoteApp.braille_form("http://direct.fipradio.fr/live/fip-webradio6.mp3"))
+                             value=('url', BnoteApp.braille_form(self.dialog_radio_url))
+                             ),
                 ui.UiButton(name=_("&play"), action=self._exec_radio_by_url),
                 ui.UiButton(name=_("add to &list"), action=self._add_radio_by_url),
                 ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
@@ -212,7 +213,7 @@ class RadioApp(BnoteApp):
             command_switcher = {
                 Keyboard.KeyId.KEY_CARET_UP: self.__previous_line,
                 Keyboard.KeyId.KEY_CARET_DOWN: self.__next_line,
-                Keyboard.KeyId.KEY_START_DOC:  self.__first_line,
+                Keyboard.KeyId.KEY_START_DOC: self.__first_line,
                 Keyboard.KeyId.KEY_END_DOC: self.__last_line,
             }
             function = command_switcher.get(key_id, None)
@@ -336,7 +337,7 @@ class RadioApp(BnoteApp):
             return True
 
     def __next_line(self):
-        if self.__radio_list is not None and self.__radio_index < len(self.__radio_list) -1:
+        if self.__radio_list is not None and self.__radio_index < len(self.__radio_list) - 1:
             self.__radio_index += 1
             return True
 
@@ -402,7 +403,7 @@ class RadioApp(BnoteApp):
             key = 'volume_headphone'
         else:
             key = 'volume_hp'
-        self._put_in_function_queue(FunctionId.FUNCTION_SETTINGS_CHANGE, **{'section':'radio', 'key':key})
+        self._put_in_function_queue(FunctionId.FUNCTION_SETTINGS_CHANGE, **{'section': 'radio', 'key': key})
 
     # --------------------
     # Quick search function.
@@ -447,7 +448,3 @@ class RadioApp(BnoteApp):
         braille_static = BnoteApp.lou.to_dots_8(line)
         braille_blinking = "\u2800" * len(braille_static)
         self._braille_display.set_data_line(line, braille_static, braille_blinking, 0)
-
-
-
-

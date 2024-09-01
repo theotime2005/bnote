@@ -9,6 +9,7 @@ from bnote.tools.singleton_meta import SingletonMeta
 
 # Setup the logger for this file
 from bnote.debug.colored_log import ColoredLogger, BRAILLE_CONVERTER_LOG
+
 log = ColoredLogger(__name__, level=BRAILLE_CONVERTER_LOG)
 
 
@@ -54,7 +55,8 @@ class BrailleConverter(metaclass=SingletonMeta):
         lou = self._instantiate(braille_language)
         return lou.text_to_grade(text, braille_type, cursor)
 
-    def grade_to_text(self, braille_text, braille_language, braille_type, cursor=0) -> (str, [int] or None, [int] or None, int):
+    def grade_to_text(self, braille_text, braille_language, braille_type, cursor=0) -> (
+            str, [int] or None, [int] or None, int):
         """
             Translate a braille text to a text with 2 index list and an int.
             Args:

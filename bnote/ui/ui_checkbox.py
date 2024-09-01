@@ -4,17 +4,15 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
-from .ui_list_box import UiListBox
-
 # Set up the logger for this file
 from bnote.debug.colored_log import ColoredLogger, UI_LOG
+from .ui_list_box import UiListBox
 
 log = ColoredLogger(__name__)
 log.setLevel(UI_LOG)
 
 
 class UiCheckBox(UiListBox):
-
     CHECKBOX_SEPARATOR = "-"
 
     def __init__(self, name, value):

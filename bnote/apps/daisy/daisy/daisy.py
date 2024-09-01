@@ -16,7 +16,6 @@ import tempfile
 
 from .daisy_html2text import HTML2Text
 
-
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 log_stream = logging.StreamHandler(sys.stdout)
@@ -170,7 +169,9 @@ class NccParser(Parser):
                 id_elt = body_element.getAttribute('id')
                 a = body_element.getElementsByTagName('a')[0]
                 href_elt = a.getAttribute('href')
-                header_list.append({'name': body_element.nodeName, 'text': NccParser._node_text(a), 'class': class_elt, 'id': id_elt, 'href': href_elt})
+                header_list.append(
+                    {'name': body_element.nodeName, 'text': NccParser._node_text(a), 'class': class_elt, 'id': id_elt,
+                     'href': href_elt})
         return header_list
 
     def body_span(self, header_index):
@@ -194,7 +195,9 @@ class NccParser(Parser):
                     id_elt = body_element.getAttribute('id')
                     a = self.document.getElementsByTagName('a')[0]
                     href_elt = a.getAttribute('href')
-                    span_list.append({'name': body_element.nodeName, 'text': NccParser._node_text(a), 'class': class_elt, 'id': id_elt, 'href': href_elt})
+                    span_list.append(
+                        {'name': body_element.nodeName, 'text': NccParser._node_text(a), 'class': class_elt,
+                         'id': id_elt, 'href': href_elt})
             if body_element.nodeName in NccParser.header_keys:
                 index += 1
                 if index > header_index:
@@ -313,7 +316,8 @@ class SmilParser(Parser):
             text = par.getElementsByTagName('text')[0]
             pars_audio = par.getElementsByTagName('audio')
             for par_audio in pars_audio:
-                text_attributes = {'text_src': text.getAttribute('src'), 'text_id': text.getAttribute('id'), 'region': text.getAttribute('region'),
+                text_attributes = {'text_src': text.getAttribute('src'), 'text_id': text.getAttribute('id'),
+                                   'region': text.getAttribute('region'),
                                    'audio_src': par_audio.getAttribute('src'),
                                    'clip-begin': SmilParser.__value_from_clip(par_audio.getAttribute('clip-begin')),
                                    'clip-end': SmilParser.__value_from_clip(par_audio.getAttribute('clip-end')),
@@ -823,4 +827,3 @@ class DaisyReader:
 #         logger.info(file)
 #         file_info = zip.getinfo(file)
 #         logger.info(file_info)
-

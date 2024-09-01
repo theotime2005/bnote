@@ -5,7 +5,6 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 from bnote.debug.colored_log import ColoredLogger, UI_LOG
-from bnote.tools.keyboard import Keyboard
 from .ui_list_box import UiListBox
 
 # Set up the logger for this file

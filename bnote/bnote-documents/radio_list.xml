@@ -6,1523 +6,1523 @@
         <meta name="copyright" content="euroBraille"/>
     </head>
     <body>
-    	<all>
-		<radio name="bbc radio 1">
-    		http://stream.live.vc.bbcmedia.co.uk/bbc_radio_one
-    	</radio>
-		<radio name="france musique">
-		    http://direct.francemusique.fr/live/francemusique-midfi.mp3
-		</radio>
-    	</all>
-    	<fr_FR>
-		<radio name="abf">
-		    https://abf.net-radio.fr/abf.mp3  
-		</radio>
-		<radio name="chérie fm">
-		    https://scdn.nrjaudio.fm/audio1/fr/30201/mp3_128.mp3
-		</radio>
-		<radio name="cristal fm">
-		    http://radiocristal.ice.infomaniak.ch/radiocristal-high.mp3
-		</radio>
-		<radio name="divergence">
-		    http://ridibundus.divergence-fm.org:8000/divergence.mp3
-		</radio>
-		<radio name="europe 1">
-		    http://ais-live.cloud-services.paris:8000/europe1.mp3
-		</radio>
-		<radio name="france inter">
-		    http://direct.franceinter.fr/live/franceinter-midfi.mp3
-		</radio>
-		<radio name="france info">
-		    http://direct.franceinfo.fr/live/franceinfo-midfi.mp3
-		</radio>
-		<radio name="france culture">
-		    http://direct.franceculture.fr/live/franceculture-midfi.mp3
-		</radio>
-		<radio name="fip">
-		    http://direct.fipradio.fr/live/fip-midfi.mp3
-		</radio>
-		<radio name="fip rock">
-		    http://direct.fipradio.fr/live/fip-webradio1.mp3
-		</radio>
-		<radio name="fip jazz">
-		    http://direct.fipradio.fr/live/fip-webradio2.mp3
-		</radio>
-		<radio name="fip groove">
-		    http://direct.fipradio.fr/live/fip-webradio3.mp3
-		</radio>
-		<radio name="fip monde">
-		    http://direct.fipradio.fr/live/fip-webradio4.mp3
-		</radio>
-		<radio name="fip nouveautés">
-		    http://direct.fipradio.fr/live/fip-webradio5.mp3
-		</radio>
-		<radio name="fip reggae">
-		    http://direct.fipradio.fr/live/fip-webradio6.mp3
-		</radio>
-		<radio name="flemme">
-		    http://str45.streamakaci.com:8014/;
-		</radio>
-		<radio name="galère">
-		    http://www.radiogalere.org:8080/galere.mp3
-		</radio>
-		<radio name="grenouille">
-		    http://live.radiogrenouille.com/live
-		</radio>
-		<radio name="fun">
-		    https://icecast.funradio.fr/fun-1-44-128?listen=webGJmqBU59boQ7rZDjrGO5e4
-		</radio>
-		<radio name="génération fm">
-		    http://generationfm.ice.infomaniak.ch/generationfm-high.mp3
-		</radio>
-		<radio name="libertaire">
-		    http://ecoutez.radio-libertaire.org:8080/radiolib.mp3
-		</radio>
-		<radio name="jazz radio">
-		    http://jazzradio.ice.infomaniak.ch/jazzradio-high.mp3
-		</radio>
-		<radio name="m-radio" type="user">
-		    https://mfm.ice.infomaniak.ch/mradio-ile-de-france.mp3
-		</radio>
-		<radio name="mfm">
-		    http://mfm.ice.infomaniak.ch/mfm-128.mp3
-		</radio>
-		<radio name="nostalgie">
-		    https://scdn.nrjaudio.fm/audio1/fr/30601/mp3_128.mp3
-		</radio>
-		<radio name="nrj">
-		    https://scdn.nrjaudio.fm/audio1/fr/30001/mp3_128.mp3
-		</radio>
-		<radio name="océane">
-		    http://oceanefm.ice.infomaniak.ch/oceanefm-128.mp3
-		</radio>
-		<radio name="rfm">
-		    https://stream.rfm.fr/rfm.aac ou https://stream.rfm.fr/rfm.mp3
-		</radio>
-		<radio name="rires et chansons">
-		    https://scdn.nrjaudio.fm/adwz1/fr/30407/mp3_128.mp3
-		</radio>
-		<radio name="rtl">
-		    https://icecast.rtl.fr/rtl-1-44-128?listen=webGJmqBU59boQ7rZDjrGO5e4
-		</radio>
-		<radio name="rtl2">
-		    https://icecast.rtl.fr/rtl2-1-44-128?listen=webGJmqBU59boQ7rZDjrGO5e4
-		</radio>
-		<radio name="skyrock">
-		    http://icecast.skyrock.net/s/natio_mp3_128k
-		</radio>
-    	</fr_FR>
-    	<hr_HR>
-		<radio name="Hrvatski Radio - Prvi program">
-		    http://playerservices.streamtheworld.com/pls/PROGRAM1.pls
-		</radio>
-		<radio name="Hrvatski Radio - Drugi program">
-		    http://provisioning.streamtheworld.com/pls/program2.pls
-		</radio>
-		<radio name="Hrvatski Radio - Treæi program">
-		    http://provisioning.streamtheworld.com/pls/PROGRAM3.pls
-		</radio>
-		<radio name="Hrvatski radio Èakovec">
-		    http://144.76.39.214:7000/
-		</radio>
-		<radio name="Hrvatski radio Pula">
-		    http://provisioning.streamtheworld.com/pls/PULA.pls
-		</radio>
-		<radio name="Hrvatski radio Split">
-		    http://playerservices.streamtheworld.com/asx/SPLITAAC.asx
-		</radio>
-		<radio name="Hrvatski radio Zadar">
-		    http://provisioning.streamtheworld.com/pls/ZADAR.pls
-		</radio>
-		<radio name="Hrvatski radio Dubrovnik">
-		    http://provisioning.streamtheworld.com/pls/DUBROVNIK.pls
-		</radio>
-		<radio name="Hrvatski radio Knin">
-		    http://provisioning.streamtheworld.com/pls/KNIN.pls
-		</radio>
-		<radio name="Hrvatski radio Osijek">
-		    http://provisioning.streamtheworld.com/pls/OSIJEK.pls
-		</radio>
-		<radio name="Hrvatski radio Rijeka">
-		    http://provisioning.streamtheworld.com/pls/RIJEKA.pls
-		</radio>
-		<radio name="Hrvatski radio Sljeme">
-		    http://provisioning.streamtheworld.com/pls/SLJEME.pls
-		</radio>
-		<radio name="Hrvatski radio Šibenik">
-		    http://178.32.62.163:8215/;
-		</radio>
-		<radio name="Hrvatski radio Vukovar">
-		    http://live.hrv.hr:8000/hrv
-		</radio>
-		<radio name="Zagorski radio - Krapina">
-		    http://144.76.172.23:9020/
-		</radio>
-		<radio name="Županijski radio Istra - Pazin">
-		    http://146.185.18.251:7117/stream
-		</radio>
-		<radio name="Županijski radio Koprivnica">
-		    http://134.119.178.2:1060/listen.pls
-		</radio>
-		<radio name="Županijski Radio Šibenik">
-		    http://178.32.62.163:8215/stream
-		</radio>
-		<radio name="Županijski radio Virovitica">
-		    http://165.22.31.76:9300/stream
-		</radio>
-		<radio name="Bravo radio">
-		    http://live.narodni.hr:8063/stream
-		</radio>
-		<radio name="Narodni radio" state="duplicated">
-		    http://live.narodni.hr:8063/stream
-		</radio>
-		<radio name="Radio Gorski kotar - Delnice">
-		    http://live.rgk.hr:9500/
-		</radio>
-		<radio name="Radio Gospiæ">
-		    http://194.56.74.7:9300/
-		</radio>
-		<radio name="Radio Ilok">
-		    https://eu7.fastcast4u.com:2199/tunein/radioilok.pls
-		</radio>
-		<radio name="Radio Kaj">
-		    http://144.76.172.23:7051/
-		</radio>
-		<radio name="Radio Max - Maruševec">
-		    https://azuracast.novi-net.net/radio/8010/radiomax.mp3
-		</radio>
-		<radio name="Hrvatski Katolièki Radio">
-		    http://stream.hkr.hr:8000/hkr.aac
-		</radio>
-    	</hr_HR>
-	<cs_CZ>
-		<radio name="(RFE/RL for Iraq, ch. 12) إذاعة العراق الحر">
-			http://rfe12.akacast.akamaistream.net/7/896/437770/v1/ibb.akacast.akamaistream.net/rfe12.m3u
-		</radio>
-		<radio name="ABradio Chillout">
-			http://mp3stream4.abradio.cz/chillout128.mp3
-		</radio>
-		<radio name="Azadlıq Radiosu (RFE/RL in Azerbaijani, ch. 15)">
-			http://rfe15.akacast.akamaistream.net/7/897/437773/v1/ibb.akacast.akamaistream.net/rfe15.m3u
-		</radio>
-		<radio name="Azat Ýewropa/Azatlyk Radiosy (RFE/RL in Turkmen, ch. 8)">
-			http://rfe08.akacast.akamaistream.net/7/521/437766/v1/ibb.akacast.akamaistream.net/rfe08.m3u
-		</radio>
-		<radio name="Český Impuls">
-			http://icecast6.play.cz/cesky-impuls.mp3
-		</radio>
-		<radio name="Český rozhlas Brno">
-			https://rozhlas.stream/brno.mp3
-		</radio>
-		<radio name="Cesky Rozhlas Classical Lossless FLAC Stream">
-			http://amp.cesnet.cz:8000/cro-d-dur.flac
-		</radio>
-		<radio name="Cesky Rozhlas D-dur">
-			http://amp.cesnet.cz:8000/cro-d-dur-256.ogg
-		</radio>
-		<radio name="Cesky Rozhlas Jazz">
-			https://rozhlas.stream/jazz_high.aac
-		</radio>
-		<radio name="Cesky Rozhlas Jazz Lossless FLAC Stream">
-			http://amp.cesnet.cz:8000/cro-jazz.flac
-		</radio>
-		<radio name="Chat Rádio">
-			http://radio.chatujme.cz:8001/chatradio
-		</radio>
-		<radio name="City FM">
-			http://ice.abradio.cz/cityfm128.mp3
-		</radio>
-		<radio name="City Milenium">
-			http://ice.abradio.cz:8000/citymi128.mp3
-		</radio>
-		<radio name="Classic Praha">
-			http://icecast8.play.cz/classic128.mp3
-		</radio>
-		<radio name="Club Radio CZ">
-			http://ipip.clubradio.cz:7996/
-		</radio>
-		<radio name="Color Music Radio">
-			http://sc.ipip.cz:8206/;stream
-		</radio>
-		<radio name="Comedy Club R@dio DIANA">
-			https://westradio.cz/radio/8010/radio.mp3
-		</radio>
-		<radio name="COOP TIP Radio">
-			http://mp3stream4.abradio.cz:8000/coop128.mp3
-		</radio>
-		<radio name="COOP TIP Radio">
-			http://ice4.abradio.cz/coop128.mp3
-		</radio>
-		<radio name="Country Radio">
-			http://icecast4.play.cz/country128.mp3
-		</radio>
-		<radio name="Country Radio">
-			http://icecast2.play.cz:8000/country128aac
-		</radio>
-		<radio name="County">
-			http://icecast4.play.cz/country128.mp3
-		</radio>
-		<radio name="ČRo D-dur">
-			http://amp.cesnet.cz:8000/cro-d-dur.flac
-		</radio>
-		<radio name="ČRo D-dur FLAC">
-			http://amp.cesnet.cz:8000/cro-d-dur.flac
-		</radio>
-		<radio name="ČRo D-dur HD">
-			http://radio.cesnet.cz/cgi-bin/cro-d-dur-256-ogg.pls
-		</radio>
-		<radio name="ČRo Dvojka">
-			http://icecast1.play.cz:8000/cro2-32aac
-		</radio>
-		<radio name="ČRo Dvojka">
-			http://icecast6.play.cz/cro2-128.mp3
-		</radio>
-		<radio name="ČRo Jazz">
-			http://amp.cesnet.cz:8000/cro-jazz.flac
-		</radio>
-		<radio name="ČRO Jazz 256">
-			https://api.play.cz/radio/crojazz256.mp3.m3u
-		</radio>
-		<radio name="ČRo Olomouc">
-			https://rozhlas.stream/olomouc_low.aac
-		</radio>
-		<radio name="ČRo Ostrava">
-			https://rozhlas.stream/ostrava_high.aac
-		</radio>
-		<radio name="ČRo Plus">
-			http://amp.cesnet.cz:8000/cro-plus-256.ogg.m3u
-		</radio>
-		<radio name="ČRo Plus">
-			https://rozhlas.stream/plus_mp3_128.mp3
-		</radio>
-		<radio name="ČRo Plus">
-			https://rozhlas.stream/plus_low.aac
-		</radio>
-		<radio name="ČRo Plus">
-			https://rozhlas.stream/plus_aac_64.aac
-		</radio>
-		<radio name="ČRo Pohoda">
-			https://rozhlas.stream/pohoda_mp3_128.mp3
-		</radio>
-		<radio name="ČRo Rádio Junior">
-			http://icecast3.play.cz:8000/crojuniormaxi32aac
-		</radio>
-		<radio name="ČRo Radio Wave">
-			http://amp.cesnet.cz:8000/cro-radio-wave-256.ogg
-		</radio>
-		<radio name="ČRo Radio Wave">
-			http://amp.cesnet.cz:8000/cro-radio-wave-256.ogg.m3u
-		</radio>
-		<radio name="ČRo Radiožurnál">
-			http://icecast1.play.cz:8000/cro132aac
-		</radio>
-		<radio name="CRo Radiozurnal">
-			https://rozhlas.stream/radiozurnal_aac_128.aac
-		</radio>
-		<radio name="ČRo Radiožurnál">
-			http://icecast8.play.cz/cro1-128.mp3
-		</radio>
-		<radio name="ČRO Radiožurnál Sport">
-			https://rozhlas.stream/radiozurnal_sport_high.aac
-		</radio>
-		<radio name="ČRo Sever">
-			https://rozhlas.stream/sever_mp3_128.mp3
-		</radio>
-		<radio name="ČRo Vltava">
-			http://icecast2.play.cz:8000/cro3-32aac
-		</radio>
-		<radio name="ČRo Vltava">
-			http://icecast5.play.cz/cro3-128.mp3
-		</radio>
-		<radio name="ČRo Wave">
-			https://rozhlas.stream/wave_mp3_128.mp3
-		</radio>
-		<radio name="ČRo Wave">
-			https://api.play.cz/radio/crowave-256.mp3.m3u
-		</radio>
-		<radio name="ČRo Wave">
-			https://rozhlas.stream/wave_mp3_256.mp3
-		</radio>
-		<radio name="Czech radio classical">
-			http://amp.cesnet.cz:8000/cro-d-dur.flac
-		</radio>
-		<radio name="Czech Radio ČRo D-dur">
-			http://amp.cesnet.cz:8000/cro-d-dur.flac
-		</radio>
-		<radio name="Dance Club FM">
-			http://mp3stream4.abradio.cz/dance128.mp3
-		</radio>
-		<radio name="Dance Club Radio">
-			https://ice4.abradio.cz/dance128.mp3
-		</radio>
-		<radio name="Dance Radio">
-			http://ice.actve.net/dance-radio320.mp3
-		</radio>
-		<radio name="Dance Radio">
-			http://ice.actve.net/dance-radio128.mp3
-		</radio>
-		<radio name="Dance rádio cz">
-			https://ice.actve.net/dance-radio128.mp3
-		</radio>
-		<radio name="Dandy Radio">
-			http://88.99.25.114:8022/stream
-		</radio>
-		<radio name="ELLIS">
-			http://stream.laut.fm/ellis
-		</radio>
-		<radio name="Europa Liberă (RFE/RL for Moldova, ch. 18)">
-			http://rfe18.akacast.akamaistream.net/7/886/437776/v1/ibb.akacast.akamaistream.net/rfe18.m3u
-		</radio>
-		<radio name="Evropa2 Youradio Flashbacky">
-			https://ice.actve.net/web-e2-flashback
-		</radio>
-		<radio name="Expres FM">
-			http://icecast8.play.cz/expres128mp3
-		</radio>
-		<radio name="Expresradio">
-			http://icecast5.play.cz:8000/expres128mp3
-		</radio>
-		<radio name="Express FM">
-			http://icecast8.play.cz/expres128mp3
-		</radio>
-		<radio name="Fajn Fresh">
-			http://ice.abradio.cz/fajnfresh128.mp3
-		</radio>
-		<radio name="Fajn Fresh Radio">
-			http://mp3stream4.abradio.cz/fajnfresh64.mp3
-		</radio>
-		<radio name="Fajn Rádio">
-			http://ice.abradio.cz/fajn128.mp3
-		</radio>
-		<radio name="Fed's Trap Radio">
-			https://backend.fedstrapradio.com:8000/radio.mp3
-		</radio>
-		<radio name="Fed's Trap Radio">
-			https://backend.fedstrapradio.com:8000/radio.mp3
-		</radio>
-		<radio name="Fed's Trap Radio">
-			https://backend.fedstrapradio.com:8000/radio.mp3
-		</radio>
-		<radio name="Flash radio">
-			http://185.47.222.75:8750/
-		</radio>
-		<radio name="Free Rádio 107,0 FM Brno">
-			http://icecast8.play.cz/freeradio128.mp3
-		</radio>
-		<radio name="Free Rave CZ">
-			http://freerave.cz/freerave.pls
-		</radio>
-		<radio name="FREERAVE.CZ">
-			http://164.68.122.137:8061/
-		</radio>
-		<radio name="Frekvence 1">
-			http://ice.actve.net/fm-frekvence1-aac
-		</radio>
-		<radio name="FREKVENCE 1">
-			https://playerservices.streamtheworld.com/api/livestream-redirect/FREKVENCE1.mp3
-		</radio>
-		<radio name="Frekvence 1 - Youradio Československé hity">
-			http://ice.actve.net/web-e2-csweb
-		</radio>
-		<radio name="Frekvence 1 - Youradio Legendy">
-			http://ice.actve.net/web-f1-legendy
-		</radio>
-		<radio name="Frekvence 1 - Youradio Osmdesátky">
-			http://ice.actve.net/web-80
-		</radio>
-		<radio name="Fresh radio 103.6">
-			https://icecast.beatzone.cz/radio/8000/128.mp3
-		</radio>
-		<radio name="Funkstar Radio">
-			https://funkstar.radioca.st/stream
-		</radio>
-		<radio name="Haná">
-			http://icecast8.play.cz/hana128.mp3
-		</radio>
-		<radio name="Helax 93,7">
-			http://ice.abradio.cz/helax128.mp3
-		</radio>
-		<radio name="HEY rádio">
-			http://icecast3.play.cz/hey-radio128.mp3
-		</radio>
-		<radio name="Hit FM Plus">
-			http://ice.abradio.cz:8000/fmplus64.aac
-		</radio>
-		<radio name="Hit PopRock">
-			http://ice.abradio.cz/hitpoprock128.mp3
-		</radio>
-		<radio name="HIT Rádio Orion">
-			http://ice.abradio.cz/orion128.mp3
-		</radio>
-		<radio name="Hitrádio Černá Hora">
-			http://ice.abradio.cz/cernahora64.mp3
-		</radio>
-		<radio name="Hitrádio Černá Hora">
-			http://ice.abradio.cz/cernahora128.mp3
-		</radio>
-		<radio name="Hitrádio Černá Hora 128">
-			http://ice.abradio.cz/cernahora128.mp3
-		</radio>
-		<radio name="Hitrádio City 93.7 FM">
-			https://provisioning.streamtheworld.com/pls/HITRADIO_CITY_PRAHA.pls
-		</radio>
-		<radio name="Hitrádio City Brno">
-			http://ice.abradio.cz/magicbrno128.mp3
-		</radio>
-		<radio name="hitradio City zona Lasky">
-			http://ice.abradio.cz/cityzl128.mp3
-		</radio>
-		<radio name="Hitrádio Contact">
-			https://ice3.abradio.cz/hitradiocontact128.mp3
-		</radio>
-		<radio name="Hitrádio Devadesátka">
-			http://ice.abradio.cz/hit90128.mp3
-		</radio>
-		<radio name="Hitrádio Faktor">
-			https://ice.abradio.cz/faktor128.mp3
-		</radio>
-		<radio name="Hitrádio FM">
-			http://ice.abradio.cz/hitradiofm128.mp3
-		</radio>
-		<radio name="Hitrádio FM Crystal">
-			http://ice.abradio.cz/crystal128.mp3
-		</radio>
-		<radio name="Hitrádio Osmdesátka">
-			http://ice.abradio.cz/hit80128.mp3
-		</radio>
-		<radio name="Hitrádio PopRock">
-			http://ice.abradio.cz/hitpoprock128.mp3
-		</radio>
-		<radio name="Hitrádio Vysočina">
-			http://ice5.abradio.cz/hitvysocina128.mp3
-		</radio>
-		<radio name="Hot Dance Radio">
-			https://25323.live.streamtheworld.com/HOTDANCERADIO.mp3
-		</radio>
-		<radio name="Impuls">
-			http://icecast1.play.cz/impuls128.mp3
-		</radio>
-		<radio name="Impuls Ráááádio">
-			http://icecast5.play.cz/impuls128.mp3
-		</radio>
-		<radio name="JASRádio News Service">
-			https://radio.plainrock127.xyz/listen/jasns/radio.mp3
-		</radio>
-		<radio name="JČ1 - Televize jižní Čechy">
-			https://stream.jc1.cz/hls/jc1.m3u8
-		</radio>
-		<radio name="Kiss 98 FM">
-			http://icecast2.play.cz:8000/kiss128aac
-		</radio>
-		<radio name="Kiss Delta">
-			http://icecast1.play.cz:8000/kissdelta192.mp3
-		</radio>
-		<radio name="Kiss Hady">
-			http://icecast8.play.cz/kisshady128.mp3
-		</radio>
-		<radio name="Kiss Publikum">
-			http://icecast1.play.cz:8000/kisspublikum128aac
-		</radio>
-		<radio name="Kiss Radio">
-			http://icecast4.play.cz/kiss128.mp3
-		</radio>
-		<radio name="LA RADIO PLUS ANNECY">
-			https://laradioplus.ice.infomaniak.ch/laradioplus-high.aac?i=96970
-		</radio>
-		<radio name="Max Radio Online">
-			http://icecast9.play.cz/max-radio.mp3
-		</radio>
-		<radio name="Metal Heart">
-			http://fr.radio-streamhosting.com:8000/metalheartradio64aac
-		</radio>
-		<radio name="Metal Heart Radio">
-			https://cz.radio-streamhosting.com:8443/metalheartradio128mp3
-		</radio>
-		<radio name="Metalománie">
-			http://ice.abradio.cz/metalomanie128.mp3
-		</radio>
-		<radio name="Mňau TV">
-			https://5ca49f2417d90.streamlock.net/mnau/livestream/playlist.m3u8
-		</radio>
-		<radio name="Netro Life Radio 100,8 FM">
-			https://icecast9.play.cz/netro-life-radio.mp3
-		</radio>
-		<radio name="Óčko">
-			http://ocko-live.ssl.cdn.cra.cz/channels/ocko/playlist/cze/live_lq.m3u8
-		</radio>
-		<radio name="Óčko Expres">
-			http://ocko-live.ssl.cdn.cra.cz/channels/ocko_expres/playlist/cze/live_lq.m3u8
-		</radio>
-		<radio name="Óčko Star">
-			https://ocko-live-dash.ssl.cdn.cra.cz/cra_live2/ocko_gold.stream.1.smil/playlist.m3u8
-		</radio>
-		<radio name="OIK TV">
-			https://streamer05.low-latency.cz/oiktv/index.m3u8
-		</radio>
-		<radio name="Oldies Rádio">
-			http://ice.abradio.cz/oldiesradio128.mp3
-		</radio>
-		<radio name="Phonk Nation Radio">
-			https://radio.plainrock127.xyz/phonk/stream
-		</radio>
-		<radio name="Phonk Nation Radio">
-			https://radio.plainrock127.xyz/phonk/stream
-		</radio>
-		<radio name="PHONK RADIO">
-			https://stream-43.zeno.fm/90fvpb27u18uv?zs=vRvgZYxuSUWsgBGCbKMLnA
-		</radio>
-		<radio name="Pigy.cz – Disko Trysko">
-			http://ice.actve.net/web-pg-disko
-		</radio>
-		<radio name="Pigy.cz – Písničky z pohádek">
-			http://ice.actve.net/web-pg-pisnicky
-		</radio>
-		<radio name="Pigy.cz – Pohádky">
-			http://ice.actve.net/web-pg-pohadky
-		</radio>
-		<radio name="Plzeň TV">
-			https://vysilani.zaktv.cz/broadcast/hls/ptv/index.m3u8
-		</radio>
-		<radio name="povídka">
-			https://ice3.abradio.cz/povidka128.mp3
-		</radio>
-		<radio name="PowerPonies Radio">
-			http://radio.powerponies.cz:8000/listen.pls
-		</radio>
-		<radio name="Queenradio.net">
-			http://stream.radiojar.com/4gw72qm8u68uv
-		</radio>
-		<radio name="Radia CZ - Depeche Mode">
-			http://mp3stream4.abradio.cz/depeche128.mp3
-		</radio>
-		<radio name="Rádio 1">
-			http://icecast6.play.cz/radio1-128.mp3
-		</radio>
-		<radio name="RADIO 1">
-			http://icecast2.play.cz/radio1.mp3
-		</radio>
-		<radio name="Radio 1">
-			http://www.play.cz/radio/radio1-32.aac.m3u
-		</radio>
-		<radio name="Rádio 7">
-			http://icecast8.play.cz/radio7-128.mp3
-		</radio>
-		<radio name="Rádio 7 32kb">
-			http://icecast1.play.cz:8000/radio7cz32.mp3
-		</radio>
-		<radio name="Rádio Applaus">
-			http://mp3stream3.abradio.cz/applaus128.mp3
-		</radio>
-		<radio name="Radio B">
-			https://stream.radiojar.com/9nayamd31tzuv?1660328034
-		</radio>
-		<radio name="Rádio Beat">
-			http://icecast2.play.cz/radiobeat128.mp3
-		</radio>
-		<radio name="Radio Beat">
-			http://icecast2.play.cz/radiobeat128.mp3
-		</radio>
-		<radio name="Radio Beat">
-			http://icecast2.play.cz/radiobeat128.mp3
-		</radio>
-		<radio name="Rádio Beat (128 AAC)">
-			https://icecast2.play.cz/beat128aac
-		</radio>
-		<radio name="Radio Beat 128 MP3">
-			http://icecast2.play.cz/radiobeat128.mp3
-		</radio>
-		<radio name="Rádio Blaník">
-			https://playerservices.streamtheworld.com/api/livestream-redirect/RADIO_BLANIK_128.mp3
-		</radio>
-		<radio name="Rádio Blaník CZ Webové rádio">
-			http://ice.abradio.cz/blanikcz128.mp3
-		</radio>
-		<radio name="Rádio Blaník Oldies">
-			https://ice.radia.cz/oldiesradio128.mp3
-		</radio>
-		<radio name="Rádio Blaník živé">
-			http://ice.abradio.cz/blanikfm128.mp3
-		</radio>
-		<radio name="Rádio Bonton">
-			http://ice.actve.net/fm-bonton-128
-		</radio>
-		<radio name="Radio Budweis">
-			https://rozhlas.stream/ceske_budejovice_high.aac
-		</radio>
-		<radio name="Radio Cas">
-			http://icecast6.play.cz/casradio128.mp3
-		</radio>
-		<radio name="Radio Čas">
-			http://icecast6.play.cz/casradio128.mp3
-		</radio>
-		<radio name="Radio Cas Rock">
-			http://icecast6.play.cz/casrock128.mp3
-		</radio>
-		<radio name="Radio Cas Rock">
-			http://icecast6.play.cz/casrock128.mp3
-		</radio>
-		<radio name="Radio Čas Rock">
-			http://icecast6.play.cz/casrock128.mp3
-		</radio>
-		<radio name="Rádio Čas Rock (192 kbps)">
-			https://icecast9.play.cz/casrock192.mp3
-		</radio>
-		<radio name="Radio City FM">
-			http://ice.abradio.cz/cityfm128.mp3
-		</radio>
-		<radio name="Rádio Click &amp; Country">
-			http://radio.clickandcountry.cz:8000/clickandcountry.mp3
-		</radio>
-		<radio name="Rádio Dálnice">
-			http://icecast8.play.cz/radiodalnice.mp3
-		</radio>
-		<radio name="Radio Dechovka 1233 Stredni Vlny">
-			http://icecast5.play.cz/dechovka128.mp3
-		</radio>
-		<radio name="Radio Depeche Mode">
-			http://mp3stream4.abradio.cz/depeche128.mp3
-		</radio>
-		<radio name="Rádio Diana – Retro Club">
-			https://westradio.cz/radio/8000/radio.mp3
-		</radio>
-		<radio name="Radio Dixie">
-			http://icecast8.play.cz/radiodixie192.mp3
-		</radio>
-		<radio name="Rádio Dráťák">
-			http://dratak.cz:8000/dratak
-		</radio>
-		<radio name="Rádio Energic">
-			https://icecast9.play.cz/energic.mp3
-		</radio>
-		<radio name="Radio Evropa e Lirë (RFE/RL for Kosovo, ch. 16)">
-			http://rfe16.akacast.akamaistream.net/7/900/437774/v1/ibb.akacast.akamaistream.net/rfe16.m3u
-		</radio>
-		<radio name="Rádio Hády">
-			http://46.36.36.149:8000/live
-		</radio>
-		<radio name="Radio Helax">
-			http://ice.abradio.cz:8000/helax128.mp3?type=.mp3/;stream.mp3
-		</radio>
-		<radio name="Radio Humor">
-			http://mp3stream4.abradio.cz:8000/humor128.mp3
-		</radio>
-		<radio name="Rádio humor 2">
-			https://playerservices.streamtheworld.com/api/livestream-redirect/RADIO_HUMOR.aac
-		</radio>
-		<radio name="Rádio Jih">
-			http://icecast6.play.cz/jih128.mp3
-		</radio>
-		<radio name="Radio JIH Cimbalka">
-			http://icecast6.play.cz/jihcimbalka128.mp3
-		</radio>
-		<radio name="Rádio Junior">
-			http://amp.cesnet.cz:8000/cro-radio-junior-256.ogg.m3u
-		</radio>
-		<radio name="Rádio Junior">
-			http://amp.cesnet.cz:8000/cro-radio-junior-256.ogg.m3u
-		</radio>
-		<radio name="Radio Kiss">
-			http://icecast4.play.cz/kiss128.mp3
-		</radio>
-		<radio name="Radio Krokodyl">
-			http://icecast4.play.cz/krokodyl128.mp3.m3u
-		</radio>
-		<radio name="Radio Krokodyl">
-			http://icecast4.play.cz/krokodyl128.mp3.m3u
-		</radio>
-		<radio name="Rádio MB">
-			http://icecast3.play.cz/radiomb.mp3
-		</radio>
-		<radio name="Radio Orlicko">
-			http://46.28.111.246/stream192.mp3
-		</radio>
-		<radio name="Radio Ostravan">
-			http://icecast9.play.cz/radio-ostravan-256.mp3
-		</radio>
-		<radio name="Radio Otava">
-			https://radiootava.trefcon.cz:8889/radio.mp3
-		</radio>
-		<radio name="Rádio pohádka">
-			http://ice3.abradio.cz/pohadka128.mp3
-		</radio>
-		<radio name="Radio Ponte records">
-			http://ice3.abradio.cz/ponterec128.mp3
-		</radio>
-		<radio name="Radio Prague International">
-			https://rozhlas.stream/cro7_mp3_128.mp3
-		</radio>
-		<radio name="Radio Praha">
-			http://icecast2.play.cz/cro7-128.mp3
-		</radio>
-		<radio name="Radio Proglas">
-			http://icecast2.play.cz/proglas128
-		</radio>
-		<radio name="Radio Proglas">
-			http://icecast1.play.cz/proglas96aac
-		</radio>
-		<radio name="Radio Prostor">
-			https://bcast.spmmedia.cz/prostor-mp3
-		</radio>
-		<radio name="Radio Punctum">
-			https://radiopunctum.cz:8001/radio
-		</radio>
-		<radio name="Radio R">
-			https://radior.video.muni.cz/FSS_mp3-128.mp3.m3u
-		</radio>
-		<radio name="Rádio Relax">
-			http://icecast7.play.cz/relax128.mp3
-		</radio>
-		<radio name="Radio ROCK">
-			http://ice.abradio.cz/rockradio128.mp3
-		</radio>
-		<radio name="Rádio Samson">
-			http://icecast8.play.cz/samsonfm128.mp3
-		</radio>
-		<radio name="Rádio Samson">
-			http://icecast2.play.cz/samsonfm128aac
-		</radio>
-		<radio name="Rádio Samson">
-			https://icecast2.play.cz/samsonfm128aac
-		</radio>
-		<radio name="Radio Sázava">
-			http://sc.ipip.cz:8224/;stream
-		</radio>
-		<radio name="Radio Slobodna Evropa">
-			https://n08.radiojar.com/bugesa4nn3quv?rj-ttl=5&amp;rj-tok=AAABikFH4NsAib8tua7OjeefLg
-		</radio>
-		<radio name="Radio SPIN 96.2 FM">
-			http://icecast-u2.play.cz:8000/spin128.mp3
-		</radio>
-		<radio name="Radio Svoboda">
-			https://laradiofm.com/download/60-en-pls
-		</radio>
-		<radio name="Radio Svoboda (ru) (official stream)">
-			https://stream.radiojar.com/hcrb063nn3quv
-		</radio>
-		<radio name="Radio Svoboda Rus">
-			http://rfe04.akacast.akamaistream.net/7/509/437762/v1/ibb.akacast.akamaistream.net/rfe04
-		</radio>
-		<radio name="Rádio Trojka">
-			http://12901.cloudrad.io:9306/live
-		</radio>
-		<radio name="Radio Wave">
-			https://rozhlas.stream/wave_aac_32.aac
-		</radio>
-		<radio name="Radio Wave">
-			http://rozhlas.stream/wave_mp3_256.mp3
-		</radio>
-		<radio name="Rádio Xaver">
-			https://icecast6.play.cz/radio-xaver.aac
-		</radio>
-		<radio name="RADIO.IPIP.CZ: psytrance-radio.cz">
-			http://212.96.160.160:8022/
-		</radio>
-		<radio name="RADIO1">
-			http://www.play.cz/radio/radio1-192.mp3.m3u
-		</radio>
-		<radio name="RadioParty.pl">
-			https://s2.radioparty.pl:8015/stream
-		</radio>
-		<radio name="RETRO DJ RADIO - 128">
-			https://free.rcast.net/70814
-		</radio>
-		<radio name="RETRO DJ Radio - HQ">
-			http://icecast1.play.cz/retrodjradio.mp3
-		</radio>
-		<radio name="RETRO DJ RADIO CZ">
-			https://free.rcast.net/70814.mp3
-		</radio>
-		<radio name="Retro Music Television">
-			http://stream.mediawork.cz/retrotv/retrotvHQ1/playlist.m3u8
-		</radio>
-		<radio name="Retro Music TV">
-			http://stream.mediawork.cz/retrotv/retrotvHQ1/chunklist_w627639048.m3u8
-		</radio>
-		<radio name="RFE/RL for North Caucasus, ch. 19">
-			http://rfe19.akacast.akamaistream.net/7/885/437777/v1/ibb.akacast.akamaistream.net/rfe19.m3u
-		</radio>
-		<radio name="RFE/RL Radio Farda">
-			http://rfe21.akacast.akamaistream.net/7/751/437779/v1/ibb.akacast.akamaistream.net/rfe21
-		</radio>
-		<radio name="ROCK MAX">
-			http://ice.abradio.cz/rockmax256.mp3
-		</radio>
-		<radio name="Rock Radio">
-			https://playerservices.streamtheworld.com/api/livestream-redirect/ROCK_RADIO_128.mp3
-		</radio>
-		<radio name="Rock Rádio Šumava">
-			http://ice.abradio.cz/sumava128.mp3
-		</radio>
-		<radio name="Rocková zábava">
-			http://ice.abradio.cz/rockzabava128.mp3
-		</radio>
-		<radio name="Rockzone">
-			http://icecast5.play.cz/rockzone128.mp3
-		</radio>
-		<radio name="RockZone 105,9 FM">
-			https://icecast5.play.cz/rockzone128.mp3
-		</radio>
-		<radio name="Samson">
-			http://icecast2.play.cz:8000/samsonfm128aac
-		</radio>
-		<radio name="sdbs /-\ radio">
-			https://sdbs.cz/radio.mp3
-		</radio>
-		<radio name="sdbs /-\ radio">
-			https://sdbs.cz/radio.mp3
-		</radio>
-		<radio name="SeeJay Radio">
-			http://icecast6.play.cz/seejay128.mp3
-		</radio>
-		<radio name="Signál Rádio">
-			http://icecast1.play.cz/signal128.mp3
-		</radio>
-		<radio name="Signál Rádio Brno">
-			http://icecast6.play.cz/signal-brno128.mp3
-		</radio>
-		<radio name="SKYROCK">
-			http://icecast8.play.cz/skyrock128.mp3
-		</radio>
-		<radio name="svobodne-radio">
-			http://svobodneradio.radioca.st:8859/stream
-		</radio>
-		<radio name="Svobodný vysílač">
-			http://stream.svobodny-vysilac.cz:8000/live.ogg
-		</radio>
-		<radio name="Svobodný vysílač">
-			http://stream.svobodny-vysilac.cz:8000/live.mp3
-		</radio>
-		<radio name="The Attiq Radio">
-			http://radio.theattiq.com:8000/live
-		</radio>
-		<radio name="TV Natura">
-			https://media1.tvnatura.cz/live_out/4/live.m3u8
-		</radio>
-		<radio name="We House Radio (AAC+ High)">
-			https://stream.wehouseradio.com/stream/2/
-		</radio>
-		<radio name="WebRadio Epigon">
-			http://ice3.abradio.cz/epigon128.mp3
-		</radio>
-		<radio name="WeHouseRadio">
-			https://stream.wehouseradio.com/stream/1/
-		</radio>
-		<radio name="WeHouseRadio">
-			https://stream.wehouseradio.com/stream/3/
-		</radio>
-		<radio name="Známka Punku">
-			https://ice.abradio.cz/znamkapunku128.mp3
-		</radio>
-		<radio name="Zoner Underground Network">
-			https://stream.zunradio.cz/zun3.mp3
-		</radio>
-		<radio name="ZX Music Radio">
-			http://zxm.cz:8000/zx.m3u
-		</radio>
-		<radio name="ZX Music Radio">
-			http://zxm.cz:8000/zx
-		</radio>
-		<radio name="Азат Еуропа / Азаттық Радиосы (RFE/RL in Kazakh, ch. 11)">
-			http://rfe11.akacast.akamaistream.net/7/893/437769/v1/ibb.akacast.akamaistream.net/rfe11.m3u
-		</radio>
-		<radio name="Азаттык Υналгысы (RFE/RL in Kyrgyz, ch. 1)">
-			http://rfe01.akacast.akamaistream.net/7/514/437759/v1/ibb.akacast.akamaistream.net/rfe01.m3u
-		</radio>
-		<radio name="Крым Реалии (rus, ukr) (official stream)">
-			https://stream.radiojar.com/wm9sntcpn3quv
-		</radio>
-		<radio name="Крым.Реалии">
-			https://rfe-ingest.akamaized.net/hls/live/2035288/axia19/playlist.m3u8
-		</radio>
-		<radio name="Озодлик радиоси (RFE/RL in Uzbek, ch. 13)">
-			http://rfe13.akacast.akamaistream.net/7/895/437771/v1/ibb.akacast.akamaistream.net/rfe13.m3u
-		</radio>
-		<radio name="Радио Свобода">
-			https://rfe-ingest.akamaized.net/hls/live/2035254/axia04/playlist.m3u8
-		</radio>
-		<radio name="Радио Свобода (Radio Svoboda, RFE/RL Russian, ch. 4)">
-			http://rfe04.akacast.akamaistream.net/7/509/437762/v1/ibb.akacast.akamaistream.net/rfe04.m3u
-		</radio>
-		<radio name="Радио Слободна Eвропа (RFE/RL in Macedonian, ch. 14)">
-			http://rfe14.akacast.akamaistream.net/7/898/437772/v1/ibb.akacast.akamaistream.net/rfe14.m3u
-		</radio>
-		<radio name="Радиои Озодӣ (RFE/RL in Tajik, ch. 9)">
-			http://rfe09.akacast.akamaistream.net/7/522/437767/v1/ibb.akacast.akamaistream.net/rfe09.m3u
-		</radio>
-		<radio name="Радіо Свобода (RFE/RL in Ukrainian, ch. 7)">
-			http://rfe07.akacast.akamaistream.net/7/508/437765/v1/ibb.akacast.akamaistream.net/rfe07.m3u
-		</radio>
-		<radio name="Радыё Свабода (RFE/RL in Belorussian, ch. 10)">
-			http://rfe10.akacast.akamaistream.net/7/894/437768/v1/ibb.akacast.akamaistream.net/rfe10.m3u
-		</radio>
-		<radio name="Свобода">
-			https://rfe-ingest.akamaized.net/hls/live/2035254/axia04/playlist.m3u8
-		</radio>
-		<radio name="რადიო თავისუფალი ევროპა/რადიო თავისუფლება (RFE/RL in Georgian, ch. 3)">
-			http://rfe03.akacast.akamaistream.net/7/512/437761/v1/ibb.akacast.akamaistream.net/rfe03.m3u
-		</radio>
-		<radio name="Ազատություն ռ/կ (RFE/RL in Armenian, ch. 2)">
-			http://rfe02.akacast.akamaistream.net/7/511/437760/v1/ibb.akacast.akamaistream.net/rfe02.m3u
-		</radio>
-		<radio name="ازادي راډیودازادې اروپا راډیو (RFE/RL in Pashto, ch. 17)">
-			http://rfe17.akacast.akamaistream.net/7/899/437775/v1/ibb.akacast.akamaistream.net/rfe17.m3u
-		</radio>
-		<radio name="مشال راډیو (RFE/RL in Pashto, R. Mashaal, ch. 20)">
-			http://rfe20.akacast.akamaistream.net/7/750/437778/v1/ibb.akacast.akamaistream.net/rfe20.m3u
-		</radio>
-	</cs_CZ>
-	<sk_SK>
-		<radio name="Fun Radio">
-			http://stream.funradio.sk:8000/fun128.mp3
-		</radio>
-		<radio name="BB FM rádio">
-			http://stream.bbfm.sk/bbfm128.mp3
-		</radio>
-		<radio name="Československé radio">
-			http://live.topradio.cz:8000/csradio128
-		</radio>
-		<radio name="Detské rádio">
-			https://stream.21.sk/detskeradio-192.mp3
-		</radio>
-		<radio name="Detské Rádio">
-			http://stream.21.sk/detskeradio-192.mp3
-		</radio>
-		<radio name="Dobré rádio">
-			http://stream.dobreradio.sk:8813/dobreradio.mp3
-		</radio>
-		<radio name="Duflo Radio">
-			http://stream.zeno.fm/kxwhyvz2fm0uv
-		</radio>
-		<radio name="Europa 2">
-			https://stream.bauermedia.sk/europa2.mp3
-		</radio>
-		<radio name="Europa 2">
-			https://stream.bauermedia.sk/europa2.mp3
-		</radio>
-		<radio name="Fit Famili Rádio">
-			https://solid1.streamupsolutions.com/proxy/utwrguip/stream
-		</radio>
-		<radio name="Fit Famili Rádio">
-			https://solid1.streamupsolutions.com/proxy/utwrguip/stream
-		</radio>
-		<radio name="FRESH Rádio">
-			https://icecast2.radionet.sk/freshradio.sk
-		</radio>
-		<radio name="FRESH rádio">
-			https://icecast2.radionet.sk/freshradio.sk
-		</radio>
-		<radio name="Fun Radio">
-			http://stream.funradio.sk:8000/fun128.mp3
-		</radio>
-		<radio name="Fun Radio  Chill">
-			https://stream.funradio.sk:8000/chill128.mp3
-		</radio>
-		<radio name="FUN RÁDIO 80-90">
-			http://stream.funradio.sk:8000/80-90-128.mp3
-		</radio>
-		<radio name="Fun Radio 80&amp;90">
-			http://stream.funradio.sk:8000/80-90-128.mp3
-		</radio>
-		<radio name="Fun Radio CZ">
-			http://stream.funradio.sk:8000/cs128.mp3
-		</radio>
-		<radio name="FUN RÁDIO DANCE">
-			http://stream.funradio.sk:8000/dance128.mp3
-		</radio>
-		<radio name="Fun Radio Dance">
-			http://stream.funradio.sk:8000/dance128.mp3
-		</radio>
-		<radio name="FunRadio Live">
-			http://stream.funradio.sk:8000/funpgm256.mp3
-		</radio>
-		<radio name="FunRadio Live (256kbps)">
-			https://stream.funradio.sk:8000/funpgm256.mp3
-		</radio>
-		<radio name="G-Radio">
-			http://88.212.34.18:8050/mp3midband
-		</radio>
-		<radio name="G-Radio">
-			http://88.212.34.18:8050/mp3midband
-		</radio>
-		<radio name="Hitrádio Slovakia">
-			https://hitradioslovakia.stream.laut.fm/hitradioslovakia
-		</radio>
-		<radio name="Hitrádio Slovakia">
-			https://hitradioslovakia.stream.laut.fm/hitradioslovakia
-		</radio>
-		<radio name="House Radio">
-			http://stream.zeno.fm/qm8e21gta18uv
-		</radio>
-		<radio name="http://stream.infovojna.bz/live32">
-			http://stream.infovojna.bz/live32
-		</radio>
-		<radio name="http://stream.infovojna.bz/live32">
-			http://stream.infovojna.bz/live32
-		</radio>
-		<radio name="http://stream.infovojna.bz/live32">
-			http://stream.infovojna.bz/live32
-		</radio>
-		<radio name="Info vojna">
-			http://stream.infovojna.bz/live
-		</radio>
-		<radio name="INFOVOJNA">
-			http://stream.infovojna.bz/live
-		</radio>
-		<radio name="INFOVOJNA">
-			http://stream.infovojna.bz/live
-		</radio>
-		<radio name="Infovojna">
-			http://159.69.219.5:8010/aac
-		</radio>
-		<radio name="INFOVOJNA">
-			http://stream.infovojna.bz/live
-		</radio>
-		<radio name="Infovojna 128 kb/s">
-			http://stream.infovojna.bz/live
-		</radio>
-		<radio name="Infovojna 128kb">
-			http://stream.infovojna.bz/live
-		</radio>
-		<radio name="iRock">
-			https://radioserver.online:9927/irockHQ.mp3
-		</radio>
-		<radio name="janko hraško">
-			http://78.24.9.110:31088/
-		</radio>
-		<radio name="JOJ 24">
-			https://live.cdn.joj.sk/live/joj_news.m3u8
-		</radio>
-		<radio name="Joj 24 404 P">
-			https://live.cdn.joj.sk/live/andromeda/joj_news-404.m3u8
-		</radio>
-		<radio name="Kosice International ATC">
-			https://www.liveatc.net/play/lzkz.pls
-		</radio>
-		<radio name="Lux TV">
-			https://stream.tvlux.sk/lux/ngrp:lux.stream_all/playlist.m3u8
-		</radio>
-		<radio name="mars dance">
-			https://stream-153.zeno.fm/683gf5xrxfeuv?zs=gtI4gERBSUGu8f0FOcDOWw&amp;1686916511841
-		</radio>
-		<radio name="METALSCENA netRADIO">
-			https://listen.radioking.com/radio/263218/stream/308365
-		</radio>
-		<radio name="Mirjam Rádio - Mária Rádió Felvidék">
-			http://193.87.81.131:8081/MariaRadioFelvidek
-		</radio>
-		<radio name="Numberstation">
-			https://home3-ice.nezbednik.eu.org:2000/numberstation.mp3
-		</radio>
-		<radio name="Party Mix Radio">
-			http://stream.zeno.fm/rw6ckefezs8uv
-		</radio>
-		<radio name="Pátria Rádió">
-			https://icecast.stv.livebox.sk/patria_128.mp3
-		</radio>
-		<radio name="Radio 7">
-			https://play.radio7.sk/128
-		</radio>
-		<radio name="Rádio Aetter">
-			http://stream.aetter.sk:8000/aetter
-		</radio>
-		<radio name="Rádio Beta">
-			http://109.71.67.102:8000/beta_live_high.mp3
-		</radio>
-		<radio name="Rádio Beta - České a Slovenské hity">
-			http://109.71.67.102:8000/beta_cspop.mp3
-		</radio>
-		<radio name="RÁDIO BETA - České a Slovenské hity">
-			http://109.71.67.102:8000/beta_cspop.mp3
-		</radio>
-		<radio name="Rádio Beta - Hity 80's a 90's">
-			http://109.71.67.102:8000/beta_80a90.mp3
-		</radio>
-		<radio name="Rádio Beta - Hráme jubilantom">
-			http://109.71.67.102:8000/beta_jubilanti.mp3
-		</radio>
-		<radio name="RÁDIO BETA 80-90">
-			http://109.71.67.102:8000/beta_80a90.mp3
-		</radio>
-		<radio name="RADIO BIBLIA SK">
-			http://radiobiblia.online:8000/stream.ogg
-		</radio>
-		<radio name="Radio Dychovka">
-			https://epanel.mediacp.eu:7661/stream
-		</radio>
-		<radio name="Radio Ekspres">
-			https://stream.nextmedia.si/proxy/ekspres1?mp=/stream
-		</radio>
-		<radio name="Radio Expres">
-			http://195.168.61.226:8000/96.mp3
-		</radio>
-		<radio name="Radio Expres">
-			http://195.168.61.226:8000/96.mp3
-		</radio>
-		<radio name="Rádio Expres">
-			http://195.168.61.226:8000/128.mp3
-		</radio>
-		<radio name="Radio Expres">
-			http://195.168.61.226:8000/96.mp3
-		</radio>
-		<radio name="Radio Expres SK">
-			https://stream.expres.sk/128.mp3
-		</radio>
-		<radio name="Radio Extra">
-			http://live.topradio.cz:8000/extra192
-		</radio>
-		<radio name="RÁDIO FM">
-			https://icecast.stv.livebox.sk/fm_128.mp3
-		</radio>
-		<radio name="Rádio FM">
-			https://icecast.stv.livebox.sk/fm_128.mp3
-		</radio>
-		<radio name="Radio FM">
-			https://icecast.stv.livebox.sk/fm_128.mp3
-		</radio>
-		<radio name="RÁDIO FRONTINUS">
-			http://stream.frontinus.sk:8000/frontinus128.mp3
-		</radio>
-		<radio name="Rádio Frontinus">
-			http://stream.frontinus.sk:8000/frontinus128.mp3
-		</radio>
-		<radio name="Radio Infovojna">
-			http://stream.infovojna.bz/live
-		</radio>
-		<radio name="Rádio Janko Hraško">
-			http://78.24.9.110:31088/;
-		</radio>
-		<radio name="Rádio Janko Hraško">
-			http://78.24.9.110:31088/
-		</radio>
-		<radio name="Rádio Jazz">
-			http://stream.sepia.sk:8000/jazz128.mp3
-		</radio>
-		<radio name="Rádio Jupiter">
-			http://stream.radiojupiter.sk:8000/jupiter_64.aac
-		</radio>
-		<radio name="Rádio KIKS">
-			https://online.radiokiks.sk:8000/kiks_hq.mp3
-		</radio>
-		<radio name="Rádio KIKS">
-			https://online.radiokiks.sk:8000/kiks_hq.mp3
-		</radio>
-		<radio name="Rádio KIKS - Big 80s">
-			https://online.radiokiks.sk:8000/kiks_big80s.mp3
-		</radio>
-		<radio name="Rádio KIKS - Big 90s">
-			https://online.radiokiks.sk:8000/kiks_big90s.mp3
-		</radio>
-		<radio name="Rádio KIKS - Rock Music">
-			https://online.radiokiks.sk:8000/kiks_rock.mp3
-		</radio>
-		<radio name="Rádio Košice">
-			http://stream.ecce.sk:8000/radiokosice-128.mp3
-		</radio>
-		<radio name="Rádio Košice BA">
-			http://176.102.98.74:8000/radiokosice-ba-128.mp3
-		</radio>
-		<radio name="Rádio Logos">
-			http://radioserver.online:8824/;
-		</radio>
-		<radio name="Rádio Lumen">
-			http://audio.lumen.sk:8000/live128.mp3
-		</radio>
-		<radio name="Rádio Maria Slovensko">
-			http://dreamsiteradiocp5.com:8012/streaming.mp3
-		</radio>
-		<radio name="Rádio Melody">
-			https://stream.bauermedia.sk/melody-hi.mp3
-		</radio>
-		<radio name="Rádio Melody">
-			https://stream.bauermedia.sk/melody-hi.mp3
-		</radio>
-		<radio name="Radio Melody">
-			https://stream.bauermedia.sk/melody-lo.mp3?aw_0_req.gdpr=false&amp;aw_0_1st.playerid=melody_web_mobile
-		</radio>
-		<radio name="Rádio Modra">
-			http://185.98.208.12:8000/
-		</radio>
-		<radio name="Rádio Muzika">
-			https://listen.radioking.com/radio/276343/stream/321988
-		</radio>
-		<radio name="Rádio Paráda">
-			https://extra.mediacp.eu/stream/RadioParada,o.z.
-		</radio>
-		<radio name="Rádio Piešťany">
-			http://live.radiopiestany.sk:8000/live.mp3
-		</radio>
-		<radio name="Rádio Pohoda 2">
-			http://mpc1.mediacp.eu:18111/stream
-		</radio>
-		<radio name="Rádio Relax International">
-			https://stream.relaxfm.ee/international
-		</radio>
-		<radio name="Rádio ROCK">
-			https://stream.bauermedia.sk/rock-hi.mp3
-		</radio>
-		<radio name="Rádio ROCK">
-			https://stream.bauermedia.sk/rock-hi.mp3
-		</radio>
-		<radio name="Rádio Rock">
-			https://stream.bauermedia.sk/rock-hi.mp3
-		</radio>
-		<radio name="Rádio Rock SV">
-			https://s2.myradiostream.com/:4870/listen.mp3
-		</radio>
-		<radio name="Radio Romper Čechoslovakia">
-			https://playerservices.streamtheworld.com/api/livestream-redirect/SAM05AAC415.aac
-		</radio>
-		<radio name="Rádio Šírava">
-			http://radioserver.online:8804/;stream/1
-		</radio>
-		<radio name="Rádio Sity">
-			https://radiosity.online:8000/aac
-		</radio>
-		<radio name="Radio Slovensko">
-			https://icecast.stv.livebox.sk/slovensko_128.mp3
-		</radio>
-		<radio name="Radio TLIS">
-			https://stream.tlis.sk/tlis.mp3
-		</radio>
-		<radio name="Rádio Topolčany">
-			http://80.242.44.249:8000/
-		</radio>
-		<radio name="Rádio v Nitre">
-			http://195.210.28.150:8932/radiovnitre_live.mp3
-		</radio>
-		<radio name="Radio Vega">
-			http://stream.sepia.sk:8000/vega128.mp3
-		</radio>
-		<radio name="Radio Vega">
-			https://stream.sepia.sk:8000/vega128.mp3
-		</radio>
-		<radio name="Rádio Vega">
-			http://stream.sepia.sk:8000/vega128.mp3
-		</radio>
-		<radio name="Radio Vega Slovakia">
-			https://stream.sepia.sk:8000/vega128.mp3
-		</radio>
-		<radio name="RÁDIO VIVA">
-			http://stream.sepia.sk:8000/viva128.mp3
-		</radio>
-		<radio name="Rádio Viva">
-			http://stream.sepia.sk:8000/viva128.mp3
-		</radio>
-		<radio name="Radio VIVA">
-			https://stream.sepia.sk/viva128.mp3
-		</radio>
-		<radio name="Radio Viva Metropol">
-			http://stream.sepia.sk:8000/viva128.mp3
-		</radio>
-		<radio name="Rádio Vlna">
-			http://stream.radiovlna.sk/vlna-hi.mp3
-		</radio>
-		<radio name="Rádio Vlna">
-			http://stream.radiovlna.sk/vlna-hi.mp3
-		</radio>
-		<radio name="RÁDIO VLNA 60-70">
-			https://stream.radiovlna.sk/gold-hi.mp3
-		</radio>
-		<radio name="RÁDIO VLNA 60-70">
-			https://stream.radiovlna.sk/gold-hi.mp3
-		</radio>
-		<radio name="Rádio Vlna CLASSIC ROCK">
-			http://stream.radiovlna.sk:8000/rock-hi.mp3
-		</radio>
-		<radio name="RÁDIO VLNA Classic Rock">
-			http://stream.radiovlna.sk:8000/rock-hi.mp3
-		</radio>
-		<radio name="Rádio Vlna Golden hits">
-			https://stream.radiovlna.sk/gold-hi.mp3
-		</radio>
-		<radio name="Rádio Vlna Oldies Party">
-			https://stream.radiovlna.sk/party-hi.mp3
-		</radio>
-		<radio name="radio WoW">
-			https://radioserver.online:9816/radiowow.mp3
-		</radio>
-		<radio name="Radio Zabava">
-			https://stream.zeno.fm/eyac00cx1nhvv
-		</radio>
-		<radio name="RÁDIO_FM">
-			http://live.slovakradio.sk:8000/FM_256.mp3
-		</radio>
-		<radio name="RadioX">
-			http://158.193.82.41:8000/radiox_128.mp3
-		</radio>
-		<radio name="RadioX - Alternative X">
-			http://158.193.82.41:8000/alternative.mp3
-		</radio>
-		<radio name="RadioX - Chillout X">
-			http://158.193.82.41:8000/chillout.mp3
-		</radio>
-		<radio name="RadioX - Dance X">
-			http://158.193.82.41:8000/dance.mp3
-		</radio>
-		<radio name="RadioX - DnB X">
-			http://158.193.82.41:8000/dnb.mp3
-		</radio>
-		<radio name="RadioX - DnB X">
-			http://158.193.82.41:8000/dnb.mp3
-		</radio>
-		<radio name="RadioX - Folklore X">
-			http://158.193.82.41:8000/ludovky.mp3
-		</radio>
-		<radio name="RadioX - Metal X">
-			http://158.193.82.41:8000/metal.mp3
-		</radio>
-		<radio name="RadioX - Mood X">
-			http://158.193.82.41:8000/mood.mp3
-		</radio>
-		<radio name="RadioX - Oldies X">
-			http://158.193.82.41:8000/oldies.mp3
-		</radio>
-		<radio name="Repete">
-			http://stream.rusyn.fm/rusyny-low.mp3
-		</radio>
-		<radio name="Rock Radio">
-			https://stream.bauermedia.sk/rock-hi.mp3
-		</radio>
-		<radio name="RTVS Litera256">
-			http://live.slovakradio.sk:8000/Litera_256.mp3
-		</radio>
-		<radio name="RTVS Pyramida256">
-			http://live.slovakradio.sk:8000/Pyramida_128.mp3
-		</radio>
-		<radio name="RTVS Pyramida256">
-			http://live.slovakradio.sk:8000/Pyramida_256.mp3
-		</radio>
-		<radio name="RTVS Pyramida256">
-			http://live.slovakradio.sk:8000/Pyramida_256.mp3
-		</radio>
-		<radio name="Rusyn FM">
-			https://stream.rusyn.fm/rusyny.mp3
-		</radio>
-		<radio name="RusynFM">
-			http://stream.rusyn.fm/rusyny.mp3
-		</radio>
-		<radio name="SKY Rádio">
-			http://stream.skyradio.sk:8000/sky128
-		</radio>
-		<radio name="SKY Rádio">
-			http://stream.skyradio.sk:8000/sky128
-		</radio>
-		<radio name="Sllobodný vysielač">
-			http://159.69.219.5:8010//aac
-		</radio>
-		<radio name="SLOBODNÝ VYSIELAČ">
-			http://vysielanie.online/radio/8020/SV128.mp3
-		</radio>
-		<radio name="Slobodný vysielač">
-			http://159.69.219.5:8010/mp3
-		</radio>
-		<radio name="Slobodný vysielač">
-			http://vysielanie.online/radio/8020/SV128.mp3
-		</radio>
-		<radio name="SRo1 Rádio Slovensko">
-			http://live.slovakradio.sk:8000/Slovensko_128.mp3
-		</radio>
-		<radio name="SRo1 Rádio Slovensko">
-			http://live.slovakradio.sk:8000/Slovensko_128.mp3
-		</radio>
-		<radio name="SRo1 Rádio Slovensko (256k)">
-			http://live.slovakradio.sk:8000/Slovensko_256.mp3
-		</radio>
-		<radio name="SRo2 Rádio Regina Stred">
-			http://icecast.stv.livebox.sk/regina-bb_128.mp3
-		</radio>
-		<radio name="SRo2 Rádio Regina Východ">
-			http://icecast.stv.livebox.sk/regina-ke_128.mp3
-		</radio>
-		<radio name="SRo2 Rádio Regina Západ">
-			http://icecast.stv.livebox.sk/regina-ba_128.mp3
-		</radio>
-		<radio name="SRo3: Rádio Devín">
-			http://icecast.stv.livebox.sk/devin_128.mp3
-		</radio>
-		<radio name="SRo4 Rádio FM">
-			http://live.slovakradio.sk:8000/FM_256.mp3
-		</radio>
-		<radio name="SRo5 Rádio Pátria /RSI">
-			http://live.slovakradio.sk:8000/Patria_128.mp3
-		</radio>
-		<radio name="SRo6 Radio Slovakia International">
-			http://icecast.stv.livebox.sk/rsi_128.mp3
-		</radio>
-		<radio name="SRo7 Rádio Pyramida">
-			http://live.slovakradio.sk:8000/Pyramida_128.mp3
-		</radio>
-		<radio name="SRo8 Rádio Litera">
-			http://icecast.stv.livebox.sk/litera_128.mp3
-		</radio>
-		<radio name="SRo9 Rádio Junior">
-			http://live.slovakradio.sk:8000/Junior_128.mp3
-		</radio>
-		<radio name="SRo9 Rádio Junior (256k)">
-			http://live.slovakradio.sk:8000/Junior_256.mp3
-		</radio>
-		<radio name="SUB:FM">
-			http://stream.subfm.sk/subfm
-		</radio>
-		<radio name="TLIS Rádio">
-			http://stream.tlis.sk/tlis.mp3
-		</radio>
-		<radio name="Top Rádio">
-			https://solid1.streamupsolutions.com/proxy/vhhggmih/stream
-		</radio>
-		<radio name="TRNAVSKÉ RÁDIO">
-			http://stream.trnavskeradio.sk/trnavske
-		</radio>
-		<radio name="TRNAVSKÉ RÁDIO">
-			http://stream.trnavskeradio.sk/trnavske
-		</radio>
-		<radio name="Trnavské rádio">
-			http://stream.trnavskeradio.sk/trnavske
-		</radio>
-		<radio name="TV Doktor">
-			https://live.tvdoktor.sk/high/index.m3u8
-		</radio>
-		<radio name="TV Joj (404 p)">
-			https://live.cdn.joj.sk/live/andromeda/joj-404.m3u8
-		</radio>
-		<radio name="TV Plus (404 p)">
-			https://live.cdn.joj.sk/live/andromeda/plus-404.m3u8
-		</radio>
-		<radio name="TV Wau (404 p)">
-			https://live.cdn.joj.sk/live/andromeda/wau-404.m3u8
-		</radio>
-		<radio name="Záhorácke Rádio">
-			http://live.zahorackeradio.sk:8080/zr128.mp3
-		</radio>
-	</sk_SK>
-   	<ar_LB>
-		<radio name="radiosunna">
-		    http://andromeda.shoutca.st:8189/stream
-		</radio>
-		<radio name="uk5">
-			http://uk5.internet-radio.com:8079/stream
-		</radio>
-		<radio name="Khitab Sunnah FM 89.5">
-			http://162.244.80.118:5678/stream
-		</radio>
-		<radio name="Holy Quran Radio - Nablus">
-			http://www.quran-radio.org:8080/;stream.mp3
-		</radio>
-		<radio name="Albayan">
-			http://s9.viastreaming.net:9645/;stream/1
-		</radio>
-		<radio name="AlAmeed fi Ilm alTajweed">
-			http://server2.quraan.us:9316/;*.mp3
-		</radio>
-		<radio name="Bin othaimeen by EDC">
-			http://server2.quraan.us:9890/;*.mp3
-		</radio>
-		<radio name="Tafseer Radio">
-			http://live.mp3quran.net:9718/;
-		</radio>
-		<radio name="Yasser AlDosari Radio">
-			http://live.mp3quran.net:9984/; 
-		</radio>
-   	</ar_LB>
+        <all>
+            <radio name="bbc radio 1">
+                http://stream.live.vc.bbcmedia.co.uk/bbc_radio_one
+            </radio>
+            <radio name="france musique">
+                http://direct.francemusique.fr/live/francemusique-midfi.mp3
+            </radio>
+        </all>
+        <fr_FR>
+            <radio name="abf">
+                https://abf.net-radio.fr/abf.mp3
+            </radio>
+            <radio name="chérie fm">
+                https://scdn.nrjaudio.fm/audio1/fr/30201/mp3_128.mp3
+            </radio>
+            <radio name="cristal fm">
+                http://radiocristal.ice.infomaniak.ch/radiocristal-high.mp3
+            </radio>
+            <radio name="divergence">
+                http://ridibundus.divergence-fm.org:8000/divergence.mp3
+            </radio>
+            <radio name="europe 1">
+                http://ais-live.cloud-services.paris:8000/europe1.mp3
+            </radio>
+            <radio name="france inter">
+                http://direct.franceinter.fr/live/franceinter-midfi.mp3
+            </radio>
+            <radio name="france info">
+                http://direct.franceinfo.fr/live/franceinfo-midfi.mp3
+            </radio>
+            <radio name="france culture">
+                http://direct.franceculture.fr/live/franceculture-midfi.mp3
+            </radio>
+            <radio name="fip">
+                http://direct.fipradio.fr/live/fip-midfi.mp3
+            </radio>
+            <radio name="fip rock">
+                http://direct.fipradio.fr/live/fip-webradio1.mp3
+            </radio>
+            <radio name="fip jazz">
+                http://direct.fipradio.fr/live/fip-webradio2.mp3
+            </radio>
+            <radio name="fip groove">
+                http://direct.fipradio.fr/live/fip-webradio3.mp3
+            </radio>
+            <radio name="fip monde">
+                http://direct.fipradio.fr/live/fip-webradio4.mp3
+            </radio>
+            <radio name="fip nouveautés">
+                http://direct.fipradio.fr/live/fip-webradio5.mp3
+            </radio>
+            <radio name="fip reggae">
+                http://direct.fipradio.fr/live/fip-webradio6.mp3
+            </radio>
+            <radio name="flemme">
+                http://str45.streamakaci.com:8014/;
+            </radio>
+            <radio name="galère">
+                http://www.radiogalere.org:8080/galere.mp3
+            </radio>
+            <radio name="grenouille">
+                http://live.radiogrenouille.com/live
+            </radio>
+            <radio name="fun">
+                https://icecast.funradio.fr/fun-1-44-128?listen=webGJmqBU59boQ7rZDjrGO5e4
+            </radio>
+            <radio name="génération fm">
+                http://generationfm.ice.infomaniak.ch/generationfm-high.mp3
+            </radio>
+            <radio name="libertaire">
+                http://ecoutez.radio-libertaire.org:8080/radiolib.mp3
+            </radio>
+            <radio name="jazz radio">
+                http://jazzradio.ice.infomaniak.ch/jazzradio-high.mp3
+            </radio>
+            <radio name="m-radio" type="user">
+                https://mfm.ice.infomaniak.ch/mradio-ile-de-france.mp3
+            </radio>
+            <radio name="mfm">
+                http://mfm.ice.infomaniak.ch/mfm-128.mp3
+            </radio>
+            <radio name="nostalgie">
+                https://scdn.nrjaudio.fm/audio1/fr/30601/mp3_128.mp3
+            </radio>
+            <radio name="nrj">
+                https://scdn.nrjaudio.fm/audio1/fr/30001/mp3_128.mp3
+            </radio>
+            <radio name="océane">
+                http://oceanefm.ice.infomaniak.ch/oceanefm-128.mp3
+            </radio>
+            <radio name="rfm">
+                https://stream.rfm.fr/rfm.aac ou https://stream.rfm.fr/rfm.mp3
+            </radio>
+            <radio name="rires et chansons">
+                https://scdn.nrjaudio.fm/adwz1/fr/30407/mp3_128.mp3
+            </radio>
+            <radio name="rtl">
+                https://icecast.rtl.fr/rtl-1-44-128?listen=webGJmqBU59boQ7rZDjrGO5e4
+            </radio>
+            <radio name="rtl2">
+                https://icecast.rtl.fr/rtl2-1-44-128?listen=webGJmqBU59boQ7rZDjrGO5e4
+            </radio>
+            <radio name="skyrock">
+                http://icecast.skyrock.net/s/natio_mp3_128k
+            </radio>
+        </fr_FR>
+        <hr_HR>
+            <radio name="Hrvatski Radio - Prvi program">
+                http://playerservices.streamtheworld.com/pls/PROGRAM1.pls
+            </radio>
+            <radio name="Hrvatski Radio - Drugi program">
+                http://provisioning.streamtheworld.com/pls/program2.pls
+            </radio>
+            <radio name="Hrvatski Radio - Treæi program">
+                http://provisioning.streamtheworld.com/pls/PROGRAM3.pls
+            </radio>
+            <radio name="Hrvatski radio Èakovec">
+                http://144.76.39.214:7000/
+            </radio>
+            <radio name="Hrvatski radio Pula">
+                http://provisioning.streamtheworld.com/pls/PULA.pls
+            </radio>
+            <radio name="Hrvatski radio Split">
+                http://playerservices.streamtheworld.com/asx/SPLITAAC.asx
+            </radio>
+            <radio name="Hrvatski radio Zadar">
+                http://provisioning.streamtheworld.com/pls/ZADAR.pls
+            </radio>
+            <radio name="Hrvatski radio Dubrovnik">
+                http://provisioning.streamtheworld.com/pls/DUBROVNIK.pls
+            </radio>
+            <radio name="Hrvatski radio Knin">
+                http://provisioning.streamtheworld.com/pls/KNIN.pls
+            </radio>
+            <radio name="Hrvatski radio Osijek">
+                http://provisioning.streamtheworld.com/pls/OSIJEK.pls
+            </radio>
+            <radio name="Hrvatski radio Rijeka">
+                http://provisioning.streamtheworld.com/pls/RIJEKA.pls
+            </radio>
+            <radio name="Hrvatski radio Sljeme">
+                http://provisioning.streamtheworld.com/pls/SLJEME.pls
+            </radio>
+            <radio name="Hrvatski radio Šibenik">
+                http://178.32.62.163:8215/;
+            </radio>
+            <radio name="Hrvatski radio Vukovar">
+                http://live.hrv.hr:8000/hrv
+            </radio>
+            <radio name="Zagorski radio - Krapina">
+                http://144.76.172.23:9020/
+            </radio>
+            <radio name="Županijski radio Istra - Pazin">
+                http://146.185.18.251:7117/stream
+            </radio>
+            <radio name="Županijski radio Koprivnica">
+                http://134.119.178.2:1060/listen.pls
+            </radio>
+            <radio name="Županijski Radio Šibenik">
+                http://178.32.62.163:8215/stream
+            </radio>
+            <radio name="Županijski radio Virovitica">
+                http://165.22.31.76:9300/stream
+            </radio>
+            <radio name="Bravo radio">
+                http://live.narodni.hr:8063/stream
+            </radio>
+            <radio name="Narodni radio" state="duplicated">
+                http://live.narodni.hr:8063/stream
+            </radio>
+            <radio name="Radio Gorski kotar - Delnice">
+                http://live.rgk.hr:9500/
+            </radio>
+            <radio name="Radio Gospiæ">
+                http://194.56.74.7:9300/
+            </radio>
+            <radio name="Radio Ilok">
+                https://eu7.fastcast4u.com:2199/tunein/radioilok.pls
+            </radio>
+            <radio name="Radio Kaj">
+                http://144.76.172.23:7051/
+            </radio>
+            <radio name="Radio Max - Maruševec">
+                https://azuracast.novi-net.net/radio/8010/radiomax.mp3
+            </radio>
+            <radio name="Hrvatski Katolièki Radio">
+                http://stream.hkr.hr:8000/hkr.aac
+            </radio>
+        </hr_HR>
+        <cs_CZ>
+            <radio name="(RFE/RL for Iraq, ch. 12) إذاعة العراق الحر">
+                http://rfe12.akacast.akamaistream.net/7/896/437770/v1/ibb.akacast.akamaistream.net/rfe12.m3u
+            </radio>
+            <radio name="ABradio Chillout">
+                http://mp3stream4.abradio.cz/chillout128.mp3
+            </radio>
+            <radio name="Azadlıq Radiosu (RFE/RL in Azerbaijani, ch. 15)">
+                http://rfe15.akacast.akamaistream.net/7/897/437773/v1/ibb.akacast.akamaistream.net/rfe15.m3u
+            </radio>
+            <radio name="Azat Ýewropa/Azatlyk Radiosy (RFE/RL in Turkmen, ch. 8)">
+                http://rfe08.akacast.akamaistream.net/7/521/437766/v1/ibb.akacast.akamaistream.net/rfe08.m3u
+            </radio>
+            <radio name="Český Impuls">
+                http://icecast6.play.cz/cesky-impuls.mp3
+            </radio>
+            <radio name="Český rozhlas Brno">
+                https://rozhlas.stream/brno.mp3
+            </radio>
+            <radio name="Cesky Rozhlas Classical Lossless FLAC Stream">
+                http://amp.cesnet.cz:8000/cro-d-dur.flac
+            </radio>
+            <radio name="Cesky Rozhlas D-dur">
+                http://amp.cesnet.cz:8000/cro-d-dur-256.ogg
+            </radio>
+            <radio name="Cesky Rozhlas Jazz">
+                https://rozhlas.stream/jazz_high.aac
+            </radio>
+            <radio name="Cesky Rozhlas Jazz Lossless FLAC Stream">
+                http://amp.cesnet.cz:8000/cro-jazz.flac
+            </radio>
+            <radio name="Chat Rádio">
+                http://radio.chatujme.cz:8001/chatradio
+            </radio>
+            <radio name="City FM">
+                http://ice.abradio.cz/cityfm128.mp3
+            </radio>
+            <radio name="City Milenium">
+                http://ice.abradio.cz:8000/citymi128.mp3
+            </radio>
+            <radio name="Classic Praha">
+                http://icecast8.play.cz/classic128.mp3
+            </radio>
+            <radio name="Club Radio CZ">
+                http://ipip.clubradio.cz:7996/
+            </radio>
+            <radio name="Color Music Radio">
+                http://sc.ipip.cz:8206/;stream
+            </radio>
+            <radio name="Comedy Club R@dio DIANA">
+                https://westradio.cz/radio/8010/radio.mp3
+            </radio>
+            <radio name="COOP TIP Radio">
+                http://mp3stream4.abradio.cz:8000/coop128.mp3
+            </radio>
+            <radio name="COOP TIP Radio">
+                http://ice4.abradio.cz/coop128.mp3
+            </radio>
+            <radio name="Country Radio">
+                http://icecast4.play.cz/country128.mp3
+            </radio>
+            <radio name="Country Radio">
+                http://icecast2.play.cz:8000/country128aac
+            </radio>
+            <radio name="County">
+                http://icecast4.play.cz/country128.mp3
+            </radio>
+            <radio name="ČRo D-dur">
+                http://amp.cesnet.cz:8000/cro-d-dur.flac
+            </radio>
+            <radio name="ČRo D-dur FLAC">
+                http://amp.cesnet.cz:8000/cro-d-dur.flac
+            </radio>
+            <radio name="ČRo D-dur HD">
+                http://radio.cesnet.cz/cgi-bin/cro-d-dur-256-ogg.pls
+            </radio>
+            <radio name="ČRo Dvojka">
+                http://icecast1.play.cz:8000/cro2-32aac
+            </radio>
+            <radio name="ČRo Dvojka">
+                http://icecast6.play.cz/cro2-128.mp3
+            </radio>
+            <radio name="ČRo Jazz">
+                http://amp.cesnet.cz:8000/cro-jazz.flac
+            </radio>
+            <radio name="ČRO Jazz 256">
+                https://api.play.cz/radio/crojazz256.mp3.m3u
+            </radio>
+            <radio name="ČRo Olomouc">
+                https://rozhlas.stream/olomouc_low.aac
+            </radio>
+            <radio name="ČRo Ostrava">
+                https://rozhlas.stream/ostrava_high.aac
+            </radio>
+            <radio name="ČRo Plus">
+                http://amp.cesnet.cz:8000/cro-plus-256.ogg.m3u
+            </radio>
+            <radio name="ČRo Plus">
+                https://rozhlas.stream/plus_mp3_128.mp3
+            </radio>
+            <radio name="ČRo Plus">
+                https://rozhlas.stream/plus_low.aac
+            </radio>
+            <radio name="ČRo Plus">
+                https://rozhlas.stream/plus_aac_64.aac
+            </radio>
+            <radio name="ČRo Pohoda">
+                https://rozhlas.stream/pohoda_mp3_128.mp3
+            </radio>
+            <radio name="ČRo Rádio Junior">
+                http://icecast3.play.cz:8000/crojuniormaxi32aac
+            </radio>
+            <radio name="ČRo Radio Wave">
+                http://amp.cesnet.cz:8000/cro-radio-wave-256.ogg
+            </radio>
+            <radio name="ČRo Radio Wave">
+                http://amp.cesnet.cz:8000/cro-radio-wave-256.ogg.m3u
+            </radio>
+            <radio name="ČRo Radiožurnál">
+                http://icecast1.play.cz:8000/cro132aac
+            </radio>
+            <radio name="CRo Radiozurnal">
+                https://rozhlas.stream/radiozurnal_aac_128.aac
+            </radio>
+            <radio name="ČRo Radiožurnál">
+                http://icecast8.play.cz/cro1-128.mp3
+            </radio>
+            <radio name="ČRO Radiožurnál Sport">
+                https://rozhlas.stream/radiozurnal_sport_high.aac
+            </radio>
+            <radio name="ČRo Sever">
+                https://rozhlas.stream/sever_mp3_128.mp3
+            </radio>
+            <radio name="ČRo Vltava">
+                http://icecast2.play.cz:8000/cro3-32aac
+            </radio>
+            <radio name="ČRo Vltava">
+                http://icecast5.play.cz/cro3-128.mp3
+            </radio>
+            <radio name="ČRo Wave">
+                https://rozhlas.stream/wave_mp3_128.mp3
+            </radio>
+            <radio name="ČRo Wave">
+                https://api.play.cz/radio/crowave-256.mp3.m3u
+            </radio>
+            <radio name="ČRo Wave">
+                https://rozhlas.stream/wave_mp3_256.mp3
+            </radio>
+            <radio name="Czech radio classical">
+                http://amp.cesnet.cz:8000/cro-d-dur.flac
+            </radio>
+            <radio name="Czech Radio ČRo D-dur">
+                http://amp.cesnet.cz:8000/cro-d-dur.flac
+            </radio>
+            <radio name="Dance Club FM">
+                http://mp3stream4.abradio.cz/dance128.mp3
+            </radio>
+            <radio name="Dance Club Radio">
+                https://ice4.abradio.cz/dance128.mp3
+            </radio>
+            <radio name="Dance Radio">
+                http://ice.actve.net/dance-radio320.mp3
+            </radio>
+            <radio name="Dance Radio">
+                http://ice.actve.net/dance-radio128.mp3
+            </radio>
+            <radio name="Dance rádio cz">
+                https://ice.actve.net/dance-radio128.mp3
+            </radio>
+            <radio name="Dandy Radio">
+                http://88.99.25.114:8022/stream
+            </radio>
+            <radio name="ELLIS">
+                http://stream.laut.fm/ellis
+            </radio>
+            <radio name="Europa Liberă (RFE/RL for Moldova, ch. 18)">
+                http://rfe18.akacast.akamaistream.net/7/886/437776/v1/ibb.akacast.akamaistream.net/rfe18.m3u
+            </radio>
+            <radio name="Evropa2 Youradio Flashbacky">
+                https://ice.actve.net/web-e2-flashback
+            </radio>
+            <radio name="Expres FM">
+                http://icecast8.play.cz/expres128mp3
+            </radio>
+            <radio name="Expresradio">
+                http://icecast5.play.cz:8000/expres128mp3
+            </radio>
+            <radio name="Express FM">
+                http://icecast8.play.cz/expres128mp3
+            </radio>
+            <radio name="Fajn Fresh">
+                http://ice.abradio.cz/fajnfresh128.mp3
+            </radio>
+            <radio name="Fajn Fresh Radio">
+                http://mp3stream4.abradio.cz/fajnfresh64.mp3
+            </radio>
+            <radio name="Fajn Rádio">
+                http://ice.abradio.cz/fajn128.mp3
+            </radio>
+            <radio name="Fed's Trap Radio">
+                https://backend.fedstrapradio.com:8000/radio.mp3
+            </radio>
+            <radio name="Fed's Trap Radio">
+                https://backend.fedstrapradio.com:8000/radio.mp3
+            </radio>
+            <radio name="Fed's Trap Radio">
+                https://backend.fedstrapradio.com:8000/radio.mp3
+            </radio>
+            <radio name="Flash radio">
+                http://185.47.222.75:8750/
+            </radio>
+            <radio name="Free Rádio 107,0 FM Brno">
+                http://icecast8.play.cz/freeradio128.mp3
+            </radio>
+            <radio name="Free Rave CZ">
+                http://freerave.cz/freerave.pls
+            </radio>
+            <radio name="FREERAVE.CZ">
+                http://164.68.122.137:8061/
+            </radio>
+            <radio name="Frekvence 1">
+                http://ice.actve.net/fm-frekvence1-aac
+            </radio>
+            <radio name="FREKVENCE 1">
+                https://playerservices.streamtheworld.com/api/livestream-redirect/FREKVENCE1.mp3
+            </radio>
+            <radio name="Frekvence 1 - Youradio Československé hity">
+                http://ice.actve.net/web-e2-csweb
+            </radio>
+            <radio name="Frekvence 1 - Youradio Legendy">
+                http://ice.actve.net/web-f1-legendy
+            </radio>
+            <radio name="Frekvence 1 - Youradio Osmdesátky">
+                http://ice.actve.net/web-80
+            </radio>
+            <radio name="Fresh radio 103.6">
+                https://icecast.beatzone.cz/radio/8000/128.mp3
+            </radio>
+            <radio name="Funkstar Radio">
+                https://funkstar.radioca.st/stream
+            </radio>
+            <radio name="Haná">
+                http://icecast8.play.cz/hana128.mp3
+            </radio>
+            <radio name="Helax 93,7">
+                http://ice.abradio.cz/helax128.mp3
+            </radio>
+            <radio name="HEY rádio">
+                http://icecast3.play.cz/hey-radio128.mp3
+            </radio>
+            <radio name="Hit FM Plus">
+                http://ice.abradio.cz:8000/fmplus64.aac
+            </radio>
+            <radio name="Hit PopRock">
+                http://ice.abradio.cz/hitpoprock128.mp3
+            </radio>
+            <radio name="HIT Rádio Orion">
+                http://ice.abradio.cz/orion128.mp3
+            </radio>
+            <radio name="Hitrádio Černá Hora">
+                http://ice.abradio.cz/cernahora64.mp3
+            </radio>
+            <radio name="Hitrádio Černá Hora">
+                http://ice.abradio.cz/cernahora128.mp3
+            </radio>
+            <radio name="Hitrádio Černá Hora 128">
+                http://ice.abradio.cz/cernahora128.mp3
+            </radio>
+            <radio name="Hitrádio City 93.7 FM">
+                https://provisioning.streamtheworld.com/pls/HITRADIO_CITY_PRAHA.pls
+            </radio>
+            <radio name="Hitrádio City Brno">
+                http://ice.abradio.cz/magicbrno128.mp3
+            </radio>
+            <radio name="hitradio City zona Lasky">
+                http://ice.abradio.cz/cityzl128.mp3
+            </radio>
+            <radio name="Hitrádio Contact">
+                https://ice3.abradio.cz/hitradiocontact128.mp3
+            </radio>
+            <radio name="Hitrádio Devadesátka">
+                http://ice.abradio.cz/hit90128.mp3
+            </radio>
+            <radio name="Hitrádio Faktor">
+                https://ice.abradio.cz/faktor128.mp3
+            </radio>
+            <radio name="Hitrádio FM">
+                http://ice.abradio.cz/hitradiofm128.mp3
+            </radio>
+            <radio name="Hitrádio FM Crystal">
+                http://ice.abradio.cz/crystal128.mp3
+            </radio>
+            <radio name="Hitrádio Osmdesátka">
+                http://ice.abradio.cz/hit80128.mp3
+            </radio>
+            <radio name="Hitrádio PopRock">
+                http://ice.abradio.cz/hitpoprock128.mp3
+            </radio>
+            <radio name="Hitrádio Vysočina">
+                http://ice5.abradio.cz/hitvysocina128.mp3
+            </radio>
+            <radio name="Hot Dance Radio">
+                https://25323.live.streamtheworld.com/HOTDANCERADIO.mp3
+            </radio>
+            <radio name="Impuls">
+                http://icecast1.play.cz/impuls128.mp3
+            </radio>
+            <radio name="Impuls Ráááádio">
+                http://icecast5.play.cz/impuls128.mp3
+            </radio>
+            <radio name="JASRádio News Service">
+                https://radio.plainrock127.xyz/listen/jasns/radio.mp3
+            </radio>
+            <radio name="JČ1 - Televize jižní Čechy">
+                https://stream.jc1.cz/hls/jc1.m3u8
+            </radio>
+            <radio name="Kiss 98 FM">
+                http://icecast2.play.cz:8000/kiss128aac
+            </radio>
+            <radio name="Kiss Delta">
+                http://icecast1.play.cz:8000/kissdelta192.mp3
+            </radio>
+            <radio name="Kiss Hady">
+                http://icecast8.play.cz/kisshady128.mp3
+            </radio>
+            <radio name="Kiss Publikum">
+                http://icecast1.play.cz:8000/kisspublikum128aac
+            </radio>
+            <radio name="Kiss Radio">
+                http://icecast4.play.cz/kiss128.mp3
+            </radio>
+            <radio name="LA RADIO PLUS ANNECY">
+                https://laradioplus.ice.infomaniak.ch/laradioplus-high.aac?i=96970
+            </radio>
+            <radio name="Max Radio Online">
+                http://icecast9.play.cz/max-radio.mp3
+            </radio>
+            <radio name="Metal Heart">
+                http://fr.radio-streamhosting.com:8000/metalheartradio64aac
+            </radio>
+            <radio name="Metal Heart Radio">
+                https://cz.radio-streamhosting.com:8443/metalheartradio128mp3
+            </radio>
+            <radio name="Metalománie">
+                http://ice.abradio.cz/metalomanie128.mp3
+            </radio>
+            <radio name="Mňau TV">
+                https://5ca49f2417d90.streamlock.net/mnau/livestream/playlist.m3u8
+            </radio>
+            <radio name="Netro Life Radio 100,8 FM">
+                https://icecast9.play.cz/netro-life-radio.mp3
+            </radio>
+            <radio name="Óčko">
+                http://ocko-live.ssl.cdn.cra.cz/channels/ocko/playlist/cze/live_lq.m3u8
+            </radio>
+            <radio name="Óčko Expres">
+                http://ocko-live.ssl.cdn.cra.cz/channels/ocko_expres/playlist/cze/live_lq.m3u8
+            </radio>
+            <radio name="Óčko Star">
+                https://ocko-live-dash.ssl.cdn.cra.cz/cra_live2/ocko_gold.stream.1.smil/playlist.m3u8
+            </radio>
+            <radio name="OIK TV">
+                https://streamer05.low-latency.cz/oiktv/index.m3u8
+            </radio>
+            <radio name="Oldies Rádio">
+                http://ice.abradio.cz/oldiesradio128.mp3
+            </radio>
+            <radio name="Phonk Nation Radio">
+                https://radio.plainrock127.xyz/phonk/stream
+            </radio>
+            <radio name="Phonk Nation Radio">
+                https://radio.plainrock127.xyz/phonk/stream
+            </radio>
+            <radio name="PHONK RADIO">
+                https://stream-43.zeno.fm/90fvpb27u18uv?zs=vRvgZYxuSUWsgBGCbKMLnA
+            </radio>
+            <radio name="Pigy.cz – Disko Trysko">
+                http://ice.actve.net/web-pg-disko
+            </radio>
+            <radio name="Pigy.cz – Písničky z pohádek">
+                http://ice.actve.net/web-pg-pisnicky
+            </radio>
+            <radio name="Pigy.cz – Pohádky">
+                http://ice.actve.net/web-pg-pohadky
+            </radio>
+            <radio name="Plzeň TV">
+                https://vysilani.zaktv.cz/broadcast/hls/ptv/index.m3u8
+            </radio>
+            <radio name="povídka">
+                https://ice3.abradio.cz/povidka128.mp3
+            </radio>
+            <radio name="PowerPonies Radio">
+                http://radio.powerponies.cz:8000/listen.pls
+            </radio>
+            <radio name="Queenradio.net">
+                http://stream.radiojar.com/4gw72qm8u68uv
+            </radio>
+            <radio name="Radia CZ - Depeche Mode">
+                http://mp3stream4.abradio.cz/depeche128.mp3
+            </radio>
+            <radio name="Rádio 1">
+                http://icecast6.play.cz/radio1-128.mp3
+            </radio>
+            <radio name="RADIO 1">
+                http://icecast2.play.cz/radio1.mp3
+            </radio>
+            <radio name="Radio 1">
+                http://www.play.cz/radio/radio1-32.aac.m3u
+            </radio>
+            <radio name="Rádio 7">
+                http://icecast8.play.cz/radio7-128.mp3
+            </radio>
+            <radio name="Rádio 7 32kb">
+                http://icecast1.play.cz:8000/radio7cz32.mp3
+            </radio>
+            <radio name="Rádio Applaus">
+                http://mp3stream3.abradio.cz/applaus128.mp3
+            </radio>
+            <radio name="Radio B">
+                https://stream.radiojar.com/9nayamd31tzuv?1660328034
+            </radio>
+            <radio name="Rádio Beat">
+                http://icecast2.play.cz/radiobeat128.mp3
+            </radio>
+            <radio name="Radio Beat">
+                http://icecast2.play.cz/radiobeat128.mp3
+            </radio>
+            <radio name="Radio Beat">
+                http://icecast2.play.cz/radiobeat128.mp3
+            </radio>
+            <radio name="Rádio Beat (128 AAC)">
+                https://icecast2.play.cz/beat128aac
+            </radio>
+            <radio name="Radio Beat 128 MP3">
+                http://icecast2.play.cz/radiobeat128.mp3
+            </radio>
+            <radio name="Rádio Blaník">
+                https://playerservices.streamtheworld.com/api/livestream-redirect/RADIO_BLANIK_128.mp3
+            </radio>
+            <radio name="Rádio Blaník CZ Webové rádio">
+                http://ice.abradio.cz/blanikcz128.mp3
+            </radio>
+            <radio name="Rádio Blaník Oldies">
+                https://ice.radia.cz/oldiesradio128.mp3
+            </radio>
+            <radio name="Rádio Blaník živé">
+                http://ice.abradio.cz/blanikfm128.mp3
+            </radio>
+            <radio name="Rádio Bonton">
+                http://ice.actve.net/fm-bonton-128
+            </radio>
+            <radio name="Radio Budweis">
+                https://rozhlas.stream/ceske_budejovice_high.aac
+            </radio>
+            <radio name="Radio Cas">
+                http://icecast6.play.cz/casradio128.mp3
+            </radio>
+            <radio name="Radio Čas">
+                http://icecast6.play.cz/casradio128.mp3
+            </radio>
+            <radio name="Radio Cas Rock">
+                http://icecast6.play.cz/casrock128.mp3
+            </radio>
+            <radio name="Radio Cas Rock">
+                http://icecast6.play.cz/casrock128.mp3
+            </radio>
+            <radio name="Radio Čas Rock">
+                http://icecast6.play.cz/casrock128.mp3
+            </radio>
+            <radio name="Rádio Čas Rock (192 kbps)">
+                https://icecast9.play.cz/casrock192.mp3
+            </radio>
+            <radio name="Radio City FM">
+                http://ice.abradio.cz/cityfm128.mp3
+            </radio>
+            <radio name="Rádio Click &amp; Country">
+                http://radio.clickandcountry.cz:8000/clickandcountry.mp3
+            </radio>
+            <radio name="Rádio Dálnice">
+                http://icecast8.play.cz/radiodalnice.mp3
+            </radio>
+            <radio name="Radio Dechovka 1233 Stredni Vlny">
+                http://icecast5.play.cz/dechovka128.mp3
+            </radio>
+            <radio name="Radio Depeche Mode">
+                http://mp3stream4.abradio.cz/depeche128.mp3
+            </radio>
+            <radio name="Rádio Diana – Retro Club">
+                https://westradio.cz/radio/8000/radio.mp3
+            </radio>
+            <radio name="Radio Dixie">
+                http://icecast8.play.cz/radiodixie192.mp3
+            </radio>
+            <radio name="Rádio Dráťák">
+                http://dratak.cz:8000/dratak
+            </radio>
+            <radio name="Rádio Energic">
+                https://icecast9.play.cz/energic.mp3
+            </radio>
+            <radio name="Radio Evropa e Lirë (RFE/RL for Kosovo, ch. 16)">
+                http://rfe16.akacast.akamaistream.net/7/900/437774/v1/ibb.akacast.akamaistream.net/rfe16.m3u
+            </radio>
+            <radio name="Rádio Hády">
+                http://46.36.36.149:8000/live
+            </radio>
+            <radio name="Radio Helax">
+                http://ice.abradio.cz:8000/helax128.mp3?type=.mp3/;stream.mp3
+            </radio>
+            <radio name="Radio Humor">
+                http://mp3stream4.abradio.cz:8000/humor128.mp3
+            </radio>
+            <radio name="Rádio humor 2">
+                https://playerservices.streamtheworld.com/api/livestream-redirect/RADIO_HUMOR.aac
+            </radio>
+            <radio name="Rádio Jih">
+                http://icecast6.play.cz/jih128.mp3
+            </radio>
+            <radio name="Radio JIH Cimbalka">
+                http://icecast6.play.cz/jihcimbalka128.mp3
+            </radio>
+            <radio name="Rádio Junior">
+                http://amp.cesnet.cz:8000/cro-radio-junior-256.ogg.m3u
+            </radio>
+            <radio name="Rádio Junior">
+                http://amp.cesnet.cz:8000/cro-radio-junior-256.ogg.m3u
+            </radio>
+            <radio name="Radio Kiss">
+                http://icecast4.play.cz/kiss128.mp3
+            </radio>
+            <radio name="Radio Krokodyl">
+                http://icecast4.play.cz/krokodyl128.mp3.m3u
+            </radio>
+            <radio name="Radio Krokodyl">
+                http://icecast4.play.cz/krokodyl128.mp3.m3u
+            </radio>
+            <radio name="Rádio MB">
+                http://icecast3.play.cz/radiomb.mp3
+            </radio>
+            <radio name="Radio Orlicko">
+                http://46.28.111.246/stream192.mp3
+            </radio>
+            <radio name="Radio Ostravan">
+                http://icecast9.play.cz/radio-ostravan-256.mp3
+            </radio>
+            <radio name="Radio Otava">
+                https://radiootava.trefcon.cz:8889/radio.mp3
+            </radio>
+            <radio name="Rádio pohádka">
+                http://ice3.abradio.cz/pohadka128.mp3
+            </radio>
+            <radio name="Radio Ponte records">
+                http://ice3.abradio.cz/ponterec128.mp3
+            </radio>
+            <radio name="Radio Prague International">
+                https://rozhlas.stream/cro7_mp3_128.mp3
+            </radio>
+            <radio name="Radio Praha">
+                http://icecast2.play.cz/cro7-128.mp3
+            </radio>
+            <radio name="Radio Proglas">
+                http://icecast2.play.cz/proglas128
+            </radio>
+            <radio name="Radio Proglas">
+                http://icecast1.play.cz/proglas96aac
+            </radio>
+            <radio name="Radio Prostor">
+                https://bcast.spmmedia.cz/prostor-mp3
+            </radio>
+            <radio name="Radio Punctum">
+                https://radiopunctum.cz:8001/radio
+            </radio>
+            <radio name="Radio R">
+                https://radior.video.muni.cz/FSS_mp3-128.mp3.m3u
+            </radio>
+            <radio name="Rádio Relax">
+                http://icecast7.play.cz/relax128.mp3
+            </radio>
+            <radio name="Radio ROCK">
+                http://ice.abradio.cz/rockradio128.mp3
+            </radio>
+            <radio name="Rádio Samson">
+                http://icecast8.play.cz/samsonfm128.mp3
+            </radio>
+            <radio name="Rádio Samson">
+                http://icecast2.play.cz/samsonfm128aac
+            </radio>
+            <radio name="Rádio Samson">
+                https://icecast2.play.cz/samsonfm128aac
+            </radio>
+            <radio name="Radio Sázava">
+                http://sc.ipip.cz:8224/;stream
+            </radio>
+            <radio name="Radio Slobodna Evropa">
+                https://n08.radiojar.com/bugesa4nn3quv?rj-ttl=5&amp;rj-tok=AAABikFH4NsAib8tua7OjeefLg
+            </radio>
+            <radio name="Radio SPIN 96.2 FM">
+                http://icecast-u2.play.cz:8000/spin128.mp3
+            </radio>
+            <radio name="Radio Svoboda">
+                https://laradiofm.com/download/60-en-pls
+            </radio>
+            <radio name="Radio Svoboda (ru) (official stream)">
+                https://stream.radiojar.com/hcrb063nn3quv
+            </radio>
+            <radio name="Radio Svoboda Rus">
+                http://rfe04.akacast.akamaistream.net/7/509/437762/v1/ibb.akacast.akamaistream.net/rfe04
+            </radio>
+            <radio name="Rádio Trojka">
+                http://12901.cloudrad.io:9306/live
+            </radio>
+            <radio name="Radio Wave">
+                https://rozhlas.stream/wave_aac_32.aac
+            </radio>
+            <radio name="Radio Wave">
+                http://rozhlas.stream/wave_mp3_256.mp3
+            </radio>
+            <radio name="Rádio Xaver">
+                https://icecast6.play.cz/radio-xaver.aac
+            </radio>
+            <radio name="RADIO.IPIP.CZ: psytrance-radio.cz">
+                http://212.96.160.160:8022/
+            </radio>
+            <radio name="RADIO1">
+                http://www.play.cz/radio/radio1-192.mp3.m3u
+            </radio>
+            <radio name="RadioParty.pl">
+                https://s2.radioparty.pl:8015/stream
+            </radio>
+            <radio name="RETRO DJ RADIO - 128">
+                https://free.rcast.net/70814
+            </radio>
+            <radio name="RETRO DJ Radio - HQ">
+                http://icecast1.play.cz/retrodjradio.mp3
+            </radio>
+            <radio name="RETRO DJ RADIO CZ">
+                https://free.rcast.net/70814.mp3
+            </radio>
+            <radio name="Retro Music Television">
+                http://stream.mediawork.cz/retrotv/retrotvHQ1/playlist.m3u8
+            </radio>
+            <radio name="Retro Music TV">
+                http://stream.mediawork.cz/retrotv/retrotvHQ1/chunklist_w627639048.m3u8
+            </radio>
+            <radio name="RFE/RL for North Caucasus, ch. 19">
+                http://rfe19.akacast.akamaistream.net/7/885/437777/v1/ibb.akacast.akamaistream.net/rfe19.m3u
+            </radio>
+            <radio name="RFE/RL Radio Farda">
+                http://rfe21.akacast.akamaistream.net/7/751/437779/v1/ibb.akacast.akamaistream.net/rfe21
+            </radio>
+            <radio name="ROCK MAX">
+                http://ice.abradio.cz/rockmax256.mp3
+            </radio>
+            <radio name="Rock Radio">
+                https://playerservices.streamtheworld.com/api/livestream-redirect/ROCK_RADIO_128.mp3
+            </radio>
+            <radio name="Rock Rádio Šumava">
+                http://ice.abradio.cz/sumava128.mp3
+            </radio>
+            <radio name="Rocková zábava">
+                http://ice.abradio.cz/rockzabava128.mp3
+            </radio>
+            <radio name="Rockzone">
+                http://icecast5.play.cz/rockzone128.mp3
+            </radio>
+            <radio name="RockZone 105,9 FM">
+                https://icecast5.play.cz/rockzone128.mp3
+            </radio>
+            <radio name="Samson">
+                http://icecast2.play.cz:8000/samsonfm128aac
+            </radio>
+            <radio name="sdbs /-\ radio">
+                https://sdbs.cz/radio.mp3
+            </radio>
+            <radio name="sdbs /-\ radio">
+                https://sdbs.cz/radio.mp3
+            </radio>
+            <radio name="SeeJay Radio">
+                http://icecast6.play.cz/seejay128.mp3
+            </radio>
+            <radio name="Signál Rádio">
+                http://icecast1.play.cz/signal128.mp3
+            </radio>
+            <radio name="Signál Rádio Brno">
+                http://icecast6.play.cz/signal-brno128.mp3
+            </radio>
+            <radio name="SKYROCK">
+                http://icecast8.play.cz/skyrock128.mp3
+            </radio>
+            <radio name="svobodne-radio">
+                http://svobodneradio.radioca.st:8859/stream
+            </radio>
+            <radio name="Svobodný vysílač">
+                http://stream.svobodny-vysilac.cz:8000/live.ogg
+            </radio>
+            <radio name="Svobodný vysílač">
+                http://stream.svobodny-vysilac.cz:8000/live.mp3
+            </radio>
+            <radio name="The Attiq Radio">
+                http://radio.theattiq.com:8000/live
+            </radio>
+            <radio name="TV Natura">
+                https://media1.tvnatura.cz/live_out/4/live.m3u8
+            </radio>
+            <radio name="We House Radio (AAC+ High)">
+                https://stream.wehouseradio.com/stream/2/
+            </radio>
+            <radio name="WebRadio Epigon">
+                http://ice3.abradio.cz/epigon128.mp3
+            </radio>
+            <radio name="WeHouseRadio">
+                https://stream.wehouseradio.com/stream/1/
+            </radio>
+            <radio name="WeHouseRadio">
+                https://stream.wehouseradio.com/stream/3/
+            </radio>
+            <radio name="Známka Punku">
+                https://ice.abradio.cz/znamkapunku128.mp3
+            </radio>
+            <radio name="Zoner Underground Network">
+                https://stream.zunradio.cz/zun3.mp3
+            </radio>
+            <radio name="ZX Music Radio">
+                http://zxm.cz:8000/zx.m3u
+            </radio>
+            <radio name="ZX Music Radio">
+                http://zxm.cz:8000/zx
+            </radio>
+            <radio name="Азат Еуропа / Азаттық Радиосы (RFE/RL in Kazakh, ch. 11)">
+                http://rfe11.akacast.akamaistream.net/7/893/437769/v1/ibb.akacast.akamaistream.net/rfe11.m3u
+            </radio>
+            <radio name="Азаттык Υналгысы (RFE/RL in Kyrgyz, ch. 1)">
+                http://rfe01.akacast.akamaistream.net/7/514/437759/v1/ibb.akacast.akamaistream.net/rfe01.m3u
+            </radio>
+            <radio name="Крым Реалии (rus, ukr) (official stream)">
+                https://stream.radiojar.com/wm9sntcpn3quv
+            </radio>
+            <radio name="Крым.Реалии">
+                https://rfe-ingest.akamaized.net/hls/live/2035288/axia19/playlist.m3u8
+            </radio>
+            <radio name="Озодлик радиоси (RFE/RL in Uzbek, ch. 13)">
+                http://rfe13.akacast.akamaistream.net/7/895/437771/v1/ibb.akacast.akamaistream.net/rfe13.m3u
+            </radio>
+            <radio name="Радио Свобода">
+                https://rfe-ingest.akamaized.net/hls/live/2035254/axia04/playlist.m3u8
+            </radio>
+            <radio name="Радио Свобода (Radio Svoboda, RFE/RL Russian, ch. 4)">
+                http://rfe04.akacast.akamaistream.net/7/509/437762/v1/ibb.akacast.akamaistream.net/rfe04.m3u
+            </radio>
+            <radio name="Радио Слободна Eвропа (RFE/RL in Macedonian, ch. 14)">
+                http://rfe14.akacast.akamaistream.net/7/898/437772/v1/ibb.akacast.akamaistream.net/rfe14.m3u
+            </radio>
+            <radio name="Радиои Озодӣ (RFE/RL in Tajik, ch. 9)">
+                http://rfe09.akacast.akamaistream.net/7/522/437767/v1/ibb.akacast.akamaistream.net/rfe09.m3u
+            </radio>
+            <radio name="Радіо Свобода (RFE/RL in Ukrainian, ch. 7)">
+                http://rfe07.akacast.akamaistream.net/7/508/437765/v1/ibb.akacast.akamaistream.net/rfe07.m3u
+            </radio>
+            <radio name="Радыё Свабода (RFE/RL in Belorussian, ch. 10)">
+                http://rfe10.akacast.akamaistream.net/7/894/437768/v1/ibb.akacast.akamaistream.net/rfe10.m3u
+            </radio>
+            <radio name="Свобода">
+                https://rfe-ingest.akamaized.net/hls/live/2035254/axia04/playlist.m3u8
+            </radio>
+            <radio name="რადიო თავისუფალი ევროპა/რადიო თავისუფლება (RFE/RL in Georgian, ch. 3)">
+                http://rfe03.akacast.akamaistream.net/7/512/437761/v1/ibb.akacast.akamaistream.net/rfe03.m3u
+            </radio>
+            <radio name="Ազատություն ռ/կ (RFE/RL in Armenian, ch. 2)">
+                http://rfe02.akacast.akamaistream.net/7/511/437760/v1/ibb.akacast.akamaistream.net/rfe02.m3u
+            </radio>
+            <radio name="ازادي راډیودازادې اروپا راډیو (RFE/RL in Pashto, ch. 17)">
+                http://rfe17.akacast.akamaistream.net/7/899/437775/v1/ibb.akacast.akamaistream.net/rfe17.m3u
+            </radio>
+            <radio name="مشال راډیو (RFE/RL in Pashto, R. Mashaal, ch. 20)">
+                http://rfe20.akacast.akamaistream.net/7/750/437778/v1/ibb.akacast.akamaistream.net/rfe20.m3u
+            </radio>
+        </cs_CZ>
+        <sk_SK>
+            <radio name="Fun Radio">
+                http://stream.funradio.sk:8000/fun128.mp3
+            </radio>
+            <radio name="BB FM rádio">
+                http://stream.bbfm.sk/bbfm128.mp3
+            </radio>
+            <radio name="Československé radio">
+                http://live.topradio.cz:8000/csradio128
+            </radio>
+            <radio name="Detské rádio">
+                https://stream.21.sk/detskeradio-192.mp3
+            </radio>
+            <radio name="Detské Rádio">
+                http://stream.21.sk/detskeradio-192.mp3
+            </radio>
+            <radio name="Dobré rádio">
+                http://stream.dobreradio.sk:8813/dobreradio.mp3
+            </radio>
+            <radio name="Duflo Radio">
+                http://stream.zeno.fm/kxwhyvz2fm0uv
+            </radio>
+            <radio name="Europa 2">
+                https://stream.bauermedia.sk/europa2.mp3
+            </radio>
+            <radio name="Europa 2">
+                https://stream.bauermedia.sk/europa2.mp3
+            </radio>
+            <radio name="Fit Famili Rádio">
+                https://solid1.streamupsolutions.com/proxy/utwrguip/stream
+            </radio>
+            <radio name="Fit Famili Rádio">
+                https://solid1.streamupsolutions.com/proxy/utwrguip/stream
+            </radio>
+            <radio name="FRESH Rádio">
+                https://icecast2.radionet.sk/freshradio.sk
+            </radio>
+            <radio name="FRESH rádio">
+                https://icecast2.radionet.sk/freshradio.sk
+            </radio>
+            <radio name="Fun Radio">
+                http://stream.funradio.sk:8000/fun128.mp3
+            </radio>
+            <radio name="Fun Radio  Chill">
+                https://stream.funradio.sk:8000/chill128.mp3
+            </radio>
+            <radio name="FUN RÁDIO 80-90">
+                http://stream.funradio.sk:8000/80-90-128.mp3
+            </radio>
+            <radio name="Fun Radio 80&amp;90">
+                http://stream.funradio.sk:8000/80-90-128.mp3
+            </radio>
+            <radio name="Fun Radio CZ">
+                http://stream.funradio.sk:8000/cs128.mp3
+            </radio>
+            <radio name="FUN RÁDIO DANCE">
+                http://stream.funradio.sk:8000/dance128.mp3
+            </radio>
+            <radio name="Fun Radio Dance">
+                http://stream.funradio.sk:8000/dance128.mp3
+            </radio>
+            <radio name="FunRadio Live">
+                http://stream.funradio.sk:8000/funpgm256.mp3
+            </radio>
+            <radio name="FunRadio Live (256kbps)">
+                https://stream.funradio.sk:8000/funpgm256.mp3
+            </radio>
+            <radio name="G-Radio">
+                http://88.212.34.18:8050/mp3midband
+            </radio>
+            <radio name="G-Radio">
+                http://88.212.34.18:8050/mp3midband
+            </radio>
+            <radio name="Hitrádio Slovakia">
+                https://hitradioslovakia.stream.laut.fm/hitradioslovakia
+            </radio>
+            <radio name="Hitrádio Slovakia">
+                https://hitradioslovakia.stream.laut.fm/hitradioslovakia
+            </radio>
+            <radio name="House Radio">
+                http://stream.zeno.fm/qm8e21gta18uv
+            </radio>
+            <radio name="http://stream.infovojna.bz/live32">
+                http://stream.infovojna.bz/live32
+            </radio>
+            <radio name="http://stream.infovojna.bz/live32">
+                http://stream.infovojna.bz/live32
+            </radio>
+            <radio name="http://stream.infovojna.bz/live32">
+                http://stream.infovojna.bz/live32
+            </radio>
+            <radio name="Info vojna">
+                http://stream.infovojna.bz/live
+            </radio>
+            <radio name="INFOVOJNA">
+                http://stream.infovojna.bz/live
+            </radio>
+            <radio name="INFOVOJNA">
+                http://stream.infovojna.bz/live
+            </radio>
+            <radio name="Infovojna">
+                http://159.69.219.5:8010/aac
+            </radio>
+            <radio name="INFOVOJNA">
+                http://stream.infovojna.bz/live
+            </radio>
+            <radio name="Infovojna 128 kb/s">
+                http://stream.infovojna.bz/live
+            </radio>
+            <radio name="Infovojna 128kb">
+                http://stream.infovojna.bz/live
+            </radio>
+            <radio name="iRock">
+                https://radioserver.online:9927/irockHQ.mp3
+            </radio>
+            <radio name="janko hraško">
+                http://78.24.9.110:31088/
+            </radio>
+            <radio name="JOJ 24">
+                https://live.cdn.joj.sk/live/joj_news.m3u8
+            </radio>
+            <radio name="Joj 24 404 P">
+                https://live.cdn.joj.sk/live/andromeda/joj_news-404.m3u8
+            </radio>
+            <radio name="Kosice International ATC">
+                https://www.liveatc.net/play/lzkz.pls
+            </radio>
+            <radio name="Lux TV">
+                https://stream.tvlux.sk/lux/ngrp:lux.stream_all/playlist.m3u8
+            </radio>
+            <radio name="mars dance">
+                https://stream-153.zeno.fm/683gf5xrxfeuv?zs=gtI4gERBSUGu8f0FOcDOWw&amp;1686916511841
+            </radio>
+            <radio name="METALSCENA netRADIO">
+                https://listen.radioking.com/radio/263218/stream/308365
+            </radio>
+            <radio name="Mirjam Rádio - Mária Rádió Felvidék">
+                http://193.87.81.131:8081/MariaRadioFelvidek
+            </radio>
+            <radio name="Numberstation">
+                https://home3-ice.nezbednik.eu.org:2000/numberstation.mp3
+            </radio>
+            <radio name="Party Mix Radio">
+                http://stream.zeno.fm/rw6ckefezs8uv
+            </radio>
+            <radio name="Pátria Rádió">
+                https://icecast.stv.livebox.sk/patria_128.mp3
+            </radio>
+            <radio name="Radio 7">
+                https://play.radio7.sk/128
+            </radio>
+            <radio name="Rádio Aetter">
+                http://stream.aetter.sk:8000/aetter
+            </radio>
+            <radio name="Rádio Beta">
+                http://109.71.67.102:8000/beta_live_high.mp3
+            </radio>
+            <radio name="Rádio Beta - České a Slovenské hity">
+                http://109.71.67.102:8000/beta_cspop.mp3
+            </radio>
+            <radio name="RÁDIO BETA - České a Slovenské hity">
+                http://109.71.67.102:8000/beta_cspop.mp3
+            </radio>
+            <radio name="Rádio Beta - Hity 80's a 90's">
+                http://109.71.67.102:8000/beta_80a90.mp3
+            </radio>
+            <radio name="Rádio Beta - Hráme jubilantom">
+                http://109.71.67.102:8000/beta_jubilanti.mp3
+            </radio>
+            <radio name="RÁDIO BETA 80-90">
+                http://109.71.67.102:8000/beta_80a90.mp3
+            </radio>
+            <radio name="RADIO BIBLIA SK">
+                http://radiobiblia.online:8000/stream.ogg
+            </radio>
+            <radio name="Radio Dychovka">
+                https://epanel.mediacp.eu:7661/stream
+            </radio>
+            <radio name="Radio Ekspres">
+                https://stream.nextmedia.si/proxy/ekspres1?mp=/stream
+            </radio>
+            <radio name="Radio Expres">
+                http://195.168.61.226:8000/96.mp3
+            </radio>
+            <radio name="Radio Expres">
+                http://195.168.61.226:8000/96.mp3
+            </radio>
+            <radio name="Rádio Expres">
+                http://195.168.61.226:8000/128.mp3
+            </radio>
+            <radio name="Radio Expres">
+                http://195.168.61.226:8000/96.mp3
+            </radio>
+            <radio name="Radio Expres SK">
+                https://stream.expres.sk/128.mp3
+            </radio>
+            <radio name="Radio Extra">
+                http://live.topradio.cz:8000/extra192
+            </radio>
+            <radio name="RÁDIO FM">
+                https://icecast.stv.livebox.sk/fm_128.mp3
+            </radio>
+            <radio name="Rádio FM">
+                https://icecast.stv.livebox.sk/fm_128.mp3
+            </radio>
+            <radio name="Radio FM">
+                https://icecast.stv.livebox.sk/fm_128.mp3
+            </radio>
+            <radio name="RÁDIO FRONTINUS">
+                http://stream.frontinus.sk:8000/frontinus128.mp3
+            </radio>
+            <radio name="Rádio Frontinus">
+                http://stream.frontinus.sk:8000/frontinus128.mp3
+            </radio>
+            <radio name="Radio Infovojna">
+                http://stream.infovojna.bz/live
+            </radio>
+            <radio name="Rádio Janko Hraško">
+                http://78.24.9.110:31088/;
+            </radio>
+            <radio name="Rádio Janko Hraško">
+                http://78.24.9.110:31088/
+            </radio>
+            <radio name="Rádio Jazz">
+                http://stream.sepia.sk:8000/jazz128.mp3
+            </radio>
+            <radio name="Rádio Jupiter">
+                http://stream.radiojupiter.sk:8000/jupiter_64.aac
+            </radio>
+            <radio name="Rádio KIKS">
+                https://online.radiokiks.sk:8000/kiks_hq.mp3
+            </radio>
+            <radio name="Rádio KIKS">
+                https://online.radiokiks.sk:8000/kiks_hq.mp3
+            </radio>
+            <radio name="Rádio KIKS - Big 80s">
+                https://online.radiokiks.sk:8000/kiks_big80s.mp3
+            </radio>
+            <radio name="Rádio KIKS - Big 90s">
+                https://online.radiokiks.sk:8000/kiks_big90s.mp3
+            </radio>
+            <radio name="Rádio KIKS - Rock Music">
+                https://online.radiokiks.sk:8000/kiks_rock.mp3
+            </radio>
+            <radio name="Rádio Košice">
+                http://stream.ecce.sk:8000/radiokosice-128.mp3
+            </radio>
+            <radio name="Rádio Košice BA">
+                http://176.102.98.74:8000/radiokosice-ba-128.mp3
+            </radio>
+            <radio name="Rádio Logos">
+                http://radioserver.online:8824/;
+            </radio>
+            <radio name="Rádio Lumen">
+                http://audio.lumen.sk:8000/live128.mp3
+            </radio>
+            <radio name="Rádio Maria Slovensko">
+                http://dreamsiteradiocp5.com:8012/streaming.mp3
+            </radio>
+            <radio name="Rádio Melody">
+                https://stream.bauermedia.sk/melody-hi.mp3
+            </radio>
+            <radio name="Rádio Melody">
+                https://stream.bauermedia.sk/melody-hi.mp3
+            </radio>
+            <radio name="Radio Melody">
+                https://stream.bauermedia.sk/melody-lo.mp3?aw_0_req.gdpr=false&amp;aw_0_1st.playerid=melody_web_mobile
+            </radio>
+            <radio name="Rádio Modra">
+                http://185.98.208.12:8000/
+            </radio>
+            <radio name="Rádio Muzika">
+                https://listen.radioking.com/radio/276343/stream/321988
+            </radio>
+            <radio name="Rádio Paráda">
+                https://extra.mediacp.eu/stream/RadioParada,o.z.
+            </radio>
+            <radio name="Rádio Piešťany">
+                http://live.radiopiestany.sk:8000/live.mp3
+            </radio>
+            <radio name="Rádio Pohoda 2">
+                http://mpc1.mediacp.eu:18111/stream
+            </radio>
+            <radio name="Rádio Relax International">
+                https://stream.relaxfm.ee/international
+            </radio>
+            <radio name="Rádio ROCK">
+                https://stream.bauermedia.sk/rock-hi.mp3
+            </radio>
+            <radio name="Rádio ROCK">
+                https://stream.bauermedia.sk/rock-hi.mp3
+            </radio>
+            <radio name="Rádio Rock">
+                https://stream.bauermedia.sk/rock-hi.mp3
+            </radio>
+            <radio name="Rádio Rock SV">
+                https://s2.myradiostream.com/:4870/listen.mp3
+            </radio>
+            <radio name="Radio Romper Čechoslovakia">
+                https://playerservices.streamtheworld.com/api/livestream-redirect/SAM05AAC415.aac
+            </radio>
+            <radio name="Rádio Šírava">
+                http://radioserver.online:8804/;stream/1
+            </radio>
+            <radio name="Rádio Sity">
+                https://radiosity.online:8000/aac
+            </radio>
+            <radio name="Radio Slovensko">
+                https://icecast.stv.livebox.sk/slovensko_128.mp3
+            </radio>
+            <radio name="Radio TLIS">
+                https://stream.tlis.sk/tlis.mp3
+            </radio>
+            <radio name="Rádio Topolčany">
+                http://80.242.44.249:8000/
+            </radio>
+            <radio name="Rádio v Nitre">
+                http://195.210.28.150:8932/radiovnitre_live.mp3
+            </radio>
+            <radio name="Radio Vega">
+                http://stream.sepia.sk:8000/vega128.mp3
+            </radio>
+            <radio name="Radio Vega">
+                https://stream.sepia.sk:8000/vega128.mp3
+            </radio>
+            <radio name="Rádio Vega">
+                http://stream.sepia.sk:8000/vega128.mp3
+            </radio>
+            <radio name="Radio Vega Slovakia">
+                https://stream.sepia.sk:8000/vega128.mp3
+            </radio>
+            <radio name="RÁDIO VIVA">
+                http://stream.sepia.sk:8000/viva128.mp3
+            </radio>
+            <radio name="Rádio Viva">
+                http://stream.sepia.sk:8000/viva128.mp3
+            </radio>
+            <radio name="Radio VIVA">
+                https://stream.sepia.sk/viva128.mp3
+            </radio>
+            <radio name="Radio Viva Metropol">
+                http://stream.sepia.sk:8000/viva128.mp3
+            </radio>
+            <radio name="Rádio Vlna">
+                http://stream.radiovlna.sk/vlna-hi.mp3
+            </radio>
+            <radio name="Rádio Vlna">
+                http://stream.radiovlna.sk/vlna-hi.mp3
+            </radio>
+            <radio name="RÁDIO VLNA 60-70">
+                https://stream.radiovlna.sk/gold-hi.mp3
+            </radio>
+            <radio name="RÁDIO VLNA 60-70">
+                https://stream.radiovlna.sk/gold-hi.mp3
+            </radio>
+            <radio name="Rádio Vlna CLASSIC ROCK">
+                http://stream.radiovlna.sk:8000/rock-hi.mp3
+            </radio>
+            <radio name="RÁDIO VLNA Classic Rock">
+                http://stream.radiovlna.sk:8000/rock-hi.mp3
+            </radio>
+            <radio name="Rádio Vlna Golden hits">
+                https://stream.radiovlna.sk/gold-hi.mp3
+            </radio>
+            <radio name="Rádio Vlna Oldies Party">
+                https://stream.radiovlna.sk/party-hi.mp3
+            </radio>
+            <radio name="radio WoW">
+                https://radioserver.online:9816/radiowow.mp3
+            </radio>
+            <radio name="Radio Zabava">
+                https://stream.zeno.fm/eyac00cx1nhvv
+            </radio>
+            <radio name="RÁDIO_FM">
+                http://live.slovakradio.sk:8000/FM_256.mp3
+            </radio>
+            <radio name="RadioX">
+                http://158.193.82.41:8000/radiox_128.mp3
+            </radio>
+            <radio name="RadioX - Alternative X">
+                http://158.193.82.41:8000/alternative.mp3
+            </radio>
+            <radio name="RadioX - Chillout X">
+                http://158.193.82.41:8000/chillout.mp3
+            </radio>
+            <radio name="RadioX - Dance X">
+                http://158.193.82.41:8000/dance.mp3
+            </radio>
+            <radio name="RadioX - DnB X">
+                http://158.193.82.41:8000/dnb.mp3
+            </radio>
+            <radio name="RadioX - DnB X">
+                http://158.193.82.41:8000/dnb.mp3
+            </radio>
+            <radio name="RadioX - Folklore X">
+                http://158.193.82.41:8000/ludovky.mp3
+            </radio>
+            <radio name="RadioX - Metal X">
+                http://158.193.82.41:8000/metal.mp3
+            </radio>
+            <radio name="RadioX - Mood X">
+                http://158.193.82.41:8000/mood.mp3
+            </radio>
+            <radio name="RadioX - Oldies X">
+                http://158.193.82.41:8000/oldies.mp3
+            </radio>
+            <radio name="Repete">
+                http://stream.rusyn.fm/rusyny-low.mp3
+            </radio>
+            <radio name="Rock Radio">
+                https://stream.bauermedia.sk/rock-hi.mp3
+            </radio>
+            <radio name="RTVS Litera256">
+                http://live.slovakradio.sk:8000/Litera_256.mp3
+            </radio>
+            <radio name="RTVS Pyramida256">
+                http://live.slovakradio.sk:8000/Pyramida_128.mp3
+            </radio>
+            <radio name="RTVS Pyramida256">
+                http://live.slovakradio.sk:8000/Pyramida_256.mp3
+            </radio>
+            <radio name="RTVS Pyramida256">
+                http://live.slovakradio.sk:8000/Pyramida_256.mp3
+            </radio>
+            <radio name="Rusyn FM">
+                https://stream.rusyn.fm/rusyny.mp3
+            </radio>
+            <radio name="RusynFM">
+                http://stream.rusyn.fm/rusyny.mp3
+            </radio>
+            <radio name="SKY Rádio">
+                http://stream.skyradio.sk:8000/sky128
+            </radio>
+            <radio name="SKY Rádio">
+                http://stream.skyradio.sk:8000/sky128
+            </radio>
+            <radio name="Sllobodný vysielač">
+                http://159.69.219.5:8010//aac
+            </radio>
+            <radio name="SLOBODNÝ VYSIELAČ">
+                http://vysielanie.online/radio/8020/SV128.mp3
+            </radio>
+            <radio name="Slobodný vysielač">
+                http://159.69.219.5:8010/mp3
+            </radio>
+            <radio name="Slobodný vysielač">
+                http://vysielanie.online/radio/8020/SV128.mp3
+            </radio>
+            <radio name="SRo1 Rádio Slovensko">
+                http://live.slovakradio.sk:8000/Slovensko_128.mp3
+            </radio>
+            <radio name="SRo1 Rádio Slovensko">
+                http://live.slovakradio.sk:8000/Slovensko_128.mp3
+            </radio>
+            <radio name="SRo1 Rádio Slovensko (256k)">
+                http://live.slovakradio.sk:8000/Slovensko_256.mp3
+            </radio>
+            <radio name="SRo2 Rádio Regina Stred">
+                http://icecast.stv.livebox.sk/regina-bb_128.mp3
+            </radio>
+            <radio name="SRo2 Rádio Regina Východ">
+                http://icecast.stv.livebox.sk/regina-ke_128.mp3
+            </radio>
+            <radio name="SRo2 Rádio Regina Západ">
+                http://icecast.stv.livebox.sk/regina-ba_128.mp3
+            </radio>
+            <radio name="SRo3: Rádio Devín">
+                http://icecast.stv.livebox.sk/devin_128.mp3
+            </radio>
+            <radio name="SRo4 Rádio FM">
+                http://live.slovakradio.sk:8000/FM_256.mp3
+            </radio>
+            <radio name="SRo5 Rádio Pátria /RSI">
+                http://live.slovakradio.sk:8000/Patria_128.mp3
+            </radio>
+            <radio name="SRo6 Radio Slovakia International">
+                http://icecast.stv.livebox.sk/rsi_128.mp3
+            </radio>
+            <radio name="SRo7 Rádio Pyramida">
+                http://live.slovakradio.sk:8000/Pyramida_128.mp3
+            </radio>
+            <radio name="SRo8 Rádio Litera">
+                http://icecast.stv.livebox.sk/litera_128.mp3
+            </radio>
+            <radio name="SRo9 Rádio Junior">
+                http://live.slovakradio.sk:8000/Junior_128.mp3
+            </radio>
+            <radio name="SRo9 Rádio Junior (256k)">
+                http://live.slovakradio.sk:8000/Junior_256.mp3
+            </radio>
+            <radio name="SUB:FM">
+                http://stream.subfm.sk/subfm
+            </radio>
+            <radio name="TLIS Rádio">
+                http://stream.tlis.sk/tlis.mp3
+            </radio>
+            <radio name="Top Rádio">
+                https://solid1.streamupsolutions.com/proxy/vhhggmih/stream
+            </radio>
+            <radio name="TRNAVSKÉ RÁDIO">
+                http://stream.trnavskeradio.sk/trnavske
+            </radio>
+            <radio name="TRNAVSKÉ RÁDIO">
+                http://stream.trnavskeradio.sk/trnavske
+            </radio>
+            <radio name="Trnavské rádio">
+                http://stream.trnavskeradio.sk/trnavske
+            </radio>
+            <radio name="TV Doktor">
+                https://live.tvdoktor.sk/high/index.m3u8
+            </radio>
+            <radio name="TV Joj (404 p)">
+                https://live.cdn.joj.sk/live/andromeda/joj-404.m3u8
+            </radio>
+            <radio name="TV Plus (404 p)">
+                https://live.cdn.joj.sk/live/andromeda/plus-404.m3u8
+            </radio>
+            <radio name="TV Wau (404 p)">
+                https://live.cdn.joj.sk/live/andromeda/wau-404.m3u8
+            </radio>
+            <radio name="Záhorácke Rádio">
+                http://live.zahorackeradio.sk:8080/zr128.mp3
+            </radio>
+        </sk_SK>
+        <ar_LB>
+            <radio name="radiosunna">
+                http://andromeda.shoutca.st:8189/stream
+            </radio>
+            <radio name="uk5">
+                http://uk5.internet-radio.com:8079/stream
+            </radio>
+            <radio name="Khitab Sunnah FM 89.5">
+                http://162.244.80.118:5678/stream
+            </radio>
+            <radio name="Holy Quran Radio - Nablus">
+                http://www.quran-radio.org:8080/;stream.mp3
+            </radio>
+            <radio name="Albayan">
+                http://s9.viastreaming.net:9645/;stream/1
+            </radio>
+            <radio name="AlAmeed fi Ilm alTajweed">
+                http://server2.quraan.us:9316/;*.mp3
+            </radio>
+            <radio name="Bin othaimeen by EDC">
+                http://server2.quraan.us:9890/;*.mp3
+            </radio>
+            <radio name="Tafseer Radio">
+                http://live.mp3quran.net:9718/;
+            </radio>
+            <radio name="Yasser AlDosari Radio">
+                http://live.mp3quran.net:9984/;
+            </radio>
+        </ar_LB>
     </body>
 </html>

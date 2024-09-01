@@ -23,10 +23,12 @@ from bnote.debug.colored_log import ColoredLogger, OPERATION_APP_LOG
 log = ColoredLogger(__name__)
 log.setLevel(OPERATION_APP_LOG)
 
+
 class OperationApp(BnoteApp):
     """
     App to learn braille with operation
     """
+
     def __init__(self, put_in_function_queue):
         """
         Class construtor
@@ -35,18 +37,18 @@ class OperationApp(BnoteApp):
         # Call base class.
         super().__init__(put_in_function_queue)
         # Game class
-        self.operation=Operation(Path(self.get_apps_folder() / Path("braille_learning")))
+        self.operation = Operation(Path(self.get_apps_folder() / Path("braille_learning")))
         # menu creation.
         self._menu = self.__create_menu()
         # document refresh.
-        self.position=1
-        self.expression=""
-        self.my_expression=""
-        self.game=False
-        self.score=0 # Cette valeur changera en fonction du niveau choisi
+        self.position = 1
+        self.expression = ""
+        self.my_expression = ""
+        self.game = False
+        self.score = 0  # Cette valeur changera en fonction du niveau choisi
         # Traitement du chargement du niveau
-        self.table=ManageLevel().get_level("operation")
-        if self.table==False:
+        self.table = ManageLevel().get_level("operation")
+        if self.table == False:
             self._exec_select_table()
         else:
             self.initialize()
@@ -68,8 +70,8 @@ class OperationApp(BnoteApp):
                 ui.UiMenuItem(name=_("&table"), action=self._exec_select_table),
                 ui.UiMenuItem(name=_("&reset application"), action=self._exec_reset_application),
                 ui.UiMenuItem(name=_("&about"), action=self._exec_about,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F1),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                              shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F1),
                 ui.UiMenuItem(name=_("&applications"), action=self._exec_applications),
             ],
         )
@@ -90,9 +92,9 @@ class OperationApp(BnoteApp):
         """
         Change the name of the menu item when enter in menu.
         """
-        delete=self._menu.get_object(self._exec_reset_application)
-        score=self._menu.get_object(self._exec_score)
-        braille_type=Settings().data['system']['braille_type']
+        delete = self._menu.get_object(self._exec_reset_application)
+        score = self._menu.get_object(self._exec_score)
+        braille_type = Settings().data['system']['braille_type']
         if self.game:
             delete.unhide()
             score.unhide()
@@ -121,28 +123,28 @@ class OperationApp(BnoteApp):
 
     def initialize(self):
         # On s'occupe du score
-        t=ManageScore().get_score_level("operation", self.table)
-        if t!=False:
-            self.score=t
+        t = ManageScore().get_score_level("operation", self.table)
+        if t != False:
+            self.score = t
         else:
-            self.score=0
-        self.expression=""
-        self.my_expression=""
-        self.position=1
-        operation=self.operation.load_file(self.table)
+            self.score = 0
+        self.expression = ""
+        self.my_expression = ""
+        self.position = 1
+        operation = self.operation.load_file(self.table)
         if not operation:
-            self.game=False
+            self.game = False
             return False
-        self.expression=self.operation.get_expression()
-        self.game=True
+        self.expression = self.operation.get_expression()
+        self.game = True
         self.refresh_document()
-        if Settings().data['braille_learning']['use_vocal']=="auto":
+        if Settings().data['braille_learning']['use_vocal'] == "auto":
             speak(text=self.expression)
 
     # ---------------
     # Menu functions.
     def _exec_what_is_result(self):
-        self._current_dialog=ui.UiMessageDialogBox(
+        self._current_dialog = ui.UiMessageDialogBox(
             name=_("information"),
             message=_("the result was {}").format(self.operation.lst_expression[self.expression]),
             buttons=[
@@ -152,16 +154,16 @@ class OperationApp(BnoteApp):
         )
 
     def _exec_select_table(self):
-        lst_table=self.operation.get_list_tables()
+        lst_table = self.operation.get_list_tables()
         lst_table.append(_("all tables"))
         if not self.table:
-            index=lst_table.index(_("all tables"))
+            index = lst_table.index(_("all tables"))
         else:
-            index=lst_table.index(self.table)
-        self._current_dialog=ui.UiDialogBox(
+            index = lst_table.index(self.table)
+        self._current_dialog = ui.UiDialogBox(
             name=_("select table"),
             item_list=[
-                ui.UiListBox(name=_("&table to"), value=("table", lst_table),current_index=index),
+                ui.UiListBox(name=_("&table to"), value=("table", lst_table), current_index=index),
                 ui.UiButton(name=_("&ok"), action=self._exec_valid_select_table),
                 ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog)
             ],
@@ -169,7 +171,7 @@ class OperationApp(BnoteApp):
         )
 
     def _exec_delete_score(self):
-        self._current_dialog=ui.UiMessageDialogBox(
+        self._current_dialog = ui.UiMessageDialogBox(
             name=_("warning"),
             message=_("do you really want to erase the score of this table?"),
             buttons=[
@@ -180,7 +182,7 @@ class OperationApp(BnoteApp):
         )
 
     def _exec_reset_application(self):
-        self._current_dialog=ui.UiMessageDialogBox(
+        self._current_dialog = ui.UiMessageDialogBox(
             name=_("warning"),
             message=_("do you really want to reset the application?"),
             buttons=[
@@ -194,7 +196,8 @@ class OperationApp(BnoteApp):
         # Display an information dialog box.
         self._current_dialog = ui.UiMessageDialogBox(
             name=_("information"),
-            message=_("Application {} version {}. {} Theotime Berthod").format(_("math game"),app_version,"Copyright (C)2023"),
+            message=_("Application {} version {}. {} Theotime Berthod").format(_("math game"), app_version,
+                                                                               "Copyright (C)2023"),
             buttons=[
                 ui.UiButton(name=_("&ok"), action=self._exec_cancel_dialog),
             ],
@@ -209,18 +212,20 @@ class OperationApp(BnoteApp):
 
     def _exec_test_operation(self):
         if Settings().data['braille_learning']['keep_spaces']:
-            self.my_expression=self.my_expression.strip(" ")
-        test=self.operation.test_expression(self.my_expression)
+            self.my_expression = self.my_expression.strip(" ")
+        test = self.operation.test_expression(self.my_expression)
         if test:
             audio = AudioPlayer()
             audio.file_play(str(Path(self.get_apps_folder() / Path("braille_learning/tada.wav"))), 0)
-            self._current_dialog=ui.UiInfoDialogBox(message=_("good, the result is {}").format(self.operation.lst_expression[self.expression]), action=self.initialize)
-            self.score+=1
+            self._current_dialog = ui.UiInfoDialogBox(
+                message=_("good, the result is {}").format(self.operation.lst_expression[self.expression]),
+                action=self.initialize)
+            self.score += 1
             ManageScore().add_score("operation", self.table, self.score)
         else:
-            audio=AudioPlayer()
+            audio = AudioPlayer()
             audio.file_play(str(Path(self.get_apps_folder() / Path("braille_learning/warning.wav"))), 0)
-            self._current_dialog=ui.UiMessageDialogBox(
+            self._current_dialog = ui.UiMessageDialogBox(
                 name=_("warning"),
                 message=_("no, it's not the good result. Try again"),
                 buttons=[
@@ -230,32 +235,32 @@ class OperationApp(BnoteApp):
             )
 
     def _exec_valid_select_table(self):
-        kwargs=self._current_dialog.get_values()
-        if kwargs['table']==_("all tables"):
-            kwargs['table']=""
-        self.table=kwargs['table']
+        kwargs = self._current_dialog.get_values()
+        if kwargs['table'] == _("all tables"):
+            kwargs['table'] = ""
+        self.table = kwargs['table']
         self.initialize()
 
     def _exec_show_score(self):
-        if self.table=="":
-            name=_("all tables")
+        if self.table == "":
+            name = _("all tables")
         else:
-            name=self.table
-        self._current_dialog=ui.UiInfoDialogBox(message=_("for the table of {}, the score is {}").format(name, self.score), action=self._exec_cancel_dialog)
+            name = self.table
+        self._current_dialog = ui.UiInfoDialogBox(
+            message=_("for the table of {}, the score is {}").format(name, self.score), action=self._exec_cancel_dialog)
 
     def _exec_valid_delete_score(self):
         ManageScore().delete_score("operation", self.table)
 
     def _exec_valid_reset_application(self):
-        self.expression=""
-        self.my_expression=""
-        self.table=False
-        self.game=False
-        self.score=0
+        self.expression = ""
+        self.my_expression = ""
+        self.table = False
+        self.game = False
+        self.score = 0
         ManageLevel().delete_app("operation")
         ManageScore().delete_app("operation")
         self.refresh_document()
-
 
     def message(self, message_type):
         AudioPlayer().file_play(BRAILLE_LEARNING_APP_FOLDER + "{}.wav".format(message_type), 0)
@@ -285,11 +290,11 @@ class OperationApp(BnoteApp):
             # command treatment for document.
             # TODO to complete
             if self.game and Settings().data['braille_learning']['write_all']:
-                if key_id==Keyboard.KeyId.KEY_CARET_LEFT and self.position>1:
-                    self.position-=1
+                if key_id == Keyboard.KeyId.KEY_CARET_LEFT and self.position > 1:
+                    self.position -= 1
                     self.set_data_line()
-                elif key_id==Keyboard.KeyId.KEY_CARET_RIGHT and self.position<=len(self.my_expression):
-                    self.position+=1
+                elif key_id == Keyboard.KeyId.KEY_CARET_RIGHT and self.position <= len(self.my_expression):
+                    self.position += 1
                     self.set_data_line()
         return done
 
@@ -308,14 +313,16 @@ class OperationApp(BnoteApp):
             # Document input character treatment.
             # TODO to complete
             if self.game:
-                if not Settings().data['braille_learning']['write_all'] and self.operation.lst_expression[self.expression][self.position-1]!=character:
+                if not Settings().data['braille_learning']['write_all'] and \
+                        self.operation.lst_expression[self.expression][self.position - 1] != character:
                     return self.message("error")
                 elif not Settings().data['braille_learning']['write_all']:
                     self.message("ok")
-                self.my_expression=self.my_expression[:self.position]+character+self.my_expression[self.position:]
-                self.position+=1
+                self.my_expression = self.my_expression[:self.position] + character + self.my_expression[self.position:]
+                self.position += 1
                 self.set_data_line()
-                if not Settings().data['braille_learning']['write_all'] and len(self.my_expression)==len(self.operation.lst_expression[self.expression]):
+                if not Settings().data['braille_learning']['write_all'] and len(self.my_expression) == len(
+                        self.operation.lst_expression[self.expression]):
                     self._exec_test_operation()
         return done
 
@@ -333,22 +340,25 @@ class OperationApp(BnoteApp):
             # braille function treatment for document.
             # TODO to complete
             if self.game:
-                if bramigraph==Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_SPACE:
-                    if not Settings().data['braille_learning']['write_all'] and self.operation.lst_expression[self.expression][self.position-1] != " ":
+                if bramigraph == Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_SPACE:
+                    if not Settings().data['braille_learning']['write_all'] and \
+                            self.operation.lst_expression[self.expression][self.position - 1] != " ":
                         return self.message("error")
                     elif not Settings().data['braille_learning']['write_all']:
                         self.message("ok")
-                    self.my_expression=self.my_expression[:self.position]+" "+self.my_expression[self.position:]
-                    self.position+=1
+                    self.my_expression = self.my_expression[:self.position] + " " + self.my_expression[self.position:]
+                    self.position += 1
                     self.set_data_line()
                     if not Settings().data['braille_learning']['write_all'] and len(self.my_expression) == len(
                             self.operation.lst_expression[self.expression]):
                         self._exec_test_operation()
-                elif bramigraph==Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_BACKSPACE and self.position>1 and Settings().data['braille_learning']['write_all']:
-                    self.my_expression=self.my_expression[:self.position-2]+self.my_expression[self.position:]
-                    self.position-=1
+                elif bramigraph == Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_BACKSPACE and self.position > 1 and \
+                        Settings().data['braille_learning']['write_all']:
+                    self.my_expression = self.my_expression[:self.position - 2] + self.my_expression[self.position:]
+                    self.position -= 1
                     self.set_data_line()
-                elif bramigraph==Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_RETURN and Settings().data['braille_learning']['write_all']:
+                elif bramigraph == Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_RETURN and \
+                        Settings().data['braille_learning']['write_all']:
                     self._exec_test_operation()
         return done
 
@@ -365,10 +375,11 @@ class OperationApp(BnoteApp):
         done = super(OperationApp, self).input_interactive(modifier, position, key_type)
         if not done:
             # interactive key treatment
-            if position>len(self.expression)+1 and position<=len(self.expression)+1+len(self.my_expression)+1 and Settings().data['braille_learning']['write_all']:
-                self.position=position-len(self.expression)-1
+            if position > len(self.expression) + 1 and position <= len(self.expression) + 1 + len(
+                    self.my_expression) + 1 and Settings().data['braille_learning']['write_all']:
+                self.position = position - len(self.expression) - 1
                 self.set_data_line()
-            elif position<=len(self.expression) and Settings().data['braille_learning']['use_vocal']!=_("no"):
+            elif position <= len(self.expression) and Settings().data['braille_learning']['use_vocal'] != _("no"):
                 speak(self.expression)
             done = True
         return done
@@ -408,7 +419,7 @@ class OperationApp(BnoteApp):
         :return: None (self._braille_display.set_data_line is done)
         """
         if not self.game:
-            line=_("you must select a table from the menu")
+            line = _("you must select a table from the menu")
             braille_static = BnoteApp.lou.to_dots_8(line)
             braille_blinking = "\u2800" * len(braille_static)
         else:
@@ -420,6 +431,6 @@ class OperationApp(BnoteApp):
             braille_blinking = "".join([
                 "\u2800" * (len(self.expression) + self.position),
                 "\u28C0",
-                "\u2800" * (len(braille_static) - (len(self.expression)+len(self.my_expression)-self.position))
+                "\u2800" * (len(braille_static) - (len(self.expression) + len(self.my_expression) - self.position))
             ])
         self._braille_display.set_data_line(line, braille_static, braille_blinking, 0)

@@ -5,19 +5,18 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
-from bnote.stm32.braille_device_characteristics import braille_device_characteristics
 import os
 import queue
 import re
-import serial
 import subprocess
-import time
 import threading
-from pathlib import Path
-import bnote.bt.bt_protocol as bt_protocol
+import time
 
+import serial
+
+import bnote.bt.bt_protocol as bt_protocol
 from bnote.debug.colored_log import ColoredLogger, BT_THREAD_LOG
+from bnote.stm32.braille_device_characteristics import braille_device_characteristics
 from bnote.tools.settings import Settings
 
 log = ColoredLogger(__name__)
@@ -146,9 +145,11 @@ class BluetoothThread(threading.Thread):
     TYPE_ESYS_12 = 7
     TYPE_ESYS_40 = 8
     TYPE_BNOTE = 18
+
     # ---------------------------------------------------------
     class SerialInput(threading.Thread):
-        def __init__(self, serial_port, protocol, port, tx_message_queue, add_remove_channel_queue, mac_and_friendly_bluetooth_name):
+        def __init__(self, serial_port, protocol, port, tx_message_queue, add_remove_channel_queue,
+                     mac_and_friendly_bluetooth_name):
             threading.Thread.__init__(self)
 
             self._serial = serial_port
@@ -234,7 +235,8 @@ class BluetoothThread(threading.Thread):
             log.info("_handle_identity_request")
             self.is_connected = True
             # To inform stm32 that a new channel is activated
-            self._add_remove_channel_queue.put([int(re.sub("/dev/rfcomm", "", self._port)), True, self.mac_and_friendly_bluetooth_name])
+            self._add_remove_channel_queue.put(
+                [int(re.sub("/dev/rfcomm", "", self._port)), True, self.mac_and_friendly_bluetooth_name])
 
             # Add messages to answer to SI request in the tx queue
             self._tx_message_queue.put(bt_protocol.Frame(bt_protocol.Message(key=bt_protocol.Message.KEY_SYSTEM,
@@ -266,7 +268,8 @@ class BluetoothThread(threading.Thread):
                                             data=BluetoothThread.TYPE_ESYS_40)))
             self._tx_message_queue.put(bt_protocol.Frame(bt_protocol.Message(key=bt_protocol.Message.KEY_SYSTEM,
                                                                              subkey=bt_protocol.Message.SUBKEY_SYSTEM_OPTIONS,
-                                                                             data=bytes(braille_device_characteristics.get_options()))))
+                                                                             data=bytes(
+                                                                                 braille_device_characteristics.get_options()))))
             self._tx_message_queue.put(bt_protocol.Frame(bt_protocol.Message(key=bt_protocol.Message.KEY_SYSTEM,
                                                                              subkey=bt_protocol.Message.SUBKEY_SYSTEM_COUNTRY_CODE,
                                                                              data=braille_device_characteristics.get_keyboard_language_country_in_bytes())))
@@ -378,7 +381,9 @@ class BluetoothThread(threading.Thread):
             # If port is open, we try to read something.
             if self._is_open:
                 if self._serial:
-                    self._serial_input = self.SerialInput(self._serial, self._bt_protocol, self._port, self._tx_message_queue, self._add_remove_channel_queue, self._get_mac_and_friendly_bluetooth_name())
+                    self._serial_input = self.SerialInput(self._serial, self._bt_protocol, self._port,
+                                                          self._tx_message_queue, self._add_remove_channel_queue,
+                                                          self._get_mac_and_friendly_bluetooth_name())
                     self._serial_output = self.SerialOutput(self._serial, self._bt_protocol, self._tx_message_queue)
                     self._serial_input.start()
                     self._serial_output.start()
@@ -522,7 +527,8 @@ class BluetoothThread(threading.Thread):
     def _put_remove_channel(self):
         try:
             log.info("remove_channel")
-            self._add_remove_channel_queue.put([int(re.sub("/dev/rfcomm", "", self._port)), False, self._get_mac_and_friendly_bluetooth_name()])
+            self._add_remove_channel_queue.put(
+                [int(re.sub("/dev/rfcomm", "", self._port)), False, self._get_mac_and_friendly_bluetooth_name()])
         except queue.Full:
             log.warning("_add_remove_channel_queue is full !")
             pass
@@ -533,5 +539,6 @@ class BluetoothThread(threading.Thread):
         except queue.Full:
             log.warning("_tx_message_queue is full !")
             pass
+
 
 bluetooth_thread_pool = BluetoothThreadPool()

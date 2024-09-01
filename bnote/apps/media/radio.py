@@ -166,6 +166,7 @@ class Radio:
     """
     Radio application.
     """
+
     def __init__(self):
         # Player parameters.
         self.url = None
@@ -316,4 +317,3 @@ class Radio:
             self.write_user_file()
         log.info(self._radio_dict.keys())
         log.info(self._radio_dict.values())
-

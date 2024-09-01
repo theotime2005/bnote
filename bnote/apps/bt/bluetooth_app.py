@@ -6,16 +6,15 @@
 """
 import time
 
-from bnote.apps.bnote_app import BnoteApp, FunctionId
 import bnote.bt.bt_protocol as bt_protocol
+from bnote.apps.bnote_app import BnoteApp, FunctionId
 from bnote.braille.lou import Lou
 from bnote.bt.bt_thread import bluetooth_thread_pool
+# Setup the logger for this file
+from bnote.debug.colored_log import ColoredLogger, BLUETOOTH_APP_LOG
 from bnote.stm32 import stm32_keys
 from bnote.stm32.stm32_protocol import Stm32Frame
 from bnote.tools.keyboard import Keyboard
-
-# Setup the logger for this file
-from bnote.debug.colored_log import ColoredLogger, BLUETOOTH_APP_LOG
 from bnote.tools.settings import Settings
 
 log = ColoredLogger(__name__)
@@ -50,24 +49,24 @@ class BluetoothApp(BnoteApp):
             return False
         function_id = args[0]
         done = False
-        if function_id==FunctionId.FUNCTION_BLUETOOTH_WRITE:
+        if function_id == FunctionId.FUNCTION_BLUETOOTH_WRITE:
             self.write(**kwargs)
-            done=True
+            done = True
         else:
             # Call base class decoding.
             done = super(BluetoothApp, self).input_function(*args, **kwargs)
         return done
 
     def write(self, **kwargs):
-        lou=Lou(kwargs['encoding'])
+        lou = Lou(kwargs['encoding'])
         for character in kwargs['text']:
             character_convert = bytes(lou.to_dots_8_in_bytes(character))
             first = bytes("\x00", "utf-8")
             last = bytes("x00\x00\x00\x00", "utf-8")
-            if character_convert==bytes("\x00", "utf-8"):
-                character_in_byte=bytes("\x02\x00\x00\x00\x00\x00", "utf-8")
-            elif character=="\n":
-                character_in_byte="\n"
+            if character_convert == bytes("\x00", "utf-8"):
+                character_in_byte = bytes("\x02\x00\x00\x00\x00\x00", "utf-8")
+            elif character == "\n":
+                character_in_byte = "\n"
             else:
                 character_in_byte = first + character_convert + last
             self.input_braille(character_in_byte)

@@ -5,14 +5,12 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 import unicodedata
-from pathlib import Path
 
 from bnote.apps.bnote_app import BnoteApp
-from bnote.tools.keyboard import Keyboard
-from bnote.tools.settings import Settings
-
 # Set up the logger for this file
 from bnote.debug.colored_log import ColoredLogger, UI_LOG
+from bnote.tools.keyboard import Keyboard
+from bnote.tools.settings import Settings
 
 log = ColoredLogger(__name__)
 log.setLevel(UI_LOG)
@@ -112,7 +110,8 @@ class UiObject:
 
     def _set_name_without_shortcut(self, new_name, pos=-1):
         # braille conversion
-        self._name, self._braille_name, pos = BnoteApp.lou.convert_to_braille(self._braille_type, new_name, pos, self.__no_grade)
+        self._name, self._braille_name, pos = BnoteApp.lou.convert_to_braille(self._braille_type, new_name, pos,
+                                                                              self.__no_grade)
         # Replace space in name by dot 8.
         if not Settings().data['system']['spaces_in_label']:
             self._braille_name = self._braille_name.replace("\u2800", "\u2880")
@@ -122,7 +121,7 @@ class UiObject:
                                           chr(ord(self._braille_name[pos]) + 0x80),
                                           self._braille_name[pos + 1:]
                                           ])
-        #log.info(f"{self._name=}-{self.braille_name=}")
+        # log.info(f"{self._name=}-{self.braille_name=}")
 
     def __set_shortcut_modifier(self, shortcut_modifier):
         self._shortcut_modifier = shortcut_modifier

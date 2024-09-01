@@ -16,6 +16,7 @@ from bnote.bnote_start import BnoteThread
 from bnote.apps.fman.file_manager import BNOTE_FOLDER, DOCUMENTS_FOLDER
 
 from bnote.debug.colored_log import ColoredLogger, BNOTE_LOG
+
 log = ColoredLogger(__name__)
 log.setLevel(BNOTE_LOG)
 

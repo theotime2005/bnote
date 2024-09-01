@@ -8,6 +8,8 @@ from .l11lll11l_opy_ import l1l11l1l1_opy_
 from .l1l11l111_opy_ import *
 from .l1ll1l1llll_opy_ import l1ll1l1lll1_opy_
 from .l1l111ll1_opy_ import *
+
+
 class l1l1lll1l_opy_:
     def __init__(self, lou, l1l1lllll_opy_, l1l11ll11_opy_, l11llll11_opy_, extension):
         self.lou = lou
@@ -24,8 +26,10 @@ class l1l1lll1l_opy_:
         self._11lllll1_opy_ = None
         self._1l11111l_opy_ = []
         self._11ll1lll_opy_ = None
+
     def l11lll1ll_opy_(self, line):
         self._11llllll_opy_.write(line)
+
     def l1ll111l1_opy_(self, l1l11llll_opy_):
         l1l111111_opy_ = 0
         while True:
@@ -35,12 +39,13 @@ class l1l1lll1l_opy_:
             if line is None:
                 break
             time.sleep(0.001)
-            self._1l11111l_opy_.append (line)
+            self._1l11111l_opy_.append(line)
             l1l111111_opy_ += 1
         self._11ll1lll_opy_ = None
         try:
             self._11llllll_opy_ = open("trace_midi1.txt", "w", encoding="utf-8")
-            l11lll11l_opy_ = l1l11l1l1_opy_(self.lou, self.l11lll1ll_opy_, self._1111111ll1_opy_, self._1l11111l_opy_, (self.l11llll11_opy_, self._1111111l1l_opy_))
+            l11lll11l_opy_ = l1l11l1l1_opy_(self.lou, self.l11lll1ll_opy_, self._1111111ll1_opy_, self._1l11111l_opy_,
+                                            (self.l11llll11_opy_, self._1111111l1l_opy_))
             l1l11l1ll_opy_ = l11lll11l_opy_.l11ll1ll1_opy_()
             l1l11l111_opy_ = l11lll1l1_opy_(self.l11lll1ll_opy_, l1l11l1ll_opy_)
             l1l11l111_opy_.l1l1111l1_opy_()

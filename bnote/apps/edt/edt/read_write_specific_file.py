@@ -5,24 +5,21 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 import os
+import string
+import xml.sax
 # import hashlib
 # import xxhash
 from pathlib import Path
-import string
-import xml.sax
 
 from bnote.apps.edt.edt.mp3 import Mp3
-from .marker import Marker
-from .pos import Pos
-from .coordinates import Coordinates
-from .paragraph import Paragraph
 from .caret import Caret
-from .markers import Markers
-
 # Setup the logger for this file
 from .colored_log import ColoredLogger, READ_WRITE_SPECIFIC_FILE_LOG
+from .marker import Marker
+from .markers import Markers
+from .pos import Pos
+
 log = ColoredLogger(__name__, level=READ_WRITE_SPECIFIC_FILE_LOG)
 
 
@@ -66,6 +63,7 @@ class ReadWriteSpecificFile:
              </doc>
             </root>
     """
+
     class ReadHandler(xml.sax.handler.ContentHandler):
         def __init__(self):
             xml.sax.handler.ContentHandler.__init__(self)
@@ -78,7 +76,7 @@ class ReadWriteSpecificFile:
             self._md5 = None
             self._mp3 = None
 
-# Accessors
+        # Accessors
         def md5(self):
             return self._md5
 
@@ -239,5 +237,3 @@ class ReadWriteSpecificFile:
         if os.path.exists(specific_filename):
             # removing the file using the os.remove() method
             os.remove(specific_filename)
-
-

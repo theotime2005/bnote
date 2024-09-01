@@ -69,41 +69,71 @@ class Internal:
         self.apps_descriptor = {
             'usb_1': self.AppDescriptor('', _("usb-&a"), self._exec_usb_1, is_hide=False, is_auto_switch=False),
             'usb_2': self.AppDescriptor('', _("usb-&b"), self._exec_usb_2, is_hide=False, is_auto_switch=False),
-            'bluetooth_1': self.AppDescriptor('', "bluetooth_&1", self._exec_bluetooth_1, is_hide=True, is_auto_switch=False),
-            'bluetooth_2': self.AppDescriptor('', "bluetooth_&2", self._exec_bluetooth_2, is_hide=True, is_auto_switch=False),
-            'bluetooth_3': self.AppDescriptor('', "bluetooth_&3", self._exec_bluetooth_3, is_hide=True, is_auto_switch=False),
-            'bluetooth_4': self.AppDescriptor('', "bluetooth_&4", self._exec_bluetooth_4, is_hide=True, is_auto_switch=False),
+            'bluetooth_1': self.AppDescriptor('', "bluetooth_&1", self._exec_bluetooth_1, is_hide=True,
+                                              is_auto_switch=False),
+            'bluetooth_2': self.AppDescriptor('', "bluetooth_&2", self._exec_bluetooth_2, is_hide=True,
+                                              is_auto_switch=False),
+            'bluetooth_3': self.AppDescriptor('', "bluetooth_&3", self._exec_bluetooth_3, is_hide=True,
+                                              is_auto_switch=False),
+            'bluetooth_4': self.AppDescriptor('', "bluetooth_&4", self._exec_bluetooth_4, is_hide=True,
+                                              is_auto_switch=False),
             'editor_1': self.AppDescriptor('', "editor_&5", self._exec_editor_1, is_hide=True, is_auto_switch=True),
             'editor_2': self.AppDescriptor('', "editor_&6", self._exec_editor_2, is_hide=True, is_auto_switch=True),
             'editor_3': self.AppDescriptor('', "editor_&7", self._exec_editor_3, is_hide=True, is_auto_switch=True),
             'editor_4': self.AppDescriptor('', "editor_&8", self._exec_editor_4, is_hide=True, is_auto_switch=True),
             'editor_5': self.AppDescriptor('', "editor_&9", self._exec_editor_5, is_hide=True, is_auto_switch=True),
-            'explorer': self.AppDescriptor('', self.__app_translate('explorer'), self._exec_explorer, is_hide=False, is_auto_switch=True),
-            'settings': self.AppDescriptor('', self.__app_translate('settings'), self._exec_settings, is_hide=False, is_auto_switch=True),
-            'agenda': self.AppDescriptor('', self.__app_translate('agenda'), self._exec_agenda, is_hide=False, is_auto_switch=True),
-            'radio': self.AppDescriptor('', self.__app_translate('radio'), self._exec_radio, is_hide=False, is_auto_switch=True),
-            'mp3': self.AppDescriptor('', self.__app_translate('mp3'), self._exec_mp3, is_hide=False, is_auto_switch=True),
-            'wikipedia': self.AppDescriptor('', self.__app_translate('wikipedia'), self._exec_wikipedia, is_hide=False, is_auto_switch=True),
-            'timer': self.AppDescriptor('', self.__app_translate('timer'), self._exec_timer, is_hide=False, is_auto_switch=True),
-            'translator': self.AppDescriptor('', _("trans&lator"), self._exec_translator, is_hide=False, is_auto_switch=True),
-            'write_word': self.AppDescriptor('', self.__app_translate('write_word'), self._exec_write_word, is_hide=False, is_auto_switch=True),
-            'operation': self.AppDescriptor('', self.__app_translate('operation'), self._exec_operation, is_hide=False, is_auto_switch=True),
-            'mines': self.AppDescriptor('', self.__app_translate('mines'), self._exec_mines, is_hide=False, is_auto_switch=True),
-            'mastermind': self.AppDescriptor('', self.__app_translate('mastermind'), self._exec_mastermind, is_hide=False, is_auto_switch=True),
-            'skeleton': self.AppDescriptor('', self.__app_translate('skeleton'), self._exec_skeleton, is_hide=False, is_auto_switch=True),
-            'more_apps_menu': self.AppDescriptor('sub_menu', self.__app_translate('more_apps_menu'), self._more_apps_menu, is_hide=False, is_auto_switch=True),
-            'explorer_2': self.AppDescriptor('more_apps_menu', self.__app_translate('explorer_2'), self._exec_explorer_2, is_hide=False, is_auto_switch=True),
-            'settings_2': self.AppDescriptor('more_apps_menu', self.__app_translate('settings_2'), self._exec_settings_2, is_hide=False, is_auto_switch=True),
-            'agenda_2': self.AppDescriptor('more_apps_menu', self.__app_translate('agenda_2'), self._exec_agenda_2, is_hide=False, is_auto_switch=True),
-            'radio_2': self.AppDescriptor('more_apps_menu', self.__app_translate('radio_2'), self._exec_radio_2, is_hide=False, is_auto_switch=True),
-            'mp3_2': self.AppDescriptor('more_apps_menu', self.__app_translate('mp3_2'), self._exec_mp3_2, is_hide=False, is_auto_switch=True),
-            'wikipedia_2': self.AppDescriptor('more_apps_menu', self.__app_translate('wikipedia_2'), self._exec_wikipedia_2, is_hide=False, is_auto_switch=True),
-            'timer_2': self.AppDescriptor('more_apps_menu', self.__app_translate('timer_2'), self._exec_timer_2, is_hide=False, is_auto_switch=True),
-            'translator_2': self.AppDescriptor('more_apps_menu', _("trans&lator"), self._exec_translator_2, is_hide=False, is_auto_switch=True),
-            'write_word_2': self.AppDescriptor('more_apps_menu', self.__app_translate('write_word_2'), self._exec_write_word_2, is_hide=False, is_auto_switch=True),
-            'operation_2': self.AppDescriptor('more_apps_menu', self.__app_translate('operation_2'), self._exec_operation_2, is_hide=False, is_auto_switch=True),
-            'mines_2': self.AppDescriptor('more_apps_menu', self.__app_translate('mines_2'), self._exec_mines_2, is_hide=False, is_auto_switch=True),
-            'mastermind_2': self.AppDescriptor('more_apps_menu', self.__app_translate('mastermind_2'), self._exec_mastermind_2, is_hide=False, is_auto_switch=True),
+            'explorer': self.AppDescriptor('', self.__app_translate('explorer'), self._exec_explorer, is_hide=False,
+                                           is_auto_switch=True),
+            'settings': self.AppDescriptor('', self.__app_translate('settings'), self._exec_settings, is_hide=False,
+                                           is_auto_switch=True),
+            'agenda': self.AppDescriptor('', self.__app_translate('agenda'), self._exec_agenda, is_hide=False,
+                                         is_auto_switch=True),
+            'radio': self.AppDescriptor('', self.__app_translate('radio'), self._exec_radio, is_hide=False,
+                                        is_auto_switch=True),
+            'mp3': self.AppDescriptor('', self.__app_translate('mp3'), self._exec_mp3, is_hide=False,
+                                      is_auto_switch=True),
+            'wikipedia': self.AppDescriptor('', self.__app_translate('wikipedia'), self._exec_wikipedia, is_hide=False,
+                                            is_auto_switch=True),
+            'timer': self.AppDescriptor('', self.__app_translate('timer'), self._exec_timer, is_hide=False,
+                                        is_auto_switch=True),
+            'translator': self.AppDescriptor('', _("trans&lator"), self._exec_translator, is_hide=False,
+                                             is_auto_switch=True),
+            'write_word': self.AppDescriptor('', self.__app_translate('write_word'), self._exec_write_word,
+                                             is_hide=False, is_auto_switch=True),
+            'operation': self.AppDescriptor('', self.__app_translate('operation'), self._exec_operation, is_hide=False,
+                                            is_auto_switch=True),
+            'mines': self.AppDescriptor('', self.__app_translate('mines'), self._exec_mines, is_hide=False,
+                                        is_auto_switch=True),
+            'mastermind': self.AppDescriptor('', self.__app_translate('mastermind'), self._exec_mastermind,
+                                             is_hide=False, is_auto_switch=True),
+            'skeleton': self.AppDescriptor('', self.__app_translate('skeleton'), self._exec_skeleton, is_hide=False,
+                                           is_auto_switch=True),
+            'more_apps_menu': self.AppDescriptor('sub_menu', self.__app_translate('more_apps_menu'),
+                                                 self._more_apps_menu, is_hide=False, is_auto_switch=True),
+            'explorer_2': self.AppDescriptor('more_apps_menu', self.__app_translate('explorer_2'),
+                                             self._exec_explorer_2, is_hide=False, is_auto_switch=True),
+            'settings_2': self.AppDescriptor('more_apps_menu', self.__app_translate('settings_2'),
+                                             self._exec_settings_2, is_hide=False, is_auto_switch=True),
+            'agenda_2': self.AppDescriptor('more_apps_menu', self.__app_translate('agenda_2'), self._exec_agenda_2,
+                                           is_hide=False, is_auto_switch=True),
+            'radio_2': self.AppDescriptor('more_apps_menu', self.__app_translate('radio_2'), self._exec_radio_2,
+                                          is_hide=False, is_auto_switch=True),
+            'mp3_2': self.AppDescriptor('more_apps_menu', self.__app_translate('mp3_2'), self._exec_mp3_2,
+                                        is_hide=False, is_auto_switch=True),
+            'wikipedia_2': self.AppDescriptor('more_apps_menu', self.__app_translate('wikipedia_2'),
+                                              self._exec_wikipedia_2, is_hide=False, is_auto_switch=True),
+            'timer_2': self.AppDescriptor('more_apps_menu', self.__app_translate('timer_2'), self._exec_timer_2,
+                                          is_hide=False, is_auto_switch=True),
+            'translator_2': self.AppDescriptor('more_apps_menu', _("trans&lator"), self._exec_translator_2,
+                                               is_hide=False, is_auto_switch=True),
+            'write_word_2': self.AppDescriptor('more_apps_menu', self.__app_translate('write_word_2'),
+                                               self._exec_write_word_2, is_hide=False, is_auto_switch=True),
+            'operation_2': self.AppDescriptor('more_apps_menu', self.__app_translate('operation_2'),
+                                              self._exec_operation_2, is_hide=False, is_auto_switch=True),
+            'mines_2': self.AppDescriptor('more_apps_menu', self.__app_translate('mines_2'), self._exec_mines_2,
+                                          is_hide=False, is_auto_switch=True),
+            'mastermind_2': self.AppDescriptor('more_apps_menu', self.__app_translate('mastermind_2'),
+                                               self._exec_mastermind_2, is_hide=False, is_auto_switch=True),
         }
         self.apps_editor = ('editor_1', 'editor_2', 'editor_3', 'editor_4', 'editor_5')
         self.apps_bluetooth = ('bluetooth_1', 'bluetooth_2', 'bluetooth_3', 'bluetooth_4')
@@ -133,7 +163,8 @@ class Internal:
                 submenu_items = []
                 for submenu_key, submenu_app_descriptor in self.apps_descriptor.items():
                     if submenu_app_descriptor.parent == key:
-                        submenu_items.append(ui.UiMenuItem(name=submenu_app_descriptor.name, action=submenu_app_descriptor.action))
+                        submenu_items.append(
+                            ui.UiMenuItem(name=submenu_app_descriptor.name, action=submenu_app_descriptor.action))
                 # Add 'braille_learning' sub menu
                 menu_item_list.append(
                     ui.UiMenuBar(name=app_descriptor.name, action=app_descriptor.action, menu_item_list=submenu_items),
@@ -192,7 +223,8 @@ class Internal:
             if AgendaApp(self._put_in_function_queue).ask_event_same_day():
                 self._exec_agenda()
                 return self._put_in_function_queue(FunctionId.FUNCTION_AGENDA_SAME_DAY)
-        elif Settings().data['agenda']['remember'] == "tomorrow" or Settings().data['agenda']['remember'] == "same_tomorrow":
+        elif Settings().data['agenda']['remember'] == "tomorrow" or Settings().data['agenda'][
+            'remember'] == "same_tomorrow":
             if AgendaApp(self._put_in_function_queue).ask_event_next_day():
                 self._exec_agenda()
                 return self._put_in_function_queue(FunctionId.FUNCTION_AGENDA_NEXT_DAY)
@@ -289,6 +321,7 @@ class Internal:
         if not self._current_app:
             # Refresh menu.
             self._menu.ask_update_braille_display()
+
     def reset_app_menu(self):
         if not self._current_app:
             self._menu.reset_container()
@@ -421,7 +454,7 @@ class Internal:
 
     def _exec_timer(self):
         if not self.apps_descriptor['timer'].instance:
-            self.apps_descriptor['timer'].instance=TimerApp(self._put_in_function_queue)
+            self.apps_descriptor['timer'].instance = TimerApp(self._put_in_function_queue)
         self.set_current_app(self.apps_descriptor['timer'].instance)
 
     def _exec_timer_2(self):
@@ -562,7 +595,7 @@ class Internal:
         self._put_in_function_queue(FunctionId.ASK_SHUTDOWN)
 
     def _goto_bluetooth_device(self, **kwargs):
-        bt_connect={
+        bt_connect = {
             0: self._exec_bluetooth_1(),
             1: self._exec_bluetooth_2(),
             2: self._exec_bluetooth_3(),
@@ -629,8 +662,10 @@ class Internal:
                 # FUNCTION DESTINED TO A SPECIFIC APP. CURRENT APP.
                 app_instance = kwargs['app']
                 if function_id == FunctionId.FUNCTION_SAVE_AND_DELETE_ORIGINAL:
-                    log.error(f"change locked file from {app_instance.get_original_filename()} to {app_instance.get_filename()}")
-                    self.__change_editor_name(app_instance, app_instance.get_filename(), app_instance.get_original_filename())
+                    log.error(
+                        f"change locked file from {app_instance.get_original_filename()} to {app_instance.get_filename()}")
+                    self.__change_editor_name(app_instance, app_instance.get_filename(),
+                                              app_instance.get_original_filename())
                     # pass function to concerned editor.
                     done = app_instance.input_function(*args, **kwargs)
                 elif function_id == FunctionId.FUNCTION_CHANGE_LOCKED_FILE:
@@ -654,12 +689,12 @@ class Internal:
             if function_id == FunctionId.APPLICATIONS:
                 self.set_current_app(None)
                 self._menu.ask_update_braille_display()
-            elif function_id==FunctionId.FUNCTION_RESTOR_AFTER_AGENDA:
+            elif function_id == FunctionId.FUNCTION_RESTOR_AFTER_AGENDA:
                 self.restore_editor()
                 self.__refresh_display_after_function()
-            elif function_id==FunctionId.FUNCTION_END_TIMER:
+            elif function_id == FunctionId.FUNCTION_END_TIMER:
                 self._exec_timer()
-            elif function_id==FunctionId.FUNCTION_OPEN_BLUETOOTH:
+            elif function_id == FunctionId.FUNCTION_OPEN_BLUETOOTH:
                 self._goto_bluetooth_device(**kwargs)
             elif function_id == FunctionId.SHUTDOWN:
                 self.__exec_shutdown()
@@ -884,8 +919,8 @@ class Internal:
         os.popen('/usr/sbin/shutdown -h now')
 
     def __settings_change(self, **kwargs):
-        if ((kwargs['section'] == 'system') and (kwargs['key'] == 'braille_type'))\
-                or ((kwargs['section'] == 'system') and (kwargs['key'] == 'shortcuts_visible'))\
+        if ((kwargs['section'] == 'system') and (kwargs['key'] == 'braille_type')) \
+                or ((kwargs['section'] == 'system') and (kwargs['key'] == 'shortcuts_visible')) \
                 or ((kwargs['section'] == 'system') and (kwargs['key'] == 'spaces_in_label')):
             # Reconstruct menu if braille switch to dot8, grade1 or grade2
             self.translate_ui()

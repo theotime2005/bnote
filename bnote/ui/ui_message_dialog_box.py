@@ -4,12 +4,11 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+# Set up the logger for this file
+from bnote.debug.colored_log import ColoredLogger, UI_LOG
 from .ui_button import UiButton
 from .ui_dialog_box import UiDialogBox
 from .ui_label import UiLabel
-
-# Set up the logger for this file
-from bnote.debug.colored_log import ColoredLogger, UI_LOG
 
 log = ColoredLogger(__name__)
 log.setLevel(UI_LOG)

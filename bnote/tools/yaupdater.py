@@ -19,7 +19,6 @@ import requests
 from bs4 import BeautifulSoup
 import pkg_resources
 
-
 from bnote.debug.colored_log import ColoredLogger, YAUPDATER_LOG
 from bnote.tools.settings import Settings
 
@@ -30,6 +29,7 @@ log.setLevel(YAUPDATER_LOG)
 UPDATE_FOLDER_URL = Settings().data['update']['search_update_to']
 INSTALL_FOLDER = Path("/home/pi/all_bnotes")
 
+
 def test_new_source(source) -> bool:
     """
     Return True if the link is a valid source.
@@ -37,13 +37,15 @@ def test_new_source(source) -> bool:
     :return: Boolean
     """
     response = requests.get(source)
-    if response.status_code==200 and "bnote" in source:
+    if response.status_code == 200 and "bnote" in source:
         return True
     return False
+
 
 def change_update_source():
     global UPDATE_FOLDER_URL
     UPDATE_FOLDER_URL = Settings().data['update']['search_update_to']
+
 
 # Objectifs :
 # - Installer une version de bnote à partir d'un tar.gz créé par poetry
@@ -80,7 +82,7 @@ class YAUpdater:
         self.start_thread(file)
 
     def start_thread(self, file):
-        thread = threading.Thread(target=self._install_thread, args=(file, ))
+        thread = threading.Thread(target=self._install_thread, args=(file,))
         thread.start()
 
     @staticmethod
@@ -140,7 +142,6 @@ class YAUpdater:
         except (IOError, OSError, PermissionError, FileNotFoundError) as e:
             log.error(f"open or write error on file : {e}")
 
-
     def extract_to_working_directory(self, archive_path, working_directory) -> bool:
         """
         Extract .whl file and __main__.py to working directory.
@@ -148,7 +149,8 @@ class YAUpdater:
         try:
             with zipfile.ZipFile(archive_path, 'r') as zip_file:
                 for file_name in zip_file.namelist():
-                    if (file_name.startswith('bnote-') and file_name.endswith(YAUpdater.__WHL_EXTENSION)) or file_name.endswith('.py'):
+                    if (file_name.startswith('bnote-') and file_name.endswith(
+                            YAUpdater.__WHL_EXTENSION)) or file_name.endswith('.py'):
                         write_filename = Path(Path(working_directory) / Path(file_name).name)
                         # Extract the file.
                         self.__extract_file(zip_file, file_name, write_filename)
@@ -341,7 +343,7 @@ class YAUpdater:
         # Wait execution.
         output, error = process.communicate()
         # Display output.
-        #print("Command output:", output.decode())
+        # print("Command output:", output.decode())
         if error:
             error_string = f"Erreur {command}:\n{error.decode()}"
             log.error(error_string)
@@ -412,14 +414,14 @@ class YAUpdaterFinder:
             releases = response.json()
             current_version = YAUpdater.get_version_from_running_project("pyproject.toml")
 
-            file_link =None
+            file_link = None
             for release in releases:
                 # Get the link only for the update
                 for asset in release['assets']:
-                    if asset['content_type']=="application/zip":
+                    if asset['content_type'] == "application/zip":
                         file_link = asset['browser_download_url']
                 if not file_link:
-                    self.version_to_install="failed"
+                    self.version_to_install = "failed"
                     return
                 file_version = release['tag_name']
                 if file_version.startswith('v'):
@@ -427,7 +429,8 @@ class YAUpdaterFinder:
                 if self.is_allowed_version(file_version):
                     files.append({'version': file_version, 'link': file_link})
                     if not self.is_first_str_version_greater_or_equal(current_version, file_version):
-                        if file_to_install is None or not self.is_first_str_version_greater_or_equal(version_to_install, file_version):
+                        if file_to_install is None or not self.is_first_str_version_greater_or_equal(version_to_install,
+                                                                                                     file_version):
                             version_to_install = file_version
                             file_to_install = file_link
         except requests.exceptions.RequestException as err:
@@ -472,7 +475,7 @@ class YAUpdaterFinder:
 
     @staticmethod
     def split_version1(raw_version_string) -> (int, int, int, str, int):
-#        pattern = r"^(?P<major>\d+)?\.?(?P<minor>\d+)?\.?(?P<fix>\d+)?-?(?P<stage_type>alpha|beta|rc)?\.?(?P<stage_value>\d+)?.*"
+        #        pattern = r"^(?P<major>\d+)?\.?(?P<minor>\d+)?\.?(?P<fix>\d+)?-?(?P<stage_type>alpha|beta|rc)?\.?(?P<stage_value>\d+)?.*"
         pattern = r"(?P<major>\d+)?\.?(?P<minor>\d+)?\.?(?P<fix>\d+)?-?(?P<stage_type>[a-zA-Z]*)?\.?(?P<stage_value>\d+)?.*"
         match = re.match(pattern, raw_version_string)
         major = minor = fix = stage_value = 0

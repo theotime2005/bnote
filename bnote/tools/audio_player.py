@@ -16,6 +16,8 @@ from bnote.tools.settings import Settings
 from bnote.apps.fman.file_manager import BNOTE_FOLDER
 
 WAVE_FILE_PATH = BNOTE_FOLDER / Path("tmp/midi.wav")
+
+
 # WAVE_FILE_PATH = Path("/var/log/tmp/midi.wav")
 
 
@@ -31,7 +33,8 @@ class AudioPlayer(metaclass=SingletonMeta):
         self.__playlist = None
         # Keep an instance of FluidSynth class to avoid lost time loading.
         # self.__fluidsynth = None
-# PLAYLIST API
+
+    # PLAYLIST API
     # def playlist_is_playing(self):
     #     with self.lock:
     #         return self.media_list_index != -1
@@ -227,5 +230,3 @@ class AudioPlayer(metaclass=SingletonMeta):
             return Settings().data['radio']['volume_headphone']
         else:
             return Settings().data['radio']['volume_hp']
-
-

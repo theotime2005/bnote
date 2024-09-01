@@ -5,12 +5,11 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 from bnote.apps.bnote_app import BnoteApp
+# Setup the logger for this file
+from bnote.debug.colored_log import ColoredLogger, UI_LOG
 from bnote.tools.keyboard import Keyboard
 from bnote.tools.settings import Settings
 from .ui_object import UiObject
-
-# Setup the logger for this file
-from bnote.debug.colored_log import ColoredLogger, UI_LOG
 
 log = ColoredLogger(__name__)
 log.setLevel(UI_LOG)
@@ -79,7 +78,8 @@ class UiListBox(UiObject):
         else:
             value = self.__value[self._current_index]
         value, braille_value, pos = BnoteApp.lou.convert_to_braille(self._braille_type, value)
-        text_separator, braille_separator, pos = BnoteApp.lou.convert_to_braille(self._braille_type, UiListBox.LISTBOX_SEPARATOR)
+        text_separator, braille_separator, pos = BnoteApp.lou.convert_to_braille(self._braille_type,
+                                                                                 UiListBox.LISTBOX_SEPARATOR)
         text_objects = text_separator.join([text_objects, value])
         if self._is_modified_value:
             self._presentation_offset = len(braille_separator) + len(braille_objects)
@@ -90,7 +90,8 @@ class UiListBox(UiObject):
             braille_value = braille_value.replace("\u2800", "\u2880")
         braille_objects = braille_separator.join([braille_objects, braille_value])
         braille_blinking = "\u2800".join([braille_blinking, "\u2800" * len(braille_value)])
-        id_array_objects = [*id_array_objects, *([self._ui_id] * len(braille_separator)), *([self._ui_id] * len(braille_value))]
+        id_array_objects = [*id_array_objects, *([self._ui_id] * len(braille_separator)),
+                            *([self._ui_id] * len(braille_value))]
         return text_objects, braille_objects, braille_blinking, id_array_objects
 
     # -------------------------------------

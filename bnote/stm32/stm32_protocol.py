@@ -9,7 +9,6 @@ from enum import Enum
 from bnote.tools import bt_util as bt_util
 from bnote.stm32 import stm32_keys
 
-
 # Setup the logger for this file
 from bnote.debug.colored_log import ColoredLogger, STM32_PROTOCOL_LOG
 from bnote.stm32.braille_device_characteristics import braille_device_characteristics
@@ -30,10 +29,9 @@ STM32_INTERACTIVE_KEY = object()
 STM32_SHUTDOWN_PI = object()
 STM32_USB_APP_NAME_CHANGED = object()
 
-
-STX = b'\x02'   # Start of Frame
-ETX = b'\x03'   # End of Frame
-ESC = b'\x1b'   # ESC is the escape char used to send STX, ETX, ESC when char is inside STX and ETX.
+STX = b'\x02'  # Start of Frame
+ETX = b'\x03'  # End of Frame
+ESC = b'\x1b'  # ESC is the escape char used to send STX, ETX, ESC when char is inside STX and ETX.
 
 FRAME_MAX_LENGTH = 256  # The maximum length of the frame (excluding all the escape char ESC in the Frame)
 STM32_MAX_BLUETOOTH_CHANNEL_NAME = 32  # The maximum length of the bluetooth adapter name send with KEY_BLUETOOTH_ACTIVATE_CHANNEL
@@ -51,7 +49,7 @@ class Stm32Frame(object):
                 self._key = args[0][0:1]
                 self._data = args[0][1:]
                 return
-        if not('key' in kwargs):
+        if not ('key' in kwargs):
             # No args and no key => Error ?
             raise ValueError("Cannot init Frame without key")
         self._key = kwargs['key']
@@ -85,7 +83,7 @@ class Stm32Frame(object):
         else:
             # Return an escaped buffer that represent the Frame to send.
             return bytearray(b''.join((STX, self._escape_message(bytes(b''.join((Stm32Frame.send_frame_number,
-                                                                             self._key, self._data)))), ETX)))
+                                                                                 self._key, self._data)))), ETX)))
 
     # Return message with usefull ESC byte
     def _escape_message(self, message):
@@ -166,7 +164,7 @@ class Stm32Protocol:
                 stm32_keys.KEY_DEVICE_SUB_TYPE: self._treat_device_sub_type,
                 stm32_keys.KEY_DEVICE_LENGTH: self._treat_device_length,
                 stm32_keys.KEY_SERIAL_NUMBER: self._treat_serial_number,
-                stm32_keys.KEY_OPTIONS : self._treat_options,
+                stm32_keys.KEY_OPTIONS: self._treat_options,
                 stm32_keys.KEY_DEVICE_LANGUAGE: self._treat_device_language,
                 stm32_keys.KEY_KEYBOARD_LANGUAGE: self._treat_device_keyboard_language,
                 stm32_keys.KEY_BRAILLE_KEYBOARD_B78: self._treat_device_keyboard_b78,
@@ -194,7 +192,6 @@ class Stm32Protocol:
                 log.warning("No function defined for {}".format(frame.key()))
         else:
             log.warning("bad param. It should be Stm32Frame but it was {}".format(frame))
-
 
     @staticmethod
     def _treat_firmware_version(data):
@@ -267,7 +264,7 @@ class Stm32Protocol:
 
     @staticmethod
     def _treat_standby(data):
-        #braille_device_characteristics.set_standby_raw_data(data)
+        # braille_device_characteristics.set_standby_raw_data(data)
         index_transport_start = data.index(stm32_keys.VALUE_STANDBY_TRANSPORT)
         index_shutdown_start = data.index(stm32_keys.VALUE_STANDBY_SHUTDOWN)
         if (index_transport_start == -1) or (index_shutdown_start == -1):
@@ -340,7 +337,6 @@ class Stm32Protocol:
 # -----------------------------------------------
 # Unitary test
 def main():
-
     frame1 = Stm32Frame(b''.join((stm32_keys.KEY_CHARACTERISTICS, STX, b'A', ETX, ESC)))
     frame1_cooked_message = frame1.cooked_frame_buffer()
     log.info("frame1 = {}".format(frame1_cooked_message))

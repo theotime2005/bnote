@@ -9,13 +9,15 @@
 # csv already in the pi's python package
 # Sources : https://stackoverflow.com/questions/20105118/convert-xlsx-to-csv-correctly-using-python
 
-import os
-import xlrd3
 import csv
-from .exception import BadSheet, SelectSheet
+import os
+
+import xlrd3
 
 # Setup the logger for this file
 from .colored_log import ColoredLogger, READ_XLSX_FILE_LOG
+from .exception import BadSheet, SelectSheet
+
 log = ColoredLogger(__name__, level=READ_XLSX_FILE_LOG)
 
 '''
@@ -52,7 +54,6 @@ class ReadXlsxFile:
         else:
             raise BadSheet(_("sheet {} type not found.").format(sheet_name))
 
-
         fp = None
         try:
             fp = open(csv_file_name, mode='r', encoding=encoding)
@@ -86,6 +87,7 @@ class ReadXlsxFile:
 
 def write_line(line):
     print(line)
+
 
 def main():
     print("--------------")

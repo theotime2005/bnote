@@ -5,27 +5,24 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-import datetime
-import time
-from os import path
 import threading
+from os import path
+from pathlib import Path
 
+import bnote.apps.edt.edt as editor
+import bnote.ui as ui
+from bnote.apps.bnote_app import BnoteApp, FunctionId
+from bnote.apps.fman.file_manager import BNOTE_MAIN_FOLDER
+# Setup the logger for this file
+from bnote.debug.colored_log import ColoredLogger, EDITOR_APP_LOG, logging
 from bnote.speech.speech import SpeechManager
 from bnote.stm32.braille_device_characteristics import braille_device_characteristics
 from bnote.tools.io_util import Gpio
+from bnote.tools.keyboard import Keyboard
+from bnote.tools.quick_search import QuickSearch
 from bnote.tools.settings import Settings
 from bnote.tools.volume import Volume
 from bnote.tools.volume_speed_dialog_box import VolumeDialogBox, SpeedDialogBox
-import bnote.ui as ui
-import bnote.apps.edt.edt as editor
-from bnote.tools.keyboard import Keyboard
-from bnote.tools.quick_search import QuickSearch
-from bnote.apps.fman.file_manager import FileManager, BNOTE_MAIN_FOLDER
-from bnote.apps.bnote_app import BnoteApp, FunctionId
-from pathlib import Path
-
-# Setup the logger for this file
-from bnote.debug.colored_log import ColoredLogger, EDITOR_APP_LOG, logging
 
 log = ColoredLogger(__name__)
 log.setLevel(EDITOR_APP_LOG)
@@ -79,7 +76,8 @@ class EditorBaseApp(BnoteApp):
         # incremental search.
         self.is_editing = True
         # last find and replace parameters
-        self._replace_parameters = editor.FindParameters(find_seq="", ignore_case=True, mask_accents=True, entire_word=False, replace_seq="")
+        self._replace_parameters = editor.FindParameters(find_seq="", ignore_case=True, mask_accents=True,
+                                                         entire_word=False, replace_seq="")
         # last error
         self.last_error = None
         # The QuickSearch instance.
@@ -96,7 +94,7 @@ class EditorBaseApp(BnoteApp):
             if not no_context and not self.read_context():
                 return
             # Just for test, Editor is always opened with an associated filename, at least an empty file.
-            lines = ["",]
+            lines = ["", ]
             self.editor = self._create_editor(lines)
         else:
             # Read the  file
@@ -116,15 +114,15 @@ class EditorBaseApp(BnoteApp):
             menu_item_list=[
                 *[
                     ui.UiMenuItem(name=_("&undo"), action=self._exec_undo,
-                               shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='Z'),
+                                  shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='Z'),
                     ui.UiMenuItem(name=_("&redo"), action=self._exec_redo,
-                               shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='Y'),
-                    ],
-                * self.create_sub_menu_selection(),
+                                  shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='Y'),
+                ],
+                *self.create_sub_menu_selection(),
                 *[
                     ui.UiMenuItem(name=_("curs&or"), action=self._exec_cursor),
                     ui.UiMenuItem(name=_("forward in grade2 braille"), action=self._toggle_grade2_from_menu),
-                    ],
+                ],
             ])
 
     def create_sub_menu_selection(self):
@@ -133,22 +131,22 @@ class EditorBaseApp(BnoteApp):
                 name=_("&selection"),
                 menu_item_list=[
                     ui.UiMenuItem(name=_("&start selection"), action=self._exec_start_selection,
-                               shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                               shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F8),
+                                  shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                                  shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F8),
                     ui.UiMenuItem(name=_("&end selection"), action=self._exec_end_selection, is_hide=True,
-                               shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                               shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_ESCAPE),
+                                  shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                                  shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_ESCAPE),
                     ui.UiMenuItem(name=_("to the s&tart of doc"), action=self._exec_select_beginning),
                     ui.UiMenuItem(name=_("to the e&nd of doc"), action=self._exec_select_ending),
                     ui.UiMenuItem(name=_("select &all"), action=self._exec_select_all,
-                               shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='A'),
+                                  shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='A'),
                 ]),
             ui.UiMenuItem(name=_("cu&t"), action=self._exec_cut,
-                       shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='X'),
+                          shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='X'),
             ui.UiMenuItem(name=_("&copy"), action=self._exec_copy,
-                       shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='C'),
+                          shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='C'),
             ui.UiMenuItem(name=_("&paste"), action=self._exec_paste,
-                       shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='V'),
+                          shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='V'),
         ]
 
     def create_sub_menu_find(self):
@@ -156,13 +154,13 @@ class EditorBaseApp(BnoteApp):
             name=_("fi&nd"),
             menu_item_list=[
                 ui.UiMenuItem(name=_("fi&nd"), action=self._exec_find,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='F'),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='F'),
                 ui.UiMenuItem(name=_("ne&xt"), action=self._exec_next,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F3),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                              shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F3),
                 ui.UiMenuItem(name=_("&previous"), action=self._exec_previous,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_SHIFT,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F3),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_SHIFT,
+                              shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F3),
             ])
 
     def create_sub_menu_find_replace(self):
@@ -170,24 +168,24 @@ class EditorBaseApp(BnoteApp):
             name=_("fi&nd"),
             menu_item_list=[
                 ui.UiMenuItem(name=_("fi&nd"), action=self._exec_find,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='F'),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='F'),
                 ui.UiMenuItem(name=_("&replace"), action=self._exec_replace,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='H'),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='H'),
                 ui.UiMenuItem(name=_("ne&xt"), action=self._exec_next,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F3),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                              shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F3),
                 ui.UiMenuItem(name=_("replace and n&ext"), action=self._exec_replace_and_next,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F4),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                              shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F4),
                 ui.UiMenuItem(name=_("&previous"), action=self._exec_previous,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_SHIFT,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F3),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_SHIFT,
+                              shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F3),
                 ui.UiMenuItem(name=_("replace and pre&vious"), action=self._exec_replace_and_previous,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_SHIFT,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F4),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_SHIFT,
+                              shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F4),
                 ui.UiMenuItem(name=_("replace &all"), action=self._exec_replace_all,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F5),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                              shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F5),
             ])
 
     def create_sub_menu_goto(self):
@@ -198,24 +196,24 @@ class EditorBaseApp(BnoteApp):
                 ui.UiMenuItem(name=_("&end of document"), action=self._exec_end_document),
                 ui.UiMenuItem(name=_("&previous paragraphe"), action=self._exec_preview_paragraphe),
                 ui.UiMenuItem(name=_("&next paragraphe"), action=self._exec_next_paragraphe),
-                ])
+            ])
 
     def create_sub_menu_bookmark(self):
         return ui.UiMenuBar(
             name=_("&bookmark"),
             menu_item_list=[
                 ui.UiMenuItem(name=_("&insert/delete"), action=self._exec_marker_insert_delete,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F2),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                              shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F2),
                 ui.UiMenuItem(name=_("ne&xt"), action=self._exec_marker_next,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F2),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                              shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F2),
                 ui.UiMenuItem(name=_("&previous"), action=self._exec_marker_previous,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_SHIFT,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F2),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_SHIFT,
+                              shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F2),
                 ui.UiMenuItem(name=_("clear &all"), action=self._exec_marker_clear_all,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL + Keyboard.BrailleModifier.BRAILLE_FLAG_SHIFT,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F2),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL + Keyboard.BrailleModifier.BRAILLE_FLAG_SHIFT,
+                              shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F2),
             ])
 
     def create_sub_menu_vocalize(self):
@@ -223,9 +221,9 @@ class EditorBaseApp(BnoteApp):
             name=_("&vocalize"),
             menu_item_list=[
                 ui.UiMenuItem(name=_("&document"), action=self._exec_read_document,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='D'),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='D'),
                 ui.UiMenuItem(name=_("&paragraph"), action=self._exec_read_paragraph,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='R'),
+                              shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='R'),
                 ui.UiMenuItem(name=_("&volume"), action=self._exec_volume),
                 ui.UiMenuItem(name=_("&speed"), action=self._exec_speed),
             ])
@@ -361,7 +359,8 @@ class EditorBaseApp(BnoteApp):
                     # Save context file name
                     editor.Context.write_context_file(context_file, True, focused, self._file_name, doc_file)
                     # Save the file
-                    write_file = self.write_data_file(BnoteApp.lou, doc_file, self._get_line, self._end_context_save, doc_file)
+                    write_file = self.write_data_file(BnoteApp.lou, doc_file, self._get_line, self._end_context_save,
+                                                      doc_file)
                     write_file.start()
                     # Wait saving and close dialog box (SEE _end_context_save(self))
         else:
@@ -501,7 +500,8 @@ class EditorBaseApp(BnoteApp):
             if EDITOR_APP_LOG <= logging.ERROR:
                 log.error(f"locked file {self._original_file_name=}-{self._file_name=}")
             self._put_in_function_queue(FunctionId.FUNCTION_CHANGE_LOCKED_FILE,
-                                        **{'app': self, 'old_file': self._original_file_name, 'new_file': self._original_file_name})
+                                        **{'app': self, 'old_file': self._original_file_name,
+                                           'new_file': self._original_file_name})
         else:
             self.read_ended_error(error)
 
@@ -525,7 +525,8 @@ class EditorBaseApp(BnoteApp):
             if EDITOR_APP_LOG <= logging.ERROR:
                 log.error(f"locked file {self._original_file_name=}-{self._file_name=}")
             self._put_in_function_queue(FunctionId.FUNCTION_CHANGE_LOCKED_FILE,
-                                        **{'app': self, 'old_file': self._original_file_name, 'new_file': self._original_file_name})
+                                        **{'app': self, 'old_file': self._original_file_name,
+                                           'new_file': self._original_file_name})
 
         else:
             self.read_ended_error(error)
@@ -706,7 +707,8 @@ class EditorBaseApp(BnoteApp):
                 # Display save in progress...
                 self._current_dialog = ui.UiInfoDialogBox(message=_("saving..."))
                 if self.editor.is_modified() or not path.exists(self._file_name):
-                    write_file = self.write_data_file(BnoteApp.lou, self._file_name, self._get_line, self._end_save, function)
+                    write_file = self.write_data_file(BnoteApp.lou, self._file_name, self._get_line, self._end_save,
+                                                      function)
                     write_file.start()
                     # Wait saving and close dialog box
                     # SEE _end_save()
@@ -744,17 +746,17 @@ class EditorBaseApp(BnoteApp):
             name=_("statistics"),
             item_list=[
                 ui.UiEditBox(name=_("filename"),
-                          value=("", BnoteApp.braille_form(self.get_display_filename()))
-                          ),
+                             value=("", BnoteApp.braille_form(self.get_display_filename()))
+                             ),
                 ui.UiEditBox(name=_("paragraphs"),
-                          value=("", BnoteApp.braille_form(str(paragraphs_count)))
-                          ),
+                             value=("", BnoteApp.braille_form(str(paragraphs_count)))
+                             ),
                 ui.UiEditBox(name=_("words"),
-                          value=("", BnoteApp.braille_form(str(words_count)))
-                          ),
+                             value=("", BnoteApp.braille_form(str(words_count)))
+                             ),
                 ui.UiEditBox(name=_("characters"),
-                          value=("", BnoteApp.braille_form(str(characters_count)))
-                          ),
+                             value=("", BnoteApp.braille_form(str(characters_count)))
+                             ),
                 ui.UiButton(name=_("&ok"), action=self._exec_cancel_dialog),
             ],
             action_cancelable=self._exec_cancel_dialog,
@@ -795,11 +797,11 @@ class EditorBaseApp(BnoteApp):
             name=_("cursor"),
             item_list=[
                 ui.UiEditBox(name=_("line"),
-                          value=("line", self._transform_text_to_braille(f"{self.editor.caret().end.y + 1}"))
-                          ),
+                             value=("line", self._transform_text_to_braille(f"{self.editor.caret().end.y + 1}"))
+                             ),
                 ui.UiEditBox(name=_("column"),
-                          value=("column", self._transform_text_to_braille(f"{self.editor.caret().end.x + 1}"))
-                          ),
+                             value=("column", self._transform_text_to_braille(f"{self.editor.caret().end.x + 1}"))
+                             ),
                 ui.UiButton(name=_("&ok"), action=self._exec_valid_cursor_dialog),
                 ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog)
             ],
@@ -807,32 +809,32 @@ class EditorBaseApp(BnoteApp):
         )
 
     def _exec_beginning_document(self):
-        self.editor.function(editor.Editor.Functions.MOVE_HOME, **{'shift':False, 'ctrl':True})
+        self.editor.function(editor.Editor.Functions.MOVE_HOME, **{'shift': False, 'ctrl': True})
         # Refresh braille display (useful after caret move)
         self._refresh_braille_display(self._braille_display.get_start_pos())
 
     def _exec_end_document(self):
-        self.editor.function(editor.Editor.Functions.MOVE_END, **{'shift':False, 'ctrl':True})
+        self.editor.function(editor.Editor.Functions.MOVE_END, **{'shift': False, 'ctrl': True})
         # Refresh braille display (useful after caret move)
         self._refresh_braille_display(self._braille_display.get_start_pos())
 
     def _exec_preview_paragraphe(self):
-        self.editor.function(editor.Editor.Functions.MOVE_UP, **{'shift':False, 'ctrl':True})
+        self.editor.function(editor.Editor.Functions.MOVE_UP, **{'shift': False, 'ctrl': True})
         # Refresh braille display (useful after caret move)
         self._refresh_braille_display(self._braille_display.get_start_pos())
 
     def _exec_next_paragraphe(self):
-        self.editor.function(editor.Editor.Functions.MOVE_DOWN, **{'shift':False, 'ctrl':True})
+        self.editor.function(editor.Editor.Functions.MOVE_DOWN, **{'shift': False, 'ctrl': True})
         # Refresh braille display (useful after caret move)
         self._refresh_braille_display(self._braille_display.get_start_pos())
 
     def _exec_select_beginning(self):
-        self.editor.function(editor.Editor.Functions.MOVE_HOME, **{'shift':True, 'ctrl':True})
+        self.editor.function(editor.Editor.Functions.MOVE_HOME, **{'shift': True, 'ctrl': True})
         # Refresh braille display (useful after caret move)
         self._refresh_braille_display(self._braille_display.get_start_pos())
 
     def _exec_select_ending(self):
-        self.editor.function(editor.Editor.Functions.MOVE_END, **{'shift':True, 'ctrl':True})
+        self.editor.function(editor.Editor.Functions.MOVE_END, **{'shift': True, 'ctrl': True})
         # Refresh braille display (useful after caret move)
         self._refresh_braille_display(self._braille_display.get_start_pos())
 
@@ -842,7 +844,8 @@ class EditorBaseApp(BnoteApp):
         """
         if self.__is_reading_file():
             # The file is not completely read.
-            self._current_dialog=ui.UiInfoDialogBox(message=_("the file is not completely read"), action=self._exec_cancel_dialog)
+            self._current_dialog = ui.UiInfoDialogBox(message=_("the file is not completely read"),
+                                                      action=self._exec_cancel_dialog)
             return True
         else:
             return False
@@ -854,8 +857,8 @@ class EditorBaseApp(BnoteApp):
                 name=_("find"),
                 item_list=[
                     ui.UiEditBox(name=_("find"),
-                              value=("find", self._replace_parameters.edit_seq)
-                              ),
+                                 value=("find", self._replace_parameters.edit_seq)
+                                 ),
                     ui.UiButton(name=_("&next"), action=self._exec_valid_next_find_dialog),
                     ui.UiButton(name=_("&previous"), action=self._exec_valid_previous_find_dialog),
                     ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
@@ -879,11 +882,11 @@ class EditorBaseApp(BnoteApp):
                 name=_("replace"),
                 item_list=[
                     ui.UiEditBox(name=_("find"),
-                              value=("find", self._replace_parameters.edit_seq)
-                              ),
+                                 value=("find", self._replace_parameters.edit_seq)
+                                 ),
                     ui.UiEditBox(name=_("replace"),
-                              value=("replace", self._replace_parameters.replace_seq)
-                              ),
+                                 value=("replace", self._replace_parameters.replace_seq)
+                                 ),
                     ui.UiButton(name=_("&next"), action=self._exec_valid_next_find_dialog),
                     ui.UiButton(name=_("replace and n&ext"), action=self._exec_valid_next_replace_dialog),
                     ui.UiButton(name=_("&previous"), action=self._exec_valid_previous_find_dialog),
@@ -1219,9 +1222,9 @@ class EditorBaseApp(BnoteApp):
             if function == FunctionId.FUNCTION_DELETE_ORIGINAL:
                 # add filename as argument
                 self._put_in_function_queue(function, **{'filename': self._original_file_name})
-            elif function == FunctionId.FUNCTION_CLOSE_DIALOG_BOX or\
+            elif function == FunctionId.FUNCTION_CLOSE_DIALOG_BOX or \
                     function == FunctionId.FUNCTION_CLOSE_EDITOR:
-                self._put_in_function_queue(function, ** {'app': self})
+                self._put_in_function_queue(function, **{'app': self})
             else:
                 self._put_in_function_queue(function)
         else:
@@ -1239,7 +1242,8 @@ class EditorBaseApp(BnoteApp):
             # Display save in progress...
             self._current_dialog = ui.UiInfoDialogBox(message=_("saving..."))
             if self.editor.is_modified() or not path.exists(self._file_name):
-                write_file = self.write_data_file(BnoteApp.lou, self._file_name, self._get_line, self._end_save, function)
+                write_file = self.write_data_file(BnoteApp.lou, self._file_name, self._get_line, self._end_save,
+                                                  function)
                 write_file.start()
                 # Wait saving and close dialog box
                 # SEE _end_save(self)
@@ -1654,7 +1658,8 @@ class EditorBaseApp(BnoteApp):
                                                                                                         braille_offset)
                 if text_grade2:
                     if EDITOR_APP_LOG <= logging.INFO:
-                        log.info("grade2:{}, {}, {}, {}".format(text_grade2, index1_origin, self.grade2_index_text, pos))
+                        log.info(
+                            "grade2:{}, {}, {}, {}".format(text_grade2, index1_origin, self.grade2_index_text, pos))
                     braille = BnoteApp.lou.to_dots_6(text_grade2)
             if text_grade2 and braille:
                 if EDITOR_APP_LOG <= logging.INFO:
@@ -1670,10 +1675,12 @@ class EditorBaseApp(BnoteApp):
         if text_to_find and (text_to_find != ""):
             if EDITOR_APP_LOG <= logging.INFO:
                 log.info(f"Quick search with <{text_to_find}>")
-            self._replace_parameters = editor.FindParameters(text_to_find, ignore_case=True, mask_accents=True, entire_word=False)
+            self._replace_parameters = editor.FindParameters(text_to_find, ignore_case=True, mask_accents=True,
+                                                             entire_word=False)
             res = True
             with self.lock:
-                res = self.editor.function(editor.Editor.Functions.FIND, **{'shift': False, 'replace_parameters': self._replace_parameters})
+                res = self.editor.function(editor.Editor.Functions.FIND,
+                                           **{'shift': False, 'replace_parameters': self._replace_parameters})
             if res:
                 # In case of research successfully, editor has a new selection of text.
                 # Refresh braille display

@@ -5,11 +5,11 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 from enum import Enum
 
 # Setup the logger for this file
 from bnote.debug.colored_log import ColoredLogger, KEYBOARD_LOG
+
 log = ColoredLogger(__name__)
 log.setLevel(KEYBOARD_LOG)
 
@@ -53,8 +53,8 @@ class Keyboard:
         KEY_TOGGLE_GRADE2 = object()
 
         # Paragraphes commands
-        KEY_PREVIOUS_PARAGRAPHE=object()
-        KEY_NEXT_PARAGRAPHE=object()
+        KEY_PREVIOUS_PARAGRAPHE = object()
+        KEY_NEXT_PARAGRAPHE = object()
 
     class BrailleType(Enum):
         UNKNOWN = object()
@@ -292,7 +292,6 @@ class Keyboard:
         0x0288: BrailleFunction.BRAMIGRAPH_MENU_RELEASED,  # 48A
     }
 
-
     # decode braille comb from spi protocol in a modifier and a value
     def decode_braille(self, lou, data, is_grade_1_or_2=False) -> (int, int, int):
         # use int for modifier allows logical operations.
@@ -302,7 +301,8 @@ class Keyboard:
         if modifier & Keyboard.BrailleModifier.BRAILLE_FLAG_BRAMIGRAPH:
             # BRAMIGRAPH conversion
             # modifier BRAILLE_FLAG_BRAMIGRAPH is removed from modifiers list.
-            braille_function = Keyboard.braille_functions_switcher.get(int.from_bytes(data[4:6], 'big'), Keyboard.BrailleFunction.BRAMIGRAPH_NONE)
+            braille_function = Keyboard.braille_functions_switcher.get(int.from_bytes(data[4:6], 'big'),
+                                                                       Keyboard.BrailleFunction.BRAMIGRAPH_NONE)
             if braille_function == Keyboard.BrailleFunction.BRAMIGRAPH_CAPSLOCKON:
                 self.caps_lock = True
             elif braille_function == Keyboard.BrailleFunction.BRAMIGRAPH_CAPSLOCKOFF:
@@ -321,13 +321,13 @@ class Keyboard:
                     ch = ch.upper()
             else:
                 ch = 0
-            #older version character is data[5]
-            #ch = data[5]
+            # older version character is data[5]
+            # ch = data[5]
             # Convert braille comb. to char.
             log.info("Character:{}".format(ch))
 
             return Keyboard.BrailleType.CHARACTER, modifier, ch
-        #return Keyboard.BrailleType.UNKNOWN, 0, 0
+        # return Keyboard.BrailleType.UNKNOWN, 0, 0
 
     # Used by decode_command.
     command_switcher = {
@@ -339,19 +339,19 @@ class Keyboard:
         0x0020: KeyId.KEY_MENU,
         0x0100: KeyId.KEY_FORWARD,
         0x0200: KeyId.KEY_BACKWARD,
-        0x0009: KeyId.KEY_START_DOC,    # right bloc, key up + right bloc, key left
-        0x0005: KeyId.KEY_END_DOC,      # right bloc, key up + right bloc, key right
-        0x000A: KeyId.KEY_SPEECH_VOLUME_DOWN,   # right bloc, key down + right bloc, key left
-        0x0006: KeyId.KEY_SPEECH_VOLUME_UP,     # right bloc, key down + right bloc, key right
-        0x00c0: KeyId.KEY_SPEECH_SPEED_DOWN,    # left bloc, key left + left bloc, key right
-        0x000c: KeyId.KEY_SPEECH_SPEED_UP,      # right bloc, key left + right bloc, key right
-        0x00a0: KeyId.KEY_MEDIA_VOLUME_DOWN,     # left bloc, key down + Left bloc, key left
-        0x0060: KeyId.KEY_MEDIA_VOLUME_UP,       # left bloc, key down + Left bloc, key right
-        0x0090: KeyId.KEY_MEDIA_MUTE,       # left bloc, key up + left bloc, key left
-        0x0050: KeyId.KEY_TOGGLE_GRADE2, # left bloc, key up + left bloc, key right
+        0x0009: KeyId.KEY_START_DOC,  # right bloc, key up + right bloc, key left
+        0x0005: KeyId.KEY_END_DOC,  # right bloc, key up + right bloc, key right
+        0x000A: KeyId.KEY_SPEECH_VOLUME_DOWN,  # right bloc, key down + right bloc, key left
+        0x0006: KeyId.KEY_SPEECH_VOLUME_UP,  # right bloc, key down + right bloc, key right
+        0x00c0: KeyId.KEY_SPEECH_SPEED_DOWN,  # left bloc, key left + left bloc, key right
+        0x000c: KeyId.KEY_SPEECH_SPEED_UP,  # right bloc, key left + right bloc, key right
+        0x00a0: KeyId.KEY_MEDIA_VOLUME_DOWN,  # left bloc, key down + Left bloc, key left
+        0x0060: KeyId.KEY_MEDIA_VOLUME_UP,  # left bloc, key down + Left bloc, key right
+        0x0090: KeyId.KEY_MEDIA_MUTE,  # left bloc, key up + left bloc, key left
+        0x0050: KeyId.KEY_TOGGLE_GRADE2,  # left bloc, key up + left bloc, key right
         0x0030: KeyId.KEY_AUTOSCROLL,  # left bloc, key up + left bloc, key down
-        0x0011: KeyId.KEY_PREVIOUS_PARAGRAPHE, # left bloc, key down + right bloc, key up
-        0x0012: KeyId.KEY_NEXT_PARAGRAPHE, # left bloc, key down + right bloc, key down
+        0x0011: KeyId.KEY_PREVIOUS_PARAGRAPHE,  # left bloc, key down + right bloc, key up
+        0x0012: KeyId.KEY_NEXT_PARAGRAPHE,  # left bloc, key down + right bloc, key down
         # right bloc, key up + right bloc, key down => not used, too difficult to type
         # left bloc, key up + left bloc, key down => not used, too difficult to type
     }
@@ -359,12 +359,12 @@ class Keyboard:
     # return : (modifiers, keysId)
     @staticmethod
     def decode_command(data) -> (int, int):
-        #log.error("data1={}".format(int.from_bytes(data[0:1], 'big')))
-        #log.error("data2={}".format(int.from_bytes(data[1:2], 'big')))
-        #log.error("data3={}".format(int.from_bytes(data[2:3], 'big')))
+        # log.error("data1={}".format(int.from_bytes(data[0:1], 'big')))
+        # log.error("data2={}".format(int.from_bytes(data[1:2], 'big')))
+        # log.error("data3={}".format(int.from_bytes(data[2:3], 'big')))
         log.debug("Command key data={}".format(data))
-        return int.from_bytes(data[0:1], 'big'),\
-               Keyboard.command_switcher.get(int.from_bytes(data[1:3], 'big'), Keyboard.KeyId.KEY_NONE)
+        return int.from_bytes(data[0:1], 'big'), \
+            Keyboard.command_switcher.get(int.from_bytes(data[1:3], 'big'), Keyboard.KeyId.KEY_NONE)
 
     @staticmethod
     def decode_modifiers(modifiers):

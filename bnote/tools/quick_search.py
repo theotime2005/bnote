@@ -5,11 +5,11 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 import time
 
 # Setup the logger for this file
 from bnote.debug.colored_log import ColoredLogger, QUICK_SEARCH_LOG
+
 log = ColoredLogger(__name__)
 log.setLevel(QUICK_SEARCH_LOG)
 
@@ -71,4 +71,3 @@ class QuickSearch:
 
     def do_quick_search_again(self) -> (bool, object()):
         return self.do_quick_search(character="", clear_quick_search_if_timeout=False)
-

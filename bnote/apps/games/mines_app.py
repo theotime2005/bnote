@@ -24,6 +24,7 @@ class MinesApp(BnoteApp):
     """
     Skeleton application.
     """
+
     def __init__(self, put_in_function_queue):
         """
         Class construtor
@@ -215,7 +216,7 @@ class MinesApp(BnoteApp):
                 Keyboard.KeyId.KEY_CARET_DOWN: self.__next_line,
                 Keyboard.KeyId.KEY_CARET_RIGHT: self.__next_column,
                 Keyboard.KeyId.KEY_CARET_LEFT: self.__previous_column,
-                Keyboard.KeyId.KEY_START_DOC:  self.__first_pos,
+                Keyboard.KeyId.KEY_START_DOC: self.__first_pos,
                 Keyboard.KeyId.KEY_END_DOC: self.__last_pos,
             }
             function = command_switcher.get(key_id, None)
@@ -270,9 +271,9 @@ class MinesApp(BnoteApp):
         done = super(MinesApp, self).input_bramigraph(modifier, bramigraph)
         if not done:
             # braille function treatment for document.
-            function=bramigraph_switcher.get(bramigraph, None)
+            function = bramigraph_switcher.get(bramigraph, None)
             if function:
-                done=function()
+                done = function()
                 # Refresh
                 self.set_data_line()
         return done
@@ -383,7 +384,7 @@ class MinesApp(BnoteApp):
             if res == -1:
                 # Aie ! A mine is discovered.
                 self._current_dialog = ui.UiInfoDialogBox(message=_("boum !"),
-                                                       action=self._exec_cancel_dialog)
+                                                          action=self._exec_cancel_dialog)
                 self.__lost_game()
             elif self._mines.is_all_discovered():
                 # All game discovered except mines.
@@ -409,12 +410,12 @@ class MinesApp(BnoteApp):
             action_cancelable=self._exec_cancel_dialog,
         )
 
-    def __mark_bomb(self) ->bool:
+    def __mark_bomb(self) -> bool:
         res = self._mines.bomb_at_pos(self._current_line, self._current_column)
         if res == -1:
             # Aie ! A mine is discovered.
             self._current_dialog = ui.UiInfoDialogBox(message=_("no bomb here !"),
-                                                   action=self._exec_cancel_dialog)
+                                                      action=self._exec_cancel_dialog)
             self.__lost_game()
         return True
 
@@ -438,9 +439,5 @@ class MinesApp(BnoteApp):
             "\u2800" * (3 + self._current_column),
             "\u28C0",
             "\u2800" * (len(braille_static) - (4 + self._current_column)),
-            ])
+        ])
         self._braille_display.set_data_line(line, braille_static, braille_blinking, 0)
-
-
-
-

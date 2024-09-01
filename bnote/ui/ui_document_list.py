@@ -4,12 +4,11 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+# Set up the logger for this file
+from bnote.debug.colored_log import ColoredLogger, UI_LOG
 from bnote.tools.settings import Settings
 from .ui_container import UiContainer
 from .ui_object import UiObject
-
-# Set up the logger for this file
-from bnote.debug.colored_log import ColoredLogger, UI_LOG
 
 log = ColoredLogger(__name__)
 log.setLevel(UI_LOG)
@@ -42,6 +41,7 @@ class UiListObject(UiObject):
     """
     Object child of one file of file manager line
     """
+
     def __init__(self, name, action):
         kwargs = {
             'braille_type': Settings().data["system"]['braille_type'],
@@ -50,4 +50,3 @@ class UiListObject(UiObject):
             'no_grade': True,
         }
         super().__init__(**kwargs)
-
