@@ -1,0 +1,5753 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-31 15:53+0200\n"
+"PO-Revision-Date: 2023-11-20 09:36+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: el_GR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Generated-By: pygettext.py 1.5\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: bnote_start.py\n"
+"X-Poedit-SearchPath-1: ui\n"
+"X-Poedit-SearchPath-2: tools\n"
+"X-Poedit-SearchPath-3: stm32\n"
+"X-Poedit-SearchPath-4: bt\n"
+"X-Poedit-SearchPath-5: braille\n"
+"X-Poedit-SearchPath-6: apps\n"
+
+#: ../ui/ui_list_box.py:78
+msgid "empty list"
+msgstr "κενή λίστα"
+
+#: ../ui/ui_message_dialog_box.py:53 ../ui/ui_message_dialog_box.py:63
+#: ../apps/music/music_app.py:1190 ../apps/settings/settings_app.py:1408
+#: ../apps/settings/settings_app.py:2668 ../apps/skeleton/skeleton_app.py:128
+#: ../apps/timer/timer_app.py:202 ../apps/braille_learning/operation_app.py:146
+#: ../apps/braille_learning/operation_app.py:196
+#: ../apps/braille_learning/write_word_app.py:245
+#: ../apps/agenda/agenda_app.py:589 ../apps/agenda/agenda_app.py:679
+#: ../apps/agenda/agenda_app.py:705 ../apps/agenda/agenda_app.py:731
+#: ../apps/agenda/agenda_app.py:838 ../apps/agenda/agenda_app.py:844
+#: ../apps/agenda/agenda_app.py:904 ../apps/fman/file_manager_app.py:2131
+#: ../apps/games/mines_app.py:138 ../apps/games/master_mind_app.py:139
+#: ../apps/media/mp3_app.py:621 ../apps/media/mp3_app.py:699
+#: ../apps/media/radio_app.py:167 ../apps/media/radio_app.py:371
+msgid "information"
+msgstr "πληροφορίες"
+
+#: ../ui/ui_message_dialog_box.py:56 ../ui/ui_settings_dialog_box.py:40
+#: ../tools/volume_speed_dialog_box.py:22
+#: ../tools/volume_speed_dialog_box.py:108 ../apps/music/music_app.py:156
+#: ../apps/music/music_app.py:1086 ../apps/music/music_app.py:1100
+#: ../apps/music/music_app.py:1116 ../apps/music/music_app.py:1135
+#: ../apps/music/music_app.py:1183 ../apps/music/music_app.py:1204
+#: ../apps/settings/settings_app.py:1343 ../apps/settings/settings_app.py:1411
+#: ../apps/settings/settings_app.py:1474 ../apps/settings/settings_app.py:1495
+#: ../apps/settings/settings_app.py:1546 ../apps/settings/settings_app.py:1657
+#: ../apps/settings/settings_app.py:1728 ../apps/settings/settings_app.py:1795
+#: ../apps/settings/settings_app.py:2602 ../apps/settings/settings_app.py:2671
+#: ../apps/edt/editor_app.py:194 ../apps/edt/editor_app.py:211
+#: ../apps/edt/editor_base_app.py:758 ../apps/edt/editor_base_app.py:803
+#: ../apps/edt/editor_base_app.py:1265 ../apps/wikipedia/wikipedia_app.py:197
+#: ../apps/daisy/daisy_app.py:278 ../apps/daisy/daisy_app.py:435
+#: ../apps/skeleton/skeleton_app.py:105 ../apps/skeleton/skeleton_app.py:116
+#: ../apps/skeleton/skeleton_app.py:131 ../apps/timer/timer_app.py:167
+#: ../apps/timer/timer_app.py:205 ../apps/translator/translator_app.py:137
+#: ../apps/translator/translator_app.py:158
+#: ../apps/translator/translator_app.py:192
+#: ../apps/braille_learning/operation_app.py:149
+#: ../apps/braille_learning/operation_app.py:165
+#: ../apps/braille_learning/operation_app.py:199
+#: ../apps/braille_learning/operation_app.py:227
+#: ../apps/braille_learning/write_word_app.py:209
+#: ../apps/braille_learning/write_word_app.py:248
+#: ../apps/agenda/agenda_app.py:388 ../apps/agenda/agenda_app.py:439
+#: ../apps/agenda/agenda_app.py:650 ../apps/agenda/agenda_app.py:670
+#: ../apps/agenda/agenda_app.py:682 ../apps/agenda/agenda_app.py:708
+#: ../apps/agenda/agenda_app.py:722 ../apps/agenda/agenda_app.py:734
+#: ../apps/agenda/agenda_app.py:771 ../apps/agenda/agenda_app.py:832
+#: ../apps/agenda/agenda_app.py:851 ../apps/agenda/agenda_app.py:877
+#: ../apps/fman/file_manager_app.py:621 ../apps/fman/file_manager_app.py:649
+#: ../apps/fman/file_manager_app.py:683 ../apps/fman/file_manager_app.py:705
+#: ../apps/fman/file_manager_app.py:796 ../apps/fman/file_manager_app.py:996
+#: ../apps/fman/file_manager_app.py:1129 ../apps/fman/file_manager_app.py:1143
+#: ../apps/fman/file_manager_app.py:1317 ../apps/fman/file_manager_app.py:1335
+#: ../apps/fman/file_manager_app.py:1503 ../apps/fman/file_manager_app.py:2168
+#: ../apps/games/mines_app.py:141 ../apps/games/mines_app.py:162
+#: ../apps/games/mines_app.py:185 ../apps/games/mines_app.py:406
+#: ../apps/games/master_mind_app.py:142 ../apps/games/master_mind_app.py:167
+#: ../apps/games/master_mind_app.py:205 ../apps/games/master_mind_app.py:217
+#: ../apps/games/master_mind_app.py:378 ../apps/media/mp3_app.py:246
+#: ../apps/media/mp3_app.py:484 ../apps/media/mp3_app.py:624
+#: ../apps/media/mp3_app.py:702 ../apps/media/mp3_app.py:809
+#: ../apps/media/radio_app.py:374
+msgid "&ok"
+msgstr "&οκ"
+
+#: ../ui/ui_settings_dialog_box.py:41 ../tools/volume_speed_dialog_box.py:23
+#: ../tools/volume_speed_dialog_box.py:109 ../apps/music/music_app.py:157
+#: ../apps/music/music_app.py:403 ../apps/music/music_app.py:430
+#: ../apps/music/music_app.py:457 ../apps/music/music_app.py:484
+#: ../apps/music/music_app.py:511 ../apps/music/music_app.py:538
+#: ../apps/music/music_app.py:575 ../apps/music/music_app.py:602
+#: ../apps/music/music_app.py:630 ../apps/music/music_app.py:656
+#: ../apps/music/music_app.py:682 ../apps/music/music_app.py:704
+#: ../apps/music/music_app.py:751 ../apps/music/music_app.py:781
+#: ../apps/music/music_app.py:906 ../apps/music/music_app.py:942
+#: ../apps/music/music_app.py:968 ../apps/music/music_app.py:1042
+#: ../apps/music/music_app.py:1068 ../apps/music/music_app.py:1150
+#: ../apps/music/music_app.py:1218 ../apps/settings/settings_app.py:1475
+#: ../apps/settings/settings_app.py:1496 ../apps/settings/settings_app.py:1547
+#: ../apps/settings/settings_app.py:1620 ../apps/settings/settings_app.py:1658
+#: ../apps/settings/settings_app.py:1729 ../apps/settings/settings_app.py:1796
+#: ../apps/settings/settings_app.py:2059 ../apps/settings/settings_app.py:2112
+#: ../apps/settings/settings_app.py:2604 ../apps/settings/settings_app.py:2639
+#: ../apps/settings/settings_app.py:2688 ../apps/settings/settings_app.py:2726
+#: ../apps/edt/editor_app.py:151 ../apps/edt/editor_app.py:195
+#: ../apps/edt/editor_app.py:213 ../apps/edt/editor_base_app.py:694
+#: ../apps/edt/editor_base_app.py:804 ../apps/edt/editor_base_app.py:861
+#: ../apps/edt/editor_base_app.py:892 ../apps/edt/editor_base_app.py:1266
+#: ../apps/wikipedia/wikipedia_app.py:198 ../apps/daisy/daisy_app.py:279
+#: ../apps/skeleton/skeleton_app.py:106 ../apps/skeleton/skeleton_app.py:117
+#: ../apps/timer/timer_app.py:124 ../apps/timer/timer_app.py:169
+#: ../apps/timer/timer_app.py:194 ../apps/translator/translator_app.py:138
+#: ../apps/translator/translator_app.py:159
+#: ../apps/translator/translator_app.py:193
+#: ../apps/braille_learning/operation_app.py:166
+#: ../apps/braille_learning/write_word_app.py:210
+#: ../apps/agenda/agenda_app.py:389 ../apps/agenda/agenda_app.py:440
+#: ../apps/agenda/agenda_app.py:495 ../apps/agenda/agenda_app.py:508
+#: ../apps/agenda/agenda_app.py:552 ../apps/agenda/agenda_app.py:578
+#: ../apps/agenda/agenda_app.py:596 ../apps/agenda/agenda_app.py:609
+#: ../apps/agenda/agenda_app.py:672 ../apps/agenda/agenda_app.py:684
+#: ../apps/agenda/agenda_app.py:724 ../apps/agenda/agenda_app.py:736
+#: ../apps/agenda/agenda_app.py:773 ../apps/agenda/agenda_app.py:879
+#: ../apps/fman/file_manager_app.py:622 ../apps/fman/file_manager_app.py:650
+#: ../apps/fman/file_manager_app.py:684 ../apps/fman/file_manager_app.py:706
+#: ../apps/fman/file_manager_app.py:797 ../apps/fman/file_manager_app.py:836
+#: ../apps/fman/file_manager_app.py:925 ../apps/fman/file_manager_app.py:997
+#: ../apps/fman/file_manager_app.py:1318 ../apps/fman/file_manager_app.py:1336
+#: ../apps/fman/file_manager_app.py:1505 ../apps/fman/file_manager_app.py:2170
+#: ../apps/games/mines_app.py:142 ../apps/games/mines_app.py:163
+#: ../apps/games/mines_app.py:407 ../apps/games/master_mind_app.py:143
+#: ../apps/games/master_mind_app.py:206 ../apps/games/master_mind_app.py:218
+#: ../apps/games/master_mind_app.py:379 ../apps/media/mp3_app.py:247
+#: ../apps/media/mp3_app.py:485 ../apps/media/mp3_app.py:504
+#: ../apps/media/mp3_app.py:520 ../apps/media/mp3_app.py:582
+#: ../apps/media/mp3_app.py:625 ../apps/media/mp3_app.py:703
+#: ../apps/media/mp3_app.py:810 ../apps/media/radio_app.py:151
+#: ../apps/media/radio_app.py:172 ../apps/media/radio_app.py:375
+msgid "&cancel"
+msgstr "&άκυρο"
+
+#: ../ui/ui_checkbox.py:22 ../apps/settings/settings_app.py:1424
+#: ../apps/settings/settings_app.py:1431
+msgid "yes"
+msgstr "ναί"
+
+#: ../ui/ui_checkbox.py:22 ../apps/music/music_app.py:1148
+#: ../apps/music/music_app.py:1172 ../apps/music/music_app.py:1178
+#: ../apps/music/music_app.py:1199 ../apps/settings/settings_app.py:1147
+#: ../apps/settings/settings_app.py:1154 ../apps/settings/settings_app.py:1198
+#: ../apps/settings/settings_app.py:1199 ../apps/settings/settings_app.py:1426
+#: ../apps/settings/settings_app.py:1433
+#: ../apps/braille_learning/operation_app.py:371
+#: ../apps/braille_learning/write_word_app.py:391
+msgid "no"
+msgstr "όχι"
+
+#: ../ui/ui_file_manager_tools.py:29 ../ui/ui_file_manager_tools.py:50
+msgid "deleted on {}"
+msgstr "διαγράφηκε στις {}"
+
+#: ../ui/ui_file_manager_tools.py:29 ../ui/ui_file_manager_tools.py:50
+msgid "%A %d %B %Y %H:%M:%S"
+msgstr "%A %d %B %Y %H:%M:%S"
+
+#: ../ui/ui_file_manager_tools.py:31 ../ui/ui_file_manager_tools.py:44
+msgid "d "
+msgstr "d "
+
+#: ../ui/ui_file_manager_tools.py:51 ../ui/ui_file_manager_tools.py:55
+msgid "f "
+msgstr "f "
+
+#: ../ui/ui_file_manager_tools.py:178 ../apps/fman/file_manager_app.py:404
+msgid "trash"
+msgstr "απορρίματα"
+
+#: ../ui/ui_file_manager_tools.py:179 ../apps/settings/settings_app.py:541
+#: ../apps/settings/settings_app.py:543 ../apps/settings/settings_app.py:544
+#: ../apps/settings/settings_app.py:545 ../apps/fman/file_manager_app.py:417
+msgid "bluetooth"
+msgstr "bluetooth"
+
+#: ../ui/ui_file_manager_tools.py:180
+#, fuzzy
+msgid "my backups"
+msgstr "αντίγραφα ασφαλείας"
+
+#: ../ui/ui_file_manager_tools.py:181
+msgid "usb flash drives"
+msgstr "μονάδες δίσκου USB"
+
+#: ../ui/ui_file_manager_tools.py:182
+msgid "my Documents"
+msgstr "τα έγγραφά μου"
+
+#: ../ui/ui_file_manager_tools.py:183
+#, fuzzy
+msgid "crash"
+msgstr "κατά&ρρευση"
+
+#: ../ui/ui_file_manager_tools.py:184 ../apps/settings/settings_app.py:292
+#: ../apps/settings/settings_app.py:581 ../apps/settings/settings_app.py:2686
+msgid "settings"
+msgstr "ρυθμίσεις"
+
+#: ../ui/ui_file_manager_tools.py:187
+#, fuzzy
+msgid "bnote"
+msgstr "όνομα &bnote"
+
+#: ../ui/ui_file_manager_tools.py:197 ../ui/ui_file_manager_tools.py:205
+msgid "bytes"
+msgstr "bytes"
+
+#: ../ui/ui_file_manager_tools.py:199
+msgid "Kb"
+msgstr "KB"
+
+#: ../ui/ui_file_manager_tools.py:201
+msgid "Mb"
+msgstr "MB"
+
+#: ../ui/ui_file_manager_tools.py:203
+msgid "Gb"
+msgstr "GB"
+
+#: ../ui/ui_file_box.py:40 ../apps/fman/file_manager_app.py:2400
+msgid "empty directory..."
+msgstr "κενός κατάλογος..."
+
+#: ../ui/ui_file_manager.py:108
+msgid "s"
+msgstr "s"
+
+#: ../ui/ui_file_manager.py:110
+msgid "n"
+msgstr "n"
+
+#: ../tools/yaupdater.py:121 ../apps/fman/file_manager_app.py:1069
+#, fuzzy
+msgid "download in progress..."
+msgstr "ανάγνωση..."
+
+#: ../tools/yaupdater.py:159 ../tools/yaupdater.py:184
+msgid "error: bad zip file {archive_path=}"
+msgstr ""
+
+#: ../tools/yaupdater.py:164 ../tools/yaupdater.py:189
+msgid "no file libraries.txt found in {archive_path=}"
+msgstr ""
+
+#: ../tools/yaupdater.py:214
+msgid "error: no .whl file in update"
+msgstr ""
+
+#: ../tools/yaupdater.py:217
+msgid "install packages..."
+msgstr ""
+
+#: ../tools/yaupdater.py:228
+msgid "install dependencies done"
+msgstr ""
+
+#: ../tools/yaupdater.py:243
+msgid "extract archive in progress..."
+msgstr ""
+
+#: ../tools/yaupdater.py:330 ../tools/yaupdater.py:359
+#, fuzzy
+msgid "linux os update"
+msgstr "Θέλετε να εγκαταστήσετε την ενημερωμένη έκδοση;"
+
+#: ../tools/yaupdater.py:333 ../tools/yaupdater.py:378
+msgid "linux os updates done"
+msgstr ""
+
+#: ../tools/yaupdater.py:349
+#, python-brace-format
+msgid "Error: {error_string}"
+msgstr ""
+
+#: ../tools/yaupdater.py:373
+#, fuzzy, python-brace-format
+msgid "error: {erreur}"
+msgstr "Σφάλμα:{} στο pos:{}"
+
+#: ../tools/volume_speed_dialog_box.py:19
+msgid "volume &up"
+msgstr "αύξηση έντασης ήχου"
+
+#: ../tools/volume_speed_dialog_box.py:20
+msgid "volume &down"
+msgstr "χα&μηλότερη ένταση"
+
+#: ../tools/volume_speed_dialog_box.py:65
+#, fuzzy
+msgid "media volume 0%"
+msgstr "ελάχιστη ένταση"
+
+#: ../tools/volume_speed_dialog_box.py:67
+#, fuzzy
+msgid "volume 0%"
+msgstr "ένταση"
+
+#: ../tools/volume_speed_dialog_box.py:71
+#, fuzzy
+msgid "media volume down, {}%"
+msgstr "μείωση έντασης ήχου {}"
+
+#: ../tools/volume_speed_dialog_box.py:73
+#, fuzzy
+msgid "volume down, {}%"
+msgstr "μείωση έντασης ήχου {}"
+
+#: ../tools/volume_speed_dialog_box.py:84
+msgid "media volume 100%"
+msgstr ""
+
+#: ../tools/volume_speed_dialog_box.py:86
+#, fuzzy
+msgid "volume 100%"
+msgstr "ένταση"
+
+#: ../tools/volume_speed_dialog_box.py:90
+#, fuzzy
+msgid "media volume up, {}%"
+msgstr "αύξηση έντασης ήχου {}"
+
+#: ../tools/volume_speed_dialog_box.py:92
+#, fuzzy
+msgid "volume up, {}%"
+msgstr "αύξηση έντασης ήχου {}"
+
+#: ../tools/volume_speed_dialog_box.py:105
+msgid "speed &up"
+msgstr "επιταχύ&νετε"
+
+#: ../tools/volume_speed_dialog_box.py:106
+msgid "speed &down"
+msgstr "επιβραδύνετε"
+
+#: ../tools/volume_speed_dialog_box.py:153
+msgid "minimum speed"
+msgstr "ελάχιστη ταχύτητα"
+
+#: ../tools/volume_speed_dialog_box.py:156
+msgid "speed down {}"
+msgstr "πιο αργά {}"
+
+#: ../tools/volume_speed_dialog_box.py:165
+msgid "maximum speed"
+msgstr "μέγιστη ταχύτητα"
+
+#: ../tools/volume_speed_dialog_box.py:168
+msgid "speed up {}"
+msgstr "πιο γρήγορα {}"
+
+#: ../apps/music/music_opy/music_read_file.py:74
+#: ../apps/music/music_opy/music_write_file.py:45
+#: ../apps/edt/edt/read_file.py:138
+msgid "file {} type not supported."
+msgstr "ο τύπος {} αρχείου δεν υποστηρίζεται."
+
+#: ../apps/music/music_app.py:91 ../apps/settings/settings_app.py:649
+msgid "music"
+msgstr ""
+
+#: ../apps/music/music_app.py:96 ../apps/edt/editor_app.py:53
+#: ../apps/wikipedia/wikipedia_app.py:49 ../apps/daisy/daisy_app.py:76
+#: ../apps/fman/file_manager_app.py:133 ../apps/fman/file_manager_app.py:163
+#: ../apps/fman/file_manager_app.py:249 ../apps/fman/file_manager_app.py:280
+#: ../apps/fman/file_manager_app.py:314 ../apps/fman/file_manager_app.py:327
+#: ../apps/fman/file_manager_app.py:337
+msgid "&file"
+msgstr "&αρχείο"
+
+#: ../apps/music/music_app.py:98 ../apps/settings/settings_app.py:2099
+#: ../apps/edt/editor_app.py:55 ../apps/wikipedia/wikipedia_app.py:51
+#: ../apps/daisy/daisy_app.py:78 ../apps/eole/eole_search_dialog_box.py:57
+#: ../apps/eole/eole_search_dialog_box.py:74 ../apps/timer/timer_app.py:152
+#: ../apps/agenda/agenda_app.py:908 ../apps/agenda/agenda_app.py:943
+#: ../apps/fman/file_manager_app.py:876
+msgid "&close"
+msgstr "&κλείσιμο"
+
+#: ../apps/music/music_app.py:101 ../apps/edt/editor_app.py:58
+#: ../apps/media/mp3_app.py:101 ../apps/media/mp3_app.py:503
+msgid "&save"
+msgstr "&αποθήκευση"
+
+#: ../apps/music/music_app.py:103 ../apps/settings/settings_app.py:2687
+#: ../apps/edt/editor_app.py:150 ../apps/agenda/agenda_app.py:605
+#, fuzzy
+msgid "&export"
+msgstr "&εξερευνητής"
+
+#: ../apps/music/music_app.py:105 ../apps/settings/settings_app.py:247
+msgid "&musicxml"
+msgstr ""
+
+#: ../apps/music/music_app.py:108 ../apps/settings/settings_app.py:268
+msgid "&bxml"
+msgstr ""
+
+#: ../apps/music/music_app.py:112 ../apps/media/mp3_app.py:121
+msgid "&properties"
+msgstr ""
+
+#: ../apps/music/music_app.py:113 ../apps/edt/editor_app.py:61
+#: ../apps/wikipedia/wikipedia_app.py:56 ../apps/daisy/daisy_app.py:84
+msgid "sta&tistics"
+msgstr "στα&τιστική"
+
+#: ../apps/music/music_app.py:117 ../apps/music/music_app.py:402
+#: ../apps/music/music_app.py:429 ../apps/music/music_app.py:456
+#: ../apps/music/music_app.py:483 ../apps/music/music_app.py:510
+#: ../apps/music/music_app.py:537 ../apps/music/music_app.py:574
+#: ../apps/music/music_app.py:601 ../apps/music/music_app.py:629
+#: ../apps/music/music_app.py:655 ../apps/music/music_app.py:681
+#: ../apps/music/music_app.py:703 ../apps/music/music_app.py:750
+#: ../apps/music/music_app.py:780 ../apps/music/music_app.py:905
+#: ../apps/music/music_app.py:941 ../apps/music/music_app.py:967
+#: ../apps/music/music_app.py:1041 ../apps/music/music_app.py:1067
+#: ../apps/music/music_app.py:1149 ../apps/music/music_app.py:1217
+#: ../apps/edt/editor_app.py:71
+msgid "&insert"
+msgstr "&εισαγωγή"
+
+#: ../apps/music/music_app.py:120
+#, fuzzy
+msgid "&key signature"
+msgstr "&υπογραφή"
+
+#: ../apps/music/music_app.py:121 ../apps/settings/settings_app.py:254
+#: ../apps/settings/settings_app.py:275 ../apps/settings/settings_app.py:655
+#: ../apps/settings/settings_app.py:671
+msgid "&clef"
+msgstr ""
+
+#: ../apps/music/music_app.py:124
+msgid "&bar"
+msgstr ""
+
+#: ../apps/music/music_app.py:127
+msgid "&octave sign"
+msgstr ""
+
+#: ../apps/music/music_app.py:132 ../apps/internal.py:236
+#: ../apps/daisy/daisy_app.py:96
+msgid "au&dio"
+msgstr "ή&χος"
+
+#: ../apps/music/music_app.py:134 ../apps/daisy/daisy_app.py:98
+#: ../apps/media/mp3_app.py:124 ../apps/media/radio_app.py:75
+#: ../apps/media/radio_app.py:149
+msgid "&play"
+msgstr ""
+
+#: ../apps/music/music_app.py:136 ../apps/daisy/daisy_app.py:100
+#: ../apps/media/radio_app.py:79
+msgid "&stop"
+msgstr ""
+
+#: ../apps/music/music_app.py:139
+msgid "pa&use"
+msgstr ""
+
+#: ../apps/music/music_app.py:141 ../apps/settings/settings_app.py:307
+#: ../apps/edt/editor_base_app.py:229 ../apps/daisy/daisy_app.py:105
+#: ../apps/media/radio_app.py:81
+msgid "&volume"
+msgstr "&ένταση"
+
+#: ../apps/music/music_app.py:142 ../apps/settings/settings_app.py:308
+#: ../apps/edt/editor_base_app.py:230
+msgid "&speed"
+msgstr "&ταχύτητα"
+
+#: ../apps/music/music_app.py:144 ../apps/settings/settings_app.py:456
+#: ../apps/edt/editor_app.py:87 ../apps/wikipedia/wikipedia_app.py:71
+#: ../apps/daisy/daisy_app.py:107 ../apps/braille_learning/operation_app.py:73
+#: ../apps/braille_learning/write_word_app.py:101
+#: ../apps/agenda/agenda_app.py:115 ../apps/fman/file_manager_app.py:376
+#: ../apps/fman/file_manager_app.py:388 ../apps/fman/file_manager_app.py:398
+#: ../apps/fman/file_manager_app.py:410 ../apps/fman/file_manager_app.py:424
+#: ../apps/fman/file_manager_app.py:437 ../apps/fman/file_manager_app.py:447
+#: ../apps/fman/file_manager_app.py:458
+msgid "&applications"
+msgstr "&εφαρμογές"
+
+#: ../apps/music/music_app.py:150 ../apps/media/mp3_app.py:791
+msgid "properties"
+msgstr ""
+
+#: ../apps/music/music_app.py:153
+msgid "&infos"
+msgstr ""
+
+#: ../apps/music/music_app.py:170 ../apps/music/music_app.py:509
+msgid "&text"
+msgstr ""
+
+#: ../apps/music/music_app.py:172 ../apps/music/music_app.py:401
+msgid "&title"
+msgstr ""
+
+#: ../apps/music/music_app.py:174 ../apps/music/music_app.py:428
+msgid "&sub title"
+msgstr ""
+
+#: ../apps/music/music_app.py:176 ../apps/music/music_app.py:455
+msgid "&composer"
+msgstr ""
+
+#: ../apps/music/music_app.py:178 ../apps/music/music_app.py:482
+msgid "&lyricist"
+msgstr ""
+
+#: ../apps/music/music_app.py:180 ../apps/settings/settings_app.py:664
+#: ../apps/settings/settings_app.py:680
+#, fuzzy
+msgid "&credit words"
+msgstr "&επεξεργασία"
+
+#: ../apps/music/music_app.py:182
+msgid "&part"
+msgstr ""
+
+#: ../apps/music/music_app.py:184 ../apps/music/music_app.py:573
+#: ../apps/settings/settings_app.py:264 ../apps/settings/settings_app.py:285
+#: ../apps/settings/settings_app.py:665 ../apps/settings/settings_app.py:681
+msgid "&lyrics"
+msgstr ""
+
+#: ../apps/music/music_app.py:186 ../apps/music/music_app.py:600
+#: ../apps/settings/settings_app.py:286 ../apps/settings/settings_app.py:682
+msgid "&karaoke"
+msgstr ""
+
+#: ../apps/music/music_app.py:193
+#, fuzzy
+msgid "&keyboard signs"
+msgstr "&πληκτρολόγιο"
+
+#: ../apps/music/music_app.py:195 ../apps/settings/settings_app.py:253
+#: ../apps/settings/settings_app.py:274 ../apps/settings/settings_app.py:654
+#: ../apps/settings/settings_app.py:670
+msgid "&fingering"
+msgstr ""
+
+#: ../apps/music/music_app.py:196 ../apps/music/music_app.py:654
+msgid "&pedal"
+msgstr ""
+
+#: ../apps/music/music_app.py:202
+#, fuzzy
+msgid "&game details"
+msgstr "&παιχνίδια"
+
+#: ../apps/music/music_app.py:204
+#, fuzzy
+msgid "&nuance"
+msgstr "&άκυρο"
+
+#: ../apps/music/music_app.py:210
+msgid "&musical content"
+msgstr ""
+
+#: ../apps/music/music_app.py:212
+#, fuzzy
+msgid "insert &note"
+msgstr "&εισαγωγή"
+
+#: ../apps/music/music_app.py:213
+#, fuzzy
+msgid "insert &rest"
+msgstr "&εισαγωγή"
+
+#: ../apps/music/music_app.py:214
+msgid "rythmic &groups"
+msgstr ""
+
+#: ../apps/music/music_app.py:215
+#, fuzzy
+msgid "&alteration"
+msgstr "κ&λάσμα"
+
+#: ../apps/music/music_app.py:221
+msgid "acco&rd"
+msgstr ""
+
+#: ../apps/music/music_app.py:223
+msgid "&interval"
+msgstr ""
+
+#: ../apps/music/music_app.py:224
+msgid "&measure in-accord"
+msgstr ""
+
+#: ../apps/music/music_app.py:311 ../apps/edt/editor_base_app.py:707
+#: ../apps/edt/editor_base_app.py:1240
+msgid "saving..."
+msgstr "αποθήκευση…"
+
+#: ../apps/music/music_app.py:367
+#, fuzzy, python-brace-format
+msgid "file {file_name.name} already exists, do you want to overwrite it ?"
+msgstr "αρχείο {} υπάρχει. θέλετε να το αντικαταστήσετε;"
+
+#: ../apps/music/music_app.py:399 ../apps/music/music_app.py:426
+#: ../apps/music/music_app.py:453 ../apps/music/music_app.py:480
+#: ../apps/music/music_app.py:507 ../apps/music/music_app.py:534
+#: ../apps/music/music_app.py:571 ../apps/music/music_app.py:598
+#: ../apps/music/music_app.py:626 ../apps/music/music_app.py:652
+#: ../apps/music/music_app.py:678 ../apps/music/music_app.py:700
+#: ../apps/music/music_app.py:736 ../apps/music/music_app.py:777
+#: ../apps/music/music_app.py:901 ../apps/music/music_app.py:938
+#: ../apps/music/music_app.py:964 ../apps/music/music_app.py:1038
+#: ../apps/music/music_app.py:1063 ../apps/music/music_app.py:1143
+#: ../apps/music/music_app.py:1214
+#, fuzzy
+msgid "insert"
+msgstr "&εισαγωγή"
+
+#: ../apps/music/music_app.py:401
+#, fuzzy
+msgid "score's title"
+msgstr "βαθμολογίες"
+
+#: ../apps/music/music_app.py:428
+msgid "score's sub title"
+msgstr ""
+
+#: ../apps/music/music_app.py:455
+msgid "score's composer"
+msgstr ""
+
+#: ../apps/music/music_app.py:509
+msgid "text outside of the score"
+msgstr ""
+
+#: ../apps/music/music_app.py:536
+#, fuzzy
+msgid "part &name"
+msgstr "ό&νομα"
+
+#: ../apps/music/music_app.py:536
+msgid "new part"
+msgstr ""
+
+#: ../apps/music/music_app.py:553
+msgid "piano-right"
+msgstr ""
+
+#: ../apps/music/music_app.py:555
+msgid "piano-left"
+msgstr ""
+
+#: ../apps/music/music_app.py:628
+msgid "choose &finger"
+msgstr ""
+
+#: ../apps/music/music_app.py:628 ../apps/music/music_app.py:641
+msgid "first finger"
+msgstr ""
+
+#: ../apps/music/music_app.py:628 ../apps/music/music_app.py:642
+#, fuzzy
+msgid "second finger"
+msgstr "δευτερόλεπτα"
+
+#: ../apps/music/music_app.py:628 ../apps/music/music_app.py:643
+msgid "third finger"
+msgstr ""
+
+#: ../apps/music/music_app.py:628 ../apps/music/music_app.py:644
+msgid "fourth finger"
+msgstr ""
+
+#: ../apps/music/music_app.py:628 ../apps/music/music_app.py:645
+msgid "fifth finger"
+msgstr ""
+
+#: ../apps/music/music_app.py:654 ../apps/music/music_app.py:667
+#, fuzzy
+msgid "pedal down"
+msgstr "επιβραδύνετε"
+
+#: ../apps/music/music_app.py:654 ../apps/music/music_app.py:668
+msgid "pedal up"
+msgstr ""
+
+#: ../apps/music/music_app.py:654 ../apps/music/music_app.py:669
+msgid "pedal under note"
+msgstr ""
+
+#: ../apps/music/music_app.py:654 ../apps/music/music_app.py:670
+msgid "half-pedal"
+msgstr ""
+
+#: ../apps/music/music_app.py:654 ../apps/music/music_app.py:671
+msgid "pedal up as soon as chord is struck"
+msgstr ""
+
+#: ../apps/music/music_app.py:680
+msgid "select &alteration of note"
+msgstr ""
+
+#: ../apps/music/music_app.py:680 ../apps/music/music_app.py:691
+msgid "flat"
+msgstr ""
+
+#: ../apps/music/music_app.py:680 ../apps/music/music_app.py:692
+msgid "natural"
+msgstr ""
+
+#: ../apps/music/music_app.py:680 ../apps/music/music_app.py:693
+msgid "sharp"
+msgstr ""
+
+#: ../apps/music/music_app.py:702
+#, fuzzy
+msgid "select &tonality"
+msgstr "επιλογή &όλων"
+
+#: ../apps/music/music_app.py:702 ../apps/music/music_app.py:717
+msgid "do (+)/la (-)"
+msgstr ""
+
+#: ../apps/music/music_app.py:702 ../apps/music/music_app.py:718
+msgid "re flat (+)/la sharp (-)"
+msgstr ""
+
+#: ../apps/music/music_app.py:702 ../apps/music/music_app.py:719
+msgid "re (+)/si (-)"
+msgstr ""
+
+#: ../apps/music/music_app.py:702 ../apps/music/music_app.py:720
+msgid "mi flat (+)/do (-)"
+msgstr ""
+
+#: ../apps/music/music_app.py:702 ../apps/music/music_app.py:721
+msgid "mi (+)/do sharp (-)"
+msgstr ""
+
+#: ../apps/music/music_app.py:702 ../apps/music/music_app.py:722
+msgid "fa (+)/re (-)"
+msgstr ""
+
+#: ../apps/music/music_app.py:702 ../apps/music/music_app.py:723
+msgid "sol flat (+)/re sharp (-)"
+msgstr ""
+
+#: ../apps/music/music_app.py:702 ../apps/music/music_app.py:724
+msgid "sol (+)/mi (-)"
+msgstr ""
+
+#: ../apps/music/music_app.py:702 ../apps/music/music_app.py:725
+msgid "la flat (+)/fa (-)"
+msgstr ""
+
+#: ../apps/music/music_app.py:702 ../apps/music/music_app.py:726
+msgid "la (+)/fa sharp (-)"
+msgstr ""
+
+#: ../apps/music/music_app.py:702 ../apps/music/music_app.py:727
+msgid "si flat (+)/sol (-)"
+msgstr ""
+
+#: ../apps/music/music_app.py:702 ../apps/music/music_app.py:728
+msgid "si (+)/la sharp (-)"
+msgstr ""
+
+#: ../apps/music/music_app.py:738
+#, fuzzy
+msgid "select an &octave"
+msgstr "επιλογή &όλων"
+
+#: ../apps/music/music_app.py:740 ../apps/music/music_app.py:762
+msgid "a below first octave"
+msgstr ""
+
+#: ../apps/music/music_app.py:741 ../apps/music/music_app.py:763
+msgid "first octave"
+msgstr ""
+
+#: ../apps/music/music_app.py:742 ../apps/music/music_app.py:764
+#, fuzzy
+msgid "second octave"
+msgstr "δευτερόλεπτα"
+
+#: ../apps/music/music_app.py:743 ../apps/music/music_app.py:765
+msgid "third octave"
+msgstr ""
+
+#: ../apps/music/music_app.py:744 ../apps/music/music_app.py:766
+msgid "fourth octave (medium)"
+msgstr ""
+
+#: ../apps/music/music_app.py:745 ../apps/music/music_app.py:767
+msgid "fifth octave"
+msgstr ""
+
+#: ../apps/music/music_app.py:746 ../apps/music/music_app.py:768
+msgid "sixth octave"
+msgstr ""
+
+#: ../apps/music/music_app.py:747 ../apps/music/music_app.py:769
+msgid "seventh octave"
+msgstr ""
+
+#: ../apps/music/music_app.py:748 ../apps/music/music_app.py:770
+msgid "eighth octave"
+msgstr ""
+
+#: ../apps/music/music_app.py:779
+#, fuzzy
+msgid "select a &nuance"
+msgstr "επιλογή &όλων"
+
+#: ../apps/music/music_app.py:779 ../apps/music/music_app.py:880
+msgid "crescendo"
+msgstr ""
+
+#: ../apps/music/music_app.py:779 ../apps/music/music_app.py:792
+msgid "pianissimo"
+msgstr ""
+
+#: ../apps/music/music_app.py:779 ../apps/music/music_app.py:804
+msgid "piano"
+msgstr ""
+
+#: ../apps/music/music_app.py:779 ../apps/music/music_app.py:816
+msgid "mezzo piano"
+msgstr ""
+
+#: ../apps/music/music_app.py:779
+msgid "mezzo forte"
+msgstr ""
+
+#: ../apps/music/music_app.py:779 ../apps/music/music_app.py:840
+msgid "forte"
+msgstr ""
+
+#: ../apps/music/music_app.py:779 ../apps/music/music_app.py:852
+msgid "fortissimo"
+msgstr ""
+
+#: ../apps/music/music_app.py:779 ../apps/music/music_app.py:864
+msgid "diminuendo"
+msgstr ""
+
+#: ../apps/music/music_app.py:795 ../apps/music/music_app.py:807
+#: ../apps/music/music_app.py:819 ../apps/music/music_app.py:831
+#: ../apps/music/music_app.py:843 ../apps/music/music_app.py:855
+#: ../apps/music/music_app.py:871 ../apps/music/music_app.py:887
+#: ../apps/music/music_app.py:981 ../apps/music/music_app.py:992
+#: ../apps/music/music_app.py:1007 ../apps/music/music_app.py:1026
+#: ../apps/music/music_app.py:1083 ../apps/music/music_app.py:1097
+#: ../apps/music/music_app.py:1113 ../apps/music/music_app.py:1132
+#: ../apps/music/music_app.py:1180 ../apps/music/music_app.py:1201
+#: ../apps/settings/settings_app.py:2107 ../apps/settings/settings_app.py:2700
+#: ../apps/settings/settings_app.py:2744 ../apps/edt/editor_app.py:208
+#: ../apps/edt/editor_base_app.py:689 ../apps/timer/timer_app.py:131
+#: ../apps/braille_learning/operation_app.py:173
+#: ../apps/braille_learning/operation_app.py:184
+#: ../apps/braille_learning/operation_app.py:224
+#: ../apps/braille_learning/write_word_app.py:222
+#: ../apps/braille_learning/write_word_app.py:233
+#: ../apps/agenda/agenda_app.py:196 ../apps/agenda/agenda_app.py:396
+#: ../apps/agenda/agenda_app.py:447 ../apps/agenda/agenda_app.py:458
+#: ../apps/agenda/agenda_app.py:636 ../apps/agenda/agenda_app.py:667
+#: ../apps/agenda/agenda_app.py:719 ../apps/agenda/agenda_app.py:768
+#: ../apps/agenda/agenda_app.py:825 ../apps/agenda/agenda_app.py:874
+#: ../apps/agenda/agenda_app.py:886 ../apps/agenda/agenda_app.py:939
+#: ../apps/fman/file_manager_app.py:2203 ../apps/games/mines_app.py:403
+#: ../apps/games/master_mind_app.py:202 ../apps/media/mp3_app.py:515
+msgid "warning"
+msgstr "προειδοποίηση"
+
+#: ../apps/music/music_app.py:797 ../apps/music/music_app.py:809
+#: ../apps/music/music_app.py:821 ../apps/music/music_app.py:833
+#: ../apps/music/music_app.py:845 ../apps/music/music_app.py:857
+msgid ""
+"you must put an octave sign before continuing to write. Do you want to "
+"display the octave list?"
+msgstr ""
+
+#: ../apps/music/music_app.py:799 ../apps/music/music_app.py:811
+#: ../apps/music/music_app.py:823 ../apps/music/music_app.py:835
+#: ../apps/music/music_app.py:847 ../apps/music/music_app.py:859
+#: ../apps/music/music_app.py:875 ../apps/music/music_app.py:890
+#: ../apps/music/music_app.py:984 ../apps/music/music_app.py:995
+#: ../apps/music/music_app.py:1011 ../apps/music/music_app.py:1029
+#: ../apps/music/music_app.py:1193 ../apps/settings/settings_app.py:1992
+#: ../apps/settings/settings_app.py:2110 ../apps/settings/settings_app.py:2703
+#: ../apps/settings/settings_app.py:2747 ../apps/edt/editor_base_app.py:692
+#: ../apps/timer/timer_app.py:134 ../apps/braille_learning/operation_app.py:176
+#: ../apps/braille_learning/operation_app.py:187
+#: ../apps/braille_learning/write_word_app.py:225
+#: ../apps/braille_learning/write_word_app.py:236
+#: ../apps/agenda/agenda_app.py:399 ../apps/agenda/agenda_app.py:450
+#: ../apps/agenda/agenda_app.py:461 ../apps/agenda/agenda_app.py:592
+#: ../apps/agenda/agenda_app.py:639 ../apps/fman/file_manager_app.py:721
+#: ../apps/fman/file_manager_app.py:767 ../apps/fman/file_manager_app.py:1058
+#: ../apps/fman/file_manager_app.py:1391 ../apps/fman/file_manager_app.py:1580
+#: ../apps/fman/file_manager_app.py:1633 ../apps/fman/file_manager_app.py:1790
+#: ../apps/fman/file_manager_app.py:2134 ../apps/fman/file_manager_app.py:2195
+#: ../apps/fman/file_manager_app.py:2206 ../apps/media/mp3_app.py:518
+#: ../apps/media/radio_app.py:170
+msgid "&yes"
+msgstr "&ναί"
+
+#: ../apps/music/music_app.py:800 ../apps/music/music_app.py:812
+#: ../apps/music/music_app.py:824 ../apps/music/music_app.py:836
+#: ../apps/music/music_app.py:848 ../apps/music/music_app.py:860
+#: ../apps/music/music_app.py:876 ../apps/music/music_app.py:891
+#: ../apps/music/music_app.py:985 ../apps/music/music_app.py:996
+#: ../apps/music/music_app.py:1012 ../apps/music/music_app.py:1030
+#: ../apps/music/music_app.py:1194 ../apps/settings/settings_app.py:1993
+#: ../apps/settings/settings_app.py:2111 ../apps/settings/settings_app.py:2705
+#: ../apps/settings/settings_app.py:2748 ../apps/edt/editor_base_app.py:693
+#: ../apps/timer/timer_app.py:136 ../apps/braille_learning/operation_app.py:177
+#: ../apps/braille_learning/operation_app.py:188
+#: ../apps/braille_learning/write_word_app.py:226
+#: ../apps/braille_learning/write_word_app.py:237
+#: ../apps/agenda/agenda_app.py:400 ../apps/agenda/agenda_app.py:451
+#: ../apps/agenda/agenda_app.py:462 ../apps/agenda/agenda_app.py:594
+#: ../apps/agenda/agenda_app.py:640 ../apps/fman/file_manager_app.py:722
+#: ../apps/fman/file_manager_app.py:768 ../apps/fman/file_manager_app.py:1060
+#: ../apps/fman/file_manager_app.py:1393 ../apps/fman/file_manager_app.py:1582
+#: ../apps/fman/file_manager_app.py:1635 ../apps/fman/file_manager_app.py:1792
+#: ../apps/fman/file_manager_app.py:2136 ../apps/fman/file_manager_app.py:2196
+#: ../apps/fman/file_manager_app.py:2207 ../apps/media/mp3_app.py:519
+#: ../apps/media/radio_app.py:171
+msgid "&no"
+msgstr "&όχι"
+
+#: ../apps/music/music_app.py:873 ../apps/music/music_app.py:888
+msgid ""
+"you must put an octave sign before continuing to write, and after the end of "
+"the nuance. Do you want to display the octave list?"
+msgstr ""
+
+#: ../apps/music/music_app.py:903
+#, fuzzy
+msgid "select &note"
+msgstr "επιλογή &όλων"
+
+#: ../apps/music/music_app.py:903 ../apps/music/music_app.py:920
+msgid "a"
+msgstr ""
+
+#: ../apps/music/music_app.py:903 ../apps/music/music_app.py:921
+#, fuzzy
+msgid "b"
+msgstr "KB"
+
+#: ../apps/music/music_app.py:903 ../apps/music/music_app.py:915
+msgid "c"
+msgstr ""
+
+#: ../apps/music/music_app.py:903 ../apps/music/music_app.py:916
+#, fuzzy
+msgid "d"
+msgstr "d "
+
+#: ../apps/music/music_app.py:903 ../apps/music/music_app.py:917
+msgid "e"
+msgstr ""
+
+#: ../apps/music/music_app.py:903 ../apps/music/music_app.py:918
+#, fuzzy
+msgid "f"
+msgstr "f "
+
+#: ../apps/music/music_app.py:903 ../apps/music/music_app.py:919
+msgid "g"
+msgstr ""
+
+#: ../apps/music/music_app.py:904
+#, fuzzy
+msgid "select &value of note"
+msgstr "επιλογή &όλων"
+
+#: ../apps/music/music_app.py:904 ../apps/music/music_app.py:924
+msgid "whole"
+msgstr ""
+
+#: ../apps/music/music_app.py:904 ../apps/music/music_app.py:925
+msgid "half"
+msgstr ""
+
+#: ../apps/music/music_app.py:904 ../apps/music/music_app.py:926
+msgid "quarter"
+msgstr ""
+
+#: ../apps/music/music_app.py:904 ../apps/music/music_app.py:927
+#, fuzzy
+msgid "eighth"
+msgstr "ελαφρύ"
+
+#: ../apps/music/music_app.py:904 ../apps/music/music_app.py:928
+msgid "16th"
+msgstr ""
+
+#: ../apps/music/music_app.py:904 ../apps/music/music_app.py:929
+msgid "32nd"
+msgstr ""
+
+#: ../apps/music/music_app.py:904 ../apps/music/music_app.py:930
+msgid "64th"
+msgstr ""
+
+#: ../apps/music/music_app.py:904 ../apps/music/music_app.py:931
+msgid "128th"
+msgstr ""
+
+#: ../apps/music/music_app.py:940
+msgid "select a &rest type"
+msgstr ""
+
+#: ../apps/music/music_app.py:940 ../apps/music/music_app.py:950
+#, fuzzy
+msgid "whole rest"
+msgstr "κανένα αποτέλεσμα"
+
+#: ../apps/music/music_app.py:940 ../apps/music/music_app.py:951
+msgid "half rest"
+msgstr ""
+
+#: ../apps/music/music_app.py:940 ../apps/music/music_app.py:952
+msgid "quarter rest"
+msgstr ""
+
+#: ../apps/music/music_app.py:940 ../apps/music/music_app.py:953
+#, fuzzy
+msgid "eighth rest"
+msgstr "ελαφρύ πάτημα"
+
+#: ../apps/music/music_app.py:940 ../apps/music/music_app.py:954
+msgid "16th rest"
+msgstr ""
+
+#: ../apps/music/music_app.py:940 ../apps/music/music_app.py:955
+#, fuzzy
+msgid "32nd rest"
+msgstr "κανένα αποτέλεσμα"
+
+#: ../apps/music/music_app.py:940 ../apps/music/music_app.py:956
+msgid "64th rest"
+msgstr ""
+
+#: ../apps/music/music_app.py:940 ../apps/music/music_app.py:957
+msgid "128th rest"
+msgstr ""
+
+#: ../apps/music/music_app.py:966
+#, fuzzy
+msgid "select &bar"
+msgstr "επιλογή &όλων"
+
+#: ../apps/music/music_app.py:966 ../apps/music/music_app.py:976
+msgid "measure"
+msgstr ""
+
+#: ../apps/music/music_app.py:966 ../apps/music/music_app.py:978
+msgid "end of composition"
+msgstr ""
+
+#: ../apps/music/music_app.py:966 ../apps/music/music_app.py:989
+#, fuzzy
+msgid "end of section"
+msgstr "τέλος &επιλογής"
+
+#: ../apps/music/music_app.py:966 ../apps/music/music_app.py:1000
+msgid "simple repetition of fragment"
+msgstr ""
+
+#: ../apps/music/music_app.py:966 ../apps/music/music_app.py:1016
+msgid "repeat fragment with prima and seconda volta"
+msgstr ""
+
+#: ../apps/music/music_app.py:982 ../apps/music/music_app.py:993
+#, fuzzy
+msgid "do you want to save your document now?"
+msgstr "θέλετε να αποθηκεύσετε το έγγραφο πριν από το κλείσιμο;"
+
+#: ../apps/music/music_app.py:1009
+msgid ""
+"you must put an octave sign before continuing to write, do you want to "
+"display the octave list?"
+msgstr ""
+
+#: ../apps/music/music_app.py:1027
+msgid ""
+"you need to put an octave sign before continuing to write, and after prima, "
+"and seconda signs. do you want to display the octave list?"
+msgstr ""
+
+#: ../apps/music/music_app.py:1040
+#, fuzzy
+msgid "select &interval"
+msgstr "επιλογή &όλων"
+
+#: ../apps/music/music_app.py:1040 ../apps/music/music_app.py:1050
+#, fuzzy
+msgid "seconde"
+msgstr "δευτερόλεπτα"
+
+#: ../apps/music/music_app.py:1040 ../apps/music/music_app.py:1051
+msgid "third"
+msgstr ""
+
+#: ../apps/music/music_app.py:1040 ../apps/music/music_app.py:1052
+msgid "fourth"
+msgstr ""
+
+#: ../apps/music/music_app.py:1040 ../apps/music/music_app.py:1053
+msgid "fifth"
+msgstr ""
+
+#: ../apps/music/music_app.py:1040 ../apps/music/music_app.py:1054
+msgid "sixth"
+msgstr ""
+
+#: ../apps/music/music_app.py:1040 ../apps/music/music_app.py:1055
+msgid "seventh"
+msgstr ""
+
+#: ../apps/music/music_app.py:1040 ../apps/music/music_app.py:1056
+msgid "octave"
+msgstr ""
+
+#: ../apps/music/music_app.py:1065
+msgid "enter the number of &voice"
+msgstr ""
+
+#: ../apps/music/music_app.py:1066
+msgid "&full-measure in-accord"
+msgstr ""
+
+#: ../apps/music/music_app.py:1084
+msgid "you must enter an integer."
+msgstr ""
+
+#: ../apps/music/music_app.py:1098
+msgid "you must insert a minimum of 2 voices."
+msgstr ""
+
+#: ../apps/music/music_app.py:1114
+msgid ""
+"the cursor is place before the accord sign, don't forget to put an octave "
+"sign after all measure in-accord signs."
+msgstr ""
+
+#: ../apps/music/music_app.py:1133
+msgid "sorry, but part-measure in-accord is not suported for the moment."
+msgstr ""
+
+#: ../apps/music/music_app.py:1145
+#, fuzzy
+msgid "select &clef"
+msgstr "επιλογή &όλων"
+
+#: ../apps/music/music_app.py:1145 ../apps/music/music_app.py:1158
+msgid "treble"
+msgstr ""
+
+#: ../apps/music/music_app.py:1145 ../apps/music/music_app.py:1159
+#: ../apps/music/music_app.py:1178 ../apps/music/music_app.py:1199
+msgid "alto"
+msgstr ""
+
+#: ../apps/music/music_app.py:1145 ../apps/music/music_app.py:1160
+msgid "basse"
+msgstr ""
+
+#: ../apps/music/music_app.py:1146
+msgid "in &part"
+msgstr ""
+
+#: ../apps/music/music_app.py:1147
+msgid "clef &line"
+msgstr ""
+
+#: ../apps/music/music_app.py:1147 ../apps/music/music_app.py:1163
+#: ../apps/music/music_app.py:1178
+msgid "default"
+msgstr ""
+
+#: ../apps/music/music_app.py:1147 ../apps/music/music_app.py:1164
+msgid "first line"
+msgstr ""
+
+#: ../apps/music/music_app.py:1147 ../apps/music/music_app.py:1165
+#, fuzzy
+msgid "second line"
+msgstr "δευτερόλεπτα"
+
+#: ../apps/music/music_app.py:1147 ../apps/music/music_app.py:1166
+msgid "third line"
+msgstr ""
+
+#: ../apps/music/music_app.py:1147 ../apps/music/music_app.py:1167
+msgid "fourth line"
+msgstr ""
+
+#: ../apps/music/music_app.py:1147 ../apps/music/music_app.py:1168
+msgid "fifth line"
+msgstr ""
+
+#: ../apps/music/music_app.py:1148
+msgid "add small &8?"
+msgstr ""
+
+#: ../apps/music/music_app.py:1148 ../apps/music/music_app.py:1171
+msgid "below"
+msgstr ""
+
+#: ../apps/music/music_app.py:1148 ../apps/music/music_app.py:1173
+msgid "above"
+msgstr ""
+
+#: ../apps/music/music_app.py:1181 ../apps/music/music_app.py:1202
+msgid "you cant select this options. This settings does not exist."
+msgstr ""
+
+#: ../apps/music/music_app.py:1191
+msgid ""
+"you must enter an octave sign to show the height of note. Do you want to "
+"display the octave list?"
+msgstr ""
+
+#: ../apps/music/music_app.py:1216
+msgid "&rythm type"
+msgstr ""
+
+#: ../apps/music/music_app.py:1216 ../apps/music/music_app.py:1226
+msgid "group of 2 notes"
+msgstr ""
+
+#: ../apps/music/music_app.py:1216 ../apps/music/music_app.py:1227
+msgid "triplet"
+msgstr ""
+
+#: ../apps/music/music_app.py:1216 ../apps/music/music_app.py:1228
+msgid "group of 4 notes"
+msgstr ""
+
+#: ../apps/music/music_app.py:1216 ../apps/music/music_app.py:1229
+msgid "group of 5 notes"
+msgstr ""
+
+#: ../apps/music/music_app.py:1216 ../apps/music/music_app.py:1230
+msgid "group of 6 notes"
+msgstr ""
+
+#: ../apps/music/music_app.py:1216 ../apps/music/music_app.py:1231
+msgid "group of 7 notes"
+msgstr ""
+
+#: ../apps/music/music_app.py:1216 ../apps/music/music_app.py:1232
+msgid "group of 8 notes"
+msgstr ""
+
+#: ../apps/music/music_app.py:1216 ../apps/music/music_app.py:1233
+msgid "group of 9 notes"
+msgstr ""
+
+#: ../apps/music/music_app.py:1216 ../apps/music/music_app.py:1234
+msgid "group of 10 notes"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:95 ../apps/settings/settings_app.py:824
+#: ../apps/settings/settings_app.py:1057 ../apps/settings/settings_app.py:1069
+#: ../apps/settings/settings_app.py:1107 ../apps/settings/settings_app.py:1121
+msgid "unknown"
+msgstr "άγνωστο"
+
+#: ../apps/settings/settings_app.py:249 ../apps/settings/settings_app.py:270
+#: ../apps/settings/settings_app.py:650 ../apps/settings/settings_app.py:666
+msgid "&edit and play mode"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:250 ../apps/settings/settings_app.py:271
+#: ../apps/settings/settings_app.py:342 ../apps/settings/settings_app.py:651
+#: ../apps/settings/settings_app.py:667
+#, fuzzy
+msgid "braille &type"
+msgstr "τύπος μπράιγ"
+
+#: ../apps/settings/settings_app.py:251 ../apps/settings/settings_app.py:272
+msgid "notes d&ots"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:252 ../apps/settings/settings_app.py:273
+#: ../apps/settings/settings_app.py:653 ../apps/settings/settings_app.py:669
+msgid "&ascending chords"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:255 ../apps/settings/settings_app.py:276
+#: ../apps/settings/settings_app.py:656 ../apps/settings/settings_app.py:672
+msgid "&parts"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:256 ../apps/settings/settings_app.py:277
+#: ../apps/settings/settings_app.py:657 ../apps/settings/settings_app.py:673
+msgid "&measure b123"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:257 ../apps/settings/settings_app.py:278
+msgid "measure &number"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:258 ../apps/settings/settings_app.py:279
+msgid "measure &every"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:259 ../apps/settings/settings_app.py:280
+#: ../apps/settings/settings_app.py:660 ../apps/settings/settings_app.py:676
+#: ../apps/games/mines_app.py:75 ../apps/games/master_mind_app.py:76
+msgid "&view"
+msgstr "&προβολή"
+
+#: ../apps/settings/settings_app.py:260 ../apps/settings/settings_app.py:281
+#: ../apps/settings/settings_app.py:661 ../apps/settings/settings_app.py:677
+#, fuzzy
+msgid "&section"
+msgstr "τέλος &επιλογής"
+
+#: ../apps/settings/settings_app.py:261 ../apps/settings/settings_app.py:282
+#, fuzzy
+msgid "measures per sec&tion"
+msgstr "κλάσμα"
+
+#: ../apps/settings/settings_app.py:262 ../apps/settings/settings_app.py:283
+#: ../apps/settings/settings_app.py:663 ../apps/settings/settings_app.py:679
+#, fuzzy
+msgid "&words"
+msgstr "λέξεις"
+
+#: ../apps/settings/settings_app.py:263 ../apps/settings/settings_app.py:284
+#, fuzzy
+msgid "cre&dit words"
+msgstr "&επεξεργασία"
+
+#: ../apps/settings/settings_app.py:297
+msgid "&clock"
+msgstr "&ρολόι"
+
+#: ../apps/settings/settings_app.py:299
+msgid "&time"
+msgstr "ώ&ρα"
+
+#: ../apps/settings/settings_app.py:300 ../apps/edt/editor_app.py:74
+msgid "&date"
+msgstr "&ημερομηνία"
+
+#: ../apps/settings/settings_app.py:301
+#, fuzzy
+msgid "&auto sync"
+msgstr "αυτόματη αλλαγή"
+
+#: ../apps/settings/settings_app.py:305 ../apps/edt/editor_base_app.py:223
+#, fuzzy
+msgid "&vocalize"
+msgstr "&φωνητικό"
+
+#: ../apps/settings/settings_app.py:309
+msgid "&language"
+msgstr "&γλώσσα"
+
+#: ../apps/settings/settings_app.py:310
+msgid "s&ynthesis"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:311
+msgid "voi&ce"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:315
+msgid "&usb"
+msgstr "&USB"
+
+#: ../apps/settings/settings_app.py:317
+#, fuzzy
+msgid "usb-&a-hid keyboard"
+msgstr "&usb-hid πληκτρολόγιο"
+
+#: ../apps/settings/settings_app.py:318
+#, fuzzy
+msgid "usb-&b-hid keyboard"
+msgstr "&usb-hid πληκτρολόγιο"
+
+#: ../apps/settings/settings_app.py:319 ../apps/settings/settings_app.py:328
+#: ../apps/settings/settings_app.py:557
+msgid "simulation &esys"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:322 ../apps/fman/file_manager_app.py:228
+msgid "&bluetooth"
+msgstr "&bluetooth"
+
+#: ../apps/settings/settings_app.py:324 ../apps/settings/settings_app.py:333
+msgid "&power"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:325 ../apps/fman/file_manager_app.py:620
+#: ../apps/fman/file_manager_app.py:648 ../apps/fman/file_manager_app.py:704
+#: ../apps/fman/file_manager_app.py:795 ../apps/fman/file_manager_app.py:1316
+#: ../apps/fman/file_manager_app.py:1334 ../apps/games/mines_app.py:161
+#: ../apps/games/master_mind_app.py:216
+msgid "&name"
+msgstr "ό&νομα"
+
+#: ../apps/settings/settings_app.py:326
+msgid "&visibility"
+msgstr "&προβολή"
+
+#: ../apps/settings/settings_app.py:327 ../apps/settings/settings_app.py:545
+msgid "&paired devices"
+msgstr "&συζευγμένες συσκευές"
+
+#: ../apps/settings/settings_app.py:331
+msgid "&wifi"
+msgstr "&wifi"
+
+#: ../apps/settings/settings_app.py:334 ../apps/settings/settings_app.py:563
+msgid "&favorites"
+msgstr "&αγαπημενα"
+
+#: ../apps/settings/settings_app.py:335
+msgid "countr&y"
+msgstr "&χώρα"
+
+#: ../apps/settings/settings_app.py:338
+msgid "user &interface"
+msgstr "&περιβάλλον χρήστη"
+
+#: ../apps/settings/settings_app.py:340
+#, fuzzy
+msgid "&message language"
+msgstr "&γλώσσα"
+
+#: ../apps/settings/settings_app.py:341
+#, fuzzy
+msgid "&braille language"
+msgstr "&γλώσσα"
+
+#: ../apps/settings/settings_app.py:343 ../apps/settings/settings_app.py:571
+msgid "spaces in &label"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:344 ../apps/settings/settings_app.py:572
+msgid "visible &shortcuts"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:345 ../apps/settings/settings_app.py:573
+msgid "&developer mode"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:346
+#, fuzzy
+msgid "&import settings"
+msgstr "&ρυθμίσεις"
+
+#: ../apps/settings/settings_app.py:347
+#, fuzzy
+msgid "&export settings"
+msgstr "&ρυθμίσεις"
+
+#: ../apps/settings/settings_app.py:351
+msgid "main me&nu"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:353 ../apps/settings/settings_app.py:579
+#: ../apps/internal.py:232
+msgid "&explorer"
+msgstr "&εξερευνητής"
+
+#: ../apps/settings/settings_app.py:354 ../apps/settings/settings_app.py:583
+#: ../apps/internal.py:233
+msgid "&settings"
+msgstr "&ρυθμίσεις"
+
+#: ../apps/settings/settings_app.py:355 ../apps/settings/settings_app.py:405
+#: ../apps/settings/settings_app.py:587 ../apps/internal.py:234
+msgid "a&genda"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:356 ../apps/settings/settings_app.py:591
+#: ../apps/internal.py:235 ../apps/media/radio_app.py:63
+#, fuzzy
+msgid "&radio"
+msgstr "ακτίνιο"
+
+#: ../apps/settings/settings_app.py:357 ../apps/settings/settings_app.py:595
+msgid "&audio"
+msgstr "ή&χος"
+
+#: ../apps/settings/settings_app.py:358 ../apps/settings/settings_app.py:599
+#: ../apps/internal.py:237
+msgid "wi&kipedia"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:359 ../apps/settings/settings_app.py:603
+#: ../apps/internal.py:238
+#, fuzzy
+msgid "&timer"
+msgstr "ώ&ρα"
+
+#: ../apps/settings/settings_app.py:360 ../apps/settings/settings_app.py:607
+#: ../apps/internal.py:88 ../apps/internal.py:102 ../apps/internal.py:239
+#, fuzzy
+msgid "trans&lator"
+msgstr "μεταφορά"
+
+#: ../apps/settings/settings_app.py:361
+#, fuzzy
+msgid "write &word"
+msgstr "&επεξεργασία"
+
+#: ../apps/settings/settings_app.py:363 ../apps/settings/settings_app.py:615
+#, fuzzy
+msgid "&operation"
+msgstr "κ&λάσμα"
+
+#: ../apps/settings/settings_app.py:364 ../apps/settings/settings_app.py:619
+#: ../apps/internal.py:242
+msgid "&mines"
+msgstr "&νάρκες"
+
+#: ../apps/settings/settings_app.py:365 ../apps/settings/settings_app.py:623
+#, fuzzy
+msgid "ma&stermind"
+msgstr "mastermind"
+
+#: ../apps/settings/settings_app.py:370
+#, fuzzy
+msgid "e&xplorer"
+msgstr "εξερευνητής"
+
+#: ../apps/settings/settings_app.py:372
+msgid "empty the &bluetooth folder once shutdown"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:373
+msgid "empty the &trash folder once shutdown"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:374
+msgid "&number of recent files"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:378
+msgid "&editor"
+msgstr "&επεξεργασία"
+
+#: ../apps/settings/settings_app.py:380 ../apps/settings/settings_app.py:570
+#: ../apps/settings/settings_app.py:634 ../apps/edt/editor_app.py:145
+msgid "&braille type"
+msgstr "τύπος &μπράιγ"
+
+#: ../apps/settings/settings_app.py:381
+msgid "&line length"
+msgstr "&μήκος γραμμής"
+
+#: ../apps/settings/settings_app.py:382 ../apps/settings/settings_app.py:636
+msgid "&forward display"
+msgstr "οθόνη &μπροστά"
+
+#: ../apps/settings/settings_app.py:383 ../apps/settings/settings_app.py:637
+#, fuzzy
+msgid "&autoscroll display"
+msgstr "οθόνη &μπροστά"
+
+#: ../apps/settings/settings_app.py:384 ../apps/settings/settings_app.py:638
+msgid "&cursor visible"
+msgstr "ορατός &κέρσορας"
+
+#: ../apps/settings/settings_app.py:385
+msgid "&dot78 visible"
+msgstr "&κουκκίδα78 ορατή"
+
+#: ../apps/settings/settings_app.py:389
+msgid "mat&h"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:391 ../apps/settings/settings_app.py:643
+msgid "&format"
+msgstr "&μορφοποίηση"
+
+#: ../apps/settings/settings_app.py:392 ../apps/settings/settings_app.py:644
+msgid "&precision"
+msgstr "&ακρίβεια"
+
+#: ../apps/settings/settings_app.py:393
+msgid "f&raction"
+msgstr "κ&λάσμα"
+
+#: ../apps/settings/settings_app.py:394 ../apps/settings/settings_app.py:646
+msgid "&angle"
+msgstr "&γωνία"
+
+#: ../apps/settings/settings_app.py:398
+msgid "&music"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:407
+msgid "default &presentation"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:408
+#, fuzzy
+msgid "&report events not done"
+msgstr "δεν μπορεί να γίνει αντικατάσταση."
+
+#: ../apps/settings/settings_app.py:413 ../apps/settings/settings_app.py:690
+#, fuzzy
+msgid "write word and operation"
+msgstr "λέξεις"
+
+#: ../apps/settings/settings_app.py:415
+#, fuzzy
+msgid "use the &vocalize"
+msgstr "&φωνητικό"
+
+#: ../apps/settings/settings_app.py:416
+#, fuzzy
+msgid "&keep the spaces"
+msgstr "&αδειάστε τα απορρίμματα"
+
+#: ../apps/settings/settings_app.py:417
+#, fuzzy
+msgid "&allow all characters"
+msgstr "χαρακτήρες"
+
+#: ../apps/settings/settings_app.py:422
+msgid "&keyboard"
+msgstr "&πληκτρολόγιο"
+
+#: ../apps/settings/settings_app.py:424
+msgid "&mode"
+msgstr "&λειτουργία"
+
+#: ../apps/settings/settings_app.py:425 ../apps/settings/settings_app.py:698
+msgid "b78"
+msgstr "b78"
+
+#: ../apps/settings/settings_app.py:426
+msgid "&invertion"
+msgstr "&αναστροφή"
+
+#: ../apps/settings/settings_app.py:427
+msgid "&light press"
+msgstr "&ελαφρύ πάτημα"
+
+#: ../apps/settings/settings_app.py:428
+msgid "&strong press"
+msgstr "&δυνατό πάτημα"
+
+#: ../apps/settings/settings_app.py:429
+msgid "&consecutive press"
+msgstr "&συνεχόμενο πάτημα"
+
+#: ../apps/settings/settings_app.py:430
+msgid "&double light press"
+msgstr "&διπλό ελαφρύ πάτημα"
+
+#: ../apps/settings/settings_app.py:431
+msgid "double st&rong press"
+msgstr "διπλό δυ&νατό πάτημα"
+
+#: ../apps/settings/settings_app.py:435
+msgid "&standby"
+msgstr "&αναμονή"
+
+#: ../apps/settings/settings_app.py:437
+msgid "&transport"
+msgstr "&μεταφορα"
+
+#: ../apps/settings/settings_app.py:438
+msgid "&shutdown"
+msgstr "&απενεργοποίηση"
+
+#: ../apps/settings/settings_app.py:443
+#, fuzzy
+msgid "u&pdate"
+msgstr "&ημερομηνία"
+
+#: ../apps/settings/settings_app.py:445
+msgid "check update"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:446
+#, fuzzy
+msgid "&auto check"
+msgstr "αυτόματη αλλαγή"
+
+#: ../apps/settings/settings_app.py:447
+#, fuzzy
+msgid "&install an other version"
+msgstr "εκδόσεις"
+
+#: ../apps/settings/settings_app.py:448
+#, fuzzy
+msgid "&search update to"
+msgstr "κενή λίστα"
+
+#: ../apps/settings/settings_app.py:452 ../apps/settings/settings_app.py:2095
+#, fuzzy
+msgid "about"
+msgstr "&περί"
+
+#: ../apps/settings/settings_app.py:454
+msgid "&test"
+msgstr "&δοκιμή"
+
+#: ../apps/settings/settings_app.py:455
+msgid "&reset"
+msgstr "ε&παναφορά"
+
+#: ../apps/settings/settings_app.py:481 ../apps/settings/settings_app.py:516
+msgid "time"
+msgstr "ώρα"
+
+#: ../apps/settings/settings_app.py:483 ../apps/settings/settings_app.py:517
+#: ../apps/media/mp3_app.py:803
+msgid "date"
+msgstr "ημερομηνία"
+
+#: ../apps/settings/settings_app.py:485 ../apps/settings/settings_app.py:521
+msgid "battery"
+msgstr "μπαταρία"
+
+#: ../apps/settings/settings_app.py:487 ../apps/settings/settings_app.py:525
+#: ../apps/edt/editor_base_app.py:1003 ../apps/media/mp3_app.py:145
+#: ../apps/media/mp3_app.py:858 ../apps/media/radio_app.py:393
+msgid "volume"
+msgstr "ένταση"
+
+#: ../apps/settings/settings_app.py:489 ../apps/settings/settings_app.py:527
+#: ../apps/settings/settings_app.py:568 ../apps/settings/settings_app.py:569
+msgid "language"
+msgstr "γλώσσα"
+
+#: ../apps/settings/settings_app.py:491 ../apps/settings/settings_app.py:532
+msgid "jack"
+msgstr "βύσμα"
+
+#: ../apps/settings/settings_app.py:493 ../apps/settings/settings_app.py:536
+#, fuzzy
+msgid "keyboard USB-A-HID"
+msgstr "πληκτρολόγιο USB-HID"
+
+#: ../apps/settings/settings_app.py:495 ../apps/settings/settings_app.py:537
+#, fuzzy
+msgid "keyboard USB-B-HID"
+msgstr "πληκτρολόγιο USB-HID"
+
+#: ../apps/settings/settings_app.py:498 ../apps/settings/settings_app.py:545
+msgid "paired devices"
+msgstr "συζευγμένες συσκευές"
+
+#: ../apps/settings/settings_app.py:500 ../apps/settings/settings_app.py:562
+msgid "connected to"
+msgstr "συνδεδεμένο με"
+
+#: ../apps/settings/settings_app.py:502 ../apps/settings/settings_app.py:568
+#, fuzzy
+msgid "message language"
+msgstr "γλώσσα"
+
+#: ../apps/settings/settings_app.py:504 ../apps/settings/settings_app.py:569
+#, fuzzy
+msgid "braille language"
+msgstr "γλώσσα"
+
+#: ../apps/settings/settings_app.py:506 ../apps/settings/settings_app.py:709
+msgid "transport timeout minute (0 none)"
+msgstr "λήξη χρόνου μεταφοράς (0 κανένα)"
+
+#: ../apps/settings/settings_app.py:508 ../apps/settings/settings_app.py:710
+msgid "shutdown timeout minute (0 none)"
+msgstr "λήξη χρόνου τερματισμού (0 κανένα)"
+
+#: ../apps/settings/settings_app.py:518
+msgid "auto sync date"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:518
+#, fuzzy
+msgid "clock"
+msgstr "&ρολόι"
+
+#: ../apps/settings/settings_app.py:518
+msgid "auto &sync date"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:524 ../apps/settings/settings_app.py:528
+msgid "synthesis"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:525 ../apps/settings/settings_app.py:526
+#: ../apps/edt/editor_base_app.py:1003 ../apps/edt/editor_base_app.py:1027
+#: ../apps/media/mp3_app.py:858 ../apps/media/radio_app.py:393
+msgid "&value"
+msgstr "&αξία"
+
+#: ../apps/settings/settings_app.py:526 ../apps/edt/editor_base_app.py:1027
+msgid "speed"
+msgstr "ταχύτητα"
+
+#: ../apps/settings/settings_app.py:528
+msgid "&synthesis"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:529
+msgid "voice"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:529
+msgid "&voice"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:535
+msgid "usb"
+msgstr "usb"
+
+#: ../apps/settings/settings_app.py:536 ../apps/settings/settings_app.py:537
+#: ../apps/settings/settings_app.py:697 ../apps/settings/settings_app.py:698
+#: ../apps/settings/settings_app.py:699 ../apps/settings/settings_app.py:1074
+msgid "keyboard"
+msgstr "πληκτρολόγιο"
+
+#: ../apps/settings/settings_app.py:536
+#, fuzzy
+msgid "usb-a hid mode"
+msgstr "usb hid mode"
+
+#: ../apps/settings/settings_app.py:537
+#, fuzzy
+msgid "usb-b hid mode"
+msgstr "usb hid mode"
+
+#: ../apps/settings/settings_app.py:538 ../apps/settings/settings_app.py:557
+msgid "simulation esys"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:542 ../apps/settings/settings_app.py:561
+msgid "power"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:542 ../apps/settings/settings_app.py:1473
+#, fuzzy
+msgid "bluetooth power"
+msgstr "bluetooth"
+
+#: ../apps/settings/settings_app.py:542 ../apps/settings/settings_app.py:561
+msgid "&powered"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:543 ../apps/settings/settings_app.py:1144
+#: ../apps/settings/settings_app.py:1151 ../apps/media/radio_app.py:142
+msgid "name"
+msgstr "όνομα"
+
+#: ../apps/settings/settings_app.py:543
+msgid "&bnote name"
+msgstr "όνομα &bnote"
+
+#: ../apps/settings/settings_app.py:544
+msgid "visible"
+msgstr "ορατό"
+
+#: ../apps/settings/settings_app.py:544
+msgid "&bnote visible"
+msgstr "&bnote ορατό"
+
+#: ../apps/settings/settings_app.py:552
+msgid "bluetooth auto switch"
+msgstr "αυτόματος διακόπτης Bluetooth"
+
+#: ../apps/settings/settings_app.py:560
+msgid "wifi"
+msgstr "wifi"
+
+#: ../apps/settings/settings_app.py:561 ../apps/settings/settings_app.py:1494
+msgid "wifi power"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:562
+msgid "&connected"
+msgstr "&συνδεδεμένο"
+
+#: ../apps/settings/settings_app.py:563
+msgid "favorites"
+msgstr "αγαπημενα"
+
+#: ../apps/settings/settings_app.py:564
+msgid "country"
+msgstr "χώρα"
+
+#: ../apps/settings/settings_app.py:564
+msgid "wlan country"
+msgstr "wlan"
+
+#: ../apps/settings/settings_app.py:567 ../apps/settings/settings_app.py:570
+#: ../apps/settings/settings_app.py:571 ../apps/settings/settings_app.py:572
+#: ../apps/settings/settings_app.py:573 ../apps/settings/settings_app.py:579
+#: ../apps/settings/settings_app.py:583 ../apps/settings/settings_app.py:587
+#: ../apps/settings/settings_app.py:591 ../apps/settings/settings_app.py:595
+#: ../apps/settings/settings_app.py:599 ../apps/settings/settings_app.py:603
+#: ../apps/settings/settings_app.py:607 ../apps/settings/settings_app.py:611
+#: ../apps/settings/settings_app.py:615 ../apps/settings/settings_app.py:619
+#: ../apps/settings/settings_app.py:623
+msgid "user interface"
+msgstr "περιβάλλον χρήστη"
+
+#: ../apps/settings/settings_app.py:568
+msgid "message"
+msgstr "μήνυμα"
+
+#: ../apps/settings/settings_app.py:569
+msgid "braille"
+msgstr "μπράιγ"
+
+#: ../apps/settings/settings_app.py:570 ../apps/settings/settings_app.py:634
+msgid "braille type"
+msgstr "τύπος μπράιγ"
+
+#: ../apps/settings/settings_app.py:571
+msgid "spaces in label"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:572
+msgid "visible shortcuts"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:573
+msgid "developer mode"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:576
+msgid "main menu"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:577 ../apps/settings/settings_app.py:627
+#: ../apps/settings/settings_app.py:628 ../apps/settings/settings_app.py:629
+#: ../apps/settings/settings_app.py:630 ../apps/fman/file_manager_app.py:368
+#: ../apps/fman/file_manager_app.py:381 ../apps/fman/file_manager_app.py:394
+#: ../apps/fman/file_manager_app.py:430 ../apps/fman/file_manager_app.py:442
+#: ../apps/fman/file_manager_app.py:453
+msgid "explorer"
+msgstr "εξερευνητής"
+
+#: ../apps/settings/settings_app.py:585 ../apps/settings/settings_app.py:685
+#: ../apps/settings/settings_app.py:686 ../apps/settings/settings_app.py:687
+#: ../apps/agenda/agenda_app.py:61 ../apps/agenda/agenda_app.py:1503
+msgid "agenda"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:589 ../apps/media/radio_app.py:58
+#, fuzzy
+msgid "radio"
+msgstr "ακτίνιο"
+
+#: ../apps/settings/settings_app.py:593
+msgid "audio"
+msgstr "&ήχος"
+
+#: ../apps/settings/settings_app.py:597 ../apps/wikipedia/wikipedia_app.py:42
+#: ../apps/wikipedia/wikipedia_app.py:193
+msgid "wikipedia"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:601 ../apps/timer/timer_app.py:52
+#, fuzzy
+msgid "timer"
+msgstr "ώρα"
+
+#: ../apps/settings/settings_app.py:605 ../apps/translator/translator_app.py:85
+#, fuzzy
+msgid "translator"
+msgstr "μεταφορά"
+
+#: ../apps/settings/settings_app.py:609
+#, fuzzy
+msgid "write_word"
+msgstr "&επεξεργασία"
+
+#: ../apps/settings/settings_app.py:611
+#, fuzzy
+msgid "&write word"
+msgstr "&επεξεργασία"
+
+#: ../apps/settings/settings_app.py:613
+#, fuzzy
+msgid "operation"
+msgstr "κλάσμα"
+
+#: ../apps/settings/settings_app.py:617 ../apps/games/mines_app.py:60
+msgid "mines"
+msgstr "νάρκες"
+
+#: ../apps/settings/settings_app.py:621 ../apps/games/master_mind_app.py:62
+msgid "mastermind"
+msgstr "mastermind"
+
+#: ../apps/settings/settings_app.py:628
+msgid "empty the bluetooth folder once shutdown"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:628
+msgid "&empty the bluetooth once shutdown"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:629
+msgid "empty the trash folder once shutdown"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:629
+#, fuzzy
+msgid "&empty the trash once shutdown"
+msgstr "&αδειάστε τα απορρίμματα"
+
+#: ../apps/settings/settings_app.py:630
+msgid "number of recent files"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:630
+#, fuzzy
+msgid "files &number"
+msgstr "&μετονομασία"
+
+#: ../apps/settings/settings_app.py:633 ../apps/settings/settings_app.py:634
+#: ../apps/settings/settings_app.py:635 ../apps/settings/settings_app.py:636
+#: ../apps/settings/settings_app.py:637 ../apps/settings/settings_app.py:638
+#: ../apps/settings/settings_app.py:639 ../apps/edt/editor_app.py:44
+#: ../apps/edt/editor_base_app.py:1262
+#: ../apps/eole/eole_search_dialog_box.py:65 ../apps/media/mp3_app.py:243
+msgid "editor"
+msgstr "συντάκτης"
+
+#: ../apps/settings/settings_app.py:635
+msgid "line length"
+msgstr "μήκος γραμμής"
+
+#: ../apps/settings/settings_app.py:635
+msgid "lines &length"
+msgstr "&μήκος γραμμών"
+
+#: ../apps/settings/settings_app.py:636
+msgid "forward display"
+msgstr "μπροστινή οθόνη"
+
+#: ../apps/settings/settings_app.py:637
+#, fuzzy
+msgid "autoscroll display"
+msgstr "μπροστινή οθόνη"
+
+#: ../apps/settings/settings_app.py:638
+msgid "cursor visible"
+msgstr "ορατός κέρσορας"
+
+#: ../apps/settings/settings_app.py:639
+msgid "dot78 visible"
+msgstr "κουκκίδα78 ορατή"
+
+#: ../apps/settings/settings_app.py:639
+msgid "&dot 78 visible"
+msgstr "ορατές &κουκιδες 78"
+
+#: ../apps/settings/settings_app.py:642 ../apps/settings/settings_app.py:643
+#: ../apps/settings/settings_app.py:644 ../apps/settings/settings_app.py:645
+#: ../apps/settings/settings_app.py:646
+msgid "math"
+msgstr "μαθηματικά"
+
+#: ../apps/settings/settings_app.py:643
+msgid "format"
+msgstr "μορφοποίηση"
+
+#: ../apps/settings/settings_app.py:644
+msgid "precision"
+msgstr "ακρίβεια"
+
+#: ../apps/settings/settings_app.py:645
+msgid "fraction"
+msgstr "κλάσμα"
+
+#: ../apps/settings/settings_app.py:645
+msgid "&fraction result"
+msgstr "&αποτέλεσμα κλάσματος"
+
+#: ../apps/settings/settings_app.py:646
+msgid "angle"
+msgstr "γωνία"
+
+#: ../apps/settings/settings_app.py:650
+msgid "musicxml edit and play mode"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:650 ../apps/settings/settings_app.py:651
+#: ../apps/settings/settings_app.py:652 ../apps/settings/settings_app.py:653
+#: ../apps/settings/settings_app.py:654 ../apps/settings/settings_app.py:655
+#: ../apps/settings/settings_app.py:656 ../apps/settings/settings_app.py:657
+#: ../apps/settings/settings_app.py:658 ../apps/settings/settings_app.py:659
+#: ../apps/settings/settings_app.py:660 ../apps/settings/settings_app.py:661
+#: ../apps/settings/settings_app.py:662 ../apps/settings/settings_app.py:663
+#: ../apps/settings/settings_app.py:664 ../apps/settings/settings_app.py:665
+msgid "music xml"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:651
+#, fuzzy
+msgid "musicxml braille type"
+msgstr "τύπος μπράιγ"
+
+#: ../apps/settings/settings_app.py:652
+msgid "musicxml notes dots"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:652 ../apps/settings/settings_app.py:668
+msgid "&notes dots"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:653
+msgid "musicxml ascending chords"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:654
+msgid "musicxml fingering"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:655
+msgid "musicxml clef"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:656
+msgid "musicxml parts"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:657
+msgid "musicxml measure b123"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:658
+msgid "musicxml measure number"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:658 ../apps/settings/settings_app.py:674
+msgid "&measure number"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:659
+msgid "musicxml measure every"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:659 ../apps/settings/settings_app.py:675
+msgid "&measure every"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:660
+msgid "musicxml view"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:661
+msgid "musicxml section"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:662
+msgid "musicxml measures per section"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:662 ../apps/settings/settings_app.py:678
+msgid "&measures per section"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:663
+msgid "musicxml words"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:664
+msgid "musicxml credit words"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:665
+msgid "musicxml lyrics"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:666
+msgid "bxml edit and play mode"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:666 ../apps/settings/settings_app.py:667
+#: ../apps/settings/settings_app.py:668 ../apps/settings/settings_app.py:669
+#: ../apps/settings/settings_app.py:670 ../apps/settings/settings_app.py:671
+#: ../apps/settings/settings_app.py:672 ../apps/settings/settings_app.py:673
+#: ../apps/settings/settings_app.py:674 ../apps/settings/settings_app.py:675
+#: ../apps/settings/settings_app.py:676 ../apps/settings/settings_app.py:677
+#: ../apps/settings/settings_app.py:678 ../apps/settings/settings_app.py:679
+#: ../apps/settings/settings_app.py:680 ../apps/settings/settings_app.py:681
+#: ../apps/settings/settings_app.py:682
+msgid "music bxml"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:667
+#, fuzzy
+msgid "bxml braille type"
+msgstr "τύπος μπράιγ"
+
+#: ../apps/settings/settings_app.py:668
+msgid "bxml notes dots"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:669
+msgid "bxml ascending chords"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:670
+msgid "bxml fingering"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:671
+msgid "bxml clef"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:672
+msgid "bxml parts"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:673
+msgid "bxml measure b123"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:674
+msgid "bxml measure number"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:675
+msgid "bxml measure every"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:676
+#, fuzzy
+msgid "bxml view"
+msgstr "λέξεις"
+
+#: ../apps/settings/settings_app.py:677
+#, fuzzy
+msgid "bxml section"
+msgstr "τέλος &επιλογής"
+
+#: ../apps/settings/settings_app.py:678
+msgid "bxml measures per section"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:679
+#, fuzzy
+msgid "bxml words"
+msgstr "λέξεις"
+
+#: ../apps/settings/settings_app.py:680
+msgid "bxml credit words"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:681
+msgid "bxml lyrics"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:682
+msgid "bxml karaoke"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:686
+msgid "default presentation"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:686
+#, fuzzy
+msgid "&presentation"
+msgstr "κ&λάσμα"
+
+#: ../apps/settings/settings_app.py:687
+msgid "at startup, report events not done"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:687
+#, fuzzy
+msgid "report events"
+msgstr "&εξερευνητής"
+
+#: ../apps/settings/settings_app.py:691
+msgid "use the vocal synthesis"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:691 ../apps/settings/settings_app.py:692
+#: ../apps/settings/settings_app.py:693
+#, fuzzy
+msgid "braille learning"
+msgstr "γλώσσα"
+
+#: ../apps/settings/settings_app.py:691
+#, fuzzy
+msgid "&vocal"
+msgstr "φωνητικό"
+
+#: ../apps/settings/settings_app.py:692
+msgid "keeping spaces"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:692
+msgid "&spaces"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:693
+msgid "allow the wrong hit"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:693
+msgid "&allow all"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:696
+msgid "keyboards"
+msgstr "πληκτρολόγια"
+
+#: ../apps/settings/settings_app.py:697
+msgid "mode"
+msgstr "λειτουργία"
+
+#: ../apps/settings/settings_app.py:697
+msgid "braille keyboard mode"
+msgstr "λειτουργία πληκτρολογίου μπράιγ"
+
+#: ../apps/settings/settings_app.py:698
+msgid "braille keyboard b78"
+msgstr "πληκτρολόγιο μπράιγ b78"
+
+#: ../apps/settings/settings_app.py:699
+msgid "invertion"
+msgstr "αντιστροφή"
+
+#: ../apps/settings/settings_app.py:699
+msgid "inversion"
+msgstr "αναστροφή"
+
+#: ../apps/settings/settings_app.py:700
+msgid "light press"
+msgstr "ελαφρύ πάτημα"
+
+#: ../apps/settings/settings_app.py:700 ../apps/settings/settings_app.py:701
+#: ../apps/settings/settings_app.py:702 ../apps/settings/settings_app.py:703
+#: ../apps/settings/settings_app.py:704
+msgid "routing keyboard"
+msgstr "πληκτρολόγιο δρομολόγησης"
+
+#: ../apps/settings/settings_app.py:701
+msgid "strong press"
+msgstr "δυνατό πάτημα"
+
+#: ../apps/settings/settings_app.py:702
+msgid "consecutive press"
+msgstr "συνεχόμενο πάτημα"
+
+#: ../apps/settings/settings_app.py:702
+msgid "consecutive"
+msgstr "συνεχής"
+
+#: ../apps/settings/settings_app.py:703
+msgid "double light press"
+msgstr "διπλό ελαφρύ πάτημα"
+
+#: ../apps/settings/settings_app.py:703
+msgid "double light"
+msgstr "διπλό ελαφρή"
+
+#: ../apps/settings/settings_app.py:704
+msgid "double strong press"
+msgstr "διπλό δυνατό πάτημα"
+
+#: ../apps/settings/settings_app.py:704
+msgid "double strong"
+msgstr "διπλό δυνατό"
+
+#: ../apps/settings/settings_app.py:708 ../apps/settings/settings_app.py:709
+#: ../apps/settings/settings_app.py:710
+msgid "standby"
+msgstr "αναμονή"
+
+#: ../apps/settings/settings_app.py:709 ../apps/internal.py:142
+msgid "transport"
+msgstr "μεταφορά"
+
+#: ../apps/settings/settings_app.py:710 ../apps/internal.py:143
+msgid "shutdown"
+msgstr "τερματισμός"
+
+#: ../apps/settings/settings_app.py:714 ../apps/settings/settings_app.py:715
+#: ../apps/settings/settings_app.py:721 ../apps/settings/settings_app.py:1989
+#, fuzzy
+msgid "update"
+msgstr "ημερομηνία"
+
+#: ../apps/settings/settings_app.py:715
+msgid "automatically check for updates"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:715
+#, fuzzy
+msgid "&auto checking"
+msgstr "αυτόματη αλλαγή"
+
+#: ../apps/settings/settings_app.py:718
+msgid "update available"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:720 ../apps/settings/settings_app.py:1976
+msgid "your b.note is up to date"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:721 ../apps/settings/settings_app.py:2599
+#, fuzzy
+msgid "update source"
+msgstr "ημερομηνία"
+
+#: ../apps/settings/settings_app.py:721
+msgid "source"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:724
+msgid "versions"
+msgstr "εκδόσεις"
+
+#: ../apps/settings/settings_app.py:736
+msgid "device type"
+msgstr "τύπος συσκευής"
+
+#: ../apps/settings/settings_app.py:738
+msgid "applications"
+msgstr "εφαρμογές"
+
+#: ../apps/settings/settings_app.py:738
+#, fuzzy
+msgid "application versions"
+msgstr "εφαρμογές"
+
+#: ../apps/settings/settings_app.py:738 ../apps/settings/settings_app.py:2633
+#, fuzzy
+msgid "version"
+msgstr "εκδόσεις"
+
+#: ../apps/settings/settings_app.py:740
+msgid "firmware"
+msgstr "υλικολογισμικό"
+
+#: ../apps/settings/settings_app.py:742
+msgid "sdcard"
+msgstr "κάρτα sd"
+
+#: ../apps/settings/settings_app.py:743
+#, fuzzy
+msgid "sdcard space"
+msgstr "κάρτα sd"
+
+#: ../apps/settings/settings_app.py:745
+msgid "generation 2"
+msgstr "γενιά 2"
+
+#: ../apps/settings/settings_app.py:981
+msgid "Total: {:.1f} GiB, Used: {:.1f} GiB, Free: {:.1f} GiB"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:1058
+msgid "inactive"
+msgstr "ανενεργό"
+
+#: ../apps/settings/settings_app.py:1060
+msgid "discharging"
+msgstr "εκφόρτωση"
+
+#: ../apps/settings/settings_app.py:1061
+msgid "charging"
+msgstr "φόρτιση"
+
+#: ../apps/settings/settings_app.py:1063
+msgid "fast charging"
+msgstr "γρήγορη φόρτιση"
+
+#: ../apps/settings/settings_app.py:1065
+msgid "out of order"
+msgstr "εκτός λειτουργίας"
+
+#: ../apps/settings/settings_app.py:1070 ../apps/settings/settings_app.py:1140
+#: ../apps/settings/settings_app.py:1177 ../apps/settings/settings_app.py:1197
+msgid "standard"
+msgstr "κανονικός"
+
+#: ../apps/settings/settings_app.py:1071
+msgid "light"
+msgstr "ελαφρύ"
+
+#: ../apps/settings/settings_app.py:1072
+msgid "basic"
+msgstr "βασικό"
+
+#: ../apps/settings/settings_app.py:1073
+msgid "basic light"
+msgstr "ελαφρύ βασικό"
+
+#: ../apps/settings/settings_app.py:1139
+msgid "degree"
+msgstr "βαθμός"
+
+#: ../apps/settings/settings_app.py:1139
+msgid "radian"
+msgstr "ακτίνιο"
+
+#: ../apps/settings/settings_app.py:1140
+msgid "scientific"
+msgstr "επιστημονικό"
+
+#: ../apps/settings/settings_app.py:1141 ../apps/settings/settings_app.py:1148
+msgid "expert"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:1141 ../apps/settings/settings_app.py:1148
+msgid "read"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:1141 ../apps/settings/settings_app.py:1148
+#, fuzzy
+msgid "edit"
+msgstr "&επεξεργασία"
+
+#: ../apps/settings/settings_app.py:1141 ../apps/settings/settings_app.py:1148
+#, fuzzy
+msgid "listen"
+msgstr "&πλαίσιο επεξεργασίας"
+
+#: ../apps/settings/settings_app.py:1142 ../apps/settings/settings_app.py:1149
+#: ../apps/settings/settings_app.py:1155 ../apps/settings/settings_app.py:1168
+msgid "dot 8"
+msgstr "κουκκίδα 8"
+
+#: ../apps/settings/settings_app.py:1142 ../apps/settings/settings_app.py:1149
+#: ../apps/settings/settings_app.py:1155 ../apps/settings/settings_app.py:1168
+#: ../apps/edt/editor_app.py:145 ../apps/edt/editor_app.py:159
+msgid "grade 1"
+msgstr "grade 1"
+
+#: ../apps/settings/settings_app.py:1143 ../apps/settings/settings_app.py:1150
+msgid "8 dots"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:1143 ../apps/settings/settings_app.py:1150
+msgid "6 dots"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:1143 ../apps/settings/settings_app.py:1150
+msgid "6 dots with group"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:1144 ../apps/settings/settings_app.py:1151
+#, fuzzy
+msgid "abbreviation"
+msgstr "κλάσμα"
+
+#: ../apps/settings/settings_app.py:1145 ../apps/settings/settings_app.py:1152
+#, fuzzy
+msgid "by section"
+msgstr "τέλος &επιλογής"
+
+#: ../apps/settings/settings_app.py:1145 ../apps/settings/settings_app.py:1152
+msgid "by part"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:1146 ../apps/settings/settings_app.py:1153
+msgid "total part"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:1146 ../apps/settings/settings_app.py:1153
+msgid "system"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:1146 ../apps/settings/settings_app.py:1153
+msgid "number"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:1147 ../apps/settings/settings_app.py:1154
+msgid "after each note"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:1147 ../apps/settings/settings_app.py:1154
+msgid "before each section"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:1147 ../apps/settings/settings_app.py:1154
+#, fuzzy
+msgid "after each section"
+msgstr "κλάσμα"
+
+#: ../apps/settings/settings_app.py:1155 ../apps/settings/settings_app.py:1168
+#: ../apps/edt/editor_app.py:145 ../apps/edt/editor_app.py:159
+msgid "grade 2"
+msgstr "grade 2"
+
+#: ../apps/settings/settings_app.py:1156 ../apps/settings/settings_app.py:1158
+#: ../apps/settings/settings_app.py:1159 ../apps/settings/settings_app.py:1160
+#: ../apps/settings/settings_app.py:1161 ../apps/settings/settings_app.py:1162
+#: ../apps/settings/settings_app.py:1163 ../apps/settings/settings_app.py:1164
+#: ../apps/settings/settings_app.py:1165 ../apps/settings/settings_app.py:1166
+#: ../apps/settings/settings_app.py:1167
+#, fuzzy
+msgid "invisible"
+msgstr "ορατό"
+
+#: ../apps/settings/settings_app.py:1156 ../apps/settings/settings_app.py:1157
+#: ../apps/settings/settings_app.py:1158 ../apps/settings/settings_app.py:1159
+#: ../apps/settings/settings_app.py:1160 ../apps/settings/settings_app.py:1161
+#: ../apps/settings/settings_app.py:1162 ../apps/settings/settings_app.py:1163
+#: ../apps/settings/settings_app.py:1164 ../apps/settings/settings_app.py:1165
+#: ../apps/settings/settings_app.py:1166 ../apps/settings/settings_app.py:1167
+msgid "in main apps menu"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:1156 ../apps/settings/settings_app.py:1157
+#: ../apps/settings/settings_app.py:1158 ../apps/settings/settings_app.py:1159
+#: ../apps/settings/settings_app.py:1160 ../apps/settings/settings_app.py:1161
+#: ../apps/settings/settings_app.py:1162 ../apps/settings/settings_app.py:1163
+#: ../apps/settings/settings_app.py:1164 ../apps/settings/settings_app.py:1165
+#: ../apps/settings/settings_app.py:1166 ../apps/settings/settings_app.py:1167
+msgid "in more apps menu"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:1169
+msgid "normal"
+msgstr "κανονικό"
+
+#: ../apps/settings/settings_app.py:1169
+msgid "significative"
+msgstr "σημαντικό"
+
+#: ../apps/settings/settings_app.py:1171 ../apps/settings/settings_app.py:1173
+msgid "send to screen reader"
+msgstr "αποστολή στον αναγνώστη οθόνης"
+
+#: ../apps/settings/settings_app.py:1172 ../apps/settings/settings_app.py:1174
+msgid "active"
+msgstr "ενεργό"
+
+#: ../apps/settings/settings_app.py:1178
+msgid "unimanual1"
+msgstr "μονόχειρο1"
+
+#: ../apps/settings/settings_app.py:1179
+msgid "unimanual2"
+msgstr "μονόχειρο2"
+
+#: ../apps/settings/settings_app.py:1180
+msgid "unimanual3"
+msgstr "μονόχειρο3"
+
+#: ../apps/settings/settings_app.py:1181
+msgid "unimanual4"
+msgstr "μονόχειρο4"
+
+#: ../apps/settings/settings_app.py:1183
+msgid "character"
+msgstr "χαρακτήρας"
+
+#: ../apps/settings/settings_app.py:1184
+msgid "function"
+msgstr "λειτουργία"
+
+#: ../apps/settings/settings_app.py:1197 ../apps/agenda/agenda_app.py:42
+msgid "not done"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:1197 ../apps/agenda/agenda_app.py:1451
+#: ../apps/agenda/agenda_app.py:1505
+msgid "today"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:1197 ../apps/agenda/agenda_app.py:1517
+#, fuzzy
+msgid "calendar"
+msgstr "κανονικός"
+
+#: ../apps/settings/settings_app.py:1198
+msgid "for the same day"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:1198
+msgid "for the next day"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:1198
+msgid "for the same day and the next day"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:1199
+msgid "auto"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:1199
+msgid "ask"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:1212
+msgid "none"
+msgstr "κανένα"
+
+#: ../apps/settings/settings_app.py:1213
+msgid "backward-forward"
+msgstr "πίσω-εμπρός"
+
+#: ../apps/settings/settings_app.py:1214
+msgid "click"
+msgstr "κλίκ"
+
+#: ../apps/settings/settings_app.py:1215
+msgid "double click"
+msgstr "διπλό κλικ"
+
+#: ../apps/settings/settings_app.py:1216
+msgid "windows key"
+msgstr "πλήκτρο των windows"
+
+#: ../apps/settings/settings_app.py:1217
+msgid "context menu"
+msgstr "μενού πλαισίου"
+
+#: ../apps/settings/settings_app.py:1259
+msgid "auto switch"
+msgstr "αυτόματη αλλαγή"
+
+#: ../apps/settings/settings_app.py:1259
+msgid "do nothing"
+msgstr "μη κάνεις τίποτα"
+
+#: ../apps/settings/settings_app.py:1344 ../apps/settings/settings_app.py:1549
+msgid "&remove"
+msgstr "&κατάργηση"
+
+#: ../apps/settings/settings_app.py:1350
+#, fuzzy
+msgid "bluetooth adapter is not powered"
+msgstr "bluetooth"
+
+#: ../apps/settings/settings_app.py:1409
+#, fuzzy
+msgid "bnote must restart for the name change to take effect."
+msgstr "Πρέπει να κλείσετε το B.note για να εφαρμοστούν οι αλλαγές"
+
+#: ../apps/settings/settings_app.py:1417
+msgid "restarting..."
+msgstr "επανεκκίνηση..."
+
+#: ../apps/settings/settings_app.py:1445
+#, fuzzy
+msgid "not connected"
+msgstr "&συνδεδεμένο"
+
+#: ../apps/settings/settings_app.py:1447 ../apps/settings/settings_app.py:1464
+msgid "power off"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:1513 ../apps/settings/settings_app.py:1581
+#, fuzzy
+msgid "command failed"
+msgstr "νέο αρχείο"
+
+#: ../apps/settings/settings_app.py:1540 ../apps/settings/settings_app.py:1613
+#: ../apps/settings/settings_app.py:1652
+msgid "ssid"
+msgstr "ssid"
+
+#: ../apps/settings/settings_app.py:1548
+msgid "&set first"
+msgstr "&ορισμός πρώτα"
+
+#: ../apps/settings/settings_app.py:1550 ../apps/settings/settings_app.py:1619
+#: ../apps/media/mp3_app.py:109
+msgid "&add"
+msgstr "&προσθήκη"
+
+#: ../apps/settings/settings_app.py:1557
+msgid "wifi adapter is not powered"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:1597
+#, fuzzy
+msgid "deletion failed"
+msgstr "επιλογή &όλων"
+
+#: ../apps/settings/settings_app.py:1612
+msgid "&scan"
+msgstr "&σάρωση"
+
+#: ../apps/settings/settings_app.py:1616 ../apps/fman/file_manager_app.py:995
+msgid "password"
+msgstr "κωδικός πρόσβασης"
+
+#: ../apps/settings/settings_app.py:1629
+msgid "scanning..."
+msgstr "σάρωση..."
+
+#: ../apps/settings/settings_app.py:1691
+msgid "add failed"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:1719
+msgid "hours"
+msgstr "ώρες"
+
+#: ../apps/settings/settings_app.py:1722
+msgid "minutes"
+msgstr "λεπτά"
+
+#: ../apps/settings/settings_app.py:1725
+msgid "seconds"
+msgstr "δευτερόλεπτα"
+
+#: ../apps/settings/settings_app.py:1744 ../apps/settings/settings_app.py:1758
+#: ../apps/settings/settings_app.py:1811 ../apps/settings/settings_app.py:1825
+#: ../apps/settings/settings_app.py:2182 ../apps/settings/settings_app.py:2262
+#: ../apps/settings/settings_app.py:2287
+msgid "value not valid..."
+msgstr "η τιμή δεν είναι έγκυρη..."
+
+#: ../apps/settings/settings_app.py:1786
+msgid "day"
+msgstr "ημέρα"
+
+#: ../apps/settings/settings_app.py:1789
+msgid "month"
+msgstr "μήνας"
+
+#: ../apps/settings/settings_app.py:1792
+msgid "year"
+msgstr "έτος"
+
+#: ../apps/settings/settings_app.py:1964 ../apps/settings/settings_app.py:2039
+msgid "searching update..."
+msgstr ""
+
+#: ../apps/settings/settings_app.py:1980 ../apps/settings/settings_app.py:2045
+msgid "connexion failed, try again."
+msgstr ""
+
+#: ../apps/settings/settings_app.py:1987
+msgid "the version {} of applications is available. Do you want to install it?"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:2000 ../apps/settings/settings_app.py:2073
+#, fuzzy
+msgid "downloading..."
+msgstr "ανάγνωση..."
+
+#: ../apps/settings/settings_app.py:2022 ../apps/fman/file_manager_app.py:2248
+#, fuzzy
+msgid "unable to update."
+msgstr "Θέλετε να εγκαταστήσετε την ενημερωμένη έκδοση;"
+
+#: ../apps/settings/settings_app.py:2035 ../apps/settings/settings_app.py:2678
+msgid "install done, restart new version..."
+msgstr ""
+
+#: ../apps/settings/settings_app.py:2049
+msgid "No version available through this source."
+msgstr ""
+
+#: ../apps/settings/settings_app.py:2055
+#, fuzzy
+msgid "version history"
+msgstr "εκδόσεις"
+
+#: ../apps/settings/settings_app.py:2057
+#, fuzzy
+msgid "&select a version to install"
+msgstr "επιλογή &όλων"
+
+#: ../apps/settings/settings_app.py:2058
+#, fuzzy
+msgid "&install"
+msgstr "&εισαγωγή"
+
+#: ../apps/settings/settings_app.py:2067
+msgid "this version is already installed"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:2078
+#, fuzzy
+msgid "device: {}"
+msgstr "τύπος συσκευής"
+
+#: ../apps/settings/settings_app.py:2079
+msgid "serial number: {}"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:2080
+msgid "subtype: {}"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:2081
+#, fuzzy
+msgid "line length: {}"
+msgstr "μήκος γραμμής"
+
+#: ../apps/settings/settings_app.py:2084
+#, fuzzy
+msgid "option: esysuite"
+msgstr "esysuite"
+
+#: ../apps/settings/settings_app.py:2086
+#, fuzzy
+msgid "applications: {}"
+msgstr "εφαρμογές"
+
+#: ../apps/settings/settings_app.py:2087
+#, fuzzy
+msgid "firmware: {}"
+msgstr "υλικολογισμικό"
+
+#: ../apps/settings/settings_app.py:2088
+#, fuzzy
+msgid "sdcard: {}"
+msgstr "κάρτα sd"
+
+#: ../apps/settings/settings_app.py:2090
+msgid ""
+"{}\n"
+"{}\n"
+"Phone: {}\n"
+"Email: {}\n"
+"Website: {}"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:2108
+msgid "do you want to reset parameters?"
+msgstr "θέλετε να επαναφέρετε τις παραμέτρους;"
+
+#: ../apps/settings/settings_app.py:2185
+msgid "value not valid. It must be between {} and {}."
+msgstr "μη έγκυρη. Πρέπει να είναι μεταξύ {} και {}."
+
+#: ../apps/settings/settings_app.py:2601
+msgid "source &url"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:2603
+#, fuzzy
+msgid "&set default"
+msgstr "&ορισμός πρώτα"
+
+#: ../apps/settings/settings_app.py:2625
+#, fuzzy
+msgid "source not valid..."
+msgstr "η τιμή δεν είναι έγκυρη..."
+
+#: ../apps/settings/settings_app.py:2631
+#, fuzzy
+msgid "bnote versions"
+msgstr "εκδόσεις"
+
+#: ../apps/settings/settings_app.py:2637
+msgid "&switch to"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:2638 ../apps/settings/settings_app.py:2725
+#: ../apps/timer/timer_app.py:149 ../apps/agenda/agenda_app.py:72
+#: ../apps/games/mines_app.py:81 ../apps/games/master_mind_app.py:82
+#: ../apps/media/mp3_app.py:103 ../apps/media/mp3_app.py:572
+msgid "&delete"
+msgstr "&διαγραφή"
+
+#: ../apps/settings/settings_app.py:2657
+msgid "bnote version cannot be deleted."
+msgstr ""
+
+#: ../apps/settings/settings_app.py:2662
+msgid "bnote version is the default one and cannot be deleted."
+msgstr ""
+
+#: ../apps/settings/settings_app.py:2664
+#, fuzzy
+msgid "bnote version deleted."
+msgstr "&bnote ορατό"
+
+#: ../apps/settings/settings_app.py:2666
+msgid "deletion failed."
+msgstr ""
+
+#: ../apps/settings/settings_app.py:2684
+#, fuzzy
+msgid "export settings"
+msgstr "ρυθμίσεις"
+
+#: ../apps/settings/settings_app.py:2686 ../apps/skeleton/skeleton_app.py:102
+#: ../apps/agenda/agenda_app.py:574 ../apps/fman/file_manager_app.py:833
+#, fuzzy
+msgid "&file name"
+msgstr "&μετονομασία"
+
+#: ../apps/settings/settings_app.py:2701
+#, fuzzy
+msgid "the settings file already exists. Do you want to replace it?"
+msgstr "αρχείο {} υπάρχει. θέλετε να το αντικαταστήσετε;"
+
+#: ../apps/settings/settings_app.py:2721
+#, fuzzy
+msgid "import a settings file"
+msgstr "νέο αρχείο"
+
+#: ../apps/settings/settings_app.py:2723
+#, fuzzy
+msgid "setting"
+msgstr "ρυθμίσεις"
+
+#: ../apps/settings/settings_app.py:2724 ../apps/agenda/agenda_app.py:540
+#, fuzzy
+msgid "&import"
+msgstr "&εξερευνητής"
+
+#: ../apps/settings/settings_app.py:2745
+msgid ""
+"this file will be replace the existing settings file. Do you want to "
+"continue?"
+msgstr ""
+
+#: ../apps/settings/settings_app.py:2758 ../apps/fman/file_manager_app.py:2266
+msgid "failed to import the file, check the source and try again."
+msgstr ""
+
+#: ../apps/internal.py:70
+msgid "usb-&a"
+msgstr ""
+
+#: ../apps/internal.py:71
+msgid "usb-&b"
+msgstr ""
+
+#: ../apps/internal.py:146 ../apps/internal.py:262
+msgid "applications-"
+msgstr "εφαρμογές-"
+
+#: ../apps/internal.py:240
+#, fuzzy
+msgid "&word game"
+msgstr "λέξεις"
+
+#: ../apps/internal.py:241
+msgid "mat&h game"
+msgstr ""
+
+#: ../apps/internal.py:243
+#, fuzzy
+msgid "mas&termind"
+msgstr "mastermind"
+
+#: ../apps/internal.py:244
+msgid "s&keleton"
+msgstr "σ&κελετός"
+
+#: ../apps/internal.py:245
+msgid "m&ore apps..."
+msgstr ""
+
+#: ../apps/internal.py:282
+msgid "usb_&a"
+msgstr ""
+
+#: ../apps/internal.py:286
+msgid "usb_&b"
+msgstr ""
+
+#: ../apps/edt/edt/read_xlsx_file.py:41
+#, fuzzy
+msgid "select sheet."
+msgstr "Επιλέξτε φύλλο."
+
+#: ../apps/edt/edt/read_xlsx_file.py:53
+msgid "sheet {} type not found."
+msgstr "δεν βρέθηκε {} τύπος φύλλου."
+
+#: ../apps/edt/edt/write_brf_file.py:122 ../apps/edt/edt/write_brf_file.py:143
+#, fuzzy
+msgid "Volume {}"
+msgstr "αύξηση έντασης ήχου {}"
+
+#: ../apps/edt/edt/read_file.py:72
+#, fuzzy
+msgid ""
+"the original file has already been converted. Please open the converted file "
+"or rename/delete it if you want to try again this conversion."
+msgstr ""
+"το αρχείο υπάρχει {}, πιθανώς επειδή το αρχικό αρχείο έχει ήδη μετατραπεί. "
+"Ανοίξτε το αρχείο που έχετε μετατρέψει ή μετονομάστε/διαγράψετε το εάν "
+"θέλετε να δοκιμάσετε ξανά αυτήν τη μετατροπή."
+
+#: ../apps/edt/math_opy/l1l1l1ll1_opy_.py:35
+#: ../apps/edt/math_opy/l1ll1lll_opy_.py:46
+#: ../apps/edt/math_opy/l1ll1lll_opy_.py:82
+#: ../apps/edt/math_opy/l11l1l11_opy_.py:46
+#: ../apps/edt/math_opy/l11l1l11_opy_.py:82
+#: ../apps/edt/math_opy/math_parser.py:372
+#: ../apps/edt/math_opy/l1llllll_opy_.py:35
+msgid "invalid function"
+msgstr "μη έγκυρη συνάρτηση"
+
+#: ../apps/edt/math_opy/l1l1l1ll1_opy_.py:64
+#: ../apps/edt/math_opy/l111l1lll_opy_.py:52
+#: ../apps/edt/math_opy/l111l1lll_opy_.py:54
+#: ../apps/edt/math_opy/l1111ll11_opy_.py:34
+#: ../apps/edt/math_opy/l1111ll11_opy_.py:36
+#: ../apps/edt/math_opy/l1lllll1l_opy_.py:52
+#: ../apps/edt/math_opy/l1lllll1l_opy_.py:54
+#: ../apps/edt/math_opy/l1llllll_opy_.py:64
+#: ../apps/edt/math_opy/l1111111l_opy_.py:34
+#: ../apps/edt/math_opy/l1111111l_opy_.py:36
+msgid "function not evaluable"
+msgstr "μη αξιολογήσιμη λειτουργία"
+
+#: ../apps/edt/math_opy/l1l1l1ll1_opy_.py:75
+#: ../apps/edt/math_opy/l1l1l1ll1_opy_.py:135
+#: ../apps/edt/math_opy/l1l1l1ll1_opy_.py:194
+#: ../apps/edt/math_opy/l1l1l1ll1_opy_.py:208
+#: ../apps/edt/math_opy/l1l1l1ll1_opy_.py:232
+#: ../apps/edt/math_opy/l111l1lll_opy_.py:65
+#: ../apps/edt/math_opy/l1ll1lll_opy_.py:105
+#: ../apps/edt/math_opy/l1ll1lll_opy_.py:116
+#: ../apps/edt/math_opy/l1ll1lll_opy_.py:127
+#: ../apps/edt/math_opy/l1ll1lll_opy_.py:138
+#: ../apps/edt/math_opy/l11l1l11_opy_.py:105
+#: ../apps/edt/math_opy/l11l1l11_opy_.py:116
+#: ../apps/edt/math_opy/l11l1l11_opy_.py:127
+#: ../apps/edt/math_opy/l11l1l11_opy_.py:138
+#: ../apps/edt/math_opy/l111lll1l_opy_.py:49
+#: ../apps/edt/math_opy/l1lllll1l_opy_.py:65
+#: ../apps/edt/math_opy/l1llllll_opy_.py:75
+#: ../apps/edt/math_opy/l1llllll_opy_.py:135
+#: ../apps/edt/math_opy/l1llllll_opy_.py:194
+#: ../apps/edt/math_opy/l1llllll_opy_.py:208
+#: ../apps/edt/math_opy/l1llllll_opy_.py:232
+#: ../apps/edt/math_opy/l11l111l_opy_.py:49
+msgid "division by zero"
+msgstr "διαίρεση με το μηδέν"
+
+#: ../apps/edt/math_opy/l1l1l1ll1_opy_.py:82
+#: ../apps/edt/math_opy/l1llllll_opy_.py:82
+msgid "invalid argument, list needed"
+msgstr "μη έγκυρη παράμετρος, απαιτείται λίστα"
+
+#: ../apps/edt/math_opy/l1l1l1ll1_opy_.py:168
+#: ../apps/edt/math_opy/l1l1l1ll1_opy_.py:180
+#: ../apps/edt/math_opy/l1l1l1ll1_opy_.py:220
+#: ../apps/edt/math_opy/l1l1l1ll1_opy_.py:236
+#: ../apps/edt/math_opy/math_nemeth_parser.py:354
+#: ../apps/edt/math_opy/l1llllll_opy_.py:168
+#: ../apps/edt/math_opy/l1llllll_opy_.py:180
+#: ../apps/edt/math_opy/l1llllll_opy_.py:220
+#: ../apps/edt/math_opy/l1llllll_opy_.py:236
+msgid "invalid arguments"
+msgstr "μη έγκυροι παράμετροι"
+
+#: ../apps/edt/math_opy/l1l1l1ll1_opy_.py:201
+#: ../apps/edt/math_opy/l1llllll_opy_.py:201
+msgid "negative sqrt error"
+msgstr "αρνητικό σφάλμα sqrt"
+
+#: ../apps/edt/math_opy/l1l1l1ll1_opy_.py:216
+#: ../apps/edt/math_opy/l1l1l1ll1_opy_.py:234
+#: ../apps/edt/math_opy/l1llllll_opy_.py:216
+#: ../apps/edt/math_opy/l1llllll_opy_.py:234 ../apps/edt/editor_app.py:305
+msgid "infinite value"
+msgstr ""
+
+#: ../apps/edt/math_opy/l111l1lll_opy_.py:69
+#: ../apps/edt/math_opy/l1lllll1l_opy_.py:69
+msgid "assignment must be only into parameter"
+msgstr "εντολή μόνο σε παράμετρο"
+
+#: ../apps/edt/math_opy/l111l1lll_opy_.py:80
+#: ../apps/edt/math_opy/l1lllll1l_opy_.py:80
+msgid "weighted arithmetic mean invalid"
+msgstr "ο σταθμισμένος αριθμητικός μέσος όρος δεν είναι έγκυρος"
+
+#: ../apps/edt/math_opy/l11ll_opy_.py:47 ../apps/edt/math_opy/l11_opy_.py:47
+msgid "error during set_parameters"
+msgstr "σφάλμα κατά τη διάρκεια set_parameters"
+
+#: ../apps/edt/math_opy/l1ll1lll_opy_.py:163
+#: ../apps/edt/math_opy/l11l1l11_opy_.py:163
+#: ../apps/edt/math_opy/l111lll1l_opy_.py:31
+#: ../apps/edt/math_opy/l11l111l_opy_.py:31
+msgid "invalid argument"
+msgstr "μη έγκυρη παράμετρος"
+
+#: ../apps/edt/math_opy/math_parser.py:294
+#: ../apps/edt/math_opy/math_parser.py:342
+#: ../apps/edt/math_opy/math_parser.py:433
+#: ../apps/edt/math_opy/math_nemeth_parser.py:236
+#: ../apps/edt/math_opy/math_nemeth_parser.py:279
+#: ../apps/edt/math_opy/math_nemeth_parser.py:384
+msgid "empty argument"
+msgstr "κενή παράμετρος"
+
+#: ../apps/edt/math_opy/math_parser.py:393
+#: ../apps/edt/math_opy/math_nemeth_parser.py:317
+msgid "bloc error"
+msgstr "σφάλμα μπλοκ"
+
+#: ../apps/edt/math_opy/l11lll1l_opy_.py:30
+#: ../apps/edt/math_opy/l11ll1ll1_opy_.py:30
+msgid "undefined parameters"
+msgstr "απροσδιόριστες παράμετροι"
+
+#: ../apps/edt/math_opy/l111l_opy_.py:16 ../apps/edt/math_opy/l1lll1_opy_.py:16
+msgid "item not evaluable"
+msgstr "μη αξιολογήσιμο στοιχείο"
+
+#: ../apps/edt/math_opy/math_nemeth_parser.py:337
+#, fuzzy
+msgid "malformed fraction"
+msgstr "πληροφορίες"
+
+#: ../apps/edt/editor_app.py:46
+msgid "read only"
+msgstr ""
+
+#: ../apps/edt/editor_app.py:60 ../apps/wikipedia/wikipedia_app.py:55
+msgid "clean&up"
+msgstr "&καθάρισμα"
+
+#: ../apps/edt/editor_app.py:62
+#, fuzzy
+msgid "&export to .brf"
+msgstr "&εξερευνητής"
+
+#: ../apps/edt/editor_app.py:63
+#, fuzzy
+msgid "send se&lection to"
+msgstr "τέλος &επιλογής"
+
+#: ../apps/edt/editor_app.py:73
+msgid "&result"
+msgstr "&αποτελέσματα"
+
+#: ../apps/edt/editor_app.py:75
+msgid "&signature"
+msgstr "&υπογραφή"
+
+#: ../apps/edt/editor_app.py:79
+msgid "&math"
+msgstr "&μαθηματικά"
+
+#: ../apps/edt/editor_app.py:81
+msgid "&line evaluation"
+msgstr "&αξιολόγηση γραμμών"
+
+#: ../apps/edt/editor_app.py:83
+msgid "&bloc evaluation"
+msgstr "&αξιολόγηση μπλοκ"
+
+#: ../apps/edt/editor_app.py:142
+#, fuzzy
+msgid "export to braille"
+msgstr "νέο αρχείο"
+
+#: ../apps/edt/editor_app.py:144 ../apps/translator/translator_app.py:191
+#, fuzzy
+msgid "language &encoding"
+msgstr "γλώσσα"
+
+#: ../apps/edt/editor_app.py:146
+#, fuzzy
+msgid "line &length"
+msgstr "&μήκος γραμμών"
+
+#: ../apps/edt/editor_app.py:147
+msgid "lines by &page"
+msgstr ""
+
+#: ../apps/edt/editor_app.py:148
+msgid "&pages by &file"
+msgstr ""
+
+#: ../apps/edt/editor_app.py:149
+msgid "click &here to enter the first page"
+msgstr ""
+
+#: ../apps/edt/editor_app.py:166
+#, fuzzy
+msgid "exporting..."
+msgstr "επανεκκίνηση..."
+
+#: ../apps/edt/editor_app.py:178
+msgid ""
+"the value of character per line, line per page and page per file must be an "
+"integer."
+msgstr ""
+
+#: ../apps/edt/editor_app.py:178
+msgid "exporting was successful."
+msgstr ""
+
+#: ../apps/edt/editor_app.py:178
+msgid "an element of the same name already exists, remove it and try again."
+msgstr ""
+
+#: ../apps/edt/editor_app.py:184 ../apps/translator/translator_app.py:184
+#, fuzzy
+msgid "not device connected"
+msgstr "&συνδεδεμένο"
+
+#: ../apps/edt/editor_app.py:187
+msgid "you must select text to send"
+msgstr ""
+
+#: ../apps/edt/editor_app.py:191 ../apps/translator/translator_app.py:188
+#, fuzzy
+msgid "send text to"
+msgstr "αποστολή σε"
+
+#: ../apps/edt/editor_app.py:193 ../apps/translator/translator_app.py:190
+#, fuzzy
+msgid "&device"
+msgstr "τύπος συσκευής"
+
+#: ../apps/edt/editor_app.py:209
+msgid ""
+"check that the braille type of the document corresponds to the braille type "
+"of the screen reader."
+msgstr ""
+
+#: ../apps/edt/editor_app.py:222
+msgid "you must be in computer braille to use the translation."
+msgstr ""
+
+#: ../apps/edt/editor_app.py:303
+#, fuzzy
+msgid "nan value"
+msgstr "τιμή"
+
+#: ../apps/edt/editor_app.py:310 ../apps/edt/editor_app.py:361
+msgid "result:{}"
+msgstr "αποτέλεσμα:{}"
+
+#: ../apps/edt/editor_app.py:313
+#, fuzzy
+msgid "Error forgotten formula start marks"
+msgstr "Σφάλματα ξεχασμένα σημάδια έναρξης τύπου"
+
+#: ../apps/edt/editor_app.py:320
+msgid "Error:{} at pos:{}"
+msgstr "Σφάλμα:{} στο pos:{}"
+
+#: ../apps/edt/editor_app.py:368
+#, fuzzy
+msgid "error:{} at pos:{}"
+msgstr "Σφάλμα:{} στο pos:{}"
+
+#: ../apps/edt/editor_app.py:371
+#, fuzzy
+msgid "error forgotten formula start marks"
+msgstr "Σφάλματα ξεχασμένα σημάδια έναρξης τύπου"
+
+#: ../apps/edt/editor_app.py:402
+msgid "no result"
+msgstr "κανένα αποτέλεσμα"
+
+#: ../apps/edt/editor_app.py:412
+msgid "%A %d %B %Y"
+msgstr "%A %d %B %Y"
+
+#: ../apps/edt/editor_app.py:435
+msgid "signature.txt not found."
+msgstr "υπογραφή.txt δεν βρέθηκε."
+
+#: ../apps/edt/editor_base_app.py:115 ../apps/wikipedia/wikipedia_app.py:59
+#: ../apps/daisy/daisy_app.py:87 ../apps/fman/file_manager_app.py:196
+#: ../apps/fman/file_manager_app.py:262 ../apps/fman/file_manager_app.py:293
+msgid "&edit"
+msgstr "&επεξεργασία"
+
+#: ../apps/edt/editor_base_app.py:118
+msgid "&undo"
+msgstr "&αναίρεση"
+
+#: ../apps/edt/editor_base_app.py:120
+msgid "&redo"
+msgstr "&επανάληψη"
+
+#: ../apps/edt/editor_base_app.py:125 ../apps/wikipedia/wikipedia_app.py:63
+#: ../apps/daisy/daisy_app.py:89
+msgid "curs&or"
+msgstr "κέρσ&ορας"
+
+#: ../apps/edt/editor_base_app.py:126 ../apps/wikipedia/wikipedia_app.py:64
+#: ../apps/daisy/daisy_app.py:90
+msgid "forward in grade2 braille"
+msgstr ""
+
+#: ../apps/edt/editor_base_app.py:133
+#, fuzzy
+msgid "&selection"
+msgstr "τέλος &επιλογής"
+
+#: ../apps/edt/editor_base_app.py:135 ../apps/fman/file_manager_app.py:198
+#, fuzzy
+msgid "&start selection"
+msgstr "έναρξη &επιλογής"
+
+#: ../apps/edt/editor_base_app.py:138 ../apps/fman/file_manager_app.py:202
+#, fuzzy
+msgid "&end selection"
+msgstr "τέλος &επιλογής"
+
+#: ../apps/edt/editor_base_app.py:141
+msgid "to the s&tart of doc"
+msgstr ""
+
+#: ../apps/edt/editor_base_app.py:142
+msgid "to the e&nd of doc"
+msgstr ""
+
+#: ../apps/edt/editor_base_app.py:143 ../apps/fman/file_manager_app.py:215
+#: ../apps/fman/file_manager_app.py:272 ../apps/fman/file_manager_app.py:306
+msgid "select &all"
+msgstr "επιλογή &όλων"
+
+#: ../apps/edt/editor_base_app.py:146 ../apps/fman/file_manager_app.py:206
+#: ../apps/fman/file_manager_app.py:303
+msgid "cu&t"
+msgstr "&αποκοπή"
+
+#: ../apps/edt/editor_base_app.py:148 ../apps/fman/file_manager_app.py:209
+msgid "&copy"
+msgstr "&αντιγραφή"
+
+#: ../apps/edt/editor_base_app.py:150 ../apps/fman/file_manager_app.py:212
+msgid "&paste"
+msgstr "&επικόλληση"
+
+#: ../apps/edt/editor_base_app.py:156 ../apps/edt/editor_base_app.py:158
+#: ../apps/edt/editor_base_app.py:170 ../apps/edt/editor_base_app.py:172
+#: ../apps/agenda/agenda_app.py:95 ../apps/agenda/agenda_app.py:494
+#: ../apps/agenda/agenda_app.py:507 ../apps/fman/file_manager_app.py:156
+#: ../apps/fman/file_manager_app.py:189 ../apps/fman/file_manager_app.py:835
+msgid "fi&nd"
+msgstr "εύρ&εση"
+
+#: ../apps/edt/editor_base_app.py:160 ../apps/edt/editor_base_app.py:176
+#: ../apps/edt/editor_base_app.py:210
+msgid "ne&xt"
+msgstr "&επόμενο"
+
+#: ../apps/edt/editor_base_app.py:163 ../apps/edt/editor_base_app.py:182
+#: ../apps/edt/editor_base_app.py:213 ../apps/edt/editor_base_app.py:860
+#: ../apps/edt/editor_base_app.py:889
+msgid "&previous"
+msgstr "&προηγούμενο"
+
+#: ../apps/edt/editor_base_app.py:174
+msgid "&replace"
+msgstr "&αντικατάσταση"
+
+#: ../apps/edt/editor_base_app.py:179 ../apps/edt/editor_base_app.py:888
+msgid "replace and n&ext"
+msgstr "αντικατάσταση και ε&πόμενο"
+
+#: ../apps/edt/editor_base_app.py:185
+msgid "replace and pre&vious"
+msgstr "αντικατάσταση και &προηγουμενο"
+
+#: ../apps/edt/editor_base_app.py:188 ../apps/edt/editor_base_app.py:891
+msgid "replace &all"
+msgstr "αντικατάσταση &όλων"
+
+#: ../apps/edt/editor_base_app.py:195 ../apps/agenda/agenda_app.py:82
+#: ../apps/fman/file_manager_app.py:224
+msgid "&goto"
+msgstr "&μετάβαση"
+
+#: ../apps/edt/editor_base_app.py:197
+msgid "&beginning of document"
+msgstr ""
+
+#: ../apps/edt/editor_base_app.py:198
+#, fuzzy
+msgid "&end of document"
+msgstr "&έγγραφο"
+
+#: ../apps/edt/editor_base_app.py:199
+#, fuzzy
+msgid "&previous paragraphe"
+msgstr "&παράγραφος"
+
+#: ../apps/edt/editor_base_app.py:200
+#, fuzzy
+msgid "&next paragraphe"
+msgstr "&παράγραφος"
+
+#: ../apps/edt/editor_base_app.py:205
+msgid "&bookmark"
+msgstr "&επιλογή γραφημάτων"
+
+#: ../apps/edt/editor_base_app.py:207
+msgid "&insert/delete"
+msgstr "&εισαγωγή/διαγραφή"
+
+#: ../apps/edt/editor_base_app.py:216
+msgid "clear &all"
+msgstr "&καθαρισμός όλων"
+
+#: ../apps/edt/editor_base_app.py:225
+msgid "&document"
+msgstr "&έγγραφο"
+
+#: ../apps/edt/editor_base_app.py:227
+msgid "&paragraph"
+msgstr "&παράγραφος"
+
+#: ../apps/edt/editor_base_app.py:470 ../apps/edt/editor_base_app.py:1279
+#: ../apps/daisy/daisy_app.py:253
+msgid "reading..."
+msgstr "ανάγνωση..."
+
+#: ../apps/edt/editor_base_app.py:690
+msgid "do you want to save the document before closing?"
+msgstr "θέλετε να αποθηκεύσετε το έγγραφο πριν από το κλείσιμο;"
+
+#: ../apps/edt/editor_base_app.py:724
+msgid "cleanup..."
+msgstr "εκκαθάριση..."
+
+#: ../apps/edt/editor_base_app.py:744 ../apps/daisy/daisy_app.py:409
+msgid "statistics"
+msgstr "στατιστικά"
+
+#: ../apps/edt/editor_base_app.py:746
+#, fuzzy
+msgid "filename"
+msgstr "&μετονομασία"
+
+#: ../apps/edt/editor_base_app.py:749 ../apps/daisy/daisy_app.py:426
+msgid "paragraphs"
+msgstr "παραγράφους"
+
+#: ../apps/edt/editor_base_app.py:752 ../apps/daisy/daisy_app.py:429
+msgid "words"
+msgstr "λέξεις"
+
+#: ../apps/edt/editor_base_app.py:755 ../apps/daisy/daisy_app.py:432
+msgid "characters"
+msgstr "χαρακτήρες"
+
+#: ../apps/edt/editor_base_app.py:795 ../apps/games/master_mind_app.py:373
+msgid "cursor"
+msgstr "κέρσορας"
+
+#: ../apps/edt/editor_base_app.py:797
+msgid "line"
+msgstr "γραμμή"
+
+#: ../apps/edt/editor_base_app.py:800
+msgid "column"
+msgstr "στήλη"
+
+#: ../apps/edt/editor_base_app.py:845
+#, fuzzy
+msgid "the file is not completely read"
+msgstr "το αρχείο ενημέρωσης είναι κατεστραμμένο."
+
+#: ../apps/edt/editor_base_app.py:854 ../apps/edt/editor_base_app.py:856
+#: ../apps/edt/editor_base_app.py:881 ../apps/agenda/agenda_app.py:502
+msgid "find"
+msgstr "εύρεση"
+
+#: ../apps/edt/editor_base_app.py:859 ../apps/edt/editor_base_app.py:887
+#: ../apps/agenda/agenda_app.py:576 ../apps/media/mp3_app.py:130
+msgid "&next"
+msgstr "&επόμενο"
+
+#: ../apps/edt/editor_base_app.py:863 ../apps/edt/editor_base_app.py:894
+msgid "&ignore upper case"
+msgstr "α&γνόησε τα κεφαλαία"
+
+#: ../apps/edt/editor_base_app.py:866 ../apps/edt/editor_base_app.py:897
+#, fuzzy
+msgid "&mask accent"
+msgstr "&mask accent"
+
+#: ../apps/edt/editor_base_app.py:869 ../apps/edt/editor_base_app.py:900
+msgid "&entire word"
+msgstr "&ολόκληρη λέξη"
+
+#: ../apps/edt/editor_base_app.py:879 ../apps/edt/editor_base_app.py:884
+msgid "replace"
+msgstr "αντικατάσταση"
+
+#: ../apps/edt/editor_base_app.py:890
+msgid "replace and p&revious"
+msgstr "αντικατάσταση και &προηγούμενο"
+
+#: ../apps/edt/editor_base_app.py:1080
+msgid "invalid line number."
+msgstr "άκυρος αριθμός γραμμής."
+
+#: ../apps/edt/editor_base_app.py:1090
+msgid "invalid column number."
+msgstr "άκυρος αριθμός στήλης."
+
+#: ../apps/edt/editor_base_app.py:1101
+msgid "coordinates apart from document."
+msgstr "συντεταγμένες εκτός εγγράφου."
+
+#: ../apps/edt/editor_base_app.py:1150
+msgid "the string found is not a word !"
+msgstr "η συμβολοσειρά που βρέθηκε δεν είναι λέξη !"
+
+#: ../apps/edt/editor_base_app.py:1176
+msgid "replacement can not be done."
+msgstr "δεν μπορεί να γίνει αντικατάσταση."
+
+#: ../apps/edt/editor_base_app.py:1192
+msgid "start of document reached, string not found."
+msgstr "αρχή εγγράφου, δεν βρέθηκε συμβολοσειρά."
+
+#: ../apps/edt/editor_base_app.py:1197
+msgid "end of document reached, string not found."
+msgstr "τέλος εγγράφου, δεν βρέθηκε συμβολοσειρά."
+
+#: ../apps/edt/editor_base_app.py:1264
+msgid "&sheet"
+msgstr "&φύλλο"
+
+#: ../apps/edt/editor_base_app.py:1308 ../apps/edt/editor_base_app.py:1315
+#: ../apps/fman/file_manager_app.py:1081
+msgid "unknown error"
+msgstr "άγνωστο σφάλμα"
+
+#: ../apps/wikipedia/wikipedia_app.py:54
+#, fuzzy
+msgid "&research"
+msgstr "ε&παναφορά"
+
+#: ../apps/wikipedia/wikipedia_app.py:191
+#, fuzzy
+msgid "&suggestions"
+msgstr "ερώτηση"
+
+#: ../apps/wikipedia/wikipedia_app.py:195
+#, fuzzy
+msgid "&find"
+msgstr "εύρεση"
+
+#: ../apps/wikipedia/wikipedia_app.py:248
+msgid "there is no text found in the suggestion's combobox."
+msgstr ""
+
+#: ../apps/wikipedia/wikipedia_app.py:282
+msgid ""
+"the text is not found or is ambiguous. try to chose another item in the "
+"suggestion's combobox."
+msgstr ""
+
+#: ../apps/daisy/daisy_app.py:69
+msgid "daisy"
+msgstr ""
+
+#: ../apps/daisy/daisy_app.py:81 ../apps/daisy/daisy_app.py:277
+#, fuzzy
+msgid "c&ontents"
+msgstr "μενού πλαισίου"
+
+#: ../apps/daisy/daisy_app.py:103
+#, fuzzy
+msgid "pa&use/resume"
+msgstr "ε&παναφορά"
+
+#: ../apps/daisy/daisy_app.py:411
+#, fuzzy
+msgid "duration"
+msgstr "κλάσμα"
+
+#: ../apps/daisy/daisy_app.py:414 ../apps/fman/file_manager_app.py:871
+#, fuzzy
+msgid "file"
+msgstr "&αρχείο"
+
+#: ../apps/daisy/daisy_app.py:417 ../apps/eole/eole_search_dialog_box.py:63
+#: ../apps/media/mp3_app.py:797
+msgid "title"
+msgstr ""
+
+#: ../apps/daisy/daisy_app.py:420 ../apps/eole/eole_search_dialog_box.py:64
+msgid "author"
+msgstr ""
+
+#: ../apps/daisy/daisy_app.py:423
+#, fuzzy
+msgid "identifier"
+msgstr "επιστημονικό"
+
+#: ../apps/skeleton/skeleton_app.py:39
+msgid "skeleton"
+msgstr "σκελετός"
+
+#: ../apps/skeleton/skeleton_app.py:44
+msgid "&group"
+msgstr "&ομάδα"
+
+#: ../apps/skeleton/skeleton_app.py:46
+msgid "&menu_1"
+msgstr "&menu_1"
+
+#: ../apps/skeleton/skeleton_app.py:47
+msgid "&choose_file"
+msgstr ""
+
+#: ../apps/skeleton/skeleton_app.py:49
+msgid "&say hello"
+msgstr "&say hello"
+
+#: ../apps/skeleton/skeleton_app.py:50 ../apps/timer/timer_app.py:69
+#: ../apps/braille_learning/operation_app.py:70
+#: ../apps/braille_learning/write_word_app.py:98
+msgid "&about"
+msgstr "&περί"
+
+#: ../apps/skeleton/skeleton_app.py:90
+msgid "example"
+msgstr "παράδειγμα"
+
+#: ../apps/skeleton/skeleton_app.py:93
+#, fuzzy
+msgid "&multilineseditbox"
+msgstr "&πλαίσιο επεξεργασίας"
+
+#: ../apps/skeleton/skeleton_app.py:97
+#, fuzzy
+msgid "&read_only_multilineseditbox"
+msgstr "&πλαίσιο επεξεργασίας"
+
+#: ../apps/skeleton/skeleton_app.py:100
+msgid "&editbox"
+msgstr "&πλαίσιο επεξεργασίας"
+
+#: ../apps/skeleton/skeleton_app.py:101
+#, fuzzy
+msgid "&listbox"
+msgstr "&πλαίσιο επεξεργασίας"
+
+#: ../apps/skeleton/skeleton_app.py:103
+msgid "this is a label"
+msgstr ""
+
+#: ../apps/skeleton/skeleton_app.py:104
+msgid "&checkbox"
+msgstr "&κουτάκι  ελέγχου"
+
+#: ../apps/skeleton/skeleton_app.py:113 ../apps/media/mp3_app.py:481
+#, fuzzy
+msgid "insert file"
+msgstr "νέο αρχείο"
+
+#: ../apps/skeleton/skeleton_app.py:123
+msgid "Hello bnote."
+msgstr "Γεια σου, bnote."
+
+#: ../apps/skeleton/skeleton_app.py:129
+#, fuzzy
+msgid "application skeleton V1.0.1"
+msgstr "σκελετός εφαρμογής V1.0.0"
+
+#: ../apps/eole/eole_search_dialog_box.py:29
+msgid "Human voice and Full daisy (braille + synthesis voice)"
+msgstr ""
+
+#: ../apps/eole/eole_search_dialog_box.py:30
+msgid "Human voice only"
+msgstr ""
+
+#: ../apps/eole/eole_search_dialog_box.py:31
+msgid "Full daisy (braille + synthesis voice)"
+msgstr ""
+
+#: ../apps/eole/eole_search_dialog_box.py:35
+#: ../apps/eole/eole_search_dialog_box.py:98
+#: ../apps/eole/eole_search_dialog_box.py:107
+#, fuzzy
+msgid "All"
+msgstr "μπράιγ"
+
+#: ../apps/eole/eole_search_dialog_box.py:36
+msgid "Adult"
+msgstr ""
+
+#: ../apps/eole/eole_search_dialog_box.py:37
+msgid "0 to 4 years"
+msgstr ""
+
+#: ../apps/eole/eole_search_dialog_box.py:38
+msgid "5 to 8 years"
+msgstr ""
+
+#: ../apps/eole/eole_search_dialog_box.py:39
+msgid "9 to 12 years"
+msgstr ""
+
+#: ../apps/eole/eole_search_dialog_box.py:40
+msgid "13 years and over"
+msgstr ""
+
+#: ../apps/eole/eole_search_dialog_box.py:47
+#, fuzzy
+msgid "result"
+msgstr "&αποτελέσματα"
+
+#: ../apps/eole/eole_search_dialog_box.py:51
+#: ../apps/eole/eole_search_dialog_box.py:62
+#, fuzzy
+msgid "support"
+msgstr "μεταφορά"
+
+#: ../apps/eole/eole_search_dialog_box.py:52
+msgid "search for authors, titles and abstracts"
+msgstr ""
+
+#: ../apps/eole/eole_search_dialog_box.py:53
+#: ../apps/eole/eole_search_dialog_box.py:70
+msgid "&search"
+msgstr ""
+
+#: ../apps/eole/eole_search_dialog_box.py:55
+#: ../apps/eole/eole_search_dialog_box.py:72
+msgid "&summary"
+msgstr ""
+
+#: ../apps/eole/eole_search_dialog_box.py:56
+#: ../apps/eole/eole_search_dialog_box.py:73
+#, fuzzy
+msgid "&download"
+msgstr "&απενεργοποίηση"
+
+#: ../apps/eole/eole_search_dialog_box.py:66
+#: ../apps/fman/file_manager_app.py:1128
+msgid "summary"
+msgstr ""
+
+#: ../apps/eole/eole_search_dialog_box.py:68
+msgid "genre"
+msgstr ""
+
+#: ../apps/eole/eole_search_dialog_box.py:69
+#, fuzzy
+msgid "age"
+msgstr "γωνία"
+
+#: ../apps/eole/eole_search_dialog_box.py:78
+msgid "Eole"
+msgstr ""
+
+#: ../apps/eole/eole_search_dialog_box.py:140
+msgid "eole library is unavailable..."
+msgstr ""
+
+#: ../apps/eole/eole_search_dialog_box.py:142
+msgid "no internet..."
+msgstr ""
+
+#: ../apps/eole/eole_search_dialog_box.py:147
+msgid "unexpected error ({})"
+msgstr ""
+
+#: ../apps/eole/eole_search_dialog_box.py:164
+msgid "to many result (found {} and maxi is {})"
+msgstr ""
+
+#: ../apps/eole/eole_search_dialog_box.py:167
+#, fuzzy
+msgid "no results..."
+msgstr "κανένα αποτέλεσμα"
+
+#: ../apps/timer/timer_app.py:56
+#, fuzzy
+msgid "start/stop"
+msgstr "έναρξη &επιλογής"
+
+#: ../apps/timer/timer_app.py:59
+#, fuzzy
+msgid "&marker"
+msgstr "&επιλογή γραφημάτων"
+
+#: ../apps/timer/timer_app.py:61
+msgid "add &marker"
+msgstr ""
+
+#: ../apps/timer/timer_app.py:63
+msgid "&show markers"
+msgstr ""
+
+#: ../apps/timer/timer_app.py:66 ../apps/translator/translator_app.py:92
+#, fuzzy
+msgid "&clear"
+msgstr "&καθαρισμός όλων"
+
+#: ../apps/timer/timer_app.py:68
+msgid "&launch timer"
+msgstr ""
+
+#: ../apps/timer/timer_app.py:119
+msgid "add marker point"
+msgstr ""
+
+#: ../apps/timer/timer_app.py:121 ../apps/timer/timer_app.py:166
+#, fuzzy
+msgid "&marker name"
+msgstr "&μετονομασία"
+
+#: ../apps/timer/timer_app.py:122
+msgid "c&reate"
+msgstr ""
+
+#: ../apps/timer/timer_app.py:132
+#, fuzzy
+msgid "a marker already exists at this location, would you like to replace it?"
+msgstr "αρχείο {} υπάρχει. θέλετε να το αντικαταστήσετε;"
+
+#: ../apps/timer/timer_app.py:143
+msgid "&marker list"
+msgstr ""
+
+#: ../apps/timer/timer_app.py:147
+#, fuzzy
+msgid "show &name"
+msgstr "όνομα &bnote"
+
+#: ../apps/timer/timer_app.py:148 ../apps/fman/file_manager_app.py:136
+#: ../apps/fman/file_manager_app.py:169 ../apps/fman/file_manager_app.py:351
+msgid "&rename"
+msgstr "&μετονομασία"
+
+#: ../apps/timer/timer_app.py:155
+msgid "marker list"
+msgstr ""
+
+#: ../apps/timer/timer_app.py:164
+#, fuzzy
+msgid "rename marker"
+msgstr "μετονομασία"
+
+#: ../apps/timer/timer_app.py:188
+msgid "create timer"
+msgstr ""
+
+#: ../apps/timer/timer_app.py:190
+#, fuzzy
+msgid "&hours"
+msgstr "ώρες"
+
+#: ../apps/timer/timer_app.py:191
+#, fuzzy
+msgid "&minutes"
+msgstr "λεπτά"
+
+#: ../apps/timer/timer_app.py:192
+#, fuzzy
+msgid "&seconds"
+msgstr "δευτερόλεπτα"
+
+#: ../apps/timer/timer_app.py:193 ../apps/media/radio_app.py:77
+msgid "&start"
+msgstr ""
+
+#: ../apps/timer/timer_app.py:203
+msgid "timer application, version {}, copyright (C)2023 Theotime Berthod."
+msgstr ""
+
+#: ../apps/timer/timer_app.py:244
+msgid "you must enter numerical values"
+msgstr ""
+
+#: ../apps/timer/timer_app.py:247
+msgid "you cannot start the timer at 0."
+msgstr ""
+
+#: ../apps/timer/timer_app.py:258
+msgid "the time is elapsed!!!"
+msgstr ""
+
+#: ../apps/timer/timer_app.py:445
+msgid "{}:{}:{} started"
+msgstr ""
+
+#: ../apps/timer/timer_app.py:448
+msgid "{}:{}:{}.{} fixed"
+msgstr ""
+
+#: ../apps/timer/timer_app.py:450
+msgid "{}:{}:{}.{} paused"
+msgstr ""
+
+#: ../apps/translator/translator_app.py:89
+#, fuzzy
+msgid "&chose languages"
+msgstr "&γλώσσα"
+
+#: ../apps/translator/translator_app.py:90
+#, fuzzy
+msgid "&invert languages"
+msgstr "&γλώσσα"
+
+#: ../apps/translator/translator_app.py:91 ../apps/fman/file_manager_app.py:135
+#: ../apps/fman/file_manager_app.py:168 ../apps/fman/file_manager_app.py:350
+msgid "&send to"
+msgstr "&αποστολή σε"
+
+#: ../apps/translator/translator_app.py:134
+#, fuzzy
+msgid "enter text"
+msgstr "αποστολή σε"
+
+#: ../apps/translator/translator_app.py:136
+#, fuzzy
+msgid "&text to translate"
+msgstr "νέο αρχείο"
+
+#: ../apps/translator/translator_app.py:154
+#, fuzzy
+msgid "chose languages"
+msgstr "γλώσσα"
+
+#: ../apps/translator/translator_app.py:156
+msgid "&source"
+msgstr ""
+
+#: ../apps/translator/translator_app.py:157
+msgid "&target"
+msgstr ""
+
+#: ../apps/translator/translator_app.py:179
+msgid "translation copy to the clipboard"
+msgstr ""
+
+#: ../apps/translator/translator_app.py:341
+#, fuzzy
+msgid "translating..."
+msgstr "επανεκκίνηση..."
+
+#: ../apps/translator/translator_app.py:373
+msgid "you cannot translate text with more than 500 characters."
+msgstr ""
+
+#: ../apps/translator/translator_app.py:379
+msgid ""
+"the connection to the translation service failed. Check your connexion and "
+"try again."
+msgstr ""
+
+#: ../apps/translator/translator_app.py:387
+#, fuzzy
+msgid "Translation ({}): {}"
+msgstr "εφαρμογές"
+
+#: ../apps/translator/translator_app.py:389
+msgid "Source ({}): {}"
+msgstr ""
+
+#: ../apps/braille_learning/operation_app.py:57
+#: ../apps/braille_learning/operation_app.py:197
+#, fuzzy
+msgid "math game"
+msgstr "μαθηματικά"
+
+#: ../apps/braille_learning/operation_app.py:62
+#: ../apps/braille_learning/write_word_app.py:88 ../apps/games/mines_app.py:184
+#: ../apps/games/master_mind_app.py:166
+msgid "&score"
+msgstr "&βαθμολογία"
+
+#: ../apps/braille_learning/operation_app.py:64
+msgid "&show to this table"
+msgstr ""
+
+#: ../apps/braille_learning/operation_app.py:65
+msgid "&delete to this table"
+msgstr ""
+
+#: ../apps/braille_learning/operation_app.py:68
+msgid "&table"
+msgstr ""
+
+#: ../apps/braille_learning/operation_app.py:69
+#: ../apps/braille_learning/write_word_app.py:97
+#, fuzzy
+msgid "&reset application"
+msgstr "&εφαρμογές"
+
+#: ../apps/braille_learning/operation_app.py:99
+msgid "&change to table"
+msgstr ""
+
+#: ../apps/braille_learning/operation_app.py:103
+#, fuzzy
+msgid "&select table"
+msgstr "επιλογή &όλων"
+
+#: ../apps/braille_learning/operation_app.py:147
+#, fuzzy
+msgid "the result was {}"
+msgstr "αποτέλεσμα:{}"
+
+#: ../apps/braille_learning/operation_app.py:156
+#: ../apps/braille_learning/operation_app.py:158
+#: ../apps/braille_learning/operation_app.py:234
+#: ../apps/braille_learning/operation_app.py:241
+msgid "all tables"
+msgstr ""
+
+#: ../apps/braille_learning/operation_app.py:162
+#, fuzzy
+msgid "select table"
+msgstr "επιλογή &όλων"
+
+#: ../apps/braille_learning/operation_app.py:164
+msgid "&table to"
+msgstr ""
+
+#: ../apps/braille_learning/operation_app.py:174
+#, fuzzy
+msgid "do you really want to erase the score of this table?"
+msgstr "θέλετε να επαναφέρετε τις παραμέτρους;"
+
+#: ../apps/braille_learning/operation_app.py:185
+#: ../apps/braille_learning/write_word_app.py:234
+#, fuzzy
+msgid "do you really want to reset the application?"
+msgstr "θέλετε να επαναφέρετε τις παραμέτρους;"
+
+#: ../apps/braille_learning/operation_app.py:197
+#: ../apps/braille_learning/write_word_app.py:246
+msgid "Application {} version {}. {} Theotime Berthod"
+msgstr ""
+
+#: ../apps/braille_learning/operation_app.py:217
+msgid "good, the result is {}"
+msgstr ""
+
+#: ../apps/braille_learning/operation_app.py:225
+msgid "no, it's not the good result. Try again"
+msgstr ""
+
+#: ../apps/braille_learning/operation_app.py:228
+#, fuzzy
+msgid "&see the solution"
+msgstr "&αξιολόγηση γραμμών"
+
+#: ../apps/braille_learning/operation_app.py:244
+msgid "for the table of {}, the score is {}"
+msgstr ""
+
+#: ../apps/braille_learning/operation_app.py:411
+msgid "you must select a table from the menu"
+msgstr ""
+
+#: ../apps/braille_learning/write_word_app.py:51
+msgid "A to J in lowercase"
+msgstr ""
+
+#: ../apps/braille_learning/write_word_app.py:52
+msgid "A to J in capital letters"
+msgstr ""
+
+#: ../apps/braille_learning/write_word_app.py:53
+msgid "A to J"
+msgstr ""
+
+#: ../apps/braille_learning/write_word_app.py:54
+msgid "K to T in lowercase"
+msgstr ""
+
+#: ../apps/braille_learning/write_word_app.py:55
+msgid "K to T in capital letters"
+msgstr ""
+
+#: ../apps/braille_learning/write_word_app.py:56
+msgid "K to T"
+msgstr ""
+
+#: ../apps/braille_learning/write_word_app.py:57
+msgid "A to T in lowercase"
+msgstr ""
+
+#: ../apps/braille_learning/write_word_app.py:58
+msgid "A to T in capital letters"
+msgstr ""
+
+#: ../apps/braille_learning/write_word_app.py:59
+msgid "A to T"
+msgstr ""
+
+#: ../apps/braille_learning/write_word_app.py:60
+msgid "A to Z"
+msgstr ""
+
+#: ../apps/braille_learning/write_word_app.py:61
+msgid "complet"
+msgstr ""
+
+#: ../apps/braille_learning/write_word_app.py:83
+#: ../apps/braille_learning/write_word_app.py:246
+#, fuzzy
+msgid "word game"
+msgstr "λέξεις"
+
+#: ../apps/braille_learning/write_word_app.py:90
+msgid "&show to this level"
+msgstr ""
+
+#: ../apps/braille_learning/write_word_app.py:91
+msgid "&delete to this level"
+msgstr ""
+
+#: ../apps/braille_learning/write_word_app.py:94
+msgid "&switch to the next word"
+msgstr ""
+
+#: ../apps/braille_learning/write_word_app.py:95
+#: ../apps/braille_learning/write_word_app.py:134
+msgid "&change to level"
+msgstr ""
+
+#: ../apps/braille_learning/write_word_app.py:96
+#, fuzzy
+msgid "switch &language"
+msgstr "&γλώσσα"
+
+#: ../apps/braille_learning/write_word_app.py:129
+#, fuzzy
+msgid "&select a level"
+msgstr "επιλογή &όλων"
+
+#: ../apps/braille_learning/write_word_app.py:188
+msgid "good, you have found the good word!!!"
+msgstr ""
+
+#: ../apps/braille_learning/write_word_app.py:194
+msgid "warning, it's {}, not {}"
+msgstr ""
+
+#: ../apps/braille_learning/write_word_app.py:206
+msgid "chose your level"
+msgstr ""
+
+#: ../apps/braille_learning/write_word_app.py:208
+#, fuzzy
+msgid "&level list"
+msgstr "&πλαίσιο επεξεργασίας"
+
+#: ../apps/braille_learning/write_word_app.py:223
+#, fuzzy
+msgid "do you really want to erase the score of this level?"
+msgstr "θέλετε να επαναφέρετε τις παραμέτρους;"
+
+#: ../apps/braille_learning/write_word_app.py:267
+msgid "for level {}, the score is {}"
+msgstr ""
+
+#: ../apps/braille_learning/write_word_app.py:447
+msgid "you must select a level from the menu"
+msgstr ""
+
+#: ../apps/bt/bluetooth_app.py:32
+msgid "bluetooth listening"
+msgstr "ακρόαση bluetooth"
+
+#: ../apps/agenda/agenda_app.py:43
+msgid "done"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:65
+msgid "&event"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:67 ../apps/games/mines_app.py:65
+#: ../apps/games/master_mind_app.py:66
+msgid "&new"
+msgstr "&νέο"
+
+#: ../apps/agenda/agenda_app.py:69
+#, fuzzy
+msgid "&modify"
+msgstr "&λειτουργία"
+
+#: ../apps/agenda/agenda_app.py:70
+msgid "&change status"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:75
+msgid "delete e&xpired events"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:78
+msgid "delete &completed events"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:84
+#, fuzzy
+msgid "&previous week"
+msgstr "&προηγούμενο"
+
+#: ../apps/agenda/agenda_app.py:87
+#, fuzzy
+msgid "&next week"
+msgstr "&επόμενο"
+
+#: ../apps/agenda/agenda_app.py:90
+#, fuzzy
+msgid "previous d&ay"
+msgstr "&προηγούμενο"
+
+#: ../apps/agenda/agenda_app.py:91
+msgid "next &day"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:97
+#, fuzzy
+msgid "find &date"
+msgstr "&ημερομηνία"
+
+#: ../apps/agenda/agenda_app.py:99
+#, fuzzy
+msgid "find in a&genda"
+msgstr "&ημερομηνία"
+
+#: ../apps/agenda/agenda_app.py:104
+#, fuzzy
+msgid "agenda &gestion"
+msgstr "τέλος &επιλογής"
+
+#: ../apps/agenda/agenda_app.py:106
+msgid "&import agenda file"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:108
+#, fuzzy
+msgid "&export agenda file"
+msgstr "νέο αρχείο"
+
+#: ../apps/agenda/agenda_app.py:110
+#, fuzzy
+msgid "e&mpty agenda"
+msgstr "κενή παράμετρος"
+
+#: ../apps/agenda/agenda_app.py:113
+#, fuzzy
+msgid "a&bout"
+msgstr "&περί"
+
+#: ../apps/agenda/agenda_app.py:197
+msgid ""
+"your agenda file is corrupt. You can copy the file in your document folder, "
+"but app can't open it. What do you want to do?"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:199
+msgid "&save and delete file"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:200
+msgid "&erase agenda"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:209
+msgid "agenda saving"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:213
+msgid "the file has been correctly copy and the agenda has clear"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:344
+msgid "from today's ({})"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:344
+msgid "for today ({})"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:344
+msgid "not done ({})"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:344
+msgid "all agenda ({})"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:344
+#, fuzzy
+msgid "calendar {}"
+msgstr "κανονικός"
+
+#: ../apps/agenda/agenda_app.py:375
+msgid "title of event"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:377
+#, fuzzy
+msgid "content of event"
+msgstr "μενού πλαισίου"
+
+#: ../apps/agenda/agenda_app.py:379
+#, fuzzy
+msgid "new event"
+msgstr "μενού πλαισίου"
+
+#: ../apps/agenda/agenda_app.py:382 ../apps/agenda/agenda_app.py:433
+#: ../apps/agenda/agenda_app.py:491
+msgid "&day"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:383 ../apps/agenda/agenda_app.py:434
+#: ../apps/agenda/agenda_app.py:492
+#, fuzzy
+msgid "&month"
+msgstr "μήνας"
+
+#: ../apps/agenda/agenda_app.py:384 ../apps/agenda/agenda_app.py:435
+#: ../apps/agenda/agenda_app.py:493
+#, fuzzy
+msgid "&year"
+msgstr "έτος"
+
+#: ../apps/agenda/agenda_app.py:386 ../apps/agenda/agenda_app.py:436
+msgid "&subject"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:387 ../apps/agenda/agenda_app.py:437
+msgid "co&ntent"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:397
+#, fuzzy
+msgid "do you really want to delete this event of your agenda?"
+msgstr "θέλετε να επαναφέρετε τις παραμέτρους;"
+
+#: ../apps/agenda/agenda_app.py:431
+#, fuzzy
+msgid "modify event"
+msgstr "&λειτουργία"
+
+#: ../apps/agenda/agenda_app.py:438
+msgid "&is done"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:448
+#, fuzzy
+msgid "do you really want to erase these events?"
+msgstr "θέλετε να επαναφέρετε τις παραμέτρους;"
+
+#: ../apps/agenda/agenda_app.py:459
+#, fuzzy
+msgid "do you really want to delete the done events?"
+msgstr "θέλετε να επαναφέρετε τις παραμέτρους;"
+
+#: ../apps/agenda/agenda_app.py:489
+#, fuzzy
+msgid "find date"
+msgstr "εύρεση"
+
+#: ../apps/agenda/agenda_app.py:504
+msgid "&element to find"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:505
+msgid "cri&terion"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:505 ../apps/agenda/agenda_app.py:789
+#: ../apps/agenda/agenda_app.py:794 ../apps/agenda/agenda_app.py:1509
+#, fuzzy
+msgid "all"
+msgstr "μπράιγ"
+
+#: ../apps/agenda/agenda_app.py:505 ../apps/agenda/agenda_app.py:790
+#: ../apps/agenda/agenda_app.py:795
+msgid "subject"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:505 ../apps/agenda/agenda_app.py:791
+#: ../apps/agenda/agenda_app.py:796
+#, fuzzy
+msgid "content"
+msgstr "μενού πλαισίου"
+
+#: ../apps/agenda/agenda_app.py:506
+msgid "&not done"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:544 ../apps/agenda/agenda_app.py:613
+#: ../apps/agenda/agenda_app.py:625 ../apps/fman/file_manager_app.py:227
+#, fuzzy
+msgid "usb &key"
+msgstr "&usb key"
+
+#: ../apps/agenda/agenda_app.py:549 ../apps/agenda/agenda_app.py:618
+#: ../apps/agenda/agenda_app.py:623 ../apps/fman/file_manager_app.py:226
+msgid "my &documents"
+msgstr "τα έ&γγραφά μου"
+
+#: ../apps/agenda/agenda_app.py:555
+msgid "import agenda"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:566
+msgid "My agenda {}"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:572
+#, fuzzy
+msgid "export agenda"
+msgstr "&εξερευνητής"
+
+#: ../apps/agenda/agenda_app.py:575
+#, fuzzy
+msgid "file &location"
+msgstr "τέλος &επιλογής"
+
+#: ../apps/agenda/agenda_app.py:575 ../apps/agenda/agenda_app.py:587
+#, fuzzy
+msgid "my documents"
+msgstr "τα έ&γγραφά μου"
+
+#: ../apps/agenda/agenda_app.py:575
+#, fuzzy
+msgid "choose folder"
+msgstr "νέος φάκελος"
+
+#: ../apps/agenda/agenda_app.py:590
+msgid ""
+"the file will be exported to the my documents folder. Do you want to "
+"continue?"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:607
+#, fuzzy
+msgid "&back"
+msgstr "αντίγραφο ασφαλείας"
+
+#: ../apps/agenda/agenda_app.py:629
+#, fuzzy
+msgid "select a destination folder"
+msgstr "επιλογή &όλων"
+
+#: ../apps/agenda/agenda_app.py:637
+#, fuzzy
+msgid "are you sure you want to delete all content of the agenda?"
+msgstr "είστε βέβαιοι ότι θα διαγράψετε υψηλή βαθμολογία για {}"
+
+#: ../apps/agenda/agenda_app.py:647
+#, fuzzy
+msgid "about agenda"
+msgstr "&εξερευνητής"
+
+#: ../apps/agenda/agenda_app.py:648
+msgid ""
+"agenda, version {}, copyright (C){} Theotime Berthod.\n"
+"In collaboration with Eurobraille.\n"
+"For suggestions or problems, contact Eurobraille or directly the application "
+"developer to {}."
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:680 ../apps/agenda/agenda_app.py:732
+msgid "you can't use the ';' in text"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:699
+msgid "the agenda has been correctly deleted."
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:703
+msgid "unable to delete the file, an unexpected error occurred."
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:804
+msgid "1 event found"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:806
+#, fuzzy
+msgid "{} events found"
+msgstr "δεν βρέθηκε {} τύπος φύλλου."
+
+#: ../apps/agenda/agenda_app.py:812
+msgid "no event found"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:820
+#, fuzzy
+msgid "importing..."
+msgstr "επανεκκίνηση..."
+
+#: ../apps/agenda/agenda_app.py:826
+msgid ""
+"the file {} does not comply with the application's convention. Refer to the "
+"documentation for more information."
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:840
+msgid ""
+"the file was correctly imported, with the exception of 1 event that already "
+"existed."
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:842
+msgid ""
+"the file was correctly imported, with the exception of {} events that "
+"already existed."
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:845
+msgid "the file has been correctly imported"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:862
+#, fuzzy
+msgid "select folder"
+msgstr "επιλογή &όλων"
+
+#: ../apps/agenda/agenda_app.py:868
+msgid "the file has been correctly exported in {} folder"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:875
+msgid ""
+"this file already exists, try with another name or delete the previous file"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:887
+msgid "error during the exportation, verify your agenda and try again"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:900
+msgid "you have 1 event not done for today."
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:902
+msgid "you have {} events not done for today."
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:907 ../apps/agenda/agenda_app.py:942
+#, fuzzy
+msgid "&display"
+msgstr "οθόνη &μπροστά"
+
+#: ../apps/agenda/agenda_app.py:935
+msgid "you have 1 event not done for tomorrow."
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:937
+msgid "you have {} events not done for tomorrow."
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:1000 ../apps/agenda/agenda_app.py:1003
+#: ../apps/agenda/agenda_app.py:1006
+msgid "a date is composed of a day, a month and a year."
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:1011
+msgid "a date is composed of numbers, seperate with /"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:1013
+msgid "the days range from 01 to 31."
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:1015
+msgid "12 months ago, numbered from 01 to 12."
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:1204
+msgid "monday"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:1205
+msgid "tuesday"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:1206
+msgid "wednesday"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:1207
+msgid "thursday"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:1208
+msgid "friday"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:1209
+msgid "saturday"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:1210
+msgid "sunday"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:1213
+msgid "january"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:1214
+msgid "february"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:1215
+msgid "march"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:1216
+msgid "april"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:1217
+#, fuzzy
+msgid "may"
+msgstr "ημέρα"
+
+#: ../apps/agenda/agenda_app.py:1218
+msgid "june"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:1219
+msgid "july"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:1220
+msgid "august"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:1221
+msgid "september"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:1222
+msgid "october"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:1223
+msgid "november"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:1224
+msgid "december"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:1455
+msgid "1 event"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:1457
+msgid "{} events"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:1463
+msgid "{} not done"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:1486
+msgid "Show"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:1495
+msgid "no event..."
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:1507
+#, fuzzy
+msgid "event not done"
+msgstr "δεν μπορεί να γίνει αντικατάσταση."
+
+#: ../apps/agenda/agenda_app.py:1511
+msgid "to do for {}"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:1513
+msgid "to do for tomorrow"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:1515
+msgid "to do for today"
+msgstr ""
+
+#: ../apps/agenda/agenda_app.py:1519
+#, fuzzy
+msgid "find {}"
+msgstr "εύρεση"
+
+#: ../apps/agenda/agenda_app.py:1521
+#, fuzzy
+msgid "select the display"
+msgstr "επιλογή &όλων"
+
+#: ../apps/fman/file_manager_app.py:98
+msgid ""
+"bnote restarts after a crash. More information available in crash folder."
+msgstr ""
+"το bnote επανεκκινείται μετά από κατάρρευση. Περισσότερες πληροφορίες "
+"διαθέσιμες στο φάκελο αιφνίδιας κατάρρευσης."
+
+#: ../apps/fman/file_manager_app.py:108
+msgid "&New"
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:110
+msgid "text(.&txt)"
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:113
+msgid "music(.&bxml)"
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:116
+msgid "music(.music&xml)"
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:119
+#, fuzzy
+msgid "&folder"
+msgstr "νέος φάκελος"
+
+#: ../apps/fman/file_manager_app.py:125
+msgid "&eole library"
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:127
+msgid "&simplified search"
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:128
+msgid "&advanced search"
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:139 ../apps/fman/file_manager_app.py:172
+#: ../apps/fman/file_manager_app.py:282 ../apps/fman/file_manager_app.py:354
+msgid "dele&te"
+msgstr "διαγρα&φή"
+
+#: ../apps/fman/file_manager_app.py:142 ../apps/fman/file_manager_app.py:175
+#: ../apps/fman/file_manager_app.py:357
+msgid "&zip"
+msgstr "&συμπίεση"
+
+#: ../apps/fman/file_manager_app.py:143 ../apps/fman/file_manager_app.py:176
+#: ../apps/fman/file_manager_app.py:358
+msgid "&unzip"
+msgstr "&αποσυμπίεση"
+
+#: ../apps/fman/file_manager_app.py:144 ../apps/fman/file_manager_app.py:177
+#: ../apps/fman/file_manager_app.py:254 ../apps/fman/file_manager_app.py:285
+#: ../apps/fman/file_manager_app.py:318 ../apps/fman/file_manager_app.py:329
+#: ../apps/fman/file_manager_app.py:359
+msgid "&actualize"
+msgstr "&επικαιροποίηση"
+
+#: ../apps/fman/file_manager_app.py:147 ../apps/fman/file_manager_app.py:180
+#: ../apps/fman/file_manager_app.py:342 ../apps/fman/file_manager_app.py:923
+#: ../apps/fman/file_manager_app.py:951 ../apps/media/mp3_app.py:99
+#: ../apps/media/mp3_app.py:575
+msgid "&open"
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:151 ../apps/fman/file_manager_app.py:184
+msgid "o&pen to read"
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:155 ../apps/fman/file_manager_app.py:188
+msgid "re&cents"
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:165 ../apps/fman/file_manager_app.py:316
+#: ../apps/fman/file_manager_app.py:339
+msgid "safely &unmount usb stick"
+msgstr "ασφαλής α&ποσύνδεση δίσκου usb"
+
+#: ../apps/fman/file_manager_app.py:229
+msgid "&trash"
+msgstr "&σκουπίδια"
+
+#: ../apps/fman/file_manager_app.py:230
+#, fuzzy
+msgid "my back&ups"
+msgstr "αντίγραφα α&σφαλείας"
+
+#: ../apps/fman/file_manager_app.py:231
+msgid "c&rash"
+msgstr "κατά&ρρευση"
+
+#: ../apps/fman/file_manager_app.py:232
+msgid "p&arent directory"
+msgstr "γ&ονικός κατάλογος"
+
+#: ../apps/fman/file_manager_app.py:240 ../apps/fman/file_manager_app.py:242
+msgid "back&up"
+msgstr "αντίγραφα α&σφαλείας"
+
+#: ../apps/fman/file_manager_app.py:243
+msgid "&restore"
+msgstr "&επαναφορά"
+
+#: ../apps/fman/file_manager_app.py:251
+msgid "&restore from trash"
+msgstr "&επαναφορά από τα απορριματα"
+
+#: ../apps/fman/file_manager_app.py:252
+msgid "permanently &delete"
+msgstr "μόνιμη &διαγραφή"
+
+#: ../apps/fman/file_manager_app.py:253
+msgid "&empty the trash"
+msgstr "&αδειάστε τα απορρίμματα"
+
+#: ../apps/fman/file_manager_app.py:264 ../apps/fman/file_manager_app.py:295
+msgid "start &selection"
+msgstr "έναρξη &επιλογής"
+
+#: ../apps/fman/file_manager_app.py:268 ../apps/fman/file_manager_app.py:299
+msgid "end &selection"
+msgstr "τέλος &επιλογής"
+
+#: ../apps/fman/file_manager_app.py:346
+msgid "&open to read"
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:578
+msgid "you can now unplug safely the usb flash disk."
+msgstr "μπορείτε τώρα να αποσυνδέσετε με ασφάλεια το δίσκο USB."
+
+#: ../apps/fman/file_manager_app.py:583
+msgid "unable to unplug safely the usb flash disk."
+msgstr "δεν είναι δυνατή η ασφαλής αποσύνδεση του δίσκου USB."
+
+#: ../apps/fman/file_manager_app.py:589
+msgid ".bxml"
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:592
+msgid ".txt"
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:595
+msgid ".musicxml"
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:612 ../apps/fman/file_manager_app.py:618
+msgid "new file"
+msgstr "νέο αρχείο"
+
+#: ../apps/fman/file_manager_app.py:641
+msgid "new folder"
+msgstr "νέος φάκελος"
+
+#: ../apps/fman/file_manager_app.py:646
+msgid "new directory"
+msgstr "νέος κατάλογος"
+
+#: ../apps/fman/file_manager_app.py:680
+msgid "send to"
+msgstr "αποστολή σε"
+
+#: ../apps/fman/file_manager_app.py:682
+msgid "co&mputer"
+msgstr "&υπολογιστής"
+
+#: ../apps/fman/file_manager_app.py:690
+msgid "no bluetooth computer visible..."
+msgstr "δεν υπάρχει ορατός υπολογιστής bluetooth..."
+
+#: ../apps/fman/file_manager_app.py:702
+msgid "rename"
+msgstr "μετονομασία"
+
+#: ../apps/fman/file_manager_app.py:718 ../apps/fman/file_manager_app.py:764
+#: ../apps/media/mp3_app.py:571
+msgid "delete"
+msgstr "διαγραφή"
+
+#: ../apps/fman/file_manager_app.py:719
+msgid ""
+"do you confirm permanently deletion? if you delete, it will be permanently "
+"lost."
+msgstr ""
+"επιβεβαιώνετε μόνιμα τη διαγραφή; Εάν το διαγράψετε, θα χαθεί οριστικά."
+
+#: ../apps/fman/file_manager_app.py:739 ../apps/fman/file_manager_app.py:2489
+msgid "deleting {}% {}"
+msgstr "διαγραφή {}% {}"
+
+#: ../apps/fman/file_manager_app.py:752 ../apps/fman/file_manager_app.py:1681
+#: ../apps/fman/file_manager_app.py:2501
+msgid "restoring {}% {}"
+msgstr "επαναφορά {}% {}"
+
+#: ../apps/fman/file_manager_app.py:765
+msgid "do you want to empty the trash? all files will be permanently lost."
+msgstr "θέλεις να αδειάσεις τα σκουπίδια; όλα τα αρχεία θα χαθούν οριστικά."
+
+#: ../apps/fman/file_manager_app.py:792
+msgid "zip"
+msgstr "συμπίεση"
+
+#: ../apps/fman/file_manager_app.py:814 ../apps/fman/file_manager.py:355
+msgid "({})"
+msgstr "({})"
+
+#: ../apps/fman/file_manager_app.py:819 ../apps/fman/file_manager_app.py:2491
+msgid "extracting {}% {}"
+msgstr "εξαγωγή {}% {}"
+
+#: ../apps/fman/file_manager_app.py:831
+#, fuzzy
+msgid "find file"
+msgstr "νέο αρχείο"
+
+#: ../apps/fman/file_manager_app.py:834
+#, fuzzy
+msgid "find &in"
+msgstr "&ημερομηνία"
+
+#: ../apps/fman/file_manager_app.py:834 ../apps/fman/file_manager_app.py:843
+#, fuzzy
+msgid "current folder"
+msgstr "νέος φάκελος"
+
+#: ../apps/fman/file_manager_app.py:834
+#, fuzzy
+msgid "in the b.note"
+msgstr "&εισαγωγή"
+
+#: ../apps/fman/file_manager_app.py:869
+msgid "file found {}"
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:872
+#, fuzzy
+msgid "&show in folder"
+msgstr "νέος φάκελος"
+
+#: ../apps/fman/file_manager_app.py:874
+#, fuzzy
+msgid "&open file"
+msgstr "νέο αρχείο"
+
+#: ../apps/fman/file_manager_app.py:881
+msgid "no file found"
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:914
+#, fuzzy
+msgid "not recent file"
+msgstr "νέο αρχείο"
+
+#: ../apps/fman/file_manager_app.py:920
+#, fuzzy
+msgid "recent files"
+msgstr "νέο αρχείο"
+
+#: ../apps/fman/file_manager_app.py:922
+#, fuzzy
+msgid "file list"
+msgstr "κενή λίστα"
+
+#: ../apps/fman/file_manager_app.py:924
+#, fuzzy
+msgid "c&lear list"
+msgstr "&καθαρισμός όλων"
+
+#: ../apps/fman/file_manager_app.py:935
+msgid "this file does not exist, it will be removed from the list."
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:948 ../apps/media/mp3_app.py:574
+msgid "open"
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:950
+msgid "&read only"
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:991
+msgid "eole"
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:994
+msgid "login"
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:1022
+msgid "unable to grab access token. error : {}"
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:1055 ../apps/fman/file_manager_app.py:1388
+#: ../apps/fman/file_manager_app.py:1500 ../apps/fman/file_manager_app.py:1577
+#: ../apps/fman/file_manager_app.py:1630 ../apps/fman/file_manager_app.py:1787
+msgid "question"
+msgstr "ερώτηση"
+
+#: ../apps/fman/file_manager_app.py:1056 ../apps/fman/file_manager_app.py:1578
+#: ../apps/fman/file_manager_app.py:1631
+#, fuzzy
+msgid "{} already exists. do you want to replace it?"
+msgstr "αρχείο {} υπάρχει. θέλετε να το αντικαταστήσετε;"
+
+#: ../apps/fman/file_manager_app.py:1106
+#, fuzzy
+msgid "error can't download the file. error is {}."
+msgstr "σφάλμα, δεν μπορεί να συμπιεστούν τα αρχεία στο {}."
+
+#: ../apps/fman/file_manager_app.py:1108
+msgid ""
+"unable to download the book, your access token is invalid, check your login "
+"password."
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:1142
+#, fuzzy
+msgid "error"
+msgstr "σφάλμα μπλοκ"
+
+#: ../apps/fman/file_manager_app.py:1200
+msgid "unable to move the opened file in the editor."
+msgstr ""
+"δεν είναι δυνατή η μετακίνηση του ανοιχτού αρχείου στο πρόγραμμα "
+"επεξεργασίας."
+
+#: ../apps/fman/file_manager_app.py:1224 ../apps/fman/file_manager_app.py:2495
+msgid "moving {}% {}"
+msgstr "μεταφορά {}% {}"
+
+#: ../apps/fman/file_manager_app.py:1230 ../apps/fman/file_manager_app.py:2497
+msgid "copying {}% {}"
+msgstr "αντιγραφή {}% {}"
+
+#: ../apps/fman/file_manager_app.py:1309
+#, fuzzy
+msgid "backup %Y %m %d.zip"
+msgstr "αντίγραφα ασφαλείας %Y-%m-%d.zip"
+
+#: ../apps/fman/file_manager_app.py:1313
+msgid "backup"
+msgstr "αντίγραφο ασφαλείας"
+
+#: ../apps/fman/file_manager_app.py:1326
+msgid "no backup files to restore !"
+msgstr "δεν υπάρχουν αρχεία αντιγράφων ασφαλείας για επαναφορά !"
+
+#: ../apps/fman/file_manager_app.py:1331
+msgid "restore"
+msgstr "αποκατάσταση"
+
+#: ../apps/fman/file_manager_app.py:1380 ../apps/fman/file_manager_app.py:1430
+#: ../apps/fman/file_manager_app.py:1466 ../apps/fman/file_manager_app.py:1568
+#: ../apps/fman/file_manager_app.py:1621
+msgid "the following characters are invalid "
+msgstr "οι ακόλουθοι χαρακτήρες δεν είναι έγκυροι "
+
+#: ../apps/fman/file_manager_app.py:1389 ../apps/fman/file_manager_app.py:1788
+msgid "file {} exists. do you want to replace it?"
+msgstr "αρχείο {} υπάρχει. θέλετε να το αντικαταστήσετε;"
+
+#: ../apps/fman/file_manager_app.py:1439
+msgid "folder {} already exists."
+msgstr "φάκελος {} υπάρχει ήδη."
+
+#: ../apps/fman/file_manager_app.py:1474
+msgid "{} already exists."
+msgstr "{} υπάρχει ήδη."
+
+#: ../apps/fman/file_manager_app.py:1501
+msgid "put {} into Bluetooth reception mode (Windows 10 only)."
+msgstr "να τεθεί {} σε λειτουργία λήψης Bluetooth (μόνο για Windows 10)."
+
+#: ../apps/fman/file_manager_app.py:1518
+msgid "sending {}"
+msgstr "αποστολή {}"
+
+#: ../apps/fman/file_manager_app.py:1533
+msgid "{} successfully sent to {}."
+msgstr "{} στάλθηκε με επιτυχία στο {}."
+
+#: ../apps/fman/file_manager_app.py:1538
+msgid "error can't be sent {} to {}."
+msgstr "δεν είναι δυνατή η αποστολή {} σε {}."
+
+#: ../apps/fman/file_manager_app.py:1590 ../apps/fman/file_manager_app.py:2493
+msgid "compressing {}% {}"
+msgstr "συμπίεση {}% {}"
+
+#: ../apps/fman/file_manager_app.py:1643 ../apps/fman/file_manager_app.py:2499
+msgid "backuping {}% {}"
+msgstr "αντίγραφα ασφαλείας {}% {}"
+
+#: ../apps/fman/file_manager_app.py:1664
+msgid "error backup can't be created to {}."
+msgstr "σφάλμα, δεν είναι δυνατή η δημιουργία αντιγράφων ασφαλείας στο {}."
+
+#: ../apps/fman/file_manager_app.py:1732
+msgid "error can't compress files in {}."
+msgstr "σφάλμα, δεν μπορεί να συμπιεστούν τα αρχεία στο {}."
+
+#: ../apps/fman/file_manager_app.py:1771
+msgid "error during restoration from trash."
+msgstr "σφάλμα κατά την επαναφορά από σκουπίδια."
+
+#: ../apps/fman/file_manager_app.py:1794
+msgid "yes for &all"
+msgstr "ναι για ό&λα"
+
+#: ../apps/fman/file_manager_app.py:1796
+msgid "no for a&ll"
+msgstr "όχι για ό&λα"
+
+#: ../apps/fman/file_manager_app.py:2011
+msgid "operation not allowed in this directory."
+msgstr "η λειτουργία δεν επιτρέπεται σε αυτόν τον κατάλογο."
+
+#: ../apps/fman/file_manager_app.py:2132
+#, fuzzy
+msgid "do you want to install the version {} ?"
+msgstr "Θέλετε να εγκαταστήσετε την ενημερωμένη έκδοση;"
+
+#: ../apps/fman/file_manager_app.py:2145
+msgid "unable to open file in this directory. move it in document directory."
+msgstr ""
+"δεν είναι δυνατό το άνοιγμα αρχείου σε αυτόν τον κατάλογο. μετακινήστε το "
+"στον κατάλογο εγγράφων."
+
+#: ../apps/fman/file_manager_app.py:2164 ../apps/fman/file_manager_app.py:2167
+msgid "langue"
+msgstr "γλώσσα"
+
+#: ../apps/fman/file_manager_app.py:2184
+msgid "you cannot open more documents."
+msgstr "δε μπορείτε να ανοίξετε περισσότερα έγγραφα."
+
+#: ../apps/fman/file_manager_app.py:2192
+#, fuzzy
+msgid "unzip"
+msgstr "&αποσυμπίεση"
+
+#: ../apps/fman/file_manager_app.py:2193
+msgid "Unzip file {}?"
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:2204
+msgid ""
+"this file will be replace the existing settings file, do you want to "
+"continue?"
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:2218
+msgid ""
+"please, switch audio application visible in menu in settings to play audio "
+"file."
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:2232
+msgid "installation in progres..."
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:2269
+#, fuzzy
+msgid "imported settings."
+msgstr "&ρυθμίσεις"
+
+#: ../apps/fman/file_manager_app.py:2503
+msgid "sending {}% {}"
+msgstr "αποστολή {}% {}"
+
+#: ../apps/fman/file_manager_app.py:2505
+msgid "in progress {}%"
+msgstr "σε εξέλιξη {}%"
+
+#: ../apps/fman/file_manager_app.py:2525
+msgid "error during deletion."
+msgstr "σφάλμα κατά τη διαγραφή."
+
+#: ../apps/games/mines_app.py:55
+msgid "(8 x 8, 10 mines)"
+msgstr "(8 x 8, 10 νάρκες)"
+
+#: ../apps/games/mines_app.py:56
+msgid "(16 x 16, 40 mines)"
+msgstr "(16 x 16, 40 νάρκες)"
+
+#: ../apps/games/mines_app.py:57
+msgid "(32 x 16, 99 mines)"
+msgstr "(32 x 16, 99 νάρκες)"
+
+#: ../apps/games/mines_app.py:72 ../apps/games/master_mind_app.py:73
+msgid "&scores"
+msgstr "&βαθμολογίες"
+
+#: ../apps/games/mines_app.py:139 ../apps/games/master_mind_app.py:140
+msgid "are you sure to delete high score for {}"
+msgstr "είστε βέβαιοι ότι θα διαγράψετε υψηλή βαθμολογία για {}"
+
+#: ../apps/games/mines_app.py:159 ../apps/games/master_mind_app.py:214
+msgid "new score"
+msgstr "νέα βαθμολογία"
+
+#: ../apps/games/mines_app.py:182 ../apps/games/master_mind_app.py:164
+msgid "scores"
+msgstr "βαθμολογίες"
+
+#: ../apps/games/mines_app.py:385
+msgid "boum !"
+msgstr "μπουμ!"
+
+#: ../apps/games/mines_app.py:404
+msgid "you win in {} seconds"
+msgstr "κερδίζεις σε {} δευτερόλεπτα"
+
+#: ../apps/games/mines_app.py:416
+msgid "no bomb here !"
+msgstr "δεν υπάρχει βόμβα εδώ!"
+
+#: ../apps/games/master_mind_app.py:57
+msgid "(4 positions, 6 colors, all different)"
+msgstr "(4 θέσεις, 6 χρώματα, όλα διαφορετικά)"
+
+#: ../apps/games/master_mind_app.py:58
+msgid "(5 positions, 6 colors, all different)"
+msgstr "(5 θέσεις, 6 χρώματα, όλα διαφορετικά)"
+
+#: ../apps/games/master_mind_app.py:59
+msgid "(5 positions, 6 colors, possible duplicate)"
+msgstr "(5 θέσεις, 6 χρώματα, πιθανό διπλότυπο)"
+
+#: ../apps/games/master_mind_app.py:185
+msgid ""
+"invalid proposition, proposition must be {} numbers must be between 1 to 6."
+msgstr ""
+"άκυρη πρόταση, η πρόταση πρέπει να είναι {} οι αριθμοί πρέπει να είναι "
+"μεταξύ 1 και 6."
+
+#: ../apps/games/master_mind_app.py:203
+msgid "you win in {} attemps"
+msgstr "κερδίζεις σε {} προσπάθειες"
+
+#: ../apps/games/master_mind_app.py:375
+msgid "value"
+msgstr "τιμή"
+
+#: ../apps/games/master_mind_app.py:394
+msgid "hit enter (b9A)"
+msgstr ""
+
+#: ../apps/media/mp3_app.py:54 ../apps/media/mp3_app.py:738
+#: ../apps/media/mp3_app.py:842
+#, fuzzy
+msgid "no name"
+msgstr "όνομα &bnote"
+
+#: ../apps/media/mp3_app.py:92
+msgid "mp3"
+msgstr ""
+
+#: ../apps/media/mp3_app.py:97
+#, fuzzy
+msgid "play &list"
+msgstr "κενή λίστα"
+
+#: ../apps/media/mp3_app.py:104 ../apps/media/mp3_app.py:112
+#, fuzzy
+msgid "delete &all"
+msgstr "επιλογή &όλων"
+
+#: ../apps/media/mp3_app.py:107
+msgid "item"
+msgstr ""
+
+#: ../apps/media/mp3_app.py:111
+#, fuzzy
+msgid "de&lete"
+msgstr "διαγραφή"
+
+#: ../apps/media/mp3_app.py:113
+msgid "to the &beginning"
+msgstr ""
+
+#: ../apps/media/mp3_app.py:115
+msgid "to the &end"
+msgstr ""
+
+#: ../apps/media/mp3_app.py:117
+#, fuzzy
+msgid "&up"
+msgstr "&hp"
+
+#: ../apps/media/mp3_app.py:119
+#, fuzzy
+msgid "&down"
+msgstr "&απενεργοποίηση"
+
+#: ../apps/media/mp3_app.py:126
+msgid "&item"
+msgstr ""
+
+#: ../apps/media/mp3_app.py:128
+#, fuzzy
+msgid "&list"
+msgstr "&πλαίσιο επεξεργασίας"
+
+#: ../apps/media/mp3_app.py:132
+#, fuzzy
+msgid "pre&vious"
+msgstr "&προηγούμενο"
+
+#: ../apps/media/mp3_app.py:134
+msgid "&pause"
+msgstr ""
+
+#: ../apps/media/mp3_app.py:136
+msgid "s&top"
+msgstr ""
+
+#: ../apps/media/mp3_app.py:138
+#, fuzzy
+msgid "&forward (30s)"
+msgstr "οθόνη &μπροστά"
+
+#: ../apps/media/mp3_app.py:140
+msgid "&backward (10s)"
+msgstr ""
+
+#: ../apps/media/mp3_app.py:142
+#, fuzzy
+msgid "position"
+msgstr "ερώτηση"
+
+#: ../apps/media/mp3_app.py:187
+#, fuzzy
+msgid "&resume"
+msgstr "ε&παναφορά"
+
+#: ../apps/media/mp3_app.py:189
+msgid "p&ause"
+msgstr ""
+
+#: ../apps/media/mp3_app.py:245
+#, fuzzy
+msgid "&position"
+msgstr "&εφαρμογές"
+
+#: ../apps/media/mp3_app.py:500
+#, fuzzy
+msgid "save"
+msgstr "&αποθήκευση"
+
+#: ../apps/media/mp3_app.py:502 ../apps/media/mp3_app.py:580
+#, fuzzy
+msgid "playlist"
+msgstr "κενή λίστα"
+
+#: ../apps/media/mp3_app.py:516
+#, fuzzy
+msgid "playlist name exists, do you want overwrite the playlist?"
+msgstr "αρχείο {} υπάρχει. θέλετε να το αντικαταστήσετε;"
+
+#: ../apps/media/mp3_app.py:622
+#, fuzzy
+msgid "are you sure to delete all saved play list?"
+msgstr "είστε βέβαιοι ότι θα διαγράψετε υψηλή βαθμολογία για {}"
+
+#: ../apps/media/mp3_app.py:700
+#, fuzzy
+msgid "are you sure to delete the play list {}?"
+msgstr "είστε βέβαιοι ότι θα διαγράψετε υψηλή βαθμολογία για {}"
+
+#: ../apps/media/mp3_app.py:794
+msgid "tracknumber"
+msgstr ""
+
+#: ../apps/media/mp3_app.py:800
+#, fuzzy
+msgid "artist"
+msgstr "στατιστικά"
+
+#: ../apps/media/mp3_app.py:806
+msgid "album"
+msgstr ""
+
+#: ../apps/media/mp3_app.py:953 ../apps/media/radio_app.py:440
+#, fuzzy
+msgid "empty list..."
+msgstr "κενή λίστα"
+
+#: ../apps/media/radio_app.py:65
+msgid "&radio by url"
+msgstr ""
+
+#: ../apps/media/radio_app.py:67
+#, fuzzy
+msgid "&delete radio"
+msgstr "&διαγραφή"
+
+#: ../apps/media/radio_app.py:70
+#, fuzzy
+msgid "&web update list"
+msgstr "κενή λίστα"
+
+#: ../apps/media/radio_app.py:140
+msgid "add radio"
+msgstr ""
+
+#: ../apps/media/radio_app.py:145
+msgid "url"
+msgstr ""
+
+#: ../apps/media/radio_app.py:150
+msgid "add to &list"
+msgstr ""
+
+#: ../apps/media/radio_app.py:168
+#, fuzzy
+msgid "are you sure to replace the radio {}"
+msgstr "είστε βέβαιοι ότι θα διαγράψετε υψηλή βαθμολογία για {}"
+
+#: ../apps/media/radio_app.py:372
+#, fuzzy
+msgid "are you sure to delete the radio {}"
+msgstr "είστε βέβαιοι ότι θα διαγράψετε υψηλή βαθμολογία για {}"
+
+#, fuzzy
+#~ msgid "&translate selection"
+#~ msgstr "έναρξη &επιλογής"
+
+#, fuzzy
+#~ msgid "&operation game"
+#~ msgstr "κ&λάσμα"
+
+#, fuzzy
+#~ msgid "Settings apply."
+#~ msgstr "ρυθμίσεις"
+
+#, fuzzy
+#~ msgid "&shutdown bluetooth"
+#~ msgstr "&bluetooth"
+
+#, fuzzy
+#~ msgid "&power on bluetooth"
+#~ msgstr "&bluetooth"
+
+#, fuzzy
+#~ msgid "&shutdown wifi"
+#~ msgstr "&απενεργοποίηση"
+
+#, fuzzy
+#~| msgid "words"
+#~ msgid "words game"
+#~ msgstr "λέξεις"
+
+#, fuzzy
+#~| msgid "Do you want to install update?"
+#~ msgid "do you want to install update?"
+#~ msgstr "Θέλετε να εγκαταστήσετε την ενημερωμένη έκδοση;"
+
+#~ msgid ""
+#~ "this update file works only with a sd card version greater or equal to {}"
+#~ msgstr ""
+#~ "αυτό το αρχείο ενημερωμένης έκδοσης λειτουργεί μόνο με μια έκδοση κάρτας "
+#~ "SD μεγαλύτερη ή ίση με {}"
+
+#~ msgid "this update file works only with a firmware greater or equal to {}"
+#~ msgstr ""
+#~ "αυτό το αρχείο ενημερωμένης έκδοσης λειτουργεί μόνο με υλικολογισμικό "
+#~ "μεγαλύτερο ή ίσο με {}"
+
+#, fuzzy
+#~| msgid "braille"
+#~ msgid "B.Braille"
+#~ msgstr "μπράιγ"
+
+#, fuzzy
+#~| msgid "new file"
+#~ msgid "&manage files"
+#~ msgstr "νέο αρχείο"
+
+#, fuzzy
+#~| msgid "&file"
+#~ msgid "&file list"
+#~ msgstr "&αρχείο"
+
+#, fuzzy
+#~| msgid "new file"
+#~ msgid "manage files"
+#~ msgstr "νέο αρχείο"
+
+#, fuzzy
+#~| msgid "replace and n&ext"
+#~ msgid "&replace the content"
+#~ msgstr "αντικατάσταση και ε&πόμενο"
+
+#, fuzzy
+#~| msgid "words"
+#~ msgid "&words game"
+#~ msgstr "λέξεις"
+
+#~ msgid "&connected to"
+#~ msgstr "&συνδεδεμένο με"
+
+#~ msgid "ip address"
+#~ msgstr "διεύθυνση IP"
+
+#, fuzzy
+#~| msgid "find"
+#~ msgid "id"
+#~ msgstr "εύρεση"
+
+#~ msgid "&deconnect-connect"
+#~ msgstr "&αποσύνδεση-σύνδεση"
+
+#, fuzzy
+#~| msgid "reading..."
+#~ msgid "checking..."
+#~ msgstr "ανάγνωση..."
+
+#, fuzzy
+#~| msgid "You need to shutdown b.note for the changes to take effect"
+#~ msgid "you need to shutdown b.note for the changes to take effect"
+#~ msgstr "Πρέπει να κλείσετε το B.note για να εφαρμοστούν οι αλλαγές"
+
+#, fuzzy
+#~| msgid "standard"
+#~ msgid "Calendar"
+#~ msgstr "κανονικός"
+
+#, fuzzy
+#~| msgid "visible"
+#~ msgid "visible &games"
+#~ msgstr "ορατό"
+
+#, fuzzy
+#~| msgid "visible"
+#~ msgid "visible &audio"
+#~ msgstr "ορατό"
+
+#, fuzzy
+#~| msgid "visible"
+#~ msgid "visible &radio"
+#~ msgstr "ορατό"
+
+#, fuzzy
+#~| msgid "visible"
+#~ msgid "visible games"
+#~ msgstr "ορατό"
+
+#, fuzzy
+#~| msgid "visible"
+#~ msgid "visible audio"
+#~ msgstr "ορατό"
+
+#, fuzzy
+#~| msgid "visible"
+#~ msgid "visible radio"
+#~ msgstr "ορατό"
+
+#~ msgid "m&astermind"
+#~ msgstr "m&astermind"
+
+#~ msgid "grade"
+#~ msgstr "βαθμος"
+
+#~ msgid "c&ut"
+#~ msgstr "από&κοπή"
+
+#~ msgid "esysuite &protocol"
+#~ msgstr "&πρωτόκολλο esysuite"
+
+#, fuzzy
+#~| msgid "visible"
+#~ msgid "visible &mp3"
+#~ msgstr "ορατό"
+
+#~ msgid "esysuite protocol"
+#~ msgstr "πρωτόκολλο esysuite"
+
+#~ msgid "protocol"
+#~ msgstr "πρωτόκολλο"
+
+#, fuzzy
+#~| msgid "visible"
+#~ msgid "visible mp3"
+#~ msgstr "ορατό"
+
+#~ msgid "new &file"
+#~ msgstr "νέο αρ&χείο"
+
+#~ msgid "new fol&der"
+#~ msgstr "νέος &κατάλογος"
+
+#~ msgid "new file.txt"
+#~ msgstr "νέο αρχείο.txt"
+
+#~ msgid "games"
+#~ msgstr "παιχνίδια"
+
+#~ msgid "&mastermind"
+#~ msgstr "&mastermind"
+
+#~ msgid "&message"
+#~ msgstr "&μήνυμα"
+
+#~ msgid "&braille"
+#~ msgstr "&μπράιγ"
+
+#~ msgid "hp"
+#~ msgstr "hp"
+
+#~ msgid "&menu_2"
+#~ msgstr "&menu_2"
+
+#~ msgid "maximum volume"
+#~ msgstr "μέγιστη ένταση"
+
+#~ msgid "&espeak"
+#~ msgstr "&espeak"
+
+#~ msgid "espeak"
+#~ msgstr "espeak"
+
+#~ msgid "&spinbox"
+#~ msgstr "&πλαίσιο επιλογών"
