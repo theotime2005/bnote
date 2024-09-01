@@ -345,6 +345,7 @@ class SettingsApp(BnoteApp):
                                        'action_param': {'section': 'update', 'key': 'auto_check'}},
             ('update', 'search_update_to'): {'action': self._exec_change_update_source,
                                              'action_param': {'section': 'update, source'}},
+            ('update', 'delete_after_installed'): {'action': self.__dialog_set_settings, 'action_param': {'section': 'update', 'key': 'delete_after_installed'}},
             ('version', 'application'): {'action': self.__dialog_application_version,
                                          'action_param': {'section': 'version', 'key': 'application'}},
         }
@@ -630,6 +631,8 @@ class SettingsApp(BnoteApp):
                         ui.UiMenuItem(name=_("&install an other version"), action=self._exec_get_update_history),
                         ui.UiMenuItem(name=_("&search update to"),
                                       **self.__action_and_action_param[('update', 'search_update_to')]),
+                        ui.UiMenuItem(name=_("&delete file after installed"),
+                                      **self.__action_and_action_param[('update', 'delete_after_installed')]),
                     ]
                 ),
 
@@ -1176,6 +1179,8 @@ class SettingsApp(BnoteApp):
                                        param_value=Settings().data['update']['search_update_to'],
                                        dialog_box_name=_("update"), dialog_box_param_name=_("source"), section='update',
                                        key='search_update_to')
+        self.__append_line_in_document(param_label=_("delete file from explorer after installation"), param_value=self.__get_settings_value('update', 'delete_after_installed'), dialog_box_name=_("update"), dialog_box_param_name=_("&delete after installed"), section='update', key='delete_after_installed')
+
         # Versions
         self.__append_line_in_document()
         self.__append_line_in_document(param_label=_("versions"), is_tab_stop=True)
