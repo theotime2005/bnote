@@ -8,11 +8,12 @@ import random
 from bnote.apps.bnote_app import BnoteApp
 
 from bnote.debug.colored_log import ColoredLogger, MASTERMIND_APP_LOG
+
 log = ColoredLogger(__name__)
 log.setLevel(MASTERMIND_APP_LOG)
 
-class MasterMind(BnoteApp):
 
+class MasterMind(BnoteApp):
     __color_char = [1, 2, 3, 4, 5, 6]
 
     def __init__(self, token, is_duplicate):

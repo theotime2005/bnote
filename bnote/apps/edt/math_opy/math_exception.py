@@ -4,7 +4,6 @@ This software is the proprietary of eurobraille and may not be copied,
 distributed, published,or disclosed without express prior written permission.
 """
 
-
 from enum import Enum, auto
 
 
@@ -16,6 +15,7 @@ class MathException(Exception):
          error_code: error code of parsing (see class ErrorCode)
          message: Explanation of the error
      """
+
     class ErrorCode(Enum):
         EMPTY_ARG = auto()
         BLOC_ERROR = auto()
@@ -27,7 +27,6 @@ class MathException(Exception):
         NEGATIVE_SQRT = auto()
         UNDEFINED_PARAM = auto()
         INVALID_ASSIGNMENT = auto()
-
 
     def __init__(self, pos, error_code, message="Unknown error"):
         self.error_code = error_code
@@ -62,4 +61,3 @@ class MathUnaryException(Exception):
         self.unary_pos = pos
         self.message = message
         super().__init__(self.message)
-

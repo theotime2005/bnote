@@ -4,12 +4,12 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
-from pathlib import Path
 
 from bnote.apps.fman.file_manager import FileManager
 
 # Setup the logger for this file
 from .colored_log import ColoredLogger, EDITOR_LOG
+
 log = ColoredLogger(__name__, level=EDITOR_LOG)
 
 

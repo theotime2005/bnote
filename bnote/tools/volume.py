@@ -115,6 +115,7 @@ def main():
         time.sleep(0.1)
         print("wait speaking")
 
+
 #     scanCards = audio.cards()
 #     print("cards:", scanCards)
 #

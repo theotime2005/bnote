@@ -19,7 +19,6 @@ log.setLevel(MINES_APP_LOG)
 
 
 class Mines:
-
     NO_MINE_UNHIDE = 0
     NO_MINE_HIDE = 1
     MINE_UNHIDE = 2
@@ -62,7 +61,7 @@ class Mines:
         discovered_table = [[0] * nb_column for i in range(nb_line)]
         # Inject mines.
         cases_number = nb_line * nb_column
-        mines_list = [random.randrange(0, cases_number -1, 1) for i in range(mines)]
+        mines_list = [random.randrange(0, cases_number - 1, 1) for i in range(mines)]
         log.info(f"{table}")
         log.info(f"{mines_list=}")
         for mine_pos in mines_list:
@@ -162,12 +161,13 @@ class Mines:
     def display_line(self, line):
         display_line = ""
         for column in range(0, self._nb_column):
-            if (self.state_table[line][column] == Mines.NO_MINE_UNHIDE)\
+            if (self.state_table[line][column] == Mines.NO_MINE_UNHIDE) \
                     and (self.discovered_table[line][column] != 0):
                 display_line = "".join([display_line, str(self.discovered_table[line][column])])
             else:
                 display_line = "".join([display_line, Mines.__display_char[self.state_table[line][column]]])
         return display_line
+
 
 def print_test(name):
     # Use a breakpoint in the code line below to debug your script.

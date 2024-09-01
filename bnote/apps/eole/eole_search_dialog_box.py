@@ -9,9 +9,9 @@ from pathlib import Path
 
 import requests
 
-from bnote.apps.fman.file_manager import BNOTE_FOLDER
-from bnote.apps.eole.eole_api import EoleApi
 import bnote.ui as ui
+from bnote.apps.eole.eole_api import EoleApi
+from bnote.apps.fman.file_manager import BNOTE_FOLDER
 
 # Nombre de publications qui vont être récupérées pour construire la ui.UiListBox avec les résultats.
 # Ne pas mettre une valeur trop élevée (car on ne récupère que 3 publications par requête)
@@ -22,7 +22,8 @@ GENRE_FILE = BNOTE_FOLDER / Path("genre.json")
 
 
 class EoleSearchDialogBox(ui.UiDialogBox):
-    def __init__(self, is_eole_simplified_search, exec_show_summary, exec_download, exec_display_error_dialog, exec_cancel_eole_dialog):
+    def __init__(self, is_eole_simplified_search, exec_show_summary, exec_download, exec_display_error_dialog,
+                 exec_cancel_eole_dialog):
         self.__is_eole_simplified_search = is_eole_simplified_search
         self._exec_display_error_dialog = exec_display_error_dialog
         self._support_value = OrderedDict([

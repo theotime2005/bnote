@@ -70,4 +70,3 @@ class Pos:
             return True
         else:
             return self > other
-

@@ -4,10 +4,10 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
-import itertools
-from .pos import Pos
 # Setup the logger for this file
 from .colored_log import ColoredLogger, EDITOR_PARAGRAPH_LOG, logging
+from .pos import Pos
+
 log = ColoredLogger(__name__, level=EDITOR_PARAGRAPH_LOG)
 
 
@@ -19,7 +19,6 @@ class Paragraph(object):
     Les lignes dont la fin remplace un espace
     Les lignes dont la fin ne remplace pas un espace (cas de la dernière ligne)
     '''
-
 
     def __init__(self, paragraph, id, width):
         self._id = id
@@ -509,7 +508,8 @@ class Paragraph(object):
             return pos, pos
         else:
             pos = self.coordinates_from_index(index)
-            return self.coordinates_from_index(index), self.coordinates_from_index(index + len(find_parameters.edit_seq))
+            return self.coordinates_from_index(index), self.coordinates_from_index(
+                index + len(find_parameters.edit_seq))
 
     def find_previous(self, pos, find_parameters):
         """
@@ -532,5 +532,5 @@ class Paragraph(object):
             return pos, pos
         else:
             pos = self.coordinates_from_index(last_index)
-            return self.coordinates_from_index(last_index), self.coordinates_from_index(last_index + len(find_parameters.edit_seq))
-
+            return self.coordinates_from_index(last_index), self.coordinates_from_index(
+                last_index + len(find_parameters.edit_seq))

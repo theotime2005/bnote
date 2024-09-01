@@ -5,12 +5,12 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-from .pos import Pos
-from .coordinates import Coordinates
-from .paragraph import Paragraph
-
 # Setup the logger for this file
 from .colored_log import ColoredLogger, EDITOR_PARAGRAPH_LOG, logging
+from .coordinates import Coordinates
+from .paragraph import Paragraph
+from .pos import Pos
+
 log = ColoredLogger(__name__, level=EDITOR_PARAGRAPH_LOG)
 
 
@@ -101,7 +101,7 @@ class Paragraphs:
         # return ''.join([c for c in s if ord(c) > 31 or ord(c) == 9])
         return ''.join([c for c in s if ((ord(c) > 31) or (c == '\t'))])
 
-    def create_paragraph(self, paragraph:str):
+    def create_paragraph(self, paragraph: str):
         """
         Add a paragraph to the collection.
         Give it an unique Id.
@@ -494,7 +494,7 @@ class Paragraphs:
             if EDITOR_PARAGRAPH_LOG <= logging.INFO:
                 log.info("word position {}, {}".format(start_pos, end_pos))
             return self.pos_from_coo(Coordinates(start_pos.x, start_pos.y, coo.paragraph)), \
-                   self.pos_from_coo(Coordinates(end_pos.x, end_pos.y, coo.paragraph))
+                self.pos_from_coo(Coordinates(end_pos.x, end_pos.y, coo.paragraph))
         else:
             return None, None
 
@@ -584,7 +584,7 @@ class Paragraphs:
                     # inc offset order of all next paragraph
                     # Cette ligne ne correspond pas à une méthode existante ?
                     # Dans bnote non plus ?
-                    #self._inc_offset_order(coo.paragraph + 1, 1)
+                    # self._inc_offset_order(coo.paragraph + 1, 1)
                     if after_string != "":
                         # Replace the markers situated in after_string area
                         markers.replace(coo, markers_saved, len(s))
@@ -844,4 +844,3 @@ class Paragraphs:
         else:
             return self.pos_from_coo(Coordinates(start.x, start.y, current_paragraph)), self.pos_from_coo(
                 Coordinates(end.x, end.y, current_paragraph))
-

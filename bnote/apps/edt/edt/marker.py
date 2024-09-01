@@ -70,4 +70,3 @@ class Marker:
             return True
         else:
             return self > other
-

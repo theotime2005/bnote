@@ -5,7 +5,6 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 # import slate3k as slate
 # import PyPDF2
 import os
@@ -13,6 +12,7 @@ from shlex import quote
 
 # Setup the logger for this file
 from .colored_log import ColoredLogger, READ_ODT_FILE_LOG
+
 log = ColoredLogger(__name__, level=READ_ODT_FILE_LOG)
 
 

@@ -6,8 +6,9 @@
 """
 import base64
 import hashlib
-from cryptography.fernet import Fernet, InvalidToken
+
 import machineid
+from cryptography.fernet import Fernet, InvalidToken
 
 from bnote.tools.singleton_meta import SingletonMeta
 
@@ -40,7 +41,6 @@ class EoleCrypto(metaclass=SingletonMeta):
 
 
 if __name__ == '__main__':
-
     the_user_name = "eurobraille_user1"
     print()
     print(f"{the_user_name=}")

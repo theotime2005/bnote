@@ -35,6 +35,7 @@ class Mp3App(BnoteApp):
     """
     MP3 player application.
     """
+
     @staticmethod
     def known_extension():
         return FILE_TYPES
@@ -97,9 +98,9 @@ class Mp3App(BnoteApp):
                     name=_("play &list"),
                     menu_item_list=[
                         ui.UiMenuItem(name=_("&open"), action=self._exec_open_playlist,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='O'),
+                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='O'),
                         ui.UiMenuItem(name=_("&save"), action=self._exec_save_playlist,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='S'),
+                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='S'),
                         ui.UiMenuItem(name=_("&delete"), action=self._exec_delete_playlist),
                         ui.UiMenuItem(name=_("delete &all"), action=self._exec_delete_all_playlist),
                     ]),
@@ -107,41 +108,41 @@ class Mp3App(BnoteApp):
                     name=_("item"),
                     menu_item_list=[
                         ui.UiMenuItem(name=_("&add"), action=self._exec_add_item,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='A'),
+                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='A'),
                         ui.UiMenuItem(name=_("de&lete"), action=self._exec_delete_item),
                         ui.UiMenuItem(name=_("delete &all"), action=self._exec_delete_all_items),
                         ui.UiMenuItem(name=_("to the &beginning"), action=self._exec_item_to_beginning,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='H'),
+                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='H'),
                         ui.UiMenuItem(name=_("to the &end"), action=self._exec_item_to_end,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='E'),
+                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='E'),
                         ui.UiMenuItem(name=_("&up"), action=self._exec_item_up,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='U'),
+                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='U'),
                         ui.UiMenuItem(name=_("&down"), action=self._exec_item_down,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='D'),
+                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='D'),
                         ui.UiMenuItem(name=_("&properties"), action=self._exec_item_properties),
                     ]),
                 ui.UiMenuBar(
                     name=_("&play"),
                     menu_item_list=[
                         ui.UiMenuItem(name=_("&item"), action=self._exec_play_selected,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='I'),
+                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='I'),
                         ui.UiMenuItem(name=_("&list"), action=self._exec_playlist,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='L'),
+                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='L'),
                         ui.UiMenuItem(name=_("&next"), action=self._exec_next, is_hide=True,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='F'),
+                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='F'),
                         ui.UiMenuItem(name=_("pre&vious"), action=self._exec_previous, is_hide=True,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='B'),
+                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='B'),
                         ui.UiMenuItem(name=_("&pause"), action=self._exec_pause_resume, is_hide=True,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='P'),
+                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='P'),
                         ui.UiMenuItem(name=_("s&top"), action=self._exec_stop, is_hide=True,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='T'),
+                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='T'),
                         ui.UiMenuItem(name=_("&forward (30s)"), action=self._exec_forward, is_hide=False,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='R'),
+                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='R'),
                         ui.UiMenuItem(name=_("&backward (10s)"), action=self._exec_backward, is_hide=False,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='C'),
+                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='C'),
                         ui.UiMenuItem(name=_("position"), action=self._exec_position, is_hide=True,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                                   shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F2),
+                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                                      shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F2),
                         ui.UiMenuItem(name=_("volume"), action=self._exec_volume),
                     ]),
             ],
@@ -311,7 +312,7 @@ class Mp3App(BnoteApp):
             command_switcher = {
                 Keyboard.KeyId.KEY_CARET_UP: self.__previous_line,
                 Keyboard.KeyId.KEY_CARET_DOWN: self.__next_line,
-                Keyboard.KeyId.KEY_START_DOC:  self.__first_line,
+                Keyboard.KeyId.KEY_START_DOC: self.__first_line,
                 Keyboard.KeyId.KEY_END_DOC: self.__last_line,
             }
             function = command_switcher.get(key_id, None)
@@ -462,7 +463,7 @@ class Mp3App(BnoteApp):
             return True
 
     def __next_line(self):
-        if self.__playlist is not None and self.__playlist_index < len(self.__playlist) -1:
+        if self.__playlist is not None and self.__playlist_index < len(self.__playlist) - 1:
             self.__playlist_index += 1
             return True
 
@@ -792,20 +793,20 @@ class Mp3App(BnoteApp):
             extra_parameters={'properties': properties},
             item_list=[
                 ui.UiEditBox(name=_('tracknumber'),
-                          value=('tracknumber', properties['tracknumber'][0])
-                          ),
+                             value=('tracknumber', properties['tracknumber'][0])
+                             ),
                 ui.UiEditBox(name=_('title'),
-                          value=('title', properties['title'][0])
-                          ),
+                             value=('title', properties['title'][0])
+                             ),
                 ui.UiEditBox(name=_('artist'),
-                          value=('artist', properties['artist'][0])
-                          ),
+                             value=('artist', properties['artist'][0])
+                             ),
                 ui.UiEditBox(name=_('date'),
-                          value=('date', properties['date'][0])
-                          ),
+                             value=('date', properties['date'][0])
+                             ),
                 ui.UiEditBox(name=_('album'),
-                          value=('album', properties['album'][0])
-                          ),
+                             value=('album', properties['album'][0])
+                             ),
                 ui.UiButton(name=_("&ok"), action=self._exec_valid_properties_dialog),
                 ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
             ],
@@ -914,7 +915,7 @@ class Mp3App(BnoteApp):
             time, duration = AudioPlayer().get_media_player_time()
             pos = AudioPlayer().get_media_player_position()
             time_string = "/".join(
-                (self.__convert_millis(time), self.__convert_millis(duration), f"{int(pos*100):2d}%"))
+                (self.__convert_millis(time), self.__convert_millis(duration), f"{int(pos * 100):2d}%"))
         properties = Mp3App.__get_properties(str(file))
         if properties is None or len(properties['album']) == 0:
             if time_string:
@@ -954,7 +955,7 @@ class Mp3App(BnoteApp):
         self.__ui_line = ui.UiDocumentList(
             parent_name=str(self.__playlist_name), parent_action=self._exec_activate_list,
             list_name=str(list_name), list_action=self._exec_activate_item,
-            )
+        )
 
     def _exec_activate_list(self):
         log.info("<_exec_activate_list>")

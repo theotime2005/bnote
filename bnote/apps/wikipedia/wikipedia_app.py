@@ -15,15 +15,14 @@ import bnote.ui as ui
 from bnote.tools.keyboard import Keyboard
 from bnote.stm32.braille_device_characteristics import braille_device_characteristics
 
-
 # Setup the logger for this file
 from bnote.debug.colored_log import ColoredLogger, EDITOR_APP_LOG, logging
+
 log = ColoredLogger(__name__)
 log.setLevel(EDITOR_APP_LOG)
 
 
 class WikipediaApp(EditorBaseApp):
-
     SUMMARY_SENTENCES_COUNT = 10
 
     def __init__(self, put_in_function_queue, file_name=None, language=None, read_only=True):
@@ -49,8 +48,8 @@ class WikipediaApp(EditorBaseApp):
                     name=_("&file"),
                     menu_item_list=[
                         ui.UiMenuItem(name=_("&close"), action=self._exec_close,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
-                                   shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F4),
+                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                                      shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F4),
                         ui.UiMenuItem(name=_("&research"), action=self._exec_research),
                         ui.UiMenuItem(name=_("clean&up"), action=self._exec_cleanup),
                         ui.UiMenuItem(name=_("sta&tistics"), action=self._exec_statistics),
@@ -62,7 +61,7 @@ class WikipediaApp(EditorBaseApp):
                         *[
                             ui.UiMenuItem(name=_("curs&or"), action=self._exec_cursor),
                             ui.UiMenuItem(name=_("forward in grade2 braille"), action=self._toggle_grade2_from_menu),
-                            ],
+                        ],
                     ]),
                 self.create_sub_menu_goto(),
                 self.create_sub_menu_find(),
@@ -155,6 +154,7 @@ class WikipediaApp(EditorBaseApp):
             # Specific commands treatment.
             pass
         return done
+
     # <<< End of key events.
 
     def input_function(self, *args, **kwargs) -> bool:
@@ -246,7 +246,7 @@ class WikipediaApp(EditorBaseApp):
         if (wiki_page_title is not None) and len(wiki_page_title) <= 0:
             # No suggestion.
             self._current_dialog = ui.UiInfoDialogBox(message=_("there is no text found in the suggestion's combobox."),
-                                                   action=self._exec_cancel_dialog)
+                                                      action=self._exec_cancel_dialog)
             return
         try:
             # if summary:

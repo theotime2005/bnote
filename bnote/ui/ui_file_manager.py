@@ -4,19 +4,15 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
-import os
-from pathlib import Path
 
-from bnote.apps.fman.file_manager import Trash, FileManager
 from bnote.apps.bnote_app import BnoteApp
+# Set up the logger for this file
+from bnote.debug.colored_log import ColoredLogger, UI_LOG
 from bnote.tools.keyboard import Keyboard
 from bnote.tools.settings import Settings
 from .ui_container import UiContainer
 from .ui_file_manager_tools import UiFileManagerTools
 from .ui_object import UiObject
-
-# Set up the logger for this file
-from bnote.debug.colored_log import ColoredLogger, UI_LOG
 
 log = ColoredLogger(__name__)
 log.setLevel(UI_LOG)
@@ -46,7 +42,8 @@ class UiFileManagerLine(UiContainer, UiFileManagerTools):
         }
         super().__init__(**kwargs)
         # Overload file name
-        friendly_parent_name = self._convert_file_to_braille_text(self.braille_type, UiFileManagerLine.friendly_file_name(parent_name))
+        friendly_parent_name = self._convert_file_to_braille_text(self.braille_type,
+                                                                  UiFileManagerLine.friendly_file_name(parent_name))
         friendly_child_name = self._ui_file_name(self.braille_type, file_name)
         self.rename_without_shortcut(friendly_parent_name)
         self.get_focused_object().rename_without_shortcut(friendly_child_name)
@@ -73,6 +70,7 @@ class UiFileManagerObject(UiObject, UiFileManagerTools):
     """
     Object child of one file of file manager line
     """
+
     def __init__(self, filename, name, action, selected, is_selectable):
         kwargs = {
             'braille_type': Settings().data["system"]['braille_type'],
@@ -109,7 +107,8 @@ class UiFileManagerObject(UiObject, UiFileManagerTools):
                 else:
                     indicator = _("n")
                 # braille conversion
-                text_indicator, braille_indicator, pos = BnoteApp.lou.convert_to_braille(self._braille_type, indicator, 0)
+                text_indicator, braille_indicator, pos = BnoteApp.lou.convert_to_braille(self._braille_type, indicator,
+                                                                                         0)
                 name = "".join([indicator, self._name])
                 braille_name = "".join([braille_indicator, self._braille_name])
             else:
@@ -117,4 +116,3 @@ class UiFileManagerObject(UiObject, UiFileManagerTools):
                 name = self._name
                 braille_name = self._braille_name
             return name, braille_name, "\u2800" * len(braille_name), [self._ui_id] * len(braille_name)
-

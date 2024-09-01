@@ -6,12 +6,14 @@
 """
 
 import ebooklib
-from ebooklib import epub
 from bs4 import BeautifulSoup, Comment
+from ebooklib import epub
 
 # Setup the logger for this file
 from .colored_log import ColoredLogger, READ_EPUB_FILE_LOG, logging
+
 log = ColoredLogger(__name__, level=READ_EPUB_FILE_LOG)
+
 
 # Installer depuis pycharm File>Settings>Project>Python interpreter: EbookLib et bs4
 # Installer en ligne de commande BeautifulSoup

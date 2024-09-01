@@ -5,7 +5,6 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 from enum import Enum
 from pathlib import Path
 import pkg_resources
@@ -27,7 +26,7 @@ class FunctionId(Enum):
     # Function for agenda
     FUNCTION_AGENDA_SAME_DAY = object()
     FUNCTION_AGENDA_NEXT_DAY = object()
-    FUNCTION_RESTOR_AFTER_AGENDA=object()
+    FUNCTION_RESTOR_AFTER_AGENDA = object()
     APPLICATIONS = object()
     USB = object()
     FUNCTION_SETTINGS_CHANGE = object()
@@ -85,6 +84,7 @@ class FunctionId(Enum):
     FUNCTION_CLOSE_WIKIPEDIA = object()
     ASK_TO_REFRESH_MESSAGE_DIALOG = object()
     UNABLE_TO_UPDATE = object()
+
 
 class BnoteApp:
     keyboard = Keyboard()
@@ -268,11 +268,11 @@ class BnoteApp:
             # Enter in application's menu.
             self._enter_in_menu()
             return True
-        elif modifier == Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL and\
+        elif modifier == Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL and \
                 bramigraph == Keyboard.BrailleFunction.BRAMIGRAPH_TAB:
             self._put_in_function_queue(FunctionId.FUNCTION_INTERNAL_NEXT_APP)
             return True
-        elif modifier == Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL and\
+        elif modifier == Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL and \
                 bramigraph == Keyboard.BrailleFunction.BRAMIGRAPH_SHIFT_TAB:
             self._put_in_function_queue(FunctionId.FUNCTION_INTERNAL_PREVIOUS_APP)
             return True
@@ -443,9 +443,3 @@ class BnoteApp:
         # else:
         #     return Path(pkg_resources.resource_filename('bnote', 'apps'))
         return Path(pkg_resources.resource_filename('bnote', 'apps'))
-
-
-
-
-
-

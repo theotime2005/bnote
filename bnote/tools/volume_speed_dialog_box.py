@@ -16,12 +16,12 @@ class VolumeDialogBox(ui.UiDialogBox):
         self.__save_the_new_volume = callback_save_the_new_volume
         self.__channel = channel
         item_list = [
-                ui.UiButton(name=_("volume &up"), action=self._exec_volume_up, is_auto_close=False),
-                ui.UiButton(name=_("volume &down"), action=self._exec_volume_down, is_auto_close=False),
-                ui.UiEditBox(name=edit_box_name, value=("volume", str(self.__old_volume))),
-                ui.UiButton(name=_("&ok"), action=self._exec_valid_set_volume_dialog),
-                ui.UiButton(name=_("&cancel"), action=self._exec_cancel_set_volume_dialog)
-            ]
+            ui.UiButton(name=_("volume &up"), action=self._exec_volume_up, is_auto_close=False),
+            ui.UiButton(name=_("volume &down"), action=self._exec_volume_down, is_auto_close=False),
+            ui.UiEditBox(name=edit_box_name, value=("volume", str(self.__old_volume))),
+            ui.UiButton(name=_("&ok"), action=self._exec_valid_set_volume_dialog),
+            ui.UiButton(name=_("&cancel"), action=self._exec_cancel_set_volume_dialog)
+        ]
 
         kwargs = {
             'name': dialog_box_name,
@@ -102,12 +102,12 @@ class SpeedDialogBox(ui.UiDialogBox):
         self.__speed_range = speed_range
         self.__save_the_new_speed = callback_save_the_new_speed
         item_list = [
-                ui.UiButton(name=_("speed &up"), action=self._speed_up, is_auto_close=False),
-                ui.UiButton(name=_("speed &down"), action=self._speed_down, is_auto_close=False),
-                ui.UiEditBox(name=edit_box_name, value=("speed", str(self.__old_speed))),
-                ui.UiButton(name=_("&ok"), action=self._exec_valid_set_speed_dialog),
-                ui.UiButton(name=_("&cancel"), action=self._exec_cancel_set_speed_dialog)
-            ]
+            ui.UiButton(name=_("speed &up"), action=self._speed_up, is_auto_close=False),
+            ui.UiButton(name=_("speed &down"), action=self._speed_down, is_auto_close=False),
+            ui.UiEditBox(name=edit_box_name, value=("speed", str(self.__old_speed))),
+            ui.UiButton(name=_("&ok"), action=self._exec_valid_set_speed_dialog),
+            ui.UiButton(name=_("&cancel"), action=self._exec_cancel_set_speed_dialog)
+        ]
 
         kwargs = {
             'name': dialog_box_name,

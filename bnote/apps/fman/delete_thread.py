@@ -6,6 +6,7 @@
 """
 
 import threading
+
 from bnote.apps.fman.file_manager import FileManager
 from bnote.debug.colored_log import ColoredLogger, DELETE_THREAD_LOG
 

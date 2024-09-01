@@ -24,12 +24,12 @@ log.setLevel(BRAILLE_DEVICE_CHARACTERISTICS_LOG)
 class BrailleDeviceCharacteristics(object):
     class DeviceSubType(Enum):
         UNKNOWN = b''
-        STANDARD = b'ST'     # batterie, bluetooth et fonctions internes complètes.
-        LIGHT = b'LI'        # Sans clavier mais bluetooth et batterie
-        BASIC = b'BA'        # Version USB seule, pas de batterie, pas de Pi (pas de bluetooth ni de dial. opérateur).
+        STANDARD = b'ST'  # batterie, bluetooth et fonctions internes complètes.
+        LIGHT = b'LI'  # Sans clavier mais bluetooth et batterie
+        BASIC = b'BA'  # Version USB seule, pas de batterie, pas de Pi (pas de bluetooth ni de dial. opérateur).
         BASIC_LIGHT = b'BL'  # Idem à basic mais sans clavier braille.
-        KEYBOARD = b'KB'     # Connexion USB, pas de batterie ni de Pi pas plus que d’afficheur braille.
-                             # La langue du clavier sera définie par la fab.
+        KEYBOARD = b'KB'  # Connexion USB, pas de batterie ni de Pi pas plus que d’afficheur braille.
+        # La langue du clavier sera définie par la fab.
 
     class UsbHidMode(Enum):
         UNKNOWN = b''
@@ -104,7 +104,8 @@ class BrailleDeviceCharacteristics(object):
         self.__device_sub_type = BrailleDeviceCharacteristics.DeviceSubType.UNKNOWN
         self.__device_keyboard_language_country = b'_'
         self.__device_message_language_country = b'_'
-        self.__usb_hid_mode = [BrailleDeviceCharacteristics.UsbHidMode.UNKNOWN, BrailleDeviceCharacteristics.UsbHidMode.UNKNOWN]
+        self.__usb_hid_mode = [BrailleDeviceCharacteristics.UsbHidMode.UNKNOWN,
+                               BrailleDeviceCharacteristics.UsbHidMode.UNKNOWN]
         self.__device_keyboard_inversion = False
         self.__device_usb_simul_esys = False
         self.__device_keyboard_mode = BrailleDeviceCharacteristics.KeyboardMode.UNKNOWN
@@ -124,6 +125,7 @@ class BrailleDeviceCharacteristics(object):
 
         self.__device_usb_a_name = ""
         self.__device_usb_b_name = ""
+
     def is_init_done(self):
         with self.__mutex:
             if self.__serial_number != "00000000":
@@ -161,6 +163,7 @@ class BrailleDeviceCharacteristics(object):
     # Only for Esytime-Esys-Iris protocol
     def get_keyboard_language_country_in_bytes(self) -> bytes:
         return self.__device_keyboard_language_country
+
     #     with self.__mutex:
     #         if self.__device_keyboard_language_country in BrailleDeviceCharacteristics.esytime_esys_iris_convert_country.keys():
     #             return BrailleDeviceCharacteristics.esytime_esys_iris_convert_country[
@@ -270,7 +273,8 @@ class BrailleDeviceCharacteristics(object):
                     value = BrailleDeviceCharacteristics.UsbHidMode(data_value)
                     self.__usb_hid_mode[index] = value
             except ValueError:
-                self.__usb_hid_mode = [BrailleDeviceCharacteristics.UsbHidMode.UNKNOWN, BrailleDeviceCharacteristics.UsbHidMode.UNKNOWN]
+                self.__usb_hid_mode = [BrailleDeviceCharacteristics.UsbHidMode.UNKNOWN,
+                                       BrailleDeviceCharacteristics.UsbHidMode.UNKNOWN]
 
     def set_usb_hid_mode(self, index, value: UsbHidMode):
         with self.__mutex:
@@ -412,8 +416,8 @@ class BrailleDeviceCharacteristics(object):
 
     def get_standby_raw_data(self) -> bytes:
         with self.__mutex:
-            return stm32_keys.VALUE_STANDBY_TRANSPORT + self.__standby_transport.encode() +\
-                   stm32_keys.VALUE_STANDBY_SHUTDOWN + self.__standby_shutdown.encode()
+            return stm32_keys.VALUE_STANDBY_TRANSPORT + self.__standby_transport.encode() + \
+                stm32_keys.VALUE_STANDBY_SHUTDOWN + self.__standby_shutdown.encode()
 
     def set_standby_shutdown(self, value):
         with self.__mutex:

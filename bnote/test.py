@@ -8,7 +8,6 @@ import unittest
 
 
 def main():
-
     failfast = False
 
     # Build the test suite

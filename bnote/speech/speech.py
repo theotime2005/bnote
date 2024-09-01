@@ -10,7 +10,6 @@ import time
 import re
 from pathlib import Path
 
-
 """
 Audio card selection :
 https://forum.videolan.org/viewtopic.php?t=116672
@@ -22,7 +21,6 @@ from bnote.debug.colored_log import ColoredLogger, SYNTHESIS_LOG
 from bnote.speech.wave import ESpeakWave, PicoWave, MBrolaWave, CerenceWave
 from bnote.tools.singleton_meta import SingletonMeta
 
-
 # Set up the logger for this file
 from bnote.tools.volume import Volume
 
@@ -32,6 +30,7 @@ log.setLevel(SYNTHESIS_LOG)
 # Il faut le chemin complet car il est aussi définit dans un fichier de config pour la tts cerence-nuance-codefactory
 # (prompter/config/audioconfig.json)
 WAVE_FILE_PATH = Path("/home/pi/bnote/text.wav")
+
 
 # Installation de vlc sur Ubuntu de dev via
 # fm@fm-VirtualBox:~$ sudo apt install vlc
@@ -163,7 +162,8 @@ class SpeechManager(metaclass=SingletonMeta):
         if self._speech_thread:
             if purge_before_speak:
                 self.stop()
-            self.queued_messages_to_speak.put((text_to_speak, lang_id, synthesis, voice, headphone, volume, speed, purge_before_speak))
+            self.queued_messages_to_speak.put(
+                (text_to_speak, lang_id, synthesis, voice, headphone, volume, speed, purge_before_speak))
 
     def stop(self):
         if self._speech_thread:
@@ -191,11 +191,13 @@ class SpeechThread(threading.Thread):
     # soundless_text_watchdog used to pass over the empty text spoken by cerence (to avoid an infinite loop).
     # Note : First value is 1 second (thus first message is not cut) and the next values will be 0.05 second (see below in run())
     soundless_text_watchdog = 1
+
     def __init__(self, voice_events_callback, queued_messages_to_speak):
         threading.Thread.__init__(self)
         self._voice_events_callback = voice_events_callback
         self._queued_messages_to_speak = queued_messages_to_speak
-        self.wave_converters = {'pico': PicoWave(), 'espeak': ESpeakWave(), 'mbrola': MBrolaWave(), 'cerence': CerenceWave()}
+        self.wave_converters = {'pico': PicoWave(), 'espeak': ESpeakWave(), 'mbrola': MBrolaWave(),
+                                'cerence': CerenceWave()}
         self.tts_init_done = threading.Event()
         self._stop_thread_event = threading.Event()
         self._stop_speak_event = threading.Event()
@@ -213,7 +215,7 @@ class SpeechThread(threading.Thread):
         while not self._stop_thread_event.is_set():
             try:
                 # Get infos from queue without blocking.
-                (text_to_speak, lang_id, synthesis, voice, headphone, volume, speed, purge_before_speak) =\
+                (text_to_speak, lang_id, synthesis, voice, headphone, volume, speed, purge_before_speak) = \
                     self._queued_messages_to_speak.get(block=False)
             except queue.Empty:
                 pass
@@ -229,9 +231,9 @@ class SpeechThread(threading.Thread):
                     log.debug(f"{sentence=} {volume=} {speed=} "
                               f"{purge_before_speak=} {self._queued_messages_to_speak.qsize()=}")
                     # if purge_before_speak:
-                        # start_time_stop = time.time_ns()
-                        # self._tts.stop()
-                        # log.debug(f"call self._tts.stop() in {(time.time_ns() - start_time_stop) / 1000000} ms.")
+                    # start_time_stop = time.time_ns()
+                    # self._tts.stop()
+                    # log.debug(f"call self._tts.stop() in {(time.time_ns() - start_time_stop) / 1000000} ms.")
 
                     # Ready to speak.
                     self._stop_speak_event.clear()
@@ -243,17 +245,24 @@ class SpeechThread(threading.Thread):
                         # Set the wanted volume
                         Volume().set_volume(volume)
                         if (synthesis == 'picotts') and (lang_id in self.wave_converters['pico'].supported_languages()):
-                            self.wave_converters['pico'].convert_to_wave(text_to_speak=sentence, language=lang_id, voice=voice,
+                            self.wave_converters['pico'].convert_to_wave(text_to_speak=sentence, language=lang_id,
+                                                                         voice=voice,
                                                                          file_name=WAVE_FILE_PATH, speed=speed)
-                        elif (synthesis == 'mbrola') and (lang_id in self.wave_converters['mbrola'].supported_languages()):
-                            self.wave_converters['mbrola'].convert_to_wave(text_to_speak=sentence, language=lang_id, voice=voice,
+                        elif (synthesis == 'mbrola') and (
+                                lang_id in self.wave_converters['mbrola'].supported_languages()):
+                            self.wave_converters['mbrola'].convert_to_wave(text_to_speak=sentence, language=lang_id,
+                                                                           voice=voice,
                                                                            file_name=WAVE_FILE_PATH, speed=speed)
-                        elif (synthesis == 'espeak') and (lang_id in self.wave_converters['espeak'].supported_languages()):
-                            self.wave_converters['espeak'].convert_to_wave(text_to_speak=sentence, language=lang_id, voice=voice,
+                        elif (synthesis == 'espeak') and (
+                                lang_id in self.wave_converters['espeak'].supported_languages()):
+                            self.wave_converters['espeak'].convert_to_wave(text_to_speak=sentence, language=lang_id,
+                                                                           voice=voice,
                                                                            file_name=WAVE_FILE_PATH, speed=speed)
-                        elif (synthesis == 'cerence') and (lang_id in self.wave_converters['cerence'].supported_languages()):
-                            self.wave_converters['cerence'].convert_to_wave(text_to_speak=sentence, language=lang_id, voice=voice,
-                                                                           file_name=WAVE_FILE_PATH, speed=speed)
+                        elif (synthesis == 'cerence') and (
+                                lang_id in self.wave_converters['cerence'].supported_languages()):
+                            self.wave_converters['cerence'].convert_to_wave(text_to_speak=sentence, language=lang_id,
+                                                                            voice=voice,
+                                                                            file_name=WAVE_FILE_PATH, speed=speed)
                         if not WAVE_FILE_PATH.exists():
                             continue
                         # Play the wave with VLC player
@@ -280,7 +289,7 @@ class SpeechThread(threading.Thread):
                         # Set to a right value that is fast enough to pass over the wave with empty text.
                         SpeechThread.soundless_text_watchdog = 0.05
 
-                        while not (self._stop_thread_event.is_set() or self._stop_speak_event.is_set())\
+                        while not (self._stop_thread_event.is_set() or self._stop_speak_event.is_set()) \
                                 and media_player.is_playing():
                             time.sleep(0.1)
                             log.warning(f"3. {media_player.is_playing()=}")

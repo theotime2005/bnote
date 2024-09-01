@@ -5,7 +5,6 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 import os
 import time
 import threading
@@ -13,6 +12,7 @@ from bnote.apps.fman.file_manager import FileManager, Trash
 
 # Setup the logger for this file
 from bnote.debug.colored_log import ColoredLogger, RESTORE_FROM_TRASH_THREAD_LOG
+
 log = ColoredLogger(__name__)
 log.setLevel(RESTORE_FROM_TRASH_THREAD_LOG)
 
@@ -49,7 +49,8 @@ class RestoreFromTrashThread(threading.Thread):
                 original_file = Trash.original_file(file)
                 if self.__on_progress is not None:
                     index += 1
-                    self.__on_progress(operation='restore_from_trash', filename=original_file, current_progress=index, max_progress=count)
+                    self.__on_progress(operation='restore_from_trash', filename=original_file, current_progress=index,
+                                       max_progress=count)
 
                 # Separate path and filename
                 head, tail = os.path.split(file)
@@ -76,7 +77,8 @@ class RestoreFromTrashThread(threading.Thread):
                         # Open a dialog box to ask replace yes / no / yes_to_all / no_to_all
                         self.__replace_answer_yes = False
                         self.__replace_answer_to_all = False
-                        self.__on_ask_replace(operation='restore_from_trash', filename=original_file, is_cancelable=False)
+                        self.__on_ask_replace(operation='restore_from_trash', filename=original_file,
+                                              is_cancelable=False)
                         self.__wait = True
                         while self.__wait:
                             time.sleep(0.1)

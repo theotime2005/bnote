@@ -5,7 +5,6 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 import queue
 import serial
 import sys
@@ -136,7 +135,6 @@ class Stm32Thread(threading.Thread):
         self._static_text = None
         self._display_to_send = 0
 
-
     def run(self):
         self._running = True
 
@@ -156,7 +154,7 @@ class Stm32Thread(threading.Thread):
                 while not self._stop and self._serial_input.is_running() and self._serial_output.is_running():
                     # Checks each second that serial communication is all right.
                     time.sleep(Stm32Thread.TIME_OUT_TO_CHECK)
-                    if True: #self._tx_frame_queue.empty():
+                    if True:  # self._tx_frame_queue.empty():
                         with self._display_mutex:
                             if self._display_to_send != 0:
                                 # if (self._display_to_send == 3) and self._dynamic_dots:
@@ -176,12 +174,14 @@ class Stm32Thread(threading.Thread):
                                 if self._display_to_send == 3:
                                     if self._dynamic_dots:
                                         self.put_in_tx_frame_queue(
-                                            stm32_protocol.Stm32Frame(key=stm32_protocol.stm32_keys.KEY_DISPLAY_BLINKINGS_DOTS,
-                                                                      data=self._dynamic_dots))
+                                            stm32_protocol.Stm32Frame(
+                                                key=stm32_protocol.stm32_keys.KEY_DISPLAY_BLINKINGS_DOTS,
+                                                data=self._dynamic_dots))
                                     if self._static_dots:
                                         self.put_in_tx_frame_queue(
-                                            stm32_protocol.Stm32Frame(key=stm32_protocol.stm32_keys.KEY_DISPLAY_STATICS_DOTS,
-                                                                      data=self._static_dots))
+                                            stm32_protocol.Stm32Frame(
+                                                key=stm32_protocol.stm32_keys.KEY_DISPLAY_STATICS_DOTS,
+                                                data=self._static_dots))
                                     if self._static_text:
                                         self.put_in_tx_frame_queue(
                                             stm32_protocol.Stm32Frame(key=stm32_protocol.stm32_keys.KEY_DEBUG_TEXT,
@@ -263,6 +263,7 @@ class Stm32Thread(threading.Thread):
                 self._dynamic_dots = new_dynamic_dots
                 self._static_text = static_text
                 self._display_to_send = 3
+
 
 # -----------------------------------------------
 # Unitary test

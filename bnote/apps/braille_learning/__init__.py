@@ -5,4 +5,4 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-app_version="1.0.1"
+app_version = "1.0.1"

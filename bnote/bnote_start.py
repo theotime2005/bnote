@@ -5,39 +5,30 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 import os
-import subprocess
-import sys
+import queue
 import threading
 import time
-import queue
-import shutil
-from pathlib import Path
-import pkg_resources
 
 import bnote.apps.edt.edt as edt
 import bnote.apps.edt.math_opy as math
-from bnote.debug.colored_log import ColoredLogger
-from bnote.tools import bt_util
-from bnote.apps.internal import Internal
-from bnote.stm32.braille_device_characteristics import braille_device_characteristics
-import bnote.tools.crash_report as crash_report
-from bnote.bt.bt_thread import bluetooth_thread_pool
 import bnote.stm32.stm32_protocol as stm32_protocol
-from bnote.stm32.stm32_thread import Stm32Thread
+import bnote.tools.crash_report as crash_report
 from bnote.apps.bnote_app import BnoteApp, FunctionId
+from bnote.apps.internal import Internal
 from bnote.braille.lou import Lou
-from bnote.tools.settings import Settings
+from bnote.bt.bt_thread import bluetooth_thread_pool
+from bnote.debug.colored_log import ColoredLogger
+from bnote.stm32.braille_device_characteristics import braille_device_characteristics
+from bnote.stm32.stm32_thread import Stm32Thread
 from bnote.tools.swap_file import do_update_swap_file
 from bnote.tools.translate import Translate
-from bnote.apps.fman.file_manager import BNOTE_FOLDER, DOCUMENTS_FOLDER
-from bnote.tools.yaupdater import YAUpdater
 
 # logging.setLoggerClass(ColoredLogger)
 # Add ColoredLogger for the comtypes logger (used to log sapi low level API)
 edt.logger.addHandler(ColoredLogger(""))
 math.logger.addHandler(ColoredLogger(""))
 # comtypes.logger.setLevel(logging.DEBUG)
-#edt.logger.setLevel(logging.ERROR)
+# edt.logger.setLevel(logging.ERROR)
 
 from bnote.debug.colored_log import ColoredLogger, BNOTE_LOG
 
@@ -277,7 +268,7 @@ class BnoteThread(threading.Thread):
                 # https://forums.commentcamarche.net/forum/affich-5695150-changer-l-heure-sous-debian
                 # date[-u | --utc | --universal][MMDDhhmm[[CC]YY][.ss]]
                 log.info("set date '{:02d}{:02d}{:02d}{:02d}{:04d}.{:02d}'".format(month, day, hour,
-                                                                                    minute, year, second))
+                                                                                   minute, year, second))
                 os.popen("sudo -S date '{:02d}{:02d}{:02d}{:02d}{:04d}.{:02d}'".format(month, day, hour,
                                                                                        minute, year, second))
                 if self._internal:

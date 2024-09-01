@@ -9,21 +9,20 @@
 # Editor file
 # This file gathering all functions to navigate and modify a text
 
+from enum import Enum
+
+from bnote.tools.clipboard import copy, paste
 # clipboard
 from bnote.tools.settings import Settings
-from .undo_redo import UndoRedo
-from bnote.tools.clipboard import copy, paste
-
-from .color import Formatting
-from enum import Enum
 from .caret import Caret
+from .color import Formatting
+# Setup the logger for this file
+from .colored_log import ColoredLogger, EDITOR_LOG, logging
 from .markers import Markers
 from .paragraphs import Paragraphs
 from .pos import Pos
-from enum import Enum
+from .undo_redo import UndoRedo
 
-# Setup the logger for this file
-from .colored_log import ColoredLogger, EDITOR_LOG, logging
 log = ColoredLogger(__name__, level=EDITOR_LOG)
 
 # Arbitrary lines number definition for page up/down and ctrl page up/down.
@@ -58,7 +57,7 @@ class EditorIterator:
                     end = self._end_pos.y
                 else:
                     end = len(paragraph.paragraph_text())
-            elif self._index ==  self._end_pos.x:
+            elif self._index == self._end_pos.x:
                 end = self._end_pos.y
                 start = 0
             # index to next line
@@ -212,7 +211,6 @@ class Editor:
             # Debug functions
             Editor.Functions.PRINT_LINE: self.print_line
         }
-
 
     # Returns the Iterator object
     def __iter__(self):
@@ -580,7 +578,7 @@ class Editor:
                 # move down with control.
                 return self._move_next_paragraph(shift)
         # move down without control.
-        next_line= self._move_next_line(shift)
+        next_line = self._move_next_line(shift)
         # log.critical("--- move down in %s seconds ---" % (time.time() - start_time))
         return next_line
 
@@ -1132,7 +1130,8 @@ class Editor:
             self._caret = save_caret
             deleted_char = self._paragraphs.selection(self._caret.end, move_caret.end)
             if EDITOR_LOG <= logging.INFO:
-                log.info("add_char_insertion start={}, end={}, char={}".format(self._caret.end, move_caret.end, deleted_char))
+                log.info("add_char_insertion start={}, end={}, char={}".format(self._caret.end, move_caret.end,
+                                                                               deleted_char))
             self.undo_redo.add_char_insertion(start=self._caret.end, end=move_caret.end, text=deleted_char)
             # delete a char between 2 paragraph => merge the 2 paragraph
             new_pos = self._paragraphs.delete_char(self._caret.end, self._markers)

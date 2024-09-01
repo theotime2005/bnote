@@ -5,6 +5,7 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 from pathlib import Path
+
 from bnote.apps.fman.file_manager import FileManager, Trash
 from bnote.debug.colored_log import ColoredLogger, UI_LOG
 # Set up the logger for this file

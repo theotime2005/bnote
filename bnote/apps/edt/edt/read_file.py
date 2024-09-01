@@ -5,29 +5,29 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 import codecs
 import os
 import threading
 import zlib
 from os import path
 from zipfile import BadZipFile
+
 from ebooklib import epub
 from lxml import etree
 
-from .exception import *
-from .read_rtf_file import ReadRtfFile
-from .read_mbe_file import ReadMbeFile
-from .read_txt_file import ReadTxtFile
-from .read_docx_file import ReadDocxFile
-from .read_odt_file import ReadOdtFile
-from .read_pdf_file import ReadPdfFile
-from .read_brf_file import ReadBrfFile
-from .read_epub_file import ReadEpubFile
-from .read_xlsx_file import ReadXlsxFile
-
 # Set up the logger for this file
 from .colored_log import ColoredLogger, READ_FILE_LOG, logging
+from .exception import *
+from .read_brf_file import ReadBrfFile
+from .read_docx_file import ReadDocxFile
+from .read_epub_file import ReadEpubFile
+from .read_mbe_file import ReadMbeFile
+from .read_odt_file import ReadOdtFile
+from .read_pdf_file import ReadPdfFile
+from .read_rtf_file import ReadRtfFile
+from .read_txt_file import ReadTxtFile
+from .read_xlsx_file import ReadXlsxFile
+
 log = ColoredLogger(__name__)
 log.setLevel(READ_FILE_LOG)
 

@@ -4,28 +4,32 @@ This software is the proprietary of eurobraille and may not be copied,
 distributed, published,or disclosed without express prior written permission.
 """
 import re
-from .l111l111l_opy_ import l1lll11ll_opy_
-from .l1l1l1_opy_ import l1l111_opy_
-from .l11ll1ll1_opy_ import l111l1l1_opy_
-from .l1lllll1l_opy_ import l1l1lll11_opy_, l11lll1l_opy_
-from .l111lll1l_opy_ import l1lll111l_opy_, l1111l1ll_opy_
-from .l1ll1lll_opy_ import l1ll11111_opy_, l1l11111l_opy_, l111ll_opy_
-from .l1l1l1ll1_opy_ import l1l11l1_opy_, l1111l1l_opy_
-from .l11_opy_ import parameters
-from .braille import b16, b126, b146, b1456, b156, b1246, b12456, b1256, b246, b3456, b15, b36, b46, b157
-from .l111lll1l1_opy_ import l111lll11l_opy_
-from .math_exception import MathException
-from .math_exception import MathInjectionException, MathUnaryException
-from .l1llll_opy_ import l11l1_opy_
-from .l1111ll11_opy_ import l11l1111l_opy_, l11l1llll_opy_
+
+from .braille import b15, b36, b46, b157
 # l11l_opy_ the logger for this file
 from .colored_log import ColoredLogger, MATH_LOG
+from .l1111ll11_opy_ import l11l1111l_opy_, l11l1llll_opy_
+from .l111l111l_opy_ import l1lll11ll_opy_
+from .l111lll1l1_opy_ import l111lll11l_opy_
+from .l111lll1l_opy_ import l1lll111l_opy_, l1111l1ll_opy_
+from .l11_opy_ import parameters
+from .l11ll1ll1_opy_ import l111l1l1_opy_
+from .l1l1l1_opy_ import l1l111_opy_
+from .l1l1l1ll1_opy_ import l1l11l1_opy_, l1111l1l_opy_
+from .l1ll1lll_opy_ import l1ll11111_opy_, l1l11111l_opy_
+from .l1llll_opy_ import l11l1_opy_
+from .l1lllll1l_opy_ import l1l1lll11_opy_, l11lll1l_opy_
+from .math_exception import MathException
+from .math_exception import MathInjectionException, MathUnaryException
+
 log = ColoredLogger(__name__, level=MATH_LOG)
 '''
 -----------------------------------------------------------
 Math Braille definitions.
 -----------------------------------------------------------
 '''
+
+
 class MathBrailleTable:
     l111ll1l1l_opy_ = "braille"
     l1111ll_opy_ = l111lll11l_opy_.l111l1l1l_opy_
@@ -99,11 +103,15 @@ class MathBrailleTable:
     l111lll1_opy_ = {
         l111lll11l_opy_.l1l1l111l_opy_: 'pi',
     }
+
+
 '''
 -----------------------------------------------------------
 Math Text definitions.
 -----------------------------------------------------------
 '''
+
+
 class MathTextTable:
     l111ll1l1l_opy_ = "text"
     l1111ll_opy_ = ";"
@@ -111,7 +119,7 @@ class MathTextTable:
         '{': ('}', l1111l1ll_opy_.l111lllll_opy_),
         '(': (')', l1111l1ll_opy_.l1l11ll1_opy_),
         '[': (']', l1111l1ll_opy_.l1111lll1_opy_),
-        #'{': ('}', l1111l1ll_opy_.l111ll11_opy_)
+        # '{': ('}', l1111l1ll_opy_.l111ll11_opy_)
     }
     l11l111l_opy_ = {
         '=': (l1l1lll11_opy_, l11lll1l_opy_.l1llll1_opy_),
@@ -150,7 +158,7 @@ class MathTextTable:
         'sqrt': (l1ll11111_opy_, l1l11111l_opy_.l1llll1l_opy_),
         'deg': (l1ll11111_opy_, l1l11111l_opy_.l1ll1l1ll_opy_),
         'rad': (l1ll11111_opy_, l1l11111l_opy_.l11l1l1_opy_),
-        '!':  (l1ll11111_opy_, l1l11111l_opy_.l111l11_opy_),
+        '!': (l1ll11111_opy_, l1l11111l_opy_.l111l11_opy_),
         'nroot': (l1l11l1_opy_, l1111l1l_opy_.l111l11lll_opy_),
         'E-': (None, None),
         ";": (l11l1_opy_, None),
@@ -164,11 +172,13 @@ class MathTextTable:
         "qua1": (l1l11l1_opy_, l1111l1l_opy_.l1l1lllll_opy_),
         "qua2": (l1l11l1_opy_, l1111l1l_opy_.l11ll1l_opy_),
         "qua3": (l1l11l1_opy_, l1111l1l_opy_.l1ll1l1_opy_),
-        "var":  (l1l11l1_opy_, l1111l1l_opy_.l1ll11ll_opy_),
+        "var": (l1l11l1_opy_, l1111l1l_opy_.l1ll11ll_opy_),
         "dev": (l1l11l1_opy_, l1111l1l_opy_.l1l111l11_opy_),
         "comb": (l1l11l1_opy_, l1111l1l_opy_.l1ll11l11_opy_),
         "arr": (l1l11l1_opy_, l1111l1l_opy_.l1111l11_opy_),
     }
+
+
 l1111l1l1_opy_ = {
     (l11l1111l_opy_, l11l1llll_opy_.l1lllllll_opy_),
 }
@@ -238,6 +248,8 @@ Non géré :
     Fonctions statistique multi arguments.
 -----------------------------------------------------------
 '''
+
+
 class MathParser:
     #
     def __init__(self, l11l1lll_opy_, l11111ll_opy_, l1lll11l1_opy_):
@@ -250,16 +262,19 @@ class MathParser:
         self.l111ll1ll_opy_ = dict()
         self.l11l1l1ll_opy_ = 1
         self.l1l11l11l_opy_ = str
+
     def l1l111111_opy_(self):
         self.l111ll1ll_opy_ = dict()
         self.l11l1l1ll_opy_ = 1
         self.l1l11l11l_opy_ = str
+
     def execute(self, text):
         self.l1l111111_opy_()
         text = text.replace(' ', '')
-        #text = text.lower()
+        # text = text.lower()
         self.l1l11l11l_opy_ = l1lll11ll_opy_(text)
         return self._11lll1_opy_(self.l1l11l11l_opy_)
+
     def _11lll1_opy_(self, l1l11l11l_opy_):
         while True:
             l1l111lll_opy_ = self._11lll11_opy_(l1l11l11l_opy_)
@@ -285,9 +300,12 @@ class MathParser:
             except MathUnaryException as l1lll1111_opy_:
                 index = l1l11l11l_opy_.l1l1111l1_opy_.index(l1lll1111_opy_.unary_pos)
                 log.info("Unary operator at {}".format(index))
-                l1l11l11l_opy_ = l1l11l11l_opy_[:index] + l1lll11ll_opy_('\u2212', index=l1lll1111_opy_.unary_pos) + l1l11l11l_opy_[index + 1:]
+                l1l11l11l_opy_ = l1l11l11l_opy_[:index] + l1lll11ll_opy_('\u2212',
+                                                                         index=l1lll1111_opy_.unary_pos) + l1l11l11l_opy_[
+                                                                                                           index + 1:]
                 continue
             return l11l1l1l_opy_
+
     def parse(self, text):
         log.info("segment to parse <{}>".format(text))
         if len(text) == 0:
@@ -320,10 +338,12 @@ class MathParser:
             try:
                 l1l11ll1l_opy_ = self.parse(text[0: l11l1ll_opy_])
             except MathException as l1lll1111_opy_:
-                if (l1lll1111_opy_.error_code == MathException.ErrorCode.EMPTY_ARG) and (l1ll1lll1_opy_ == l11lll1l_opy_.l1ll111ll_opy_):
+                if (l1lll1111_opy_.error_code == MathException.ErrorCode.EMPTY_ARG) and (
+                        l1ll1lll1_opy_ == l11lll1l_opy_.l1ll111ll_opy_):
                     raise MathUnaryException(text.l1l1111l1_opy_[l11l1ll_opy_])
                 else:
-                    raise MathException(text.l1l1111l1_opy_[l11l1ll_opy_], l1lll1111_opy_.error_code, l1lll1111_opy_.__str__())
+                    raise MathException(text.l1l1111l1_opy_[l11l1ll_opy_], l1lll1111_opy_.error_code,
+                                        l1lll1111_opy_.__str__())
             l11llll_opy_ = text[l11l1ll_opy_ + l1_opy_: len(text)]
             l1111lll_opy_ = self.parse(text[l11l1ll_opy_ + l1_opy_: len(text)])
             return l1l1111l_opy_(text.l1l1111l1_opy_[l11l1ll_opy_], l1ll1lll1_opy_, l1l11ll1l_opy_, l1111lll_opy_)
@@ -338,8 +358,11 @@ class MathParser:
                     index = l111111l_opy_.l1l1111l1_opy_.index(l1lll1111_opy_.inject_pos)
                     l1lll1l11_opy_ = l111111l_opy_[0: index + 1]
                     l11llll_opy_ = l111111l_opy_[index + 1, len(l111111l_opy_)]
-                    return l11l1l_opy_(text.l1l1111l1_opy_[0], l11l11_opy_, l1l1111l_opy_(text.l1l1111l1_opy_[0], l1ll1lll1_opy_, self.parse(l11llll_opy_)), self.parse(l1lll1l11_opy_))
-                raise MathException(text.l1l1111l1_opy_[l1_opy_ + l1ll1l1l1_opy_], MathException.ErrorCode.EMPTY_ARG, _("empty argument"))
+                    return l11l1l_opy_(text.l1l1111l1_opy_[0], l11l11_opy_,
+                                       l1l1111l_opy_(text.l1l1111l1_opy_[0], l1ll1lll1_opy_, self.parse(l11llll_opy_)),
+                                       self.parse(l1lll1l11_opy_))
+                raise MathException(text.l1l1111l1_opy_[l1_opy_ + l1ll1l1l1_opy_], MathException.ErrorCode.EMPTY_ARG,
+                                    _("empty argument"))
             arg = self.parse(text[l1_opy_: len(text)])
             if arg:
                 return l1l1111l_opy_(text.l1l1111l1_opy_[0], l1ll1lll1_opy_, arg)
@@ -352,15 +375,16 @@ class MathParser:
         if l1l1111l_opy_:
             l111l1ll11_opy_ = self.parse(text[l11l1ll_opy_ + l1_opy_: len(text)])
             return l11l1111l_opy_(text.l1l1111l1_opy_[l11l1ll_opy_], l11l1llll_opy_.l1lllllll_opy_, l111l1ll11_opy_)
-        l11l1ll_opy_, l1l1111l_opy_, l1ll1lll1_opy_, l1_opy_ = self._1ll1111l_opy_(items, l1l11l11_opy_, l111ll1l_opy_=True)
+        l11l1ll_opy_, l1l1111l_opy_, l1ll1lll1_opy_, l1_opy_ = self._1ll1111l_opy_(items, l1l11l11_opy_,
+                                                                                   l111ll1l_opy_=True)
         if l1l1111l_opy_:
             return l1l1111l_opy_(text.l1l1111l1_opy_[l11l1ll_opy_], l1ll1lll1_opy_,
-                              self.parse(text[0: l11l1ll_opy_]),
-                              self.parse(text[l11l1ll_opy_ + l1_opy_: len(text)]))
+                                 self.parse(text[0: l11l1ll_opy_]),
+                                 self.parse(text[l11l1ll_opy_ + l1_opy_: len(text)]))
         l11l1ll_opy_, l1l1111l_opy_, l1ll1lll1_opy_, l1_opy_ = self._1ll1111l_opy_(items, l11lll11l_opy_)
         if l1l1111l_opy_:
             if (self.l11l1lll_opy_ == MathBrailleTable) \
-                    and (l1l1111l_opy_ == l1l11l1_opy_)\
+                    and (l1l1111l_opy_ == l1l11l1_opy_) \
                     and (l1ll1lll1_opy_ == l1111l1l_opy_.l111l11lll_opy_):
                 log.info("Nroot found")
                 l111l11l1l_opy_, l111ll1ll1_opy_, l111ll11l1_opy_, l111lll111_opy_ = \
@@ -368,8 +392,10 @@ class MathParser:
                 if l111ll1ll1_opy_:
                     l1lll1l11_opy_ = self.parse(text[l11l1ll_opy_ + l1_opy_: l111l11l1l_opy_])
                     l11llll_opy_ = self.parse(text[l111l11l1l_opy_ + l111lll111_opy_: len(text)])
-                    return l1l11l1_opy_(text.l1l1111l1_opy_[l11l1ll_opy_], l1111l1l_opy_.l111l11lll_opy_, [l1lll1l11_opy_, l11llll_opy_])
-                raise MathException(text.l1l1111l1_opy_[l1_opy_], MathException.ErrorCode.INVALID_FUNCTION, _("invalid function"))
+                    return l1l11l1_opy_(text.l1l1111l1_opy_[l11l1ll_opy_], l1111l1l_opy_.l111l11lll_opy_,
+                                        [l1lll1l11_opy_, l11llll_opy_])
+                raise MathException(text.l1l1111l1_opy_[l1_opy_], MathException.ErrorCode.INVALID_FUNCTION,
+                                    _("invalid function"))
             l111111l_opy_ = text[l11l1ll_opy_ + l1_opy_: len(text)]
             args = []
             while len(l111111l_opy_) > 0:
@@ -390,7 +416,8 @@ class MathParser:
                 if l11ll111_opy_:
                     raise MathInjectionException(text.l1l1111l1_opy_[len(l11ll111_opy_)] - 1)
                 else:
-                    raise MathException(text.l1l1111l1_opy_[len(l11ll111_opy_)] - 1, MathException.ErrorCode.BLOC_ERROR, _("bloc error"))
+                    raise MathException(text.l1l1111l1_opy_[len(l11ll111_opy_)] - 1, MathException.ErrorCode.BLOC_ERROR,
+                                        _("bloc error"))
             (l1ll1l1l_opy_, l11ll1111_opy_) = kwargs
             log.info("parse bloc:<{}>".format(l11ll1111_opy_))
             key = l11ll1111_opy_[0: l1ll1l1l_opy_].l1ll1ll11_opy_()
@@ -431,6 +458,7 @@ class MathParser:
                 raise MathInjectionException(text.l1l1111l1_opy_[0])
             else:
                 raise MathException(text.l1l1111l1_opy_[0], MathException.ErrorCode.EMPTY_ARG, _("empty argument"))
+
     def _11llll1_opy_(self, text):
         l1l11l1l1_opy_ = text.l1ll1ll11_opy_()
         if self.l11l1lll_opy_.l111ll1l1l_opy_ == "braille":
@@ -451,6 +479,7 @@ class MathParser:
         else:
             l1l11l1l1_opy_ = l1l11l1l1_opy_.replace(",", ".")
             return l1l11l1l1_opy_
+
     def _11lll11_opy_(self, text):
         l1ll1l1l_opy_ = 0
         for key in self.l11l1lll_opy_.l1llllll_opy_:
@@ -482,17 +511,24 @@ class MathParser:
                                     l1l1llll1_opy_ = l11ll11ll_opy_ + len(l11ll111l_opy_)
                                     l11ll11ll_opy_ = text.find(l11ll111l_opy_, l1l1llll1_opy_)
                         if l11ll11ll_opy_ != -1:
-                            log.debug("bloc found, start:{} end:{}".format(l1l1l1lll_opy_, l11ll11ll_opy_ + l1ll1l1l_opy_ - 1))
+                            log.debug("bloc found, start:{} end:{}".format(l1l1l1lll_opy_,
+                                                                           l11ll11ll_opy_ + l1ll1l1l_opy_ - 1))
                             name = "__blk{}__".format(self.l11l1l1ll_opy_)
-                            l1l1llll_opy_ = l1lll11ll_opy_(name, l1l1111l1_opy_=[text.l1l1111l1_opy_[l1l1l1lll_opy_]] * len(name))
-                            l1l1llll_opy_.l1l1111l1_opy_[len(name) - 1] = text.l1l1111l1_opy_[l11ll11ll_opy_ + l1ll1l1l_opy_ - 1]
+                            l1l1llll_opy_ = l1lll11ll_opy_(name,
+                                                           l1l1111l1_opy_=[text.l1l1111l1_opy_[l1l1l1lll_opy_]] * len(
+                                                               name))
+                            l1l1llll_opy_.l1l1111l1_opy_[len(name) - 1] = text.l1l1111l1_opy_[
+                                l11ll11ll_opy_ + l1ll1l1l_opy_ - 1]
                             self.l11l1l1ll_opy_ += 1
-                            self.l111ll1ll_opy_.update({l1l1llll_opy_.l1ll1ll11_opy_(): (l1ll1l1l_opy_, text[l1l1l1lll_opy_: l11ll11ll_opy_ + l1ll1l1l_opy_])})
+                            self.l111ll1ll_opy_.update({l1l1llll_opy_.l1ll1ll11_opy_(): (
+                                l1ll1l1l_opy_, text[l1l1l1lll_opy_: l11ll11ll_opy_ + l1ll1l1l_opy_])})
                             log.info("bloc found:<{}>".format(text[l1l1l1lll_opy_: l11ll11ll_opy_ + l1ll1l1l_opy_]))
-                            return text[0: l1l1l1lll_opy_] + l1l1llll_opy_ + text[l11ll11ll_opy_ + l1ll1l1l_opy_: len(text)]
+                            return text[0: l1l1l1lll_opy_] + l1l1llll_opy_ + text[
+                                                                             l11ll11ll_opy_ + l1ll1l1l_opy_: len(text)]
                         else:
                             raise MathException(text.l1l1111l1_opy_[l1l1l1lll_opy_], "bloc not closed.")
             l1ll1l1l_opy_ -= 1
+
     def _1l111ll_opy_(self, text):
         l11l1ll1l_opy_ = None
         l1_opy_ = 0
@@ -513,6 +549,7 @@ class MathParser:
                 items.update({l11l1ll_opy_: (l1l1111l_opy_, l11l1ll1l_opy_, l1_opy_)})
                 l1l1lll_opy_ = l11l1ll_opy_ + l1_opy_
         return items
+
     @staticmethod
     def _1ll1111l_opy_(items, l1111ll1l_opy_, l111ll1l_opy_=False):
         l11l1ll_opy_ = -1
@@ -531,8 +568,10 @@ class MathParser:
             if (l11l1ll_opy_ != -1) and l111ll1l_opy_:
                 return l11l1ll_opy_, l1l1111l_opy_, l111lll_opy_, l1_opy_
         return l11l1ll_opy_, l1l1111l_opy_, l111lll_opy_, l1_opy_
+
     """ Return the parameter label """
     """ Return the bloc label (__blkxx__) """
+
     @staticmethod
     def _11lllll_opy_(text):
         m = re.search("^(__blk[\d+]*__)", text)

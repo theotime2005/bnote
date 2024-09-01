@@ -5,7 +5,6 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 import os
 import time
 import threading

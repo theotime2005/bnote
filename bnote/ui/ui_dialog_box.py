@@ -4,13 +4,12 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+# Set up the logger for this file
+from bnote.debug.colored_log import ColoredLogger, UI_LOG
 from bnote.tools.keyboard import Keyboard
 from bnote.tools.settings import Settings
 from .ui_button import UiButton
 from .ui_container import UiContainer
-
-# Set up the logger for this file
-from bnote.debug.colored_log import ColoredLogger, UI_LOG
 from .ui_edit_box import UiEditBox
 from .ui_label import UiLabel
 from .ui_multi_lines_box import UiMultiLinesBox
@@ -155,5 +154,3 @@ class UiDialogBox(UiContainer):
             self.action_cancelable()
             return True, False
         return True, True
-
-

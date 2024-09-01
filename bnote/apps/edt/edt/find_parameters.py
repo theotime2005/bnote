@@ -9,6 +9,7 @@ import unicodedata
 
 # Setup the logger for this file
 from .colored_log import ColoredLogger, FIND_PARAMETERS_LOG
+
 log = ColoredLogger(__name__, level=FIND_PARAMETERS_LOG)
 
 
@@ -93,5 +94,3 @@ class FindParameters:
         text += " mask accents<{}>".format(self.is_mask_accents())
         text += " entire word<{}>".format(self.is_entire_word())
         return text
-
-

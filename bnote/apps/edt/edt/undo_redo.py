@@ -5,12 +5,13 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-from enum import Enum
 import time
-from .pos import Pos
+from enum import Enum
 
 # Setup the logger for this file
 from .colored_log import ColoredLogger, EDITOR_UNDO_REDO_LOG, logging
+from .pos import Pos
+
 log = ColoredLogger(__name__, level=EDITOR_UNDO_REDO_LOG)
 
 # MAXIMUM NUMBER OF OPERATIONS IN UNDO-REDO LIST.
@@ -121,7 +122,7 @@ class UndoRedo:
         if EDITOR_UNDO_REDO_LOG <= logging.INFO:
             log.info("Add char deletion for undo")
         self._clear_next_op()
-        
+
         # if time between 2 char deletion < 3 sec. concat deletion.
         if self.__current_index > 0:
             op = self.__operations[self.__current_index - 1]

@@ -5,14 +5,14 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 import os
-from zipfile import ZipFile
-import xml.sax
 import shutil  # For del folder
+import xml.sax
+from zipfile import ZipFile
 
 # Setup the logger for this file
 from .colored_log import ColoredLogger, READ_DOCX_FILE_LOG, logging
+
 log = ColoredLogger(__name__, level=READ_DOCX_FILE_LOG)
 
 

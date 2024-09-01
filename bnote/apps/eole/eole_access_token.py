@@ -203,7 +203,8 @@ class EoleAccessToken:
             params = {'client_id': f"{self.__client_id}", 'device_code': f"{self.__device_code}",
                       'grant_type': 'urn:ietf:params:oauth:grant-type:device_code'}
             # default url is 'https://eole.avh.asso.fr/api/v1/device/token'
-            response = requests.get('/'.join((self.__url_api, self.__device_token_path)), timeout=TIMEOUT, params=params)
+            response = requests.get('/'.join((self.__url_api, self.__device_token_path)), timeout=TIMEOUT,
+                                    params=params)
             response_json = response.json()
             # print(f"{response.status_code=}")
             # print(f"{response_json=}")
@@ -219,7 +220,6 @@ class EoleAccessToken:
 
 
 if __name__ == '__main__':
-
     the_user_name = 'eurobraille_user1'
     the_password = 'fake_password'
 
@@ -228,5 +228,3 @@ if __name__ == '__main__':
 
     access_token = eole_access_token.acquire_access_token()
     print(f"{access_token=}")
-
-

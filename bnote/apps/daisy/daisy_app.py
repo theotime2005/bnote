@@ -23,12 +23,12 @@ from bnote.tools.audio_player import AudioPlayer
 
 # Setup the logger for this file
 from bnote.debug.colored_log import ColoredLogger, EDITOR_APP_LOG, logging
+
 log = ColoredLogger(__name__)
 log.setLevel(EDITOR_APP_LOG)
 
 
 class DaisyApp(EditorBaseApp):
-
     MIDI_FILENAME = "new_song.mid"
 
     def __init__(self, put_in_function_queue, file_name=None, language=None, read_only=True):
@@ -76,8 +76,8 @@ class DaisyApp(EditorBaseApp):
                     name=_("&file"),
                     menu_item_list=[
                         ui.UiMenuItem(name=_("&close"), action=self._exec_close,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
-                                   shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F4),
+                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                                      shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F4),
                         ui.UiMenuItem(name=_("c&ontents"), action=self._exec_contents),
                         # TODO To activate cleanup, the daisy tags list must be considered.
                         # ui.UiMenuItem(name=_("clean&up"), action=self._exec_cleanup),
@@ -96,12 +96,12 @@ class DaisyApp(EditorBaseApp):
                     name=_("au&dio"), action=self.audio,
                     menu_item_list=[
                         ui.UiMenuItem(name=_("&play"), action=self._exec_play,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='R'),
+                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='R'),
                         ui.UiMenuItem(name=_("&stop"), action=self._exec_stop, is_hide=True,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                                   shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_ESCAPE),
+                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                                      shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_ESCAPE),
                         ui.UiMenuItem(name=_("pa&use/resume"), action=self._exec_pause_resume, is_hide=True,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='P'),
+                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='P'),
                         ui.UiMenuItem(name=_("&volume"), action=self._exec_volume),
                     ]),
                 ui.UiMenuItem(name=_("&applications"), action=self._exec_application),
@@ -218,6 +218,7 @@ class DaisyApp(EditorBaseApp):
                 # Specific commands treatment (after base class).
                 pass
         return done
+
     # <<< End of key events.
 
     def input_function(self, *args, **kwargs) -> bool:
@@ -274,7 +275,8 @@ class DaisyApp(EditorBaseApp):
         self._current_dialog = ui.UiDialogBox(
             name=title,
             item_list=[
-                ui.UiListBox(name=_("c&ontents"), value=("chapters", item_list), current_index=current_index, extra_parameters=summary),
+                ui.UiListBox(name=_("c&ontents"), value=("chapters", item_list), current_index=current_index,
+                             extra_parameters=summary),
                 ui.UiButton(name=_("&ok"), action=self._exec_valid_summary),
                 ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog)
             ],
@@ -309,7 +311,7 @@ class DaisyApp(EditorBaseApp):
             log.critical(f"Mp3 file to unzip {file.name=}")
             mp3_file = self.read_daisy_file.mp3_file_extract(file.name)
         # log.critical(f"{mp3_file=}")
-        AudioPlayer().file_play(mp3_file, 0) # call_back=self.play_audio_call_back_stop())
+        AudioPlayer().file_play(mp3_file, 0)  # call_back=self.play_audio_call_back_stop())
         self.mp3_file = mp3_file
         AudioPlayer().forward(int(float(time_offset) * 1000))
         time.sleep(3)
@@ -401,6 +403,7 @@ class DaisyApp(EditorBaseApp):
                 self.__play(self.last_mp3.mp3_file, self.last_mp3.mp3_offset / 1000)
                 # Done by self.__play
                 # self.timer_enable = True
+
     def _exec_statistics(self):
         properties = self.read_daisy_file.properties()
         with self.lock:
@@ -409,29 +412,29 @@ class DaisyApp(EditorBaseApp):
             name=_("statistics"),
             item_list=[
                 ui.UiEditBox(name=_("duration"),
-                          value=("", BnoteApp.braille_form(str(properties['total_time'])))
-                          ),
+                             value=("", BnoteApp.braille_form(str(properties['total_time'])))
+                             ),
                 ui.UiEditBox(name=_("file"),
-                          value=("", BnoteApp.braille_form(str(self.get_display_filename())))
-                          ),
+                             value=("", BnoteApp.braille_form(str(self.get_display_filename())))
+                             ),
                 ui.UiEditBox(name=_("title"),
-                          value=("", BnoteApp.braille_form(properties['title']))
-                          ),
+                             value=("", BnoteApp.braille_form(properties['title']))
+                             ),
                 ui.UiEditBox(name=_("author"),
-                          value=("", BnoteApp.braille_form(properties['creator']))
-                          ),
+                             value=("", BnoteApp.braille_form(properties['creator']))
+                             ),
                 ui.UiEditBox(name=_("identifier"),
-                          value=("", BnoteApp.braille_form(properties['identifier']))
-                          ),
+                             value=("", BnoteApp.braille_form(properties['identifier']))
+                             ),
                 ui.UiEditBox(name=_("paragraphs"),
-                          value=("", BnoteApp.braille_form(str(paragraphs_count)))
-                          ),
+                             value=("", BnoteApp.braille_form(str(paragraphs_count)))
+                             ),
                 ui.UiEditBox(name=_("words"),
-                          value=("", BnoteApp.braille_form(str(words_count)))
-                          ),
+                             value=("", BnoteApp.braille_form(str(words_count)))
+                             ),
                 ui.UiEditBox(name=_("characters"),
-                          value=("", BnoteApp.braille_form(str(characters_count)))
-                          ),
+                             value=("", BnoteApp.braille_form(str(characters_count)))
+                             ),
                 ui.UiButton(name=_("&ok"), action=self._exec_cancel_dialog),
             ],
             action_cancelable=self._exec_cancel_dialog,

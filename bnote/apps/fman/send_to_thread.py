@@ -68,7 +68,7 @@ class SendToThread(threading.Thread):
                 time.sleep(2)
                 # Ligne de commande pour un système android ou W7
                 command_line = "obexftp -b {} --uuid none -B {} -p \"{}\"".format(self.__to_mac_address, channel,
-                                                                                 file_to_send)
+                                                                                  file_to_send)
                 obexftp_results, error = self.send(command_line)
                 log.info("obexftp =>{}".format(obexftp_results))
 

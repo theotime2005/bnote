@@ -14,7 +14,6 @@ from bnote.tools.singleton_meta import SingletonMeta
 
 
 class Gpio(metaclass=SingletonMeta):
-
     # output pin
 
     # Input pin
@@ -25,7 +24,6 @@ class Gpio(metaclass=SingletonMeta):
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(Gpio.__head_phone_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
         GPIO.setup(Gpio.__hardware_v2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-
 
     @staticmethod
     def gpio_head_phone():

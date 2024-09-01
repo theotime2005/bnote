@@ -4,15 +4,14 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
-from bnote.apps.bnote_app import BnoteApp
 import bnote.apps.edt.edt as editor
+from bnote.apps.bnote_app import BnoteApp
+# Setup the logger for this file
+from bnote.debug.colored_log import ColoredLogger, UI_LOG
+from bnote.stm32.braille_device_characteristics import braille_device_characteristics
 from bnote.tools.keyboard import Keyboard
 from bnote.tools.settings import Settings
 from .ui_container import UiContainer
-from bnote.stm32.braille_device_characteristics import braille_device_characteristics
-
-# Setup the logger for this file
-from bnote.debug.colored_log import ColoredLogger, UI_LOG
 
 log = ColoredLogger(__name__)
 log.setLevel(UI_LOG)
@@ -316,10 +315,10 @@ class UiMultiLinesBox(UiContainer):
                 )
             else:
                 # if self.is_moving_display:
-                    # Kill moving display without caret mode.
+                # Kill moving display without caret mode.
                 #    self.is_moving_display = False
                 #    line = self.moving_display_caret.end.y
-                #else:
+                # else:
                 line = self._editor.caret().end.y
                 self._editor.function(
                     editor.Editor.Functions.PUT_CARET,
@@ -364,8 +363,8 @@ class UiMultiLinesBox(UiContainer):
             if line and (len(line) > braille_display_length):
                 offset = len(line) - braille_display_length
             self._editor.function(editor.Editor.Functions.PUT_CARET,
-                                 **{'shift': False, 'ctrl': False,
-                                    'pos': editor.Pos(offset, self._editor.caret().end.y)})
+                                  **{'shift': False, 'ctrl': False,
+                                     'pos': editor.Pos(offset, self._editor.caret().end.y)})
             UiContainer.braille_display.set_start_pos(offset)
         # Refresh braille display (useful after caret move)
         log.debug("Backward offset{}".format(UiContainer.braille_display.get_start_pos()))
@@ -423,4 +422,3 @@ class UiMultiLinesBox(UiContainer):
             log.info("line to display is {}".format(line_index))
             self._editor.set_caret(save_caret)
         self._refresh_braille_display(braille_offset, line_index)
-

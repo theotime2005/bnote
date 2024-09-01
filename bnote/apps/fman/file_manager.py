@@ -8,15 +8,15 @@ import collections
 import configparser
 import datetime
 import os.path
-import shlex
-import subprocess
-from pathlib import Path
 import re
-import time
+import shlex
 import shutil
+import subprocess
+import time
+from pathlib import Path
+from typing import Union, List
 
 from bnote.debug.colored_log import ColoredLogger, FILE_MANAGER_LOG
-from typing import Union, List
 
 # Set up the logger for this file
 log = ColoredLogger(__name__)
@@ -51,6 +51,7 @@ def create_folder(folder):
             Path.mkdir(folder)
         except OSError as e:
             log.warning("EXCEPTION Path.mkdir({}) : e={}".format(folder, e))
+
 
 def create_symlink(real_path, drive_path):
     # Add a symlink to /media.
@@ -99,7 +100,6 @@ class FileManager:
         (BNOTE_FOLDER / Path(DOCUMENTS_FOLDER) / Path("bluetooth")).unlink()
     if (BNOTE_FOLDER / Path(DOCUMENTS_FOLDER) / Path("crash")).exists():
         (BNOTE_FOLDER / Path(DOCUMENTS_FOLDER) / Path("crash")).unlink()
-
 
     # Third step : the links are now created in the BNOTE_MAIN_FOLDER (instead of __root_path version before 2024)
     # Note : The trash symlink is created in the Trash class below in this file.
@@ -222,7 +222,7 @@ class FileManager:
         log.debug(" Return False !!!!!!!!!!!!!!!")
         return False
 
-# Return the list of the filenames for path (alpha sorted with folder first) or None if path does not exits.
+    # Return the list of the filenames for path (alpha sorted with folder first) or None if path does not exits.
     # See https://stackoverflow.com/questions/136097/difference-between-staticmethod-and-classmethod
     @staticmethod
     def listdir(path, hide_hidden_file=True):
@@ -556,7 +556,6 @@ class FileManager:
 #                                                        fichier/dossier directement enfant de Trash.__trash_files_path
 #
 class Trash:
-
     __TRASH_INFO_EXTENSION = ".trashinfo"
     __TRASH_FOLDER = "bnote-trash"
 

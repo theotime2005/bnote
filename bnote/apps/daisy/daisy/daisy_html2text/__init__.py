@@ -41,10 +41,10 @@ __version__ = (2020, 1, 16)
 
 class HTML2Text(html.parser.HTMLParser):
     def __init__(
-        self,
-        out: Optional[OutCallback] = None,
-        baseurl: str = "",
-        bodywidth: int = config.BODY_WIDTH,
+            self,
+            out: Optional[OutCallback] = None,
+            baseurl: str = "",
+            bodywidth: int = config.BODY_WIDTH,
     ) -> None:
         """
         Input parameters:
@@ -255,9 +255,9 @@ class HTML2Text(html.parser.HTMLParser):
             if "href" in a.attrs and a.attrs["href"] == attrs["href"]:
                 if "title" in a.attrs or "title" in attrs:
                     if (
-                        "title" in a.attrs
-                        and "title" in attrs
-                        and a.attrs["title"] == attrs["title"]
+                            "title" in a.attrs
+                            and "title" in attrs
+                            and a.attrs["title"] == attrs["title"]
                     ):
                         match = True
                 else:
@@ -268,7 +268,7 @@ class HTML2Text(html.parser.HTMLParser):
         return None
 
     def handle_emphasis(
-        self, start: bool, tag_style: Dict[str, str], parent_style: Dict[str, str]
+            self, start: bool, tag_style: Dict[str, str], parent_style: Dict[str, str]
     ) -> None:
         """
         Handles various text emphases
@@ -288,9 +288,9 @@ class HTML2Text(html.parser.HTMLParser):
 
         italic = "italic" in tag_emphasis and "italic" not in parent_emphasis
         fixed = (
-            google_fixed_width_font(tag_style)
-            and not google_fixed_width_font(parent_style)
-            and not self.pre
+                google_fixed_width_font(tag_style)
+                and not google_fixed_width_font(parent_style)
+                and not self.pre
         )
 
         if start:
@@ -341,7 +341,7 @@ class HTML2Text(html.parser.HTMLParser):
                 self.quiet -= 1
 
     def handle_tag(
-        self, tag: str, attrs: Dict[str, Optional[str]], start: bool
+            self, tag: str, attrs: Dict[str, Optional[str]], start: bool
     ) -> None:
         self.current_tag = tag
 
@@ -352,10 +352,10 @@ class HTML2Text(html.parser.HTMLParser):
         # first thing inside the anchor tag is another tag
         # that produces some output
         if (
-            start
-            and self.maybe_automatic_link is not None
-            and tag not in ["p", "div", "style", "dl", "dt"]
-            and (tag != "img" or self.ignore_images)
+                start
+                and self.maybe_automatic_link is not None
+                and tag not in ["p", "div", "style", "dl", "dt"]
+                and (tag != "img" or self.ignore_images)
         ):
             self.o("[")
             self.maybe_automatic_link = None
@@ -438,8 +438,8 @@ class HTML2Text(html.parser.HTMLParser):
         if "id" in attrs and self.text_id is None:
             # Take high level id to tag the text.
             self.text_id = attrs["id"]
-        # <<< DP
 
+        # <<< DP
 
         def no_preceding_space(self: HTML2Text) -> bool:
             return bool(
@@ -513,9 +513,9 @@ class HTML2Text(html.parser.HTMLParser):
         if tag == "a" and not self.ignore_links:
             if start:
                 if (
-                    "href" in attrs
-                    and attrs["href"] is not None
-                    and not (self.skip_internal_links and attrs["href"].startswith("#"))
+                        "href" in attrs
+                        and attrs["href"] is not None
+                        and not (self.skip_internal_links and attrs["href"].startswith("#"))
                 ):
                     self.astack.append(attrs)
                     self.maybe_automatic_link = attrs["href"]
@@ -559,7 +559,7 @@ class HTML2Text(html.parser.HTMLParser):
                 # If we have images_with_size, write raw html including width,
                 # height, and alt attributes
                 if self.images_as_html or (
-                    self.images_with_size and ("width" in attrs or "height" in attrs)
+                        self.images_with_size and ("width" in attrs or "height" in attrs)
                 ):
                     self.o("<img src='" + attrs["src"] + "' ")
                     if "width" in attrs:
@@ -577,9 +577,9 @@ class HTML2Text(html.parser.HTMLParser):
                 if self.maybe_automatic_link is not None:
                     href = self.maybe_automatic_link
                     if (
-                        self.images_to_alt
-                        and escape_md(alt) == href
-                        and self.absolute_url_matcher.match(href)
+                            self.images_to_alt
+                            and escape_md(alt) == href
+                            and self.absolute_url_matcher.match(href)
                     ):
                         self.o("<" + escape_md(alt) + ">")
                         self.empty_link = False
@@ -738,7 +738,7 @@ class HTML2Text(html.parser.HTMLParser):
         self.br_toggle = "  "
 
     def o(
-        self, data: str, puredata: bool = False, force: Union[bool, str] = False
+            self, data: str, puredata: bool = False, force: Union[bool, str] = False
     ) -> None:
         """
         Deal with indentation and whitespace
@@ -815,7 +815,7 @@ class HTML2Text(html.parser.HTMLParser):
                 self.space = False
 
             if self.a and (
-                (self.p_p == 2 and self.links_each_paragraph) or force == "end"
+                    (self.p_p == 2 and self.links_each_paragraph) or force == "end"
             ):
                 if force == "end":
                     self.out("\n")
@@ -862,9 +862,9 @@ class HTML2Text(html.parser.HTMLParser):
             self.preceding_stressed = True
         elif self.preceding_stressed:
             if (
-                re.match(r"[^\s.!?]", data[0])
-                and not hn(self.current_tag)
-                and self.current_tag not in ["a", "code", "pre"]
+                    re.match(r"[^\s.!?]", data[0])
+                    and not hn(self.current_tag)
+                    and self.current_tag not in ["a", "code", "pre"]
             ):
                 # should match a letter or common punctuation
                 data = " " + data
@@ -876,9 +876,9 @@ class HTML2Text(html.parser.HTMLParser):
         if self.maybe_automatic_link is not None:
             href = self.maybe_automatic_link
             if (
-                href == data
-                and self.absolute_url_matcher.match(href)
-                and self.use_automatic_links
+                    href == data
+                    and self.absolute_url_matcher.match(href)
+                    and self.use_automatic_links
             ):
                 self.o("<" + data + ">")
                 self.empty_link = False
