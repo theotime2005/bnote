@@ -1,0 +1,133 @@
+B.note version 3.0.200
+Important: This update is not signed by Eurobraille.
+
+Editor:
+- Resolution of a crash when using the Bluetooth text sending function.
+
+Explorer:
+- Ability to open updates from the Bluetooth folder,
+- Possibility to automatically delete an update after its installation,
+- Possibility to open updates with a high indicator: 3.0.200b2 for example.
+
+Settings:
+- Change of the update source: it is the GitHub API that is used to provide versions thanks to the Release system,
+- Possibility to choose the source of the updates: You can choose any repository of the b.note source code respecting the formatting described in the developer's documentation,
+- Possibility to download all the available versions: You can thus return to a previous version of b.note even if it is not installed on your machine.
+
+b.note version 3.0.4
+
+- Modifications on music app.
+- Replace all headers of .py files to prepare source files to github repository.
+
+International :
+- Update Italian messages
+
+b.note version 3.0.3
+
+International :
+- Update Slovak messages
+
+b.note version 3.0.2
+
+International :
+- Update Croatian messages
+- Update Italian messages
+
+b.note version 3.0.1
+
+Settings:
+- Auto refresh bluetooth status
+- Auto refresh wifi status
+
+International :
+- Update Croatian messages
+- Update CZech messages
+- Translator in Czech debug
+
+B.note version 3.0.0
+System:
+New Linux 'bookworm' image.
+Transition to Python 3.11.
+Each Python application benefits from its own virtual environment. This is true for the different versions of bnote installed on the device, each has its own virtual environment.
+The WiFi manager is now NetworkManager, replacing wpa-supplicant.
+
+User Interface:
+New preference setting: 'spaces in labels' allowing the replacement of spaces in dialog box labels with b8 or not. The replacement allows spaces to be retained only for separating objects in a dialog box.
+
+Settings:
+Improved application responsiveness.
+Added functions to selectively turn off Bluetooth and WiFi modules.
+Settings saving/restore function, creating a specific folder for these files at the root of the file explorer.
+
+Update:
+For bnotes, updates can be performed without having to recreate an SD image.
+A developer setting is added in the preferences to allow the download of development versions and open the skeleton application.
+The different versions of the bnote application are displayed when the application version line is validated; through this dialog, it is possible to switch from one version to another.
+A security feature has been implemented: if the bnote application fails to launch three times in a row, the system automatically reverts to the base version of bnote (the one delivered with the SD image).
+
+Translator:
+- Adding translator application.
+
+
+B.note version 2.6.0
+Editor:
+Importing a file of a type other than .txt no longer triggers its deletion. A file named filename.extension.txt is created alongside it.
+Importing epub files sets markers at each chapter of the book.
+
+Explorer:
+Upstream of the 'My Documents' folder, a virtual root level is created containing the elements of the 'Go to' menu.
+Implementation of a function allowing the selection and download of books from the Eole library. (French document accessible with registration)
+
+Wikipedia:
+Implementation of a new Wikipedia application.
+
+Daisy Reader:
+Implementation of a new Daisy V2 application that opens when an action is performed on a Daisy book.
+
+B.note version 2.5.0
+
+This update is installed through a simple .update file to be opened in the B.note file explorer. It is supported by both generations of devices.
+
+
+Applications:
+Two new applications are introduced: "write word" and "operation."
+The first aids in Braille learning, displaying a word and prompting you to type it using the Braille keyboard.
+The second involves solving simple mathematical operations.
+For more information, refer to the user manual.
+
+File Explorer:
+Introduction of a file search function.
+Implementation of a list of recently opened files.
+Ability to decompress a .zip file directly by opening it.
+
+Editor:
+Added the ability to open a document in read-only mode.
+This function is useful if you do not want to modify certain files.
+Shortcuts from the file explorer are 'Enter' for opening for modification and 'Ctrl+Enter' for opening in read-only mode.
+Files opened in read-only mode will be preceded by "*-" in the application menu.
+Ability to send a text selection from the editor to a Bluetooth-connected device.
+Ability to export files to .brf, with the option to choose the Braille type, character table, number of lines per page, number of pages per volume. You can also add a title that will appear at the beginning of each file.
+
+Audio:
+Ability to fast forward and rewind during the playback of audio files in the application's play menu.
+Music Application:
+
+Various information about instruments is now available at the end of the currently playing score. This includes volume, MIDI channel, MIDI instrument number, and transposition (if applicable).
+Refer to the music application manual for more information.
+
+Preferences:
+Support for searching and downloading updates directly from the device.
+Updates that can be downloaded are .update files, installable directly from the B.note.
+If a newer version of firmware or sdcard is available, you will be notified during the update search.
+A preference setting allows you to automatically check for updates or not.
+Other improvements:
+
+Ability to automatically empty the trash and Bluetooth folder when the device is turned off.
+B.note version 2.4.0
+
+Display of the application name and the COM port used instead of USB-A or USB-B.
+Opening of non-UTF-8 .txt files using the CP1252 character table.
+Fix for a crash after switching to Hebrew, Slovenian, and Zulu Braille tables.
+[... and so on for other versions ...]
+
+
