@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "bnote"
-version = "3.0.200b3"
+version = "3.0.200"
 description = "bnote application"
 authors = [{ name = "Eurobraille team" }]
 requires-python = ">=3.11, <3.12"
