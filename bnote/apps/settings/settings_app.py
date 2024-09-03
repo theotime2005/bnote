@@ -2553,13 +2553,13 @@ class SettingsApp(BnoteApp):
                 action=self._exec_cancel_dialog)
             return
         elif not self.update.files:
-            self._current_dialog = UiInfoDialogBox(message=_("No version available through this source."),
+            self._current_dialog = ui.UiInfoDialogBox(message=_("No version available through this source."),
                                                    action=self._exec_cancel_dialog)
             return
         update_list = []
         for version in self.update.files:
             update_list.append(version['version'])
-        self._current_dialog = UiDialogBox(
+        self._current_dialog = ui.UiDialogBox(
             name=_("version history"),
             item_list=[
                 ui.UiListBox(name=_("&select a version to install"), value=("version", update_list)),
