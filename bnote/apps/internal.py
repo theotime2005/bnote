@@ -297,6 +297,15 @@ class Internal:
             if not ((key in self.apps_editor) or (key in self.apps_bluetooth) or (key == 'usb_1') or (key == 'usb_2')):
                 # Retranslate all menu app items except editor, bluetooth and usb apps.
                 self._menu.rename_item(self.__app_translate(key), braille_type, app_descriptor.action)
+        usb_1 = self._menu.get_object(self._exec_usb_1).name()
+        if "usb" in usb_1:
+            self._menu.rename_item(_("usb_&a"), braille_type, self._exec_usb_1)
+        usb_2 = self._menu.get_object(self._exec_usb_2).name()
+        if "usb" in usb_2:
+            self._menu.rename_item(_("usb_&b"), braille_type, self._exec_usb_2)
+        # Translate transport and shutdown
+        self._menu.rename_item(_("transport"), braille_type, self._exec_ask_transport)
+        self._menu.rename_item(_("shutdown"), braille_type, self._exec_ask_shutdown)
         # Translate each app.
         for descriptor in self.apps_descriptor.values():
             app = descriptor.instance
