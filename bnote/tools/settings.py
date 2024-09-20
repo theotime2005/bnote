@@ -221,6 +221,19 @@ class Settings(metaclass=SingletonMeta):
         else:
             self.load()
 
+    def check_and_reset_error_values(self):
+        """
+        Check if all values in settings are correctly. If there are others settings, they will be not deleting
+        """
+        for section in self.data:
+            for key in self.data[section]:
+                try:
+                    if self.data[section][key] not in self.VALID_VALUES[section][key]:
+                        self.data[section][key] = self.DEFAULT_VALUES[section][key]
+                except:
+                    if self.DEFAULT_VALUES[section].get(key):
+                        self.data[section][key] = self.DEFAULT_VALUES[section][key]
+
     def save(self):
         data_on_disk = None
         try:
@@ -256,6 +269,9 @@ class Settings(metaclass=SingletonMeta):
             for k, v in values.items():
                 self.data[key].setdefault(k, v)
 
+        # Check values and set default if is not valide
+        self.check_and_reset_error_values()
+
         # print(f"{self.data=}")
         # print(f"{len(self.data)=}")
 
@@ -288,6 +304,7 @@ class Settings(metaclass=SingletonMeta):
 
         # Update self.data with imported data
         self.data.update(imported_data)
+        self.check_and_reset_error_values()
 
         # Save the updated data
         self.save()
