@@ -4,6 +4,7 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+import copy
 import json
 import logging
 import os
@@ -223,6 +224,8 @@ class Settings(metaclass=SingletonMeta):
         else:
             self.load()
 
+
+
     def save(self):
         data_on_disk = None
         try:
@@ -258,11 +261,14 @@ class Settings(metaclass=SingletonMeta):
             for k, v in values.items():
                 self.data[key].setdefault(k, v)
 
+
         # print(f"{self.data=}")
         # print(f"{len(self.data)=}")
 
         # Save the data to reflect the possible change from setdefault()
         self.save()
+        # Check data are valid
+        self.validate_data()
 
     # delete the settings file and reload default value.
     def reset(self):
@@ -290,8 +296,27 @@ class Settings(metaclass=SingletonMeta):
 
         # Update self.data with imported data
         self.data.update(imported_data)
+        self.validate_data()
 
         # Save the updated data
         self.save()
         self.load()
         return True
+
+    def validate_data(self):
+        data_copy = copy.deepcopy(self.data)
+
+        for section, keys in data_copy.items():
+            if section in self.VALID_VALUES:
+                for key, value in keys.items():
+                    valid_values = self.VALID_VALUES[section].get(key)
+
+                    if isinstance(valid_values, re.Pattern):
+                        # Utiliser la regex pour vérifier la validité
+                        if not valid_values.match(value):
+                            print(f"Warning: Invalid value for {section}/{key}: {value}. Resetting to default.")
+                            self.data[section][key] = self.DEFAULT_VALUES[section][key]
+
+                    elif valid_values and value not in valid_values:
+                        # Cas de valeurs non regex, on vérifie simplement l'appartenance
+                        print(f"Warning: Invalid value for {section}/{key}: {value}. Resetting to default.")
