@@ -2277,10 +2277,10 @@ class FileManagerApp(BnoteApp):
                 message=_("failed to import the file, check the source and try again."),
                 action=self._exec_cancel_dialog)
             return
-        self._current_dialog = ui.UiInfoDialogBox(message=_("imported settings."), action=self._exec_cancel_dialog)
-        # for section, section_data in Settings().data.items():
-        #     for key in section_data:
-        #         self._put_in_function_queue(FunctionId.FUNCTION_SETTINGS_CHANGE, **{'section': section, 'key': key})
+        for section, section_data in Settings().data.items():
+            for key in section_data:
+                self._put_in_function_queue(FunctionId.FUNCTION_SETTINGS_CHANGE, **{'section': section, 'key': key})
+        self._current_dialog = ui.UiInfoDialogBox(message=_("imported settings."), action=self.__build_braille_line)
 
     def __activate_parent(self, *args, **kwargs):
         # User must stay in his user space.

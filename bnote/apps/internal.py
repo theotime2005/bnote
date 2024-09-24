@@ -933,6 +933,7 @@ class Internal:
                 or ((kwargs['section'] == 'system') and (kwargs['key'] == 'spaces_in_label')):
             # Reconstruct menu if braille switch to dot8, grade1 or grade2
             self.translate_ui()
+            self.__refresh_display_after_function()
 
     def __next_app(self):
         if not self._current_app:
