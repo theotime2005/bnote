@@ -1689,7 +1689,7 @@ class SettingsApp(BnoteApp):
             ('speech', 'synthesis'): self.__language_synthesis(),
             ('speech', 'voice'): self.__language_voice(),
             ('bluetooth', 'auto_switch'): self.__bluetooth_auto_switch(),
-            ('agenda', 'default_presentation'): {"standard": _("standard"), "not done": _("not done"),
+            ('agenda', 'default_presentation'): {"standard": _("standard"), "not_done": _("not done"),
                                                  "today": _("today"), "calendar": _("calendar")},
             ('agenda', 'remember'): {'no': _("no"), 'same': _("for the same day"), 'tomorrow': _("for the next day"),
                                      'same_tomorrow': _("for the same day and the next day")},

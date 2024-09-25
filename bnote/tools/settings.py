@@ -202,7 +202,7 @@ class Settings(metaclass=SingletonMeta):
                                            'bnote_name': re.compile('.*'),
                                            'auto_switch': [],
                                            'bt_simul_esys': (True, False)},
-                             'agenda': {'default_presentation': ('standard', 'not done', 'today', 'calendar'),
+                             'agenda': {'default_presentation': ('standard', 'not_done', 'today', 'calendar'),
                                         'remember': ('no', 'same', 'tomorrow', 'same_tomorrow')},
                              'braille_learning': {
                                  'use_vocal': ("auto", "ask", "no"),
