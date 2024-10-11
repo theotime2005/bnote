@@ -25,7 +25,7 @@ from bnote.debug.colored_log import ColoredLogger, YAUPDATER_LOG
 log = ColoredLogger(__name__)
 log.setLevel(YAUPDATER_LOG)
 
-UPDATE_FOLDER_URL = 'https://update.eurobraille.fr/radio/download/bnote/bnote3.x.x'
+UPDATE_FOLDER_URL = 'https://update.eurobraille.fr/radio/download/bnote/bnote3.x.x/bnote3.0.5_next'
 INSTALL_FOLDER = Path("/home/pi/all_bnotes")
 
 
@@ -87,7 +87,7 @@ class YAUpdater:
                     if bnote_whl_file:
                         log.error(f"{bnote_whl_file.stem=}")
                         # DP FIXME La version retournée est celle du nom de fichier, on pourrait aller chercher le fichier file.distinfo/METADATA ligne version=
-                        pattern_version = r'bnote-(?P<version>[0-9]+\.[0-9]+\.[0-9]+(a|b|rc)?\d*)-py3-none-any'
+                        pattern_version = r'bnote-(?P<version>\d+\.\d+\.\d+((a|b|rc)\d+)?)-py3-none-any'
                         match = re.match(pattern_version, str(bnote_whl_file.stem))
                         if match:
                             if 'version' in match.groupdict().keys() and match.group('version'):
@@ -157,7 +157,7 @@ class YAUpdater:
                 log.error(f"{zip_file.namelist()=}")
                 for file_name in zip_file.namelist():
                     file_path = Path(file_name).parts
-                    if (len(file_path) > 1) and file_path[-2] == 'whl':
+                    if (len(file_path) > 1) and (file_path[-2] == 'whl' or file_path[-2] == 'zip'):
                         write_filename = Path(Path('/home/pi/whl') / Path(file_name).name)
                         # Extract the file.
                         self.__extract_file(zip_file, file_name, write_filename)
@@ -320,8 +320,11 @@ class YAUpdater:
     def _exec_command(self, working_directory, command):
         # Command.
         command_list = command.split()
+        # Copie de l'environnement actuel.
+        env = os.environ.copy()
+        env['DEBIAN_FRONTEND'] = 'noninteractive'
         # Execute command with folder as working directory.
-        process = subprocess.Popen(command_list, cwd=working_directory, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        process = subprocess.Popen(command_list, cwd=working_directory, stdout=subprocess.PIPE, stderr=subprocess.PIPE, env=env)
         # Wait execution.
         output, error = process.communicate()
         # Display output.
@@ -388,8 +391,8 @@ class YAUpdaterFinder:
 
     def __find_list_thread(self):
         #bnote-3.0.0b10-py3-none-any.whl
-        pattern = r'bnote-([0-9]\.[0-9]\.[0-9]?(a|b|rc)?\d+)-py3-none-any\.whl\.zip'
-        pattern_version = r'bnote-(?P<version>[0-9]\.[0-9]\.[0-9]?(a|b|rc)?\d+)-py3-none-any\.whl\.zip'
+        pattern = r'bnote-(\d+\.\d+\.\d+((a|b|rc)\d+)?)-py3-none-any\.whl\.zip'
+        pattern_version = r'bnote-(?P<version>\d+\.\d+\.\d+((a|b|rc)\d+)?)-py3-none-any\.whl\.zip'
         files = []
         version_to_install = 'up_to_date'
         file_to_install = None
@@ -464,11 +467,12 @@ class YAUpdaterFinder:
                     elif stage_type_number_1 == stage_type_number_2:
                         if stage_value_1 >= stage_value_2:
                             return True
+        return False
 
     @staticmethod
     def split_version1(raw_version_string) -> (int, int, int, str, int):
-#        pattern = r"^(?P<major>\d+)?\.?(?P<minor>\d+)?\.?(?P<fix>\d+)?-?(?P<stage_type>alpha|beta|rc)?\.?(?P<stage_value>\d+)?.*"
-        pattern = r"(?P<major>\d+)?\.?(?P<minor>\d+)?\.?(?P<fix>\d+)?-?(?P<stage_type>[a-zA-Z]*)?\.?(?P<stage_value>\d+)?.*"
+        # on accepte ici 3.10.50a10 mais aussi 3.10.50-a10 ou 3.10.50a.10 ou 3.10.50-a.10
+        pattern = r"(?P<major>\d+)\.(?P<minor>\d+)\.(?P<fix>\d+)(-?(?P<stage_type>[a-zA-Z]*)\.?(?P<stage_value>\d+))?.*"
         match = re.match(pattern, raw_version_string)
         major = minor = fix = stage_value = 0
         stage_type = ""
@@ -497,10 +501,10 @@ class YAUpdaterFinder:
             # Release version win 1 000 000.
             return 1000000
         elif stage_type in types_1:
-            # Developpers version between 1 and 3.
+            # Developers version between 1 and 3.
             return types_1.index(stage_type) + 1
         elif stage_type in types_2:
-            # Developpers version between 1 and 3.
+            # Developers version between 1 and 3.
             return types_2.index(stage_type) + 1
         else:
             # Others value are before alpha, beta and rc.
@@ -558,7 +562,11 @@ class YAVersionFinder:
         all_bnote_folder = Path("/home/pi/all_bnotes")
         for d in all_bnote_folder.iterdir():
             if d.is_dir():
-                version = d.name.split('-')[1]
+                parts = d.name.split('-')
+                if (len(parts) != 2) or (parts[0] != 'bnote'):
+                    # forget non-compliant name.
+                    continue
+                version = parts[1]
                 if len(version) > 0:
                     list_of_versions[version + "(update)"] = (d, True)
         # Tag the current version.

@@ -11,6 +11,7 @@ from bnote.tools.keyboard import Keyboard
 import bnote.ui as ui
 # Set up the logger for this file
 from bnote.debug.colored_log import ColoredLogger, SKELETON_APP_LOG
+from bnote.ui.ui_parameters_list import ParamType
 
 log = ColoredLogger(__name__)
 log.setLevel(SKELETON_APP_LOG)
@@ -47,6 +48,7 @@ class SkeletonApp(BnoteApp):
                         ui.UiMenuItem(name=_("&choose_file"), action=self._exec_choose_file_menu),
                     ]),
                 ui.UiMenuItem(name=_("&say hello"), action=self._exec_say_hello),
+                ui.UiMenuItem(name=_("parameters list"), action=self._exec_parameters_list),
                 ui.UiMenuItem(name=_("&about"), action=self._exec_about,
                            shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
                            shortcut_key = Keyboard.BrailleFunction.BRAMIGRAPH_F1),
@@ -121,6 +123,60 @@ class SkeletonApp(BnoteApp):
 
     def _exec_say_hello(self):
         speak(_("Hello bnote."))
+
+    def _exec_parameters_list(self):
+        current_values = {
+            'name': 'josephine',
+            'braille_type': 'dot-8',
+            'dot78_visible': True,
+        }
+
+        values = {
+            'name': (ParamType.STRING, "default"),
+            'braille_type': (ParamType.TUPLE, ('dot-8', 'grade1', 'grade2')),
+            'dot78_visible': (ParamType.BOOL, (True, False)),
+        }
+
+        translation_keys = {
+            'name': _("name"),
+            'braille_type': _("braille type"),
+            'dot78_visible': _("dot78_visible"),
+        }
+
+        translation_values = {
+            'yes': _("yes"),
+            'no': _("no"),
+            'dot-8': _("dot 8"),
+            'grade1': _("grade 1"),
+            'grade2': _("grade 2"),
+        }
+
+        param_descriptor = ui.ParamDescriptor(values, translation_keys, translation_values)
+        self._current_dialog = ui.UiDialogBox(
+            name=_("parameters"),
+            item_list=[
+                ui.UiParamList(name="parameters", param_descriptor=param_descriptor,
+                               values=('parameters', current_values),
+                               fn_change_dialog_box=self._change_dialog_box,
+                               fn_valid=self._exec_valid_parameters,
+                               fn_cancel=self._exec_cancel_dialog
+                               ),
+                ui.UiButton(name=_("&ok"), action=self._exec_valid_parameters),
+                ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
+            ],
+            action_cancelable=self._exec_cancel_dialog,
+        )
+        # Force to enter in UiParamList
+        self._current_dialog.exec_bramigraph(0, Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_RETURN)
+
+    def _change_dialog_box(self, dialog_box):
+        old_current_dialog = self._current_dialog
+        self._current_dialog = dialog_box
+        return old_current_dialog
+
+    def _exec_valid_parameters(self):
+        kwargs = self._current_dialog.get_values()
+        print(f"_exec_valid_parameters {kwargs}")
 
     def _exec_about(self):
         # Display an information dialog box.

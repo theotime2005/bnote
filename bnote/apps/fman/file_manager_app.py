@@ -11,6 +11,7 @@ import threading
 import time
 from pathlib import Path
 
+from bnote.apps.ai_assistant.ai_assistant_app import AiAssistantApp
 from bnote.apps.edt.editor_app import EditorApp
 from bnote.apps.eole.eole_api import EoleApi
 from bnote.apps.eole.eole_crypto import EoleCrypto
@@ -116,6 +117,9 @@ class FileManagerApp(BnoteApp):
                              ui.UiMenuItem(name=_("music(.music&xml)"), action=self._exec_new_musicxml_file,
                                         shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
                                         shortcut_key='M'),
+                             ui.UiMenuItem(name=_("ai assistant(.&ai_txt)"), action=self._exec_new_ai_assistant_file,
+                                        shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                                        shortcut_key='A'),
                              ui.UiMenuItem(name=_("&folder"), action=self._exec_new_folder,
                                         shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
                                         shortcut_key='D'),
@@ -383,6 +387,7 @@ class FileManagerApp(BnoteApp):
             menu_item_list=[
                 self.__create_file_manager_with_usb_flash_drive_plugged_file_menu(),
                 self.__create_file_manager_edit_menu(),
+                self.__create_file_manager_eole_menu(),
                 self.__create_file_manager_goto_menu(),
                 self.__create_file_manager_tools_menu(),
                 ui.UiMenuItem(name=_("&applications"), action=self._exec_application),
@@ -593,6 +598,9 @@ class FileManagerApp(BnoteApp):
 
     def _exec_new_musicxml_file(self, **kwargs):
         self._exec_new_file(**{'type': _(".musicxml")})
+
+    def _exec_new_ai_assistant_file(self, **kwargs):
+        self._exec_new_file(**{'type': _(".ai_txt")})
 
     def _exec_new_file(self, **kwargs):
         """
@@ -2124,7 +2132,7 @@ class FileManagerApp(BnoteApp):
             if focused_file.is_dir():
                 self.__init_new_current_folder_and_build_braille_line(focused_file)
             elif focused_file.is_file():
-                if str(focused_file).endswith(".whl.zip") and not str(self.__current_folder).startswith(str(FileManager.get_backup_path())) and not str(self.__current_folder).startswith(str(Trash.get_trash_path())):
+                if str(focused_file).endswith(".whl.zip"):
                     bnote_whl_file, version = YAUpdater.get_version(focused_file)
                     if version != "":
                         self._current_dialog = ui.UiMessageDialogBox(
@@ -2138,7 +2146,7 @@ class FileManagerApp(BnoteApp):
                             action_cancelable=self._exec_cancel_dialog,
                         )
                         return
-                if str(self.__current_folder).startswith(str(FileManager.get_bluetooth_path())) or \
+                elif str(self.__current_folder).startswith(str(FileManager.get_bluetooth_path())) or \
                         str(self.__current_folder).startswith(str(FileManager.get_backup_path())) or \
                         str(self.__current_folder).startswith(str(Trash.get_trash_path())):
                     self._current_dialog = ui.UiInfoDialogBox(
@@ -2151,6 +2159,7 @@ class FileManagerApp(BnoteApp):
                     extension = extension.lower()
                 if (extension in EditorApp.known_extension()
                         or extension in MusicApp.known_extension()
+                        or extension in AiAssistantApp.known_extension()
                         or (extension in DaisyApp.known_extension() and DaisyReader.daisy_zip_check(focused_file))
                 ):
                     RecentFile().add_file_to_list(focused_file.name, focused_file)
@@ -2228,11 +2237,18 @@ class FileManagerApp(BnoteApp):
 
     def _exec_install_version_with_yaupdater(self, file):
         log.info(f"!!!_exec_install_version_with_yaupdater{threading.get_ident()=}")
-
-        self._current_dialog = ui.UiInfoDialogBox(message=_("installation in progres..."))
-        # Refresh the braille display
-        self.__build_braille_line()
-        YAUpdater(f"file://{file}", "/home/pi/all_bnotes/", self.refresh_install_message, self.yaupdater_ended)
+        # Check current date.
+        year = datetime.datetime.now().year
+        if year < 2024:
+            self._current_dialog = ui.UiInfoDialogBox(
+                message=_(_(f"set the date and time before updating bnote.")),
+                action=self._exec_cancel_dialog,
+            )
+        else:
+            self._current_dialog = ui.UiInfoDialogBox(message=_("installation in progres..."))
+            # Refresh the braille display
+            self.__build_braille_line()
+            YAUpdater(f"file://{file}", "/home/pi/all_bnotes/", self.refresh_install_message, self.yaupdater_ended)
 
     def refresh_install_message(self, msg):
         log.info(f"!!!refresh_install_message:{threading.get_ident()=}-{msg=}")

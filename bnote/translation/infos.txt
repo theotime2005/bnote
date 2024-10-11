@@ -1,0 +1,46 @@
+----------------------------------------
+- Traduction des messages:
+----------------------------------------
+
+Notes préliminaires :
+Le dossier locale devra être copié sur la cible dans le dossier de lancement de osiris.py
+
+1. Installer poedit
+$ sudo apt install poedit
+
+2. Modifier le code
+ancienne version:
+import gettext
+fr = gettext.translation('osiris', localedir='locale', languages=['fr'])
+fr.install()
+_ = fr.gettext
+nouvelle version:
+        lang = "_".join((language.lower(), language))
+        log.info("lang={}".format(lang))
+        file = os.path.join("translation", "osiris_{}.mo".format(lang))
+        translation = gettext.GNUTranslations(open(file, "rb"))
+        # Installe self.gettext() dans l'espace de nom intégré et le lie à _()
+        translation.install()
+
+Remplacer toutes les chaine à traduire "Text to translate" par _("Text to translate")
+
+3. Créer le fichier .pot avec :
+$ pygettext internal.py -o osiris
+un fichier osiris.pot est créé
+
+4. Ouvrir le fichier .pot avec poedit et mettre à jour les dossiers utiles via le menu:
+Catalogue>Propriétés du catalogue>Chemin des sources
+Utiliser le bouton + pour ajouter des dossiers par exemmple : osiris_int / osiris_fman / osiris_edt
+
+5. Créer une nouvelle traduction (bouton en bas de la fenêtre)
+Choisir la langue par exemple fr_FR
+Faire les traductions et Enregistrer
+Le proposé "fr_FR.po" est à remplacer par osiris.po
+Les fichiers osiris.po et osiris.mo (version bianire du .po) sont créés
+Il faut les placer dans l'arborescence local/fr/LC_MESSAGES/
+
+6. Par la suite quand on ajoute des message dans le code, faire
+- Ouvrir le fichier .pot avec poedit et cliquer sur "Mettre à jour" dans la barre d'outil.
+- Ouvrir le fichier .po avec poedit et mettre à jour avec les nouveau messages via le menu Catalogue>Mettre à jour depuis un fichier .pot
+- Faire la traduction.
+

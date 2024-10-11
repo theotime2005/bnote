@@ -22,6 +22,7 @@ from bnote.apps.settings.settings_app import SettingsApp
 from bnote.apps.skeleton.skeleton_app import SkeletonApp
 from bnote.apps.timer.timer_app import TimerApp
 from bnote.apps.wikipedia.wikipedia_app import WikipediaApp
+from bnote.apps.ai_assistant.ai_assistant_app import AiAssistantApp
 from bnote.speech.speech import SpeechManager
 from bnote.stm32 import stm32_keys
 from bnote.stm32.braille_device_characteristics import braille_device_characteristics
@@ -176,6 +177,7 @@ class Internal:
         # Start the MidiPlayer
         # MidiPlayer()
 
+        print(f"{braille_device_characteristics.get_serial_number()=}")
         # Save braille_device_caracteristics into settings
         Settings().data['stm32']['name'] = braille_device_characteristics.get_name()
         Settings().data['stm32']['len'] = braille_device_characteristics.get_braille_display_length()
@@ -265,6 +267,9 @@ class Internal:
             if not ((key in self.apps_editor) or (key in self.apps_bluetooth) or (key == 'usb_1') or (key == 'usb_2')):
                 # Retranslate all menu app items except editor, bluetooth and usb apps.
                 self._menu.rename_item(self.__app_translate(key), braille_type, app_descriptor.action)
+        # Translate transport and shutdown
+        self._menu.rename_item(_("transport"), braille_type, self._exec_ask_transport)
+        self._menu.rename_item(_("shutdown"), braille_type, self._exec_ask_shutdown)
         # Translate each app.
         for descriptor in self.apps_descriptor.values():
             app = descriptor.instance
@@ -1051,6 +1056,8 @@ class Internal:
                         app_descriptor.instance = MusicApp(self._put_in_function_queue, filename, language)
                     elif extension in DaisyApp.known_extension():
                         app_descriptor.instance = DaisyApp(self._put_in_function_queue, filename, language)
+                    elif extension in AiAssistantApp.known_extension():
+                        app_descriptor.instance = AiAssistantApp(self._put_in_function_queue, filename, language)
                     else:
                         app_descriptor.instance = EditorApp(self._put_in_function_queue, filename, language, read_only)
                 # Update locked file of file manager.

@@ -1,0 +1,367 @@
+b.note version 3.1.0
+- Nouvelle application assistantAI accessible par la fonction nouveau fichier de l'explorateur.
+
+b.note version 3.0.6
+- Modification table ar-ar-comp8.utb et hr-comp8.utb en accord avec nos distributeurs.
+- Ajout d'une boîte de dialogue parameters_list_dialog pour gérer une liste de paramètres un peu comme dans les settings, elle sera utilisée dans l'application musicale.
+- Mise à jour possible à partir d'un fichier .whl.zip situé dans le dossier Bluetooth.
+- Intégration modifications sur la musique.
+- L'importation d'un fichier .pdf dans l'éditeur est de nouveau possible.
+
+b.note version 3.0.5
+- Modification du processus de mises à jour pour passage en version 3.0.6
+
+b.note version 3.0.4
+- Intégration modification sur la musique
+- Changement de toutes les entêtes des fichiers sources en préparation de la mise en place d'un dépôt github.
+
+International :
+- Mise à jour traduction Italienne
+
+b.note version 3.0.3
+International :
+- Mise à jour traduction Slovaque
+
+b.note version 3.0.2
+International :
+- Mise à jour traduction Croate
+- Mise à jour traduction Italien
+
+b.note version 3.0.1
+Préférences:
+- Auto refresh du status bluetooth dans les préférences
+- Auto refresh du status wifi dans les préférences
+
+International :
+- Mise à jour traduction Croate
+- Mise à jour traduction Tchèque
+- Correction de l'application de traduction pour le Tchèque
+
+b.note version 3.0.0
+Système:
+- Nouvelle image Linux 'bookworm'
+- Passage en python 3.11
+- Chaque application python bénéficie de son propre environnement virtuel. C'est vrai pour les différentes version de bnote installées sur l'appareil, chacune possède son environnement virtuel.
+- Le gestionnaire wifi est maintenant NetworkManager, en remplacement de wpa-supplicant.
+
+Interface utilisateur:
+- Nouveau paramètre dans les préférences : 'espaces dans les label' permettant de remplacer dans les boîtes de dialogue les espaces dans les labels par b8 ou non. Le remplacement permet de conserver des espaces que pour séparer les objets d'une boîte de dialogue.
+
+Préférences:
+- Amélioration de la réactivité de l'application.
+- Ajout de fonctions permettant d'éteindre sélectivement les modules Bluetooth et wifi.
+- Fonction d'enregistrement/restauration des preférences, création d'un dossier spécifique pour ces fichiers à la racine de l'explorateur de fichiers.
+
+Mise à jour:
+- Pour les bnotes, les mises à jour sont réalisables sans avoir à refaire une image de sd.
+- Un paramètre développeur est ajouté dans les préférences pour autoriser le téléchargement de version en cours de développement. et ouvrir l'application squelette.
+- Les différentes versions de l'applicatif bnote sont affichées lorsque l'on valide la ligne de la version de l'application, par ce dialogue il est possible de basculer d'une version à une autre.
+- Un dispositif de sécurité à été mise en place, si l'application bnote ne se lance pas trois fois de suite, le système rebascule automatiquement sur la version de base de bnote (celle livrée avec l'image de sd).
+
+Traducteur:
+- Ajout d'une application de traduction.
+
+b.note version 2.6.x
+Editeur:
+- L'importation d'un fichier d'un autre type que .txt ne déclenche plus son effacement. Un fichier nom.extension.txt est créé à côté.
+- L'importation des fichier epub positionne des marqueurs à chaque chapitre de l'ouvrage.
+
+Explorateur:
+- En amont de du dossier 'mes documents', création d'un niveau racine virtuel possédant les éléments du menu 'aller à'.
+- Mise en place d'une fonction permettant la sélection et le téléchargement d'ouvrages de la bibliothèque éole.
+
+Wikipedia:
+- Mise en place d'une nouvelle application wikipedia.
+
+Lecteur Daisy:
+- Mise en place d'une nouvelle application Daisy V2 qui s'ouvre lorsque l'on fait une action sur un ouvrage Daisy .
+
+B.note version 2.5.0
+- Cette mise à jour s'installe grâce à un simple fichier .update à ouvrir dans l'explorateur de fichier du B.note. Elle est supportée par les 2 générations d'appareils.
+
+Les applications:
+- 2 nouvelles applications font leur apparition, l'application "Jeux de mots" et "Jeux de calcul".
+La première est une aide à l'apprentissage du braille, elle affiche un mot et vous invite à le taper au clavier braille.
+La seconde consiste à résoudre des opérations mathématiques simple.
+Pour plus d'information, consulter le manuel utilisateur.
+
+Explorateur de fichiers
+- Mise en place d'une fonction de recherche de fichiers.
+- Mise en place d'une liste de fichiers récemment ouverts.
+- Possibilité de décompresser un fichier .zip directement en l'ouvrant.
+
+L'éditeur:
+- Ajout de la possibilité d'ouvrir un document en lecture seule.
+Cette fonction peut être utile si vous ne souhaitez pas pouvoir modifier certains fichiers.
+Les raccourcis depuis l'explorateur de fichiers sont 'entrée' pour une ouverture pour modification et 'Ctrl+entrée' pour une ouverture en lecture seule.
+Les fichiers ouverts en lecture seule se présenteront précédés par "*-" dans le menu d'application.
+- Possibilité d'envoyer une sélection de texte de l'éditeur à un appareil connecté en bluetooth.
+- Possibilité d'exporter des fichier en .brf, avec la possibilité de choisir le type de braille, la table de caractère, le nombre de ligne par page, le nombre de page par volume. Vous pouvez également ajouter un titre qui sera présent au début de chaque fichiers.
+
+Audio:
+- Possibilité d'avancer et de reculer rapidement lors de la lecture de fichiers audio dans le menu jouer de l'application.
+
+Application Musique:
+- Différentes informations sur les instruments sont maintenant disponibles à la fin de la partition en cours de lecture. On trouvera notamment le volume, le canal midi, le numéro de l'instrument midi, la transposition (si il y en a).
+Reportez-vous au manuel de l'application musique pour plus d'information.
+
+Les préférences
+- Support de la recherche et du téléchargement de mises à jour directement depuis l'appareil.
+Les mises à jour qui seront téléchargeables sont les fichier .update, installable directement depuis le B.note.
+Si une version plus récente de firmware ou de sdcard est disponible, vous en serez avertit lors de la recherche de mise à jour.
+Un paramètre des préférences vous permet de rechercher automatiquement ou non la présence de mise à jour.
+
+Autres améliorations:
+- Possibilité de vider automatiquement la corbeille et le dossier bluetooth à l'extinction de l'appareil.
+
+
+B.note version 2.4.0
+
+
+
+- Affichage du nom de l'application et du port com utilisé à la place de USB-A ou USB-B.
+
+- Ouverture de fichier .txt non utf-8 à l'aide de la table de caractère CP1252.
+
+- Correction d'un crash suite au passage en table braille Hébreux, Slovène et Zoulou.
+
+
+
+B.note version 2.3.0
+
+
+
+Cette mise à jour s'installe sur n'importe quel type de B.note. Elle prend la forme d'un fichier image qui nécessite le retrait de la carte sd.
+
+
+
+Les nouveautés de la version 2.3.0 sont les suivantes:
+
+
+
+Du côté des applications:
+
+- Une nouvelle application fait son apparition. Nommée "Agenda", elle vous permettra de noter des rendez-vous à faire pour une certaine date. Elle est également dotée d'un calendrier et d'une fonction de rappel, plus d'information dans le manuel utilisateur.
+
+
+
+Synthèse vocale:
+
+- Un nouveau synthétiseur est désormais intégré. Ce synthétiseur nommé "Cerence", n'est autre que le synthétiseur des voix Nuance, telles que Thomas, Audrey ou Aurélies. Pour des raisons matériel, les voix ne sont disponibles qu'en version standard (déjà d'excellente qualité).
+
+
+
+Améliorations musicales:
+
+- Un nouveau paramètre "mode édition et écoute" a été ajouté pour les fichiers .bxml et .musicxml. Situé dans les préférences, il permet d'activer tous les paramètres relatifs à l'édition et à l'écoute de la partition (voir la documentation pour la musique).
+
+- Lorsque vous créez une nouvelle partition et que vous mettez les signes de main gauche ou droite, l'application rétablira les signes lors de la réouverture, au lieu de les remplacer par "Right hand" ou "Left hand".
+
+- L'application est désormais en mesure d'appliquer les intervalles ascendant/descendant en fonction de la la partie de clavier (main droite/gauche) que vous jouez.
+
+- Une nouvelle option nommée "vue" permet d'afficher soit toute une partie, soit les sections de chaque partie les unes après les autres.
+
+- L'écriture des systèmes est désormais supportée.
+
+- Les titres, auteurs etc sont désormais lus par les éditeurs grand public de partition.
+
+- Autre correction de bugs et améliorations mineures.
+
+
+
+L'explorateur:
+
+- Correction d'un défaut de copier/coller présent lors du changement de dossier avec la fonction "aller à".
+
+- Les commandes au clavier braille pour ouvrir ou fermer un dossier en faisant flèche droite (b5+espace) et flèche gauche (b2+espace) sont désormais supportées, au même titre que les touches flèche gauche et droite du pavé de droite.
+
+
+
+L'éditeur:
+
+- Correction de la fonction de recherche et de remplacement.
+
+- Retrait d'un défaut entraînant un crash lors du calcul de certaines expressions mathématiques, tels que la combinaison ou l'arrangement.
+
+
+
+Les préférences:
+
+- Correction de la recherche d'un paramètre,
+
+- Ajout d'une nouvelle section consacrée à l'agenda.
+
+
+
+Interface:
+
+- Il est désormais possible d'utiliser la combinaison ALT+une lettre pour se rendre sur un élément dans les boîtes de dialogues. Par exemple, dans la boîte de dialogue rechercher
+
+ Et remplacer, vous pouvez taper le texte à rechercher, entrée, le texte de remplacement, et ALT+t pour sélectionner le bouton "remplacer tout".
+
+- Correction d'un problème de déplacement de curseur dans certaines zones d'édition.
+
+
+
+
+
+
+
+
+
+B.note version 2.2.0
+
+
+
+Cette version peut être installée sur un B.note de génération 1 et 2.
+
+
+
+Ci-dessous la liste des nouveautés et correctifs:
+
+
+
+Connectivité:
+
+- Le B.note possède maintenant 2 ports usb en 1, c'est-à-dire qu'il sera visible en double sur un ordinateur. Cette fonctionnalité permet de connecter un logiciel gérant le braille (lecteur d'écran ou EsySuite) sur chaque port, afin d'éviter des conflits de braille.
+
+
+
+Applications:
+
+- Ajout d'une application nommée "Audio" permettant de lire des fichiers au format mp3, wav, ogg, et wma. Cette application est associée à un paramètre qui permet de masquer cette application, ce paramètre est situé dans les préférences, section Interface utilisateur. Grâce à cette application, vous pouvez ouvrir vos fichiers audio directement depuis l'explorateur, ou depuis l'application Audio. Vous pouvez également créer des listes de lecture que vous pourrez enregistrer et retrouver par la suite.
+
+- Ajout d'une application permettant d'écouter la radio directement sur l'appareil. Une liste est téléchargeable depuis l'application, menu radio>Mettre à jour la liste depuis internet. L'application peut être affichée ou masquée depuis le panneau Interface utilisateur des préférences.
+
+- B.note est désormais en mesure de lire des partitions musicales au format .musicxml et de les afficher en braille. Vous pouvez éditer ces partitions et avoir un retour audio sur leur contenu. Vous pouvez également personnaliser l'affichage braille de la partition, définir le nombre de mesures par partie, la présence ou non de numéro de mesure, etc.
+
+
+
+général:
+
+- Il est maintenant possible d'afficher les raccourcis clavier associés aux menus dans B.note. Pour se faire, rendez-vous dans les préférences, section interface utilisateur, et cochez la case Raccourci clavier.
+
+- Lors de la lecture de contenu audio, vous pouvez régler le volume en pressant la flèche bas du pavé de gauche, avec la flèche droite pour monter, et la flèche gauche pour diminuer. Les commandes pour contrôler le volume de la synthèse vocale restent les mêmes. Le contrôle du contenu audio peut se faire n'importe où dans l'interface de B.note. Cette fonction est accompagnée d'un raccourci pour mettre le contenu en pause ou le relancer: flèche gauche et flèche haut du pavé de gauche.
+
+- Si le paramètre b78 est en mode fonction, la touche 7 déclenche la fonction correction, la touche 8 fait Entrée. Les touches 9 et A seront toutes deux considérées comme des touches espace.
+
+- Les raccourcis pour aller au début ou à la fin d'un document sont désormais flèche haut et gauche du pavé de droite pour aller au début du document, et flèche haut et droite du pavé de droite pour aller à la fin.
+
+
+
+L'explorateur:
+
+- Détection automatique des clefs usb et actualisation de l'affichage. Il vous suffira de vous placer dans le dossier clef usb, de brancher votre clef et de patienter quelques secondes avant de la voir apparaître.
+
+- Dans une clef usb, le raccourci CTRL+B éjectera automatiquement le périphérique.
+
+- Afin de parfaire l'apparition de la musique dans B.note, vous pouvez créer des fichiers au format .musicxml (CTRL+M) et au format .bxml (CTRL+B) le format propriétaire des partitions braille de B.note.
+
+
+
+L'éditeur:
+
+- Ajout d'un menu aller dans la barre de menu, permettant de naviguer dans le document courant. Vous y retrouverez notamment des commandes pour vous rendre au début ou à la fin du document.
+
+- Les commandes de sélection ont été regroupées dans un sous-menu sélection, dans le menu édition. 2 boutons ont été ajoutés, pour sélectionner jusqu'au début ou jusqu'à la fin du document.
+
+- Amélioration du codage braille de l'importation de fichiers brf US et FR.
+
+
+
+Bluetooth:
+
+- Retrait d'un bug qui conduisait à présenter des liaisons Bluetooth qui auraient normalement dû être effacées.
+
+
+
+Les préférences:
+
+- La section usb affiche le mode de clavier usb pour les ports usb-a et usb-b.
+
+- Ajout des commandes de masquage et affichage des apps décrites ci-dessus.
+
+- De la même manière que pour les maths, l'application préférences possède une catégorie dédiée à la musique.
+
+
+
+
+
+B.note version 2.0.1
+
+
+
+Mathématiques:
+
+Mise en place d'un nouveau braille pour la calculatrice, le braille UEB (Unified English Braille)
+
+
+
+Braille:
+
+Possibilité de choisir une table braille eo_ES : Braille 6 points Espérento et 8 points Espagnol.
+
+
+
+
+
+B.note version 2.0.0
+
+
+
+Cette version peut être installée sur un b.note de génération 1 ou 2.
+
+Le b.note de génération 2 se distingue par l'ajout de deux haut-parleurs intégrés et d'un port USB situé à l'arrière droit de l'appareil. Cette version permet  d'utiliser ces nouveautés.
+
+
+
+Ci-dessous la liste détaillée des nouveautés de cette version:
+
+
+
+Utilisation de périphériques Bluetooth
+
+- Amélioration de la gestion des périphériques Bluetooth par le b.note,
+
+- Le bouton bas du pavé de gauche est maintenant pris en compte par le périphérique connecté et ne renvoie plus sur le menu principal.
+
+
+
+L'explorateur:
+
+- La sortie de l'explorateur n'entraîne plus le curseur sur le premier fichier de la liste,
+
+- Ajout d'un choix USB dans le menu « aller à » (génération 2 uniquement).
+
+
+
+L'éditeur:
+
+- Importation des fichiers au format .rtf,
+
+- Le clignotement de tous les points indique la présence d'un signet.
+
+
+
+Les jeux:
+
+- Création d'un Master-mind et d'un Démineur, visibles en fonction d'un paramètre dans les préférences.
+
+
+
+Les préférences:
+
+- Amélioration de la navigation : la navigation de rubrique en rubrique se fait maintenant avec les flèches gauche et droite du pavé de droite et le parcours se fait avec les flèches haut et bas ou par l'avance de l'afficheur,
+
+- En génération 2 seulement : Ajout d'un indicateur audio permettant de savoir si un casque est branché ou non. Le son sortira sur le casque s'il est détecté.
+
+- Ajout de la synthèse mbrola et de la possibilité de choisir une voix pour la synthèse choisie.
+
+- Répartition des différentes langues dans les rubriques (langue des messages et langue du braille dans interface utilisateur, langue audio dans audio etc...),
+
+- Ajout d'une possibilité de connexion wifi (voir manuel au chapitre Wifi) qui est pour le moment dévolue au développement et au transfert de fichiers,
+
+- Le b.note en bluetooth n'est désormais plus considéré comme un haut-parleur, en conséquence de quoi le bouton audio de la rubrique Bluetooth disparaît,
+
+- Ajout de la génération du b.note dans la rubrique version ainsi que des informations relatives à l'espace de la sdcard.
+

@@ -178,7 +178,7 @@ class AgendaApp(BnoteApp):
             self.standard_presentation()
         elif self.filter == "all":
             self._present_all()
-        elif self.filter == "not done":
+        elif self.filter == "not_done":
             self._present_todo()
         elif self.filter == "today":
             self._present_today()
@@ -476,7 +476,7 @@ class AgendaApp(BnoteApp):
 
     def _exec_display_not_done(self):
         self.index=0
-        self.filter="not done"
+        self.filter="not_done"
         self.refresh_document()
 
     def _exec_today(self):
@@ -523,7 +523,7 @@ class AgendaApp(BnoteApp):
         filter_dict={
             False: 0,
             'today': 1,
-            'not done': 2,
+            'not_done': 2,
             'all': 3,
             'calendar': 4,
         }
@@ -1503,7 +1503,7 @@ class AgendaApp(BnoteApp):
             displayer=_("agenda")
         elif self.filter=="today":
             displayer=_("today")
-        elif self.filter=="not done":
+        elif self.filter=="not_done":
             displayer=_("event not done")
         elif self.filter=="all":
             displayer=_("all")

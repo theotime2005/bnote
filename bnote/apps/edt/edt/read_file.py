@@ -81,7 +81,7 @@ class ReadFile(threading.Thread):
             file_extension = file_extension.lower()
 
         try:
-            if file_extension == ".txt":
+            if file_extension == ".txt" or file_extension == ".ai_txt":
                 encodings = ['utf-8', 'cp1252']
                 e = None
                 for e in encodings:
