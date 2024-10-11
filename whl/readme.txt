@@ -1,4 +1,7 @@
-Put in this folder your new python package (.whl files).
+Put in this folder your new python package (.whl) or others zip files (.zip).
+All files with .whl or .data will be copied in ~/whl folder.
+
+the fichier libraries.txt allow to execute any linux command before installation like libraries installation or file copy
 
 For translate :
 translate-3.6.1-py2.py3-none-any.whl

@@ -43,6 +43,12 @@ class UiMultiLinesBox(UiContainer):
         self.is_moving_display = False
         self.moving_display_caret = None
 
+    def replace_text(self, text):
+        caret = self._editor.caret()
+        lines = text.split('\n')
+        self._editor = editor.Editor(Settings().data['editor']['line_length'], lines, is_read_only=self._editor.read_only)
+        self._editor.set_caret(caret)
+
     def get_presentation(self):
         """
         Construct presentation for an object
@@ -289,7 +295,7 @@ class UiMultiLinesBox(UiContainer):
                 # Refresh braille display
                 self._refresh_center_braille_display()
                 return True, True
-        log.warning("No function for bramigraph editbox defined for {}".format(bramigraph))
+            log.warning("No function for bramigraph editbox defined for {}".format(bramigraph))
         return super().exec_bramigraph(modifier, bramigraph)
 
     def do_interactive(self, modifier, relative_pos, key_type) -> (bool, bool):

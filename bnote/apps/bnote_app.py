@@ -83,6 +83,7 @@ class FunctionId(Enum):
     FUNCTION_WIKIPEDIA_TIME_OUT = object()
     FUNCTION_OPEN_WIKIPEDIA_DIALOG = object()
     FUNCTION_CLOSE_WIKIPEDIA = object()
+    FUNCTION_GET_RESPONSE_AI_ASSISTANT = object()
     ASK_TO_REFRESH_MESSAGE_DIALOG = object()
     UNABLE_TO_UPDATE = object()
 

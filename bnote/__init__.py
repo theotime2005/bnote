@@ -11,7 +11,6 @@
  Example : 1.0.0a0 < 1.0.0a1 < 1.0.0a8 < 1.0.0b1 < 1.0.0b2 < 1.0.0b11 < 1.0.0rc1 < 1.0.0
  Version in anothers forms are not tolerate !
  '''
-
 import os
 from bnote.tools.yaupdater import YAUpdater
 

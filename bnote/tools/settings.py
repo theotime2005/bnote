@@ -121,6 +121,7 @@ class Settings(metaclass=SingletonMeta):
                                          'firmware': '',
                                          'serial': '',
                                          },
+                               'ai_eurobraille': {'username': '', 'password': '', 'token': '', },
                                }
 
         self.VALID_VALUES = {'system': {'braille_type': ('dot-8', 'grade1', 'grade2'),
@@ -197,7 +198,7 @@ class Settings(metaclass=SingletonMeta):
                                            'bnote_name': re.compile('.*'),
                                            'auto_switch': [],
                                            'bt_simul_esys': (True, False)},
-                             'agenda': {'default_presentation': ('standard', 'not done', 'today','calendar'),
+                             'agenda': {'default_presentation': ('standard', 'not_done', 'today','calendar'),
                                         'remember': ('no', 'same', 'tomorrow', 'same_tomorrow')},
                              'braille_learning': {
                                                   'use_vocal': ("auto", "ask", "no"),
@@ -210,6 +211,7 @@ class Settings(metaclass=SingletonMeta):
                                        'firmware': '',
                                        'serial': '',
                                        },
+                             'ai_eurobraille': {'username': '', 'password': '', 'token': '',},
                              }
         self.data = dict()
 

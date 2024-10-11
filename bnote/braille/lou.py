@@ -58,7 +58,7 @@ class Lou:
     def __init__(self, langue):
         # Mutex for multiple threads access.
         self.lou_mutex = threading.Lock()  # equal to threading.Semaphore(1)
-        # absolute path on Pi : /usr/local/share/liblouis/tables
+        # absolute path on Pi : /usr/share/liblouis/tables
         self.path = b"../tables/"
 
         table_grade1, table_grade2, table_dots8, table_dots6 = Lou.language_dict.get(langue, Lou.language_default)

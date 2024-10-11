@@ -683,7 +683,7 @@ class EditorBaseApp(BnoteApp):
 
     def _exec_close(self):
         if self.editor.is_modified():
-            if not self.__dialog_is_reading_file():
+            if not self._dialog_is_reading_file():
                 # Ask confirmation.
                 self._current_dialog = ui.UiMessageDialogBox(
                     name=_("warning"),
@@ -700,7 +700,7 @@ class EditorBaseApp(BnoteApp):
             self._put_in_function_queue(FunctionId.FUNCTION_CLOSE_EDITOR, **{'app': self})
 
     def _exec_save(self, function=FunctionId.FUNCTION_CLOSE_DIALOG_BOX):
-        if not self.__dialog_is_reading_file():
+        if not self._dialog_is_reading_file():
             # Write editor in a file
             if self._file_name is not None:
                 # Display save in progress...
@@ -719,7 +719,7 @@ class EditorBaseApp(BnoteApp):
                     log.warning("no file name associated to document !, reading not ended ?")
 
     def _exec_cleanup(self):
-        if not self.__dialog_is_reading_file():
+        if not self._dialog_is_reading_file():
             # Remove all consecutive empty paragraph of the document.
             self._current_dialog = ui.UiInfoDialogBox(message=_("cleanup..."))
             self.wait_dialog = True
@@ -836,7 +836,7 @@ class EditorBaseApp(BnoteApp):
         # Refresh braille display (useful after caret move)
         self._refresh_braille_display(self._braille_display.get_start_pos())
 
-    def __dialog_is_reading_file(self):
+    def _dialog_is_reading_file(self):
         """
         Display a dialog box and returns True if reading file is in progress.
         """
@@ -848,7 +848,7 @@ class EditorBaseApp(BnoteApp):
             return False
 
     def _exec_find(self):
-        if not self.__dialog_is_reading_file():
+        if not self._dialog_is_reading_file():
             # Do a copy to allow cancel without degrading find's parameters
             self._current_dialog = ui.UiDialogBox(
                 name=_("find"),
@@ -873,7 +873,7 @@ class EditorBaseApp(BnoteApp):
             )
 
     def _exec_replace(self):
-        if not self.__dialog_is_reading_file():
+        if not self._dialog_is_reading_file():
             # Do a copy to allow cancel without degrading find's parameters
             self._current_dialog = ui.UiDialogBox(
                 name=_("replace"),
@@ -904,39 +904,39 @@ class EditorBaseApp(BnoteApp):
             )
 
     def _exec_next(self):
-        if not self.__dialog_is_reading_file():
+        if not self._dialog_is_reading_file():
             self._find_exec(editor.Editor.Functions.FIND, False)
 
     def _exec_replace_and_next(self):
-        if not self.__dialog_is_reading_file():
+        if not self._dialog_is_reading_file():
             self._replace_exec(editor.Editor.Functions.REPLACE_AND_FIND, False)
 
     def _exec_previous(self):
-        if not self.__dialog_is_reading_file():
+        if not self._dialog_is_reading_file():
             self._find_exec(editor.Editor.Functions.FIND, True)
 
     def _exec_replace_and_previous(self):
-        if not self.__dialog_is_reading_file():
+        if not self._dialog_is_reading_file():
             self._replace_exec(editor.Editor.Functions.REPLACE_AND_FIND, False)
 
     def _exec_replace_all(self):
-        if not self.__dialog_is_reading_file():
+        if not self._dialog_is_reading_file():
             self._replace_exec(editor.Editor.Functions.REPLACE_ALL, False)
 
     def _exec_marker_insert_delete(self):
-        if not self.__dialog_is_reading_file():
+        if not self._dialog_is_reading_file():
             self.editor.function(editor.Editor.Functions.MARKER, **{'ctrl': True})
 
     def _exec_marker_next(self):
-        if not self.__dialog_is_reading_file():
+        if not self._dialog_is_reading_file():
             self.editor.function(editor.Editor.Functions.MARKER, **{'shift': False})
 
     def _exec_marker_previous(self):
-        if not self.__dialog_is_reading_file():
+        if not self._dialog_is_reading_file():
             self.editor.function(editor.Editor.Functions.MARKER, **{'shift': True})
 
     def _exec_marker_clear_all(self):
-        if not self.__dialog_is_reading_file():
+        if not self._dialog_is_reading_file():
             self.editor.function(editor.Editor.Functions.MARKER, **{'ctrl': True, 'shift': True})
 
     def _exec_read_document(self):

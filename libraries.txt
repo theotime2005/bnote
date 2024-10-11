@@ -1,13 +1,6 @@
-# Update installed package.
-# sudo apt-get update -q
-# sudo apt-get upgrade -y -q
+# Patch liblouis.
+sudo mv -f /home/pi/whl/ar-ar-comp8.utb.zip /usr/share/liblouis/tables/ar-ar-comp8.utb
+sudo mv -f /home/pi/whl/hr-comp8.utb.zip /usr/share/liblouis/tables/hr-comp8.utb
 
-# Install packages.
-# sudo apt-get install vlc -y -q
-
-# Remove package.
-# sudo apt-get remove timidity -y -q
-# sudo apt-get install timidity -y -q
-
-# Cleanup libraries.
-# sudo apt-get autoremove -q -y
+# Installation pdftotext
+sudo apt-get install poppler-utils -y -q
