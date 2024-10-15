@@ -1,0 +1,119 @@
+B.note version 2.3.0
+
+Cette mise à jour s'installe sur n'importe quel type de B.note. Elle prend la forme d'un fichier image qui nécessite le retrait de la carte sd.
+
+Les nouveautés de la version 2.3.0 sont les suivantes:
+
+Du côté des applications:
+- Une nouvelle application fait son apparition. Nommée "Agenda", elle vous permettra de noter des rendez-vous à faire pour une certaine date. Elle est également dotée d'un calendrier et d'une fonction de rappel, plus d'information dans le manuel utilisateur.
+
+Synthèse vocale:
+- Un nouveau synthétiseur est désormais intégré. Ce synthétiseur nommé "Cerence", n'est autre que le synthétiseur des voix Nuance, telles que Thomas, Audrey ou Aurélies. Pour des raisons matériel, les voix ne sont disponibles qu'en version standard (déjà d'excellente qualité).
+
+Améliorations musicales:
+- Un nouveau paramètre "mode édition et écoute" a été ajouté pour les fichiers .bxml et .musicxml. Situé dans les préférences, il permet d'activer tous les paramètres relatifs à l'édition et à l'écoute de la partition (voir la documentation pour la musique).
+- Lorsque vous créez une nouvelle partition et que vous mettez les signes de main gauche ou droite, l'application rétablira les signes lors de la réouverture, au lieu de les remplacer par "Right hand" ou "Left hand".
+- L'application est désormais en mesure d'appliquer les intervalles ascendant/descendant en fonction de la la partie de clavier (main droite/gauche) que vous jouez.
+- Une nouvelle option nommée "vue" permet d'afficher soit toute une partie, soit les sections de chaque partie les unes après les autres.
+- L'écriture des systèmes est désormais supportée.
+- Les titres, auteurs etc sont désormais lus par les éditeurs grand public de partition.
+- Autre correction de bugs et améliorations mineures.
+
+L'explorateur:
+- Correction d'un défaut de copier/coller présent lors du changement de dossier avec la fonction "aller à".
+- Les commandes au clavier braille pour ouvrir ou fermer un dossier en faisant flèche droite (b5+espace) et flèche gauche (b2+espace) sont désormais supportées, au même titre que les touches flèche gauche et droite du pavé de droite.
+
+L'éditeur:
+- Correction de la fonction de recherche et de remplacement.
+- Retrait d'un défaut entraînant un crash lors du calcul de certaines expressions mathématiques, tels que la combinaison ou l'arrangement.
+
+Les préférences:
+- Correction de la recherche d'un paramètre,
+- Ajout d'une nouvelle section consacrée à l'agenda.
+
+Interface:
+- Il est désormais possible d'utiliser la combinaison ALT+une lettre pour se rendre sur un élément dans les boîtes de dialogues. Par exemple, dans la boîte de dialogue rechercher
+ Et remplacer, vous pouvez taper le texte à rechercher, entrée, le texte de remplacement, et ALT+t pour sélectionner le bouton "remplacer tout".
+- Correction d'un problème de déplacement de curseur dans certaines zones d'édition.
+
+
+
+
+B.note version 2.2.0
+
+Cette version peut être installée sur un B.note de génération 1 et 2.
+
+Ci-dessous la liste des nouveautés et correctifs:
+
+Connectivité:
+- Le B.note possède maintenant 2 ports usb en 1, c'est-à-dire qu'il sera visible en double sur un ordinateur. Cette fonctionnalité permet de connecter un logiciel gérant le braille (lecteur d'écran ou EsySuite) sur chaque port, afin d'éviter des conflits de braille.
+
+Applications:
+- Ajout d'une application nommée "Audio" permettant de lire des fichiers au format mp3, wav, ogg, et wma. Cette application est associée à un paramètre qui permet de masquer cette application, ce paramètre est situé dans les préférences, section Interface utilisateur. Grâce à cette application, vous pouvez ouvrir vos fichiers audio directement depuis l'explorateur, ou depuis l'application Audio. Vous pouvez également créer des listes de lecture que vous pourrez enregistrer et retrouver par la suite.
+- Ajout d'une application permettant d'écouter la radio directement sur l'appareil. Une liste est téléchargeable depuis l'application, menu radio>Mettre à jour la liste depuis internet. L'application peut être affichée ou masquée depuis le panneau Interface utilisateur des préférences.
+- B.note est désormais en mesure de lire des partitions musicales au format .musicxml et de les afficher en braille. Vous pouvez éditer ces partitions et avoir un retour audio sur leur contenu. Vous pouvez également personnaliser l'affichage braille de la partition, définir le nombre de mesures par partie, la présence ou non de numéro de mesure, etc.
+
+général:
+- Il est maintenant possible d'afficher les raccourcis clavier associés aux menus dans B.note. Pour se faire, rendez-vous dans les préférences, section interface utilisateur, et cochez la case Raccourci clavier.
+- Lors de la lecture de contenu audio, vous pouvez régler le volume en pressant la flèche bas du pavé de gauche, avec la flèche droite pour monter, et la flèche gauche pour diminuer. Les commandes pour contrôler le volume de la synthèse vocale restent les mêmes. Le contrôle du contenu audio peut se faire n'importe où dans l'interface de B.note. Cette fonction est accompagnée d'un raccourci pour mettre le contenu en pause ou le relancer: flèche gauche et flèche haut du pavé de gauche.
+- Si le paramètre b78 est en mode fonction, la touche 7 déclenche la fonction correction, la touche 8 fait Entrée. Les touches 9 et A seront toutes deux considérées comme des touches espace.
+- Les raccourcis pour aller au début ou à la fin d'un document sont désormais flèche haut et gauche du pavé de droite pour aller au début du document, et flèche haut et droite du pavé de droite pour aller à la fin.
+
+L'explorateur:
+- Détection automatique des clefs usb et actualisation de l'affichage. Il vous suffira de vous placer dans le dossier clef usb, de brancher votre clef et de patienter quelques secondes avant de la voir apparaître.
+- Dans une clef usb, le raccourci CTRL+B éjectera automatiquement le périphérique.
+- Afin de parfaire l'apparition de la musique dans B.note, vous pouvez créer des fichiers au format .musicxml (CTRL+M) et au format .bxml (CTRL+B) le format propriétaire des partitions braille de B.note.
+
+L'éditeur:
+- Ajout d'un menu aller dans la barre de menu, permettant de naviguer dans le document courant. Vous y retrouverez notamment des commandes pour vous rendre au début ou à la fin du document.
+- Les commandes de sélection ont été regroupées dans un sous-menu sélection, dans le menu édition. 2 boutons ont été ajoutés, pour sélectionner jusqu'au début ou jusqu'à la fin du document.
+- Amélioration du codage braille de l'importation de fichiers brf US et FR.
+
+Bluetooth:
+- Retrait d'un bug qui conduisait à présenter des liaisons Bluetooth qui auraient normalement dû être effacées.
+
+Les préférences:
+- La section usb affiche le mode de clavier usb pour les ports usb-a et usb-b.
+- Ajout des commandes de masquage et affichage des apps décrites ci-dessus.
+- De la même manière que pour les maths, l'application préférences possède une catégorie dédiée à la musique.
+
+
+B.note version 2.0.1
+
+Mathématiques:
+Mise en place d'un nouveau braille pour la calculatrice, le braille UEB (Unified English Braille)
+
+Braille:
+Possibilité de choisir une table braille eo_ES : Braille 6 points Espérento et 8 points Espagnol.
+
+
+B.note version 2.0.0
+
+Cette version peut être installée sur un b.note de génération 1 ou 2.
+Le b.note de génération 2 se distingue par l'ajout de deux haut-parleurs intégrés et d'un port USB situé à l'arrière droit de l'appareil. Cette version permet  d'utiliser ces nouveautés.
+
+Ci-dessous la liste détaillée des nouveautés de cette version:
+
+Utilisation de périphériques Bluetooth
+- Amélioration de la gestion des périphériques Bluetooth par le b.note,
+- Le bouton bas du pavé de gauche est maintenant pris en compte par le périphérique connecté et ne renvoie plus sur le menu principal.
+
+L'explorateur:
+- La sortie de l'explorateur n'entraîne plus le curseur sur le premier fichier de la liste,
+- Ajout d'un choix USB dans le menu « aller à » (génération 2 uniquement).
+
+L'éditeur:
+- Importation des fichiers au format .rtf,
+- Le clignotement de tous les points indique la présence d'un signet.
+
+Les jeux:
+- Création d'un Master-mind et d'un Démineur, visibles en fonction d'un paramètre dans les préférences.
+
+Les préférences:
+- Amélioration de la navigation : la navigation de rubrique en rubrique se fait maintenant avec les flèches gauche et droite du pavé de droite et le parcours se fait avec les flèches haut et bas ou par l'avance de l'afficheur,
+- En génération 2 seulement : Ajout d'un indicateur audio permettant de savoir si un casque est branché ou non. Le son sortira sur le casque s'il est détecté.
+- Ajout de la synthèse mbrola et de la possibilité de choisir une voix pour la synthèse choisie.
+- Répartition des différentes langues dans les rubriques (langue des messages et langue du braille dans interface utilisateur, langue audio dans audio etc...),
+- Ajout d'une possibilité de connexion wifi (voir manuel au chapitre Wifi) qui est pour le moment dévolue au développement et au transfert de fichiers,
+- Le b.note en bluetooth n'est désormais plus considéré comme un haut-parleur, en conséquence de quoi le bouton audio de la rubrique Bluetooth disparaît,
+- Ajout de la génération du b.note dans la rubrique version ainsi que des informations relatives à l'espace de la sdcard.

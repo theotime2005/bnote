@@ -1,0 +1,31 @@
+"""
+Copyright (c)2021 eurobraille
+This software is the proprietary of eurobraille and may not be copied,
+distributed, published,or disclosed without express prior written permission.
+"""
+from .l1llll_opy_ import l1lll1_opy_
+from .l1l1_opy_ import l1_opy_
+# ll_opy_ the logger for this file
+from .colored_log import ColoredLogger, MATH_RESULT_LOG
+log = ColoredLogger(__name__, level=MATH_RESULT_LOG)
+class l1l1l1_opy_(l1lll1_opy_):
+    def __init__(self, l1l111_opy_, arg):
+        l1lll1_opy_.__init__(self, -1)
+        self.l1l111_opy_ = l1l111_opy_
+        self.arg = arg
+    def display_tree(self, level=0):
+        if level == 0:
+            l1l1ll_opy_ = "\nMATH EXPRESSION -----------\n"
+            l1l11l_opy_ = "---------------------------\n"
+        else:
+            l1l1ll_opy_ = ""
+            l1l11l_opy_ = ""
+        return ''.join([l1l1ll_opy_,
+                        '    ' * level, "expression:", self.l1l111_opy_,
+                        "\n",
+                        self.arg.display_tree(level + 1),
+                        l1l11l_opy_])
+    def compute(self):
+        value = self.arg.compute()
+        l1_opy_.l1lll_opy_("r", value)
+        return value

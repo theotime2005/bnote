@@ -1,0 +1,112 @@
+﻿Introduction
+b.note permet désormais de gérer les partitions musicales du noir vers le braille et inversement.
+Nous utiliserons dans la mesure du possible la notation officielle du braille musical et nous l'adapterons en cas de besoin comme il sera précisé dans ce manuel.
+Il est possible d'ouvrir des partitions qui auront été préparées par des voyants à partir d'un éditeur de partition tel que musescore ou autre. On pourra également en trouver depuis internet.
+Chaque logiciel ayant son propre format de fichier, nous utiliserons le format de fichier musicxml, qui est le plus portable entre tous les éditeurs de partition existant. Si vous disposez d'un fichier provenant de musescore, dans son format propre qui est mscz en général, vous pourrez l'exporter depuis ce même logiciel en fichier musicxml. De même pour les autres éditeurs existant.
+Inversement, vous pourrez taper une partition en braille, l'écouter et la convertir en musicxml pour la partager avec des voyants.
+b.note utilisera deux types de fichiers :
+les fichiers musicxml qui permettent les échanges entre les aveugles et les voyants,
+les fichiers bxml qui est un format natif créé par eurobraille qui permettra de conserver des informations non comprises dans le format musicxml.
+Vous pourrez personnaliser les informations que vous voulez voir en braille lorsque vous ouvrez un fichier pour le lire, voir les indications de clefs ou non etc. Par contre, si vous voulez créer ou modifier une partition, il faudra faire afficher beaucoup plus d'informations pour que le logiciel puisse gérer correctement les difficultés liées par exemple aux valeurs de notes plus grandes ou plus petites. En effet, en braille un do ronde s'écrit comme un do double croche par exemple. Pour éviter toute erreur d'interprétation de la partition par le logiciel, pour l'instant, il sera obligatoire d'utiliser un mode de saisie en huit points qui sera expliqué plus loin.
+
+    1. Ouverture d'un fichier :
+Comme tout autre fichier dans le b.note, les fichiers de musique s'ouvriront depuis l'explorateur ; il suffit de se rendre sur ce fichier et de faire entrée ou de faire un clic fort avec les curseurs routines sur son nom.
+Deux types de fichiers seront utilisables :
+        1.1. Les fichiers musicxml
+Tout éditeur de partition pour les voyants est capable d'enregistrer des partitions au format musicxml. Ces fichiers contiennent de multiples informations telles que
+    • Le titre de la partition
+    • son sous-titre
+    • son compositeur
+    • son auteur
+    • le nombre de parties et leurs caractéristiques
+    • l'indication de mesure
+    • l'indication d'armure
+    • et bien sûr les différentes mesures et notes qui la composent etc…
+Toutes ces informations pourront être montrées en braille, pourtant, vous souhaiterez peut-être ne pas voir toutes les informations pour faciliter la découverte ou la lecture de la partition. Certains choix sont déjà effectués par défaut, pourtant, vous pourrez les adapter à votre guise, à l'aide de l'application préférences, dans le menu principal, à la rubrique musique.
+Pour les fichiers musicxml, vous pourrez modifier les choix suivants :
+    • mode édition, si vous choisissez oui, les fichiers seront ouverts en affichant en braille, toutes les données nécessaires à la modification et à l'écoute d'un fichier de musique, comme expliqué au chapitre 2.3. Dans le cas contraire, vous pourrez personnaliser les éléments que vous voulez voir ou non lors d'une lecture en braille.
+    • notes en braille, vous pourrez choisir de les voir en 6 points avec les groupements en cas de 4 double-croches par exemple, en 6 points sans les groupements ou encore en 8 points, voir plus loin.
+    • Intervalles, vous pourrez choisir de les voir en ascendant ou en descendant, pour l'instant, ce choix est valable pour toute la partition et non selon l'instrument ou la main droite ou gauche pour les instruments à clavier.
+    • Doigté, vous pourrez les afficher ou non selon l'étape de votre apprentissage de la partition
+    • Clef, elles n'ont pas tellement d'intérêt en braille, sinon de savoir celles qui sont utilisées pour les voyants
+    • Partie, chacune peut être représentée par son nom, son nom abrégé ou son identifiant tels qu'ils existent dans le fichier musicxml
+    • Barre de mesure b123, vous pourrez choisir de voir chaque barre de mesure uniquement par un espace, ou par l'espace suivi des points 123 puis de nouveau d'un espace, comme la musique braille le permet ; ce dernier mode est pour l'instant obligatoire pour éditer une partition afin que le logiciel interprète correctement les mesures.
+    • numéro de mesure, cela permet de se repérer dans le morceau par exemple pour reprendre à la mesure 9.
+    • Numéro de mesure tous les, permettra si l'on a choisi de voir les numéros de mesure, de ne les voir que tous les 8 mesures par exemple.
+    • Affichage, permettra de présenter le fichier en montrant les différentes parties l'une après l'autre, ou en tronçonnant le morceau en section, chaque section de partie étant présentée à chaque section.
+    • Section, une section est un tronçon de la partie correspondante à un instrument. Vous pourrez choisir de voir toute la partie d'un seul trait, par système telle que le voyant la voit ou en choisissant un nombre de mesure par section.
+    • Mesures par section, si dans le paramètre section, vous avez choisi de voir un nombre de mesures par section, vous pourrez ici choisir la valeur de ce nombre.
+    • Annotations, ce sont les indications présentes dans la partition indiquant des façons de jouer un passage.
+    • Texte hors musique, ce sont les indications de titre, sous-titre, compositeur et auteur parfois présents dans les partitions, elles seront au début de la partition braille.
+    • Paroles, vous pourrez choisir de les voir après chaque note afin de ne pas avoir de doute sur la correspondance entre la note et le texte associé, au début de la section ou à la fin de la section.
+
+        1.2. Les fichiers bxml :
+Il s'agit d'un type de fichier propre à l'application musicale du b.note. Très proche dans sa structure des fichiers musicxml, ils permettront en plus de stocker des informations sur des fonctionnalités propres à notre application, ainsi que des indications propres au braille musical.
+L'existence des deux types de fichiers, musicxml et bxml, permettra également de régler différemment les paramètres de ce que l'on veut voir en braille pour chacun de ces formats.
+Dans l'application préférences à la rubrique musique, vous aurez lez mêmes réglages que pour les fichiers musixml détaillés au chapitre 1.1, complétés du paramètre suivant :
+Karaoke, cette fonction est déjà prévue mais ne fonctionne pas encore sur le b.note, elle permettra de faire lire à la synthèse vocale les phrases que vous devrez chanter, avant que vous ne deviez les chanter, afin de vous remémorer les paroles.
+
+    2. Création ou édition d'un fichier :
+        2.1. Création d'un fichier :
+Depuis l'explorateur du b.note, vous pourrez créer un nouveau fichier en allant dans le menu fichier, nouveau, musicxml ou bxml. Le format bxml sera préférable car il peut contenir des informations supplémentaires par rapport au format musicxml, surtout au fur et à mesure de l'évolution de l'application musicale. Il vous faudra ensuite suivre les recommandations du chapitre 2.3.
+        2.2. Édition d'un fichier :
+Après avoir ouvert un fichier existant, vous pourrez le modifier. Il vous faudra ensuite suivre les recommandations du chapitre 2.3. Vous pourrez choisir le paramètre "mode édition" à oui, pour ne pas avoir à modifier d'autres paramètres.
+        2.3. Recommandations pour l'édition d'un fichier :
+Dans l'état actuel du logiciel musical du b.note, il est impératif pour obtenir un résultat correct de suivre les conseils suivants.
+            2.3.1. Les notes :
+En braille musical, l'écriture des notes est complexifiée par le fait que un code braille peut avoir plusieurs significations :
+    • Les rondes s'écrivent comme les double-croches
+    • Les blanches s'écrivent comme les triple-croches
+    • Les noires comme les quadruple-croches
+    • Les croches comme les quintuple-croches
+    • Les groupements de notes peuvent par exemple faire que si l'on a 4 double-croches dans le même temps, on puisse écrire la première en double-croche (donc comme une ronde) et les trois suivantes comme des croches.
+Le logiciel musical du b.note ne permet pas actuellement de gérer correctement tous ces cas, c'est pourquoi nous vous demanderons d'utiliser une notation en braille 8 points pour la saisie des notes.
+Les rondes, blanches, noires et croches s'écriront comme d'habitude, les double triple quadruple et quintuple croches s'écriront comme d'habitude, mais en leur ajoutant le point 7. Une fois le fichier enregistré, vous pourrez revoir la notation traditionnelle si vous n'avez plus à modifier la partition.
+            2.3.2. Les barres de mesure :
+En braille musical, chaque mesure est le plus souvent séparée de la suivante par un espace, pourtant, on peut utilisé le symbole points 123 isolé pour marquer la barre de mesure. Pour que le logiciel interprète correctement chaque mesure, pour l'instant, il est obligatoire d'utiliser le symbole points 123 comme séparateur de mesure.
+En effet, l'espace ne représente pas uniquement la barre de mesure, mais peut également se trouver comme séparateur d'indication de mesure, d'armure etc… 
+Une fois le fichier enregistré, vous pourrez revoir la notation traditionnelle si vous n'avez plus à modifier la partition.
+            2.3.3. Les espaces dans une partition braille :
+Afin d'être correctement reconnus, certains éléments doivent être écrits isolément, en début de ligne suivi d'un espace, ou entourés par un espace avant et après. C'est le cas pour :
+    • Les indications de mesure
+    • L'armure
+    • Les annotations dans une partition
+    • Les clefs
+    • Les indications de partie
+            2.3.4. Les éléments isolés sur une ligne :
+Les titres, sous-titres, compositeurs, auteurs et simples textes d'en-tête de partition, sont habituellement écrits en braille papier en début de la partition, sans indication particulière indiquant la nature de l'élément. En musicxml, chaque type d'élément est spécifiquement décrit, de manière à être présenté correctement en noir. Il faudra préfixer ces indications de titre ou autre par le code adéquat, qui a été inventé pour le besoin, voir annexe.
+    3. Annexe :
+        3.1. Codes inventés pour la compatibilité avec le format musicxml :
+Code braille
+Signification
+56,23,23,2456
+Texte, en début de partition
+56,23,23,2345
+Titre, en début de partition
+56,23,23,234
+Sous-titre, en début de partition
+56,23,23,14
+Compositeur, en début de partition
+56,23,23,123
+Parolier, en début de partition
+56,23,23,1234
+Nom de piste, en début de chacune
+13456,45,14,45,14,45,14,13456
+Do maxima, valeur de 8 rondes, identique pour les autres notes ou silences
+13456,45,14,45,14,13456
+Do longue, identique pour les autres notes ou silences
+134567
+Do double-croche, 16th, identique pour les autres notes ou silences
+13457
+Do triple-croche, 32nd, identique pour les autres notes ou silences
+14567
+Do quadruple-croche, 64th, identique pour les autres notes ou silences
+1457
+Do quintuple-croche, 128th, identique pour les autres notes ou silences
+1345678
+Do sextuple-croche, 256th, identique pour les autres notes ou silences
+134578
+Do 512th, identique pour les autres notes ou silences
+145678
+Do 1024th, identique pour les autres notes ou silences
+

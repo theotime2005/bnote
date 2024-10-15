@@ -1,0 +1,9 @@
+"""
+Copyright (c)2021 eurobraille
+This software is the proprietary of eurobraille and may not be copied,
+distributed, published,or disclosed without express prior written permission.
+"""
+from .l1l1l111l_opy_ import *
+l1l11ll1ll_opy_ = {l1l1ll1l11l_opy_.l1l1l11llll_opy_.a: "A", l1l1ll1l11l_opy_.l1l1l11llll_opy_.b: "B", l1l1ll1l11l_opy_.l1l1l11llll_opy_.c: "C", l1l1ll1l11l_opy_.l1l1l11llll_opy_.d: "D", l1l1ll1l11l_opy_.l1l1l11llll_opy_.e: "E", l1l1ll1l11l_opy_.l1l1l11llll_opy_.f: "F", l1l1ll1l11l_opy_.l1l1l11llll_opy_.g: "G"}
+l111111ll_opy_ = {l1l1ll1l11l_opy_.l1l1l11l1ll_opy_.l1l1l11ll1l_opy_: "no", l1l1ll1l11l_opy_.l1l1l11l1ll_opy_.l1l1l11ll11_opy_: "1", l1l1ll1l11l_opy_.l1l1l11l1ll_opy_.l1l1l11lll1_opy_: "2", l1l1ll1l11l_opy_.l1l1l11l1ll_opy_.l1l1l11l1l1_opy_: "-1", l1l1ll1l11l_opy_.l1l1l11l1ll_opy_.l1l1l11l11l_opy_: "-2"}
+l1ll1111l1_opy_ = {l1l1ll1l11l_opy_.l1l1l1111ll_opy_.l1l11llll1l_opy_: "maxima", l1l1ll1l11l_opy_.l1l1l1111ll_opy_.l1l1l111l1l_opy_: "long", l1l1ll1l11l_opy_.l1l1l1111ll_opy_.l1l11lll1l1_opy_: "breve", l1l1ll1l11l_opy_.l1l1l1111ll_opy_.l1l11lll1ll_opy_: "whole", l1l1ll1l11l_opy_.l1l1l1111ll_opy_.l1l11lllll1_opy_: "half", l1l1ll1l11l_opy_.l1l1l1111ll_opy_.l1l1l111lll_opy_: "quarter", l1l1ll1l11l_opy_.l1l1l1111ll_opy_.l1l1l11l111_opy_: "eighth", l1l1ll1l11l_opy_.l1l1l1111ll_opy_.l1l1l111ll1_opy_: "16th", l1l1ll1l11l_opy_.l1l1l1111ll_opy_.l1l11llll11_opy_: "32nd", l1l1ll1l11l_opy_.l1l1l1111ll_opy_.l1l1l11111l_opy_: "64th", l1l1ll1l11l_opy_.l1l1l1111ll_opy_.l1l1l111l11_opy_: "128th", l1l1ll1l11l_opy_.l1l1l1111ll_opy_.l1l1l1111l1_opy_: "256th", l1l1ll1l11l_opy_.l1l1l1111ll_opy_.l1l11llllll_opy_: "512th", l1l1ll1l11l_opy_.l1l1l1111ll_opy_.l1l1l111111_opy_: "1024th"}
