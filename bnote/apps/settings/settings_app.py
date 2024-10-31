@@ -17,7 +17,7 @@ import bnote.__init__ as version
 from bnote.apps.bnote_app import BnoteApp, FunctionId
 from bnote.apps.fman.file_manager import FileManager
 
-from datetime import datetime
+from datetime import datetime, timezone
 
 from bnote.speech.speech import SpeechManager
 from bnote.stm32 import stm32_keys
@@ -27,7 +27,7 @@ from bnote.tools import bt_util
 from bnote.tools.keyboard import Keyboard
 from bnote.tools.quick_search import QuickSearch
 from bnote.tools.settings import Settings, BLUETOOTH_BASE_NAME
-from bnote.tools.sync_date import SyncDate
+from bnote.tools.sync_date import SyncDate, get_timezone_list
 from bnote.tools.translate import Translate
 from bnote.tools.yaupdater import UPDATE_FOLDER_URL, YAUpdater, YAUpdaterFinder, YAVersionFinder, test_new_source, \
     change_update_source
@@ -115,7 +115,7 @@ class SettingsApp(BnoteApp):
                 self._put_in_function_queue(FunctionId.FUNCTION_CHECK_UPDATE)
             # Sync date if setting agree.
             if Settings().data['system']['auto_sync_date']:
-                sync_date = SyncDate(self.__change_clock_date_and_time)
+                sync_date = SyncDate(Settings().data['system']['timezone'], self.__change_clock_date_and_time)
                 sync_date.start()
 
             self.__refresh_braille_display()
@@ -167,6 +167,7 @@ class SettingsApp(BnoteApp):
                                          'action_param': {'section': 'system', 'key': 'braille_type'}},
             ('system', 'auto_sync_date'): {'action': self.__dialog_set_settings,
                                            'action_param': {"section": 'system', "key": 'auto_sync_date'}},
+            ('system', 'timezone'): {'action': self._exec_select_timezone, 'action_param': {}},
             ('system', 'spaces_in_label'): {'action': self.__dialog_set_settings,
                                             'action_param': {'section': 'system', 'key': 'spaces_in_label'}},
             ('system', 'shortcuts_visible'): {'action': self.__dialog_set_settings,
@@ -437,6 +438,7 @@ class SettingsApp(BnoteApp):
                         ui.UiMenuItem(name=_("&date"), **self.__action_and_action_param[('stm32', 'date')]),
                         ui.UiMenuItem(name=_("&auto sync"),
                                       **self.__action_and_action_param[('system', 'auto_sync_date')]),
+                        ui.UiMenuItem(name=_("&timezone"), **self.__action_and_action_param[('system', 'timezone')]),
                     ]),
 
                 ui.UiMenuBar(
@@ -708,6 +710,8 @@ class SettingsApp(BnoteApp):
                                        param_value=self.__get_settings_value('system', 'auto_sync_date'),
                                        dialog_box_name=_("clock"), dialog_box_param_name=_("auto &sync date"),
                                        section='system', key='auto_sync_date')
+        self.__append_line_in_document(param_label=_("time zone"), param_value=Settings().data['system']['timezone'],
+                                       section="system", key="timezone")
 
         self.__append_line_in_document()
         self.__append_line_in_document(param_label=_("battery"), param_value=self.__get_battery_value(),
@@ -3276,3 +3280,55 @@ class SettingsApp(BnoteApp):
         for section, section_data in Settings().data.items():
             for key in section_data:
                 self._put_in_function_queue(FunctionId.FUNCTION_SETTINGS_CHANGE, **{'section': section, 'key': key})
+
+    def _exec_select_timezone(self, timezones=None):
+        if not timezones:
+            timezones = get_timezone_list(Settings().data['system']['timezone'])
+            if not timezones:
+                self._current_dialog=ui.UiInfoDialogBox(
+                    message=_("no time zone found."),
+                    action=self._exec_cancel_dialog
+                )
+        self._current_dialog=ui.UiDialogBox(
+            name=_("chose a time zone"),
+            item_list=[
+                ui.UiListBox(name=_("&select time zone"), value=("timezone", timezones[0]), current_index=timezones[1]),
+                ui.UiButton(name=_("&ok"), action=self._exec_valid_timezone),
+                ui.UiButton(name=_("&find"), action=self._exec_find_timezone),
+                ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
+            ],
+            action_cancelable=self._exec_cancel_dialog,
+        )
+
+    def _exec_find_timezone(self):
+        self._current_dialog=ui.UiDialogBox(
+            name=_("search a time zone"),
+            item_list=[
+                ui.UiEditBox(name=_("&search"), value=("search", "")),
+                ui.UiButton(name=_("&find"), action=self._exec_valid_find_timezone),
+                ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
+            ],
+            action_cancelable=self._exec_cancel_dialog,
+        )
+
+    def _exec_valid_find_timezone(self):
+        kwargs = self._current_dialog.get_values()
+        timezone_list=get_timezone_list(Settings().data['system']['timezone'])[0]
+        clear_timezone_list = []
+        for zone in timezone_list:
+            if kwargs['search'].upper() in zone.upper():
+                clear_timezone_list.append(zone)
+        if not clear_timezone_list:
+            self._current_dialog = ui.UiInfoDialogBox(
+                message=_("no time zone found."),
+                action=self._exec_cancel_dialog
+            )
+        else:
+            self._exec_select_timezone((clear_timezone_list, 0))
+
+    def _exec_valid_timezone(self):
+        kwargs = self._current_dialog.get_values()
+        Settings().data['system']['timezone']=kwargs['timezone']
+        self._put_in_function_queue(FunctionId.FUNCTION_SETTINGS_CHANGE, **{'section': 'system', 'key': 'timezone'})
+        sync_date = SyncDate(Settings().data['system']['timezone'], self.__change_clock_date_and_time)
+        sync_date.start()
