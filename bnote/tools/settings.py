@@ -315,6 +315,8 @@ class Settings(metaclass=SingletonMeta):
 
         # print(f"{self.data=}")
         # print(f"{len(self.data)=}")
+        # Check migration
+        self.migrate_settings()
 
         # Save the data to reflect the possible change from setdefault()
         self.save()
@@ -350,3 +352,15 @@ class Settings(metaclass=SingletonMeta):
         self.save()
         self.load()
         return True
+
+    def migrate_settings(self):
+        """
+        If settings value has change, they must be change here
+        """
+        must_save = False
+        # Agenda has change not done to not_done
+        if self.data['agenda']['default_presentation']=="not done":
+            self.data['agenda']['default_presentation']="not_done"
+            must_save = True
+        # Add other changements here
+        return must_save
