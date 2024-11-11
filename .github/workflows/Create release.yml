@@ -2,8 +2,8 @@ name: Create release
 
 on:
   push:
-    branches:
-      - create-workflow-to-generate-release
+    tags:
+      - '*'
 
 jobs:
   Build:
