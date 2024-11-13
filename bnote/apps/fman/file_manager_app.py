@@ -2210,7 +2210,7 @@ class FileManagerApp(BnoteApp):
                 elif extension == ".bnote":
                     self._current_dialog = ui.UiMessageDialogBox(
                         name=_("warning"),
-                        message=_("this file will be replace the existing settings file, do you want to continue?"),
+                        message=_("this file will be replace the existing settings file. B.note will be restart after importing. Do you want to continue?"),
                         buttons=[
                             ui.UiButton(name=_("&yes"), action=self.__import_settings),
                             ui.UiButton(name=_("&no"), action=self._exec_cancel_dialog),
@@ -2271,7 +2271,7 @@ class FileManagerApp(BnoteApp):
             self._put_in_function_queue(FunctionId.UNABLE_TO_UPDATE)
         else:
             # Change message and restart service to restart the new bnoteapp.
-            self.refresh_install_message("install done, restart new version...")
+            self.refresh_install_message(_("install done, restart new version..."))
             self._put_in_function_queue(FunctionId.ASK_TERMINATE_BNOTE_AND_RESTART_SERVICE)
 
     def __import_settings(self):
@@ -2282,10 +2282,8 @@ class FileManagerApp(BnoteApp):
                 message=_("failed to import the file, check the source and try again."),
                 action=self._exec_cancel_dialog)
             return
-        self._current_dialog = ui.UiInfoDialogBox(message=_("imported settings."), action=self._exec_cancel_dialog)
-        # for section, section_data in Settings().data.items():
-        #     for key in section_data:
-        #         self._put_in_function_queue(FunctionId.FUNCTION_SETTINGS_CHANGE, **{'section': section, 'key': key})
+        self._current_dialog = ui.UiInfoDialogBox(message=_("restarting..."), action=self._exec_cancel_dialog)
+        self._put_in_function_queue(FunctionId.ASK_TERMINATE_BNOTE_AND_RESTART_SERVICE)
 
     def __activate_parent(self, *args, **kwargs):
         # User must stay in his user space.

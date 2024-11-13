@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-15 22:41+0100\n"
+"POT-Creation-Date: 2024-11-15 22:50+0100\n"
 "PO-Revision-Date: 2023-11-20 09:27+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -53,7 +53,7 @@ msgstr "الأحرف"
 #: ../apps/settings/settings_app.py:2039 ../apps/settings/settings_app.py:2151
 #: ../apps/settings/settings_app.py:2223 ../apps/settings/settings_app.py:2290
 #: ../apps/settings/settings_app.py:3118 ../apps/settings/settings_app.py:3190
-#: ../apps/settings/settings_app.py:3297 ../apps/edt/editor_app.py:194
+#: ../apps/settings/settings_app.py:3296 ../apps/edt/editor_app.py:194
 #: ../apps/edt/editor_app.py:211 ../apps/edt/editor_base_app.py:758
 #: ../apps/edt/editor_base_app.py:803 ../apps/edt/editor_base_app.py:1265
 #: ../apps/wikipedia/wikipedia_app.py:197 ../apps/daisy/daisy_app.py:278
@@ -115,7 +115,7 @@ msgstr "&موافق"
 #: ../apps/settings/settings_app.py:2555 ../apps/settings/settings_app.py:2613
 #: ../apps/settings/settings_app.py:3120 ../apps/settings/settings_app.py:3158
 #: ../apps/settings/settings_app.py:3207 ../apps/settings/settings_app.py:3246
-#: ../apps/settings/settings_app.py:3299 ../apps/settings/settings_app.py:3310
+#: ../apps/settings/settings_app.py:3298 ../apps/settings/settings_app.py:3309
 #: ../apps/edt/editor_app.py:151 ../apps/edt/editor_app.py:195
 #: ../apps/edt/editor_app.py:213 ../apps/edt/editor_base_app.py:694
 #: ../apps/edt/editor_base_app.py:804 ../apps/edt/editor_base_app.py:861
@@ -261,7 +261,7 @@ msgstr "ميجا بايتس"
 msgid "Gb"
 msgstr "جيغا بايتس"
 
-#: ../ui/ui_file_box.py:40 ../apps/fman/file_manager_app.py:2416
+#: ../ui/ui_file_box.py:40 ../apps/fman/file_manager_app.py:2414
 msgid "empty directory..."
 msgstr "كتاب فارغ..."
 
@@ -2831,7 +2831,8 @@ msgstr "البلوتوث"
 msgid "bnote must restart for the name change to take effect."
 msgstr "يجب إعادة تشغيل bnote من أجل تفعيل تغيير الإسم."
 
-#: ../apps/settings/settings_app.py:1910
+#: ../apps/settings/settings_app.py:1910 ../apps/settings/settings_app.py:3281
+#: ../apps/fman/file_manager_app.py:2285
 msgid "restarting..."
 msgstr "إعادة التشغيل..."
 
@@ -2945,6 +2946,7 @@ msgid "unable to update."
 msgstr "هل تريد تثبيت التحديث?"
 
 #: ../apps/settings/settings_app.py:2530 ../apps/settings/settings_app.py:3197
+#: ../apps/fman/file_manager_app.py:2274
 msgid "install done, restart new version..."
 msgstr ""
 
@@ -3106,40 +3108,40 @@ msgstr "الإعدادات"
 msgid "&import"
 msgstr "ا&ستكشاف"
 
-#: ../apps/settings/settings_app.py:3265
+#: ../apps/settings/settings_app.py:3265 ../apps/fman/file_manager_app.py:2213
 msgid ""
-"this file will be replace the existing settings file. Do you want to "
-"continue?"
+"this file will be replace the existing settings file. B.note will be restart "
+"after importing. Do you want to continue?"
 msgstr ""
 
 #: ../apps/settings/settings_app.py:3278 ../apps/fman/file_manager_app.py:2282
 msgid "failed to import the file, check the source and try again."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3290 ../apps/settings/settings_app.py:3324
+#: ../apps/settings/settings_app.py:3289 ../apps/settings/settings_app.py:3323
 msgid "no time zone found."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3294
+#: ../apps/settings/settings_app.py:3293
 msgid "chose a time zone"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3296
+#: ../apps/settings/settings_app.py:3295
 #, fuzzy
 msgid "&select time zone"
 msgstr "نهاية ال&تحديد"
 
-#: ../apps/settings/settings_app.py:3298 ../apps/settings/settings_app.py:3309
+#: ../apps/settings/settings_app.py:3297 ../apps/settings/settings_app.py:3308
 #: ../apps/wikipedia/wikipedia_app.py:195
 #, fuzzy
 msgid "&find"
 msgstr "بحث"
 
-#: ../apps/settings/settings_app.py:3306
+#: ../apps/settings/settings_app.py:3305
 msgid "search a time zone"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3308
+#: ../apps/settings/settings_app.py:3307
 #: ../apps/eole/eole_search_dialog_box.py:53
 #: ../apps/eole/eole_search_dialog_box.py:70
 msgid "&search"
@@ -5212,12 +5214,12 @@ msgid ""
 "lost."
 msgstr "أمتأكد من الحذف النهائي؟ إذا قمت بالحذف، سيتم فقدانه نهائيا."
 
-#: ../apps/fman/file_manager_app.py:747 ../apps/fman/file_manager_app.py:2505
+#: ../apps/fman/file_manager_app.py:747 ../apps/fman/file_manager_app.py:2503
 msgid "deleting {}% {}"
 msgstr "يتم حذف {}% {}"
 
 #: ../apps/fman/file_manager_app.py:760 ../apps/fman/file_manager_app.py:1689
-#: ../apps/fman/file_manager_app.py:2517
+#: ../apps/fman/file_manager_app.py:2515
 msgid "restoring {}% {}"
 msgstr "restoring {}% {}"
 
@@ -5233,7 +5235,7 @@ msgstr "ضغط"
 msgid "({})"
 msgstr "({})"
 
-#: ../apps/fman/file_manager_app.py:827 ../apps/fman/file_manager_app.py:2507
+#: ../apps/fman/file_manager_app.py:827 ../apps/fman/file_manager_app.py:2505
 msgid "extracting {}% {}"
 msgstr "يتم استخراج {}% {}"
 
@@ -5350,11 +5352,11 @@ msgstr "خطأ"
 msgid "unable to move the opened file in the editor."
 msgstr "يتعذر نقل الملف المفتوح في المحرر."
 
-#: ../apps/fman/file_manager_app.py:1232 ../apps/fman/file_manager_app.py:2511
+#: ../apps/fman/file_manager_app.py:1232 ../apps/fman/file_manager_app.py:2509
 msgid "moving {}% {}"
 msgstr "يتم النقل {}% {}"
 
-#: ../apps/fman/file_manager_app.py:1238 ../apps/fman/file_manager_app.py:2513
+#: ../apps/fman/file_manager_app.py:1238 ../apps/fman/file_manager_app.py:2511
 msgid "copying {}% {}"
 msgstr "يتم النسخ {}% {}"
 
@@ -5409,11 +5411,11 @@ msgstr "{} أرسل بنجاح إلى {}."
 msgid "error can't be sent {} to {}."
 msgstr "خطأ لا يمكن إرسال {} إلى {}."
 
-#: ../apps/fman/file_manager_app.py:1598 ../apps/fman/file_manager_app.py:2509
+#: ../apps/fman/file_manager_app.py:1598 ../apps/fman/file_manager_app.py:2507
 msgid "compressing {}% {}"
 msgstr "يتم ضغط {}% {}"
 
-#: ../apps/fman/file_manager_app.py:1651 ../apps/fman/file_manager_app.py:2515
+#: ../apps/fman/file_manager_app.py:1651 ../apps/fman/file_manager_app.py:2513
 msgid "backuping {}% {}"
 msgstr "يتم النسخ الإحطياتي {}% {}"
 
@@ -5468,12 +5470,6 @@ msgstr "&فك الضغط"
 msgid "Unzip file {}?"
 msgstr ""
 
-#: ../apps/fman/file_manager_app.py:2213
-msgid ""
-"this file will be replace the existing settings file, do you want to "
-"continue?"
-msgstr ""
-
 #: ../apps/fman/file_manager_app.py:2227
 msgid ""
 "please, switch audio application visible in menu in settings to play audio "
@@ -5488,21 +5484,16 @@ msgstr ""
 msgid "installation in progres..."
 msgstr ""
 
-#: ../apps/fman/file_manager_app.py:2285
-#, fuzzy
-msgid "imported settings."
-msgstr "إ&عدادات"
-
-#: ../apps/fman/file_manager_app.py:2519
+#: ../apps/fman/file_manager_app.py:2517
 #, fuzzy
 msgid "sending {}% {}"
 msgstr "إرسال {}"
 
-#: ../apps/fman/file_manager_app.py:2521
+#: ../apps/fman/file_manager_app.py:2519
 msgid "in progress {}%"
 msgstr ""
 
-#: ../apps/fman/file_manager_app.py:2541
+#: ../apps/fman/file_manager_app.py:2539
 msgid "error during deletion."
 msgstr "خطأ أثناء الحذف."
 
@@ -5746,6 +5737,10 @@ msgstr ""
 #: ../apps/media/radio_app.py:372
 msgid "are you sure to delete the radio {}"
 msgstr ""
+
+#, fuzzy
+#~ msgid "imported settings."
+#~ msgstr "إ&عدادات"
 
 #, fuzzy
 #~ msgid "Error"

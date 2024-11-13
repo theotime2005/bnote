@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-15 22:41+0100\n"
-"PO-Revision-Date: 2024-11-15 22:41+0100\n"
+"POT-Creation-Date: 2024-11-15 22:50+0100\n"
+"PO-Revision-Date: 2024-11-15 22:50+0100\n"
 "Last-Translator: Theotime Berthod <theotimebd@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -41,7 +41,7 @@ msgstr "paramètre"
 #: ../apps/settings/settings_app.py:2039 ../apps/settings/settings_app.py:2151
 #: ../apps/settings/settings_app.py:2223 ../apps/settings/settings_app.py:2290
 #: ../apps/settings/settings_app.py:3118 ../apps/settings/settings_app.py:3190
-#: ../apps/settings/settings_app.py:3297 ../apps/edt/editor_app.py:194
+#: ../apps/settings/settings_app.py:3296 ../apps/edt/editor_app.py:194
 #: ../apps/edt/editor_app.py:211 ../apps/edt/editor_base_app.py:758
 #: ../apps/edt/editor_base_app.py:803 ../apps/edt/editor_base_app.py:1265
 #: ../apps/wikipedia/wikipedia_app.py:197 ../apps/daisy/daisy_app.py:278
@@ -103,7 +103,7 @@ msgstr "&ok"
 #: ../apps/settings/settings_app.py:2555 ../apps/settings/settings_app.py:2613
 #: ../apps/settings/settings_app.py:3120 ../apps/settings/settings_app.py:3158
 #: ../apps/settings/settings_app.py:3207 ../apps/settings/settings_app.py:3246
-#: ../apps/settings/settings_app.py:3299 ../apps/settings/settings_app.py:3310
+#: ../apps/settings/settings_app.py:3298 ../apps/settings/settings_app.py:3309
 #: ../apps/edt/editor_app.py:151 ../apps/edt/editor_app.py:195
 #: ../apps/edt/editor_app.py:213 ../apps/edt/editor_base_app.py:694
 #: ../apps/edt/editor_base_app.py:804 ../apps/edt/editor_base_app.py:861
@@ -246,7 +246,7 @@ msgstr "Mo"
 msgid "Gb"
 msgstr "Go"
 
-#: ../ui/ui_file_box.py:40 ../apps/fman/file_manager_app.py:2416
+#: ../ui/ui_file_box.py:40 ../apps/fman/file_manager_app.py:2414
 msgid "empty directory..."
 msgstr "dossier vide..."
 
@@ -2694,7 +2694,8 @@ msgstr "adaptateur bluetooth non alimenté"
 msgid "bnote must restart for the name change to take effect."
 msgstr "bnote doit redémarrer pour que le changement soit effectif."
 
-#: ../apps/settings/settings_app.py:1910
+#: ../apps/settings/settings_app.py:1910 ../apps/settings/settings_app.py:3281
+#: ../apps/fman/file_manager_app.py:2285
 msgid "restarting..."
 msgstr "redémarrage..."
 
@@ -2801,6 +2802,7 @@ msgid "unable to update."
 msgstr "échec de la mise à jour."
 
 #: ../apps/settings/settings_app.py:2530 ../apps/settings/settings_app.py:3197
+#: ../apps/fman/file_manager_app.py:2274
 msgid "install done, restart new version..."
 msgstr "installation réalisée, redémarrage..."
 
@@ -2948,38 +2950,40 @@ msgstr "préférences"
 msgid "&import"
 msgstr "&importer"
 
-#: ../apps/settings/settings_app.py:3265
+#: ../apps/settings/settings_app.py:3265 ../apps/fman/file_manager_app.py:2213
 msgid ""
-"this file will be replace the existing settings file. Do you want to "
-"continue?"
-msgstr "ce fichier remplacera le fichier existant. Voulez-vous continuer ?"
+"this file will be replace the existing settings file. B.note will be restart "
+"after importing. Do you want to continue?"
+msgstr ""
+"ce fichier remplacera le fichier existant. B.note redémarrera après "
+"l’importation. Voulez-vous continuer ?"
 
 #: ../apps/settings/settings_app.py:3278 ../apps/fman/file_manager_app.py:2282
 msgid "failed to import the file, check the source and try again."
 msgstr "échec lors de l'importation du fichier, vérifier la connexion."
 
-#: ../apps/settings/settings_app.py:3290 ../apps/settings/settings_app.py:3324
+#: ../apps/settings/settings_app.py:3289 ../apps/settings/settings_app.py:3323
 msgid "no time zone found."
 msgstr "aucun fuseau horaire trouvé."
 
-#: ../apps/settings/settings_app.py:3294
+#: ../apps/settings/settings_app.py:3293
 msgid "chose a time zone"
 msgstr "choisir un fuseau horaire"
 
-#: ../apps/settings/settings_app.py:3296
+#: ../apps/settings/settings_app.py:3295
 msgid "&select time zone"
 msgstr "&sélectionner un fuseau horaire"
 
-#: ../apps/settings/settings_app.py:3298 ../apps/settings/settings_app.py:3309
+#: ../apps/settings/settings_app.py:3297 ../apps/settings/settings_app.py:3308
 #: ../apps/wikipedia/wikipedia_app.py:195
 msgid "&find"
 msgstr "&rechercher"
 
-#: ../apps/settings/settings_app.py:3306
+#: ../apps/settings/settings_app.py:3305
 msgid "search a time zone"
 msgstr "rechercher un fuseau horaire"
 
-#: ../apps/settings/settings_app.py:3308
+#: ../apps/settings/settings_app.py:3307
 #: ../apps/eole/eole_search_dialog_box.py:53
 #: ../apps/eole/eole_search_dialog_box.py:70
 msgid "&search"
@@ -4966,12 +4970,12 @@ msgid ""
 "lost."
 msgstr "confirmez-vous la suppression? la suppression est irréversible."
 
-#: ../apps/fman/file_manager_app.py:747 ../apps/fman/file_manager_app.py:2505
+#: ../apps/fman/file_manager_app.py:747 ../apps/fman/file_manager_app.py:2503
 msgid "deleting {}% {}"
 msgstr "suppression {}% {}"
 
 #: ../apps/fman/file_manager_app.py:760 ../apps/fman/file_manager_app.py:1689
-#: ../apps/fman/file_manager_app.py:2517
+#: ../apps/fman/file_manager_app.py:2515
 msgid "restoring {}% {}"
 msgstr "restauration {}% {}"
 
@@ -4987,7 +4991,7 @@ msgstr "compresser"
 msgid "({})"
 msgstr "({})"
 
-#: ../apps/fman/file_manager_app.py:827 ../apps/fman/file_manager_app.py:2507
+#: ../apps/fman/file_manager_app.py:827 ../apps/fman/file_manager_app.py:2505
 msgid "extracting {}% {}"
 msgstr "extraction {}% {}"
 
@@ -5094,11 +5098,11 @@ msgstr "erreur"
 msgid "unable to move the opened file in the editor."
 msgstr "impossible de déplacer un fichier ouvert dans l'éditeur."
 
-#: ../apps/fman/file_manager_app.py:1232 ../apps/fman/file_manager_app.py:2511
+#: ../apps/fman/file_manager_app.py:1232 ../apps/fman/file_manager_app.py:2509
 msgid "moving {}% {}"
 msgstr "déplacement {}% {}"
 
-#: ../apps/fman/file_manager_app.py:1238 ../apps/fman/file_manager_app.py:2513
+#: ../apps/fman/file_manager_app.py:1238 ../apps/fman/file_manager_app.py:2511
 msgid "copying {}% {}"
 msgstr "copie {}% {}"
 
@@ -5153,11 +5157,11 @@ msgstr "{} envoyé avec succès à {}."
 msgid "error can't be sent {} to {}."
 msgstr "erreur impossible d'envoyer {} à {}."
 
-#: ../apps/fman/file_manager_app.py:1598 ../apps/fman/file_manager_app.py:2509
+#: ../apps/fman/file_manager_app.py:1598 ../apps/fman/file_manager_app.py:2507
 msgid "compressing {}% {}"
 msgstr "compression {}% {}"
 
-#: ../apps/fman/file_manager_app.py:1651 ../apps/fman/file_manager_app.py:2515
+#: ../apps/fman/file_manager_app.py:1651 ../apps/fman/file_manager_app.py:2513
 msgid "backuping {}% {}"
 msgstr "sauvegarde {}% {}"
 
@@ -5211,12 +5215,6 @@ msgstr "extraire"
 msgid "Unzip file {}?"
 msgstr "Extraire fichier {}?"
 
-#: ../apps/fman/file_manager_app.py:2213
-msgid ""
-"this file will be replace the existing settings file, do you want to "
-"continue?"
-msgstr "ce fichier remplacera le fichier existant, voulez-vous continuer ?"
-
 #: ../apps/fman/file_manager_app.py:2227
 msgid ""
 "please, switch audio application visible in menu in settings to play audio "
@@ -5233,19 +5231,15 @@ msgstr "mettez à l'heure votre bnote avant la mise à jour."
 msgid "installation in progres..."
 msgstr "installation en cours..."
 
-#: ../apps/fman/file_manager_app.py:2285
-msgid "imported settings."
-msgstr "préférences importées."
-
-#: ../apps/fman/file_manager_app.py:2519
+#: ../apps/fman/file_manager_app.py:2517
 msgid "sending {}% {}"
 msgstr "envoi {}% {}"
 
-#: ../apps/fman/file_manager_app.py:2521
+#: ../apps/fman/file_manager_app.py:2519
 msgid "in progress {}%"
 msgstr "en cours {}%"
 
-#: ../apps/fman/file_manager_app.py:2541
+#: ../apps/fman/file_manager_app.py:2539
 msgid "error during deletion."
 msgstr "erreur durant la suppression."
 
@@ -5472,6 +5466,14 @@ msgstr "êtes vous sûr de vouloir remplacer la radio {}"
 #: ../apps/media/radio_app.py:372
 msgid "are you sure to delete the radio {}"
 msgstr "êtes vous sûr de vouloir effacer la radio {}"
+
+#~ msgid ""
+#~ "this file will be replace the existing settings file, do you want to "
+#~ "continue?"
+#~ msgstr "ce fichier remplacera le fichier existant, voulez-vous continuer ?"
+
+#~ msgid "imported settings."
+#~ msgstr "préférences importées."
 
 #, fuzzy
 #~| msgid "line length"
