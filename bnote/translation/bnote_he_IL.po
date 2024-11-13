@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-15 22:41+0100\n"
+"POT-Creation-Date: 2024-11-15 22:50+0100\n"
 "PO-Revision-Date: 2024-02-20 14:02+0100\n"
 "Last-Translator: AccessMind voice manager <adi@accessmind.net>\n"
 "Language-Team: \n"
@@ -52,7 +52,7 @@ msgstr "פרמטרים לא מוגדרים"
 #: ../apps/settings/settings_app.py:2039 ../apps/settings/settings_app.py:2151
 #: ../apps/settings/settings_app.py:2223 ../apps/settings/settings_app.py:2290
 #: ../apps/settings/settings_app.py:3118 ../apps/settings/settings_app.py:3190
-#: ../apps/settings/settings_app.py:3297 ../apps/edt/editor_app.py:194
+#: ../apps/settings/settings_app.py:3296 ../apps/edt/editor_app.py:194
 #: ../apps/edt/editor_app.py:211 ../apps/edt/editor_base_app.py:758
 #: ../apps/edt/editor_base_app.py:803 ../apps/edt/editor_base_app.py:1265
 #: ../apps/wikipedia/wikipedia_app.py:197 ../apps/daisy/daisy_app.py:278
@@ -114,7 +114,7 @@ msgstr "אי&שור"
 #: ../apps/settings/settings_app.py:2555 ../apps/settings/settings_app.py:2613
 #: ../apps/settings/settings_app.py:3120 ../apps/settings/settings_app.py:3158
 #: ../apps/settings/settings_app.py:3207 ../apps/settings/settings_app.py:3246
-#: ../apps/settings/settings_app.py:3299 ../apps/settings/settings_app.py:3310
+#: ../apps/settings/settings_app.py:3298 ../apps/settings/settings_app.py:3309
 #: ../apps/edt/editor_app.py:151 ../apps/edt/editor_app.py:195
 #: ../apps/edt/editor_app.py:213 ../apps/edt/editor_base_app.py:694
 #: ../apps/edt/editor_base_app.py:804 ../apps/edt/editor_base_app.py:861
@@ -260,7 +260,7 @@ msgstr "MB"
 msgid "Gb"
 msgstr "GB"
 
-#: ../ui/ui_file_box.py:40 ../apps/fman/file_manager_app.py:2416
+#: ../ui/ui_file_box.py:40 ../apps/fman/file_manager_app.py:2414
 msgid "empty directory..."
 msgstr "ספריה ריקה..."
 
@@ -2726,7 +2726,8 @@ msgstr "bluetooth"
 msgid "bnote must restart for the name change to take effect."
 msgstr "יש להפעיל את bnote לכניסתו של שינוי השם לתוקף."
 
-#: ../apps/settings/settings_app.py:1910
+#: ../apps/settings/settings_app.py:1910 ../apps/settings/settings_app.py:3281
+#: ../apps/fman/file_manager_app.py:2285
 msgid "restarting..."
 msgstr "מפעיל מחדש..."
 
@@ -2838,6 +2839,7 @@ msgid "unable to update."
 msgstr "אין אפשרות להתקין את העדכון."
 
 #: ../apps/settings/settings_app.py:2530 ../apps/settings/settings_app.py:3197
+#: ../apps/fman/file_manager_app.py:2274
 msgid "install done, restart new version..."
 msgstr ""
 
@@ -2994,11 +2996,11 @@ msgstr "הגדרות"
 msgid "&import"
 msgstr "&יבוא"
 
-#: ../apps/settings/settings_app.py:3265
+#: ../apps/settings/settings_app.py:3265 ../apps/fman/file_manager_app.py:2213
 #, fuzzy
 msgid ""
-"this file will be replace the existing settings file. Do you want to "
-"continue?"
+"this file will be replace the existing settings file. B.note will be restart "
+"after importing. Do you want to continue?"
 msgstr "הקובץ יישמר בתיקיית המסמכים שלי. האם להמשיך?"
 
 #: ../apps/settings/settings_app.py:3278 ../apps/fman/file_manager_app.py:2282
@@ -3006,32 +3008,32 @@ msgstr "הקובץ יישמר בתיקיית המסמכים שלי. האם לה�
 msgid "failed to import the file, check the source and try again."
 msgstr "שגיאה בעת ההורדה, נא לבדוק את החיבור לאינטרנט ולנסות שוב."
 
-#: ../apps/settings/settings_app.py:3290 ../apps/settings/settings_app.py:3324
+#: ../apps/settings/settings_app.py:3289 ../apps/settings/settings_app.py:3323
 #, fuzzy
 msgid "no time zone found."
 msgstr "לא נמצא קובץ"
 
-#: ../apps/settings/settings_app.py:3294
+#: ../apps/settings/settings_app.py:3293
 msgid "chose a time zone"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3296
+#: ../apps/settings/settings_app.py:3295
 #, fuzzy
 msgid "&select time zone"
 msgstr "ב&חירה"
 
-#: ../apps/settings/settings_app.py:3298 ../apps/settings/settings_app.py:3309
+#: ../apps/settings/settings_app.py:3297 ../apps/settings/settings_app.py:3308
 #: ../apps/wikipedia/wikipedia_app.py:195
 #, fuzzy
 msgid "&find"
 msgstr "חיפוש"
 
-#: ../apps/settings/settings_app.py:3306
+#: ../apps/settings/settings_app.py:3305
 #, fuzzy
 msgid "search a time zone"
 msgstr "עד&כון רשימת תחנות"
 
-#: ../apps/settings/settings_app.py:3308
+#: ../apps/settings/settings_app.py:3307
 #: ../apps/eole/eole_search_dialog_box.py:53
 #: ../apps/eole/eole_search_dialog_box.py:70
 #, fuzzy
@@ -5021,12 +5023,12 @@ msgid ""
 "lost."
 msgstr "האם למחוק לצמיתות? במידה ותבוצע מחיקה, הנתונים יאבדו לצמיתות."
 
-#: ../apps/fman/file_manager_app.py:747 ../apps/fman/file_manager_app.py:2505
+#: ../apps/fman/file_manager_app.py:747 ../apps/fman/file_manager_app.py:2503
 msgid "deleting {}% {}"
 msgstr "מחיקה {}% {}"
 
 #: ../apps/fman/file_manager_app.py:760 ../apps/fman/file_manager_app.py:1689
-#: ../apps/fman/file_manager_app.py:2517
+#: ../apps/fman/file_manager_app.py:2515
 msgid "restoring {}% {}"
 msgstr "משחזר {}% {}"
 
@@ -5042,7 +5044,7 @@ msgstr "zip"
 msgid "({})"
 msgstr "({})"
 
-#: ../apps/fman/file_manager_app.py:827 ../apps/fman/file_manager_app.py:2507
+#: ../apps/fman/file_manager_app.py:827 ../apps/fman/file_manager_app.py:2505
 msgid "extracting {}% {}"
 msgstr "מחלץ {}% {}"
 
@@ -5150,11 +5152,11 @@ msgstr "שגיאה במקטע"
 msgid "unable to move the opened file in the editor."
 msgstr "אין אפשרות להעביר את הקובץ הפתוח בעורך."
 
-#: ../apps/fman/file_manager_app.py:1232 ../apps/fman/file_manager_app.py:2511
+#: ../apps/fman/file_manager_app.py:1232 ../apps/fman/file_manager_app.py:2509
 msgid "moving {}% {}"
 msgstr "מעביר {}% {}"
 
-#: ../apps/fman/file_manager_app.py:1238 ../apps/fman/file_manager_app.py:2513
+#: ../apps/fman/file_manager_app.py:1238 ../apps/fman/file_manager_app.py:2511
 msgid "copying {}% {}"
 msgstr "מעתיק {}% {}"
 
@@ -5208,11 +5210,11 @@ msgstr "{} נשלח בהצלחה אל {}."
 msgid "error can't be sent {} to {}."
 msgstr "שגיאה בשליחת {} או {}."
 
-#: ../apps/fman/file_manager_app.py:1598 ../apps/fman/file_manager_app.py:2509
+#: ../apps/fman/file_manager_app.py:1598 ../apps/fman/file_manager_app.py:2507
 msgid "compressing {}% {}"
 msgstr "מחלץ {}% {}"
 
-#: ../apps/fman/file_manager_app.py:1651 ../apps/fman/file_manager_app.py:2515
+#: ../apps/fman/file_manager_app.py:1651 ../apps/fman/file_manager_app.py:2513
 msgid "backuping {}% {}"
 msgstr "מגבה {}% {}"
 
@@ -5265,13 +5267,6 @@ msgstr "חילוץ מ-ZIP"
 msgid "Unzip file {}?"
 msgstr "חילוץ קובץ {}?"
 
-#: ../apps/fman/file_manager_app.py:2213
-#, fuzzy
-msgid ""
-"this file will be replace the existing settings file, do you want to "
-"continue?"
-msgstr "הקובץ יישמר בתיקיית המסמכים שלי. האם להמשיך?"
-
 #: ../apps/fman/file_manager_app.py:2227
 msgid ""
 "please, switch audio application visible in menu in settings to play audio "
@@ -5286,20 +5281,15 @@ msgstr ""
 msgid "installation in progres..."
 msgstr ""
 
-#: ../apps/fman/file_manager_app.py:2285
-#, fuzzy
-msgid "imported settings."
-msgstr "ה&גדרות"
-
-#: ../apps/fman/file_manager_app.py:2519
+#: ../apps/fman/file_manager_app.py:2517
 msgid "sending {}% {}"
 msgstr "שולח {}% {}"
 
-#: ../apps/fman/file_manager_app.py:2521
+#: ../apps/fman/file_manager_app.py:2519
 msgid "in progress {}%"
 msgstr "מתבצע {}%"
 
-#: ../apps/fman/file_manager_app.py:2541
+#: ../apps/fman/file_manager_app.py:2539
 msgid "error during deletion."
 msgstr "שגיאה בעת מחיקה."
 
@@ -5525,6 +5515,16 @@ msgstr "האם להחליף את הרדיו {}"
 #: ../apps/media/radio_app.py:372
 msgid "are you sure to delete the radio {}"
 msgstr "האם למחוק את הרדיו {}"
+
+#, fuzzy
+#~ msgid ""
+#~ "this file will be replace the existing settings file, do you want to "
+#~ "continue?"
+#~ msgstr "הקובץ יישמר בתיקיית המסמכים שלי. האם להמשיך?"
+
+#, fuzzy
+#~ msgid "imported settings."
+#~ msgstr "ה&גדרות"
 
 #, fuzzy
 #~ msgid "No internet."
