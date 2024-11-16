@@ -1,3 +1,15 @@
+#!/bin/bash
+
+# Check if 'archive' argument is passed
+ARCHIVE=false
+for arg in "$@"
+do
+  if [ "$arg" == "archive" ]; then
+    ARCHIVE=true
+    break
+  fi
+done
+
 if [ -d "dist" ]; then
   rm -r dist/*
 fi
@@ -17,14 +29,15 @@ WHL_FILE=$(basename "$WHL_FILE_PATH")
 echo "Found .whl file: $WHL_FILE"
 cp "$WHL_FILE_PATH" ./"$WHL_FILE"
 zip -r "$WHL_FILE".zip "$WHL_FILE" libraries.txt __main__.py whl
-gunzip "$TAR_GZ_FILE_PATH"
-echo "tar --append --file=$TAR_FILE_PATH -C generate.sh $BNOTE_FOLDER_NAME/generate.sh"
-tar --append --file="$TAR_FILE_PATH" --transform "s,^,$BNOTE_FOLDER_NAME/," generate.sh
-tar --append --file="$TAR_FILE_PATH" --transform "s,^,$BNOTE_FOLDER_NAME/," setup.sh
-tar --append --file="$TAR_FILE_PATH" --transform "s,^,$BNOTE_FOLDER_NAME/," libraries.txt
-tar --append --file="$TAR_FILE_PATH" --transform "s,^,$BNOTE_FOLDER_NAME/," __main__.py
-tar --append --file="$TAR_FILE_PATH" --transform "s,^,$BNOTE_FOLDER_NAME/," __main_debug__.py
-tar --append --file="$TAR_FILE_PATH" --transform "s,^,$BNOTE_FOLDER_NAME/," whl/*
-gzip "$TAR_FILE_PATH"
 
-
+if [ "$ARCHIVE" = true ]; then
+  gunzip "$TAR_GZ_FILE_PATH"
+  echo "tar --append --file=$TAR_FILE_PATH -C generate.sh $BNOTE_FOLDER_NAME/generate.sh"
+  tar --append --file="$TAR_FILE_PATH" --transform "s,^,$BNOTE_FOLDER_NAME/," generate.sh
+  tar --append --file="$TAR_FILE_PATH" --transform "s,^,$BNOTE_FOLDER_NAME/," setup.sh
+  tar --append --file="$TAR_FILE_PATH" --transform "s,^,$BNOTE_FOLDER_NAME/," libraries.txt
+  tar --append --file="$TAR_FILE_PATH" --transform "s,^,$BNOTE_FOLDER_NAME/," __main__.py
+  tar --append --file="$TAR_FILE_PATH" --transform "s,^,$BNOTE_FOLDER_NAME/," __main_debug__.py
+  tar --append --file="$TAR_FILE_PATH" --transform "s,^,$BNOTE_FOLDER_NAME/," whl/*
+  gzip "$TAR_FILE_PATH"
+fi
