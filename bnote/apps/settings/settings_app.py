@@ -17,7 +17,7 @@ import bnote.__init__ as version
 from bnote.apps.bnote_app import BnoteApp, FunctionId
 from bnote.apps.fman.file_manager import FileManager
 
-from datetime import datetime, timezone
+from datetime import datetime
 
 from bnote.speech.speech import SpeechManager
 from bnote.stm32 import stm32_keys
@@ -27,10 +27,9 @@ from bnote.tools import bt_util
 from bnote.tools.keyboard import Keyboard
 from bnote.tools.quick_search import QuickSearch
 from bnote.tools.settings import Settings, BLUETOOTH_BASE_NAME
-from bnote.tools.sync_date import SyncDate, get_timezone_list
+from bnote.tools.sync_date import SyncDate
 from bnote.tools.translate import Translate
-from bnote.tools.yaupdater import UPDATE_FOLDER_URL, YAUpdater, YAUpdaterFinder, YAVersionFinder, test_new_source, \
-    change_update_source
+from bnote.tools.yaupdater import UPDATE_FOLDER_URL, YAUpdater, YAUpdaterFinder, YAVersionFinder
 from bnote.tools.volume import Volume
 from bnote.tools.volume_speed_dialog_box import VolumeDialogBox, SpeedDialogBox
 from bnote.tools.io_util import Gpio
@@ -58,7 +57,7 @@ class SettingsApp(BnoteApp):
     Setting application.
     """
 
-    def __init__(self, put_in_function_queue, put_in_stm32_tx_queue, test=False):
+    def __init__(self, put_in_function_queue, put_in_stm32_tx_queue, test=False, new_update=False):
         """
         test is True to avoid document construction when instance is done by test_translate to check menu shortcut.
         """
@@ -110,15 +109,16 @@ class SettingsApp(BnoteApp):
         # Fill the document.
         if not self.test:
             self.__update_document(update_computers_and_paired_device=True)
-            # Check update if settings agree.
-            if Settings().data['update']['auto_check']:
-                self._put_in_function_queue(FunctionId.FUNCTION_CHECK_UPDATE)
             # Sync date if setting agree.
             if Settings().data['system']['auto_sync_date']:
-                sync_date = SyncDate(Settings().data['system']['timezone'], self.__change_clock_date_and_time)
+                sync_date = SyncDate(self.__change_clock_date_and_time)
                 sync_date.start()
 
             self.__refresh_braille_display()
+
+            # Check update if new_update
+            if new_update:
+                self._put_in_function_queue(FunctionId.FUNCTION_CHECK_UPDATE)
 
     def __create_action_and_action_param(self):
         # The key of this dict is a tuple with the 'section' str and the 'key' str used in Settings().
@@ -167,7 +167,6 @@ class SettingsApp(BnoteApp):
                                          'action_param': {'section': 'system', 'key': 'braille_type'}},
             ('system', 'auto_sync_date'): {'action': self.__dialog_set_settings,
                                            'action_param': {"section": 'system', "key": 'auto_sync_date'}},
-            ('system', 'timezone'): {'action': self._exec_select_timezone, 'action_param': {}},
             ('system', 'spaces_in_label'): {'action': self.__dialog_set_settings,
                                             'action_param': {'section': 'system', 'key': 'spaces_in_label'}},
             ('system', 'shortcuts_visible'): {'action': self.__dialog_set_settings,
@@ -337,9 +336,7 @@ class SettingsApp(BnoteApp):
                                              'action_param': {'section': 'stm32', 'key': 'standby_transport'}},
             ('stm32', 'standby_shutdown'): {'action': self.__dialog_set_stm32,
                                             'action_param': {'section': 'stm32', 'key': 'standby_shutdown'}},
-            # ('update', 'auto_check'): {'action': self.__dialog_set_settings, 'action_param': {'section': 'update', 'key': 'auto_check'}},
-            ('update', 'search_update_to'): {'action': self._exec_change_update_source,
-                                             'action_param': {'section': 'update, source'}},
+            ('update', 'auto_check'): {'action': self.__dialog_set_settings, 'action_param': {'section': 'update', 'key': 'auto_check'}},
             ('version', 'application'): {'action': self.__dialog_application_version,
                                          'action_param': {'section': 'version', 'key': 'application'}},
         }
@@ -438,7 +435,6 @@ class SettingsApp(BnoteApp):
                         ui.UiMenuItem(name=_("&date"), **self.__action_and_action_param[('stm32', 'date')]),
                         ui.UiMenuItem(name=_("&auto sync"),
                                       **self.__action_and_action_param[('system', 'auto_sync_date')]),
-                        ui.UiMenuItem(name=_("&timezone"), **self.__action_and_action_param[('system', 'timezone')]),
                     ]),
 
                 ui.UiMenuBar(
@@ -621,12 +617,7 @@ class SettingsApp(BnoteApp):
                     name=_("u&pdate"),
                     menu_item_list=[
                         ui.UiMenuItem(name=_("check update"), action=self._exec_check_update),
-                        # FIXME auto_check affiche un message à chaque fois que l'on rentre dans les préférences pour dire "système à jour", il est trop bavard.
-                        # FIXME Il faudrait que ce soit fait dans internal pour que quelqu'un qui ne rentre pas dans les préférences soit prévenu.
-                        # ui.UiMenuItem(name=_("&auto check"), **self.__action_and_action_param[('update', 'auto_check')]),
-                        ui.UiMenuItem(name=_("&install an other version"), action=self._exec_get_update_history),
-                        ui.UiMenuItem(name=_("&search update to"),
-                                      **self.__action_and_action_param[('update', 'search_update_to')]),
+                        ui.UiMenuItem(name=_("&auto check"), **self.__action_and_action_param[('update', 'auto_check')]),
                     ]
                 ),
 
@@ -710,8 +701,6 @@ class SettingsApp(BnoteApp):
                                        param_value=self.__get_settings_value('system', 'auto_sync_date'),
                                        dialog_box_name=_("clock"), dialog_box_param_name=_("auto &sync date"),
                                        section='system', key='auto_sync_date')
-        self.__append_line_in_document(param_label=_("time zone"), param_value=Settings().data['system']['timezone'],
-                                       section="system", key="timezone")
 
         self.__append_line_in_document()
         self.__append_line_in_document(param_label=_("battery"), param_value=self.__get_battery_value(),
@@ -1162,16 +1151,12 @@ class SettingsApp(BnoteApp):
         self.__append_line_in_document()
         # Update
         self.__append_line_in_document(param_label=_("update"), is_tab_stop=True)
-        # self.__append_line_in_document(param_label=_("automatically check for updates"), param_value=self.__get_settings_value('update', 'auto_check'), dialog_box_name=_("update"), dialog_box_param_name=_("&auto checking"), section='update', key='auto_check')
+        self.__append_line_in_document(param_label=_("automatically check for updates"), param_value=self.__get_settings_value('update', 'auto_check'), dialog_box_name=_("update"), dialog_box_param_name=_("&auto checking"), section='update', key='auto_check')
         version_to_install = self.update.version_to_install
         if version_to_install and version_to_install != 'up_to_date' and version_to_install != 'failed':
             self.__append_line_in_document(param_label=_("update available"), param_value=version_to_install)
         else:
             self.__append_line_in_document(param_label=_("your b.note is up to date"))
-        self.__append_line_in_document(param_label=_("update source"),
-                                       param_value=Settings().data['update']['search_update_to'],
-                                       dialog_box_name=_("update"), dialog_box_param_name=_("source"), section='update',
-                                       key='search_update_to')
         # Versions
         self.__append_line_in_document()
         self.__append_line_in_document(param_label=_("versions"), is_tab_stop=True)
@@ -2457,9 +2442,9 @@ class SettingsApp(BnoteApp):
     def _exec_check_update(self):
         self._current_dialog = ui.UiInfoDialogBox(
             message=_("searching update..."))
-        self.__check_update()
+        self.__check_update(True)
 
-    def __check_update(self):
+    def __check_update(self, with_dlg):
         self.update = YAUpdaterFinder(Settings().data['system']['developer'], self.end_thread_check_update)
 
     def end_thread_check_update(self):
@@ -2467,12 +2452,13 @@ class SettingsApp(BnoteApp):
 
     def _thread_check_update_ended(self, **kwargs):
         if self.update.version_to_install == 'up_to_date':
-            self._current_dialog = ui.UiInfoDialogBox(message=_("your b.note is up to date"), action=self._exec_cancel_dialog)
-            return
+            self._current_dialog = ui.UiInfoDialogBox(
+                message=_("your b.note is up to date"),
+                action=self._exec_cancel_dialog)
         elif self.update.version_to_install == 'failed':
-            self._current_dialog = ui.UiInfoDialogBox(message=_("connexion failed, try again."),
-                                                      action=self._exec_cancel_dialog)
-            return
+            self._current_dialog = ui.UiInfoDialogBox(
+                message=_("connexion failed, try again."),
+                action=self._exec_cancel_dialog)
         else:
             self._exec_ask_download()
 
@@ -2490,9 +2476,17 @@ class SettingsApp(BnoteApp):
         )
 
     def _exec_yes_install(self):
-        file = self.update.file_to_install
-        self._current_dialog = ui.UiInfoDialogBox(_("downloading..."))
-        YAUpdater(file, "/home/pi/all_bnotes/", self.refresh_install_message, self.yaupdater_ended)
+        # Check current date.
+        year = datetime.now().year
+        if year < 2024:
+            self._current_dialog = ui.UiInfoDialogBox(
+                message=_(_(f"set the date and time before updating bnote.")),
+                action=self._exec_cancel_dialog,
+            )
+        else:
+            file = f"{UPDATE_FOLDER_URL}/{self.update.file_to_install}"
+            self._current_dialog = ui.UiInfoDialogBox(_("downloading..."))
+            YAUpdater(file, "/home/pi/all_bnotes/", self.refresh_install_message, self.yaupdater_ended)
 
     def refresh_install_message(self, msg):
         log.info(f"!!!refresh_install_message:{threading.get_ident()=}-{msg=}")
@@ -2528,46 +2522,6 @@ class SettingsApp(BnoteApp):
         # Change message and restart service to restart the new bnoteapp.
         self.refresh_install_message(_("install done, restart new version..."))
         self._put_in_function_queue(FunctionId.ASK_TERMINATE_BNOTE_AND_RESTART_SERVICE)
-
-    def _exec_get_update_history(self):
-        self._current_dialog = ui.UiInfoDialogBox(message=_("searching update..."))
-        self.update = YAUpdaterFinder(Settings().data['system']['developer'], self._end_get_update_history)
-
-    def _end_get_update_history(self):
-        if self.update.version_to_install == 'failed':
-            self._current_dialog = ui.UiInfoDialogBox(
-                message=_("connexion failed, try again."),
-                action=self._exec_cancel_dialog)
-            return
-        elif not self.update.files:
-            self._current_dialog = ui.UiInfoDialogBox(message=_("No version available through this source."),
-                                                   action=self._exec_cancel_dialog)
-            return
-        update_list = []
-        for version in self.update.files:
-            update_list.append(version['version'])
-        self._current_dialog = ui.UiDialogBox(
-            name=_("version history"),
-            item_list=[
-                ui.UiListBox(name=_("&select a version to install"), value=("version", update_list)),
-                ui.UiButton(name=_("&install"), action=self._exec_valid_install_other_version),
-                ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog)
-            ],
-            action_cancelable=self._exec_cancel_dialog
-        )
-
-    def _exec_valid_install_other_version(self):
-        kwargs = self._current_dialog.get_values()
-        if kwargs['version'] == YAUpdater.get_version_from_running_project("pyproject.toml"):
-            self._current_dialog = ui.UiInfoDialogBox(message=_("this version is already installed"),
-                                                      action=self._exec_cancel_dialog)
-            return
-        for version in self.update.files:
-            if version['version'] == kwargs['version']:
-                file = version['link']
-                break
-        self._current_dialog = ui.UiInfoDialogBox(_("downloading..."))
-        YAUpdater(file, "/home/pi/all_bnotes/", self.refresh_install_message, self.yaupdater_ended)
 
     def _exec_about_bnote(self):
         bnote_list = [
@@ -2962,7 +2916,7 @@ class SettingsApp(BnoteApp):
             self._end_scan_wifi(**kwargs)
             done = True
         elif function_id == FunctionId.FUNCTION_CHECK_UPDATE:
-            self.__check_update()
+            self.__check_update(False)
             done = True
         elif function_id == FunctionId.FUNCTION_CHECK_UPDATE_ENDED:
             self._thread_check_update_ended(**kwargs)
@@ -3108,40 +3062,6 @@ class SettingsApp(BnoteApp):
     def _update_menu_items(self):
         pass
 
-    def _exec_change_update_source(self, **kwargs):
-        actual_source = Settings().data['update']['search_update_to']
-        self._current_dialog = ui.UiDialogBox(
-            name=_("update source"),
-            item_list=[
-                ui.UiEditBox(name=_("source &url"), value=("url", actual_source)),
-                ui.UiButton(name=_("&ok"), action=self._exec_valid_change_update_source),
-                ui.UiButton(name=_("&set default"), action=self._exec_set_default_source),
-                ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
-            ],
-            action_cancelable=self._exec_cancel_dialog
-        )
-
-    def _exec_set_default_source(self):
-        Settings().data['update']['search_update_to'] = Settings().DEFAULT_VALUES['update']['search_update_to']
-        Settings().save()
-        self._put_in_function_queue(FunctionId.FUNCTION_SETTINGS_CHANGE,
-                                    **{'section': 'update', 'key': 'search_update_to'})
-        change_update_source()
-
-    def _exec_valid_change_update_source(self):
-        kwargs = self._current_dialog.get_values()
-        new_source = kwargs['url']
-        if test_new_source(new_source):
-            Settings().data['update']['search_update_to'] = new_source
-            Settings().save()
-            self._put_in_function_queue(FunctionId.FUNCTION_SETTINGS_CHANGE,
-                                        **{'section': 'update', 'key': 'search_update_to'})
-            change_update_source()
-            return True
-        else:
-            self._current_dialog = ui.UiInfoDialogBox(message=_("source not valid..."),
-                                                   action=self._exec_change_update_source)
-
     def __dialog_application_version(self, section, key, **kwargs):
         versions = YAVersionFinder.find_versions()
         # print(f"{versions=}")
@@ -3261,7 +3181,7 @@ class SettingsApp(BnoteApp):
             path = ui_files.get_extra_parameters()[ui_files.get_index()]
             self._current_dialog = ui.UiMessageDialogBox(
                 name=_("warning"),
-                message=_("this file will be replace the existing settings file. B.note will be restart after importing. Do you want to continue?"),
+                message=_("this file will be replace the existing settings file. Do you want to continue?"),
                 buttons=[
                     ui.UiButton(name=_("&yes"), action=self._exec_yes_import, action_param={'path': path}),
                     ui.UiButton(name=_("&no"), action=self._exec_cancel_dialog),
@@ -3277,57 +3197,6 @@ class SettingsApp(BnoteApp):
                 message=_("failed to import the file, check the source and try again."),
                 action=self._exec_cancel_dialog)
             return
-        self._current_dialog = ui.UiInfoDialogBox(message=_("restarting..."))
-        self._put_in_function_queue(FunctionId.ASK_TERMINATE_BNOTE_AND_RESTART_SERVICE)
-
-    def _exec_select_timezone(self, timezones=None):
-        if not timezones:
-            timezones = get_timezone_list(Settings().data['system']['timezone'])
-            if not timezones:
-                self._current_dialog=ui.UiInfoDialogBox(
-                    message=_("no time zone found."),
-                    action=self._exec_cancel_dialog
-                )
-        self._current_dialog=ui.UiDialogBox(
-            name=_("chose a time zone"),
-            item_list=[
-                ui.UiListBox(name=_("&select time zone"), value=("timezone", timezones[0]), current_index=timezones[1]),
-                ui.UiButton(name=_("&ok"), action=self._exec_valid_timezone),
-                ui.UiButton(name=_("&find"), action=self._exec_find_timezone),
-                ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
-            ],
-            action_cancelable=self._exec_cancel_dialog,
-        )
-
-    def _exec_find_timezone(self):
-        self._current_dialog=ui.UiDialogBox(
-            name=_("search a time zone"),
-            item_list=[
-                ui.UiEditBox(name=_("&search"), value=("search", "")),
-                ui.UiButton(name=_("&find"), action=self._exec_valid_find_timezone),
-                ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
-            ],
-            action_cancelable=self._exec_cancel_dialog,
-        )
-
-    def _exec_valid_find_timezone(self):
-        kwargs = self._current_dialog.get_values()
-        timezone_list=get_timezone_list(Settings().data['system']['timezone'])[0]
-        clear_timezone_list = []
-        for zone in timezone_list:
-            if kwargs['search'].upper() in zone.upper():
-                clear_timezone_list.append(zone)
-        if not clear_timezone_list:
-            self._current_dialog = ui.UiInfoDialogBox(
-                message=_("no time zone found."),
-                action=self._exec_cancel_dialog
-            )
-        else:
-            self._exec_select_timezone((clear_timezone_list, 0))
-
-    def _exec_valid_timezone(self):
-        kwargs = self._current_dialog.get_values()
-        Settings().data['system']['timezone']=kwargs['timezone']
-        self._put_in_function_queue(FunctionId.FUNCTION_SETTINGS_CHANGE, **{'section': 'system', 'key': 'timezone'})
-        sync_date = SyncDate(Settings().data['system']['timezone'], self.__change_clock_date_and_time)
-        sync_date.start()
+        for section, section_data in Settings().data.items():
+            for key in section_data:
+                self._put_in_function_queue(FunctionId.FUNCTION_SETTINGS_CHANGE, **{'section': section, 'key': key})
