@@ -40,6 +40,7 @@ from bnote.tools import crash_report
 from bnote.tools.settings import Settings
 from bnote.tools.volume import Volume
 from bnote.tools.volume_speed_dialog_box import VolumeDialogBox
+from bnote.tools.yaupdater import YAUpdaterFinder
 import bnote.ui as ui
 # Set up the logger for this file
 from bnote.debug.colored_log import ColoredLogger, INTERNAL_LOG
@@ -185,6 +186,7 @@ class Internal:
         Settings().data['stm32']['serial'] = braille_device_characteristics.get_serial_number()
         Settings().save()
 
+        self.updater = None
         # Verify agenda events only if not crash
         if not report_a_crash:
             self.verify_agenda_or_restore_editor()
@@ -214,7 +216,17 @@ class Internal:
         else:
             # Clean up all context files.
             editor.Context.clean_up_context_files()
-            return self._put_in_function_queue(FunctionId.APPLICATIONS)
+            self._put_in_function_queue(FunctionId.APPLICATIONS)
+            # Continue with update
+            return self.__check_update()
+
+    def __check_update(self):
+        if Settings().data['update']['auto_check']:
+            self.updater = YAUpdaterFinder(Settings().data['system']['developer'], self.__end_check)
+
+    def __end_check(self):
+        if self.updater.version_to_install!="up_to_date" and self.updater.version_to_install!="failed":
+            self._exec_settings(True)
 
     def __str__(self):
         return "{}".format(self._menu)
@@ -546,11 +558,11 @@ class Internal:
         if app_instance:
             self.set_current_app(app_instance)
 
-    def _exec_settings(self):
+    def _exec_settings(self, new_update=False):
         log.info("exec_settings")
         if not self.apps_descriptor['settings'].instance:
             self.apps_descriptor['settings'].instance = SettingsApp(self._put_in_function_queue,
-                                                                    self._put_in_stm32_tx_queue)
+                                                                    self._put_in_stm32_tx_queue, new_update=new_update)
         self.set_current_app(self.apps_descriptor['settings'].instance)
 
     def _exec_settings_2(self):
