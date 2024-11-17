@@ -169,58 +169,6 @@ bnote/apps/timer/sound.mp3
 bnote/apps/timer/timer_app.py
 bnote/apps/translator/translator_app.py
 bnote/apps/wikipedia/wikipedia_app.py
-bnote/bnote-documents/radio_list.xml
-bnote/bnote-documents/signature.txt
-bnote/bnote-documents/documentation/FR/bnote - Manuel - 3.1.0 - FR.txt
-bnote/bnote-documents/documentation/FR/bnote - Manuel du développeur - 3.0.0 - FR.pdf.ref
-bnote/bnote-documents/documentation/FR/bnote - Manuel du développeur - 3.0.0 - FR.txt
-bnote/bnote-documents/documentation/FR/bnote - Musique - 3.0.0 - FR.txt
-bnote/bnote-documents/documentation/FR/note de version 3.1.0.txt
-bnote/bnote-documents/documentation/HR/Eurobraille B.Note Korisnicki prirucnik v1.2.0 HR.txt
-bnote/bnote-documents/documentation/UK/bnote - Developper manual - 3.0.0- UK.pdf
-bnote/bnote-documents/documentation/UK/bnote - Developper manual - 3.0.0- UK.pdf.ref
-bnote/bnote-documents/documentation/UK/bnote - Developper manual - 3.0.0- UK.txt
-bnote/bnote-documents/documentation/UK/bnote - Manual - 3.1.0 - EN.txt
-bnote/bnote-documents/documentation/UK/bnote - music 3.0.0 - EN.txt
-bnote/bnote-documents/documentation/UK/what's new 3.1.0.txt
-bnote/bnote-documents/tests/abc.txt
-bnote/bnote-documents/tests/HR/math (hr-hr).txt
-bnote/bnote-documents/tests/brf/Les 63 symboles braille US.brf
-bnote/bnote-documents/tests/brf/Les 63 symboles braille french.brf
-bnote/bnote-documents/tests/docx/Napoléon.docx
-bnote/bnote-documents/tests/epub/descaves_sous-offs.epub
-bnote/bnote-documents/tests/epub/loiseau_nevrosee.epub
-bnote/bnote-documents/tests/epub/nemirovsky_les_vierges.epub
-bnote/bnote-documents/tests/epub/regnier_le_sultan_un_general_et_la_princesse_des_garamantes.epub
-bnote/bnote-documents/tests/epub/source.txt
-bnote/bnote-documents/tests/epub/squeeze20.epub
-bnote/bnote-documents/tests/intl/Czech.txt
-bnote/bnote-documents/tests/intl/Français.txt
-bnote/bnote-documents/tests/intl/Italiano.txt
-bnote/bnote-documents/tests/intl/Netherlands.txt
-bnote/bnote-documents/tests/intl/Norwegian.txt
-bnote/bnote-documents/tests/intl/swedish.txt
-bnote/bnote-documents/tests/math/math-braille.mbe.txt
-bnote/bnote-documents/tests/math/math-ueb.txt
-bnote/bnote-documents/tests/math/math.txt
-bnote/bnote-documents/tests/mbe/esytime.mbe
-bnote/bnote-documents/tests/mp3/Symphony No.6 (1st movement).ogg
-bnote/bnote-documents/tests/mp3/Symphony No.6 (1st movement).wma
-bnote/bnote-documents/tests/mp3/new_song.wav
-bnote/bnote-documents/tests/music/Fix_Galop_-_Marche.musicxml
-bnote/bnote-documents/tests/music/In the Hall of the Mountain King Dovregubbens Hall.musicxml
-bnote/bnote-documents/tests/music/amant st jean.bxml
-bnote/bnote-documents/tests/music/amant st jean.musicxml
-bnote/bnote-documents/tests/odt/Napoléon.odt
-bnote/bnote-documents/tests/odt/Test.odt
-bnote/bnote-documents/tests/odt/test_simple1.odt
-bnote/bnote-documents/tests/odt/test_simple2.odt
-bnote/bnote-documents/tests/rtf/Napoléon.rtf
-bnote/bnote-documents/tests/txt/Germinal-Emile Zola.txt
-bnote/bnote-documents/tests/txt/Molière.txt
-bnote/bnote-documents/tests/txt/The Beatles.txt
-bnote/bnote-documents/tests/xlsx/test_2_feuill.xlsx
-bnote/bnote-documents/tests/xlsx/test_simple.xlsx
 bnote/braille/__init__.py
 bnote/braille/braille_converter.py
 bnote/braille/braille_display.py
