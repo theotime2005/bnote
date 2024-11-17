@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-15 22:41+0100\n"
+"POT-Creation-Date: 2024-11-15 22:50+0100\n"
 "PO-Revision-Date: 2024-04-29 08:19+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -51,7 +51,7 @@ msgstr "odefinierade parametrar"
 #: ../apps/settings/settings_app.py:2039 ../apps/settings/settings_app.py:2151
 #: ../apps/settings/settings_app.py:2223 ../apps/settings/settings_app.py:2290
 #: ../apps/settings/settings_app.py:3118 ../apps/settings/settings_app.py:3190
-#: ../apps/settings/settings_app.py:3297 ../apps/edt/editor_app.py:194
+#: ../apps/settings/settings_app.py:3296 ../apps/edt/editor_app.py:194
 #: ../apps/edt/editor_app.py:211 ../apps/edt/editor_base_app.py:758
 #: ../apps/edt/editor_base_app.py:803 ../apps/edt/editor_base_app.py:1265
 #: ../apps/wikipedia/wikipedia_app.py:197 ../apps/daisy/daisy_app.py:278
@@ -113,7 +113,7 @@ msgstr "&ok"
 #: ../apps/settings/settings_app.py:2555 ../apps/settings/settings_app.py:2613
 #: ../apps/settings/settings_app.py:3120 ../apps/settings/settings_app.py:3158
 #: ../apps/settings/settings_app.py:3207 ../apps/settings/settings_app.py:3246
-#: ../apps/settings/settings_app.py:3299 ../apps/settings/settings_app.py:3310
+#: ../apps/settings/settings_app.py:3298 ../apps/settings/settings_app.py:3309
 #: ../apps/edt/editor_app.py:151 ../apps/edt/editor_app.py:195
 #: ../apps/edt/editor_app.py:213 ../apps/edt/editor_base_app.py:694
 #: ../apps/edt/editor_base_app.py:804 ../apps/edt/editor_base_app.py:861
@@ -259,7 +259,7 @@ msgstr "Mb"
 msgid "Gb"
 msgstr "Gb"
 
-#: ../ui/ui_file_box.py:40 ../apps/fman/file_manager_app.py:2416
+#: ../ui/ui_file_box.py:40 ../apps/fman/file_manager_app.py:2414
 msgid "empty directory..."
 msgstr "tom katalog ..."
 
@@ -2765,7 +2765,8 @@ msgstr "bluetooth"
 msgid "bnote must restart for the name change to take effect."
 msgstr "bnote måste starta om för att namnändringen ska träda i kraft."
 
-#: ../apps/settings/settings_app.py:1910
+#: ../apps/settings/settings_app.py:1910 ../apps/settings/settings_app.py:3281
+#: ../apps/fman/file_manager_app.py:2285
 msgid "restarting..."
 msgstr "startar om ..."
 
@@ -2877,6 +2878,7 @@ msgid "unable to update."
 msgstr "Vill du installera uppdatering?"
 
 #: ../apps/settings/settings_app.py:2530 ../apps/settings/settings_app.py:3197
+#: ../apps/fman/file_manager_app.py:2274
 msgid "install done, restart new version..."
 msgstr ""
 
@@ -3036,40 +3038,40 @@ msgstr "inställningar"
 msgid "&import"
 msgstr "&export"
 
-#: ../apps/settings/settings_app.py:3265
+#: ../apps/settings/settings_app.py:3265 ../apps/fman/file_manager_app.py:2213
 msgid ""
-"this file will be replace the existing settings file. Do you want to "
-"continue?"
+"this file will be replace the existing settings file. B.note will be restart "
+"after importing. Do you want to continue?"
 msgstr ""
 
 #: ../apps/settings/settings_app.py:3278 ../apps/fman/file_manager_app.py:2282
 msgid "failed to import the file, check the source and try again."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3290 ../apps/settings/settings_app.py:3324
+#: ../apps/settings/settings_app.py:3289 ../apps/settings/settings_app.py:3323
 msgid "no time zone found."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3294
+#: ../apps/settings/settings_app.py:3293
 msgid "chose a time zone"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3296
+#: ../apps/settings/settings_app.py:3295
 #, fuzzy
 msgid "&select time zone"
 msgstr "&urval"
 
-#: ../apps/settings/settings_app.py:3298 ../apps/settings/settings_app.py:3309
+#: ../apps/settings/settings_app.py:3297 ../apps/settings/settings_app.py:3308
 #: ../apps/wikipedia/wikipedia_app.py:195
 msgid "&find"
 msgstr "&hitta"
 
-#: ../apps/settings/settings_app.py:3306
+#: ../apps/settings/settings_app.py:3305
 #, fuzzy
 msgid "search a time zone"
 msgstr "&web uppdateringslista"
 
-#: ../apps/settings/settings_app.py:3308
+#: ../apps/settings/settings_app.py:3307
 #: ../apps/eole/eole_search_dialog_box.py:53
 #: ../apps/eole/eole_search_dialog_box.py:70
 msgid "&search"
@@ -5139,12 +5141,12 @@ msgid ""
 msgstr ""
 "bekräftar du permanent radering? om du tar bort förloras den permanent."
 
-#: ../apps/fman/file_manager_app.py:747 ../apps/fman/file_manager_app.py:2505
+#: ../apps/fman/file_manager_app.py:747 ../apps/fman/file_manager_app.py:2503
 msgid "deleting {}% {}"
 msgstr "tar bort {}% {}"
 
 #: ../apps/fman/file_manager_app.py:760 ../apps/fman/file_manager_app.py:1689
-#: ../apps/fman/file_manager_app.py:2517
+#: ../apps/fman/file_manager_app.py:2515
 msgid "restoring {}% {}"
 msgstr "återställer {}% {}"
 
@@ -5160,7 +5162,7 @@ msgstr "zip"
 msgid "({})"
 msgstr "({})"
 
-#: ../apps/fman/file_manager_app.py:827 ../apps/fman/file_manager_app.py:2507
+#: ../apps/fman/file_manager_app.py:827 ../apps/fman/file_manager_app.py:2505
 msgid "extracting {}% {}"
 msgstr "extraherar {}% {}"
 
@@ -5276,11 +5278,11 @@ msgstr "fel"
 msgid "unable to move the opened file in the editor."
 msgstr "kan inte flytta den öppnade filen i redigeraren."
 
-#: ../apps/fman/file_manager_app.py:1232 ../apps/fman/file_manager_app.py:2511
+#: ../apps/fman/file_manager_app.py:1232 ../apps/fman/file_manager_app.py:2509
 msgid "moving {}% {}"
 msgstr "flyttar {}% {}"
 
-#: ../apps/fman/file_manager_app.py:1238 ../apps/fman/file_manager_app.py:2513
+#: ../apps/fman/file_manager_app.py:1238 ../apps/fman/file_manager_app.py:2511
 msgid "copying {}% {}"
 msgstr "kopierar {}% {}"
 
@@ -5334,11 +5336,11 @@ msgstr "{} skickades till {}."
 msgid "error can't be sent {} to {}."
 msgstr "fel kan inte skicka {} till {}."
 
-#: ../apps/fman/file_manager_app.py:1598 ../apps/fman/file_manager_app.py:2509
+#: ../apps/fman/file_manager_app.py:1598 ../apps/fman/file_manager_app.py:2507
 msgid "compressing {}% {}"
 msgstr "komprimerar {}% {}"
 
-#: ../apps/fman/file_manager_app.py:1651 ../apps/fman/file_manager_app.py:2515
+#: ../apps/fman/file_manager_app.py:1651 ../apps/fman/file_manager_app.py:2513
 msgid "backuping {}% {}"
 msgstr "backupar {}% {}"
 
@@ -5394,12 +5396,6 @@ msgstr "&packa upp"
 msgid "Unzip file {}?"
 msgstr ""
 
-#: ../apps/fman/file_manager_app.py:2213
-msgid ""
-"this file will be replace the existing settings file, do you want to "
-"continue?"
-msgstr ""
-
 #: ../apps/fman/file_manager_app.py:2227
 #, fuzzy
 msgid ""
@@ -5417,20 +5413,15 @@ msgstr ""
 msgid "installation in progres..."
 msgstr ""
 
-#: ../apps/fman/file_manager_app.py:2285
-#, fuzzy
-msgid "imported settings."
-msgstr "&inställningar"
-
-#: ../apps/fman/file_manager_app.py:2519
+#: ../apps/fman/file_manager_app.py:2517
 msgid "sending {}% {}"
 msgstr "skickar {}% {}"
 
-#: ../apps/fman/file_manager_app.py:2521
+#: ../apps/fman/file_manager_app.py:2519
 msgid "in progress {}%"
 msgstr "pågår {}%"
 
-#: ../apps/fman/file_manager_app.py:2541
+#: ../apps/fman/file_manager_app.py:2539
 msgid "error during deletion."
 msgstr "fel under radering."
 
@@ -5659,6 +5650,10 @@ msgstr "är du säker på att du ska byta ut radion {}"
 #: ../apps/media/radio_app.py:372
 msgid "are you sure to delete the radio {}"
 msgstr "är du säker på att du ska ta bort radion {}"
+
+#, fuzzy
+#~ msgid "imported settings."
+#~ msgstr "&inställningar"
 
 #, fuzzy
 #~ msgid "No internet."
