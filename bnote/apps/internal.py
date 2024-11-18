@@ -18,6 +18,7 @@ import bnote.apps.edt.edt as editor
 from bnote.apps.media.mp3_app import Mp3App
 from bnote.apps.music.music_app import MusicApp
 from bnote.apps.daisy.daisy_app import DaisyApp
+from bnote.apps.nvdaremote.nvdaremote_app import NvdaRemoteApp
 from bnote.apps.settings.settings_app import SettingsApp
 from bnote.apps.skeleton.skeleton_app import SkeletonApp
 from bnote.apps.timer.timer_app import TimerApp
@@ -82,6 +83,7 @@ class Internal:
             'explorer': self.AppDescriptor('', self.__app_translate('explorer'), self._exec_explorer, is_hide=False, is_auto_switch=True),
             'settings': self.AppDescriptor('', self.__app_translate('settings'), self._exec_settings, is_hide=False, is_auto_switch=True),
             'agenda': self.AppDescriptor('', self.__app_translate('agenda'), self._exec_agenda, is_hide=False, is_auto_switch=True),
+            'nvdaremote': self.AppDescriptor('', self.__app_translate('nvdaremote'), self._exec_nvvdaremote, is_hide=False, is_auto_switch=True),
             'radio': self.AppDescriptor('', self.__app_translate('radio'), self._exec_radio, is_hide=False, is_auto_switch=True),
             'mp3': self.AppDescriptor('', self.__app_translate('mp3'), self._exec_mp3, is_hide=False, is_auto_switch=True),
             'wikipedia': self.AppDescriptor('', self.__app_translate('wikipedia'), self._exec_wikipedia, is_hide=False, is_auto_switch=True),
@@ -95,6 +97,7 @@ class Internal:
             'more_apps_menu': self.AppDescriptor('sub_menu', self.__app_translate('more_apps_menu'), self._more_apps_menu, is_hide=False, is_auto_switch=True),
             'explorer_2': self.AppDescriptor('more_apps_menu', self.__app_translate('explorer_2'), self._exec_explorer_2, is_hide=False, is_auto_switch=True),
             'settings_2': self.AppDescriptor('more_apps_menu', self.__app_translate('settings_2'), self._exec_settings_2, is_hide=False, is_auto_switch=True),
+            'nvdaremote_2': self.AppDescriptor('more_apps_menu', self.__app_translate('nvdaremote_2'), self._exec_nvvdaremote, is_hide=False, is_auto_switch=True),
             'agenda_2': self.AppDescriptor('more_apps_menu', self.__app_translate('agenda_2'), self._exec_agenda_2, is_hide=False, is_auto_switch=True),
             'radio_2': self.AppDescriptor('more_apps_menu', self.__app_translate('radio_2'), self._exec_radio_2, is_hide=False, is_auto_switch=True),
             'mp3_2': self.AppDescriptor('more_apps_menu', self.__app_translate('mp3_2'), self._exec_mp3_2, is_hide=False, is_auto_switch=True),
@@ -233,6 +236,7 @@ class Internal:
         translations = {
             "explorer": _("&explorer"),
             "settings": _("&settings"),
+            'nvdaremote': _("&nvdaremote"),
             "agenda": _("a&genda"),
             "radio": _("&radio"),
             "mp3": _("au&dio"),
@@ -399,6 +403,15 @@ class Internal:
 
     def _exec_agenda_2(self):
         self._exec_agenda()
+
+    def _exec_nvvdaremote(self):
+        log.info("exec_nvdaremote")
+        if not self.apps_descriptor['nvdaremote'].instance:
+            self.apps_descriptor['nvdaremote'].instance = NvdaRemoteApp(self._put_in_function_queue)
+        self.set_current_app(self.apps_descriptor['nvdaremote'].instance)
+
+    def _exec_nvvdaremote_2(self):
+        return self._exec_nvvdaremote()
 
     def _exec_write_word(self):
         log.info("exec_write_word")
