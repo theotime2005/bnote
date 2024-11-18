@@ -146,6 +146,8 @@ if LOG == 0:
     MATH_PARSER_LOG = logging.ERROR
     MATH_RESULT_LOG = logging.ERROR
     MATH_MODEL_LOG = logging.ERROR
+    # NVDARemote
+    NVDAREMOTE_APP_LOG = logging.debug()
     # agenda app
     AGENDA_APP_LOG = logging.DEBUG
     # Skeleton app
@@ -229,6 +231,8 @@ else:
     MATH_PARSER_LOG = logging.WARNING
     MATH_RESULT_LOG = logging.WARNING
     MATH_MODEL_LOG = logging.WARNING
+    # NVDARemote
+    NVDA_REMOTE_APP_LOG = logging.WARNING
     # skeleton app
     SKELETON_APP_LOG = logging.WARNING
     # braille_learning app
