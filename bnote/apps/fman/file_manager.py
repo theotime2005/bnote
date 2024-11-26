@@ -28,6 +28,7 @@ DOCUMENTS_FOLDER = "bnote-documents"
 BACKUPS_FOLDER = "bnote-backups"
 CRASH_REPORT_FOLDER = "bnote-crash"
 SETTINGS_FOLDER = "bnote-settings"
+EXAM_FOLDER = "bnote-exam"
 
 # 2024 : goto menu is now deprecated => let's play with a MAIN_FOLDER strategy
 BNOTE_MAIN_FOLDER = BNOTE_FOLDER / Path(".MAIN_FOLDER")
@@ -42,6 +43,7 @@ BNOTE_CRASH = Path("6-crash")
 BNOTE_DOCUMENTS = Path("1-documents")
 BNOTE_TRASH = Path("4-trash")
 BNOTE_SETTINGS = Path("7-settings")
+BNOTE_EXAM = Path("8-exam")
 
 
 def create_folder(folder):
@@ -74,9 +76,12 @@ class FileManager:
     # The real folder with the crash file
     __real_crash_path = BNOTE_FOLDER / Path(CRASH_REPORT_FOLDER)
     create_folder(__real_crash_path)
-    # The real folder with the backup file
+    # The real folder with the setting file
     __real_settings_path = BNOTE_FOLDER / Path(SETTINGS_FOLDER)
     create_folder(__real_settings_path)
+    # The real folder with the exam file
+    __real_exam_path = BNOTE_FOLDER / Path(EXAM_FOLDER)
+    create_folder(__real_exam_path)
 
     # 2024 : goto menu is now deprecated => let's play with a MAIN_FOLDER strategy
     # First step : create a fake main folder
@@ -99,6 +104,8 @@ class FileManager:
         (BNOTE_FOLDER / Path(DOCUMENTS_FOLDER) / Path("bluetooth")).unlink()
     if (BNOTE_FOLDER / Path(DOCUMENTS_FOLDER) / Path("crash")).exists():
         (BNOTE_FOLDER / Path(DOCUMENTS_FOLDER) / Path("crash")).unlink()
+    if (BNOTE_FOLDER / Path(DOCUMENTS_FOLDER) / Path("exam")).exists():
+        (BNOTE_FOLDER / Path(DOCUMENTS_FOLDER) / Path("exam")).unlink()
 
 
     # Third step : the links are now created in the BNOTE_MAIN_FOLDER (instead of __root_path version before 2024)
@@ -116,6 +123,9 @@ class FileManager:
     # symlink to backup folder will be in BNOTE_MAIN_FOLDER
     __backup_path = BNOTE_MAIN_FOLDER / BNOTE_BACKUP
     create_symlink(str(__real_backup_path), __backup_path)
+    # symlink to exam folder will be in BNOTE_MAIN_FOLDER
+    __exam_path = BNOTE_MAIN_FOLDER / BNOTE_EXAM
+    create_symlink(str(__real_exam_path), __exam_path)
     # The symlink to the real /bluetooth folder will be in BNOTE_MAIN_FOLDER
     __bluetooth_path = BNOTE_MAIN_FOLDER / BNOTE_BLUETOOTH
     create_symlink("/bluetooth", __bluetooth_path)
@@ -176,6 +186,10 @@ class FileManager:
     @classmethod
     def get_settings_path(cls) -> Path:
         return cls.__settings_path
+
+    @classmethod
+    def get_exam_path(cls) -> Path:
+        return cls.__exam_path
 
     @staticmethod
     def umount_safely_usb_flash_drive(path) -> bool:

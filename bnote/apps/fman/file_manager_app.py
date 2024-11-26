@@ -20,6 +20,7 @@ from bnote.apps.media.mp3_app import Mp3App
 from bnote.apps.music.music_app import MusicApp
 from bnote.apps.daisy.daisy_app import DaisyApp
 from bnote.tools import bt_util
+from bnote.tools.exam import Examen
 from bnote.tools.io_util import Gpio
 import bnote.ui as ui
 from bnote.tools.clipboard import CLIP_FILE
@@ -233,6 +234,7 @@ class FileManagerApp(BnoteApp):
                 ui.UiMenuItem(name=_("&trash"), action=self._exec_goto_trash),
                 ui.UiMenuItem(name=_("my back&ups"), action=self._exec_goto_backup),
                 ui.UiMenuItem(name=_("c&rash"), action=self._exec_goto_crash),
+                ui.UiMenuItem(name=_("e&xamen"), action=self._exec_goto_examen),
                 ui.UiMenuItem(name=_("p&arent directory"), action=self._exec_goto_parent_directory,
                            shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
                            shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_BACKSPACE),
@@ -1296,6 +1298,12 @@ class FileManagerApp(BnoteApp):
         # Refresh the current folder
         self.__init_new_current_folder_and_build_braille_line(self.__current_folder)
 
+    def _exec_goto_examen(self):
+        # change current folder.
+        self.__current_folder = FileManager.get_exam_path()
+        # Refresh the current folder
+        self.__init_new_current_folder_and_build_braille_line(self.__current_folder)
+
     def _exec_goto_my_documents(self):
         # change current folder.
         self.__current_folder = FileManager.get_documents_path()
@@ -2093,6 +2101,15 @@ class FileManagerApp(BnoteApp):
         if not len(FileManager.listdir(FileManager.get_crash_path())):
             exclude_list.append(FileManager.get_crash_path())
 
+        # Exclude exam if is empty[
+        if not len(FileManager.listdir(FileManager.get_exam_path())):
+            exclude_list.append(FileManager.get_exam_path())
+
+        # Exclude documents, settings, backup if in exam mode
+        if Examen().isActive:
+            exclude_list.append(FileManager.get_documents_path())
+            exclude_list.append(FileManager.get_settings_path())
+            exclude_list.append(FileManager.get_backup_path())
         files = FileManager.listdir(path, hide_hidden_file=hide_hidden_file)
         if files is not None:
             for file in files:

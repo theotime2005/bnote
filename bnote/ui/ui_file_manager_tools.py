@@ -36,7 +36,8 @@ class UiFileManagerTools:
                     if filename in (FileManager.get_backup_path(), FileManager.get_bluetooth_path(),
                                     FileManager.get_documents_path(), FileManager.get_crash_path(),
                                     FileManager.get_usb_flash_drive_path(), Trash.get_trash_path(),
-                                    FileManager.get_settings_path()):
+                                    FileManager.get_settings_path(),
+                                     FileManager.get_exam_path()):
                         # Translate the specials folders.
                         friendly_name = UiFileManagerTools.friendly_file_name(filename, True)
                     else:
@@ -182,6 +183,7 @@ class UiFileManagerTools:
         friendly_name = friendly_name.replace(str(FileManager.get_documents_path()), _("my Documents"))
         friendly_name = friendly_name.replace(str(FileManager.get_crash_path()), _("crash"))
         friendly_name = friendly_name.replace(str(FileManager.get_settings_path()), _("settings"))
+        friendly_name = friendly_name.replace(str(FileManager.get_exam_path()), _("examen"))
         # Always try to replace main folder after the documents sub folder (like symbolic link
         # on trash / bluetooth / backup / usb flash drive that are located inside main folder.)
         friendly_name = friendly_name.replace(str(FileManager.get_main_folder_path()), _("bnote"))
