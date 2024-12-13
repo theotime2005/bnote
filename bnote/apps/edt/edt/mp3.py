@@ -24,9 +24,12 @@ class Mp3:
 
     def xml_render(self):
         if self.mp3_file is not None and self.mp3_offset is not None:
-            mp3_template = string.Template('    <mp3 mp3_file="${file}" mp3_offset="${offset}" />')
-            return [mp3_template.substitute(
-                file=saxutils.escape(str(self.mp3_file.as_posix())),
-                offset=saxutils.escape(str(self.mp3_offset))
-            )]
-
+            mp3_template = string.Template(
+                '    <mp3 mp3_file="${file}" mp3_offset="${offset}" />'
+            )
+            return [
+                mp3_template.substitute(
+                    file=saxutils.escape(str(self.mp3_file.as_posix())),
+                    offset=saxutils.escape(str(self.mp3_offset)),
+                )
+            ]

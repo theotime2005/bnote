@@ -48,7 +48,7 @@ def update_swap_size_in_conf_file(new_size_mb) -> bool:
     swapfile_path = "/etc/dphys-swapfile"
 
     # Lecture du contenu du fichier de configuration du swap
-    with open(swapfile_path, 'r') as file:
+    with open(swapfile_path, "r") as file:
         lines = file.readlines()
 
     # print(f"{lines=}")
@@ -77,4 +77,4 @@ def write_file_with_sudo(file_path, lines):
 
     # Ouverture d'un processus avec sudo et écriture des lignes dans le fichier
     with subprocess.Popen(command, stdin=subprocess.PIPE) as proc:
-        proc.communicate(input=''.join(lines).encode())
+        proc.communicate(input="".join(lines).encode())

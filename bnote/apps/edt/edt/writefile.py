@@ -5,12 +5,12 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 import time
 import threading
 
 # Setup the logger for this file
 from .colored_log import ColoredLogger, EDITOR_WRITE_FILE_LOG, logging
+
 log = ColoredLogger(__name__, level=EDITOR_WRITE_FILE_LOG)
 
 
@@ -35,7 +35,7 @@ class WriteFile(threading.Thread):
         try:
             if self._get_line is None:
                 raise IOError("Error during editor access")
-            fp = open(self._full_file_name, 'w')
+            fp = open(self._full_file_name, "w")
             # Write txt file.
             cnt = 0
             while True:

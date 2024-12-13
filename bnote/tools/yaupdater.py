@@ -4,6 +4,7 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 from bnote.apps.fman.file_manager import FileManager, BNOTE_FOLDER, DOCUMENTS_FOLDER
 from bnote.stm32.braille_device_characteristics import braille_device_characteristics
 import os
@@ -25,7 +26,9 @@ from bnote.debug.colored_log import ColoredLogger, YAUPDATER_LOG
 log = ColoredLogger(__name__)
 log.setLevel(YAUPDATER_LOG)
 
-UPDATE_FOLDER_URL = 'https://update.eurobraille.fr/radio/download/bnote/bnote3.x.x/bnote3.0.5_next'
+UPDATE_FOLDER_URL = (
+    "https://update.eurobraille.fr/radio/download/bnote/bnote3.x.x/bnote3.0.5_next"
+)
 INSTALL_FOLDER = Path("/home/pi/all_bnotes")
 
 
@@ -47,6 +50,7 @@ INSTALL_FOLDER = Path("/home/pi/all_bnotes")
 # bnote-3.0.0b5-py3-none-any.whl  bnote-3.0.0b5.tar.gz
 # Remarque : Le nom du fichier tar.gz est créé sous la forme name-version.tar.gz (name et version issus du fichier pyproject.toml)
 
+
 class YAUpdater:
     __WHL_ZIP_EXTENSION = ".whl.zip"
     __WHL_EXTENSION = ".whl"
@@ -56,7 +60,9 @@ class YAUpdater:
         except OSError as e:
             log.error(f"EXCEPTION Path.mkdir({INSTALL_FOLDER}) : e={e}")
 
-    def __init__(self, file, extract_path=None, refresh_call_back=None, ended_call_back=None):
+    def __init__(
+        self, file, extract_path=None, refresh_call_back=None, ended_call_back=None
+    ):
         self.extract_path = INSTALL_FOLDER if extract_path is None else extract_path
         self.refresh_call_back = refresh_call_back
         self.ended_call_back = ended_call_back
@@ -64,7 +70,7 @@ class YAUpdater:
         self.start_thread(file)
 
     def start_thread(self, file):
-        thread = threading.Thread(target=self._install_thread, args=(file, ))
+        thread = threading.Thread(target=self._install_thread, args=(file,))
         thread.start()
 
     @staticmethod
@@ -79,19 +85,23 @@ class YAUpdater:
         if file.is_file() and str(file).endswith(YAUpdater.__WHL_ZIP_EXTENSION):
             try:
                 if zipfile.is_zipfile(file):
-                    with zipfile.ZipFile(file, 'r') as archive:
+                    with zipfile.ZipFile(file, "r") as archive:
                         for zip_file in archive.namelist():
-                            if zip_file.startswith('bnote-') and zip_file.endswith(YAUpdater.__WHL_EXTENSION):
+                            if zip_file.startswith("bnote-") and zip_file.endswith(
+                                YAUpdater.__WHL_EXTENSION
+                            ):
                                 bnote_whl_file = Path(zip_file)
                                 break
                     if bnote_whl_file:
                         log.error(f"{bnote_whl_file.stem=}")
                         # DP FIXME La version retournée est celle du nom de fichier, on pourrait aller chercher le fichier file.distinfo/METADATA ligne version=
-                        pattern_version = r'bnote-(?P<version>\d+\.\d+\.\d+((a|b|rc)\d+)?)-py3-none-any'
+                        pattern_version = r"bnote-(?P<version>\d+\.\d+\.\d+((a|b|rc)\d+)?)-py3-none-any"
                         match = re.match(pattern_version, str(bnote_whl_file.stem))
                         if match:
-                            if 'version' in match.groupdict().keys() and match.group('version'):
-                                version = match.group('version')
+                            if "version" in match.groupdict().keys() and match.group(
+                                "version"
+                            ):
+                                version = match.group("version")
                                 log.error(f"{version=}")
             except zipfile.BadZipfile as e:
                 log.error(f"{file=}, {e}")
@@ -119,21 +129,25 @@ class YAUpdater:
         try:
             with zip_file.open(file_name) as file_in_zip:
                 contains = file_in_zip.read()
-            with open(str(write_filename), 'wb') as file_to_write:
+            with open(str(write_filename), "wb") as file_to_write:
                 file_to_write.write(contains)
         except (IOError, OSError, PermissionError, FileNotFoundError) as e:
             log.error(f"open or write error on file : {e}")
-
 
     def extract_to_working_directory(self, archive_path, working_directory) -> bool:
         """
         Extract .whl file and __main__.py to working directory.
         """
         try:
-            with zipfile.ZipFile(archive_path, 'r') as zip_file:
+            with zipfile.ZipFile(archive_path, "r") as zip_file:
                 for file_name in zip_file.namelist():
-                    if (file_name.startswith('bnote-') and file_name.endswith(YAUpdater.__WHL_EXTENSION)) or file_name.endswith('.py'):
-                        write_filename = Path(Path(working_directory) / Path(file_name).name)
+                    if (
+                        file_name.startswith("bnote-")
+                        and file_name.endswith(YAUpdater.__WHL_EXTENSION)
+                    ) or file_name.endswith(".py"):
+                        write_filename = Path(
+                            Path(working_directory) / Path(file_name).name
+                        )
                         # Extract the file.
                         self.__extract_file(zip_file, file_name, write_filename)
                 return True
@@ -145,7 +159,9 @@ class YAUpdater:
         except KeyError:
             log.error(f"no file libraries.txt found in {archive_path=}")
             if self.refresh_call_back:
-                self.refresh_call_back(_(f"no file libraries.txt found in {archive_path=}"))
+                self.refresh_call_back(
+                    _(f"no file libraries.txt found in {archive_path=}")
+                )
                 return False
 
     def extract_whl_folder(self, archive_path) -> bool:
@@ -153,12 +169,16 @@ class YAUpdater:
         Extract whl folder and add file to whl folder of sdcard.
         """
         try:
-            with (zipfile.ZipFile(archive_path, 'r') as zip_file):
+            with zipfile.ZipFile(archive_path, "r") as zip_file:
                 log.error(f"{zip_file.namelist()=}")
                 for file_name in zip_file.namelist():
                     file_path = Path(file_name).parts
-                    if (len(file_path) > 1) and (file_path[-2] == 'whl' or file_path[-2] == 'zip'):
-                        write_filename = Path(Path('/home/pi/whl') / Path(file_name).name)
+                    if (len(file_path) > 1) and (
+                        file_path[-2] == "whl" or file_path[-2] == "zip"
+                    ):
+                        write_filename = Path(
+                            Path("/home/pi/whl") / Path(file_name).name
+                        )
                         # Extract the file.
                         self.__extract_file(zip_file, file_name, write_filename)
                 return True
@@ -170,21 +190,23 @@ class YAUpdater:
         except KeyError:
             log.error(f"No file libraries.txt found in {archive_path=}")
             if self.refresh_call_back:
-                self.refresh_call_back(_(f"no file libraries.txt found in {archive_path=}"))
+                self.refresh_call_back(
+                    _(f"no file libraries.txt found in {archive_path=}")
+                )
                 return False
 
     def get_libraries_txt_file(self, archive_path):
         commands = []
         try:
-            with (zipfile.ZipFile(archive_path) as zip_file):
+            with zipfile.ZipFile(archive_path) as zip_file:
                 # files = zip_file.namelist()
                 # log.error(f"{files=}")
-                with zip_file.open('libraries.txt') as readfile:
+                with zip_file.open("libraries.txt") as readfile:
                     data = readfile.read()
                     lines = data.splitlines()
                     # convert b"..." to string.
                     for line in lines:
-                        commands.append(line.decode('utf-8').strip())
+                        commands.append(line.decode("utf-8").strip())
         except zipfile.BadZipfile:
             log.error(f"Bad zip file {archive_path=}")
         except KeyError:
@@ -241,10 +263,9 @@ class YAUpdater:
             # Extract the archive into the self.extract_path folder
             command_lines = self.get_libraries_txt_file(archive_path)
             # # Install dependency and update the service if succeeded.
-            if (self._upgrade_os(command_lines)
-                    and self._install_bnote(Path(
-                        working_directory / Path(bnote_whl_file.name)),
-                        working_directory)):
+            if self._upgrade_os(command_lines) and self._install_bnote(
+                Path(working_directory / Path(bnote_whl_file.name)), working_directory
+            ):
                 # Change bnote launched at startup.
                 result = self.update_config_file(working_directory)
         # Inform caller.
@@ -284,12 +305,12 @@ class YAUpdater:
         if pyproject_toml.exists():
             try:
                 # Read the file.
-                with open(pyproject_toml, 'rb') as toml_file:
+                with open(pyproject_toml, "rb") as toml_file:
                     toml_data = tomllib.load(toml_file)
 
                 # Extract projet version.
                 try:
-                    project_version = toml_data['project']['version']
+                    project_version = toml_data["project"]["version"]
                 except KeyError:
                     pass
             except:
@@ -301,7 +322,7 @@ class YAUpdater:
         project_version = YAUpdater.get_version_from_pyproject_toml(pyproject_toml)
         if project_version is None:
             # Get version from bnote package.
-            project_version = pkg_resources.get_distribution('bnote').version
+            project_version = pkg_resources.get_distribution("bnote").version
         print(f"{project_version=}")
         return project_version
 
@@ -322,13 +343,19 @@ class YAUpdater:
         command_list = command.split()
         # Copie de l'environnement actuel.
         env = os.environ.copy()
-        env['DEBIAN_FRONTEND'] = 'noninteractive'
+        env["DEBIAN_FRONTEND"] = "noninteractive"
         # Execute command with folder as working directory.
-        process = subprocess.Popen(command_list, cwd=working_directory, stdout=subprocess.PIPE, stderr=subprocess.PIPE, env=env)
+        process = subprocess.Popen(
+            command_list,
+            cwd=working_directory,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            env=env,
+        )
         # Wait execution.
         output, error = process.communicate()
         # Display output.
-        #print("Command output:", output.decode())
+        # print("Command output:", output.decode())
         if error:
             error_string = f"Erreur {command}:\n{error.decode()}"
             log.error(error_string)
@@ -345,13 +372,15 @@ class YAUpdater:
         if self.refresh_call_back:
             self.refresh_call_back(_("linux os update"))
         for command in command_lines:
-            if len(command) == 0 or command.startswith('#'):
+            if len(command) == 0 or command.startswith("#"):
                 continue
             commande = f"{command}"
             try:
                 # Exécute la commande apt-get en mode capture
-                resultat = subprocess.run(commande, shell=True, check=True, stderr=subprocess.PIPE)
-                erreur = resultat.stderr.decode('utf-8').strip()
+                resultat = subprocess.run(
+                    commande, shell=True, check=True, stderr=subprocess.PIPE
+                )
+                erreur = resultat.stderr.decode("utf-8").strip()
             except subprocess.CalledProcessError as e:
                 erreur = f"Erreur {command}:\n{e.stderr.decode('utf-8').strip()}"
             if erreur and not (erreur.startswith("W: ")):
@@ -390,46 +419,63 @@ class YAUpdaterFinder:
             self.ended()
 
     def __find_list_thread(self):
-        #bnote-3.0.0b10-py3-none-any.whl
-        pattern = r'bnote-(\d+\.\d+\.\d+((a|b|rc)\d+)?)-py3-none-any\.whl\.zip'
-        pattern_version = r'bnote-(?P<version>\d+\.\d+\.\d+((a|b|rc)\d+)?)-py3-none-any\.whl\.zip'
+        # bnote-3.0.0b10-py3-none-any.whl
+        pattern = r"bnote-(\d+\.\d+\.\d+((a|b|rc)\d+)?)-py3-none-any\.whl\.zip"
+        pattern_version = (
+            r"bnote-(?P<version>\d+\.\d+\.\d+((a|b|rc)\d+)?)-py3-none-any\.whl\.zip"
+        )
         files = []
-        version_to_install = 'up_to_date'
+        version_to_install = "up_to_date"
         file_to_install = None
         try:
             response = requests.get(UPDATE_FOLDER_URL)
             # Raise exceptions for 4xx and 5xx responses.
             response.raise_for_status()
-            soup = BeautifulSoup(response.text, 'html.parser')
+            soup = BeautifulSoup(response.text, "html.parser")
             # Find all links and filter them with pattern.
-            files = [link.get('href') for link in soup.find_all('a') if re.match(pattern, link.get('href'))]
+            files = [
+                link.get("href")
+                for link in soup.find_all("a")
+                if re.match(pattern, link.get("href"))
+            ]
             log.error(f"Updates found: {files}")
-            current_version = YAUpdater.get_version_from_running_project("pyproject.toml")
+            current_version = YAUpdater.get_version_from_running_project(
+                "pyproject.toml"
+            )
             for file in files:
                 match = re.match(pattern_version, file)
                 if match:
                     # print(f"{match}")
                     # print(f"{match.groupdict()=}")
                     # print(f"{match.group('major')=}-{match.group('minor')=}-{match.group('fix')=}")
-                    if 'version' in match.groupdict().keys() and match.group('version'):
-                        file_version = match.group('version')
+                    if "version" in match.groupdict().keys() and match.group("version"):
+                        file_version = match.group("version")
                         log.info(f"Compare {current_version=} to {file_version=}")
-                        if self.is_allowed_version(file_version) and not YAUpdaterFinder.is_first_str_version_greater_or_equal(current_version, file_version):
-                            if file_to_install is None or not YAUpdaterFinder.is_first_str_version_greater_or_equal(version_to_install, file_version):
+                        if self.is_allowed_version(
+                            file_version
+                        ) and not YAUpdaterFinder.is_first_str_version_greater_or_equal(
+                            current_version, file_version
+                        ):
+                            if (
+                                file_to_install is None
+                                or not YAUpdaterFinder.is_first_str_version_greater_or_equal(
+                                    version_to_install, file_version
+                                )
+                            ):
                                 version_to_install = file_version
                                 file_to_install = file
         except requests.exceptions.HTTPError as errh:
             log.error(f"Erreur HTTP: {errh}")
-            version_to_install = 'failed'
+            version_to_install = "failed"
         except requests.exceptions.ConnectionError as errc:
             log.error(f"Erreur de connexion: {errc}")
-            version_to_install = 'failed'
+            version_to_install = "failed"
         except requests.exceptions.Timeout as errt:
             log.error(f"Temps d'attente dépassé: {errt}")
-            version_to_install = 'failed'
+            version_to_install = "failed"
         except requests.exceptions.RequestException as err:
             log.error(f"Erreur de requête: {err}")
-            version_to_install = 'failed'
+            version_to_install = "failed"
         finally:
             log.error(f"{version_to_install=}")
             self.__on_end_thread(files, version_to_install, file_to_install)
@@ -441,16 +487,24 @@ class YAUpdaterFinder:
         if self.is_developer:
             return True
         else:
-            major, minor, fix, stage_type, stage_value = list(YAUpdaterFinder.split_version1(version))
-            return stage_type == ''
+            major, minor, fix, stage_type, stage_value = list(
+                YAUpdaterFinder.split_version1(version)
+            )
+            return stage_type == ""
 
     @staticmethod
-    def is_first_str_version_greater_or_equal(first_str_version: str, second_str_version: str) -> bool:
+    def is_first_str_version_greater_or_equal(
+        first_str_version: str, second_str_version: str
+    ) -> bool:
         """
         return True if first_str_version > second_str_version
         """
-        major_1, minor_1, fix_1, stage_type_1, stage_value_1 = list(YAUpdaterFinder.split_version1(first_str_version))
-        major_2, minor_2, fix_2, stage_type_2, stage_value_2 = list(YAUpdaterFinder.split_version1(second_str_version))
+        major_1, minor_1, fix_1, stage_type_1, stage_value_1 = list(
+            YAUpdaterFinder.split_version1(first_str_version)
+        )
+        major_2, minor_2, fix_2, stage_type_2, stage_value_2 = list(
+            YAUpdaterFinder.split_version1(second_str_version)
+        )
         if major_1 > major_2:
             return True
         elif major_1 == major_2:
@@ -460,8 +514,12 @@ class YAUpdaterFinder:
                 if fix_1 > fix_2:
                     return True
                 elif fix_1 == fix_2:
-                    stage_type_number_1 = YAUpdaterFinder.stage_number_from_type(stage_type_1)
-                    stage_type_number_2 = YAUpdaterFinder.stage_number_from_type(stage_type_2)
+                    stage_type_number_1 = YAUpdaterFinder.stage_number_from_type(
+                        stage_type_1
+                    )
+                    stage_type_number_2 = YAUpdaterFinder.stage_number_from_type(
+                        stage_type_2
+                    )
                     if stage_type_number_1 > stage_type_number_2:
                         return True
                     elif stage_type_number_1 == stage_type_number_2:
@@ -480,23 +538,25 @@ class YAUpdaterFinder:
             # print(f"{match}")
             # print(f"{match.groupdict()=}")
             # print(f"{match.group('major')=}-{match.group('minor')=}-{match.group('fix')=}")
-            if 'major' in match.groupdict().keys() and match.group('major'):
-                major = int(match.group('major'))
-            if 'minor' in match.groupdict().keys() and match.group('minor'):
-                minor = int(match.group('minor'))
-            if 'fix' in match.groupdict().keys() and match.group('fix'):
-                fix = int(match.group('fix'))
-            if 'stage_type' in match.groupdict().keys() and match.group('stage_type'):
-                stage_type = match.group('stage_type')
-                if 'stage_value' in match.groupdict().keys() and match.group('stage_value'):
-                    stage_value = int(match.group('stage_value'))
+            if "major" in match.groupdict().keys() and match.group("major"):
+                major = int(match.group("major"))
+            if "minor" in match.groupdict().keys() and match.group("minor"):
+                minor = int(match.group("minor"))
+            if "fix" in match.groupdict().keys() and match.group("fix"):
+                fix = int(match.group("fix"))
+            if "stage_type" in match.groupdict().keys() and match.group("stage_type"):
+                stage_type = match.group("stage_type")
+                if "stage_value" in match.groupdict().keys() and match.group(
+                    "stage_value"
+                ):
+                    stage_value = int(match.group("stage_value"))
         # print(f"{raw_version_string}->{major}, {minor}, {fix}, {stage_type}, {stage_value}")
         return major, minor, fix, stage_type, stage_value
 
     @staticmethod
     def stage_number_from_type(stage_type):
-        types_1 = ('alpha', 'beta', 'rc')
-        types_2 = ('a', 'b', 'rc')
+        types_1 = ("alpha", "beta", "rc")
+        types_2 = ("a", "b", "rc")
         if stage_type == "":
             # Release version win 1 000 000.
             return 1000000
@@ -517,18 +577,18 @@ class YAVersionFinder:
     def get_version_from_venv(venv_path):
         import subprocess
 
-        package_name = 'bnote'
+        package_name = "bnote"
         result = subprocess.run(
-            [f'{venv_path}/venv/bin/pip', 'show', package_name],
+            [f"{venv_path}/venv/bin/pip", "show", package_name],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
-            text=True
+            text=True,
         )
         if result.returncode == 0:
             # Extract version
-            for line in result.stdout.split('\n'):
-                if line.startswith('Version:'):
-                    return line.split('Version: ')[1]
+            for line in result.stdout.split("\n"):
+                if line.startswith("Version:"):
+                    return line.split("Version: ")[1]
             return None
         else:
             return None
@@ -546,24 +606,32 @@ class YAVersionFinder:
         original_folder = "/home/pi/bnote"
         version = YAVersionFinder.get_version_from_venv(original_folder)
         if version:
-            list_of_versions = {version + "(original)": (Path(original_folder), False), }
+            list_of_versions = {
+                version + "(original)": (Path(original_folder), False),
+            }
         else:
-            list_of_versions = {"bnote(original)": (Path(original_folder), False), }
+            list_of_versions = {
+                "bnote(original)": (Path(original_folder), False),
+            }
         # Find developer version.
         developer_folder = Path("/home/pi/develop")
         if developer_folder.exists():
             for d in developer_folder.iterdir():
                 if d.is_dir():
-                    version = YAUpdater.get_version_from_running_project(Path(d) / Path('pyproject.toml'))
+                    version = YAUpdater.get_version_from_running_project(
+                        Path(d) / Path("pyproject.toml")
+                    )
                     if version is None:
-                        version = YAVersionFinder.get_version_from_venv(developer_folder)
+                        version = YAVersionFinder.get_version_from_venv(
+                            developer_folder
+                        )
                     list_of_versions[version + "(developer)"] = (d, False)
         # Find all bnotes version.
         all_bnote_folder = Path("/home/pi/all_bnotes")
         for d in all_bnote_folder.iterdir():
             if d.is_dir():
-                parts = d.name.split('-')
-                if (len(parts) != 2) or (parts[0] != 'bnote'):
+                parts = d.name.split("-")
+                if (len(parts) != 2) or (parts[0] != "bnote"):
                     # forget non-compliant name.
                     continue
                 version = parts[1]
@@ -580,7 +648,7 @@ class YAVersionFinder:
         if old_version:
             # print(f"current version = {old_version}")
             del list_of_versions[old_version]
-            list_of_versions['*' + old_version] = old_value
+            list_of_versions["*" + old_version] = old_value
         return list_of_versions
 
     @staticmethod

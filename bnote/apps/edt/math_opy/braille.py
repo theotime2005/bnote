@@ -4,7 +4,6 @@ This software is the proprietary of eurobraille and may not be copied,
 distributed, published,or disclosed without express prior written permission.
 """
 
-
 b0 = "⠀"
 b1 = "⠁"
 b2 = "⠂"

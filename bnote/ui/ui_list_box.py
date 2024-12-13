@@ -4,6 +4,7 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 from bnote.apps.bnote_app import BnoteApp
 from bnote.tools.keyboard import Keyboard
 from bnote.tools.settings import Settings
@@ -17,9 +18,7 @@ log.setLevel(UI_LOG)
 
 
 class UiListBox(UiObject):
-    """
-
-    """
+    """ """
 
     LISTBOX_SEPARATOR = "-"
 
@@ -34,9 +33,9 @@ class UiListBox(UiObject):
         When extra_parameters is defined, get_value return current_index instead of the selected value.
         """
         kwargs = {
-            'braille_type': Settings().data['system']['braille_type'],
-            'name': name,
-            'action': None,
+            "braille_type": Settings().data["system"]["braille_type"],
+            "name": name,
+            "action": None,
         }
         self._value_id, values = value
         self.__value = None
@@ -73,24 +72,36 @@ class UiListBox(UiObject):
         Construct presentation for an object
         :return: (name in text, name in braille, braille blinking, list of id of braille length)
         """
-        text_objects, braille_objects, braille_blinking, id_array_objects = super().get_presentation()
+        text_objects, braille_objects, braille_blinking, id_array_objects = (
+            super().get_presentation()
+        )
         if self._current_index == -1:
             value = _("empty list")
         else:
             value = self.__value[self._current_index]
-        value, braille_value, pos = BnoteApp.lou.convert_to_braille(self._braille_type, value)
-        text_separator, braille_separator, pos = BnoteApp.lou.convert_to_braille(self._braille_type, UiListBox.LISTBOX_SEPARATOR)
+        value, braille_value, pos = BnoteApp.lou.convert_to_braille(
+            self._braille_type, value
+        )
+        text_separator, braille_separator, pos = BnoteApp.lou.convert_to_braille(
+            self._braille_type, UiListBox.LISTBOX_SEPARATOR
+        )
         text_objects = text_separator.join([text_objects, value])
         if self._is_modified_value:
             self._presentation_offset = len(braille_separator) + len(braille_objects)
         else:
             self._presentation_offset = 0
         # Replace the space by braille dot 8
-        if not Settings().data['system']['spaces_in_label']:
+        if not Settings().data["system"]["spaces_in_label"]:
             braille_value = braille_value.replace("\u2800", "\u2880")
         braille_objects = braille_separator.join([braille_objects, braille_value])
-        braille_blinking = "\u2800".join([braille_blinking, "\u2800" * len(braille_value)])
-        id_array_objects = [*id_array_objects, *([self._ui_id] * len(braille_separator)), *([self._ui_id] * len(braille_value))]
+        braille_blinking = "\u2800".join(
+            [braille_blinking, "\u2800" * len(braille_value)]
+        )
+        id_array_objects = [
+            *id_array_objects,
+            *([self._ui_id] * len(braille_separator)),
+            *([self._ui_id] * len(braille_value)),
+        ]
         return text_objects, braille_objects, braille_blinking, id_array_objects
 
     # -------------------------------------
@@ -129,7 +140,7 @@ class UiListBox(UiObject):
         :return: (Treated, stay in menu)
         """
         kwargs = Keyboard.decode_modifiers(modifier)
-        if kwargs['alt']:
+        if kwargs["alt"]:
             # alt+key not treated.
             return False, True
         switcher = {
@@ -144,7 +155,9 @@ class UiListBox(UiObject):
             treated, in_menu = func()
             self.ask_update_braille_display()
             return treated, in_menu
-        log.warning("No function for bramigraph editbox defined for {}".format(bramigraph))
+        log.warning(
+            "No function for bramigraph editbox defined for {}".format(bramigraph)
+        )
         return super().exec_bramigraph(modifier, bramigraph)
 
     def exec_command(self, modifier, key_id) -> (bool, bool):
@@ -221,11 +234,13 @@ class UiListBox(UiObject):
             # Empty list
             return None
         # Search from current position
-        for index, value in enumerate(self.__value[(self._current_index + 1): len(self.__value)]):
+        for index, value in enumerate(
+            self.__value[(self._current_index + 1) : len(self.__value)]
+        ):
             if value.lower().find(text) == 0:
                 return self._current_index + 1 + index
         # Search form begin of the list
-        for index, value in enumerate(self.__value[0: self._current_index]):
+        for index, value in enumerate(self.__value[0 : self._current_index]):
             if value.lower().find(text) == 0:
                 return index
         # Not found.
@@ -258,4 +273,7 @@ class UiListBox(UiObject):
             if self.__dict_values is None:
                 return self._value_id, self.__value[self._current_index]
             else:
-                return self._value_id, list(self.__dict_values.keys())[self._current_index]
+                return (
+                    self._value_id,
+                    list(self.__dict_values.keys())[self._current_index],
+                )

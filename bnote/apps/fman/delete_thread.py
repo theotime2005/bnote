@@ -63,8 +63,12 @@ class DeleteThread(threading.Thread):
 
         if self.__on_progress is not None:
             self.__index += 1
-            self.__on_progress(operation="delete",
-                               filename=filename, current_progress=self.__index, max_progress=self.__count)
+            self.__on_progress(
+                operation="delete",
+                filename=filename,
+                current_progress=self.__index,
+                max_progress=self.__count,
+            )
             # time.sleep(1)
 
         if FileManager.delete_file(filename) is False:

@@ -5,7 +5,6 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 from enum import Enum
 from pathlib import Path
 import pkg_resources
@@ -27,7 +26,7 @@ class FunctionId(Enum):
     # Function for agenda
     FUNCTION_AGENDA_SAME_DAY = object()
     FUNCTION_AGENDA_NEXT_DAY = object()
-    FUNCTION_RESTOR_AFTER_AGENDA=object()
+    FUNCTION_RESTOR_AFTER_AGENDA = object()
     APPLICATIONS = object()
     USB = object()
     FUNCTION_SETTINGS_CHANGE = object()
@@ -86,6 +85,7 @@ class FunctionId(Enum):
     FUNCTION_GET_RESPONSE_AI_ASSISTANT = object()
     ASK_TO_REFRESH_MESSAGE_DIALOG = object()
     UNABLE_TO_UPDATE = object()
+
 
 class BnoteApp:
     keyboard = Keyboard()
@@ -146,12 +146,16 @@ class BnoteApp:
 
     @staticmethod
     def braille_form(text):
-        braille_type = Settings().data['system']['braille_type']
-        if braille_type == 'grade1':
-            braille_text, index1, index2, new_shortcut_pos = BnoteApp.lou.text_to_grade1(text)
+        braille_type = Settings().data["system"]["braille_type"]
+        if braille_type == "grade1":
+            braille_text, index1, index2, new_shortcut_pos = (
+                BnoteApp.lou.text_to_grade1(text)
+            )
             # print(f"to grade 1 {text}->{braille_text}->{BnoteApp.lou.grade1_to_text(braille_text)[0]}")
-        elif braille_type == 'grade2':
-            braille_text, index1, index2, new_shortcut_pos = BnoteApp.lou.text_to_grade2(text)
+        elif braille_type == "grade2":
+            braille_text, index1, index2, new_shortcut_pos = (
+                BnoteApp.lou.text_to_grade2(text)
+            )
             # print(f"to grade 2 {text}->{braille_text}->{BnoteApp.lou.grade2_to_text(braille_text)[0]}")
         else:
             # text unchanged
@@ -160,12 +164,16 @@ class BnoteApp:
 
     @staticmethod
     def text_form(braille):
-        braille_type = Settings().data['system']['braille_type']
-        if braille_type == 'grade1':
-            text, index1, index2, new_shortcut_pos = BnoteApp.lou.grade1_to_text(braille)
+        braille_type = Settings().data["system"]["braille_type"]
+        if braille_type == "grade1":
+            text, index1, index2, new_shortcut_pos = BnoteApp.lou.grade1_to_text(
+                braille
+            )
             # print(f"to grade 1 {braille}->{text}->{BnoteApp.lou.text_to_grade1(text)[0]}")
-        elif braille_type == 'grade2':
-            text, index1, index2, new_shortcut_pos = BnoteApp.lou.grade2_to_text(braille)
+        elif braille_type == "grade2":
+            text, index1, index2, new_shortcut_pos = BnoteApp.lou.grade2_to_text(
+                braille
+            )
             # print(f"to grade 2 {braille}->{text}->{BnoteApp.lou.text_to_grade2(text)[0]}")
         else:
             # text unchanged
@@ -186,7 +194,7 @@ class BnoteApp:
                 self._braille_display.new_data_available_event.set()
                 return True
             elif function_id == FunctionId.ASK_TO_REFRESH_MESSAGE_DIALOG:
-                return self._update_in_progress(kwargs['msg'])
+                return self._update_in_progress(kwargs["msg"])
             elif function_id == FunctionId.UNABLE_TO_UPDATE:
                 return self._unable_to_update_info_dialog()
 
@@ -201,7 +209,9 @@ class BnoteApp:
         return done
 
     def input_braille(self, data) -> bool:
-        return self._input_braille(BnoteApp.keyboard.decode_braille(BnoteApp.lou, data), data)
+        return self._input_braille(
+            BnoteApp.keyboard.decode_braille(BnoteApp.lou, data), data
+        )
 
     def input_character(self, modifier, character, data) -> bool:
         """
@@ -225,9 +235,16 @@ class BnoteApp:
                 self.close_menu()
             return True
         else:
-            if modifier == Keyboard.BrailleModifier.BRAILLE_FLAG_ALT and character == chr(0):
+            if (
+                modifier == Keyboard.BrailleModifier.BRAILLE_FLAG_ALT
+                and character == chr(0)
+            ):
                 # double Alt bramigraph key.
-                self.input_command(None, Keyboard.BrailleModifier.BRAILLE_FLAG_NONE, Keyboard.KeyId.KEY_MENU)
+                self.input_command(
+                    None,
+                    Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                    Keyboard.KeyId.KEY_MENU,
+                )
                 return True
             elif modifier == Keyboard.BrailleModifier.BRAILLE_FLAG_ALT:
                 # menu shortcut in Alt+_
@@ -255,7 +272,9 @@ class BnoteApp:
         if self._current_dialog is not None:
             save_dialog = self._current_dialog
             in_dialog = self._current_dialog.input_bramigraph(modifier, bramigraph)
-            if not in_dialog and ((self._current_dialog is None) or (save_dialog == self._current_dialog)):
+            if not in_dialog and (
+                (self._current_dialog is None) or (save_dialog == self._current_dialog)
+            ):
                 # If end of dialog and no new dialog box installed, close dialog
                 self.close_dialog()
             return True
@@ -269,12 +288,16 @@ class BnoteApp:
             # Enter in application's menu.
             self._enter_in_menu()
             return True
-        elif modifier == Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL and\
-                bramigraph == Keyboard.BrailleFunction.BRAMIGRAPH_TAB:
+        elif (
+            modifier == Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL
+            and bramigraph == Keyboard.BrailleFunction.BRAMIGRAPH_TAB
+        ):
             self._put_in_function_queue(FunctionId.FUNCTION_INTERNAL_NEXT_APP)
             return True
-        elif modifier == Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL and\
-                bramigraph == Keyboard.BrailleFunction.BRAMIGRAPH_SHIFT_TAB:
+        elif (
+            modifier == Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL
+            and bramigraph == Keyboard.BrailleFunction.BRAMIGRAPH_SHIFT_TAB
+        ):
             self._put_in_function_queue(FunctionId.FUNCTION_INTERNAL_PREVIOUS_APP)
             return True
         else:
@@ -319,7 +342,9 @@ class BnoteApp:
             # DialogBox object
             elif self._current_dialog:
                 save_dialog = self._current_dialog
-                in_dialog = self._current_dialog.input_command(modifier=modifier, key_id=key_id)
+                in_dialog = self._current_dialog.input_command(
+                    modifier=modifier, key_id=key_id
+                )
                 if not in_dialog and (save_dialog == self._current_dialog):
                     # If end of dialog and no new dialog box installed, close dialog
                     self.close_dialog()
@@ -347,7 +372,9 @@ class BnoteApp:
         """
         if self._current_dialog is not None:
             save_dialog = self._current_dialog
-            in_dialog = self._current_dialog.input_interactive(modifier, position, key_type)
+            in_dialog = self._current_dialog.input_interactive(
+                modifier, position, key_type
+            )
             if not in_dialog and (save_dialog == self._current_dialog):
                 # If end of dialog and no new dialog box installed, close dialog
                 self.close_dialog()
@@ -443,10 +470,4 @@ class BnoteApp:
         #     return Path('bnote/apps')
         # else:
         #     return Path(pkg_resources.resource_filename('bnote', 'apps'))
-        return Path(pkg_resources.resource_filename('bnote', 'apps'))
-
-
-
-
-
-
+        return Path(pkg_resources.resource_filename("bnote", "apps"))

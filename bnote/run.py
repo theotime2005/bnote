@@ -16,6 +16,7 @@ from bnote.bnote_start import BnoteThread
 from bnote.apps.fman.file_manager import BNOTE_FOLDER, DOCUMENTS_FOLDER
 
 from bnote.debug.colored_log import ColoredLogger, BNOTE_LOG
+
 log = ColoredLogger(__name__)
 log.setLevel(BNOTE_LOG)
 
@@ -26,13 +27,13 @@ def main(debug=False):
     if debug:
         # If bnote_start is running, stop bnote service.
         print(f"Call os.popen('sudo systemctl stop bnote.service')")
-        os.popen('sudo systemctl stop bnote.service')
+        os.popen("sudo systemctl stop bnote.service")
         # Wait 5 second for service stopping.
         time.sleep(5)
     # Set the bnote device visibility to nearby Bluetooth devices
-    bt_util.set_discoverable(Settings().data['bluetooth']['bnote_visible'])
+    bt_util.set_discoverable(Settings().data["bluetooth"]["bnote_visible"])
     # disable NTP (Network Time Protocol)
-    os.popen('sudo timedatectl set-ntp false')
+    os.popen("sudo timedatectl set-ntp false")
     # #115 : move documentation from updated sources.
     try:
         move_documentation(debug)
@@ -56,13 +57,19 @@ def move_documentation(debug):
     if debug:
         # In debug session, the documentation is not moved.
         return
-    documentation_src_path = Path(pkg_resources.resource_filename('bnote', 'bnote-documents'))
+    documentation_src_path = Path(
+        pkg_resources.resource_filename("bnote", "bnote-documents")
+    )
     if documentation_src_path.exists():
         # The folder "/home/pi/.bnote/note-documents
         documentation_dst_path = BNOTE_FOLDER / Path(DOCUMENTS_FOLDER)
         # Copy the files (and folders)
-        shutil.copytree(documentation_src_path, documentation_dst_path, ignore=ignore_existing_file,
-                        dirs_exist_ok=True)
+        shutil.copytree(
+            documentation_src_path,
+            documentation_dst_path,
+            ignore=ignore_existing_file,
+            dirs_exist_ok=True,
+        )
         # Delete permanently the source folder.
         shutil.rmtree(documentation_src_path)
 
@@ -70,7 +77,9 @@ def move_documentation(debug):
 def ignore_existing_file(folder, files):
     # log.error(f"{folder=}, {files=}")
     ignore_files = []
-    documentation_src_path = Path(pkg_resources.resource_filename('bnote', 'bnote-documents'))
+    documentation_src_path = Path(
+        pkg_resources.resource_filename("bnote", "bnote-documents")
+    )
     # log.error(f"{documentation_src_path=}")
     relative_path = Path(folder).relative_to(documentation_src_path)
     # log.error(f"{relative_path=}")
@@ -83,5 +92,5 @@ def ignore_existing_file(folder, files):
     return ignore_files
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

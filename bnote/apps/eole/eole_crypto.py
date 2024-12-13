@@ -4,6 +4,7 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 import base64
 import hashlib
 from cryptography.fernet import Fernet, InvalidToken
@@ -24,22 +25,22 @@ class EoleCrypto(metaclass=SingletonMeta):
 
         # see https://docs.python.org/3/library/hashlib.html#usage
         m = hashlib.sha256()
-        m.update("-".join((MASTER_KEY, user_name, machineid.id())).encode('utf-8'))
+        m.update("-".join((MASTER_KEY, user_name, machineid.id())).encode("utf-8"))
         key = base64.urlsafe_b64encode(m.digest())
         # print(f"{key=}")
         self.__fernet = Fernet(key)
 
     def encrypt(self, plaintext: str):
-        return self.__fernet.encrypt(plaintext.encode('utf-8')).decode('utf-8')
+        return self.__fernet.encrypt(plaintext.encode("utf-8")).decode("utf-8")
 
     def decrypt(self, ciphertext: str):
         try:
-            return self.__fernet.decrypt(ciphertext).decode('utf-8')
+            return self.__fernet.decrypt(ciphertext).decode("utf-8")
         except InvalidToken:
             return ""
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     the_user_name = "eurobraille_user1"
     print()

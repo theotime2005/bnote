@@ -4,6 +4,7 @@
  Date : 2024-08-05
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 from enum import Enum, auto
 
 """
@@ -75,11 +76,13 @@ from . import UiDialogBox, UiMultiLinesBox, UiEditBox, UiButton, UiCheckBox, UiL
 from ..tools.keyboard import Keyboard
 import copy
 
+
 class ParamType(Enum):
     TITLE = auto()
     BOOL = auto()
     TUPLE = auto()
     STRING = auto()
+
 
 class ParamDescriptor:
     def __init__(self, values, translation_keys, translation_values):
@@ -90,7 +93,9 @@ class ParamDescriptor:
 
 class UiParamList(UiMultiLinesBox):
 
-    def __init__(self, name, param_descriptor, values, fn_change_dialog_box, fn_valid, fn_cancel):
+    def __init__(
+        self, name, param_descriptor, values, fn_change_dialog_box, fn_valid, fn_cancel
+    ):
         self.param_descriptor = param_descriptor
         self.__value_id, input_values = values
         self.values = copy.deepcopy(input_values)
@@ -100,17 +105,29 @@ class UiParamList(UiMultiLinesBox):
         self.current_dialog = None
         self.root_dialog = None
         text, self.lines = self._parameters_doc()
-        super().__init__(name, ("", text), no_grade=False, is_read_only=True,)
+        super().__init__(
+            name,
+            ("", text),
+            no_grade=False,
+            is_read_only=True,
+        )
 
     @staticmethod
     def _add_text(param_descriptor, key, value):
-        return ''.join((param_descriptor.translation_keys[key], '=', param_descriptor.translation_values[value], '\n'))
+        return "".join(
+            (
+                param_descriptor.translation_keys[key],
+                "=",
+                param_descriptor.translation_values[value],
+                "\n",
+            )
+        )
 
     def __short_key(self, key, section):
         if section is None:
             return key
         else:
-            return key.replace(section + ' ', '')
+            return key.replace(section + " ", "")
 
     def _parameters_doc(self):
         text = ""
@@ -121,34 +138,50 @@ class UiParamList(UiMultiLinesBox):
             short_key = self.__short_key(key, section)
             if param_type == ParamType.TITLE:
                 if text != "":
-                    text = ''.join((text, '\n', self.param_descriptor.translation_keys[key], '\n'))
+                    text = "".join(
+                        (text, "\n", self.param_descriptor.translation_keys[key], "\n")
+                    )
                     lines.append((None, None, False))
                     lines.append((None, key, True))
                 else:
-                    text = ''.join((self.param_descriptor.translation_keys[key], '\n'))
+                    text = "".join((self.param_descriptor.translation_keys[key], "\n"))
                     lines.append((None, key, True))
                 section = key
             elif param_type == ParamType.BOOL:
                 # print(f"{key=} is bool")
                 value = self.values[key]
                 if value:
-                    text = ''.join((text, self._add_text(self.param_descriptor, short_key, 'yes')))
+                    text = "".join(
+                        (text, self._add_text(self.param_descriptor, short_key, "yes"))
+                    )
                 else:
-                    text = ''.join((text, self._add_text(self.param_descriptor, short_key, 'no')))
+                    text = "".join(
+                        (text, self._add_text(self.param_descriptor, short_key, "no"))
+                    )
                 lines.append((key, section, section is None))
             elif param_type == ParamType.TUPLE:
                 # print(f"{key=} is tuple")
                 value = self.values[key]
-                text = ''.join((text, self._add_text(self.param_descriptor, short_key, value)))
+                text = "".join(
+                    (text, self._add_text(self.param_descriptor, short_key, value))
+                )
                 lines.append((key, section, section is None))
             elif param_type == ParamType.STRING:
                 # print(f"{key=} is str")
                 value = self.values[key]
-                text = ''.join((text, self.param_descriptor.translation_keys[short_key], '=', value, '\n'))
+                text = "".join(
+                    (
+                        text,
+                        self.param_descriptor.translation_keys[short_key],
+                        "=",
+                        value,
+                        "\n",
+                    )
+                )
                 lines.append((key, section, section is None))
             else:
                 raise KeyError
-        text = ''.join((text, "\n", _("ok"), "\n", _("cancel")))
+        text = "".join((text, "\n", _("ok"), "\n", _("cancel")))
         lines.append((None, None, False))
         lines.append(("__ok__", None, True))
         lines.append(("__cancel__", None, True))
@@ -249,7 +282,10 @@ class UiParamList(UiMultiLinesBox):
             return UiDialogBox(
                 name=_("parameter"),
                 item_list=[
-                    UiCheckBox(name=self.param_descriptor.translation_keys[short_key], value=(key, self.values[key])),
+                    UiCheckBox(
+                        name=self.param_descriptor.translation_keys[short_key],
+                        value=(key, self.values[key]),
+                    ),
                     UiButton(name=_("&ok"), action=self._exec_valid_dialog),
                     UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
                 ],
@@ -259,9 +295,19 @@ class UiParamList(UiMultiLinesBox):
             return UiDialogBox(
                 name=_("parameter"),
                 item_list=[
-                    UiListBox(name=self.param_descriptor.translation_keys[short_key],
-                              value=(key, {key: self.param_descriptor.translation_values[key] for key in self.param_descriptor.values[key][1]}),
-                              current_index=(self.param_descriptor.values[key][1]).index(self.values[key])),
+                    UiListBox(
+                        name=self.param_descriptor.translation_keys[short_key],
+                        value=(
+                            key,
+                            {
+                                key: self.param_descriptor.translation_values[key]
+                                for key in self.param_descriptor.values[key][1]
+                            },
+                        ),
+                        current_index=(self.param_descriptor.values[key][1]).index(
+                            self.values[key]
+                        ),
+                    ),
                     UiButton(name=_("&ok"), action=self._exec_valid_dialog),
                     UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
                 ],
@@ -271,7 +317,10 @@ class UiParamList(UiMultiLinesBox):
             return UiDialogBox(
                 name=_("parameter"),
                 item_list=[
-                    UiEditBox(name=self.param_descriptor.translation_keys[short_key], value=(key, self.values[key])),
+                    UiEditBox(
+                        name=self.param_descriptor.translation_keys[short_key],
+                        value=(key, self.values[key]),
+                    ),
                     UiButton(name=_("&ok"), action=self._exec_valid_dialog),
                     UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
                 ],

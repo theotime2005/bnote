@@ -1,9 +1,13 @@
 from .braille import *
+
+
 # l11l1l111l_opy_ mode l11l1l1l1l_opy_ b3456 l11l111l11_opy_ l11l11l1ll_opy_ l11l111ll1_opy_ l11l111lll_opy_ l11l11ll1l_opy_, l11l11lll1_opy_ (l11l11111l_opy_ d'union) l11l11l111_opy_ l11l1ll11l_opy_ (l11l1l1lll_opy_) l11l11l111_opy_ l11l11llll_opy_ l11l1l11ll_opy_ l11l11ll11_opy_ l11l1l1l11_opy_ l11l111l1l_opy_
 class l1ll1l11l_opy_:
     l1l111l1l_opy_ = b3456
     l1l1ll111_opy_ = b5
     l1ll11111_opy_ = b56
+
+
 class l111l1ll1_opy_:
     l1l111l1l_opy_ = b3456
     l11l1l11l_opy_ = b245
@@ -44,8 +48,8 @@ class l111l1ll1_opy_:
     l1111ll11_opy_ = b346
     l11ll11l1_opy_ = b35
     l11l1l1111_opy_ = b26
-    #l11l1l1ll1_opy_ = b5 + b56
-    #l11l1l11l1_opy_ = b5 + b23
+    # l11l1l1ll1_opy_ = b5 + b56
+    # l11l1l11l1_opy_ = b5 + b23
     l1ll11ll1_opy_ = b123 + b1345
     l1l11lll1_opy_ = b123 + b135 + b1245
     l1lllllll_opy_ = b234 + b24 + b1345

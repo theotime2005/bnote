@@ -31,9 +31,9 @@ STM32_SHUTDOWN_PI = object()
 STM32_USB_APP_NAME_CHANGED = object()
 
 
-STX = b'\x02'   # Start of Frame
-ETX = b'\x03'   # End of Frame
-ESC = b'\x1b'   # ESC is the escape char used to send STX, ETX, ESC when char is inside STX and ETX.
+STX = b"\x02"  # Start of Frame
+ETX = b"\x03"  # End of Frame
+ESC = b"\x1b"  # ESC is the escape char used to send STX, ETX, ESC when char is inside STX and ETX.
 
 FRAME_MAX_LENGTH = 256  # The maximum length of the frame (excluding all the escape char ESC in the Frame)
 STM32_MAX_BLUETOOTH_CHANNEL_NAME = 32  # The maximum length of the bluetooth adapter name send with KEY_BLUETOOTH_ACTIVATE_CHANNEL
@@ -42,7 +42,7 @@ STM32_MAX_BLUETOOTH_CHANNEL_NAME = 32  # The maximum length of the bluetooth ada
 class Stm32Frame(object):
     escaped_char = (STX, ETX, ESC)
     # Frame number (from 0 to 255)
-    send_frame_number = b'\xFF'
+    send_frame_number = b"\xFF"
 
     def __init__(self, *args, **kwargs):
         if len(args) == 1:
@@ -51,23 +51,29 @@ class Stm32Frame(object):
                 self._key = args[0][0:1]
                 self._data = args[0][1:]
                 return
-        if not('key' in kwargs):
+        if not ("key" in kwargs):
             # No args and no key => Error ?
             raise ValueError("Cannot init Frame without key")
-        self._key = kwargs['key']
+        self._key = kwargs["key"]
         self._data = None
-        if 'data' in kwargs:
-            if isinstance(kwargs['data'], int):
-                self._data = kwargs['data'].to_bytes((kwargs['data'].bit_length() + 7) // 8, 'big')
-            elif isinstance(kwargs['data'], bytes):
-                self._data = kwargs['data']
-            elif isinstance(kwargs['data'], bytearray):
-                self._data = bytes(kwargs['data'])
-            elif isinstance(kwargs['data'], str):
+        if "data" in kwargs:
+            if isinstance(kwargs["data"], int):
+                self._data = kwargs["data"].to_bytes(
+                    (kwargs["data"].bit_length() + 7) // 8, "big"
+                )
+            elif isinstance(kwargs["data"], bytes):
+                self._data = kwargs["data"]
+            elif isinstance(kwargs["data"], bytearray):
+                self._data = bytes(kwargs["data"])
+            elif isinstance(kwargs["data"], str):
                 # change encoding to utf-8
-                self._data = kwargs['data'].encode()
+                self._data = kwargs["data"].encode()
             else:
-                log.warning("Cannot init Frame with type(kwargs['data'])={}".format(type(kwargs['data'])))
+                log.warning(
+                    "Cannot init Frame with type(kwargs['data'])={}".format(
+                        type(kwargs["data"])
+                    )
+                )
 
     def key(self):
         return self._key
@@ -77,24 +83,52 @@ class Stm32Frame(object):
 
     def cooked_frame_buffer(self):
         # Increase the frame number to send.
-        Stm32Frame.send_frame_number = bytes([(int.from_bytes(Stm32Frame.send_frame_number, 'big') + 1) % 256])
+        Stm32Frame.send_frame_number = bytes(
+            [(int.from_bytes(Stm32Frame.send_frame_number, "big") + 1) % 256]
+        )
         if self._data is None:
             # Return an escaped buffer that represent the Frame to send.
-            return bytearray(b''.join((STX, self._escape_message(bytes(b''.join((Stm32Frame.send_frame_number,
-                                                                                 self._key)))), ETX)))
+            return bytearray(
+                b"".join(
+                    (
+                        STX,
+                        self._escape_message(
+                            bytes(b"".join((Stm32Frame.send_frame_number, self._key)))
+                        ),
+                        ETX,
+                    )
+                )
+            )
         else:
             # Return an escaped buffer that represent the Frame to send.
-            return bytearray(b''.join((STX, self._escape_message(bytes(b''.join((Stm32Frame.send_frame_number,
-                                                                             self._key, self._data)))), ETX)))
+            return bytearray(
+                b"".join(
+                    (
+                        STX,
+                        self._escape_message(
+                            bytes(
+                                b"".join(
+                                    (
+                                        Stm32Frame.send_frame_number,
+                                        self._key,
+                                        self._data,
+                                    )
+                                )
+                            )
+                        ),
+                        ETX,
+                    )
+                )
+            )
 
     # Return message with usefull ESC byte
     def _escape_message(self, message):
         escaped_message = bytes()
         for value in message:
-            if value.to_bytes(1, 'big') in Stm32Frame.escaped_char:
+            if value.to_bytes(1, "big") in Stm32Frame.escaped_char:
                 escaped_message += ESC
 
-            escaped_message += value.to_bytes(1, 'big')
+            escaped_message += value.to_bytes(1, "big")
 
         log.debug("message={} escaped_message={}".format(message, escaped_message))
         return escaped_message
@@ -121,16 +155,25 @@ class Stm32Protocol:
 
     def rx_treatment(self, byte):
         # log.info("byte={} type(byte)={}".format(byte, type(byte)))
-        if ((self._rx_mode == RxMode.WAIT_STX) or not self._rx_escape_next_char) and byte == STX:
+        if (
+            (self._rx_mode == RxMode.WAIT_STX) or not self._rx_escape_next_char
+        ) and byte == STX:
             self._rx_mode = RxMode.WAIT_FRAME_NUMBER
         elif self._rx_mode != RxMode.WAIT_STX:
             if not self._rx_escape_next_char and byte == ESC:
                 self._rx_escape_next_char = True
             else:
                 if self._rx_mode == RxMode.WAIT_FRAME_NUMBER:
-                    frame_num = int.from_bytes(byte, 'big')
-                    if self._rx_frame_number != -1 and (self._rx_frame_number + 1) % 256 != frame_num:
-                        log.info("Error previous_frame_number={} received={}".format(self._rx_frame_number, frame_num))
+                    frame_num = int.from_bytes(byte, "big")
+                    if (
+                        self._rx_frame_number != -1
+                        and (self._rx_frame_number + 1) % 256 != frame_num
+                    ):
+                        log.info(
+                            "Error previous_frame_number={} received={}".format(
+                                self._rx_frame_number, frame_num
+                            )
+                        )
                     self._rx_frame_number = frame_num
                     self._rx_mode = RxMode.WAIT_KEY
                 elif self._rx_mode == RxMode.WAIT_KEY:
@@ -166,7 +209,7 @@ class Stm32Protocol:
                 stm32_keys.KEY_DEVICE_SUB_TYPE: self._treat_device_sub_type,
                 stm32_keys.KEY_DEVICE_LENGTH: self._treat_device_length,
                 stm32_keys.KEY_SERIAL_NUMBER: self._treat_serial_number,
-                stm32_keys.KEY_OPTIONS : self._treat_options,
+                stm32_keys.KEY_OPTIONS: self._treat_options,
                 stm32_keys.KEY_DEVICE_LANGUAGE: self._treat_device_language,
                 stm32_keys.KEY_KEYBOARD_LANGUAGE: self._treat_device_keyboard_language,
                 stm32_keys.KEY_BRAILLE_KEYBOARD_B78: self._treat_device_keyboard_b78,
@@ -193,8 +236,9 @@ class Stm32Protocol:
             else:
                 log.warning("No function defined for {}".format(frame.key()))
         else:
-            log.warning("bad param. It should be Stm32Frame but it was {}".format(frame))
-
+            log.warning(
+                "bad param. It should be Stm32Frame but it was {}".format(frame)
+            )
 
     @staticmethod
     def _treat_firmware_version(data):
@@ -215,11 +259,17 @@ class Stm32Protocol:
     @staticmethod
     def _treat_serial_number(data):
         braille_device_characteristics.set_serial_number(data)
-        if Settings().data['bluetooth']['bnote_name'] == "":
-            if bt_util.bluetooth_pretty_host_name() != BLUETOOTH_BASE_NAME + braille_device_characteristics.get_serial_number():
+        if Settings().data["bluetooth"]["bnote_name"] == "":
+            if (
+                bt_util.bluetooth_pretty_host_name()
+                != BLUETOOTH_BASE_NAME
+                + braille_device_characteristics.get_serial_number()
+            ):
                 # Change le pretty hostname
                 bt_util.set_bluetooth_pretty_host_name(
-                    BLUETOOTH_BASE_NAME + braille_device_characteristics.get_serial_number())
+                    BLUETOOTH_BASE_NAME
+                    + braille_device_characteristics.get_serial_number()
+                )
 
     @staticmethod
     def _treat_options(data):
@@ -227,11 +277,17 @@ class Stm32Protocol:
 
     def _treat_device_language(self, data):
         braille_device_characteristics.set_message_language_country(data)
-        self.send_event(STM32_LANGUAGE_CHANGE, braille_device_characteristics.get_message_language_country())
+        self.send_event(
+            STM32_LANGUAGE_CHANGE,
+            braille_device_characteristics.get_message_language_country(),
+        )
 
     def _treat_device_keyboard_language(self, data):
         braille_device_characteristics.set_keyboard_language_country(data)
-        self.send_event(STM32_BRAILLE_TABLE_CHANGE, braille_device_characteristics.get_keyboard_language_country())
+        self.send_event(
+            STM32_BRAILLE_TABLE_CHANGE,
+            braille_device_characteristics.get_keyboard_language_country(),
+        )
 
     @staticmethod
     def _treat_device_keyboard_b78(data):
@@ -267,7 +323,7 @@ class Stm32Protocol:
 
     @staticmethod
     def _treat_standby(data):
-        #braille_device_characteristics.set_standby_raw_data(data)
+        # braille_device_characteristics.set_standby_raw_data(data)
         index_transport_start = data.index(stm32_keys.VALUE_STANDBY_TRANSPORT)
         index_shutdown_start = data.index(stm32_keys.VALUE_STANDBY_SHUTDOWN)
         if (index_transport_start == -1) or (index_shutdown_start == -1):
@@ -279,8 +335,12 @@ class Stm32Protocol:
         else:
             index_transport_end = index_shutdown_start
             index_shutdown_end = len(data)
-        braille_device_characteristics.set_standby_transport(data[index_transport_start + 1:index_transport_end])
-        braille_device_characteristics.set_standby_shutdown(data[index_shutdown_start + 1:index_shutdown_end])
+        braille_device_characteristics.set_standby_transport(
+            data[index_transport_start + 1 : index_transport_end]
+        )
+        braille_device_characteristics.set_standby_shutdown(
+            data[index_shutdown_start + 1 : index_shutdown_end]
+        )
 
     def _treat_internal_function_enter(self, data):
         log.info("Enter in internal function request : {}".format(data))
@@ -317,7 +377,12 @@ class Stm32Protocol:
         name_len = data[index]
         index += 1
         if name_len > 0:
-            name_str = data[index: index + name_len].decode("utf-8").lower().replace("/", "-com")
+            name_str = (
+                data[index : index + name_len]
+                .decode("utf-8")
+                .lower()
+                .replace("/", "-com")
+            )
             index += name_len
         else:
             name_str = ""
@@ -326,10 +391,10 @@ class Stm32Protocol:
     def _treat_app_name(self, data):
         index = 0
         usb_a_name = usb_b_name = ""
-        if data[index].to_bytes(1, 'big') == b'1':
+        if data[index].to_bytes(1, "big") == b"1":
             index += 1
             usb_a_name, index = self.__treat_app_name(data, index)
-            if data[index].to_bytes(1, 'big') == b'2':
+            if data[index].to_bytes(1, "big") == b"2":
                 index += 1
                 usb_b_name, index = self.__treat_app_name(data, index)
         log.info(f"_treat_app_name : {usb_a_name=} {usb_b_name=}")
@@ -341,7 +406,7 @@ class Stm32Protocol:
 # Unitary test
 def main():
 
-    frame1 = Stm32Frame(b''.join((stm32_keys.KEY_CHARACTERISTICS, STX, b'A', ETX, ESC)))
+    frame1 = Stm32Frame(b"".join((stm32_keys.KEY_CHARACTERISTICS, STX, b"A", ETX, ESC)))
     frame1_cooked_message = frame1.cooked_frame_buffer()
     log.info("frame1 = {}".format(frame1_cooked_message))
 

@@ -4,6 +4,7 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 from .ui_menu_bar import UiMenuBar
 from .ui_menu_item import UiMenuItem
 from .ui_label import UiLabel
@@ -22,6 +23,3 @@ from .ui_file_name_list_box import UiFileNameListBox
 from .ui_file_manager import UiFileManagerLine
 from .ui_settings_dialog_box import UiSettingsDialogBox
 from .ui_parameters_list import UiParamList, ParamDescriptor
-
-
-

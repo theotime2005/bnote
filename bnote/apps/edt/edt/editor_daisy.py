@@ -4,9 +4,11 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 from .editor import Editor
 
 from .colored_log import ColoredLogger, EDITOR_DAISY_LOG, logging
+
 log = ColoredLogger(__name__, level=EDITOR_DAISY_LOG)
 
 
@@ -56,4 +58,3 @@ class EditorDaisy(Editor):
             # log.critical(f"{daisy_tag=}")
             if daisy_tag in text_tag_list:
                 return text_tag_list.index(daisy_tag)
-

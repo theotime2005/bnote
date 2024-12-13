@@ -4,6 +4,7 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 import time
 import urllib.request
 import urllib.error
@@ -20,6 +21,7 @@ from bnote.apps.fman.file_manager import BNOTE_FOLDER
 from bnote.stm32.braille_device_characteristics import braille_device_characteristics
 
 from bnote.tools.io_util import Gpio
+
 # Setup the logger for this file
 from bnote.debug.colored_log import ColoredLogger, RADIO_LOG
 from bnote.tools.settings import Settings
@@ -40,9 +42,9 @@ class ReadRadioContent:
 
     class RadioHandler(xml.sax.handler.ContentHandler):
 
-        TAG_BODY = 'body'
-        TAG_ALL = 'all'
-        TAG_RADIO = 'radio'
+        TAG_BODY = "body"
+        TAG_ALL = "all"
+        TAG_RADIO = "radio"
 
         def __init__(self, country, add_radio):
             xml.sax.handler.ContentHandler.__init__(self)
@@ -81,15 +83,17 @@ class ReadRadioContent:
                 # Parse span attribute 'title'
                 self._radio_name = ""
                 keys = attrs.keys()
-                if 'name' in keys:
-                    self._radio_name = attrs.getValue('name')
+                if "name" in keys:
+                    self._radio_name = attrs.getValue("name")
                     log.info("RADIO NAME <{}>".format(self._radio_name))
-                if 'type' in keys:
-                    self._radio_type = attrs.getValue('type')
+                if "type" in keys:
+                    self._radio_type = attrs.getValue("type")
                     log.info("RADIO TYPE <{}>".format(self._radio_name))
                 else:
-                    log.warning("!!! No radio type, select 'server' definition by default")
-                    self._radio_type = 'server'
+                    log.warning(
+                        "!!! No radio type, select 'server' definition by default"
+                    )
+                    self._radio_type = "server"
                 self._is_radio = True
 
         def endElement(self, name):
@@ -103,7 +107,9 @@ class ReadRadioContent:
                 # Each end of paragraph indicates a end of line
                 if self._is_body and (self._is_all or self._is_country):
                     log.info("url <{}>".format(self._radio_data))
-                    self._add_radio(self._radio_name, self._radio_data, self._radio_type)
+                    self._add_radio(
+                        self._radio_name, self._radio_data, self._radio_type
+                    )
                 self._radio_name = ""
                 self._radio_data = ""
                 self._radio_type = ""
@@ -130,33 +136,34 @@ class WriteRadioContent:
 
     def write_radio(self, radio_dict, radio_type):
         output = StringIO()
-        handler = xml.sax.saxutils.XMLGenerator(output, 'UTF-8')
+        handler = xml.sax.saxutils.XMLGenerator(output, "UTF-8")
         handler.startDocument()
-        handler.startElement('html', {'xmlns': "http://www.w3.org/1999/xhtml", 'xml:lang': "en", 'lang': "en"})
-        handler.startElement('head', {})
-        handler.startElement('meta', {'name': "document-type", 'content': "Radio-List"})
-        handler.endElement('meta')
-        handler.startElement('meta', {'name': "copyright", 'content': "euroBraille"})
-        handler.endElement('meta')
-        handler.endElement('head')
-        handler.startElement('body', {})
-        handler.startElement('all', {})
+        handler.startElement(
+            "html",
+            {"xmlns": "http://www.w3.org/1999/xhtml", "xml:lang": "en", "lang": "en"},
+        )
+        handler.startElement("head", {})
+        handler.startElement("meta", {"name": "document-type", "content": "Radio-List"})
+        handler.endElement("meta")
+        handler.startElement("meta", {"name": "copyright", "content": "euroBraille"})
+        handler.endElement("meta")
+        handler.endElement("head")
+        handler.startElement("body", {})
+        handler.startElement("all", {})
         # add radio tags.
         for radio_name in radio_dict.keys():
             if radio_dict[radio_name][0] == radio_type:
                 # Add only radio of one type.
                 handler.startElement(
-                    "radio",
-                    {"name": radio_name,
-                     "type": radio_dict[radio_name][0]
-                     })
+                    "radio", {"name": radio_name, "type": radio_dict[radio_name][0]}
+                )
                 handler.characters(radio_dict[radio_name][1])
                 handler.endElement("radio")
-        handler.endElement('all')
-        handler.endElement('body')
-        handler.endElement('html')
+        handler.endElement("all")
+        handler.endElement("body")
+        handler.endElement("html")
         handler.endDocument()
-        fp = open(self._filename, 'w')
+        fp = open(self._filename, "w")
         parser = parseString(output.getvalue())
         fp.write(parser.toprettyxml())
         fp.close()
@@ -166,6 +173,7 @@ class Radio:
     """
     Radio application.
     """
+
     def __init__(self):
         # Player parameters.
         self.url = None
@@ -201,16 +209,16 @@ class Radio:
     def __pls_entry_generator(file):
         for line in file:
             line = line.decode("utf-8")
-            if line.lower().startswith('file'):
-                yield (line.split('=')[-1]).strip()
+            if line.lower().startswith("file"):
+                yield (line.split("=")[-1]).strip()
 
     @staticmethod
     def __asx_entry_generator(file):
         # use getElementsByTagName() to get tag
-        refs = file.getElementsByTagName('ref')
+        refs = file.getElementsByTagName("ref")
         for ref in refs:
             try:
-                url = ref.attributes['href'].value
+                url = ref.attributes["href"].value
             except KeyError as er:
                 url = ""
             yield url
@@ -255,7 +263,11 @@ class Radio:
             self.start_radio(url)
 
     def is_playing_radio(self, name):
-        return name in self._radio_dict.keys() and self.is_playing() and (self.url == self._radio_dict[name][1])
+        return (
+            name in self._radio_dict.keys()
+            and self.is_playing()
+            and (self.url == self._radio_dict[name][1])
+        )
 
     """
     Radio list.
@@ -266,7 +278,7 @@ class Radio:
         try:
             r = requests.get(url)
             log.debug(f"write radio list {RADIO_SERVER_LIST_FILE}")
-            with open(RADIO_SERVER_LIST_FILE, 'wb') as f:
+            with open(RADIO_SERVER_LIST_FILE, "wb") as f:
                 f.write(r.content)
             return self.get_local_list()
         except requests.exceptions.ConnectionError as er:
@@ -276,12 +288,16 @@ class Radio:
         self._radio_dict = {}
         try:
             if Path.exists(RADIO_SERVER_LIST_FILE):
-                read_radio = ReadRadioContent(filename=RADIO_SERVER_LIST_FILE,
-                                              country=braille_device_characteristics.get_message_language_country())
+                read_radio = ReadRadioContent(
+                    filename=RADIO_SERVER_LIST_FILE,
+                    country=braille_device_characteristics.get_message_language_country(),
+                )
                 read_radio.read_radio(self.add_radio)
             if Path.exists(RADIO_LOCAL_LIST_FILE):
-                read_radio = ReadRadioContent(filename=RADIO_LOCAL_LIST_FILE,
-                                              country=braille_device_characteristics.get_message_language_country())
+                read_radio = ReadRadioContent(
+                    filename=RADIO_LOCAL_LIST_FILE,
+                    country=braille_device_characteristics.get_message_language_country(),
+                )
                 read_radio.read_radio(self.add_radio)
             log.info(self._radio_dict.keys())
             log.info(self._radio_dict.values())
@@ -295,7 +311,7 @@ class Radio:
 
     def add_radio(self, radio_name, radio_url, radio_type):
         if radio_name and (len(radio_name) != 0):
-            self._radio_dict[radio_name] = (radio_type, radio_url.strip(' \r\n\t'))
+            self._radio_dict[radio_name] = (radio_type, radio_url.strip(" \r\n\t"))
             return self._radio_dict
         else:
             log.warning("!!! Try to add a radio with invalid name.")
@@ -303,11 +319,11 @@ class Radio:
 
     def write_user_file(self):
         writer = WriteRadioContent(RADIO_LOCAL_LIST_FILE)
-        writer.write_radio(self._radio_dict, 'user')
+        writer.write_radio(self._radio_dict, "user")
 
     def write_server_file(self):
         writer = WriteRadioContent(RADIO_SERVER_LIST_FILE)
-        writer.write_radio(self._radio_dict, 'server')
+        writer.write_radio(self._radio_dict, "server")
 
     def delete_radio(self, radio_name):
         if radio_name in self._radio_dict.keys():
@@ -316,4 +332,3 @@ class Radio:
             self.write_user_file()
         log.info(self._radio_dict.keys())
         log.info(self._radio_dict.values())
-

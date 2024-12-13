@@ -4,6 +4,7 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 from bnote.tools.keyboard import Keyboard
 from bnote.tools.settings import Settings
 from .ui_container import UiContainer
@@ -19,12 +20,12 @@ class UiMenuBar(UiContainer):
 
     def __init__(self, name, menu_item_list, is_root=False, action=None):
         kwargs = {
-            'braille_type': Settings().data['system']['braille_type'],
-            'name': name,
-            'action': action,
-            'ui_objects': menu_item_list,
-            'is_root': is_root,
-            'focused_object': 0
+            "braille_type": Settings().data["system"]["braille_type"],
+            "name": name,
+            "action": action,
+            "ui_objects": menu_item_list,
+            "is_root": is_root,
+            "focused_object": 0,
         }
         super().__init__(**kwargs)
 

@@ -4,6 +4,7 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 # This is a sample Python script.
 
 from enum import Enum
@@ -27,11 +28,11 @@ class Mines:
     MINE_DECLARED = 4
 
     __display_char = {
-        NO_MINE_UNHIDE: '-',
-        NO_MINE_HIDE: '*',
-        MINE_UNHIDE: '!',
-        MINE_HIDE: '*',
-        MINE_DECLARED: 'x',
+        NO_MINE_UNHIDE: "-",
+        NO_MINE_HIDE: "*",
+        MINE_UNHIDE: "!",
+        MINE_HIDE: "*",
+        MINE_DECLARED: "x",
     }
 
     def __init__(self, line, column, mines):
@@ -39,7 +40,9 @@ class Mines:
         self._nb_column = column
         # self.state_table contains the state of each position of tables (see __display_char).
         # self.discovered_table contains the number of each mines proximity.
-        self.state_table, self.discovered_table = self.__create_table(line, column, mines)
+        self.state_table, self.discovered_table = self.__create_table(
+            line, column, mines
+        )
 
     def nb_line(self):
         return self._nb_line
@@ -62,26 +65,32 @@ class Mines:
         discovered_table = [[0] * nb_column for i in range(nb_line)]
         # Inject mines.
         cases_number = nb_line * nb_column
-        mines_list = [random.randrange(0, cases_number -1, 1) for i in range(mines)]
+        mines_list = [random.randrange(0, cases_number - 1, 1) for i in range(mines)]
         log.info(f"{table}")
         log.info(f"{mines_list=}")
         for mine_pos in mines_list:
             log.info(f"line={int(mine_pos / nb_column)}")
             log.info(f"column={int(mine_pos % nb_column)}")
-            table[int(mine_pos / nb_column)][int(mine_pos % nb_column)] = Mines.MINE_HIDE
+            table[int(mine_pos / nb_column)][
+                int(mine_pos % nb_column)
+            ] = Mines.MINE_HIDE
         # Construct discovered table.
         for line in range(0, nb_line):
             for column in range(0, nb_column):
-                discovered_table[line][column] = self.__eval_pos(table, line, column, nb_line, nb_column)
+                discovered_table[line][column] = self.__eval_pos(
+                    table, line, column, nb_line, nb_column
+                )
         return table, discovered_table
 
     def print_tables(self):
-        return "\n".join([
-            "-------------------",
-            f"state{self.state_table}",
-            f"disco{self.discovered_table}",
-            "-------------------",
-        ])
+        return "\n".join(
+            [
+                "-------------------",
+                f"state{self.state_table}",
+                f"disco{self.discovered_table}",
+                "-------------------",
+            ]
+        )
 
     @staticmethod
     def __eval_pos(state_table, line, column, nb_line, nb_column):
@@ -91,7 +100,9 @@ class Mines:
                 if not (offset_line == 0 and offset_column == 0):
                     pos_line = line + offset_line
                     pos_column = column + offset_column
-                    if pos_line in range(0, nb_line) and pos_column in range(0, nb_column):
+                    if pos_line in range(0, nb_line) and pos_column in range(
+                        0, nb_column
+                    ):
                         if state_table[pos_line][pos_column] == Mines.MINE_HIDE:
                             counter += 1
         return counter
@@ -124,9 +135,14 @@ class Mines:
             0 if pos already unhide
             1 if pos is discovered
         """
-        if not (line in range(0, self._nb_line) and column in range(0, self._nb_column)):
+        if not (
+            line in range(0, self._nb_line) and column in range(0, self._nb_column)
+        ):
             return 0
-        if self.state_table[line][column] == Mines.MINE_HIDE or self.state_table[line][column] == Mines.MINE_UNHIDE:
+        if (
+            self.state_table[line][column] == Mines.MINE_HIDE
+            or self.state_table[line][column] == Mines.MINE_UNHIDE
+        ):
             return -1
         elif self.state_table[line][column] == Mines.NO_MINE_UNHIDE:
             return 0
@@ -162,16 +178,22 @@ class Mines:
     def display_line(self, line):
         display_line = ""
         for column in range(0, self._nb_column):
-            if (self.state_table[line][column] == Mines.NO_MINE_UNHIDE)\
-                    and (self.discovered_table[line][column] != 0):
-                display_line = "".join([display_line, str(self.discovered_table[line][column])])
+            if (self.state_table[line][column] == Mines.NO_MINE_UNHIDE) and (
+                self.discovered_table[line][column] != 0
+            ):
+                display_line = "".join(
+                    [display_line, str(self.discovered_table[line][column])]
+                )
             else:
-                display_line = "".join([display_line, Mines.__display_char[self.state_table[line][column]]])
+                display_line = "".join(
+                    [display_line, Mines.__display_char[self.state_table[line][column]]]
+                )
         return display_line
+
 
 def print_test(name):
     # Use a breakpoint in the code line below to debug your script.
-    log.info(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+    log.info(f"Hi, {name}")  # Press Ctrl+F8 to toggle the breakpoint.
     mine = Mines(5, 10, 10)
     print(mine.print_tables())
     mine.discovered_pos(line=1, column=2)
@@ -183,7 +205,7 @@ def print_test(name):
 
 
 # Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_test('PyCharm')
+if __name__ == "__main__":
+    print_test("PyCharm")
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

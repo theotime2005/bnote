@@ -5,10 +5,10 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 from enum import Enum
 
 from bnote.debug.colored_log import ColoredLogger, BT_PROTOCOL_LOG
+
 log = ColoredLogger(__name__)
 log.setLevel(BT_PROTOCOL_LOG)
 
@@ -33,28 +33,28 @@ class Message(object):
     MAX_LENGTH = 254  # The maximum length of the Message
 
     # Keys
-    KEY_KEYBOARD = b'K'
-    KEY_BRAILLE_DISPLAY = b'B'
-    KEY_SYSTEM = b'S'
+    KEY_KEYBOARD = b"K"
+    KEY_BRAILLE_DISPLAY = b"B"
+    KEY_SYSTEM = b"S"
 
     # Subkeys
-    SUBKEY_KEYBOARD_BRAILLE = b'B'
-    SUBKEY_KEYBOARD_CURSOR_ROUTING = b'I'
-    SUBKEY_KEYBOARD_COMMAND = b'C'
-    SUBKEY_BRAILLE_DISPLAY_STATIC_DOT = b'S'
-    SUBKEY_BRAILLE_DISPLAY_DYNAMIC_DOT = b'C'
-    SUBKEY_SYSTEM_NAME = b'N'
-    SUBKEY_SYSTEM_SHORT_NAME = b'H'
-    SUBKEY_SYSTEM_SERIAL_NUMBER = b'S'
-    SUBKEY_SYSTEM_COUNTRY_CODE = b'L'
-    SUBKEY_SYSTEM_DEVICE_TYPE = b'T'
-    SUBKEY_SYSTEM_DISPLAY_LENGTH = b'G'
-    SUBKEY_SYSTEM_OPTIONS = b'O'
-    SUBKEY_SYSTEM_SOFTWARE_VERSION = b'W'
-    SUBKEY_SYSTEM_PROTOCOL_VERSION = b'P'
-    SUBKEY_SYSTEM_MAX_FRAME_LENGTH = b'M'
-    SUBKEY_SYSTEM_INFORMATION = b'I'
-    SUBKEY_SYSTEM_BATTERY_STATE = b'B'
+    SUBKEY_KEYBOARD_BRAILLE = b"B"
+    SUBKEY_KEYBOARD_CURSOR_ROUTING = b"I"
+    SUBKEY_KEYBOARD_COMMAND = b"C"
+    SUBKEY_BRAILLE_DISPLAY_STATIC_DOT = b"S"
+    SUBKEY_BRAILLE_DISPLAY_DYNAMIC_DOT = b"C"
+    SUBKEY_SYSTEM_NAME = b"N"
+    SUBKEY_SYSTEM_SHORT_NAME = b"H"
+    SUBKEY_SYSTEM_SERIAL_NUMBER = b"S"
+    SUBKEY_SYSTEM_COUNTRY_CODE = b"L"
+    SUBKEY_SYSTEM_DEVICE_TYPE = b"T"
+    SUBKEY_SYSTEM_DISPLAY_LENGTH = b"G"
+    SUBKEY_SYSTEM_OPTIONS = b"O"
+    SUBKEY_SYSTEM_SOFTWARE_VERSION = b"W"
+    SUBKEY_SYSTEM_PROTOCOL_VERSION = b"P"
+    SUBKEY_SYSTEM_MAX_FRAME_LENGTH = b"M"
+    SUBKEY_SYSTEM_INFORMATION = b"I"
+    SUBKEY_SYSTEM_BATTERY_STATE = b"B"
 
     # Data
     DATA_KEYBOARD_CURSOR_ROUTING_CLICK = 0x01
@@ -68,29 +68,48 @@ class Message(object):
         # if args[0] comes from reception from bluetooth (message are bytes)
         if len(args) == 1 and isinstance(args[0], bytes):
             # Check consistancy of message checking the length in the message and the real length of the message.
-            if int.from_bytes(args[0][Message.MESSAGE_LENGTH_INDEX:Message.MESSAGE_LENGTH_INDEX + 2], byteorder="big",
-                              signed=False) == len(args[0]):
-                self._length = len(args[0]) # 2 bytes for length + 1 byte for the key + 1 byte for the sub key +
-                                            # x data bytes.
-                self._key = args[0][Message.MESSAGE_KEY_INDEX:Message.MESSAGE_KEY_INDEX + 1]  # La clef
-                self._subkey = args[0][Message.MESSAGE_SUBKEY_INDEX:Message.MESSAGE_SUBKEY_INDEX + 1]
+            if int.from_bytes(
+                args[0][
+                    Message.MESSAGE_LENGTH_INDEX : Message.MESSAGE_LENGTH_INDEX + 2
+                ],
+                byteorder="big",
+                signed=False,
+            ) == len(args[0]):
+                self._length = len(
+                    args[0]
+                )  # 2 bytes for length + 1 byte for the key + 1 byte for the sub key +
+                # x data bytes.
+                self._key = args[0][
+                    Message.MESSAGE_KEY_INDEX : Message.MESSAGE_KEY_INDEX + 1
+                ]  # La clef
+                self._subkey = args[0][
+                    Message.MESSAGE_SUBKEY_INDEX : Message.MESSAGE_SUBKEY_INDEX + 1
+                ]
                 # Extract and convert the data
-                self._data = args[0][Message.MESSAGE_DATA_INDEX:self._length]
+                self._data = args[0][Message.MESSAGE_DATA_INDEX : self._length]
         # key, sub key and data are passed as named parameters
         else:
-            if 'key' in kwargs and 'subkey' in kwargs and 'data' in kwargs:
-                if isinstance(kwargs['data'], int):
+            if "key" in kwargs and "subkey" in kwargs and "data" in kwargs:
+                if isinstance(kwargs["data"], int):
                     # If data is an int, we must compute the number of bytes needed for its representation.
                     # FIXME The number of bytes is depending of value but protocol wait for a trame allways the same length.
-                    self._length = 4 + (kwargs['data'].bit_length() + 7) // 8   # 2 length bytes + 1 key byte
-                                                                                # + 1 subkey byte + x data bytes.
+                    self._length = (
+                        4 + (kwargs["data"].bit_length() + 7) // 8
+                    )  # 2 length bytes + 1 key byte
+                    # + 1 subkey byte + x data bytes.
                 else:
-                    self._length = 4 + len(kwargs['data'])  # 2 length bytes + 1 key byte +
-                                                            # 1 subkey byte + x data bytes.
-                self._key = kwargs['key']
-                self._subkey = kwargs['subkey']
-                self._data = kwargs['data']
-        log.debug("key={} subkey={} data={} length={}".format(self._key, self._subkey, self._data, self._length))
+                    self._length = 4 + len(
+                        kwargs["data"]
+                    )  # 2 length bytes + 1 key byte +
+                    # 1 subkey byte + x data bytes.
+                self._key = kwargs["key"]
+                self._subkey = kwargs["subkey"]
+                self._data = kwargs["data"]
+        log.debug(
+            "key={} subkey={} data={} length={}".format(
+                self._key, self._subkey, self._data, self._length
+            )
+        )
 
     def length(self):
         return bytes([self._length])
@@ -106,14 +125,14 @@ class Message(object):
 
     def message(self):
         # Length must be coded on 2 bytes.
-        length = self._length.to_bytes(2, 'big')
+        length = self._length.to_bytes(2, "big")
 
         data = bytes()
         # Convert datas into bytes.
         if isinstance(self._data, str):
-            data = bytes(self._data, 'utf-8')
+            data = bytes(self._data, "utf-8")
         elif isinstance(self._data, int):
-            data = self._data.to_bytes((self._data.bit_length() + 7) // 8, 'big')
+            data = self._data.to_bytes((self._data.bit_length() + 7) // 8, "big")
         elif isinstance(self._data, bytes):
             data = self._data
         elif isinstance(self._data, tuple):
@@ -124,13 +143,15 @@ class Message(object):
         return bytes().join((length, self._key, self._subkey, data))
 
     def __str__(self):
-        return "key={} subkey={} length={} data={}".format(self._key, self._subkey, bytes([self._length]), self._data)
+        return "key={} subkey={} length={} data={}".format(
+            self._key, self._subkey, bytes([self._length]), self._data
+        )
 
 
 class Frame(object):
-    STX = b'\x02'
-    ETX = b'\x03'
-    ACK = b'\x06'
+    STX = b"\x02"
+    ETX = b"\x03"
+    ACK = b"\x06"
 
     def __init__(self, *args, **kwargs):
         if len(args) == 1:
@@ -149,7 +170,7 @@ class Frame(object):
         return self._message
 
     def frame(self):
-        return b''.join((Frame.STX, self._message.message(), Frame.ETX))
+        return b"".join((Frame.STX, self._message.message(), Frame.ETX))
 
     def __str__(self):
         return "message={}".format(self._message)
@@ -180,7 +201,9 @@ class BtProtocol:
             if self._rx_mode == RxMode.WAIT_MESSAGE_LENGTH:
                 self._rx_message_buffer += byte
                 if len(self._rx_message_buffer) == 2:
-                    self._rx_message_length = int.from_bytes(self._rx_message_buffer, 'big')
+                    self._rx_message_length = int.from_bytes(
+                        self._rx_message_buffer, "big"
+                    )
                     if self._rx_message_length > Message.MAX_LENGTH:
                         log.warning("Error length = {}".format(self._rx_message_length))
                     self._rx_mode = RxMode.WAIT_KEY
@@ -202,5 +225,3 @@ class BtProtocol:
                         return message
                     else:
                         log.warning("Error received {} instead of ETX".format(byte))
-
-

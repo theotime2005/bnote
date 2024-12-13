@@ -4,6 +4,7 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 from bnote.tools.keyboard import Keyboard
 from bnote.tools.settings import Settings
 from .ui_button import UiButton
@@ -31,12 +32,12 @@ class UiDialogBox(UiContainer):
         When extra_parameters is defined, get_values return values of items of dialog box and this extra_parameter.
         """
         kwargs = {
-            'braille_type': Settings().data['system']['braille_type'],
-            'name': name,
-            'action': action_cancelable,
-            'ui_objects': item_list,
-            'is_root': True,
-            'focused_object': 0
+            "braille_type": Settings().data["system"]["braille_type"],
+            "name": name,
+            "action": action_cancelable,
+            "ui_objects": item_list,
+            "is_root": True,
+            "focused_object": 0,
         }
         self.extra_parameters = extra_parameters
         super().__init__(**kwargs)
@@ -83,10 +84,15 @@ class UiDialogBox(UiContainer):
         treated = False
         in_menu = True
         if self.is_only_buttons_or_labels():
-            if (modifier == 0) and (bramigraph == Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_RETURN):
+            if (modifier == 0) and (
+                bramigraph == Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_RETURN
+            ):
                 ui_object = self.get_focused_object()
-                if not (isinstance(ui_object, UiButton) or isinstance(ui_object, UiMultiLinesBox) or
-                        (isinstance(ui_object, UiEditBox) and not ui_object.is_editing())):
+                if not (
+                    isinstance(ui_object, UiButton)
+                    or isinstance(ui_object, UiMultiLinesBox)
+                    or (isinstance(ui_object, UiEditBox) and not ui_object.is_editing())
+                ):
                     # Specific function for auto focus dialog box.
                     ui_object = self.set_next_focusable_object()
                     treated, in_menu = ui_object.exec_action()
@@ -155,5 +161,3 @@ class UiDialogBox(UiContainer):
             self.action_cancelable()
             return True, False
         return True, True
-
-

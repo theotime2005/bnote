@@ -5,7 +5,6 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 from enum import Enum
 import threading
 from bnote.tools.keyboard import Keyboard
@@ -29,8 +28,8 @@ class BrailleDisplay:
     class FunctionId(Enum):
         FORWARD = object()
         BACKWARD = object()
-        RIGHT = object()        # first param is the offset wanted value (default value is 1)
-        LEFT = object()         # first param is the offset wanted value (default value is 1)
+        RIGHT = object()  # first param is the offset wanted value (default value is 1)
+        LEFT = object()  # first param is the offset wanted value (default value is 1)
         START = object()
         END = object()
         FAKE_FUNCTION_ID_NOT_DECODED = object()
@@ -55,13 +54,13 @@ class BrailleDisplay:
             BrailleDisplay.FunctionId.END: self._end,
         }
 
-        if 'func_id' in kwargs:
-            func = switcher.get(kwargs['func_id'], None)
+        if "func_id" in kwargs:
+            func = switcher.get(kwargs["func_id"], None)
             if func is not None:
                 log.info("Call function={}".format(func))
                 return func(*arg, **kwargs)
             else:
-                log.warning("No function defined for {}".format(kwargs['func_id']))
+                log.warning("No function defined for {}".format(kwargs["func_id"]))
         else:
             log.warning("This function must be called with a 'func_id=' parameter.")
 
@@ -94,22 +93,22 @@ class BrailleDisplay:
             Keyboard.KeyId.KEY_FORWARD: BrailleDisplay.FunctionId.FORWARD,
         }
 
-        if 'key_id' in kwargs:
-            func = switcher.get(kwargs['key_id'], None)
+        if "key_id" in kwargs:
+            func = switcher.get(kwargs["key_id"], None)
             if func is not None:
                 return func
             else:
-                log.warning("No function defined for {}".format(kwargs['key_id']))
+                log.warning("No function defined for {}".format(kwargs["key_id"]))
         else:
             log.warning("This function must be called with a 'key_id=' parameter.")
         return False
 
     def __init__(self):
-        self._text_line = ""                                # The full line of text
-        self._static_dots_line = ""                         # The statics dots line of data
-        self._dynamic_dots_line = ""                        # The dynamics dots line of data
+        self._text_line = ""  # The full line of text
+        self._static_dots_line = ""  # The statics dots line of data
+        self._dynamic_dots_line = ""  # The dynamics dots line of data
         self._start_pos = 0
-        self._mutex = threading.Lock()                      # equal to threading.Semaphore(1)
+        self._mutex = threading.Lock()  # equal to threading.Semaphore(1)
 
         # Tell that buffers have been updated and must be sent to Braille device.
         self.new_data_available_event = threading.Event()
@@ -120,7 +119,11 @@ class BrailleDisplay:
 
     def set_start_pos(self, start):
         with self._mutex:
-            log.info("self._start_pos={} start={} self._text_line={}".format(self._start_pos, start, self._text_line))
+            log.info(
+                "self._start_pos={} start={} self._text_line={}".format(
+                    self._start_pos, start, self._text_line
+                )
+            )
             if start in range(0, len(self._text_line)):
                 self._start_pos = start
             log.info("self._start_pos={}".format(self._start_pos))
@@ -150,25 +153,33 @@ class BrailleDisplay:
 
     def get_data_line(self, force_refresh=False) -> (str, str, str):
         """
-            Return the (static_text, fixed_dots, static_dots, dynamic_dots) if something changed since the last call
-            or if force_refresh=True,
-            else return (None, None, None)
+        Return the (static_text, fixed_dots, static_dots, dynamic_dots) if something changed since the last call
+        or if force_refresh=True,
+        else return (None, None, None)
         """
-        braille_display_length = braille_device_characteristics.get_braille_display_length()
+        braille_display_length = (
+            braille_device_characteristics.get_braille_display_length()
+        )
         with self._mutex:
             (text, static_dots, dynamic_dots) = (None, None, None)
             if self.new_data_available_event.is_set() or force_refresh:
                 self.new_data_available_event.clear()
                 if self._text_line:
-                    text = self._text_line[self._start_pos:self._start_pos + braille_display_length]
+                    text = self._text_line[
+                        self._start_pos : self._start_pos + braille_display_length
+                    ]
                 else:
                     text = " "
                 if self._static_dots_line:
-                    static_dots = self._static_dots_line[self._start_pos:self._start_pos + braille_display_length]
+                    static_dots = self._static_dots_line[
+                        self._start_pos : self._start_pos + braille_display_length
+                    ]
                 else:
                     static_dots = "\u2800"
                 if self._dynamic_dots_line:
-                    dynamic_dots = self._dynamic_dots_line[self._start_pos:self._start_pos + braille_display_length]
+                    dynamic_dots = self._dynamic_dots_line[
+                        self._start_pos : self._start_pos + braille_display_length
+                    ]
                 else:
                     dynamic_dots = "\u2800"
 
@@ -184,7 +195,9 @@ class BrailleDisplay:
             True if start position has changed.
             False if start position was already in the last part of the line.
         """
-        braille_display_length = braille_device_characteristics.get_braille_display_length()
+        braille_display_length = (
+            braille_device_characteristics.get_braille_display_length()
+        )
         return self._move_right(braille_display_length)
 
     def backward(self, *arg, **kwargs) -> bool:
@@ -196,7 +209,9 @@ class BrailleDisplay:
             True if start position has changed.
             False if start position was already 0.
         """
-        braille_display_length = braille_device_characteristics.get_braille_display_length()
+        braille_display_length = (
+            braille_device_characteristics.get_braille_display_length()
+        )
         return self._move_left(braille_display_length)
 
     def _right(self, offset=1, *arg, **kwargs) -> bool:
@@ -243,7 +258,11 @@ class BrailleDisplay:
             True if start position has changed.
             False if start position was already in the last part of the line.
         """
-        return self._move_right(len(self._text_line) - self.get_start_pos() - braille_device_characteristics.get_braille_display_length())
+        return self._move_right(
+            len(self._text_line)
+            - self.get_start_pos()
+            - braille_device_characteristics.get_braille_display_length()
+        )
 
     def _move_right(self, offset) -> bool:
         """
@@ -255,8 +274,13 @@ class BrailleDisplay:
         """
         if offset == 0:
             return False
-        if ((self._text_line and self._start_pos + offset in range(0, len(self._text_line))) or
-                (self._static_dots_line and self._start_pos + offset in range(0, len(self._static_dots_line)))):
+        if (
+            self._text_line
+            and self._start_pos + offset in range(0, len(self._text_line))
+        ) or (
+            self._static_dots_line
+            and self._start_pos + offset in range(0, len(self._static_dots_line))
+        ):
             self._start_pos += offset
             log.info("next start = {}".format(self._start_pos))
             self.new_data_available_event.set()
@@ -275,8 +299,13 @@ class BrailleDisplay:
         if self._start_pos == 0 or offset == 0:
             return False
 
-        if ((self._text_line and (self._start_pos - offset in range(0, len(self._text_line)))) or
-                (self._static_dots_line and (self._start_pos - offset in range(0, len(self._static_dots_line))))):
+        if (
+            self._text_line
+            and (self._start_pos - offset in range(0, len(self._text_line)))
+        ) or (
+            self._static_dots_line
+            and (self._start_pos - offset in range(0, len(self._static_dots_line)))
+        ):
             self._start_pos -= offset
         else:
             self._start_pos = 0
@@ -290,7 +319,9 @@ class BrailleDisplay:
         :param position: caret
         :return: None
         """
-        braille_display_length = braille_device_characteristics.get_braille_display_length()
+        braille_display_length = (
+            braille_device_characteristics.get_braille_display_length()
+        )
         half_display_length = braille_display_length >> 1
         if position <= half_display_length:
             self._start_pos = 0
@@ -300,4 +331,3 @@ class BrailleDisplay:
             self._start_pos = len(self._text_line) - braille_display_length
         else:
             self._start_pos = position - half_display_length
-

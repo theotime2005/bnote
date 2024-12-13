@@ -4,6 +4,7 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 from .editor import Editor
 from .undo_redo import UndoRedo
 from .caret import Caret
@@ -27,9 +28,9 @@ import logging
 
 class NullHandler(logging.Handler):
     """A Handler that does nothing."""
+
     def emit(self, record):
         pass
 
 
 logger = logging.getLogger(__name__)
-

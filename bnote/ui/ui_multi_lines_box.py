@@ -4,6 +4,7 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 from bnote.apps.bnote_app import BnoteApp
 import bnote.apps.edt.edt as editor
 from bnote.tools.keyboard import Keyboard
@@ -27,17 +28,19 @@ class UiMultiLinesBox(UiContainer):
 
     def __init__(self, name, value, no_grade=False, is_read_only=False):
         kwargs = {
-            'braille_type': Settings().data['system']['braille_type'],
-            'name': name,
-            'action': None,
+            "braille_type": Settings().data["system"]["braille_type"],
+            "name": name,
+            "action": None,
         }
         self._no_grade = no_grade
         # Call base class.
         super().__init__(**kwargs)
         # manage value.
         self._value_id, value_text = value
-        lines = value_text.split('\n')
-        self._editor = editor.Editor(Settings().data['editor']['line_length'], lines, is_read_only=is_read_only)
+        lines = value_text.split("\n")
+        self._editor = editor.Editor(
+            Settings().data["editor"]["line_length"], lines, is_read_only=is_read_only
+        )
         self._editing = False
         # caret for forward and backward display function.
         self.is_moving_display = False
@@ -45,8 +48,12 @@ class UiMultiLinesBox(UiContainer):
 
     def replace_text(self, text):
         caret = self._editor.caret()
-        lines = text.split('\n')
-        self._editor = editor.Editor(Settings().data['editor']['line_length'], lines, is_read_only=self._editor.read_only)
+        lines = text.split("\n")
+        self._editor = editor.Editor(
+            Settings().data["editor"]["line_length"],
+            lines,
+            is_read_only=self._editor.read_only,
+        )
         self._editor.set_caret(caret)
 
     def get_presentation(self):
@@ -83,12 +90,15 @@ class UiMultiLinesBox(UiContainer):
         if self._editor:
             (line, dots) = self._editor.editor_braille_line(line_index)
             blink_dots = BnoteApp.lou.byte_to_unicode_braille(dots)
-            if self._braille_type and \
-                    ((self._braille_type == 'grade1') or (self._braille_type == 'grade2')):
+            if self._braille_type and (
+                (self._braille_type == "grade1") or (self._braille_type == "grade2")
+            ):
                 static_dots = BnoteApp.lou.to_dots_6(line)
             else:
                 static_dots = BnoteApp.lou.to_dots_8(line)
-            UiContainer.braille_display.set_data_line(line, static_dots, blink_dots, offset)
+            UiContainer.braille_display.set_data_line(
+                line, static_dots, blink_dots, offset
+            )
 
     def _refresh_center_braille_display(self):
         """
@@ -111,7 +121,7 @@ class UiMultiLinesBox(UiContainer):
             if line is None:
                 break
             else:
-                document = '\n'.join((document, line))
+                document = "\n".join((document, line))
             cnt += 1
         return self._value_id, document
 
@@ -162,7 +172,7 @@ class UiMultiLinesBox(UiContainer):
         treated, in_menu = False, True
         if self._editing:
             kwargs = Keyboard.decode_modifiers(modifier)
-            if kwargs['alt']:
+            if kwargs["alt"]:
                 # alt+key not treated.
                 return False, True
 
@@ -179,15 +189,35 @@ class UiMultiLinesBox(UiContainer):
                 treated = True
             else:
                 command_switcher = {
-                    Keyboard.KeyId.KEY_CARET_UP: (editor.Editor.Functions.MOVE_UP, None),
-                    Keyboard.KeyId.KEY_CARET_DOWN: (editor.Editor.Functions.MOVE_DOWN, None),
-                    Keyboard.KeyId.KEY_CARET_RIGHT: (editor.Editor.Functions.MOVE_RIGHT, None),
-                    Keyboard.KeyId.KEY_CARET_LEFT: (editor.Editor.Functions.MOVE_LEFT, None),
-                    Keyboard.KeyId.KEY_START_DOC: (editor.Editor.Functions.MOVE_HOME, {'shift': False, 'ctrl': True}),
-                    Keyboard.KeyId.KEY_END_DOC: (editor.Editor.Functions.MOVE_END, {'shift': False, 'ctrl': True}),
+                    Keyboard.KeyId.KEY_CARET_UP: (
+                        editor.Editor.Functions.MOVE_UP,
+                        None,
+                    ),
+                    Keyboard.KeyId.KEY_CARET_DOWN: (
+                        editor.Editor.Functions.MOVE_DOWN,
+                        None,
+                    ),
+                    Keyboard.KeyId.KEY_CARET_RIGHT: (
+                        editor.Editor.Functions.MOVE_RIGHT,
+                        None,
+                    ),
+                    Keyboard.KeyId.KEY_CARET_LEFT: (
+                        editor.Editor.Functions.MOVE_LEFT,
+                        None,
+                    ),
+                    Keyboard.KeyId.KEY_START_DOC: (
+                        editor.Editor.Functions.MOVE_HOME,
+                        {"shift": False, "ctrl": True},
+                    ),
+                    Keyboard.KeyId.KEY_END_DOC: (
+                        editor.Editor.Functions.MOVE_END,
+                        {"shift": False, "ctrl": True},
+                    ),
                 }
 
-                (editor_function, new_kwargs) = command_switcher.get(key_id, (None, None))
+                (editor_function, new_kwargs) = command_switcher.get(
+                    key_id, (None, None)
+                )
                 if editor_function:
                     # Execute the function
                     if new_kwargs:
@@ -219,7 +249,9 @@ class UiMultiLinesBox(UiContainer):
                 return self.__exec_ctrl_character(kwargs, character)
             else:
                 # Modifiers could be transmitted ?
-                self._editor.function(editor.Editor.Functions.PUT_STRING, **{'text': character})
+                self._editor.function(
+                    editor.Editor.Functions.PUT_STRING, **{"text": character}
+                )
                 # Refresh braille display
                 self._refresh_center_braille_display()
             return True, True
@@ -231,12 +263,12 @@ class UiMultiLinesBox(UiContainer):
         :return: (Treated, stay in menu)
         """
         character_switcher = {
-            'a': editor.Editor.Functions.SELECT_ALL,
-            'c': editor.Editor.Functions.COPY,
-            'v': editor.Editor.Functions.PASTE,
-            'x': editor.Editor.Functions.CUT,
-            'y': editor.Editor.Functions.REDO,
-            'z': editor.Editor.Functions.UNDO,
+            "a": editor.Editor.Functions.SELECT_ALL,
+            "c": editor.Editor.Functions.COPY,
+            "v": editor.Editor.Functions.PASTE,
+            "x": editor.Editor.Functions.CUT,
+            "y": editor.Editor.Functions.REDO,
+            "z": editor.Editor.Functions.UNDO,
         }
         # Get the function from switcher dictionnary
         editor_function = character_switcher.get(character, None)
@@ -257,11 +289,13 @@ class UiMultiLinesBox(UiContainer):
         if self._editing:
             # command treatment for document.
             kwargs = BnoteApp.keyboard.decode_modifiers(modifier)
-            if kwargs['alt']:
+            if kwargs["alt"]:
                 # If Alt... => No treatment
                 return False, True
             # If escape and not in selection of text => Exit edition
-            if not self._editor.selection_mode() and (bramigraph == Keyboard.BrailleFunction.BRAMIGRAPH_ESCAPE):
+            if not self._editor.selection_mode() and (
+                bramigraph == Keyboard.BrailleFunction.BRAMIGRAPH_ESCAPE
+            ):
                 return self.exec_action()
             bramigraph_switcher = {
                 Keyboard.BrailleFunction.BRAMIGRAPH_ESCAPE: editor.Editor.Functions.SELECTION_MODE_OFF,
@@ -295,7 +329,9 @@ class UiMultiLinesBox(UiContainer):
                 # Refresh braille display
                 self._refresh_center_braille_display()
                 return True, True
-            log.warning("No function for bramigraph editbox defined for {}".format(bramigraph))
+            log.warning(
+                "No function for bramigraph editbox defined for {}".format(bramigraph)
+            )
         return super().exec_bramigraph(modifier, bramigraph)
 
     def do_interactive(self, modifier, relative_pos, key_type) -> (bool, bool):
@@ -316,20 +352,32 @@ class UiMultiLinesBox(UiContainer):
                 self.is_moving_display = False
                 self._editor.function(
                     editor.Editor.Functions.SELECT_WORD,
-                    **{'pos': editor.Pos(
-                        UiContainer.braille_display.get_start_pos() + relative_pos - 1,
-                        self._editor.caret().end.y)}
+                    **{
+                        "pos": editor.Pos(
+                            UiContainer.braille_display.get_start_pos()
+                            + relative_pos
+                            - 1,
+                            self._editor.caret().end.y,
+                        )
+                    },
                 )
             else:
                 # if self.is_moving_display:
-                    # Kill moving display without caret mode.
+                # Kill moving display without caret mode.
                 #    self.is_moving_display = False
                 #    line = self.moving_display_caret.end.y
-                #else:
+                # else:
                 line = self._editor.caret().end.y
                 self._editor.function(
                     editor.Editor.Functions.PUT_CARET,
-                    **{'pos': editor.Pos(UiContainer.braille_display.get_start_pos() + relative_pos - 1, line)}
+                    **{
+                        "pos": editor.Pos(
+                            UiContainer.braille_display.get_start_pos()
+                            + relative_pos
+                            - 1,
+                            line,
+                        )
+                    },
                 )
             # Refresh braille display (useful after caret move)
             self.end_move_display(None, UiContainer.braille_display.get_start_pos())
@@ -355,26 +403,45 @@ class UiMultiLinesBox(UiContainer):
             log.info("backward on line")
             self._editor.function(
                 editor.Editor.Functions.PUT_CARET,
-                **{'shift': False,
-                   'ctrl': False,
-                   'pos': editor.Pos(UiContainer.braille_display.get_start_pos(), self._editor.caret().end.y)})
+                **{
+                    "shift": False,
+                    "ctrl": False,
+                    "pos": editor.Pos(
+                        UiContainer.braille_display.get_start_pos(),
+                        self._editor.caret().end.y,
+                    ),
+                },
+            )
         else:
             # line change.
             log.info("backward on line change => goto start of the new line")
-            self._editor.function(editor.Editor.Functions.MOVE_UP, **{'shift': False, 'ctrl': False})
-            self._editor.function(editor.Editor.Functions.MOVE_HOME, **{'shift': False, 'ctrl': False})
+            self._editor.function(
+                editor.Editor.Functions.MOVE_UP, **{"shift": False, "ctrl": False}
+            )
+            self._editor.function(
+                editor.Editor.Functions.MOVE_HOME, **{"shift": False, "ctrl": False}
+            )
             # Compute braille offset position
             (line, dots) = self._editor.editor_braille_line(self._editor.caret().end.y)
             offset = 0
-            braille_display_length = braille_device_characteristics.get_braille_display_length()
+            braille_display_length = (
+                braille_device_characteristics.get_braille_display_length()
+            )
             if line and (len(line) > braille_display_length):
                 offset = len(line) - braille_display_length
-            self._editor.function(editor.Editor.Functions.PUT_CARET,
-                                 **{'shift': False, 'ctrl': False,
-                                    'pos': editor.Pos(offset, self._editor.caret().end.y)})
+            self._editor.function(
+                editor.Editor.Functions.PUT_CARET,
+                **{
+                    "shift": False,
+                    "ctrl": False,
+                    "pos": editor.Pos(offset, self._editor.caret().end.y),
+                },
+            )
             UiContainer.braille_display.set_start_pos(offset)
         # Refresh braille display (useful after caret move)
-        log.debug("Backward offset{}".format(UiContainer.braille_display.get_start_pos()))
+        log.debug(
+            "Backward offset{}".format(UiContainer.braille_display.get_start_pos())
+        )
         self.end_move_display(save_caret, UiContainer.braille_display.get_start_pos())
 
     def _forward_display(self):
@@ -401,18 +468,32 @@ class UiMultiLinesBox(UiContainer):
             # Put caret at the start of display.
             self._editor.function(
                 editor.Editor.Functions.PUT_CARET,
-                **{'shift': False, 'ctrl': False, 'pos': editor.Pos(braille_offset, self._editor.caret().end.y)})
+                **{
+                    "shift": False,
+                    "ctrl": False,
+                    "pos": editor.Pos(braille_offset, self._editor.caret().end.y),
+                },
+            )
         else:
             # line change.
             log.info("Forward on line change")
             while True:
-                if self._editor.function(editor.Editor.Functions.MOVE_DOWN, **{'shift': False, 'ctrl': False}):
+                if self._editor.function(
+                    editor.Editor.Functions.MOVE_DOWN, **{"shift": False, "ctrl": False}
+                ):
                     # Move to the start of the line
-                    self._editor.function(editor.Editor.Functions.MOVE_HOME, **{'shift': False, 'ctrl': False})
+                    self._editor.function(
+                        editor.Editor.Functions.MOVE_HOME,
+                        **{"shift": False, "ctrl": False},
+                    )
                     braille_offset = 0
-                    (new_line, dots) = self._editor.editor_braille_line(self._editor.caret().end.y)
-                    new_line = new_line.replace(' ', '')
-                    if (Settings().data['editor']['forward_display_mode'] == 'normal') or new_line != "":
+                    (new_line, dots) = self._editor.editor_braille_line(
+                        self._editor.caret().end.y
+                    )
+                    new_line = new_line.replace(" ", "")
+                    if (
+                        Settings().data["editor"]["forward_display_mode"] == "normal"
+                    ) or new_line != "":
                         # Line not empty, it is the right one.
                         break
                 else:
@@ -429,4 +510,3 @@ class UiMultiLinesBox(UiContainer):
             log.info("line to display is {}".format(line_index))
             self._editor.set_caret(save_caret)
         self._refresh_braille_display(braille_offset, line_index)
-

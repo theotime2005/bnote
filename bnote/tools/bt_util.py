@@ -5,7 +5,6 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 import os
 import shlex
 import subprocess
@@ -15,6 +14,7 @@ from enum import Enum
 
 # Setup the logger for this file
 from bnote.debug.colored_log import ColoredLogger, BT_UTIL_LOG
+
 log = ColoredLogger(__name__)
 log.setLevel(BT_UTIL_LOG)
 
@@ -35,7 +35,11 @@ class FindComputersThread(threading.Thread):
         self.__running = True
         log.info("FindComputersThread running...")
         paired_devices = dict()
-        x = subprocess.Popen(["bluetoothctl", "devices", "Paired"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        x = subprocess.Popen(
+            ["bluetoothctl", "devices", "Paired"],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
         # while self.__running:
         x.wait()
         # self.__running = False
@@ -59,25 +63,27 @@ class FindComputersThread(threading.Thread):
 
 def set_discoverable(discoverable=True):
     if discoverable:
-        os.popen('bluetoothctl discoverable on')
+        os.popen("bluetoothctl discoverable on")
     else:
-        os.popen('bluetoothctl discoverable off')
+        os.popen("bluetoothctl discoverable off")
 
 
 def bluetooth_on_off(on=None):
     """
-            Bluetooth on/off function.
-            no param : return bluetooth state
-            on : True to activate Bluetooth device, False to deactivate.
-            Return : Bluetooth state or execution confirmation.
-            """
+    Bluetooth on/off function.
+    no param : return bluetooth state
+    on : True to activate Bluetooth device, False to deactivate.
+    Return : Bluetooth state or execution confirmation.
+    """
     if on is None:
         args = shlex.split("hciconfig hci0")
-        with subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE) as x:
+        with subprocess.Popen(
+            args, stdout=subprocess.PIPE, stderr=subprocess.PIPE
+        ) as x:
             x.wait()
             lines = x.stdout.read().decode("utf-8").strip("\n")
             # A line start with '\tUP' if bluetooth on, '\tDOWN' otherwise.
-            pattern = r'\tUP'
+            pattern = r"\tUP"
             resultats = re.findall(pattern, lines)
             x.kill()
             if resultats:
@@ -85,15 +91,18 @@ def bluetooth_on_off(on=None):
             else:
                 return False
     else:
-        arg = 'up'
+        arg = "up"
         if not on:
-            arg = 'down'
-        args = (shlex.split("sudo hciconfig hci0"))
+            arg = "down"
+        args = shlex.split("sudo hciconfig hci0")
         args.append(arg)
-        with subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE) as x:
+        with subprocess.Popen(
+            args, stdout=subprocess.PIPE, stderr=subprocess.PIPE
+        ) as x:
             x.wait()
             x.kill()
             return on
+
 
 def bluetooth_pretty_host_name():
     args = shlex.split("hostnamectl --pretty")
@@ -129,6 +138,7 @@ def get_paired_devices():
     # Get the paired_devices
     return find_computers_thread.paired_devices
 
+
 # Remarque : Il faut que le PC sous W10 soit en mode réception de fichier Bluetooth
 # pour que le service OPUSH soit trouvé. (donc passer en réception fichier avant d'appeler find_opush_channel)
 def find_opush_channel(addr):
@@ -137,7 +147,7 @@ def find_opush_channel(addr):
     x = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     x.wait()
     sdptool_results = x.stdout.read().decode("utf-8")
-    pattern = re.compile('\"RFCOMM\" \(0x0003\)\n    Channel: (\d+)')
+    pattern = re.compile('"RFCOMM" \(0x0003\)\n    Channel: (\d+)')
     search = pattern.search(sdptool_results)
     if search is not None:
         return int(search.group(1))
@@ -219,4 +229,3 @@ def find_opush_channel(addr):
 #     PalmSizePc = 0x00000014
 #     WearableComputer = 0x00000018
 #     Tablet = 0x0000001d
-

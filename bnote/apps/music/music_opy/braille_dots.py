@@ -282,22 +282,70 @@ Numeral7Low = "⠶"
 Numeral8Low = "⠦"
 Numeral9Low = "⠔"
 
-braille_high_dict = {"0": b245, "1": b1, "2": b12, "3": b14, "4": b145, "5": b15, "6": b124, "7": b1245, "8": b125, "9": b24}
+braille_high_dict = {
+    "0": b245,
+    "1": b1,
+    "2": b12,
+    "3": b14,
+    "4": b145,
+    "5": b15,
+    "6": b124,
+    "7": b1245,
+    "8": b125,
+    "9": b24,
+}
 
-braille_low_dict = {"0": b356, "1": b2, "2": b23, "3": b25, "4": b256, "5": b26, "6": b235, "7": b2356, "8": b236, "9": b35}
+braille_low_dict = {
+    "0": b356,
+    "1": b2,
+    "2": b23,
+    "3": b25,
+    "4": b256,
+    "5": b26,
+    "6": b235,
+    "7": b2356,
+    "8": b236,
+    "9": b35,
+}
 
-braille_high_numeral_dict = {b245: "0", b1: "1", b12: "2", b14: "3", b145: "4", b15: "5", b124: "6", b1245: "7", b125: "8", b24: "9"}
+braille_high_numeral_dict = {
+    b245: "0",
+    b1: "1",
+    b12: "2",
+    b14: "3",
+    b145: "4",
+    b15: "5",
+    b124: "6",
+    b1245: "7",
+    b125: "8",
+    b24: "9",
+}
 
-braille_low_numeral_dict = {b356: "0", b2: "1", b23: "2", b25: "3", b256: "4", b26: "5", b235: "6", b2356: "7", b236: "8", b35: "9"}
+braille_low_numeral_dict = {
+    b356: "0",
+    b2: "1",
+    b23: "2",
+    b25: "3",
+    b256: "4",
+    b26: "5",
+    b235: "6",
+    b2356: "7",
+    b236: "8",
+    b35: "9",
+}
+
 
 def numeral_to_braille_high(numeral):
     return braille_high_dict[numeral]
 
+
 def numeral_to_braille_low(numeral):
     return braille_low_dict[numeral]
 
+
 def braille_high_to_numeral(numeral):
     return braille_high_numeral_dict[numeral]
+
 
 def braille_low_to_numeral(numeral):
     return braille_low_numeral_dict[numeral]

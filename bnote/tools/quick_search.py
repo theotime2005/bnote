@@ -5,11 +5,11 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 import time
 
 # Setup the logger for this file
 from bnote.debug.colored_log import ColoredLogger, QUICK_SEARCH_LOG
+
 log = ColoredLogger(__name__)
 log.setLevel(QUICK_SEARCH_LOG)
 
@@ -33,8 +33,11 @@ RESET_SEARCH_TIME_MS = 1000
 # current_time - self.__reset_search_time_ms. Thus the self.__quick_search_value will be empty on the next call to
 # do_quick_search() but not to the next call to do_quick_search_again()
 
+
 class QuickSearch:
-    def __init__(self, quick_search_function, reset_search_time_ms=RESET_SEARCH_TIME_MS):
+    def __init__(
+        self, quick_search_function, reset_search_time_ms=RESET_SEARCH_TIME_MS
+    ):
         # The str that is passed to self.__quick_search_function for quick search
         self.__quick_search_value = ""
         # The quick search callback function to call.
@@ -50,13 +53,18 @@ class QuickSearch:
         return True, None
 
     def clear_time_previous_char(self):
-        self.__time_previous_char = int(time.time_ns() / 1000000) - self.__reset_search_time_ms
+        self.__time_previous_char = (
+            int(time.time_ns() / 1000000) - self.__reset_search_time_ms
+        )
 
     def do_quick_search(self, character, clear_quick_search_if_timeout=True) -> bool:
         new_time = int(time.time_ns() / 1000000)
 
         # Reset the quick search value after __quick_search_value sec
-        if clear_quick_search_if_timeout and new_time - self.__time_previous_char > self.__reset_search_time_ms:
+        if (
+            clear_quick_search_if_timeout
+            and new_time - self.__time_previous_char > self.__reset_search_time_ms
+        ):
             self.__quick_search_value = ""
 
         self.__quick_search_value = "".join((self.__quick_search_value, character))
@@ -71,4 +79,3 @@ class QuickSearch:
 
     def do_quick_search_again(self) -> (bool, object()):
         return self.do_quick_search(character="", clear_quick_search_if_timeout=False)
-

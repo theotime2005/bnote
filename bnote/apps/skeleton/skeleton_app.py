@@ -4,11 +4,13 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 from bnote.apps.fman.file_manager import FileManager
 from bnote.tools.speech_wrapper import speak
 from bnote.apps.bnote_app import BnoteApp, FunctionId
 from bnote.tools.keyboard import Keyboard
 import bnote.ui as ui
+
 # Set up the logger for this file
 from bnote.debug.colored_log import ColoredLogger, SKELETON_APP_LOG
 from bnote.ui.ui_parameters_list import ParamType
@@ -21,6 +23,7 @@ class SkeletonApp(BnoteApp):
     """
     Skeleton application.
     """
+
     def __init__(self, put_in_function_queue):
         """
         Class construtor
@@ -45,13 +48,21 @@ class SkeletonApp(BnoteApp):
                     name=_("&group"),
                     menu_item_list=[
                         ui.UiMenuItem(name=_("&menu_1"), action=self._exec_menu_1),
-                        ui.UiMenuItem(name=_("&choose_file"), action=self._exec_choose_file_menu),
-                    ]),
+                        ui.UiMenuItem(
+                            name=_("&choose_file"), action=self._exec_choose_file_menu
+                        ),
+                    ],
+                ),
                 ui.UiMenuItem(name=_("&say hello"), action=self._exec_say_hello),
-                ui.UiMenuItem(name=_("parameters list"), action=self._exec_parameters_list),
-                ui.UiMenuItem(name=_("&about"), action=self._exec_about,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                           shortcut_key = Keyboard.BrailleFunction.BRAMIGRAPH_F1),
+                ui.UiMenuItem(
+                    name=_("parameters list"), action=self._exec_parameters_list
+                ),
+                ui.UiMenuItem(
+                    name=_("&about"),
+                    action=self._exec_about,
+                    shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                    shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F1,
+                ),
             ],
         )
 
@@ -91,21 +102,27 @@ class SkeletonApp(BnoteApp):
         self._current_dialog = ui.UiDialogBox(
             name=_("example"),
             item_list=[
-                 ui.UiMultiLinesBox(
-                     name=_("&multilineseditbox"),
-                     value=("message", "line 1\nline 2\nline 3"),
-                     is_read_only=False),
-                 ui.UiMultiLinesBox(
-                     name=_("&read_only_multilineseditbox"),
-                     value=("message", "line 1\nline 2\nline 3"),
-                     is_read_only=True),
-                 ui.UiEditBox(name=_("&editbox"), value=("editbox", "Text to edit")),
-                 ui.UiListBox(name=_("&listbox"), value=("line", ["line 1", "line 2", "line 3"]), current_index=1),
+                ui.UiMultiLinesBox(
+                    name=_("&multilineseditbox"),
+                    value=("message", "line 1\nline 2\nline 3"),
+                    is_read_only=False,
+                ),
+                ui.UiMultiLinesBox(
+                    name=_("&read_only_multilineseditbox"),
+                    value=("message", "line 1\nline 2\nline 3"),
+                    is_read_only=True,
+                ),
+                ui.UiEditBox(name=_("&editbox"), value=("editbox", "Text to edit")),
+                ui.UiListBox(
+                    name=_("&listbox"),
+                    value=("line", ["line 1", "line 2", "line 3"]),
+                    current_index=1,
+                ),
                 ui.UiFileEditBox(name=_("&file name"), value=("file", "")),
                 ui.UiLabel(name=_("this is a label")),
-                 ui.UiCheckBox(name=_("&checkbox"), value=("checkbox", True)),
-                 ui.UiButton(name=_("&ok"), action=self._exec_valid_sample_dialog),
-                 ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog)
+                ui.UiCheckBox(name=_("&checkbox"), value=("checkbox", True)),
+                ui.UiButton(name=_("&ok"), action=self._exec_valid_sample_dialog),
+                ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
             ],
             action_cancelable=self._exec_cancel_dialog,
         )
@@ -114,9 +131,11 @@ class SkeletonApp(BnoteApp):
         self._current_dialog = ui.UiDialogBox(
             name=_("insert file"),
             item_list=[
-                ui.UiFileBox(root=FileManager.get_root_path(), suffix_filter=(".txt", ".pdf")),
+                ui.UiFileBox(
+                    root=FileManager.get_root_path(), suffix_filter=(".txt", ".pdf")
+                ),
                 ui.UiButton(name=_("&ok"), action=self._exec_choose_file),
-                ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog)
+                ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
             ],
             action_cancelable=self._exec_cancel_dialog,
         )
@@ -126,48 +145,54 @@ class SkeletonApp(BnoteApp):
 
     def _exec_parameters_list(self):
         current_values = {
-            'name': 'josephine',
-            'braille_type': 'dot-8',
-            'dot78_visible': True,
+            "name": "josephine",
+            "braille_type": "dot-8",
+            "dot78_visible": True,
         }
 
         values = {
-            'name': (ParamType.STRING, "default"),
-            'braille_type': (ParamType.TUPLE, ('dot-8', 'grade1', 'grade2')),
-            'dot78_visible': (ParamType.BOOL, (True, False)),
+            "name": (ParamType.STRING, "default"),
+            "braille_type": (ParamType.TUPLE, ("dot-8", "grade1", "grade2")),
+            "dot78_visible": (ParamType.BOOL, (True, False)),
         }
 
         translation_keys = {
-            'name': _("name"),
-            'braille_type': _("braille type"),
-            'dot78_visible': _("dot78_visible"),
+            "name": _("name"),
+            "braille_type": _("braille type"),
+            "dot78_visible": _("dot78_visible"),
         }
 
         translation_values = {
-            'yes': _("yes"),
-            'no': _("no"),
-            'dot-8': _("dot 8"),
-            'grade1': _("grade 1"),
-            'grade2': _("grade 2"),
+            "yes": _("yes"),
+            "no": _("no"),
+            "dot-8": _("dot 8"),
+            "grade1": _("grade 1"),
+            "grade2": _("grade 2"),
         }
 
-        param_descriptor = ui.ParamDescriptor(values, translation_keys, translation_values)
+        param_descriptor = ui.ParamDescriptor(
+            values, translation_keys, translation_values
+        )
         self._current_dialog = ui.UiDialogBox(
             name=_("parameters"),
             item_list=[
-                ui.UiParamList(name="parameters", param_descriptor=param_descriptor,
-                               values=('parameters', current_values),
-                               fn_change_dialog_box=self._change_dialog_box,
-                               fn_valid=self._exec_valid_parameters,
-                               fn_cancel=self._exec_cancel_dialog
-                               ),
+                ui.UiParamList(
+                    name="parameters",
+                    param_descriptor=param_descriptor,
+                    values=("parameters", current_values),
+                    fn_change_dialog_box=self._change_dialog_box,
+                    fn_valid=self._exec_valid_parameters,
+                    fn_cancel=self._exec_cancel_dialog,
+                ),
                 ui.UiButton(name=_("&ok"), action=self._exec_valid_parameters),
                 ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
             ],
             action_cancelable=self._exec_cancel_dialog,
         )
         # Force to enter in UiParamList
-        self._current_dialog.exec_bramigraph(0, Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_RETURN)
+        self._current_dialog.exec_bramigraph(
+            0, Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_RETURN
+        )
 
     def _change_dialog_box(self, dialog_box):
         old_current_dialog = self._current_dialog
@@ -203,7 +228,7 @@ class SkeletonApp(BnoteApp):
         # Read parameters of dialog box.
         kwargs = self._current_dialog.get_values()
         log.info(f"{kwargs=}")
-        file_path = kwargs['file']
+        file_path = kwargs["file"]
         if file_path is None:
             log.info("No file chosen")
         elif file_path.is_file():
@@ -320,8 +345,6 @@ class SkeletonApp(BnoteApp):
         """
         braille_static = BnoteApp.lou.to_dots_8(self.__text)
         braille_blinking = "\u2800" * len(braille_static)
-        self._braille_display.set_data_line(self.__text, braille_static, braille_blinking, 0)
-
-
-
-
+        self._braille_display.set_data_line(
+            self.__text, braille_static, braille_blinking, 0
+        )

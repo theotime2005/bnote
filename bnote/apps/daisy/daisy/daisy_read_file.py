@@ -22,7 +22,16 @@ class DaisyReadFile(threading.Thread):
     STATE_RUNNING = 1
     STATE_ENDED = 2
 
-    def __init__(self, lou, full_file_name, read_daisy_file, language, settings_data, append_paragraph, ended):
+    def __init__(
+        self,
+        lou,
+        full_file_name,
+        read_daisy_file,
+        language,
+        settings_data,
+        append_paragraph,
+        ended,
+    ):
         threading.Thread.__init__(self)
         self.language = language
         self.lou = lou

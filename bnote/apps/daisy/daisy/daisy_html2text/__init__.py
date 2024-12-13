@@ -4,6 +4,7 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 """html2text: Turn HTML into equivalent Markdown-structured text."""
 
 import html.entities
@@ -169,9 +170,11 @@ class HTML2Text(html.parser.HTMLParser):
 
     def outtextf(self, s: str) -> None:
         # >>> DP
-        if ((len(self.outtagslist) > 0) and
-                self.__is_empty_text(self.outtextlist[-1]) and
-                (self.text_id is None)):
+        if (
+            (len(self.outtagslist) > 0)
+            and self.__is_empty_text(self.outtextlist[-1])
+            and (self.text_id is None)
+        ):
             # If previous is an empty line and no text_id, put text_id on this new line.
             self.text_id = self.outtagslist[-1]
             self.outtagslist[-1] = None
@@ -439,7 +442,6 @@ class HTML2Text(html.parser.HTMLParser):
             # Take high level id to tag the text.
             self.text_id = attrs["id"]
         # <<< DP
-
 
         def no_preceding_space(self: HTML2Text) -> bool:
             return bool(

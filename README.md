@@ -27,3 +27,27 @@ Throughout the project, the language used is English, so comments, labels, and v
 - Is it possible to modify the .po files inside?
 
 Yes, but label in the sources (_"...") that are already translated should not be changed to avoid ruining all the translations already done. For example, changing an uppercase letter to a lowercase letter in a message breaks the translation of that message.
+
+# Configuration pycharm pour auto-formatage des fichiers
+
+## Installer black
+$sudo apt install black
+
+## Exécution manuelle
+Dans le terminal sur la racine du projet :
+
+user@ubuntu:~/PycharmProjects/bnote2/raspberrypi/bnote$ black .
+
+## Configuration de l'exécution de black avant chaque enregistrement de fichier 
+* Installer le plugin "file watcher" s'il n'est pas déjà installé (depuis "File>Settings>Plugins").
+* Aller dans "File>Settings>Tools>File watchers" puis cliquer sur '+' et choisir "custom" dans la liste.
+* Définir le lancement de black ainsi: 
+  Name : Black Auto Format
+  File Type : Python  
+  Scope : Current File  
+  Program : black  
+  Arguments : \$FilePathRelativeToProjectRoot\$  
+  Working directory : \$ProjectFileDir\$
+
+Ainsi, avant chaque sauvegarde, black sera exécuté sur le fichier. 
+

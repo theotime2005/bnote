@@ -4,6 +4,7 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 """
 Python 2.6 doesn't provide subprocess.check_output or subprocess.check_call
 """
@@ -38,8 +39,8 @@ except NameError:
         ...              stderr=STDOUT)
         'ls: non_existent_file: No such file or directory\n'
         """
-        if 'stdout' in kwargs:
-            raise ValueError('stdout argument not allowed, it will be overridden.')
+        if "stdout" in kwargs:
+            raise ValueError("stdout argument not allowed, it will be overridden.")
         process = Popen(stdout=PIPE, *popenargs, **kwargs)
         output, unused_err = process.communicate()
         retcode = process.poll()

@@ -11,6 +11,7 @@ class Coordinates:
     Coordinates definition
     A column, a line and a paragraph (0 based)
     """
+
     def __init__(self, column, line, paragraph):
         self.paragraph = paragraph
         self.line = line
@@ -26,7 +27,11 @@ class Coordinates:
             # don't attempt to compare against unrelated types
             return NotImplemented
 
-        return self.paragraph == other.paragraph and self.line == other.line and self.column == other.column
+        return (
+            self.paragraph == other.paragraph
+            and self.line == other.line
+            and self.column == other.column
+        )
 
     # not equal comparison
     def __ne__(self, other):
@@ -75,4 +80,3 @@ class Coordinates:
             return True
         else:
             return self > other
-

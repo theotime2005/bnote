@@ -4,6 +4,7 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 from bnote.apps.bnote_app import BnoteApp
 from bnote.tools.keyboard import Keyboard
 from bnote.tools.settings import Settings
@@ -80,9 +81,9 @@ class UiEditBox(UiObject):
 
     def __init__(self, name, value, no_grade=False):
         kwargs = {
-            'braille_type': Settings().data['system']['braille_type'],
-            'name': name,
-            'action': None,
+            "braille_type": Settings().data["system"]["braille_type"],
+            "name": name,
+            "action": None,
         }
         self._no_grade = no_grade
         # Call base class.
@@ -91,7 +92,9 @@ class UiEditBox(UiObject):
         self._value_id, self._value = value
         if isinstance(self._value, str):
             # Convert text to braille, it is the editing data.
-            text, self.braille_value, pos = BnoteApp.lou.convert_to_braille(self._braille_type, self._value, -1, self._no_grade)
+            text, self.braille_value, pos = BnoteApp.lou.convert_to_braille(
+                self._braille_type, self._value, -1, self._no_grade
+            )
         else:
             self._value_id = None
             self._value = None
@@ -103,7 +106,9 @@ class UiEditBox(UiObject):
     def set_value(self, value):
         self._value = value
         # compute new braille_value.
-        text, self.braille_value, pos = BnoteApp.lou.convert_to_braille(self._braille_type, self._value, -1, self._no_grade)
+        text, self.braille_value, pos = BnoteApp.lou.convert_to_braille(
+            self._braille_type, self._value, -1, self._no_grade
+        )
         # Set caret to selected complete value.
         self._caret = Caret()
         self._caret.end = len(self.braille_value)
@@ -117,7 +122,9 @@ class UiEditBox(UiObject):
             return None, None, None, None
         else:
             # Convert braille to text.
-            text_objects, braille_objects, braille_blinking, id_array_objects = super().get_presentation()
+            text_objects, braille_objects, braille_blinking, id_array_objects = (
+                super().get_presentation()
+            )
             # Add a space to braille_value if cart is at the end.
             braille_value = self.braille_value
             if self._editing:
@@ -125,30 +132,52 @@ class UiEditBox(UiObject):
                 # Add always one separator to present the caret at the end or put caret with interactive keys.
                 braille_value = "".join([self.braille_value, "\u2800"])
 
-            text_separator, braille_separator, pos = BnoteApp.lou.convert_to_braille(self._braille_type, UiEditBox.EDIT_BOX_SEPARATOR)
+            text_separator, braille_separator, pos = BnoteApp.lou.convert_to_braille(
+                self._braille_type, UiEditBox.EDIT_BOX_SEPARATOR
+            )
             if self._editing and self._is_modified_value:
-                value_offset = self.__center_display(self._caret.last() + 1, braille_value)
-                self._presentation_offset = len(braille_separator) + len(braille_objects) + value_offset
+                value_offset = self.__center_display(
+                    self._caret.last() + 1, braille_value
+                )
+                self._presentation_offset = (
+                    len(braille_separator) + len(braille_objects) + value_offset
+                )
             else:
                 self._presentation_offset = 0
-            self._value, pos = BnoteApp.lou.convert_to_text(self._braille_type, self.braille_value, -1, True)
+            self._value, pos = BnoteApp.lou.convert_to_text(
+                self._braille_type, self.braille_value, -1, True
+            )
             text_objects = text_separator.join([text_objects, self._value])
             # Replace the space by braille dot 8
-            if not Settings().data['system']['spaces_in_label']:
+            if not Settings().data["system"]["spaces_in_label"]:
                 braille_value = braille_value.replace("\u2800", "\u2880")
             braille_objects = braille_separator.join([braille_objects, braille_value])
 
             if self._editing:
-                begin_not_blinking = "\u2800" * (len(braille_separator) + self._caret.first())
+                begin_not_blinking = "\u2800" * (
+                    len(braille_separator) + self._caret.first()
+                )
                 blinking = "\u28C0" * (self._caret.last() + 1 - self._caret.first())
-                end_not_blinking = "\u2800" * (len(braille_value) - (self._caret.last() + 1))
-                braille_blinking = "".join([braille_blinking, begin_not_blinking, blinking, end_not_blinking])
-                log.info(f"length {len(begin_not_blinking)=}={len(blinking)=}={len(end_not_blinking)=}")
+                end_not_blinking = "\u2800" * (
+                    len(braille_value) - (self._caret.last() + 1)
+                )
+                braille_blinking = "".join(
+                    [braille_blinking, begin_not_blinking, blinking, end_not_blinking]
+                )
+                log.info(
+                    f"length {len(begin_not_blinking)=}={len(blinking)=}={len(end_not_blinking)=}"
+                )
             else:
                 blinking = "\u2800" * (len(braille_separator) + len(braille_value))
                 braille_blinking = "".join([braille_blinking, blinking])
-            id_array_objects = [*id_array_objects, *([self._ui_id] * len(braille_separator)), *([self._ui_id] * len(braille_value))]
-            log.info(f"length {len(braille_objects)=}={len(braille_blinking)}={len(id_array_objects)}")
+            id_array_objects = [
+                *id_array_objects,
+                *([self._ui_id] * len(braille_separator)),
+                *([self._ui_id] * len(braille_value)),
+            ]
+            log.info(
+                f"length {len(braille_objects)=}={len(braille_blinking)}={len(id_array_objects)}"
+            )
             return text_objects, braille_objects, braille_blinking, id_array_objects
 
     def __center_display(self, position, value):
@@ -157,7 +186,9 @@ class UiEditBox(UiObject):
         :param position: caret
         :return: None
         """
-        braille_display_length = braille_device_characteristics.get_braille_display_length()
+        braille_display_length = (
+            braille_device_characteristics.get_braille_display_length()
+        )
         half_display_length = braille_display_length >> 1
         if position <= half_display_length:
             start_pos = 0
@@ -170,7 +201,9 @@ class UiEditBox(UiObject):
         return start_pos
 
     def get_value(self):
-        value, pos = BnoteApp.lou.convert_to_text(self._braille_type, self.braille_value, -1, self._no_grade)
+        value, pos = BnoteApp.lou.convert_to_text(
+            self._braille_type, self.braille_value, -1, self._no_grade
+        )
         return self._value_id, value
 
     def exec_action(self) -> (bool, bool):
@@ -200,7 +233,7 @@ class UiEditBox(UiObject):
         log.info(f"input_command on edit box {self._name}")
         if self._editing:
             kwargs = Keyboard.decode_modifiers(modifier)
-            if kwargs['alt']:
+            if kwargs["alt"]:
                 # alt+key not treated.
                 return False, True
 
@@ -244,10 +277,10 @@ class UiEditBox(UiObject):
         :return: (Treated, stay in menu)
         """
         character_switcher = {
-            'a': self.exec_select_all,
-            'c': self.__exec_copy,
-            'v': self.__exec_paste,
-            'x': self.__exec_cut,
+            "a": self.exec_select_all,
+            "c": self.__exec_copy,
+            "v": self.__exec_paste,
+            "x": self.__exec_cut,
         }
         # Get the function from switcher dictionnary
         function = character_switcher.get(character.lower(), None)
@@ -265,7 +298,7 @@ class UiEditBox(UiObject):
         :return: (Treated, stay in menu)
         """
         kwargs = Keyboard.decode_modifiers(modifier)
-        if kwargs['alt']:
+        if kwargs["alt"]:
             # alt+key not treated.
             return False
         if self._editing:
@@ -282,7 +315,9 @@ class UiEditBox(UiObject):
                 treated, in_menu = func(**kwargs)
                 self.ask_update_braille_display()
                 return treated, in_menu
-        log.warning("No function for bramigraph editbox defined for {}".format(bramigraph))
+        log.warning(
+            "No function for bramigraph editbox defined for {}".format(bramigraph)
+        )
         return super().exec_bramigraph(modifier, bramigraph)
 
     def exec_interactive(self, modifier, relative_pos, key_type) -> (bool, bool):
@@ -295,7 +330,9 @@ class UiEditBox(UiObject):
         """
         log.info(f"Clic on objet {self._name}, {relative_pos=}")
         # Compute relative pos
-        text_separator, braille_separator, pos = BnoteApp.lou.convert_to_braille(self._braille_type, UiEditBox.EDIT_BOX_SEPARATOR)
+        text_separator, braille_separator, pos = BnoteApp.lou.convert_to_braille(
+            self._braille_type, UiEditBox.EDIT_BOX_SEPARATOR
+        )
         before_value = len(self._braille_name) + len(braille_separator)
         log.info(f"{before_value=}")
         if relative_pos > before_value:
@@ -315,7 +352,9 @@ class UiEditBox(UiObject):
         self._caret.end = len(self.braille_value)
 
     def __exec_copy(self, **kwargs):
-        braille_value_selection = self.braille_value[self._caret.first(): self._caret.last()]
+        braille_value_selection = self.braille_value[
+            self._caret.first() : self._caret.last()
+        ]
         log.info(f"{braille_value_selection=}")
         copy(braille_value_selection)
 
@@ -325,14 +364,18 @@ class UiEditBox(UiObject):
         # Paste text from clipboard, if the bloc is multilines, paste only the first.
         lines = paste().split("\n")
         if lines[0]:
-            text_grade, braille, pos = BnoteApp.lou.convert_to_braille(self._braille_type, lines[0])
+            text_grade, braille, pos = BnoteApp.lou.convert_to_braille(
+                self._braille_type, lines[0]
+            )
             log.info(f"{lines[0]=} {braille}")
             # Insert character in the braille string value.
-            self.braille_value = "".join([
-                self.braille_value[0:self._caret.end],
-                braille,
-                self.braille_value[self._caret.end:len(self.braille_value)]
-            ])
+            self.braille_value = "".join(
+                [
+                    self.braille_value[0 : self._caret.end],
+                    braille,
+                    self.braille_value[self._caret.end : len(self.braille_value)],
+                ]
+            )
             # Increment caret position.
             self._caret.end += len(lines[0])
             self._caret.start = self._caret.end
@@ -353,14 +396,14 @@ class UiEditBox(UiObject):
         kwargs = Keyboard.decode_modifiers(modifier)
         log.info(f"{self._caret.is_selection_empty()=}")
         log.info(f"{kwargs=}")
-        if self._caret.is_selection_empty() and not kwargs['shift']:
+        if self._caret.is_selection_empty() and not kwargs["shift"]:
             # No selection and no shift => put the caret to one position
             log.info("Set caret without selection")
             self._caret.end = pos - 1
             self._caret.start = self._caret.end
         else:
             self._caret.end = pos - 1
-            if not kwargs['shift']:
+            if not kwargs["shift"]:
                 # Without shift => caret.start follows.
                 self._caret.start = self._caret.end
 
@@ -369,13 +412,13 @@ class UiEditBox(UiObject):
         :return: (Treated, stay in menu)
         """
         log.info(f"caret right with {kwargs=}")
-        if not self._caret.is_selection_empty() and not kwargs['shift']:
+        if not self._caret.is_selection_empty() and not kwargs["shift"]:
             self._caret.clear_selection_from_last()
         else:
             # With shift=
             if self._caret.end < len(self.braille_value):
                 self._caret.end += 1
-            if not kwargs['shift']:
+            if not kwargs["shift"]:
                 self._caret.start = self._caret.end
         self._is_modified_value = True
         return True, True
@@ -385,12 +428,12 @@ class UiEditBox(UiObject):
         :return: (Treated, stay in menu)
         """
         log.info(f"caret left with {kwargs=}")
-        if not self._caret.is_selection_empty() and not kwargs['shift']:
+        if not self._caret.is_selection_empty() and not kwargs["shift"]:
             self._caret.clear_selection_from_first()
         else:
             if self._caret.end > 0:
                 self._caret.end -= 1
-            if not kwargs['shift']:
+            if not kwargs["shift"]:
                 self._caret.start = self._caret.end
         self._is_modified_value = True
         return True, True
@@ -431,7 +474,12 @@ class UiEditBox(UiObject):
             self._is_modified_value = False
 
     def __delete_selection(self):
-        self.braille_value = "".join([self.braille_value[0:self._caret.first()], self.braille_value[self._caret.last():]])
+        self.braille_value = "".join(
+            [
+                self.braille_value[0 : self._caret.first()],
+                self.braille_value[self._caret.last() :],
+            ]
+        )
         log.info(f"delete selection, new {self.braille_value}")
         self._caret.start = self._caret.first()
         self._caret.end = self._caret.start
@@ -445,10 +493,12 @@ class UiEditBox(UiObject):
         else:
             if self._caret.end > 0:
                 # Remove character in the braille string value.
-                self.braille_value = "".join([
-                    self.braille_value[0:self._caret.end - 1],
-                    self.braille_value[self._caret.end:len(self.braille_value)]
-                ])
+                self.braille_value = "".join(
+                    [
+                        self.braille_value[0 : self._caret.end - 1],
+                        self.braille_value[self._caret.end : len(self.braille_value)],
+                    ]
+                )
                 self._caret.end -= 1
                 self._caret.start = self._caret.end
         self._is_modified_value = True
@@ -458,11 +508,13 @@ class UiEditBox(UiObject):
         if not self._caret.is_selection_empty():
             self.__delete_selection()
         # Insert character in the braille string value.
-        self.braille_value = "".join([
-            self.braille_value[0:self._caret.end],
-            braille_char,
-            self.braille_value[self._caret.end:len(self.braille_value)]
-        ])
+        self.braille_value = "".join(
+            [
+                self.braille_value[0 : self._caret.end],
+                braille_char,
+                self.braille_value[self._caret.end : len(self.braille_value)],
+            ]
+        )
         # Increment caret position.
         self._caret.end += 1
         self._caret.start = self._caret.end
@@ -480,11 +532,17 @@ class UiEditBox(UiObject):
         else:
             if self._caret.end < len(self.braille_value):
                 # Remove character in the braille string value.
-                self.braille_value = "".join([
-                    self.braille_value[0:self._caret.end],
-                    self.braille_value[self._caret.end + 1:len(self.braille_value)]
-                ])
-                if (self._caret.end < len(self.braille_value)) and (self._caret.end > 0):
+                self.braille_value = "".join(
+                    [
+                        self.braille_value[0 : self._caret.end],
+                        self.braille_value[
+                            self._caret.end + 1 : len(self.braille_value)
+                        ],
+                    ]
+                )
+                if (self._caret.end < len(self.braille_value)) and (
+                    self._caret.end > 0
+                ):
                     self._caret.end -= 1
                     self._caret.start = self._caret.end
                 self._is_modified_value = True

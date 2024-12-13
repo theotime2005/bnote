@@ -4,36 +4,40 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 import logging
 
 BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE = range(8)
 
-#The background is set with 40 plus the number of the color, and the foreground with 30
+# The background is set with 40 plus the number of the color, and the foreground with 30
 
-#These are the sequences need to get colored ouput
+# These are the sequences need to get colored ouput
 RESET_SEQ = "\033[0m"
 COLOR_SEQ = "\033[1;%dm"
 BOLD_SEQ = "\033[1m"
 WHITE_SEQ = "\033[0;97m"
 
-def formatter_message(message, use_color = True):
+
+def formatter_message(message, use_color=True):
     if use_color:
-        #message = message.replace("$RESET", RESET_SEQ).replace("$BOLD", BOLD_SEQ)
+        # message = message.replace("$RESET", RESET_SEQ).replace("$BOLD", BOLD_SEQ)
         message = message.replace("$RESET", RESET_SEQ).replace("$BOLD", WHITE_SEQ)
     else:
         message = message.replace("$RESET", "").replace("$BOLD", "")
     return message
 
+
 COLORS = {
-    'WARNING': YELLOW,
-    'INFO': WHITE,
-    'DEBUG': BLUE,
-    'CRITICAL': YELLOW,
-    'ERROR': RED
+    "WARNING": YELLOW,
+    "INFO": WHITE,
+    "DEBUG": BLUE,
+    "CRITICAL": YELLOW,
+    "ERROR": RED,
 }
 
+
 class ColoredFormatter(logging.Formatter):
-    def __init__(self, msg, use_color = True):
+    def __init__(self, msg, use_color=True):
         logging.Formatter.__init__(self, msg)
         self.use_color = use_color
 
@@ -70,6 +74,7 @@ class ColoredLogger(logging.Logger):
         self.addHandler(console)
         return
 
+
 # Quand log == 0 => version de production très peu verbeuse (réglage par défaut sur ERROR)
 # Quand log == 1 => version de developpement assez peu verbeuse (réglage par défaut sur WARNING)
 # En WARNING, on place principalement les résultats des exceptions + la sortie afficheurs braille pour avoir un retour
@@ -100,7 +105,7 @@ if LOG == 0:
     PARAGRAPH_LOG = logging.ERROR
     PARAGRAPHS_LOG = logging.ERROR
     READ_FILE_LOG = logging.ERROR
-    MUSIC_WRITE_FILE_LOG =  logging.ERROR
+    MUSIC_WRITE_FILE_LOG = logging.ERROR
     # esys
     ESYS_COM_LOG = logging.ERROR
     ESYS_PROTOCOL_LOG = logging.ERROR
@@ -146,7 +151,7 @@ if LOG == 0:
     # Skeleton app
     SKELETON_APP_LOG = logging.DEBUG
     # braille_learning app
-    WRITE_WORD_APP_LOG=logging.DEBUG
+    WRITE_WORD_APP_LOG = logging.DEBUG
     OPERATION_APP_LOG = logging.DEBUG
     # mines app
     MINES_APP_LOG = logging.ERROR
@@ -156,7 +161,7 @@ if LOG == 0:
     # mp3 app
     MP3_APP_LOG = logging.ERROR
     # Timer
-    TIMER_APP_LOG=logging.ERROR
+    TIMER_APP_LOG = logging.ERROR
     # Translator
     TRANSLATOR_APP_LOG = logging.ERROR
     # wifi
@@ -228,7 +233,7 @@ else:
     SKELETON_APP_LOG = logging.WARNING
     # braille_learning app
     WRITE_WORD_APP_LOG = logging.WARNING
-    OPERATION_APP_LOG=logging.WARNING
+    OPERATION_APP_LOG = logging.WARNING
     # mines app
     MINES_APP_LOG = logging.WARNING
     MASTERMIND_APP_LOG = logging.WARNING
@@ -244,4 +249,3 @@ else:
     WIFI_LOG = logging.WARNING
     # yaupdater
     YAUPDATER_LOG = logging.INFO
-

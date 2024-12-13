@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "bnote"
-version = "3.1.0"
+version = "3.1.2b1"
 description = "bnote application"
 authors = [{name = "Eurobraille team"}]
 requires-python = ">=3.11, <3.12"
@@ -31,7 +31,9 @@ dependencies= [
     "sdbus ==0.11.1",
     "pyproject_hooks ==1.1.0",
     "build ==1.2.1",
-    "translate ==3.6.1"
+    "translate ==3.6.1",
+    "pytz==2024.2",
+    "ntplib==0.4.0"
     ]
 
 [tool.setuptools.package-dir]

@@ -9,6 +9,7 @@ import logging
 
 class NullHandler(logging.Handler):
     """A Handler that does nothing."""
+
     def emit(self, record):
         pass
 

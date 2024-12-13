@@ -5,7 +5,6 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 import queue
 import serial
 import sys
@@ -13,6 +12,7 @@ import time
 import threading
 
 import bnote.stm32.stm32_protocol as stm32_protocol
+
 # Set up the logger for this file
 from bnote.debug.colored_log import ColoredLogger, STM32_THREAD_LOG
 
@@ -23,6 +23,7 @@ log.setLevel(STM32_THREAD_LOG)
 #
 # The thread that talk with stm32.
 #
+
 
 class Stm32Thread(threading.Thread):
     TIME_OUT_TO_READ = 0.05
@@ -46,7 +47,7 @@ class Stm32Thread(threading.Thread):
             self._running = True
             log.info("Stm32Thread starts running...")
 
-            byte = b''
+            byte = b""
             while not self._stop:
                 try:
                     # Read one byte from serial
@@ -89,11 +90,13 @@ class Stm32Thread(threading.Thread):
             self._running = True
             log.info("Stm32Thread starts running...")
 
-            byte = b''
+            byte = b""
             while not self._stop:
                 try:
                     # If a message is pending in the sending queue, send it.
-                    frame = self._tx_frame_queue.get(timeout=Stm32Thread.TIME_OUT_TO_WRITE)
+                    frame = self._tx_frame_queue.get(
+                        timeout=Stm32Thread.TIME_OUT_TO_WRITE
+                    )
                     if isinstance(frame, stm32_protocol.Stm32Frame):
                         buffer = frame.cooked_frame_buffer()
                         log.debug("buffer to send = {}".format(buffer))
@@ -136,7 +139,6 @@ class Stm32Thread(threading.Thread):
         self._static_text = None
         self._display_to_send = 0
 
-
     def run(self):
         self._running = True
 
@@ -145,18 +147,28 @@ class Stm32Thread(threading.Thread):
             # Open serial from RPi from TXD (pin 8) RXD (pin 10) of the 20 pins connector.
             # cf https://pythonhosted.org/pyserial/pyserial_api.html
             # Open serial from RPi from TXD (pin 8) RXD (pin 10) of the 20 pins connector.
-            self._serial = serial.Serial("/dev/serial0", 57600, timeout=Stm32Thread.TIME_OUT_TO_READ)
+            self._serial = serial.Serial(
+                "/dev/serial0", 57600, timeout=Stm32Thread.TIME_OUT_TO_READ
+            )
             log.info("serial={}".format(self._serial))
             if self._serial:
-                self._serial_input = self.SerialInput(self._serial, self._stm32_protocol, self._rx_frame_queue)
-                self._serial_output = self.SerialOutput(self._serial, self._stm32_protocol, self._tx_frame_queue)
+                self._serial_input = self.SerialInput(
+                    self._serial, self._stm32_protocol, self._rx_frame_queue
+                )
+                self._serial_output = self.SerialOutput(
+                    self._serial, self._stm32_protocol, self._tx_frame_queue
+                )
                 self._serial_input.start()
                 self._serial_output.start()
                 log.info("serial threads running")
-                while not self._stop and self._serial_input.is_running() and self._serial_output.is_running():
+                while (
+                    not self._stop
+                    and self._serial_input.is_running()
+                    and self._serial_output.is_running()
+                ):
                     # Checks each second that serial communication is all right.
                     time.sleep(Stm32Thread.TIME_OUT_TO_CHECK)
-                    if True: #self._tx_frame_queue.empty():
+                    if True:  # self._tx_frame_queue.empty():
                         with self._display_mutex:
                             if self._display_to_send != 0:
                                 # if (self._display_to_send == 3) and self._dynamic_dots:
@@ -176,22 +188,33 @@ class Stm32Thread(threading.Thread):
                                 if self._display_to_send == 3:
                                     if self._dynamic_dots:
                                         self.put_in_tx_frame_queue(
-                                            stm32_protocol.Stm32Frame(key=stm32_protocol.stm32_keys.KEY_DISPLAY_BLINKINGS_DOTS,
-                                                                      data=self._dynamic_dots))
+                                            stm32_protocol.Stm32Frame(
+                                                key=stm32_protocol.stm32_keys.KEY_DISPLAY_BLINKINGS_DOTS,
+                                                data=self._dynamic_dots,
+                                            )
+                                        )
                                     if self._static_dots:
                                         self.put_in_tx_frame_queue(
-                                            stm32_protocol.Stm32Frame(key=stm32_protocol.stm32_keys.KEY_DISPLAY_STATICS_DOTS,
-                                                                      data=self._static_dots))
+                                            stm32_protocol.Stm32Frame(
+                                                key=stm32_protocol.stm32_keys.KEY_DISPLAY_STATICS_DOTS,
+                                                data=self._static_dots,
+                                            )
+                                        )
                                     if self._static_text:
                                         self.put_in_tx_frame_queue(
-                                            stm32_protocol.Stm32Frame(key=stm32_protocol.stm32_keys.KEY_DEBUG_TEXT,
-                                                                      data=self._static_text))
+                                            stm32_protocol.Stm32Frame(
+                                                key=stm32_protocol.stm32_keys.KEY_DEBUG_TEXT,
+                                                data=self._static_text,
+                                            )
+                                        )
 
                                 self._display_to_send -= 1
 
                 self._serial_input.terminate()
                 self._serial_output.terminate()
-                while self._serial_input.is_running() or self._serial_output.is_running():
+                while (
+                    self._serial_input.is_running() or self._serial_output.is_running()
+                ):
                     time.sleep(0.01)
                 self._serial.close()
                 self._running = False
@@ -207,7 +230,9 @@ class Stm32Thread(threading.Thread):
         """
         Send ask characteristics request to stm32.
         """
-        self.put_in_tx_frame_queue(stm32_protocol.Stm32Frame(key=stm32_protocol.stm32_keys.KEY_CHARACTERISTICS))
+        self.put_in_tx_frame_queue(
+            stm32_protocol.Stm32Frame(key=stm32_protocol.stm32_keys.KEY_CHARACTERISTICS)
+        )
 
     def send_ask_shutown_or_transport(self, is_transport):
         """
@@ -217,10 +242,18 @@ class Stm32Thread(threading.Thread):
         """
         if is_transport:
             self.put_in_tx_frame_queue(
-                stm32_protocol.Stm32Frame(key=stm32_protocol.stm32_keys.KEY_ASK_SHUTDOWN_OR_TRANSPORT, data=b'1'))
+                stm32_protocol.Stm32Frame(
+                    key=stm32_protocol.stm32_keys.KEY_ASK_SHUTDOWN_OR_TRANSPORT,
+                    data=b"1",
+                )
+            )
         else:
             self.put_in_tx_frame_queue(
-                stm32_protocol.Stm32Frame(key=stm32_protocol.stm32_keys.KEY_ASK_SHUTDOWN_OR_TRANSPORT, data=b'0'))
+                stm32_protocol.Stm32Frame(
+                    key=stm32_protocol.stm32_keys.KEY_ASK_SHUTDOWN_OR_TRANSPORT,
+                    data=b"0",
+                )
+            )
 
     def send_internal_exit(self, channel):
         """
@@ -228,11 +261,14 @@ class Stm32Thread(threading.Thread):
         :param channel: (int) 1 or 2 - usb channel selected
         """
         if channel == 1:
-            usb_index = b'0'
+            usb_index = b"0"
         elif channel == 2:
-            usb_index = b'1'
-        self.put_in_tx_frame_queue(stm32_protocol.Stm32Frame(key=stm32_protocol.stm32_keys.KEY_INTERNAL_EXIT,
-                                                             data=usb_index))
+            usb_index = b"1"
+        self.put_in_tx_frame_queue(
+            stm32_protocol.Stm32Frame(
+                key=stm32_protocol.stm32_keys.KEY_INTERNAL_EXIT, data=usb_index
+            )
+        )
 
     def put_in_tx_frame_queue(self, data):
         self._tx_frame_queue.put(data)
@@ -251,11 +287,11 @@ class Stm32Thread(threading.Thread):
             new_static_dots = bytearray()
             # Convert /u28xx comb. to 8 bits.
             for character in static_dots:
-                byt = ord(character[0]).to_bytes(2, byteorder='big')
+                byt = ord(character[0]).to_bytes(2, byteorder="big")
                 new_static_dots.append(byt[1])
             new_dynamic_dots = bytearray()
             for character in dynamic_dots:
-                byt = ord(character[0]).to_bytes(2, byteorder='big')
+                byt = ord(character[0]).to_bytes(2, byteorder="big")
                 new_dynamic_dots.append(byt[1])
 
             with self._display_mutex:
@@ -264,14 +300,19 @@ class Stm32Thread(threading.Thread):
                 self._static_text = static_text
                 self._display_to_send = 3
 
+
 # -----------------------------------------------
 # Unitary test
 def main():
     stm32_thread = Stm32Thread()
     stm32_thread.start()
-    stm32_thread.put_in_tx_frame_queue(stm32_protocol.Stm32Frame(stm32_protocol.KEY_CHARACTERISTICS))
+    stm32_thread.put_in_tx_frame_queue(
+        stm32_protocol.Stm32Frame(stm32_protocol.KEY_CHARACTERISTICS)
+    )
     time.sleep(5)
-    stm32_thread.put_in_tx_frame_queue(stm32_protocol.Stm32Frame(stm32_protocol.KEY_CHARACTERISTICS))
+    stm32_thread.put_in_tx_frame_queue(
+        stm32_protocol.Stm32Frame(stm32_protocol.KEY_CHARACTERISTICS)
+    )
     stm32_thread.put_in_tx_frame_queue(b"\x0d")
 
     while True:

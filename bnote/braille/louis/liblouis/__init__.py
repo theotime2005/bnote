@@ -83,6 +83,7 @@ fileSystemEncoding = "mbcs" if _is_windows else getfilesystemencoding()
 conversionEncoding = "utf_%d_le" % (wideCharBytes * 8)
 # }
 
+
 # Some general utility functions
 def _createTablesString(tablesList):
     """Creates a tables string for liblouis calls"""
@@ -506,7 +507,7 @@ def getTypeformForEmphClass(tableList, emphClass):
 
 
 def dotsToChar(tableList, inbuf):
-    """"Convert a string of dot patterns to a string of characters according to the specifications in tableList.
+    """ "Convert a string of dot patterns to a string of characters according to the specifications in tableList.
     @param tableList: A list of translation tables.
     @type tableList: list of str
     @param inbuf: a string of dot patterns, either in liblouis format or Unicode braille.
@@ -528,7 +529,7 @@ def dotsToChar(tableList, inbuf):
 
 
 def charToDots(tableList, inbuf, mode=0):
-    """"Convert a string of characterss to a string of dot patterns according to the specifications in tableList.
+    """ "Convert a string of characterss to a string of dot patterns according to the specifications in tableList.
     @param tableList: A list of translation tables.
     @type tableList: list of str
     @param inbuf: a string of characters.

@@ -11,6 +11,7 @@ from bs4 import BeautifulSoup, Comment
 
 # Setup the logger for this file
 from .colored_log import ColoredLogger, READ_EPUB_FILE_LOG, logging
+
 log = ColoredLogger(__name__, level=READ_EPUB_FILE_LOG)
 
 # Installer depuis pycharm File>Settings>Project>Python interpreter: EbookLib et bs4
@@ -21,7 +22,16 @@ log = ColoredLogger(__name__, level=READ_EPUB_FILE_LOG)
 
 
 class ReadEpubFile:
-    blacklist = ['[document]', 'noscript', 'header', 'html', 'meta', 'head', 'input', 'script', ]
+    blacklist = [
+        "[document]",
+        "noscript",
+        "header",
+        "html",
+        "meta",
+        "head",
+        "input",
+        "script",
+    ]
 
     def __init__(self, full_file_name):
         self._full_file_name = full_file_name
@@ -41,7 +51,7 @@ class ReadEpubFile:
                 chapters.append(chapters_dict[spine[0]])
 
         for html in chapters:
-            soup = BeautifulSoup(html, 'html.parser')
+            soup = BeautifulSoup(html, "html.parser")
             with_marker = True
 
             # First : remove the comments (<!--   -->)
@@ -61,9 +71,9 @@ class ReadEpubFile:
                         # des mots qui sont collés les uns au autre dans certains ouvrages.
                         line = " ".join(line_parts)
                         # Remplace espace insécable par espace classique
-                        line = line.replace('\xa0', ' ')
+                        line = line.replace("\xa0", " ")
                         # Remplace '\n' au sein du texte par espace classique.
-                        line = line.replace('\n', ' ')
+                        line = line.replace("\n", " ")
                         # Certain epub ont déja des espaces de part et d'autre des morceaux de textes, d'autre pas...
                         while line.find("  ") != -1:
                             line = line.replace("  ", " ")

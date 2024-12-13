@@ -4,6 +4,7 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 import base64
 from typing import Optional
 
@@ -53,15 +54,23 @@ class EoleAccessToken:
         Return the access token associated to this device or None.
     """
 
-    def __init__(self, user_name, password, url_api="https://eole.avh.asso.fr/api/v1",
-                 device_code_path="device/code", device_token_path="device/token"):
+    def __init__(
+        self,
+        user_name,
+        password,
+        url_api="https://eole.avh.asso.fr/api/v1",
+        device_code_path="device/code",
+        device_token_path="device/token",
+    ):
         self.__user_name = user_name
         self.__password = password
         self.__url_api = url_api
         self.__device_code_path = device_code_path
         self.__device_token_path = device_token_path
         # These following datas must be clear if self.__user_name / self.__password change
-        self.__client_id = base64.b64encode(self.__user_name.encode('utf-8')).decode('utf-8')
+        self.__client_id = base64.b64encode(self.__user_name.encode("utf-8")).decode(
+            "utf-8"
+        )
         self.__device_code = None
         self.__user_code = None
         self.__verification_uri = None
@@ -98,7 +107,9 @@ class EoleAccessToken:
         # cleanup the datas related to the user_name / password
         self.__cleanup_data()
         # Compute self.__client_id from self.__user_name
-        self.__client_id = base64.b64encode(self.__user_name.encode('utf-8')).decode('utf-8')
+        self.__client_id = base64.b64encode(self.__user_name.encode("utf-8")).decode(
+            "utf-8"
+        )
 
     def acquire_access_token(self) -> (Optional[str], str):
         error_message = "OK"
@@ -106,7 +117,9 @@ class EoleAccessToken:
         # cleanup the datas related to the user_name / password
         self.__cleanup_data()
         # Compute self.__client_id from self.__user_name
-        self.__client_id = base64.b64encode(self.__user_name.encode('utf-8')).decode('utf-8')
+        self.__client_id = base64.b64encode(self.__user_name.encode("utf-8")).decode(
+            "utf-8"
+        )
 
         try:
             # Start the exchange to get the Access Token by implementing
@@ -117,7 +130,11 @@ class EoleAccessToken:
                 response = self.__get_auth_uri()
                 if response and response.status_code == 200:
                     response = self.__sign_in()
-                    if response and response.status_code == 200 and self.__sign_in_successfully:
+                    if (
+                        response
+                        and response.status_code == 200
+                        and self.__sign_in_successfully
+                    ):
                         self.__token_access, error_message = self.__get_token_access()
         except Exception as e:
             print(f"acquire_access_token() => {e=}")
@@ -136,23 +153,29 @@ class EoleAccessToken:
             params = {"client_id": f"{self.__client_id}"}
             # print(f"{params=}")
             # default url is "https://eole.avh.asso.fr/api/v1/device/code"
-            response = requests.get("/".join((self.__url_api, self.__device_code_path)), timeout=TIMEOUT, params=params)
+            response = requests.get(
+                "/".join((self.__url_api, self.__device_code_path)),
+                timeout=TIMEOUT,
+                params=params,
+            )
             response_json = response.json()
             # print(f"{response.status_code=}")
             # print(f"{response_json=}")
             if response.status_code == 200:
-                if 'access' in response_json and response_json['access'] == 'TRUE':
-                    if 'data' in response_json:
-                        if 'device_code' in response_json['data']:
-                            self.__device_code = response_json['data']['device_code']
-                        if 'user_code' in response_json['data']:
-                            self.__user_code = response_json['data']['user_code']
-                        if 'verification_uri' in response_json['data']:
-                            self.__verification_uri = response_json['data']['verification_uri']
-                        if 'expire_in' in response_json['data']:
-                            self.__expire_in = response_json['data']['expire_in']
-                        if 'interval' in response_json['data']:
-                            self.__interval = response_json['data']['interval']
+                if "access" in response_json and response_json["access"] == "TRUE":
+                    if "data" in response_json:
+                        if "device_code" in response_json["data"]:
+                            self.__device_code = response_json["data"]["device_code"]
+                        if "user_code" in response_json["data"]:
+                            self.__user_code = response_json["data"]["user_code"]
+                        if "verification_uri" in response_json["data"]:
+                            self.__verification_uri = response_json["data"][
+                                "verification_uri"
+                            ]
+                        if "expire_in" in response_json["data"]:
+                            self.__expire_in = response_json["data"]["expire_in"]
+                        if "interval" in response_json["data"]:
+                            self.__interval = response_json["data"]["interval"]
             return response
         # print("__get_verification_uri returns None")
         return None
@@ -168,8 +191,8 @@ class EoleAccessToken:
             # print(f"{response.status_code=}")
             # print(f"{response_json=}")
             if response.status_code == 200:
-                if 'auth_uri' in response_json:
-                    self.__auth_uri = response_json['auth_uri']
+                if "auth_uri" in response_json:
+                    self.__auth_uri = response_json["auth_uri"]
             return response
         # print("__get_auth_uri returns None")
         return None
@@ -180,14 +203,14 @@ class EoleAccessToken:
         """
         # print(f">> __sign_in() :")
         if self.__auth_uri:
-            data = {'username': f"{self.__user_name}", 'password': f"{self.__password}"}
+            data = {"username": f"{self.__user_name}", "password": f"{self.__password}"}
             # print(f"{data=}")
             response = requests.post(self.__auth_uri, timeout=TIMEOUT, data=data)
             response_json = response.json()
             # print(f"{response.status_code=}")
             # print(f"{response_json=}")
-            if 'access' in response_json:
-                if response_json['access'] == 'TRUE':
+            if "access" in response_json:
+                if response_json["access"] == "TRUE":
                     self.__sign_in_successfully = True
             return response
         # print("__sign_in returns None")
@@ -200,33 +223,38 @@ class EoleAccessToken:
         error_success_message = "OK"
         # print(f">> __get_token_access() :")
         if self.__sign_in_successfully and self.__url_api and self.__device_token_path:
-            params = {'client_id': f"{self.__client_id}", 'device_code': f"{self.__device_code}",
-                      'grant_type': 'urn:ietf:params:oauth:grant-type:device_code'}
+            params = {
+                "client_id": f"{self.__client_id}",
+                "device_code": f"{self.__device_code}",
+                "grant_type": "urn:ietf:params:oauth:grant-type:device_code",
+            }
             # default url is 'https://eole.avh.asso.fr/api/v1/device/token'
-            response = requests.get('/'.join((self.__url_api, self.__device_token_path)), timeout=TIMEOUT, params=params)
+            response = requests.get(
+                "/".join((self.__url_api, self.__device_token_path)),
+                timeout=TIMEOUT,
+                params=params,
+            )
             response_json = response.json()
             # print(f"{response.status_code=}")
             # print(f"{response_json=}")
-            if 'token_access' in response_json:
-                self.__token_access = response_json['token_access']
+            if "token_access" in response_json:
+                self.__token_access = response_json["token_access"]
                 # print(f"{self.__token_access=}")
-            elif 'error' in response_json:
-                error_success_message = response_json['error']
+            elif "error" in response_json:
+                error_success_message = response_json["error"]
 
             return self.__token_access, error_success_message
         # print("__get_token_access returns None")
         return None, "Error in step 6"
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
-    the_user_name = 'eurobraille_user1'
-    the_password = 'fake_password'
+    the_user_name = "eurobraille_user1"
+    the_password = "fake_password"
 
     print(f"eole_access_token = EoleAccessToken({the_user_name=}, {the_password=})")
     eole_access_token = EoleAccessToken(user_name=the_user_name, password=the_password)
 
     access_token = eole_access_token.acquire_access_token()
     print(f"{access_token=}")
-
-
