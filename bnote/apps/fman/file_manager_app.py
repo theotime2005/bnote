@@ -120,7 +120,8 @@ class FileManagerApp(BnoteApp):
                                         shortcut_key='M'),
                              ui.UiMenuItem(name=_("ai assistant(.&ai_txt)"), action=self._exec_new_ai_assistant_file,
                                         shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
-                                        shortcut_key='A'),
+                                        shortcut_key='A',
+                                           is_hide=Examen().isActive),
                              ui.UiMenuItem(name=_("&folder"), action=self._exec_new_folder,
                                         shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
                                         shortcut_key='D'),
@@ -157,9 +158,9 @@ class FileManagerApp(BnoteApp):
                                        shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
                                        shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_RETURN
                                        ),
-                            ui.UiMenuItem(name=_("re&cents"), action=self._exec_recent_file),
+                            ui.UiMenuItem(name=_("re&cents"), action=self._exec_recent_file, is_hide=Examen().isActive),
                             ui.UiMenuItem(name=_("fi&nd"), action=self._exec_find_file,
-                                       shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='F'),
+                                       shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='F', is_hide=Examen().isActive),
                             ],
         )
 
@@ -228,12 +229,12 @@ class FileManagerApp(BnoteApp):
         return ui.UiMenuBar(
             name=_("&goto"),
             menu_item_list=[
-                ui.UiMenuItem(name=_("my &documents"), action=self._exec_goto_my_documents),
+                ui.UiMenuItem(name=_("my &documents"), action=self._exec_goto_my_documents, is_hide=Examen().isActive),
                 ui.UiMenuItem(name=_("usb &key"), action=self._exec_goto_usb_drives, is_hide=hide_v2_menu),
                 ui.UiMenuItem(name=_("&bluetooth"), action=self._exec_goto_bluetooth),
                 ui.UiMenuItem(name=_("&trash"), action=self._exec_goto_trash),
-                ui.UiMenuItem(name=_("my back&ups"), action=self._exec_goto_backup),
-                ui.UiMenuItem(name=_("c&rash"), action=self._exec_goto_crash),
+                ui.UiMenuItem(name=_("my back&ups"), action=self._exec_goto_backup, is_hide=Examen().isActive),
+                ui.UiMenuItem(name=_("c&rash"), action=self._exec_goto_crash, is_hide=Examen().isActive),
                 ui.UiMenuItem(name=_("e&xamen"), action=self._exec_goto_examen),
                 ui.UiMenuItem(name=_("p&arent directory"), action=self._exec_goto_parent_directory,
                            shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
@@ -367,6 +368,7 @@ class FileManagerApp(BnoteApp):
                            shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F5),
             ],
         )
+
 
     def __create_menu(self):
         # Build the regulars menus
