@@ -4,12 +4,15 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 import json
 from json import JSONEncoder
 from pathlib import Path
 from ast import literal_eval
+
 # Setup the logger for this file
 from bnote.debug.colored_log import ColoredLogger, MINES_APP_LOG
+
 log = ColoredLogger(__name__)
 log.setLevel(MINES_APP_LOG)
 
@@ -92,13 +95,13 @@ class HighScores:
     def __init__(self, filename):
         self.filename = filename
         # Create default values
-        self.data = {'level_1': Scores(), 'level_2': Scores(), 'level_3': Scores()}
+        self.data = {"level_1": Scores(), "level_2": Scores(), "level_3": Scores()}
         if Path(filename).exists():
             self.__load()
 
     def __load(self):
         try:
-            with open(self.filename, 'r') as json_file:
+            with open(self.filename, "r") as json_file:
                 data = json_file.read()
         except FileNotFoundError as exception:
             log.error(f"{exception=}")
@@ -108,13 +111,12 @@ class HighScores:
         data_table = data.split("\nlevel\n")
         log.info(data_table)
         scores_json = json.loads(data_table[1])
-        score1 = Scores(literal_eval(scores_json)['scores'])
-        self.data['level_1'] = score1
+        score1 = Scores(literal_eval(scores_json)["scores"])
+        self.data["level_1"] = score1
         scores_json = json.loads(data_table[2])
-        self.data['level_2'] = Scores(literal_eval(scores_json)['scores'])
+        self.data["level_2"] = Scores(literal_eval(scores_json)["scores"])
         scores_json = json.loads(data_table[3])
-        self.data['level_3'] = Scores(literal_eval(scores_json)['scores'])
-
+        self.data["level_3"] = Scores(literal_eval(scores_json)["scores"])
 
     def __save(self):
         data_on_disk = None
@@ -125,7 +127,7 @@ class HighScores:
             data = "\nlevel\n".join([data, level_scores])
         log.info(data)
         try:
-            with open(self.filename, 'r') as json_file:
+            with open(self.filename, "r") as json_file:
                 data_on_disk = json.load(json_file)
         except:
             pass
@@ -133,7 +135,7 @@ class HighScores:
             log.info(f"PAS BESOIN D'USER la SDCARD CAR PAS DE MODIF....")
             return
         log.info(f"Write data on disk")
-        with open(self.filename, 'w') as json_file:
+        with open(self.filename, "w") as json_file:
             json_file.write(data)
 
     def delete_score(self, level):
@@ -178,7 +180,6 @@ def test():
     # scores.add_score('level_1', 'toto', 8)
     print(scores)
 
-
     # scores = Scores()
     # scores.add_score('toto', 10)
     # scores.add_score('titi', 5)
@@ -198,7 +199,5 @@ def test():
 
 
 # Press the green button in the gutter to run the script.
-if __name__ == '__main__':
+if __name__ == "__main__":
     test()
-
-

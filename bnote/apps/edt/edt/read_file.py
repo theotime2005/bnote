@@ -5,7 +5,6 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 import codecs
 import os
 import threading
@@ -28,6 +27,7 @@ from .read_xlsx_file import ReadXlsxFile
 
 # Set up the logger for this file
 from .colored_log import ColoredLogger, READ_FILE_LOG, logging
+
 log = ColoredLogger(__name__)
 log.setLevel(READ_FILE_LOG)
 
@@ -69,7 +69,9 @@ class ReadFile(threading.Thread):
         if path.exists(new_name):
             # File already exists.
             raise BadNewFileName(
-                _('the original file has already been converted. Please open the converted file or rename/delete it if you want to try again this conversion.')
+                _(
+                    "the original file has already been converted. Please open the converted file or rename/delete it if you want to try again this conversion."
+                )
             )
         else:
             return new_name
@@ -82,47 +84,65 @@ class ReadFile(threading.Thread):
 
         try:
             if file_extension == ".txt" or file_extension == ".ai_txt":
-                encodings = ['utf-8', 'cp1252']
+                encodings = ["utf-8", "cp1252"]
                 e = None
                 for e in encodings:
                     try:
-                        fh = codecs.open(self._full_file_name, 'r', encoding=e)
+                        fh = codecs.open(self._full_file_name, "r", encoding=e)
                         fh.readlines()
                         fh.seek(0)
                     except UnicodeDecodeError:
-                        log.warning('got unicode error with %s , trying different encoding' % e)
+                        log.warning(
+                            "got unicode error with %s , trying different encoding" % e
+                        )
                     else:
-                        log.warning('opening the file with encoding:  %s ' % e)
+                        log.warning("opening the file with encoding:  %s " % e)
                         break
                 self.full_file_name_to_write = self._full_file_name
                 read_txt_file = ReadTxtFile(self._full_file_name)
                 read_txt_file.read_file(self.write_lines, encoding=e)
             elif file_extension == ".mbe":
-                self.full_file_name_to_write = self.create_save_file_name(self._full_file_name)
+                self.full_file_name_to_write = self.create_save_file_name(
+                    self._full_file_name
+                )
                 read_mbe_file = ReadMbeFile(self._full_file_name)
                 read_mbe_file.read_file(self.lou, self.write_lines)
             elif file_extension == ".docx":
-                self.full_file_name_to_write = self.create_save_file_name(self._full_file_name)
+                self.full_file_name_to_write = self.create_save_file_name(
+                    self._full_file_name
+                )
                 read_mbe_file = ReadDocxFile(self._full_file_name)
                 read_mbe_file.read_file(self.write_lines)
             elif file_extension == ".odt":
-                self.full_file_name_to_write = self.create_save_file_name(self._full_file_name)
+                self.full_file_name_to_write = self.create_save_file_name(
+                    self._full_file_name
+                )
                 read_mbe_file = ReadOdtFile(self._full_file_name)
                 read_mbe_file.read_file(self.write_lines)
             elif file_extension == ".pdf":
-                self.full_file_name_to_write = self.create_save_file_name(self._full_file_name)
+                self.full_file_name_to_write = self.create_save_file_name(
+                    self._full_file_name
+                )
                 read_pdf_file = ReadPdfFile(self._full_file_name)
                 read_pdf_file.read_file(self.write_lines)
             elif file_extension == ".rtf":
-                self.full_file_name_to_write = self.create_save_file_name(self._full_file_name)
+                self.full_file_name_to_write = self.create_save_file_name(
+                    self._full_file_name
+                )
                 read_pdf_file = ReadRtfFile(self._full_file_name)
                 read_pdf_file.read_file(self.write_lines)
             elif file_extension == ".brf":
-                self.full_file_name_to_write = self.create_save_file_name(self._full_file_name)
+                self.full_file_name_to_write = self.create_save_file_name(
+                    self._full_file_name
+                )
                 read_brf_file = ReadBrfFile(self._full_file_name)
-                read_brf_file.read_file(self.lou, self.language, self.write_lines, 'cp1252')
+                read_brf_file.read_file(
+                    self.lou, self.language, self.write_lines, "cp1252"
+                )
             elif file_extension == ".epub":
-                self.full_file_name_to_write = self.create_save_file_name(self._full_file_name)
+                self.full_file_name_to_write = self.create_save_file_name(
+                    self._full_file_name
+                )
                 read_epub_file = ReadEpubFile(self._full_file_name)
                 read_epub_file.read_file(self.write_lines)
             elif file_extension == ".xlsx":
@@ -130,12 +150,18 @@ class ReadFile(threading.Thread):
                     file_name = f"{self._full_file_name}{'#'}{self.sheet_name}"
                     self.full_file_name_to_write = self.create_save_file_name(file_name)
                 else:
-                    self.full_file_name_to_write = self.create_save_file_name(self._full_file_name)
+                    self.full_file_name_to_write = self.create_save_file_name(
+                        self._full_file_name
+                    )
                 read_xlsx_file = ReadXlsxFile(self._full_file_name)
-                read_xlsx_file.read_file(self.write_lines, encoding='cp1252', sheet_name=self.sheet_name)
+                read_xlsx_file.read_file(
+                    self.write_lines, encoding="cp1252", sheet_name=self.sheet_name
+                )
 
             else:
-                raise BadExtensionFile(_("file {} type not supported.").format(self._full_file_name))
+                raise BadExtensionFile(
+                    _("file {} type not supported.").format(self._full_file_name)
+                )
 
         except ValueError as error:
             self.error = error

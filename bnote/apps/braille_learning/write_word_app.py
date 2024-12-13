@@ -18,23 +18,26 @@ from bnote.apps.bnote_app import BnoteApp, FunctionId
 from bnote.tools.keyboard import Keyboard
 from bnote.stm32.braille_device_characteristics import braille_device_characteristics
 import bnote.ui as ui
+
 # Setup the logger for this file
 from bnote.debug.colored_log import ColoredLogger, WRITE_WORD_APP_LOG
 
 log = ColoredLogger(__name__)
 log.setLevel(WRITE_WORD_APP_LOG)
 
+
 class WriteWordApp(BnoteApp):
     """
     Braille learning application
     """
+
     def __init__(self, put_in_function_queue):
         """
         Class construtor
         :param put_in_function_queue:  (for multi-threading) queue of functions ask to bnote Internal class
         """
         # Braille length
-        self.length=braille_device_characteristics.get_braille_display_length()
+        self.length = braille_device_characteristics.get_braille_display_length()
         # English base words or current language
         self.is_english = False
         # Call base class.
@@ -42,27 +45,39 @@ class WriteWordApp(BnoteApp):
         # menu creation.
         self._menu = self.__create_menu()
         # document refresh.
-        self.file_unable=False
-        self.word=""
-        self.first_word=""
-        self.position=1
+        self.file_unable = False
+        self.word = ""
+        self.first_word = ""
+        self.position = 1
         # Définition du dictionnaire de filtrage
-        self.level_dict={
-            _("A to J in lowercase"): self._get_dict_letter(ord("a"),ord("j")),
-            _("A to J in capital letters"): self._get_dict_letter(ord("A"),ord("J")),
-            _("A to J"): "{},{}".format(self._get_dict_letter(ord("a"),ord("j")),self._get_dict_letter(ord("A"),ord("J"))),
-            _("K to T in lowercase"): self._get_dict_letter(ord("k"),ord("t")),
-            _("K to T in capital letters"): self._get_dict_letter(ord("K"),ord("T")),
-            _("K to T"): "{},{}".format(self._get_dict_letter(ord("k"),ord("t")),self._get_dict_letter(ord("K"),ord("T"))),
-            _("A to T in lowercase"): self._get_dict_letter(ord("a"),ord("t")),
-            _("A to T in capital letters"): self._get_dict_letter(ord("A"),ord("T")),
-            _("A to T"): "{},{}".format(self._get_dict_letter(ord("a"),ord("t")),self._get_dict_letter(ord("A"),ord("T"))),
-            _("A to Z"): "{},{}".format(self._get_dict_letter(ord("a"),ord("z")),self._get_dict_letter(ord("A"),ord("Z"))),
+        self.level_dict = {
+            _("A to J in lowercase"): self._get_dict_letter(ord("a"), ord("j")),
+            _("A to J in capital letters"): self._get_dict_letter(ord("A"), ord("J")),
+            _("A to J"): "{},{}".format(
+                self._get_dict_letter(ord("a"), ord("j")),
+                self._get_dict_letter(ord("A"), ord("J")),
+            ),
+            _("K to T in lowercase"): self._get_dict_letter(ord("k"), ord("t")),
+            _("K to T in capital letters"): self._get_dict_letter(ord("K"), ord("T")),
+            _("K to T"): "{},{}".format(
+                self._get_dict_letter(ord("k"), ord("t")),
+                self._get_dict_letter(ord("K"), ord("T")),
+            ),
+            _("A to T in lowercase"): self._get_dict_letter(ord("a"), ord("t")),
+            _("A to T in capital letters"): self._get_dict_letter(ord("A"), ord("T")),
+            _("A to T"): "{},{}".format(
+                self._get_dict_letter(ord("a"), ord("t")),
+                self._get_dict_letter(ord("A"), ord("T")),
+            ),
+            _("A to Z"): "{},{}".format(
+                self._get_dict_letter(ord("a"), ord("z")),
+                self._get_dict_letter(ord("A"), ord("Z")),
+            ),
             _("complet"): "",
         }
-        self.score=0
-        self.letter=ManageLevel().get_level("write word")
-        if self.letter==False:
+        self.score = 0
+        self.letter = ManageLevel().get_level("write word")
+        if self.letter == False:
             self._exec_select_level()
         else:
             self.initialize()
@@ -71,10 +86,10 @@ class WriteWordApp(BnoteApp):
         """
         return list of letters
         """
-        lst_character=""
-        for c in range(first,last):
-            lst_character+="{},".format(chr(c))
-        lst_character+=chr(last)
+        lst_character = ""
+        for c in range(first, last):
+            lst_character += "{},".format(chr(c))
+        lst_character += chr(last)
         return lst_character
 
     def __create_menu(self):
@@ -85,19 +100,36 @@ class WriteWordApp(BnoteApp):
             is_root=True,
             menu_item_list=[
                 ui.UiMenuBar(
-                    name=_("&score"), action=self._exec_score,
+                    name=_("&score"),
+                    action=self._exec_score,
                     menu_item_list=[
-                        ui.UiMenuItem(name=_("&show to this level"), action=self._exec_show_score),
-                        ui.UiMenuItem(name=_("&delete to this level"), action=self._exec_delete_score),
-                    ]
+                        ui.UiMenuItem(
+                            name=_("&show to this level"), action=self._exec_show_score
+                        ),
+                        ui.UiMenuItem(
+                            name=_("&delete to this level"),
+                            action=self._exec_delete_score,
+                        ),
+                    ],
                 ),
-                ui.UiMenuItem(name=_("&switch to the next word"), action=self.initialize),
-                ui.UiMenuItem(name=_("&change to level"), action=self._exec_select_level),
-                ui.UiMenuItem(name=_("switch &language"), action=self._exec_switch_to_english),
-                ui.UiMenuItem(name=_("&reset application"), action=self._exec_reset_application),
-                ui.UiMenuItem(name=_("&about"), action=self._exec_about,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F1),
+                ui.UiMenuItem(
+                    name=_("&switch to the next word"), action=self.initialize
+                ),
+                ui.UiMenuItem(
+                    name=_("&change to level"), action=self._exec_select_level
+                ),
+                ui.UiMenuItem(
+                    name=_("switch &language"), action=self._exec_switch_to_english
+                ),
+                ui.UiMenuItem(
+                    name=_("&reset application"), action=self._exec_reset_application
+                ),
+                ui.UiMenuItem(
+                    name=_("&about"),
+                    action=self._exec_about,
+                    shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                    shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F1,
+                ),
                 ui.UiMenuItem(name=_("&applications"), action=self._exec_applications),
             ],
         )
@@ -118,47 +150,58 @@ class WriteWordApp(BnoteApp):
         """
         Change the name of the menu item when enter in menu.
         """
-        next=self._menu.get_object(self.initialize)
+        next = self._menu.get_object(self.initialize)
         delete = self._menu.get_object(self._exec_reset_application)
-        score=self._menu.get_object(self._exec_score)
-        braille_type=Settings().data['system']['braille_type']
+        score = self._menu.get_object(self._exec_score)
+        braille_type = Settings().data["system"]["braille_type"]
         if not self.file_unable:
             next.hide()
             delete.hide()
             score.hide()
-            self._menu.rename_item(_("&select a level"), braille_type, self._exec_select_level)
+            self._menu.rename_item(
+                _("&select a level"), braille_type, self._exec_select_level
+            )
         else:
             next.unhide()
             delete.unhide()
             score.unhide()
-            self._menu.rename_item(_("&change to level"), braille_type, self._exec_select_level)
+            self._menu.rename_item(
+                _("&change to level"), braille_type, self._exec_select_level
+            )
         self.set_data_line()
 
     def initialize(self):
         # On s'occupe d'abord du score
-        t=ManageScore().get_score_level("write word", str(self.letter))
+        t = ManageScore().get_score_level("write word", str(self.letter))
         if t:
-            self.score=t
+            self.score = t
         else:
-            self.score=0
-        self.word=""
-        self.first_word=""
-        self.position=0
+            self.score = 0
+        self.word = ""
+        self.first_word = ""
+        self.position = 0
         if self.is_english:
-            game = WriteWord(Path(self.get_apps_folder() / Path("braille_learning")), "en_US")
+            game = WriteWord(
+                Path(self.get_apps_folder() / Path("braille_learning")), "en_US"
+            )
             game.load_file(self.letter, self.length)
         else:
-            game=WriteWord(Path(self.get_apps_folder() / Path("braille_learning")), braille_device_characteristics.get_keyboard_language_country())
+            game = WriteWord(
+                Path(self.get_apps_folder() / Path("braille_learning")),
+                braille_device_characteristics.get_keyboard_language_country(),
+            )
             if not game.load_file(self.letter, self.length):
-                game=WriteWord(Path(self.get_apps_folder() / Path("braille_learning")), "en_US")
+                game = WriteWord(
+                    Path(self.get_apps_folder() / Path("braille_learning")), "en_US"
+                )
                 game.load_file(self.letter, self.length)
         if game.lst_word:
             self.file_unable = True
             self.first_word = game.give_file()
-            if Settings().data['braille_learning']['use_vocal']=="auto":
+            if Settings().data["braille_learning"]["use_vocal"] == "auto":
                 speak(self.first_word)
         else:
-            self.file_unable=False
+            self.file_unable = False
         self.refresh_document()
 
     def rebuild_document(self):
@@ -167,7 +210,10 @@ class WriteWordApp(BnoteApp):
         To overload by each apps if necessary.
         """
         self.set_data_line()
-        if self.file_unable and Settings().data['braille_learning']['use_vocal']!="no":
+        if (
+            self.file_unable
+            and Settings().data["braille_learning"]["use_vocal"] != "no"
+        ):
             speak(self.first_word)
 
     def refresh_document(self):
@@ -180,36 +226,48 @@ class WriteWordApp(BnoteApp):
     # ---------------
     # Menu functions.
     def _exec_test_word(self):
-        if Settings().data['braille_learning']['keep_spaces']:
-            self.word=self.word.strip(" ")
-        if self.word==self.first_word:
-            audio=AudioPlayer()
-            audio.file_play(str(Path(self.get_apps_folder() / Path("braille_learning/tada.wav"))), 0)
-            self._current_dialog = ui.UiInfoDialogBox(message=_("good, you have found the good word!!!"), action=self.initialize)
-            self.score+=1
+        if Settings().data["braille_learning"]["keep_spaces"]:
+            self.word = self.word.strip(" ")
+        if self.word == self.first_word:
+            audio = AudioPlayer()
+            audio.file_play(
+                str(Path(self.get_apps_folder() / Path("braille_learning/tada.wav"))), 0
+            )
+            self._current_dialog = ui.UiInfoDialogBox(
+                message=_("good, you have found the good word!!!"),
+                action=self.initialize,
+            )
+            self.score += 1
             ManageScore().add_score("write word", str(self.letter), self.score)
             return True
         audio = AudioPlayer()
-        audio.file_play(str(Path(self.get_apps_folder() / Path("braille_learning/warning.wav"))), 0)
-        self._current_dialog=ui.UiInfoDialogBox(message=_("warning, it's {}, not {}").format(self.first_word,self.word), action=self._exec_cancel_dialog)
+        audio.file_play(
+            str(Path(self.get_apps_folder() / Path("braille_learning/warning.wav"))), 0
+        )
+        self._current_dialog = ui.UiInfoDialogBox(
+            message=_("warning, it's {}, not {}").format(self.first_word, self.word),
+            action=self._exec_cancel_dialog,
+        )
 
     def _exec_select_level(self):
         # On définie la liste par là pour permettre un focus directe
-        lst=list(self.level_dict.keys())
+        lst = list(self.level_dict.keys())
         if not self.letter:
-            index=lst.index(lst[-1])
+            index = lst.index(lst[-1])
         else:
             index = lst.index(self.get_key())
         if not index:
-            index=0
-        self._current_dialog=ui.UiDialogBox(
+            index = 0
+        self._current_dialog = ui.UiDialogBox(
             name=_("chose your level"),
             item_list=[
-                ui.UiListBox(name=_("&level list"), value=("level", lst), current_index=index),
+                ui.UiListBox(
+                    name=_("&level list"), value=("level", lst), current_index=index
+                ),
                 ui.UiButton(name=_("&ok"), action=self._exec_valid_select_level),
                 ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
             ],
-            action_cancelable=self._exec_cancel_dialog
+            action_cancelable=self._exec_cancel_dialog,
         )
 
     def _exec_switch_to_english(self):
@@ -218,7 +276,7 @@ class WriteWordApp(BnoteApp):
         self.initialize()
 
     def _exec_delete_score(self):
-        self._current_dialog=ui.UiMessageDialogBox(
+        self._current_dialog = ui.UiMessageDialogBox(
             name=_("warning"),
             message=_("do you really want to erase the score of this level?"),
             buttons=[
@@ -229,7 +287,7 @@ class WriteWordApp(BnoteApp):
         )
 
     def _exec_reset_application(self):
-        self._current_dialog=ui.UiMessageDialogBox(
+        self._current_dialog = ui.UiMessageDialogBox(
             name=_("warning"),
             message=_("do you really want to reset the application?"),
             buttons=[
@@ -243,7 +301,9 @@ class WriteWordApp(BnoteApp):
         # Display an information dialog box.
         self._current_dialog = ui.UiMessageDialogBox(
             name=_("information"),
-            message=_("Application {} version {}. {} Theotime Berthod").format(_("word game"), app_version, "Copyright (C)2023"),
+            message=_("Application {} version {}. {} Theotime Berthod").format(
+                _("word game"), app_version, "Copyright (C)2023"
+            ),
             buttons=[
                 ui.UiButton(name=_("&ok"), action=self._exec_cancel_dialog),
             ],
@@ -256,32 +316,42 @@ class WriteWordApp(BnoteApp):
     # --------------------
     # Dialogbox functions.
     def _exec_valid_select_level(self):
-        kwargs=self._current_dialog.get_values()
-        self.letter=self.level_dict[kwargs['level']].split(",")
-        if len(self.letter)==1 and self.letter[0]=="":
-            self.letter=[]
+        kwargs = self._current_dialog.get_values()
+        self.letter = self.level_dict[kwargs["level"]].split(",")
+        if len(self.letter) == 1 and self.letter[0] == "":
+            self.letter = []
         self.initialize()
 
     def _exec_show_score(self):
-        name=self.get_key()
-        self._current_dialog=ui.UiInfoDialogBox(message=_("for level {}, the score is {}").format(name, self.score), action=self._exec_cancel_dialog)
-
+        name = self.get_key()
+        self._current_dialog = ui.UiInfoDialogBox(
+            message=_("for level {}, the score is {}").format(name, self.score),
+            action=self._exec_cancel_dialog,
+        )
 
     def _exec_valid_delete_score(self):
         ManageScore().delete_score("write word", str(self.letter))
         self.initialize()
 
     def _exec_valid_reset_application(self):
-        self.word=""
-        self.first_word=""
-        self.file_unable=False
-        self.score=0
+        self.word = ""
+        self.first_word = ""
+        self.file_unable = False
+        self.score = 0
         ManageLevel().delete_app("write word")
         ManageScore().delete_app("write word")
         self.refresh_document()
 
     def message(self, message_type):
-        AudioPlayer().file_play(str(Path(self.get_apps_folder() / Path("braille_learning/{}.wav".format(message_type)))), 0 )
+        AudioPlayer().file_play(
+            str(
+                Path(
+                    self.get_apps_folder()
+                    / Path("braille_learning/{}.wav".format(message_type))
+                )
+            ),
+            0,
+        )
 
     # --------------------
     # Key event functions.
@@ -307,10 +377,13 @@ class WriteWordApp(BnoteApp):
         if not done:
             # command treatment for document.
             # TODO to complete
-            if self.file_unable and Settings().data['braille_learning']['write_all']:
+            if self.file_unable and Settings().data["braille_learning"]["write_all"]:
                 if key_id == Keyboard.KeyId.KEY_CARET_LEFT and self.position >= 1:
                     self.position -= 1
-                elif key_id == Keyboard.KeyId.KEY_CARET_RIGHT and self.position <= len(self.word)-1:
+                elif (
+                    key_id == Keyboard.KeyId.KEY_CARET_RIGHT
+                    and self.position <= len(self.word) - 1
+                ):
                     self.position += 1
                 self.set_data_line()
         return done
@@ -330,14 +403,21 @@ class WriteWordApp(BnoteApp):
             # Document input character treatment.
             # TODO to complete
             if self.file_unable:
-                if not Settings().data['braille_learning']['write_all'] and self.first_word[self.position] != character:
+                if (
+                    not Settings().data["braille_learning"]["write_all"]
+                    and self.first_word[self.position] != character
+                ):
                     return self.message("error")
-                elif not Settings().data['braille_learning']['write_all']:
+                elif not Settings().data["braille_learning"]["write_all"]:
                     self.message("ok")
-                self.word = self.word[:self.position] + character + self.word[self.position:]
-                self.position+=1
+                self.word = (
+                    self.word[: self.position] + character + self.word[self.position :]
+                )
+                self.position += 1
                 self.set_data_line()
-                if not Settings().data['braille_learning']['write_all'] and len(self.first_word)==len(self.word):
+                if not Settings().data["braille_learning"]["write_all"] and len(
+                    self.first_word
+                ) == len(self.word):
                     self._exec_test_word()
         return done
 
@@ -355,21 +435,37 @@ class WriteWordApp(BnoteApp):
             # braille function treatment for document.
             # TODO to complete
             if self.file_unable:
-                if bramigraph==Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_SPACE:
-                    if not Settings().data['braille_learning']['write_all'] and self.first_word[self.position]!=" ":
+                if bramigraph == Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_SPACE:
+                    if (
+                        not Settings().data["braille_learning"]["write_all"]
+                        and self.first_word[self.position] != " "
+                    ):
                         return self.message("error")
-                    elif not Settings().data['braille_learning']['write_all']:
+                    elif not Settings().data["braille_learning"]["write_all"]:
                         self.message("ok")
-                    self.word = self.word[:self.position] + " " + self.word[self.position:]
-                    self.position+=1
+                    self.word = (
+                        self.word[: self.position] + " " + self.word[self.position :]
+                    )
+                    self.position += 1
                     self.set_data_line()
-                    if not Settings().data['braille_learning']['write_all'] and len(self.first_word) == len(self.word):
+                    if not Settings().data["braille_learning"]["write_all"] and len(
+                        self.first_word
+                    ) == len(self.word):
                         self._exec_test_word()
-                elif bramigraph==Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_BACKSPACE and self.position>=1 and Settings().data['braille_learning']['write_all']:
-                    self.word=self.word[:self.position-1]+self.word[self.position:]
-                    self.position-=1
+                elif (
+                    bramigraph == Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_BACKSPACE
+                    and self.position >= 1
+                    and Settings().data["braille_learning"]["write_all"]
+                ):
+                    self.word = (
+                        self.word[: self.position - 1] + self.word[self.position :]
+                    )
+                    self.position -= 1
                     self.set_data_line()
-                elif bramigraph==Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_RETURN and Settings().data['braille_learning']['write_all']:
+                elif (
+                    bramigraph == Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_RETURN
+                    and Settings().data["braille_learning"]["write_all"]
+                ):
                     self._exec_test_word()
         return done
 
@@ -387,15 +483,24 @@ class WriteWordApp(BnoteApp):
         if not done:
             # interactive key treatment
             if self.file_unable:
-                if position<=int(self.length/2)-1:
-                    if Settings().data['braille_learning']['use_vocal']!=_("no"):
+                if position <= int(self.length / 2) - 1:
+                    if Settings().data["braille_learning"]["use_vocal"] != _("no"):
                         speak(self.first_word)
-                elif position==int(self.length/2) and Settings().data['braille_learning']['write_all']:
-                    self.position=0
-                elif position<=int(self.length)/2+len(self.word) and Settings().data['braille_learning']['write_all']:
-                    self.position=position-int(self.length/2)-1
-                elif position>=int(self.length/2)+len(self.word) and Settings().data['braille_learning']['write_all']:
-                    self.position=len(self.word)
+                elif (
+                    position == int(self.length / 2)
+                    and Settings().data["braille_learning"]["write_all"]
+                ):
+                    self.position = 0
+                elif (
+                    position <= int(self.length) / 2 + len(self.word)
+                    and Settings().data["braille_learning"]["write_all"]
+                ):
+                    self.position = position - int(self.length / 2) - 1
+                elif (
+                    position >= int(self.length / 2) + len(self.word)
+                    and Settings().data["braille_learning"]["write_all"]
+                ):
+                    self.position = len(self.word)
                 self.set_data_line()
             done = True
         return done
@@ -425,12 +530,12 @@ class WriteWordApp(BnoteApp):
         pass
 
     def get_key(self):
-        lst=""
+        lst = ""
         for c in self.letter:
-            lst+="{},".format(c)
-        lst=lst[:-1]
+            lst += "{},".format(c)
+        lst = lst[:-1]
         for key in self.level_dict:
-            if self.level_dict[key]==lst:
+            if self.level_dict[key] == lst:
                 return key
 
     def shutdown(self, focused):
@@ -444,21 +549,22 @@ class WriteWordApp(BnoteApp):
         :return: None (self._braille_display.set_data_line is done)
         """
         if not self.file_unable:
-            line=_("you must select a level from the menu")
+            line = _("you must select a level from the menu")
             braille_static = BnoteApp.lou.to_dots_8(line)
-            braille_blinking="\u2800"* len(braille_static)
+            braille_blinking = "\u2800" * len(braille_static)
         else:
-            space=""
-            for i in range(int(self.length/2)-len(self.first_word)):
-                space+=" "
-            line="".join([
-                "{}{}".format(self.first_word,space),
-                "{}".format(self.word)
-            ])
+            space = ""
+            for i in range(int(self.length / 2) - len(self.first_word)):
+                space += " "
+            line = "".join(
+                ["{}{}".format(self.first_word, space), "{}".format(self.word)]
+            )
             braille_static = BnoteApp.lou.to_dots_8(line)
-            braille_blinking = "".join([
-                "\u2800" * (int(self.length/2)+self.position),
-                "\u28C0",
-                "\u2800" * (len(braille_static)-(self.length)+self.position)
-            ])
+            braille_blinking = "".join(
+                [
+                    "\u2800" * (int(self.length / 2) + self.position),
+                    "\u28C0",
+                    "\u2800" * (len(braille_static) - (self.length) + self.position),
+                ]
+            )
         self._braille_display.set_data_line(line, braille_static, braille_blinking, 0)

@@ -5,7 +5,6 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 import os
 from zipfile import ZipFile
 import xml.sax
@@ -13,11 +12,12 @@ import shutil  # For del folder
 
 # Setup the logger for this file
 from .colored_log import ColoredLogger, READ_ODT_FILE_LOG
+
 log = ColoredLogger(__name__, level=READ_ODT_FILE_LOG)
 
 
 class ReadOdtFile:
-    TEMP_FOLDER_NAME = '.bnote-temp'
+    TEMP_FOLDER_NAME = ".bnote-temp"
 
     def __init__(self, full_file_name):
         self._full_file_name = full_file_name
@@ -81,7 +81,7 @@ class ReadOdtFile:
                 log.info("Tag table cell")
                 self.is_table_cell += 1
                 # Add column separator.
-                self.current_data += '\t'
+                self.current_data += "\t"
             elif name == self.SPAN_TAG:
                 log.info("Tag span")
                 self.is_span = True
@@ -111,7 +111,7 @@ class ReadOdtFile:
                 self.is_span = False
             elif name == self.TAB_TAG:
                 # Replace a Tab tag by a tag character.
-                self.current_data += '\t'
+                self.current_data += "\t"
             elif name == self.TABLE_TABLE:
                 log.info("Tag end table")
                 self.is_table -= 1
@@ -144,7 +144,7 @@ class ReadOdtFile:
         # raise XXError("your exception")
 
     def read_file(self, write_lines):
-        with ZipFile(self._full_file_name, 'r') as zipObj:
+        with ZipFile(self._full_file_name, "r") as zipObj:
             # Extract all the contents of zip file in current directory
             zipObj.extractall(self.TEMP_FOLDER_NAME)
 
@@ -164,6 +164,7 @@ class ReadOdtFile:
 
 # -----------------------------------------------
 # Unitary test
+
 
 def write_line(line):
     print(line)

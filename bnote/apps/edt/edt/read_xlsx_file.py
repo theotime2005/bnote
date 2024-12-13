@@ -16,14 +16,15 @@ from .exception import BadSheet, SelectSheet
 
 # Setup the logger for this file
 from .colored_log import ColoredLogger, READ_XLSX_FILE_LOG
+
 log = ColoredLogger(__name__, level=READ_XLSX_FILE_LOG)
 
-'''
+"""
 # Setup the logger for this file
 from bnote.debug import logging, READ_XLSX_FILE_LOG
 log = ColoredLogger(__name__)
 log.setLevel(READ_XLSX_FILE_LOG)
-'''
+"""
 
 
 class ReadXlsxFile:
@@ -43,8 +44,8 @@ class ReadXlsxFile:
         if sheet_name in sheet_list:
             sh = wb.sheet_by_name(sheet_name)
             # Write csv file.
-            csv_file_name = 'csv_file.csv'
-            csv_file = open(csv_file_name, 'w')
+            csv_file_name = "csv_file.csv"
+            csv_file = open(csv_file_name, "w")
             wr = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
             for row_num in range(sh.nrows):
                 wr.writerow(sh.row_values(row_num))
@@ -52,10 +53,9 @@ class ReadXlsxFile:
         else:
             raise BadSheet(_("sheet {} type not found.").format(sheet_name))
 
-
         fp = None
         try:
-            fp = open(csv_file_name, mode='r', encoding=encoding)
+            fp = open(csv_file_name, mode="r", encoding=encoding)
 
             line = fp.readline()
             cnt = 1
@@ -84,8 +84,10 @@ class ReadXlsxFile:
 # -----------------------------------------------
 # Unitary test
 
+
 def write_line(line):
     print(line)
+
 
 def main():
     print("--------------")

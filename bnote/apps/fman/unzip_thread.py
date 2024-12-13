@@ -17,7 +17,15 @@ log.setLevel(UNZIP_THREAD_LOG)
 
 
 class UnZipThread(threading.Thread):
-    def __init__(self, zip_file_name, to, on_error=None, on_progress=None, on_ask_replace=None, on_end=None):
+    def __init__(
+        self,
+        zip_file_name,
+        to,
+        on_error=None,
+        on_progress=None,
+        on_ask_replace=None,
+        on_end=None,
+    ):
         threading.Thread.__init__(self)
         self.__running = False
         self.__wait = False
@@ -45,7 +53,7 @@ class UnZipThread(threading.Thread):
         unzip_success = False
         zip_error = None
         try:
-            self.__zip_file = zipfile.ZipFile(self.__zip_file_name, 'r')
+            self.__zip_file = zipfile.ZipFile(self.__zip_file_name, "r")
             info_list = self.__zip_file.infolist()
             log.info("infolist={}".format(info_list))
             index = 0
@@ -53,20 +61,35 @@ class UnZipThread(threading.Thread):
             for zip_info in info_list:
                 if self.__on_progress is not None:
                     index += 1
-                    self.__on_progress(operation='unzip', filename=zip_info.filename,
-                                       current_progress=index, max_progress=count)
+                    self.__on_progress(
+                        operation="unzip",
+                        filename=zip_info.filename,
+                        current_progress=index,
+                        max_progress=count,
+                    )
 
-                if not FileManager.file_to_unzip_already_exists(zip_info.filename, self.__destination) or \
-                        (self.__replace_answer_yes and self.__replace_answer_to_all):
+                if not FileManager.file_to_unzip_already_exists(
+                    zip_info.filename, self.__destination
+                ) or (self.__replace_answer_yes and self.__replace_answer_to_all):
                     self.__zip_file.extract(zip_info, self.__destination)
-                elif (self.__replace_answer_yes is False) and self.__replace_answer_to_all:
+                elif (
+                    self.__replace_answer_yes is False
+                ) and self.__replace_answer_to_all:
                     # user already said he wants not to overwrite file.
-                    log.info("ignore extract for already existing file {}".format(zip_info.filename))
+                    log.info(
+                        "ignore extract for already existing file {}".format(
+                            zip_info.filename
+                        )
+                    )
                 else:
                     # Open a dialog box to ask replace yes / no / yes_to_all / no_to_all
                     self.__replace_answer_yes = False
                     self.__replace_answer_to_all = False
-                    self.__on_ask_replace(operation='unzip', filename=zip_info.filename, is_cancelable=False)
+                    self.__on_ask_replace(
+                        operation="unzip",
+                        filename=zip_info.filename,
+                        is_cancelable=False,
+                    )
                     self.__wait = True
                     while self.__wait:
                         time.sleep(0.1)
@@ -84,7 +107,10 @@ class UnZipThread(threading.Thread):
 
         finally:
             if self.__on_end is not None:
-                self.__on_end(operation='unzip', success=unzip_success,
-                              filename=self.__zip_file_name, destination=self.__destination,
-                              error=zip_error)
-
+                self.__on_end(
+                    operation="unzip",
+                    success=unzip_success,
+                    filename=self.__zip_file_name,
+                    destination=self.__destination,
+                    error=zip_error,
+                )

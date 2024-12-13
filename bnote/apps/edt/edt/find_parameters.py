@@ -4,19 +4,23 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 import re
 import unicodedata
 
 # Setup the logger for this file
 from .colored_log import ColoredLogger, FIND_PARAMETERS_LOG
+
 log = ColoredLogger(__name__, level=FIND_PARAMETERS_LOG)
 
 
 class FindParameters:
     # This line defines punctuation
-    PUNCTUATIONS = ''' ,.\\{\\}\\[\\]<>!\\?;:\\(\\)'"/\\+\\*\\^~'''
+    PUNCTUATIONS = """ ,.\\{\\}\\[\\]<>!\\?;:\\(\\)'"/\\+\\*\\^~"""
 
-    def __init__(self, find_seq, ignore_case, mask_accents, entire_word, replace_seq=""):
+    def __init__(
+        self, find_seq, ignore_case, mask_accents, entire_word, replace_seq=""
+    ):
         self.edit_seq = find_seq
         self.__ignore_case = ignore_case
         self.__mask_accents = mask_accents
@@ -32,7 +36,9 @@ class FindParameters:
             self.__find_seq = self.__convert_accents(self.__find_seq)
         if entire_word:
             # Check no separator in the word to search.
-            matches = re.search("[{0}]".format(FindParameters.PUNCTUATIONS), self.__find_seq)
+            matches = re.search(
+                "[{0}]".format(FindParameters.PUNCTUATIONS), self.__find_seq
+            )
             if matches:
                 log.warning("invalid seq.")
                 self.__invalid_seq = True
@@ -58,20 +64,29 @@ class FindParameters:
 
     @staticmethod
     def __convert_accents(text):
-        return ''.join((c for c in unicodedata.normalize('NFD', text) if unicodedata.category(c) != 'Mn'))
+        return "".join(
+            (
+                c
+                for c in unicodedata.normalize("NFD", text)
+                if unicodedata.category(c) != "Mn"
+            )
+        )
 
     # Search the find.seq in text from index
     def find(self, text, index):
 
         res_index = -1
-        seg = text[index: len(text)]
+        seg = text[index : len(text)]
         if self.__ignore_case:
             seg = self.__convert_upper_case(seg)
         if self.__mask_accents:
             seg = self.__convert_accents(seg)
         if self.__entire_word:
             # This line defines punctuation
-            matches = re.search('[{0}]({1})[{0}]'.format(FindParameters.PUNCTUATIONS, self.__find_seq), seg)
+            matches = re.search(
+                "[{0}]({1})[{0}]".format(FindParameters.PUNCTUATIONS, self.__find_seq),
+                seg,
+            )
             if matches:
                 # Add 1 to mark the first character of the word, not the separator before the word.
                 res_index = matches.start() + 1
@@ -93,5 +108,3 @@ class FindParameters:
         text += " mask accents<{}>".format(self.is_mask_accents())
         text += " entire word<{}>".format(self.is_entire_word())
         return text
-
-

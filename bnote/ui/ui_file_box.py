@@ -4,9 +4,11 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 from pathlib import Path
 from bnote.apps.fman.file_manager import FileManager, Trash
 from bnote.debug.colored_log import ColoredLogger, UI_LOG
+
 # Set up the logger for this file
 from bnote.tools.keyboard import Keyboard
 from bnote.tools.settings import Settings
@@ -29,7 +31,7 @@ class UiFileBox(UiListBox, UiFileManagerTools):
             if None all files are displayed.
         folder_only is True indicates only folders will be displayed.
         """
-        self.braille_type = Settings().data['system']['braille_type']
+        self.braille_type = Settings().data["system"]["braille_type"]
         self.root = Path(root)
         self.__current_folder = self.root
         self.suffix_filter = suffix_filter
@@ -37,8 +39,8 @@ class UiFileBox(UiListBox, UiFileManagerTools):
         self.__focused_file_index = 0
         super().__init__(
             name=self._ui_file_name(self.braille_type, self.__current_folder),
-            value=('file', [_("empty directory...")]),
-            current_index=self.__focused_file_index
+            value=("file", [_("empty directory...")]),
+            current_index=self.__focused_file_index,
         )
         self.__create_ui_list()
 
@@ -82,20 +84,33 @@ class UiFileBox(UiListBox, UiFileManagerTools):
     def __list_dir(self, path, hide_hidden_file=True):
         user_files = []
 
-        exclude_list = [FileManager.get_root_path(), FileManager.get_backup_path(), FileManager.get_bluetooth_path(),
-                        Trash.get_trash_path(), FileManager.get_crash_path(), FileManager.get_usb_flash_drive_path()]
+        exclude_list = [
+            FileManager.get_root_path(),
+            FileManager.get_backup_path(),
+            FileManager.get_bluetooth_path(),
+            Trash.get_trash_path(),
+            FileManager.get_crash_path(),
+            FileManager.get_usb_flash_drive_path(),
+        ]
 
         files = FileManager.listdir(path, hide_hidden_file=hide_hidden_file)
         if files is not None:
             for file in files:
                 if file not in exclude_list:
                     if file.is_dir():
-                        user_files.append((file, self._ui_file_name(self.braille_type, file)))
+                        user_files.append(
+                            (file, self._ui_file_name(self.braille_type, file))
+                        )
                     elif file.is_file():
                         log.info(f"{file.name=}-{file.suffix=}")
-                        if not self.folder_only and (self.suffix_filter is None or file.suffix in self.suffix_filter):
+                        if not self.folder_only and (
+                            self.suffix_filter is None
+                            or file.suffix in self.suffix_filter
+                        ):
                             # Add to list only the file with suffix in suffix_filter list.
-                            user_files.append((file, self._ui_file_name(self.braille_type, file)))
+                            user_files.append(
+                                (file, self._ui_file_name(self.braille_type, file))
+                            )
         return user_files
 
     def exec_command(self, modifier, key_id) -> (bool, bool):
@@ -126,7 +141,7 @@ class UiFileBox(UiListBox, UiFileManagerTools):
         :return: (Treated, stay in menu)
         """
         kwargs = Keyboard.decode_modifiers(modifier)
-        if kwargs['alt']:
+        if kwargs["alt"]:
             # alt+key not treated.
             return False, True
         switcher = {

@@ -34,7 +34,14 @@ log.setLevel(EDITOR_APP_LOG)
 class EditorBaseApp(BnoteApp):
     MATH_MENU_ID = object
 
-    def __init__(self, put_in_function_queue, file_name=None, language=None, read_only=False, no_context=False):
+    def __init__(
+        self,
+        put_in_function_queue,
+        file_name=None,
+        language=None,
+        read_only=False,
+        no_context=False,
+    ):
         super().__init__(put_in_function_queue)
         self.next_refresh_disable = False
         # call back to call an Internal.py function
@@ -43,7 +50,7 @@ class EditorBaseApp(BnoteApp):
         # The file name to write, equal to _original_file_name for txt file.
         self._file_name = None
         # Usefull when reading document
-        self.channel = 'speech'
+        self.channel = "speech"
         self.caret_from_specific = None
         self.markers_from_specific = None
         self.read_only_from_specific = None
@@ -63,7 +70,7 @@ class EditorBaseApp(BnoteApp):
         self._killed = False
         # The current braille type for this editor instance.
         # If the settings change this document keep its braille type.
-        self.braille_type = Settings().data['editor']['braille_type']
+        self.braille_type = Settings().data["editor"]["braille_type"]
         # grade 2 display.
         self._is_forward_grade2 = False
         self.grade2_paragraph_index = -1
@@ -73,13 +80,19 @@ class EditorBaseApp(BnoteApp):
         self.moving_display_caret = None
         # True when the autoscroll for braille display is engaged.
         self._is_autoscroll = False
-        self._autoscroll_timeout = Settings().data['editor']['autoscroll']
+        self._autoscroll_timeout = Settings().data["editor"]["autoscroll"]
         # For shutdown.
         self._shutdown_processing = False
         # incremental search.
         self.is_editing = True
         # last find and replace parameters
-        self._replace_parameters = editor.FindParameters(find_seq="", ignore_case=True, mask_accents=True, entire_word=False, replace_seq="")
+        self._replace_parameters = editor.FindParameters(
+            find_seq="",
+            ignore_case=True,
+            mask_accents=True,
+            entire_word=False,
+            replace_seq="",
+        )
         # last error
         self.last_error = None
         # The QuickSearch instance.
@@ -96,8 +109,8 @@ class EditorBaseApp(BnoteApp):
             if not no_context and not self.read_context():
                 return
             # Just for test, Editor is always opened with an associated filename, at least an empty file.
-            lines = ["",]
-            self.editor = self._create_editor(lines)
+            # lines = ["",]
+            # self.editor = self._create_editor(lines)
         else:
             # Read the  file
             self.read_file(file_name, language, self.read_file_ended)
@@ -115,120 +128,229 @@ class EditorBaseApp(BnoteApp):
             name=_("&edit"),
             menu_item_list=[
                 *[
-                    ui.UiMenuItem(name=_("&undo"), action=self._exec_undo,
-                               shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='Z'),
-                    ui.UiMenuItem(name=_("&redo"), action=self._exec_redo,
-                               shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='Y'),
-                    ],
-                * self.create_sub_menu_selection(),
+                    ui.UiMenuItem(
+                        name=_("&undo"),
+                        action=self._exec_undo,
+                        shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                        shortcut_key="Z",
+                    ),
+                    ui.UiMenuItem(
+                        name=_("&redo"),
+                        action=self._exec_redo,
+                        shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                        shortcut_key="Y",
+                    ),
+                ],
+                *self.create_sub_menu_selection(),
                 *[
                     ui.UiMenuItem(name=_("curs&or"), action=self._exec_cursor),
-                    ui.UiMenuItem(name=_("forward in grade2 braille"), action=self._toggle_grade2_from_menu),
-                    ],
-            ])
+                    ui.UiMenuItem(
+                        name=_("forward in grade2 braille"),
+                        action=self._toggle_grade2_from_menu,
+                    ),
+                ],
+            ],
+        )
 
     def create_sub_menu_selection(self):
         return [
             ui.UiMenuBar(
                 name=_("&selection"),
                 menu_item_list=[
-                    ui.UiMenuItem(name=_("&start selection"), action=self._exec_start_selection,
-                               shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                               shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F8),
-                    ui.UiMenuItem(name=_("&end selection"), action=self._exec_end_selection, is_hide=True,
-                               shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                               shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_ESCAPE),
-                    ui.UiMenuItem(name=_("to the s&tart of doc"), action=self._exec_select_beginning),
-                    ui.UiMenuItem(name=_("to the e&nd of doc"), action=self._exec_select_ending),
-                    ui.UiMenuItem(name=_("select &all"), action=self._exec_select_all,
-                               shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='A'),
-                ]),
-            ui.UiMenuItem(name=_("cu&t"), action=self._exec_cut,
-                       shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='X'),
-            ui.UiMenuItem(name=_("&copy"), action=self._exec_copy,
-                       shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='C'),
-            ui.UiMenuItem(name=_("&paste"), action=self._exec_paste,
-                       shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='V'),
+                    ui.UiMenuItem(
+                        name=_("&start selection"),
+                        action=self._exec_start_selection,
+                        shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                        shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F8,
+                    ),
+                    ui.UiMenuItem(
+                        name=_("&end selection"),
+                        action=self._exec_end_selection,
+                        is_hide=True,
+                        shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                        shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_ESCAPE,
+                    ),
+                    ui.UiMenuItem(
+                        name=_("to the s&tart of doc"),
+                        action=self._exec_select_beginning,
+                    ),
+                    ui.UiMenuItem(
+                        name=_("to the e&nd of doc"), action=self._exec_select_ending
+                    ),
+                    ui.UiMenuItem(
+                        name=_("select &all"),
+                        action=self._exec_select_all,
+                        shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                        shortcut_key="A",
+                    ),
+                ],
+            ),
+            ui.UiMenuItem(
+                name=_("cu&t"),
+                action=self._exec_cut,
+                shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                shortcut_key="X",
+            ),
+            ui.UiMenuItem(
+                name=_("&copy"),
+                action=self._exec_copy,
+                shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                shortcut_key="C",
+            ),
+            ui.UiMenuItem(
+                name=_("&paste"),
+                action=self._exec_paste,
+                shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                shortcut_key="V",
+            ),
         ]
 
     def create_sub_menu_find(self):
         return ui.UiMenuBar(
             name=_("fi&nd"),
             menu_item_list=[
-                ui.UiMenuItem(name=_("fi&nd"), action=self._exec_find,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='F'),
-                ui.UiMenuItem(name=_("ne&xt"), action=self._exec_next,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F3),
-                ui.UiMenuItem(name=_("&previous"), action=self._exec_previous,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_SHIFT,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F3),
-            ])
+                ui.UiMenuItem(
+                    name=_("fi&nd"),
+                    action=self._exec_find,
+                    shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                    shortcut_key="F",
+                ),
+                ui.UiMenuItem(
+                    name=_("ne&xt"),
+                    action=self._exec_next,
+                    shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                    shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F3,
+                ),
+                ui.UiMenuItem(
+                    name=_("&previous"),
+                    action=self._exec_previous,
+                    shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_SHIFT,
+                    shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F3,
+                ),
+            ],
+        )
 
     def create_sub_menu_find_replace(self):
         return ui.UiMenuBar(
             name=_("fi&nd"),
             menu_item_list=[
-                ui.UiMenuItem(name=_("fi&nd"), action=self._exec_find,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='F'),
-                ui.UiMenuItem(name=_("&replace"), action=self._exec_replace,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='H'),
-                ui.UiMenuItem(name=_("ne&xt"), action=self._exec_next,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F3),
-                ui.UiMenuItem(name=_("replace and n&ext"), action=self._exec_replace_and_next,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F4),
-                ui.UiMenuItem(name=_("&previous"), action=self._exec_previous,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_SHIFT,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F3),
-                ui.UiMenuItem(name=_("replace and pre&vious"), action=self._exec_replace_and_previous,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_SHIFT,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F4),
-                ui.UiMenuItem(name=_("replace &all"), action=self._exec_replace_all,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F5),
-            ])
+                ui.UiMenuItem(
+                    name=_("fi&nd"),
+                    action=self._exec_find,
+                    shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                    shortcut_key="F",
+                ),
+                ui.UiMenuItem(
+                    name=_("&replace"),
+                    action=self._exec_replace,
+                    shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                    shortcut_key="H",
+                ),
+                ui.UiMenuItem(
+                    name=_("ne&xt"),
+                    action=self._exec_next,
+                    shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                    shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F3,
+                ),
+                ui.UiMenuItem(
+                    name=_("replace and n&ext"),
+                    action=self._exec_replace_and_next,
+                    shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                    shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F4,
+                ),
+                ui.UiMenuItem(
+                    name=_("&previous"),
+                    action=self._exec_previous,
+                    shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_SHIFT,
+                    shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F3,
+                ),
+                ui.UiMenuItem(
+                    name=_("replace and pre&vious"),
+                    action=self._exec_replace_and_previous,
+                    shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_SHIFT,
+                    shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F4,
+                ),
+                ui.UiMenuItem(
+                    name=_("replace &all"),
+                    action=self._exec_replace_all,
+                    shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                    shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F5,
+                ),
+            ],
+        )
 
     def create_sub_menu_goto(self):
         return ui.UiMenuBar(
             name=_("&goto"),
             menu_item_list=[
-                ui.UiMenuItem(name=_("&beginning of document"), action=self._exec_beginning_document),
-                ui.UiMenuItem(name=_("&end of document"), action=self._exec_end_document),
-                ui.UiMenuItem(name=_("&previous paragraphe"), action=self._exec_preview_paragraphe),
-                ui.UiMenuItem(name=_("&next paragraphe"), action=self._exec_next_paragraphe),
-                ])
+                ui.UiMenuItem(
+                    name=_("&beginning of document"),
+                    action=self._exec_beginning_document,
+                ),
+                ui.UiMenuItem(
+                    name=_("&end of document"), action=self._exec_end_document
+                ),
+                ui.UiMenuItem(
+                    name=_("&previous paragraphe"), action=self._exec_preview_paragraphe
+                ),
+                ui.UiMenuItem(
+                    name=_("&next paragraphe"), action=self._exec_next_paragraphe
+                ),
+            ],
+        )
 
     def create_sub_menu_bookmark(self):
         return ui.UiMenuBar(
             name=_("&bookmark"),
             menu_item_list=[
-                ui.UiMenuItem(name=_("&insert/delete"), action=self._exec_marker_insert_delete,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F2),
-                ui.UiMenuItem(name=_("ne&xt"), action=self._exec_marker_next,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F2),
-                ui.UiMenuItem(name=_("&previous"), action=self._exec_marker_previous,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_SHIFT,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F2),
-                ui.UiMenuItem(name=_("clear &all"), action=self._exec_marker_clear_all,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL + Keyboard.BrailleModifier.BRAILLE_FLAG_SHIFT,
-                           shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F2),
-            ])
+                ui.UiMenuItem(
+                    name=_("&insert/delete"),
+                    action=self._exec_marker_insert_delete,
+                    shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                    shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F2,
+                ),
+                ui.UiMenuItem(
+                    name=_("ne&xt"),
+                    action=self._exec_marker_next,
+                    shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                    shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F2,
+                ),
+                ui.UiMenuItem(
+                    name=_("&previous"),
+                    action=self._exec_marker_previous,
+                    shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_SHIFT,
+                    shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F2,
+                ),
+                ui.UiMenuItem(
+                    name=_("clear &all"),
+                    action=self._exec_marker_clear_all,
+                    shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL
+                    + Keyboard.BrailleModifier.BRAILLE_FLAG_SHIFT,
+                    shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F2,
+                ),
+            ],
+        )
 
     def create_sub_menu_vocalize(self):
         return ui.UiMenuBar(
             name=_("&vocalize"),
             menu_item_list=[
-                ui.UiMenuItem(name=_("&document"), action=self._exec_read_document,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='D'),
-                ui.UiMenuItem(name=_("&paragraph"), action=self._exec_read_paragraph,
-                           shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='R'),
+                ui.UiMenuItem(
+                    name=_("&document"),
+                    action=self._exec_read_document,
+                    shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                    shortcut_key="D",
+                ),
+                ui.UiMenuItem(
+                    name=_("&paragraph"),
+                    action=self._exec_read_paragraph,
+                    shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                    shortcut_key="R",
+                ),
                 ui.UiMenuItem(name=_("&volume"), action=self._exec_volume),
                 ui.UiMenuItem(name=_("&speed"), action=self._exec_speed),
-            ])
+            ],
+        )
 
     def translate_ui(self):
         """
@@ -301,7 +423,7 @@ class EditorBaseApp(BnoteApp):
 
     @staticmethod
     def editor_line_length():
-        return Settings().data['editor']['line_length']
+        return Settings().data["editor"]["line_length"]
 
     def get_filename(self):
         return self._file_name
@@ -310,7 +432,7 @@ class EditorBaseApp(BnoteApp):
         """
         Return the filename without root folders '/home/pi'.
         """
-        file_name = str(self._file_name).replace(str(BNOTE_MAIN_FOLDER) + '/', "")
+        file_name = str(self._file_name).replace(str(BNOTE_MAIN_FOLDER) + "/", "")
         return file_name
 
     def get_original_filename(self):
@@ -331,7 +453,7 @@ class EditorBaseApp(BnoteApp):
             log.info("editor.shutdown()")
 
         if self.editor.is_modified():
-            if self.__is_reading_file:
+            if self.__is_reading_file():
                 # DP FIXME Lost the changes if file is not completely read.
                 # Le code commenté ne fonctionne pas car l'application n'a pas le focus lors de l'extinction...
                 self._shutdown_processing = False
@@ -359,9 +481,17 @@ class EditorBaseApp(BnoteApp):
                 doc_file = editor.Context.free_doc_file(file_extension)
                 if doc_file:
                     # Save context file name
-                    editor.Context.write_context_file(context_file, True, focused, self._file_name, doc_file)
+                    editor.Context.write_context_file(
+                        context_file, True, focused, self._file_name, doc_file
+                    )
                     # Save the file
-                    write_file = self.write_data_file(BnoteApp.lou, doc_file, self._get_line, self._end_context_save, doc_file)
+                    write_file = self.write_data_file(
+                        BnoteApp.lou,
+                        doc_file,
+                        self._get_line,
+                        self._end_context_save,
+                        doc_file,
+                    )
                     write_file.start()
                     # Wait saving and close dialog box (SEE _end_context_save(self))
         else:
@@ -377,7 +507,9 @@ class EditorBaseApp(BnoteApp):
             return
         context_file = editor.Context.free_context_file()
         # Save the file name.
-        editor.Context.write_context_file(context_file, False, focused, self._file_name, None)
+        editor.Context.write_context_file(
+            context_file, False, focused, self._file_name, None
+        )
         # Write specific file associated to document.
         self._end_context_save(None, self._file_name)
 
@@ -386,8 +518,11 @@ class EditorBaseApp(BnoteApp):
     #     self._exec_cancel_dialog()
 
     def _end_context_save(self, error, doc_file):
-        kwargs = {'markers': self.editor.markers(), 'caret': self.editor.caret(),
-                  'read_only': self.editor.read_only}
+        kwargs = {
+            "markers": self.editor.markers(),
+            "caret": self.editor.caret(),
+            "read_only": self.editor.read_only,
+        }
         self._common_end_context_save(error, doc_file, **kwargs)
 
     def _common_end_context_save(self, error, doc_file, **kwargs):
@@ -424,7 +559,9 @@ class EditorBaseApp(BnoteApp):
         if EDITOR_APP_LOG <= logging.INFO:
             log.info("context file found is {}".format(context_file.as_posix()))
 
-        is_modified, is_focused, file_name, save_name = editor.Context.parse_context_file(context_file)
+        is_modified, is_focused, file_name, save_name = (
+            editor.Context.parse_context_file(context_file)
+        )
         self.is_focused = is_focused
         self._original_file_name = file_name
         self._file_name = self._original_file_name
@@ -442,7 +579,7 @@ class EditorBaseApp(BnoteApp):
         # Read specific file.
         read_specific_file = editor.ReadWriteSpecificFile(file_name)
         params = read_specific_file.read_specific_file()
-        md5_from_specific = params['md5']
+        md5_from_specific = params["md5"]
         if md5_from_specific is not None:
             if EDITOR_APP_LOG <= logging.WARNING:
                 log.warning("Specific file found")
@@ -453,9 +590,9 @@ class EditorBaseApp(BnoteApp):
             self.read_only_from_specific = None
             try:
                 if int(md5_from_specific) == md5_file:
-                    self.caret_from_specific = params['caret']
-                    self.markers_from_specific = params['markers']
-                    self.read_only_from_specific = params['read_only']
+                    self.caret_from_specific = params["caret"]
+                    self.markers_from_specific = params["markers"]
+                    self.read_only_from_specific = params["read_only"]
                     # Read extra parameters (for derived class)
                     self.get_extra_parameters(params)
             except ValueError:
@@ -471,7 +608,13 @@ class EditorBaseApp(BnoteApp):
         self.wait_dialog = True
         self.lines_count = 0
         self.reader = self.read_data_file(
-            BnoteApp.lou, file_name, language, self.read_file_add_line, read_file_ended, sheet_name=sheet_name)
+            BnoteApp.lou,
+            file_name,
+            language,
+            self.read_file_add_line,
+            read_file_ended,
+            sheet_name=sheet_name,
+        )
         self.reader.start()
 
     def get_extra_parameters(self, params):
@@ -490,6 +633,7 @@ class EditorBaseApp(BnoteApp):
     def read_context_not_modified_ended(self, error, file_name, sheet_list=None):
         # Close "Reading..." dialog box, in this case application is not focused,
         # we call directly the dialog box
+        self.reader = None
         self.wait_dialog = False
         self._current_dialog = None
         # Force refresh.
@@ -500,16 +644,24 @@ class EditorBaseApp(BnoteApp):
             # Ask to add the file to locked file (necessary if file re-opens after start-up)
             if EDITOR_APP_LOG <= logging.ERROR:
                 log.error(f"locked file {self._original_file_name=}-{self._file_name=}")
-            self._put_in_function_queue(FunctionId.FUNCTION_CHANGE_LOCKED_FILE,
-                                        **{'app': self, 'old_file': self._original_file_name, 'new_file': self._original_file_name})
+            self._put_in_function_queue(
+                FunctionId.FUNCTION_CHANGE_LOCKED_FILE,
+                **{
+                    "app": self,
+                    "old_file": self._original_file_name,
+                    "new_file": self._original_file_name,
+                },
+            )
         else:
             self.read_ended_error(error)
 
     def read_context_modified_ended(self, error, file_name, sheet_list=None):
         # Close "Reading..." dialog box, in this case application is not focused,
         # we call directly the dialog box
+        self.reader = None
         self.wait_dialog = False
         self._current_dialog = None
+        self.editor.set_is_modified(True)
         # Force refresh.
         self._refresh_center_braille_display()
         self._braille_display.new_data_available_event.set()
@@ -524,8 +676,14 @@ class EditorBaseApp(BnoteApp):
             # Ask to add the file to locked file (necessary if file re-opens after start-up)
             if EDITOR_APP_LOG <= logging.ERROR:
                 log.error(f"locked file {self._original_file_name=}-{self._file_name=}")
-            self._put_in_function_queue(FunctionId.FUNCTION_CHANGE_LOCKED_FILE,
-                                        **{'app': self, 'old_file': self._original_file_name, 'new_file': self._original_file_name})
+            self._put_in_function_queue(
+                FunctionId.FUNCTION_CHANGE_LOCKED_FILE,
+                **{
+                    "app": self,
+                    "old_file": self._original_file_name,
+                    "new_file": self._original_file_name,
+                },
+            )
 
         else:
             self.read_ended_error(error)
@@ -534,7 +692,11 @@ class EditorBaseApp(BnoteApp):
         """
         To overload if editor is not editor.Editor
         """
-        editor_instance = editor.Editor(self.editor_line_length(), lines)
+        # Convert lines according to the type of braille chosen.
+        braille_lines = list()
+        for line in lines:
+            braille_lines.append(self._transform_text_to_braille(line))
+        editor_instance = editor.Editor(self.editor_line_length(), braille_lines)
         if self.read_only_from_specific is not None:
             editor_instance.read_only = self.read_only_from_specific
         else:
@@ -551,7 +713,7 @@ class EditorBaseApp(BnoteApp):
                 index = 0
                 # Create editor instance.
                 lines = list()
-                lines.append(self._transform_text_to_braille(line))
+                lines.append(line)
                 # The editor line length is defined here. Actually it is a param_setting
                 # but it could be an independant param of each document.
                 self.editor = self._create_editor(lines)
@@ -562,9 +724,11 @@ class EditorBaseApp(BnoteApp):
                 # Put marker on the line.
                 self.editor.set_caret_on_paragraph(index)
                 # Put a marker at the beginning of the new paragraph
-                self.editor.function(editor.Editor.Functions.MARKER, **{'ctrl': True})
+                self.editor.function(editor.Editor.Functions.MARKER, **{"ctrl": True})
                 # Replace caret at the start of document (Ctrl+Home function)
-                self.editor.function(editor.Editor.Functions.MOVE_HOME, **{'ctrl': True})
+                self.editor.function(
+                    editor.Editor.Functions.MOVE_HOME, **{"ctrl": True}
+                )
         # Wait until the caret line has been read.
         not_reach = False
         if self.caret_from_specific is not None:
@@ -597,13 +761,17 @@ class EditorBaseApp(BnoteApp):
                         self.editor.read_only = self.read_only_from_opening
                     # Ask main thread to close dialog box.
                     self._refresh_center_braille_display()
-                    self._put_in_function_queue(FunctionId.FUNCTION_CLOSE_DIALOG_BOX, **{'app': self})
+                    self._put_in_function_queue(
+                        FunctionId.FUNCTION_CLOSE_DIALOG_BOX, **{"app": self}
+                    )
         else:
             if self.wait_dialog:
                 # Ask main thread to close dialog box.
                 self.wait_dialog = False
                 self._refresh_center_braille_display()
-                self._put_in_function_queue(FunctionId.FUNCTION_CLOSE_DIALOG_BOX, **{'app': self})
+                self._put_in_function_queue(
+                    FunctionId.FUNCTION_CLOSE_DIALOG_BOX, **{"app": self}
+                )
 
     def read_file_ended(self, error, file_name, sheet_list, score=None):
         self.reader = None
@@ -622,9 +790,13 @@ class EditorBaseApp(BnoteApp):
             self._file_name = file_name
             if self._file_name != self._original_file_name:
                 # Ask main thread to launch the document saving.
-                self._put_in_function_queue(FunctionId.FUNCTION_SAVE_AND_DELETE_ORIGINAL, **{'app': self})
+                self._put_in_function_queue(
+                    FunctionId.FUNCTION_SAVE_AND_DELETE_ORIGINAL, **{"app": self}
+                )
             self._refresh_center_braille_display()
-            self._put_in_function_queue(FunctionId.FUNCTION_CLOSE_DIALOG_BOX, **{'app': self})
+            self._put_in_function_queue(
+                FunctionId.FUNCTION_CLOSE_DIALOG_BOX, **{"app": self}
+            )
         else:
             self.read_ended_error(error)
 
@@ -633,7 +805,7 @@ class EditorBaseApp(BnoteApp):
             if not self.editor:
                 # Create editor instance.
                 lines = list()
-                lines.append('')
+                lines.append("")
                 self.editor = editor.Editor(self.editor_line_length(), lines)
                 self.editor.read_only = self.read_only_from_opening
 
@@ -648,16 +820,18 @@ class EditorBaseApp(BnoteApp):
             # Create an empty editor if no lines read from file
             self.__create_empty_editor_if_none()
             # Display error and close editor.
-            self._put_in_function_queue(FunctionId.FUNCTION_DISPLAY_LAST_ERROR_AND_CLOSE_EDITOR)
+            self._put_in_function_queue(
+                FunctionId.FUNCTION_DISPLAY_LAST_ERROR_AND_CLOSE_EDITOR
+            )
 
     def _transform_text_to_braille(self, line):
         """
         Transform the line to a text line in grade1 or grade2 according to the parameter.
         """
-        if self.braille_type == 'grade1':
+        if self.braille_type == "grade1":
             braille = BnoteApp.lou.text_to_grade1(line)
             return braille[0]
-        elif self.braille_type == 'grade2':
+        elif self.braille_type == "grade2":
             braille = BnoteApp.lou.text_to_grade2(line)
             return braille[0]
         else:
@@ -669,12 +843,12 @@ class EditorBaseApp(BnoteApp):
         """
         if line is None:
             return None
-        if self.braille_type == 'grade1':
-            braille = BnoteApp.lou.grade1_to_text(line)
-            return braille[0]
-        elif self.braille_type == 'grade2':
-            braille = BnoteApp.lou.grade2_to_text(line)
-            return braille[0]
+        if self.braille_type == "grade1":
+            text = BnoteApp.lou.grade1_to_text(line)
+            return text[0]
+        elif self.braille_type == "grade2":
+            text = BnoteApp.lou.grade2_to_text(line)
+            return text[0]
         else:
             return line
 
@@ -697,7 +871,9 @@ class EditorBaseApp(BnoteApp):
                 )
         else:
             self._killed = True
-            self._put_in_function_queue(FunctionId.FUNCTION_CLOSE_EDITOR, **{'app': self})
+            self._put_in_function_queue(
+                FunctionId.FUNCTION_CLOSE_EDITOR, **{"app": self}
+            )
 
     def _exec_save(self, function=FunctionId.FUNCTION_CLOSE_DIALOG_BOX):
         if not self._dialog_is_reading_file():
@@ -706,7 +882,13 @@ class EditorBaseApp(BnoteApp):
                 # Display save in progress...
                 self._current_dialog = ui.UiInfoDialogBox(message=_("saving..."))
                 if self.editor.is_modified() or not path.exists(self._file_name):
-                    write_file = self.write_data_file(BnoteApp.lou, self._file_name, self._get_line, self._end_save, function)
+                    write_file = self.write_data_file(
+                        BnoteApp.lou,
+                        self._file_name,
+                        self._get_line,
+                        self._end_save,
+                        function,
+                    )
                     write_file.start()
                     # Wait saving and close dialog box
                     # SEE _end_save()
@@ -716,7 +898,9 @@ class EditorBaseApp(BnoteApp):
                     self._end_save(None, function)
             else:
                 if EDITOR_APP_LOG <= logging.WARNING:
-                    log.warning("no file name associated to document !, reading not ended ?")
+                    log.warning(
+                        "no file name associated to document !, reading not ended ?"
+                    )
 
     def _exec_cleanup(self):
         if not self._dialog_is_reading_file():
@@ -743,96 +927,127 @@ class EditorBaseApp(BnoteApp):
         self._current_dialog = ui.UiDialogBox(
             name=_("statistics"),
             item_list=[
-                ui.UiEditBox(name=_("filename"),
-                          value=("", BnoteApp.braille_form(self.get_display_filename()))
-                          ),
-                ui.UiEditBox(name=_("paragraphs"),
-                          value=("", BnoteApp.braille_form(str(paragraphs_count)))
-                          ),
-                ui.UiEditBox(name=_("words"),
-                          value=("", BnoteApp.braille_form(str(words_count)))
-                          ),
-                ui.UiEditBox(name=_("characters"),
-                          value=("", BnoteApp.braille_form(str(characters_count)))
-                          ),
+                ui.UiEditBox(
+                    name=_("filename"),
+                    value=("", BnoteApp.braille_form(self.get_display_filename())),
+                ),
+                ui.UiEditBox(
+                    name=_("paragraphs"),
+                    value=("", BnoteApp.braille_form(str(paragraphs_count))),
+                ),
+                ui.UiEditBox(
+                    name=_("words"), value=("", BnoteApp.braille_form(str(words_count)))
+                ),
+                ui.UiEditBox(
+                    name=_("characters"),
+                    value=("", BnoteApp.braille_form(str(characters_count))),
+                ),
                 ui.UiButton(name=_("&ok"), action=self._exec_cancel_dialog),
             ],
             action_cancelable=self._exec_cancel_dialog,
         )
 
     def _exec_start_selection(self):
-        self.editor.function(editor.Editor.Functions.SELECTION_MODE_ON, **{'shift': False})
+        self.editor.function(
+            editor.Editor.Functions.SELECTION_MODE_ON, **{"shift": False}
+        )
         # Synchronize menu to run F8, Esc correctly.
         self._menu.get_object(self._exec_start_selection).hide()
         self._menu.get_object(self._exec_end_selection).unhide()
 
     def _exec_end_selection(self):
-        self.editor.function(editor.Editor.Functions.SELECTION_MODE_OFF, **{'shift': False})
+        self.editor.function(
+            editor.Editor.Functions.SELECTION_MODE_OFF, **{"shift": False}
+        )
         # Synchronize menu to run F8, Esc correctly.
         self._menu.get_object(self._exec_start_selection).unhide()
         self._menu.get_object(self._exec_end_selection).hide()
 
     def _exec_cut(self):
-        self.editor.function(editor.Editor.Functions.CUT, **{'shift': False})
+        self.editor.function(editor.Editor.Functions.CUT, **{"shift": False})
 
     def _exec_copy(self):
-        self.editor.function(editor.Editor.Functions.COPY, **{'shift': False})
+        self.editor.function(editor.Editor.Functions.COPY, **{"shift": False})
 
     def _exec_paste(self):
-        self.editor.function(editor.Editor.Functions.PASTE, **{'shift': False})
+        self.editor.function(editor.Editor.Functions.PASTE, **{"shift": False})
 
     def _exec_select_all(self):
-        self.editor.function(editor.Editor.Functions.SELECT_ALL, **{'shift': False})
+        self.editor.function(editor.Editor.Functions.SELECT_ALL, **{"shift": False})
 
     def _exec_undo(self):
-        self.editor.function(editor.Editor.Functions.UNDO, **{'shift': False})
+        self.editor.function(editor.Editor.Functions.UNDO, **{"shift": False})
 
     def _exec_redo(self):
-        self.editor.function(editor.Editor.Functions.REDO, **{'shift': False})
+        self.editor.function(editor.Editor.Functions.REDO, **{"shift": False})
 
     def _exec_cursor(self):
         self._current_dialog = ui.UiDialogBox(
             name=_("cursor"),
             item_list=[
-                ui.UiEditBox(name=_("line"),
-                          value=("line", self._transform_text_to_braille(f"{self.editor.caret().end.y + 1}"))
-                          ),
-                ui.UiEditBox(name=_("column"),
-                          value=("column", self._transform_text_to_braille(f"{self.editor.caret().end.x + 1}"))
-                          ),
+                ui.UiEditBox(
+                    name=_("line"),
+                    value=(
+                        "line",
+                        self._transform_text_to_braille(
+                            f"{self.editor.caret().end.y + 1}"
+                        ),
+                    ),
+                ),
+                ui.UiEditBox(
+                    name=_("column"),
+                    value=(
+                        "column",
+                        self._transform_text_to_braille(
+                            f"{self.editor.caret().end.x + 1}"
+                        ),
+                    ),
+                ),
                 ui.UiButton(name=_("&ok"), action=self._exec_valid_cursor_dialog),
-                ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog)
+                ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
             ],
             action_cancelable=self._exec_cancel_dialog,
         )
 
     def _exec_beginning_document(self):
-        self.editor.function(editor.Editor.Functions.MOVE_HOME, **{'shift':False, 'ctrl':True})
+        self.editor.function(
+            editor.Editor.Functions.MOVE_HOME, **{"shift": False, "ctrl": True}
+        )
         # Refresh braille display (useful after caret move)
         self._refresh_braille_display(self._braille_display.get_start_pos())
 
     def _exec_end_document(self):
-        self.editor.function(editor.Editor.Functions.MOVE_END, **{'shift':False, 'ctrl':True})
+        self.editor.function(
+            editor.Editor.Functions.MOVE_END, **{"shift": False, "ctrl": True}
+        )
         # Refresh braille display (useful after caret move)
         self._refresh_braille_display(self._braille_display.get_start_pos())
 
     def _exec_preview_paragraphe(self):
-        self.editor.function(editor.Editor.Functions.MOVE_UP, **{'shift':False, 'ctrl':True})
+        self.editor.function(
+            editor.Editor.Functions.MOVE_UP, **{"shift": False, "ctrl": True}
+        )
         # Refresh braille display (useful after caret move)
         self._refresh_braille_display(self._braille_display.get_start_pos())
 
     def _exec_next_paragraphe(self):
-        self.editor.function(editor.Editor.Functions.MOVE_DOWN, **{'shift':False, 'ctrl':True})
+        self.editor.function(
+            editor.Editor.Functions.MOVE_DOWN, **{"shift": False, "ctrl": True}
+        )
         # Refresh braille display (useful after caret move)
         self._refresh_braille_display(self._braille_display.get_start_pos())
 
     def _exec_select_beginning(self):
-        self.editor.function(editor.Editor.Functions.MOVE_HOME, **{'shift':True, 'ctrl':True})
+        self.editor.function(
+            editor.Editor.Functions.MOVE_HOME, **{"shift": True, "ctrl": True}
+        )
         # Refresh braille display (useful after caret move)
         self._refresh_braille_display(self._braille_display.get_start_pos())
 
     def _exec_select_ending(self):
-        self.editor.function(editor.Editor.Functions.MOVE_END, **{'shift':True, 'ctrl':True})
+        self.editor.function(
+            editor.Editor.Functions.MOVE_END, **{"shift": True, "ctrl": True}
+        )
         # Refresh braille display (useful after caret move)
         self._refresh_braille_display(self._braille_display.get_start_pos())
 
@@ -842,7 +1057,10 @@ class EditorBaseApp(BnoteApp):
         """
         if self.__is_reading_file():
             # The file is not completely read.
-            self._current_dialog=ui.UiInfoDialogBox(message=_("the file is not completely read"), action=self._exec_cancel_dialog)
+            self._current_dialog = ui.UiInfoDialogBox(
+                message=_("the file is not completely read"),
+                action=self._exec_cancel_dialog,
+            )
             return True
         else:
             return False
@@ -853,21 +1071,39 @@ class EditorBaseApp(BnoteApp):
             self._current_dialog = ui.UiDialogBox(
                 name=_("find"),
                 item_list=[
-                    ui.UiEditBox(name=_("find"),
-                              value=("find", self._replace_parameters.edit_seq)
-                              ),
-                    ui.UiButton(name=_("&next"), action=self._exec_valid_next_find_dialog),
-                    ui.UiButton(name=_("&previous"), action=self._exec_valid_previous_find_dialog),
+                    ui.UiEditBox(
+                        name=_("find"),
+                        value=("find", self._replace_parameters.edit_seq),
+                    ),
+                    ui.UiButton(
+                        name=_("&next"), action=self._exec_valid_next_find_dialog
+                    ),
+                    ui.UiButton(
+                        name=_("&previous"),
+                        action=self._exec_valid_previous_find_dialog,
+                    ),
                     ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
                     ui.UiCheckBox(
                         name=_("&ignore upper case"),
-                        value=("ignore_case", self._replace_parameters.is_ignore_case())),
+                        value=(
+                            "ignore_case",
+                            self._replace_parameters.is_ignore_case(),
+                        ),
+                    ),
                     ui.UiCheckBox(
                         name=_("&mask accent"),
-                        value=("mask_accent", self._replace_parameters.is_mask_accents())),
+                        value=(
+                            "mask_accent",
+                            self._replace_parameters.is_mask_accents(),
+                        ),
+                    ),
                     ui.UiCheckBox(
                         name=_("&entire word"),
-                        value=("entire_word", self._replace_parameters.is_entire_word())),
+                        value=(
+                            "entire_word",
+                            self._replace_parameters.is_entire_word(),
+                        ),
+                    ),
                 ],
                 action_cancelable=self._exec_cancel_dialog,
             )
@@ -878,27 +1114,55 @@ class EditorBaseApp(BnoteApp):
             self._current_dialog = ui.UiDialogBox(
                 name=_("replace"),
                 item_list=[
-                    ui.UiEditBox(name=_("find"),
-                              value=("find", self._replace_parameters.edit_seq)
-                              ),
-                    ui.UiEditBox(name=_("replace"),
-                              value=("replace", self._replace_parameters.replace_seq)
-                              ),
-                    ui.UiButton(name=_("&next"), action=self._exec_valid_next_find_dialog),
-                    ui.UiButton(name=_("replace and n&ext"), action=self._exec_valid_next_replace_dialog),
-                    ui.UiButton(name=_("&previous"), action=self._exec_valid_previous_find_dialog),
-                    ui.UiButton(name=_("replace and p&revious"), action=self._exec_valid_previous_replace_dialog),
-                    ui.UiButton(name=_("replace &all"), action=self._exec_valid_replace_all_dialog),
+                    ui.UiEditBox(
+                        name=_("find"),
+                        value=("find", self._replace_parameters.edit_seq),
+                    ),
+                    ui.UiEditBox(
+                        name=_("replace"),
+                        value=("replace", self._replace_parameters.replace_seq),
+                    ),
+                    ui.UiButton(
+                        name=_("&next"), action=self._exec_valid_next_find_dialog
+                    ),
+                    ui.UiButton(
+                        name=_("replace and n&ext"),
+                        action=self._exec_valid_next_replace_dialog,
+                    ),
+                    ui.UiButton(
+                        name=_("&previous"),
+                        action=self._exec_valid_previous_find_dialog,
+                    ),
+                    ui.UiButton(
+                        name=_("replace and p&revious"),
+                        action=self._exec_valid_previous_replace_dialog,
+                    ),
+                    ui.UiButton(
+                        name=_("replace &all"),
+                        action=self._exec_valid_replace_all_dialog,
+                    ),
                     ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
                     ui.UiCheckBox(
                         name=_("&ignore upper case"),
-                        value=("ignore_case", self._replace_parameters.is_ignore_case())),
+                        value=(
+                            "ignore_case",
+                            self._replace_parameters.is_ignore_case(),
+                        ),
+                    ),
                     ui.UiCheckBox(
                         name=_("&mask accent"),
-                        value=("mask_accent", self._replace_parameters.is_mask_accents())),
+                        value=(
+                            "mask_accent",
+                            self._replace_parameters.is_mask_accents(),
+                        ),
+                    ),
                     ui.UiCheckBox(
                         name=_("&entire word"),
-                        value=("entire_word", self._replace_parameters.is_entire_word())),
+                        value=(
+                            "entire_word",
+                            self._replace_parameters.is_entire_word(),
+                        ),
+                    ),
                 ],
                 action_cancelable=self._exec_cancel_dialog,
             )
@@ -925,19 +1189,21 @@ class EditorBaseApp(BnoteApp):
 
     def _exec_marker_insert_delete(self):
         if not self._dialog_is_reading_file():
-            self.editor.function(editor.Editor.Functions.MARKER, **{'ctrl': True})
+            self.editor.function(editor.Editor.Functions.MARKER, **{"ctrl": True})
 
     def _exec_marker_next(self):
         if not self._dialog_is_reading_file():
-            self.editor.function(editor.Editor.Functions.MARKER, **{'shift': False})
+            self.editor.function(editor.Editor.Functions.MARKER, **{"shift": False})
 
     def _exec_marker_previous(self):
         if not self._dialog_is_reading_file():
-            self.editor.function(editor.Editor.Functions.MARKER, **{'shift': True})
+            self.editor.function(editor.Editor.Functions.MARKER, **{"shift": True})
 
     def _exec_marker_clear_all(self):
         if not self._dialog_is_reading_file():
-            self.editor.function(editor.Editor.Functions.MARKER, **{'ctrl': True, 'shift': True})
+            self.editor.function(
+                editor.Editor.Functions.MARKER, **{"ctrl": True, "shift": True}
+            )
 
     def _exec_read_document(self):
         self._exec_read_paragraph(read_full_document=True)
@@ -953,42 +1219,51 @@ class EditorBaseApp(BnoteApp):
             if EDITOR_APP_LOG <= logging.INFO:
                 log.info("speak with . added {}".format(paragraph_to_speak))
             if read_full_document:
-                SpeechManager().register_voice_event_callback("EndStream", self._on_speaker_end_reading_doc)
+                SpeechManager().register_voice_event_callback(
+                    "EndStream", self._on_speaker_end_reading_doc
+                )
             self.__is_speaking = True
             headphone = Gpio().is_head_phone()
             if headphone:
-                volume = Settings().data['speech']['volume_headphone']
+                volume = Settings().data["speech"]["volume_headphone"]
             else:
-                volume = Settings().data['speech']['volume_hp']
-            SpeechManager().speak(paragraph_to_speak,
-                                  lang_id=Settings().data['speech']['language'],
-                                  synthesis=Settings().data['speech']['synthesis'],
-                                  voice=Settings().data['speech']['voice'],
-                                  headphone=headphone,
-                                  volume=volume,
-                                  speed=Settings().data['speech']['speed'],
-                                  purge_before_speak=purge_before_speak
-                                  )
+                volume = Settings().data["speech"]["volume_hp"]
+            SpeechManager().speak(
+                paragraph_to_speak,
+                lang_id=Settings().data["speech"]["language"],
+                synthesis=Settings().data["speech"]["synthesis"],
+                voice=Settings().data["speech"]["voice"],
+                headphone=headphone,
+                volume=volume,
+                speed=Settings().data["speech"]["speed"],
+                purge_before_speak=purge_before_speak,
+            )
         elif read_full_document:
             current_paragraph = self.editor.current_paragraph_index()
-            if self.editor.function(editor.Editor.Functions.MOVE_DOWN, **{'shift': False, 'ctrl': True}):
+            if self.editor.function(
+                editor.Editor.Functions.MOVE_DOWN, **{"shift": False, "ctrl": True}
+            ):
                 index = self.editor.current_paragraph_index()
                 if index != current_paragraph:
                     self._exec_read_paragraph(read_full_document, purge_before_speak)
 
     def _on_speaker_end_reading_doc(self, **kwargs):
         if EDITOR_APP_LOG <= logging.WARNING:
-            log.warning('callback finishing')
+            log.warning("callback finishing")
         with self.lock:
             current_paragraph = self.editor.current_paragraph_index()
             # Move to next paragraph.
-            if self.editor.function(editor.Editor.Functions.MOVE_DOWN, **{'shift': False, 'ctrl': True}):
+            if self.editor.function(
+                editor.Editor.Functions.MOVE_DOWN, **{"shift": False, "ctrl": True}
+            ):
                 index = self.editor.current_paragraph_index()
                 if index != current_paragraph:
                     # We use NEXT_PARAGRAPH function but this function put caret on the last paragraph char.
                     # if caret is already someway in the paragraph.
                     self._exec_read_paragraph(read_full_document=True)
-                    self._put_in_function_queue(FunctionId.FUNCTION_EDITOR_BRAILLE_REFRESH)
+                    self._put_in_function_queue(
+                        FunctionId.FUNCTION_EDITOR_BRAILLE_REFRESH
+                    )
                     return
             # End of document.
             SpeechManager().deregister_voice_event_callback("EndStream")
@@ -1000,15 +1275,21 @@ class EditorBaseApp(BnoteApp):
         self.__is_speaking = False
 
     def _exec_volume(self):
-        self._current_dialog = VolumeDialogBox(_('volume'), _("&value"), self.__save_the_new_volume, self.channel)
+        self._current_dialog = VolumeDialogBox(
+            _("volume"), _("&value"), self.__save_the_new_volume, self.channel
+        )
 
     # Appelé depuis input_command
     def __volume_down_from_shortcut(self):
-        level = VolumeDialogBox.volume_down(channel=self.channel, with_voice_feedback=(self.channel == 'speech'))
+        level = VolumeDialogBox.volume_down(
+            channel=self.channel, with_voice_feedback=(self.channel == "speech")
+        )
         self.__save_the_new_volume(level)
 
     def __volume_up_from_shortcut(self):
-        level = VolumeDialogBox.volume_up(channel=self.channel, with_voice_feedback=(self.channel == 'speech'))
+        level = VolumeDialogBox.volume_up(
+            channel=self.channel, with_voice_feedback=(self.channel == "speech")
+        )
         self.__save_the_new_volume(level)
 
     def __save_the_new_volume(self, volume):
@@ -1018,40 +1299,53 @@ class EditorBaseApp(BnoteApp):
         # Alert internal about settings change.
         headphone = Gpio().is_head_phone()
         if headphone:
-            key = 'volume_headphone'
+            key = "volume_headphone"
         else:
-            key = 'volume_hp'
-        self._put_in_function_queue(FunctionId.FUNCTION_SETTINGS_CHANGE, **{"section": self.channel, "key": key})
+            key = "volume_hp"
+        self._put_in_function_queue(
+            FunctionId.FUNCTION_SETTINGS_CHANGE, **{"section": self.channel, "key": key}
+        )
 
     def _exec_speed(self):
-        self._current_dialog = SpeedDialogBox(_('speed'), _("&value"), self.__save_the_new_speed,
-                                              Settings().data['speech']['speed'],
-                                              Settings().VALID_VALUES['speech']['speed'])
+        self._current_dialog = SpeedDialogBox(
+            _("speed"),
+            _("&value"),
+            self.__save_the_new_speed,
+            Settings().data["speech"]["speed"],
+            Settings().VALID_VALUES["speech"]["speed"],
+        )
 
     def __speed_down_from_shortcut(self):
-        current_speed = Settings().data['speech']['speed']
-        new_speed = SpeedDialogBox.speed_down(current_speed, Settings().VALID_VALUES['speech']['speed'])
+        current_speed = Settings().data["speech"]["speed"]
+        new_speed = SpeedDialogBox.speed_down(
+            current_speed, Settings().VALID_VALUES["speech"]["speed"]
+        )
         if new_speed != current_speed:
-            Settings().data['speech']['speed'] = new_speed
+            Settings().data["speech"]["speed"] = new_speed
             Settings().save()
             self.refresh_document()
 
     def __speed_up_from_shortcut(self):
-        current_speed = Settings().data['speech']['speed']
-        new_speed = SpeedDialogBox.speed_up(current_speed, Settings().VALID_VALUES['speech']['speed'])
+        current_speed = Settings().data["speech"]["speed"]
+        new_speed = SpeedDialogBox.speed_up(
+            current_speed, Settings().VALID_VALUES["speech"]["speed"]
+        )
         if new_speed != current_speed:
-            Settings().data['speech']['speed'] = new_speed
+            Settings().data["speech"]["speed"] = new_speed
             Settings().save()
             self.refresh_document()
 
     def __save_the_new_speed(self, new_speed):
         # Save the new speed in settings.
         try:
-            Settings().data['speech']['speed'] = int(new_speed)
+            Settings().data["speech"]["speed"] = int(new_speed)
             Settings().save()
 
             # Alert internal about settings change.
-            self._put_in_function_queue(FunctionId.FUNCTION_SETTINGS_CHANGE, **{"section": 'speech', "key": 'speed'})
+            self._put_in_function_queue(
+                FunctionId.FUNCTION_SETTINGS_CHANGE,
+                **{"section": "speech", "key": "speed"},
+            )
         except ValueError:
             pass
 
@@ -1094,8 +1388,10 @@ class EditorBaseApp(BnoteApp):
             if EDITOR_APP_LOG <= logging.INFO:
                 log.info("Validate new cursor y:{} x:{}".format(line, column))
             with self.lock:
-                res = self.editor.function(editor.Editor.Functions.PUT_CARET,
-                                           **{'shift': False, 'ctrl': False, 'pos': editor.Pos(column, line)})
+                res = self.editor.function(
+                    editor.Editor.Functions.PUT_CARET,
+                    **{"shift": False, "ctrl": False, "pos": editor.Pos(column, line)},
+                )
             if not res:
                 self._current_dialog = ui.UiInfoDialogBox(
                     message=_("coordinates apart from document."),
@@ -1108,7 +1404,7 @@ class EditorBaseApp(BnoteApp):
 
     def _exec_close_no_dialog(self):
         self._killed = True
-        self._put_in_function_queue(FunctionId.FUNCTION_CLOSE_EDITOR, **{'app': self})
+        self._put_in_function_queue(FunctionId.FUNCTION_CLOSE_EDITOR, **{"app": self})
 
     def _exec_valid_next_find_dialog(self):
         self._find_exec(editor.Editor.Functions.FIND, False)
@@ -1148,7 +1444,7 @@ class EditorBaseApp(BnoteApp):
             # Open dialog box to indicate invalid parameters.
             self._current_dialog = ui.UiInfoDialogBox(
                 message=_("the string found is not a word !"),
-                action=self._exec_cancel_dialog
+                action=self._exec_cancel_dialog,
             )
         else:
             self._replace_parameters = find_parameter
@@ -1174,7 +1470,7 @@ class EditorBaseApp(BnoteApp):
             # Open dialog box to indicate invalid parameters.
             self._current_dialog = ui.UiInfoDialogBox(
                 message=_("replacement can not be done."),
-                action=self._exec_cancel_dialog
+                action=self._exec_cancel_dialog,
             )
         else:
             self._replace_parameters = replace_parameter
@@ -1183,19 +1479,21 @@ class EditorBaseApp(BnoteApp):
             self._find_replace_end(editor_function, shift)
 
     def _find_replace_end(self, editor_function, shift):
-        res = self.editor.function(editor_function,
-                                   **{'shift': shift, 'replace_parameters': self._replace_parameters})
+        res = self.editor.function(
+            editor_function,
+            **{"shift": shift, "replace_parameters": self._replace_parameters},
+        )
         if not res:
             # Open dialog box to indicate that research failed.
             if shift:
                 self._current_dialog = ui.UiInfoDialogBox(
                     message=_("start of document reached, string not found."),
-                    action=self._exec_cancel_dialog
+                    action=self._exec_cancel_dialog,
                 )
             else:
                 self._current_dialog = ui.UiInfoDialogBox(
                     message=_("end of document reached, string not found."),
-                    action=self._exec_cancel_dialog
+                    action=self._exec_cancel_dialog,
                 )
         else:
             # In case of research successfully, editor has a new selection of text.
@@ -1218,10 +1516,14 @@ class EditorBaseApp(BnoteApp):
             self.editor.set_is_modified(False)
             if function == FunctionId.FUNCTION_DELETE_ORIGINAL:
                 # add filename as argument
-                self._put_in_function_queue(function, **{'filename': self._original_file_name})
-            elif function == FunctionId.FUNCTION_CLOSE_DIALOG_BOX or\
-                    function == FunctionId.FUNCTION_CLOSE_EDITOR:
-                self._put_in_function_queue(function, ** {'app': self})
+                self._put_in_function_queue(
+                    function, **{"filename": self._original_file_name}
+                )
+            elif (
+                function == FunctionId.FUNCTION_CLOSE_DIALOG_BOX
+                or function == FunctionId.FUNCTION_CLOSE_EDITOR
+            ):
+                self._put_in_function_queue(function, **{"app": self})
             else:
                 self._put_in_function_queue(function)
         else:
@@ -1239,7 +1541,13 @@ class EditorBaseApp(BnoteApp):
             # Display save in progress...
             self._current_dialog = ui.UiInfoDialogBox(message=_("saving..."))
             if self.editor.is_modified() or not path.exists(self._file_name):
-                write_file = self.write_data_file(BnoteApp.lou, self._file_name, self._get_line, self._end_save, function)
+                write_file = self.write_data_file(
+                    BnoteApp.lou,
+                    self._file_name,
+                    self._get_line,
+                    self._end_save,
+                    function,
+                )
                 write_file.start()
                 # Wait saving and close dialog box
                 # SEE _end_save(self)
@@ -1249,7 +1557,9 @@ class EditorBaseApp(BnoteApp):
                 self._end_save(None, function)
         else:
             if EDITOR_APP_LOG <= logging.WARNING:
-                log.warning("No file name associated to document !, reading not ended ?")
+                log.warning(
+                    "No file name associated to document !, reading not ended ?"
+                )
 
     def write_data_file(self, lou, full_file_name, get_line, on_end, function):
         """
@@ -1261,17 +1571,19 @@ class EditorBaseApp(BnoteApp):
         self._current_dialog = ui.UiDialogBox(
             name=_("editor"),
             item_list=[
-                ui.UiListBox(name=_("&sheet"), value=('sheet_name', self.last_error.sheet_list)),
+                ui.UiListBox(
+                    name=_("&sheet"), value=("sheet_name", self.last_error.sheet_list)
+                ),
                 ui.UiButton(name=_("&ok"), action=self._exec_ok_select_sheet_dialog),
                 ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
             ],
-            action_cancelable=self._exec_cancel_dialog
+            action_cancelable=self._exec_cancel_dialog,
         )
 
     def _exec_ok_select_sheet_dialog(self):
         # Get xlsx sheet_name.
         kwargs = self._current_dialog.get_values()
-        sheet_name = kwargs['sheet_name']
+        sheet_name = kwargs["sheet_name"]
         if EDITOR_APP_LOG <= logging.WARNING:
             log.warning(f"panel:{sheet_name}")
         # Read the file.
@@ -1279,8 +1591,14 @@ class EditorBaseApp(BnoteApp):
         self._current_dialog = ui.UiInfoDialogBox(message=_("reading..."))
         self.wait_dialog = True
         self.lines_count = 0
-        self.reader = editor.ReadFile(BnoteApp.lou, self._original_file_name, self._language,
-                                      self.read_file_add_line, self.read_file_ended, sheet_name=sheet_name)
+        self.reader = editor.ReadFile(
+            BnoteApp.lou,
+            self._original_file_name,
+            self._language,
+            self.read_file_add_line,
+            self.read_file_ended,
+            sheet_name=sheet_name,
+        )
         self.reader.start()
 
     # ---------------
@@ -1308,14 +1626,18 @@ class EditorBaseApp(BnoteApp):
             text = _("unknown error")
             if self.last_error:
                 text = "{}".format(self.last_error)
-            self._current_dialog = ui.UiInfoDialogBox(message=text, action=self._exec_cancel_dialog)
+            self._current_dialog = ui.UiInfoDialogBox(
+                message=text, action=self._exec_cancel_dialog
+            )
             done = True
         elif function_id == FunctionId.FUNCTION_DISPLAY_LAST_ERROR_AND_CLOSE_EDITOR:
             # Display error and close close editor function on ok button.
             text = _("unknown error")
             if self.last_error:
                 text = "{}".format(self.last_error)
-            self._current_dialog = ui.UiInfoDialogBox(message=text, action=self._exec_close)
+            self._current_dialog = ui.UiInfoDialogBox(
+                message=text, action=self._exec_close
+            )
             done = True
         elif function_id == FunctionId.FUNCTION_EDITOR_BRAILLE_REFRESH:
             self._refresh_braille_display()
@@ -1379,7 +1701,9 @@ class EditorBaseApp(BnoteApp):
                 # command treatment for document.
                 kwargs = BnoteApp.keyboard.decode_modifiers(modifier)
                 # Get the function from switcher dictionnary
-                (editor_function, new_kwargs) = EditorBaseApp.command_switcher.get(key_id, (None, None))
+                (editor_function, new_kwargs) = EditorBaseApp.command_switcher.get(
+                    key_id, (None, None)
+                )
                 if editor_function:
                     # Execute the function
                     if new_kwargs:
@@ -1397,8 +1721,14 @@ class EditorBaseApp(BnoteApp):
         Keyboard.KeyId.KEY_CARET_DOWN: (editor.Editor.Functions.MOVE_DOWN, None),
         Keyboard.KeyId.KEY_CARET_RIGHT: (editor.Editor.Functions.MOVE_RIGHT, None),
         Keyboard.KeyId.KEY_CARET_LEFT: (editor.Editor.Functions.MOVE_LEFT, None),
-        Keyboard.KeyId.KEY_START_DOC: (editor.Editor.Functions.MOVE_HOME, {'shift': False, 'ctrl': True}),
-        Keyboard.KeyId.KEY_END_DOC: (editor.Editor.Functions.MOVE_END, {'shift': False, 'ctrl': True}),
+        Keyboard.KeyId.KEY_START_DOC: (
+            editor.Editor.Functions.MOVE_HOME,
+            {"shift": False, "ctrl": True},
+        ),
+        Keyboard.KeyId.KEY_END_DOC: (
+            editor.Editor.Functions.MOVE_END,
+            {"shift": False, "ctrl": True},
+        ),
     }
 
     def input_character(self, modifier, character, data) -> bool:
@@ -1428,7 +1758,10 @@ class EditorBaseApp(BnoteApp):
                 return False
             # Document input character treatment.
             # stop if edition is False
-            if modifier == Keyboard.BrailleModifier.BRAILLE_FLAG_INS and character == 'f':
+            if (
+                modifier == Keyboard.BrailleModifier.BRAILLE_FLAG_INS
+                and character == "f"
+            ):
                 # Switch to incremental search
                 self.is_editing = False
                 # Refresh to erase message 'ins...'
@@ -1440,7 +1773,9 @@ class EditorBaseApp(BnoteApp):
                 # Input character in editor.
                 with self.lock:
                     # Modifiers could be transmitted ?
-                    self.editor.function(editor.Editor.Functions.PUT_STRING, **{'text': character})
+                    self.editor.function(
+                        editor.Editor.Functions.PUT_STRING, **{"text": character}
+                    )
                 # Refresh braille display
                 self._refresh_center_braille_display()
                 done = True
@@ -1519,7 +1854,9 @@ class EditorBaseApp(BnoteApp):
         # Kill braille display autoscroll.
         self._is_autoscroll = False
 
-        done = super(EditorBaseApp, self).input_interactive(modifier, position, key_type)
+        done = super(EditorBaseApp, self).input_interactive(
+            modifier, position, key_type
+        )
         if not done:
             # interactive key treatment for editor.
             if key_type == Keyboard.InteractiveKeyType.DOUBLE_CLIC:
@@ -1529,9 +1866,15 @@ class EditorBaseApp(BnoteApp):
                 # Kill moving display without caret mode.
                 self.is_moving_display = False
                 with self.lock:
-                    self.editor.function(editor.Editor.Functions.SELECT_WORD,
-                                         **{'pos': editor.Pos(self._braille_display.get_start_pos() + position - 1,
-                                                              self.editor.caret().end.y)})
+                    self.editor.function(
+                        editor.Editor.Functions.SELECT_WORD,
+                        **{
+                            "pos": editor.Pos(
+                                self._braille_display.get_start_pos() + position - 1,
+                                self.editor.caret().end.y,
+                            )
+                        },
+                    )
             else:
                 with self.lock:
                     # if not self.is_moving_display:
@@ -1546,9 +1889,15 @@ class EditorBaseApp(BnoteApp):
                         line = self.moving_display_caret.end.y
                     else:
                         line = self.editor.caret().end.y
-                    self.editor.function(editor.Editor.Functions.PUT_CARET,
-                                         **{'pos': editor.Pos(self._braille_display.get_start_pos() + position - 1,
-                                                              line)})
+                    self.editor.function(
+                        editor.Editor.Functions.PUT_CARET,
+                        **{
+                            "pos": editor.Pos(
+                                self._braille_display.get_start_pos() + position - 1,
+                                line,
+                            )
+                        },
+                    )
             # Refresh braille display (useful after caret move)
             self._refresh_braille_display(self._braille_display.get_start_pos())
             done = True
@@ -1566,8 +1915,9 @@ class EditorBaseApp(BnoteApp):
         Convert the text line to braille according to braille type.
         This method is overload by music editor.
         """
-        if self.braille_type and \
-                ((self.braille_type == 'grade1') or (self.braille_type == 'grade2')):
+        if self.braille_type and (
+            (self.braille_type == "grade1") or (self.braille_type == "grade2")
+        ):
             return BnoteApp.lou.to_dots_6(line)
         else:
             static_dots = BnoteApp.lou.to_dots_8(line)
@@ -1577,7 +1927,7 @@ class EditorBaseApp(BnoteApp):
     @staticmethod
     def _mask_dot_78(static_dots):
         # Mask dot 78 if hide parameter is set.
-        if not Settings().data['editor']['dot78_visible']:
+        if not Settings().data["editor"]["dot78_visible"]:
             masked_dots = ""
             for b in static_dots:
                 masked_dots = "".join([masked_dots, chr(ord(b) & 0xFF3F)])
@@ -1596,7 +1946,9 @@ class EditorBaseApp(BnoteApp):
                 (line, dots) = self.editor.editor_braille_line(line_index)
             blink_dots = BnoteApp.lou.byte_to_unicode_braille(dots)
             static_dots = self._convert_line_to_dots(line)
-            BnoteApp.set_braille_display_line(self, line, static_dots, blink_dots, offset)
+            BnoteApp.set_braille_display_line(
+                self, line, static_dots, blink_dots, offset
+            )
             if self._is_autoscroll:
                 self._find_best_autoscroll_timeout(line, offset)
 
@@ -1604,18 +1956,26 @@ class EditorBaseApp(BnoteApp):
     # FIXME : pour connaitre le contenu réel des cellules affichées sur la plage braille il faudrait analyser
     #  static_dots, blink_dots au lieu de line (qui est le text de la ligne)
     def _find_best_autoscroll_timeout(self, line, offset):
-        braille_display_length = braille_device_characteristics.get_braille_display_length()
+        braille_display_length = (
+            braille_device_characteristics.get_braille_display_length()
+        )
         remaining_line_len = len(line) - offset
-        new_value = (Settings().data['editor']['autoscroll'] * remaining_line_len) / float(braille_display_length)
+        new_value = (
+            Settings().data["editor"]["autoscroll"] * remaining_line_len
+        ) / float(braille_display_length)
         optimized_autoscroll_timeout = self._autoscroll_timeout
-        if new_value < Settings().VALID_VALUES['editor']['autoscroll'].start:
-            optimized_autoscroll_timeout = Settings().VALID_VALUES['editor']['autoscroll'].start
-        elif new_value > Settings().data['editor']['autoscroll']:
-            optimized_autoscroll_timeout = Settings().data['editor']['autoscroll']
+        if new_value < Settings().VALID_VALUES["editor"]["autoscroll"].start:
+            optimized_autoscroll_timeout = (
+                Settings().VALID_VALUES["editor"]["autoscroll"].start
+            )
+        elif new_value > Settings().data["editor"]["autoscroll"]:
+            optimized_autoscroll_timeout = Settings().data["editor"]["autoscroll"]
         else:
             optimized_autoscroll_timeout = int(new_value)
         if EDITOR_APP_LOG <= logging.ERROR:
-            log.error(f"{remaining_line_len=} {self._autoscroll_timeout=} {optimized_autoscroll_timeout=}")
+            log.error(
+                f"{remaining_line_len=} {self._autoscroll_timeout=} {optimized_autoscroll_timeout=}"
+            )
         self._autoscroll_timeout = optimized_autoscroll_timeout
 
     def _refresh_center_braille_display(self):
@@ -1633,28 +1993,35 @@ class EditorBaseApp(BnoteApp):
 
         if paragraph_text:
             braille = None
-            if self.braille_type == 'grade1':
+            if self.braille_type == "grade1":
                 if EDITOR_APP_LOG <= logging.INFO:
                     log.info("grade0:{}, {}".format(paragraph_text, braille_offset))
-                (text_grade2, index1_origin, self.grade2_index_text, pos) = BnoteApp.lou.grade1_to_text(paragraph_text,
-                                                                                                        braille_offset)
+                (text_grade2, index1_origin, self.grade2_index_text, pos) = (
+                    BnoteApp.lou.grade1_to_text(paragraph_text, braille_offset)
+                )
                 if text_grade2:
                     braille = BnoteApp.lou.to_dots_8(text_grade2)
-            elif self.braille_type == 'grade2':
+            elif self.braille_type == "grade2":
                 if EDITOR_APP_LOG <= logging.INFO:
                     log.info("grade0:{}, {}".format(paragraph_text, braille_offset))
-                (text_grade2, index1_origin, self.grade2_index_text, pos) = BnoteApp.lou.grade2_to_text(paragraph_text,
-                                                                                                        braille_offset)
+                (text_grade2, index1_origin, self.grade2_index_text, pos) = (
+                    BnoteApp.lou.grade2_to_text(paragraph_text, braille_offset)
+                )
                 if text_grade2:
                     braille = BnoteApp.lou.to_dots_8(text_grade2)
             else:
                 if EDITOR_APP_LOG <= logging.INFO:
                     log.info("grade0:{}, {}".format(paragraph_text, braille_offset))
-                (text_grade2, index1_origin, self.grade2_index_text, pos) = BnoteApp.lou.text_to_grade2(paragraph_text,
-                                                                                                        braille_offset)
+                (text_grade2, index1_origin, self.grade2_index_text, pos) = (
+                    BnoteApp.lou.text_to_grade2(paragraph_text, braille_offset)
+                )
                 if text_grade2:
                     if EDITOR_APP_LOG <= logging.INFO:
-                        log.info("grade2:{}, {}, {}, {}".format(text_grade2, index1_origin, self.grade2_index_text, pos))
+                        log.info(
+                            "grade2:{}, {}, {}, {}".format(
+                                text_grade2, index1_origin, self.grade2_index_text, pos
+                            )
+                        )
                     braille = BnoteApp.lou.to_dots_6(text_grade2)
             if text_grade2 and braille:
                 if EDITOR_APP_LOG <= logging.INFO:
@@ -1664,16 +2031,23 @@ class EditorBaseApp(BnoteApp):
                 #     log.info("dots:{}".format(dots))
                 blink = "\u2800" * len(braille)
                 # BnoteApp.set_braille_display_dots_line(self, dots, blink, pos)
-                BnoteApp.set_braille_display_line(self, text_grade2, braille, blink, pos)
+                BnoteApp.set_braille_display_line(
+                    self, text_grade2, braille, blink, pos
+                )
 
     def __quick_search_move_call_back(self, text_to_find) -> (bool, object()):
         if text_to_find and (text_to_find != ""):
             if EDITOR_APP_LOG <= logging.INFO:
                 log.info(f"Quick search with <{text_to_find}>")
-            self._replace_parameters = editor.FindParameters(text_to_find, ignore_case=True, mask_accents=True, entire_word=False)
+            self._replace_parameters = editor.FindParameters(
+                text_to_find, ignore_case=True, mask_accents=True, entire_word=False
+            )
             res = True
             with self.lock:
-                res = self.editor.function(editor.Editor.Functions.FIND, **{'shift': False, 'replace_parameters': self._replace_parameters})
+                res = self.editor.function(
+                    editor.Editor.Functions.FIND,
+                    **{"shift": False, "replace_parameters": self._replace_parameters},
+                )
             if res:
                 # In case of research successfully, editor has a new selection of text.
                 # Refresh braille display
@@ -1710,28 +2084,48 @@ class EditorBaseApp(BnoteApp):
             if EDITOR_APP_LOG <= logging.INFO:
                 log.info("backward on line")
             with self.lock:
-                self.editor.function(editor.Editor.Functions.PUT_CARET,
-                                     **{'shift': False, 'ctrl': False,
-                                        'pos': editor.Pos(
-                                            self._braille_display.get_start_pos(), self.editor.caret().end.y)})
+                self.editor.function(
+                    editor.Editor.Functions.PUT_CARET,
+                    **{
+                        "shift": False,
+                        "ctrl": False,
+                        "pos": editor.Pos(
+                            self._braille_display.get_start_pos(),
+                            self.editor.caret().end.y,
+                        ),
+                    },
+                )
         elif self.editor.caret().end.y != 0:
             # line change only if it is not the first line.
             if EDITOR_APP_LOG <= logging.INFO:
                 log.info("backward on line change => goto start of the new line")
             with self.lock:
-                self.editor.function(editor.Editor.Functions.MOVE_UP, **{'shift': False, 'ctrl': False})
-                self.editor.function(editor.Editor.Functions.MOVE_HOME, **{'shift': False, 'ctrl': False})
+                self.editor.function(
+                    editor.Editor.Functions.MOVE_UP, **{"shift": False, "ctrl": False}
+                )
+                self.editor.function(
+                    editor.Editor.Functions.MOVE_HOME, **{"shift": False, "ctrl": False}
+                )
             # Compute braille offset position
             with self.lock:
-                (line, dots) = self.editor.editor_braille_line(self.editor.caret().end.y)
+                (line, dots) = self.editor.editor_braille_line(
+                    self.editor.caret().end.y
+                )
             offset = 0
-            braille_display_length = braille_device_characteristics.get_braille_display_length()
+            braille_display_length = (
+                braille_device_characteristics.get_braille_display_length()
+            )
             if line and (len(line) > braille_display_length):
                 offset = len(line) - braille_display_length
             with self.lock:
-                self.editor.function(editor.Editor.Functions.PUT_CARET,
-                                     **{'shift': False, 'ctrl': False,
-                                        'pos': editor.Pos(offset, self.editor.caret().end.y)})
+                self.editor.function(
+                    editor.Editor.Functions.PUT_CARET,
+                    **{
+                        "shift": False,
+                        "ctrl": False,
+                        "pos": editor.Pos(offset, self.editor.caret().end.y),
+                    },
+                )
             self._braille_display.set_start_pos(offset)
         # Refresh braille display (useful after caret move)
         if EDITOR_APP_LOG <= logging.DEBUG:
@@ -1761,7 +2155,9 @@ class EditorBaseApp(BnoteApp):
             if EDITOR_APP_LOG <= logging.INFO:
                 log.info("grade0_offset:{}".format(grade0_offset))
             with self.lock:
-                pos = self.editor.paragraph_pos(self.grade2_paragraph_index, grade0_offset)
+                pos = self.editor.paragraph_pos(
+                    self.grade2_paragraph_index, grade0_offset
+                )
                 caret = editor.Caret()
                 caret.start = pos
                 caret.end = pos
@@ -1777,7 +2173,9 @@ class EditorBaseApp(BnoteApp):
                 pos = self.editor.current_paragraph_and_line_index()
             self.grade2_paragraph_index = pos.x
             if EDITOR_APP_LOG <= logging.DEBUG:
-                log.debug("Convert to grade2 paragraph {} line index {}".format(pos.x, pos.y))
+                log.debug(
+                    "Convert to grade2 paragraph {} line index {}".format(pos.x, pos.y)
+                )
             self._grade2_refresh_braille_display(pos.y)
 
     def _forward_display(self):
@@ -1792,7 +2190,9 @@ class EditorBaseApp(BnoteApp):
                 self.grade2_paragraph_index += 1
                 paragraph_text = ""
                 with self.lock:
-                    paragraph_text = self.editor.paragraph_text(self.grade2_paragraph_index).replace(' ', '')
+                    paragraph_text = self.editor.paragraph_text(
+                        self.grade2_paragraph_index
+                    ).replace(" ", "")
                 if paragraph_text == "":
                     self._forward_display()
                 else:
@@ -1820,22 +2220,38 @@ class EditorBaseApp(BnoteApp):
             braille_offset = self._braille_display.get_start_pos()
             # Put caret at the start of display.
             with self.lock:
-                self.editor.function(editor.Editor.Functions.PUT_CARET,
-                                     **{'shift': False, 'ctrl': False,
-                                        'pos': editor.Pos(braille_offset, self.editor.caret().end.y)})
+                self.editor.function(
+                    editor.Editor.Functions.PUT_CARET,
+                    **{
+                        "shift": False,
+                        "ctrl": False,
+                        "pos": editor.Pos(braille_offset, self.editor.caret().end.y),
+                    },
+                )
         else:
             # line change.
             if EDITOR_APP_LOG <= logging.INFO:
                 log.info("Forward on line change")
             with self.lock:
                 while True:
-                    if self.editor.function(editor.Editor.Functions.MOVE_DOWN, **{'shift': False, 'ctrl': False}):
+                    if self.editor.function(
+                        editor.Editor.Functions.MOVE_DOWN,
+                        **{"shift": False, "ctrl": False},
+                    ):
                         # Move to the start of the line
-                        self.editor.function(editor.Editor.Functions.MOVE_HOME, **{'shift': False, 'ctrl': False})
+                        self.editor.function(
+                            editor.Editor.Functions.MOVE_HOME,
+                            **{"shift": False, "ctrl": False},
+                        )
                         braille_offset = 0
-                        (new_line, dots) = self.editor.editor_braille_line(self.editor.caret().end.y)
-                        new_line = new_line.replace(' ', '')
-                        if (Settings().data['editor']['forward_display_mode'] == 'normal') or new_line != "":
+                        (new_line, dots) = self.editor.editor_braille_line(
+                            self.editor.caret().end.y
+                        )
+                        new_line = new_line.replace(" ", "")
+                        if (
+                            Settings().data["editor"]["forward_display_mode"]
+                            == "normal"
+                        ) or new_line != "":
                             # Line not empty, it is the right one.
                             break
                     else:
@@ -1869,9 +2285,9 @@ class EditorBaseApp(BnoteApp):
                 file_extension = file_extension.lower()
             if file_extension:
                 # log.critical("try to lock editor")
-                kwargs['markers'] = self.editor.markers()
-                kwargs['caret'] = self.editor.caret()
-                kwargs['read_only'] = 'none'
+                kwargs["markers"] = self.editor.markers()
+                kwargs["caret"] = self.editor.caret()
+                kwargs["read_only"] = "none"
                 with self.lock:
                     # log.critical(f"editor locked {self._file_name=}")
                     # Write specific file associated to the text file written (if this file exists).
@@ -1893,5 +2309,5 @@ class EditorBaseApp(BnoteApp):
             if self._autoscroll_timeout > 1:
                 self._autoscroll_timeout -= 1
             else:
-                self._autoscroll_timeout = Settings().data['editor']['autoscroll']
+                self._autoscroll_timeout = Settings().data["editor"]["autoscroll"]
                 self._forward_display()

@@ -4,6 +4,7 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 from .ui_list_box import UiListBox
 
 # Set up the logger for this file

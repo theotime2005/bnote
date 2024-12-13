@@ -4,11 +4,13 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 from bnote.braille.lou import Lou
 from bnote.tools.singleton_meta import SingletonMeta
 
 # Setup the logger for this file
 from bnote.debug.colored_log import ColoredLogger, BRAILLE_CONVERTER_LOG
+
 log = ColoredLogger(__name__, level=BRAILLE_CONVERTER_LOG)
 
 
@@ -32,41 +34,45 @@ class BrailleConverter(metaclass=SingletonMeta):
         """
         return self._instantiate(country)
 
-    def text_to_grade(self, text, braille_language, braille_type, cursor=0) -> (str, [int] or None, [int] or None, int):
+    def text_to_grade(
+        self, text, braille_language, braille_type, cursor=0
+    ) -> (str, [int] or None, [int] or None, int):
         """
-            Translate a text to braille text with 2 index list and an int.
-            Args:
-             text : (str) The string to convert
-             braille_language : (str) 'fr_FR' for french translation
-             braille_type : 'grade0', 'grade1', 'grade2' or 'math'
-             cursor : (int) The cursor position (based 0)
-            Returns:
-             str the converted string
-             [int] First index list is the position in converted string for each char in origianl string.
-             [int] Second index is the position in original string of each char in converted string.
-             int The position of input caret in converted string (based 0)
-            Example : '¨bonjour chez vous !' cursor=5 return
-             ('¨bj àz v „!',
-             [0, 0, 0, 7, 8, 8, 12, 13, 17, 18, 18],
-             [0, 0, 0, 0, 0, 0, 0, 3, 4, 4, 4, 4, 6, 7, 7, 7, 7, 8, 9],
-             6)
+        Translate a text to braille text with 2 index list and an int.
+        Args:
+         text : (str) The string to convert
+         braille_language : (str) 'fr_FR' for french translation
+         braille_type : 'grade0', 'grade1', 'grade2' or 'math'
+         cursor : (int) The cursor position (based 0)
+        Returns:
+         str the converted string
+         [int] First index list is the position in converted string for each char in origianl string.
+         [int] Second index is the position in original string of each char in converted string.
+         int The position of input caret in converted string (based 0)
+        Example : '¨bonjour chez vous !' cursor=5 return
+         ('¨bj àz v „!',
+         [0, 0, 0, 7, 8, 8, 12, 13, 17, 18, 18],
+         [0, 0, 0, 0, 0, 0, 0, 3, 4, 4, 4, 4, 6, 7, 7, 7, 7, 8, 9],
+         6)
         """
         lou = self._instantiate(braille_language)
         return lou.text_to_grade(text, braille_type, cursor)
 
-    def grade_to_text(self, braille_text, braille_language, braille_type, cursor=0) -> (str, [int] or None, [int] or None, int):
+    def grade_to_text(
+        self, braille_text, braille_language, braille_type, cursor=0
+    ) -> (str, [int] or None, [int] or None, int):
         """
-            Translate a braille text to a text with 2 index list and an int.
-            Args:
-             braille_text: The braille text (ex: "abc")
-             braille_language : (str) 'fr_FR' for french translation
-             braille_type: 'grade0', 'grade1', 'grade2' or 'math'
-             cursor: (int) The cursor position (based 0)
-            Returns:
-             str the converted string
-             [int] First index list is the position in converted string for each char in origianl string.
-             [int] Second index is the position in original string of each char in converted string.
-             int The position of input caret in converted string (based 0)
+        Translate a braille text to a text with 2 index list and an int.
+        Args:
+         braille_text: The braille text (ex: "abc")
+         braille_language : (str) 'fr_FR' for french translation
+         braille_type: 'grade0', 'grade1', 'grade2' or 'math'
+         cursor: (int) The cursor position (based 0)
+        Returns:
+         str the converted string
+         [int] First index list is the position in converted string for each char in origianl string.
+         [int] Second index is the position in original string of each char in converted string.
+         int The position of input caret in converted string (based 0)
         """
         lou = self._instantiate(braille_language)
         return lou.grade_to_text(braille_text, braille_type, cursor)
@@ -80,15 +86,17 @@ class BrailleConverter(metaclass=SingletonMeta):
         """
         For music only !
         """
-        return self.braille_text_to_braille_u28xx(text, country, 'grade0')
+        return self.braille_text_to_braille_u28xx(text, country, "grade0")
 
     def to_text_8(self, braille, country=None) -> str:
         """
         For music only !
         """
-        return self.braille_u28xx_to_braille_text(braille, country, 'grade0')
+        return self.braille_u28xx_to_braille_text(braille, country, "grade0")
 
-    def convert_text_to_braille_text(self, text, braille_country=None, braille_type=None, caret=None):
+    def convert_text_to_braille_text(
+        self, text, braille_country=None, braille_type=None, caret=None
+    ):
         """
         Translate a unicode text string into a braille text string.
         Args:
@@ -103,7 +111,9 @@ class BrailleConverter(metaclass=SingletonMeta):
         lou = self._instantiate(braille_country)
         return lou.convert_text_to_braille_text(text, braille_type, caret)
 
-    def convert_braille_text_to_text(self, braille_text, braille_country=None, braille_type=None, caret=None):
+    def convert_braille_text_to_text(
+        self, braille_text, braille_country=None, braille_type=None, caret=None
+    ):
         """
         Translate a braille text string into a unicode text string.
         Args:
@@ -118,7 +128,9 @@ class BrailleConverter(metaclass=SingletonMeta):
         lou = self._instantiate(braille_country)
         return lou.convert_braille_text_to_text(braille_text, braille_type, caret)
 
-    def braille_text_to_braille_u28xx(self, braille_text, braille_country=None, braille_type=None):
+    def braille_text_to_braille_u28xx(
+        self, braille_text, braille_country=None, braille_type=None
+    ):
         """
         Convert a string of text to the braille forms (ex: "Abc" -> "'abc", "\u20c0\u2801\u2802\u2803" in french grade1)
         Args:

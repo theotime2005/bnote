@@ -5,13 +5,14 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 import string
 from .coordinates import Coordinates
 from .marker import Marker
 from .pos import Pos
+
 # Setup the logger for this file
 from .colored_log import ColoredLogger, EDITOR_MARKERS_LOG, logging
+
 log = ColoredLogger(__name__, level=EDITOR_MARKERS_LOG)
 
 
@@ -50,7 +51,9 @@ class Markers:
         res = False
         marker_index = paragraph.index_from_coordinates(Pos(coo.column, coo.line))
         marker_to_add = Marker(marker_index, coo.paragraph)
-        if (self.find_marker(marker_to_add) != -1) | (len(self._markers) >= self.MAX_MARKERS):
+        if (self.find_marker(marker_to_add) != -1) | (
+            len(self._markers) >= self.MAX_MARKERS
+        ):
             # Marker already exists or max number of marker reached
             if EDITOR_MARKERS_LOG <= logging.INFO:
                 log.info("Marker already exists")
@@ -68,9 +71,15 @@ class Markers:
         xml rendering for all markers.
         -> str
         """
-        marker_template = string.Template('    <marker id="${id}" paragraph="${par}" index="${index}" />')
-        return [marker_template.substitute(id=index, par=marker.paragraph, index=marker.index)
-                for index, marker in enumerate(self._markers)]
+        marker_template = string.Template(
+            '    <marker id="${id}" paragraph="${par}" index="${index}" />'
+        )
+        return [
+            marker_template.substitute(
+                id=index, par=marker.paragraph, index=marker.index
+            )
+            for index, marker in enumerate(self._markers)
+        ]
 
     def find_marker(self, marker):
         """
@@ -118,12 +127,16 @@ class Markers:
         paragraphs: Paragraphs collection of paragraphs.
         -> coo: Coordinates(column, line, paragraph) of next marker
         """
-        marker_index = paragraphs.paragraph(coo.paragraph).index_from_coordinates(Pos(coo.column, coo.line))
+        marker_index = paragraphs.paragraph(coo.paragraph).index_from_coordinates(
+            Pos(coo.column, coo.line)
+        )
         current_position = Marker(marker_index, coo.paragraph)
         select_marker = None
         # Find nearest larger marker
         for marker in self._markers:
-            if (marker > current_position) and ((not select_marker) or (marker < select_marker)):
+            if (marker > current_position) and (
+                (not select_marker) or (marker < select_marker)
+            ):
                 select_marker = marker
         # Find the first smaller marker
         if not select_marker:
@@ -131,7 +144,9 @@ class Markers:
                 if (not select_marker) or (marker < select_marker):
                     select_marker = marker
         if select_marker:
-            pos = paragraphs.paragraph(select_marker.paragraph).coordinates_from_index(select_marker.index)
+            pos = paragraphs.paragraph(select_marker.paragraph).coordinates_from_index(
+                select_marker.index
+            )
             return Coordinates(pos.x, pos.y, select_marker.paragraph)
         # No position found.
         return coo
@@ -143,12 +158,16 @@ class Markers:
         paragraphs: Paragraphs collection of paragraphs.
         -> coo: Coordinates(column, line, paragraph) of next marker
         """
-        marker_index = paragraphs.paragraph(coo.paragraph).index_from_coordinates(Pos(coo.column, coo.line))
+        marker_index = paragraphs.paragraph(coo.paragraph).index_from_coordinates(
+            Pos(coo.column, coo.line)
+        )
         current_position = Marker(marker_index, coo.paragraph)
         select_marker = None
         # Find nearest smaller marker
         for marker in self._markers:
-            if (marker < current_position) and ((not select_marker) or (marker > select_marker)):
+            if (marker < current_position) and (
+                (not select_marker) or (marker > select_marker)
+            ):
                 select_marker = marker
         # Find the last bigger marker
         if not select_marker:
@@ -156,7 +175,9 @@ class Markers:
                 if (not select_marker) or (marker > select_marker):
                     select_marker = marker
         if select_marker:
-            pos = paragraphs.paragraph(select_marker.paragraph).coordinates_from_index(select_marker.index)
+            pos = paragraphs.paragraph(select_marker.paragraph).coordinates_from_index(
+                select_marker.index
+            )
             return Coordinates(pos.x, pos.y, select_marker.paragraph)
         # No position found.
         return coo
@@ -176,10 +197,14 @@ class Markers:
             if marker.paragraph == coo.paragraph:
                 if not paragraph_index:
                     # Compute index of marker in original paragraph
-                    paragraph_index = paragraph.index_from_coordinates(Pos(coo.column, coo.line))
+                    paragraph_index = paragraph.index_from_coordinates(
+                        Pos(coo.column, coo.line)
+                    )
                 if paragraph_index <= marker.index <= paragraph_index + length:
                     # Extract marker and recompute index.
-                    markers_list.append(Marker(marker.index - paragraph_index, marker.paragraph))
+                    markers_list.append(
+                        Marker(marker.index - paragraph_index, marker.paragraph)
+                    )
                 else:
                     markers_to_keep.append(marker)
             else:
@@ -205,7 +230,11 @@ class Markers:
         -> No return
         """
         if EDITOR_MARKERS_LOG <= logging.DEBUG:
-            log.debug("Marker : Insertion {} paragraphs at {}".format(paragraphs_number, insertion_coo))
+            log.debug(
+                "Marker : Insertion {} paragraphs at {}".format(
+                    paragraphs_number, insertion_coo
+                )
+            )
         for marker in self._markers:
             if marker.paragraph >= insertion_coo.paragraph:
                 marker.paragraph += paragraphs_number
@@ -218,7 +247,9 @@ class Markers:
         -> No return
         """
         if EDITOR_MARKERS_LOG <= logging.DEBUG:
-            log.debug("Marker : Delete {} lines at {}".format(paragraphs_number, deletion_coo))
+            log.debug(
+                "Marker : Delete {} lines at {}".format(paragraphs_number, deletion_coo)
+            )
         markers_to_keep = []
         # remove markers in the deleted bloc and shift the marker after the bloc.
         for marker in self._markers:
@@ -241,13 +272,19 @@ class Markers:
         -> No return
         """
         if EDITOR_MARKERS_LOG <= logging.DEBUG:
-            log.debug("Marker : Insertion {} characters at {}".format(characters_number, insertion_coo))
+            log.debug(
+                "Marker : Insertion {} characters at {}".format(
+                    characters_number, insertion_coo
+                )
+            )
         insert_index = None
         for marker in self._markers:
             if marker.paragraph == insertion_coo.paragraph:
                 if not insert_index:
                     # Compute index of marker in original paragraph
-                    insert_index = paragraph.index_from_coordinates(Pos(insertion_coo.column, insertion_coo.line))
+                    insert_index = paragraph.index_from_coordinates(
+                        Pos(insertion_coo.column, insertion_coo.line)
+                    )
                 if insert_index <= marker.index:
                     marker.index += characters_number
 
@@ -260,11 +297,15 @@ class Markers:
         -> No return
         """
         if EDITOR_MARKERS_LOG <= logging.DEBUG:
-            log.debug("Marker : Delete {} lines at {}".format(characters_number, deletion_coo))
+            log.debug(
+                "Marker : Delete {} lines at {}".format(characters_number, deletion_coo)
+            )
         if characters_number <= 0:
             return
         # Compute index of marker in original paragraph
-        insert_index = paragraph.index_from_coordinates(Pos(deletion_coo.column, deletion_coo.line))
+        insert_index = paragraph.index_from_coordinates(
+            Pos(deletion_coo.column, deletion_coo.line)
+        )
         markers_to_keep = []
         for marker in self._markers:
             if marker.paragraph == deletion_coo.paragraph:

@@ -4,6 +4,7 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 from .ui_button import UiButton
 from .ui_checkbox import UiCheckBox
 from .ui_dialog_box import UiDialogBox
@@ -19,8 +20,18 @@ log.setLevel(UI_LOG)
 
 
 class UiSettingsDialogBox(UiDialogBox):
-    def __init__(self, dialog_name, value_name, value, valid_values, action_validation, action_cancelable=None):
-        log.info(f"{dialog_name=} {value_name=} {value=} {valid_values=} {action_validation=} {action_cancelable=}")
+    def __init__(
+        self,
+        dialog_name,
+        value_name,
+        value,
+        valid_values,
+        action_validation,
+        action_cancelable=None,
+    ):
+        log.info(
+            f"{dialog_name=} {value_name=} {value=} {valid_values=} {action_validation=} {action_cancelable=}"
+        )
 
         objects_list = []
 
@@ -31,17 +42,22 @@ class UiSettingsDialogBox(UiDialogBox):
             if isinstance(value, int):
                 value = str(value)
             if isinstance(valid_values, tuple) or isinstance(valid_values, list):
-                objects_list.append(UiListBox(value_name, ("value_str", list(valid_values)), valid_values.index(value)))
+                objects_list.append(
+                    UiListBox(
+                        value_name,
+                        ("value_str", list(valid_values)),
+                        valid_values.index(value),
+                    )
+                )
             else:
                 objects_list.append(UiEditBox(value_name, ("value_str", value)))
-
 
         # Append Ok and Cancel buttons.
         objects_list.append(UiButton(name=_("&ok"), action=self.do_validation))
         objects_list.append(UiButton(name=_("&cancel"), action=action_cancelable))
 
         kwargs = {
-            'name': dialog_name,
+            "name": dialog_name,
             "item_list": objects_list,
             "action_cancelable": action_cancelable,
         }

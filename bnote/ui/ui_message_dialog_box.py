@@ -4,6 +4,7 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 from .ui_button import UiButton
 from .ui_dialog_box import UiDialogBox
 from .ui_label import UiLabel
@@ -22,17 +23,19 @@ class UiMessageDialogBox(UiDialogBox):
         A message
     """
 
-    def __init__(self, name, message, buttons, action_cancelable=None, extra_parameters=None):
+    def __init__(
+        self, name, message, buttons, action_cancelable=None, extra_parameters=None
+    ):
         # Duplicate buttons before and after other items.
         if buttons:
             objects_list = buttons + [UiLabel(name=message)] + buttons
         else:
             objects_list = [UiLabel(name=message)]
         kwargs = {
-            'name': name,
-            'action_cancelable': action_cancelable,
-            'item_list': objects_list,
-            'extra_parameters': extra_parameters,
+            "name": name,
+            "action_cancelable": action_cancelable,
+            "item_list": objects_list,
+            "extra_parameters": extra_parameters,
         }
         super().__init__(**kwargs)
 

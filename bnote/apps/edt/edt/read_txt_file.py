@@ -5,14 +5,14 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 import time
-'''
+
+"""
 # Setup the logger for this file
 from bnote.debug import logging, READ_TXT_FILE_LOG
 log = ColoredLogger(__name__)
 log.setLevel(READ_TXT_FILE_LOG)
-'''
+"""
 
 
 class ReadTxtFile:
@@ -22,10 +22,10 @@ class ReadTxtFile:
     def read_file(self, write_lines, encoding=None):
         fp = None
         try:
-            fp = open(self._full_file_name, mode='r', encoding=encoding)
+            fp = open(self._full_file_name, mode="r", encoding=encoding)
             line = fp.readline()
             # For the first line, remove the BOM indicator
-            line = line.replace(u"\ufeff", "")
+            line = line.replace("\ufeff", "")
             cnt = 1
             if not line:
                 # File of 0 bytes, write a line anyway.
@@ -49,6 +49,7 @@ class ReadTxtFile:
 
 # -----------------------------------------------
 # Unitary test
+
 
 def write_line(line):
     print(line)

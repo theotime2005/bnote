@@ -5,7 +5,6 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 import os
 from zipfile import ZipFile
 import xml.sax
@@ -13,11 +12,12 @@ import shutil  # For del folder
 
 # Setup the logger for this file
 from .colored_log import ColoredLogger, READ_DOCX_FILE_LOG, logging
+
 log = ColoredLogger(__name__, level=READ_DOCX_FILE_LOG)
 
 
 class ReadDocxFile:
-    TEMP_FOLDER_NAME = '.bnote-temp'
+    TEMP_FOLDER_NAME = ".bnote-temp"
 
     def __init__(self, full_file_name):
         self._full_file_name = full_file_name
@@ -41,7 +41,10 @@ class ReadDocxFile:
                 self.is_types = True
             elif self.is_types and name == "Override":
                 value = attrs.getValue("ContentType")
-                if value == "application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml":
+                if (
+                    value
+                    == "application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"
+                ):
                     self.document_name = attrs.getValue("PartName")
             # keys = attrs.keys()
             # value = attrs.getValue('myAttributeName')
@@ -116,7 +119,7 @@ class ReadDocxFile:
                 self.is_table_cell = True
                 # Add column separator.
                 if self.current_data != "":
-                    self.current_data += '\t'
+                    self.current_data += "\t"
 
             # keys = attrs.keys()
             # value = attrs.getValue('myAttributeName')
@@ -149,7 +152,7 @@ class ReadDocxFile:
                     log.info("Tag end tab")
                 self.is_tab = False
                 # Add a tab separator
-                self.current_data += '\t'
+                self.current_data += "\t"
             elif name == self.TBL_TAG:
                 if READ_DOCX_FILE_LOG <= logging.INFO:
                     log.info("Tag tbl")
@@ -181,7 +184,7 @@ class ReadDocxFile:
         # raise XXError("your exception")
 
     def read_file(self, write_lines):
-        with ZipFile(self._full_file_name, 'r') as zipObj:
+        with ZipFile(self._full_file_name, "r") as zipObj:
             # Extract all the contents of zip file in current directory
             zipObj.extractall(self.TEMP_FOLDER_NAME)
 
@@ -209,6 +212,7 @@ class ReadDocxFile:
 
 # -----------------------------------------------
 # Unitary test
+
 
 def write_line(line):
     print(line)

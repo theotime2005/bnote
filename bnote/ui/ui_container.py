@@ -4,6 +4,7 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 import unicodedata
 
 from bnote.apps.bnote_app import BnoteApp
@@ -38,8 +39,8 @@ class UiContainer(UiObject):
         self.set_id(UiContainer.object_id)
         UiContainer.object_id += 1
         parameters = {
-            'ui_objects': self.__set_objects,
-            'focused_object': self.__set_focus_from_index,
+            "ui_objects": self.__set_objects,
+            "focused_object": self.__set_focus_from_index,
         }
         for name, value in parameters.items():
             # log.info(f"{name=}, {value=}")
@@ -121,14 +122,22 @@ class UiContainer(UiObject):
         if root_container != self:
             root_container._update_braille_display()
         else:
-            text_objects, braille_objects, braille_blinking_objects, id_array_objects = self.get_presentation()
+            (
+                text_objects,
+                braille_objects,
+                braille_blinking_objects,
+                id_array_objects,
+            ) = self.get_presentation()
             pos = self.__get_focused_object_pos_from_id(id_array_objects)
             UiContainer.id_array_objects = id_array_objects
-            UiContainer.braille_display.set_data_line(text_objects, braille_objects, braille_blinking_objects, pos)
+            UiContainer.braille_display.set_data_line(
+                text_objects, braille_objects, braille_blinking_objects, pos
+            )
 
     """
     Return the display offset of focused object from id_array_object given by get_presentation.
     """
+
     def __get_focused_object_pos_from_id(self, id_array_objects):
         # DP FIXME optimize the research of focused object...
         focused_object_id = self.ui_objects[self._get_focused_object_index()].get_id()
@@ -160,8 +169,9 @@ class UiContainer(UiObject):
         self.__set_focus_from_index(0)
 
     def get_data_line(self, force_refresh=False) -> (str, str, str):
-        text_objects, braille_objects, braille_blinking_objects = \
+        text_objects, braille_objects, braille_blinking_objects = (
             UiContainer.braille_display.get_data_line(force_refresh)
+        )
         return text_objects, braille_objects, braille_blinking_objects
 
     def get_object(self, action):
@@ -223,22 +233,40 @@ class UiContainer(UiObject):
         Construct presentation for an object
         :return: (text, braille static dots, braille blinking, dots list of id of braille length
         """
-        text_objects, braille_objects, braille_blinking_objects, id_array_objects = super().get_presentation()
+        text_objects, braille_objects, braille_blinking_objects, id_array_objects = (
+            super().get_presentation()
+        )
         if self._is_root:
-            text_separator, braille_separator, pos = BnoteApp.lou.convert_to_braille(self._braille_type, UiContainer.CONTAINER_PARENT_SEPARATOR)
+            text_separator, braille_separator, pos = BnoteApp.lou.convert_to_braille(
+                self._braille_type, UiContainer.CONTAINER_PARENT_SEPARATOR
+            )
             first_loop = True
             for ui_object in self.ui_objects:
-                text_object, braille_object, braille_blinking, id_array_object = ui_object.get_presentation()
+                text_object, braille_object, braille_blinking, id_array_object = (
+                    ui_object.get_presentation()
+                )
                 # text_object is None for hidden object.
                 if text_object:
                     text_objects = text_separator.join([text_objects, text_object])
-                    braille_objects = braille_separator.join([braille_objects, braille_object])
-                    braille_blinking_objects = \
-                        ("\u2800" * len(braille_separator)).join([braille_blinking_objects, braille_blinking])
-                    id_array_objects = [*id_array_objects, *([0] * len(braille_separator)), *id_array_object]
+                    braille_objects = braille_separator.join(
+                        [braille_objects, braille_object]
+                    )
+                    braille_blinking_objects = ("\u2800" * len(braille_separator)).join(
+                        [braille_blinking_objects, braille_blinking]
+                    )
+                    id_array_objects = [
+                        *id_array_objects,
+                        *([0] * len(braille_separator)),
+                        *id_array_object,
+                    ]
                     if first_loop:
                         # First separator (parent:child) is different of next (child child...)
-                        text_separator, braille_separator, pos = BnoteApp.lou.convert_to_braille(self._braille_type, UiContainer.CONTAINER_CHILD_SEPARATOR)
+                        text_separator, braille_separator, pos = (
+                            BnoteApp.lou.convert_to_braille(
+                                self._braille_type,
+                                UiContainer.CONTAINER_CHILD_SEPARATOR,
+                            )
+                        )
                         first_loop = False
         return text_objects, braille_objects, braille_blinking_objects, id_array_objects
 
@@ -264,7 +292,11 @@ class UiContainer(UiObject):
         if isinstance(key, str):
             key = self._unaccented_text(key)
             # Remove Shift modifier to valid Ctrl+c or Ctrl+Shift+C
-            if modifier == Keyboard.BrailleModifier.BRAILLE_FLAG_SHIFT + Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL:
+            if (
+                modifier
+                == Keyboard.BrailleModifier.BRAILLE_FLAG_SHIFT
+                + Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL
+            ):
                 modifier = Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL
         for ui_object in self.ui_objects:
             if not ui_object.is_hide():
@@ -288,9 +320,13 @@ class UiContainer(UiObject):
         if root_container is None:
             raise ValueError("No root container ?")
         else:
-            treated, in_menu = self.get_focused_object().exec_character(modifier, character, data)
+            treated, in_menu = self.get_focused_object().exec_character(
+                modifier, character, data
+            )
             if not treated:
-                treated, in_menu = root_container.exec_character(modifier, character, data)
+                treated, in_menu = root_container.exec_character(
+                    modifier, character, data
+                )
         return in_menu
 
     def exec_character(self, modifier, character, data) -> (bool, bool):
@@ -307,7 +343,9 @@ class UiContainer(UiObject):
             if ui_object:
                 # Find shortcut => set focus and execute action on this object.
                 self._set_focused_object(ui_object)
-                treated, in_menu = self._action_on_focused_object(Keyboard.BrailleModifier.BRAILLE_FLAG_NONE)
+                treated, in_menu = self._action_on_focused_object(
+                    Keyboard.BrailleModifier.BRAILLE_FLAG_NONE
+                )
         return treated, in_menu
 
     def input_bramigraph(self, modifier, bramigraph) -> bool:
@@ -322,7 +360,9 @@ class UiContainer(UiObject):
             raise ValueError("No root container ?")
         else:
             # Exec input_bramigraph on focused child.
-            treated, in_menu = root_container.get_focused_object().exec_bramigraph(modifier, bramigraph)
+            treated, in_menu = root_container.get_focused_object().exec_bramigraph(
+                modifier, bramigraph
+            )
             if not treated:
                 treated, in_menu = root_container.exec_bramigraph(modifier, bramigraph)
         return in_menu
@@ -347,7 +387,7 @@ class UiContainer(UiObject):
                 Keyboard.BrailleFunction.BRAMIGRAPH_END: self._focus_to_last,
                 Keyboard.BrailleFunction.BRAMIGRAPH_TAB: self._tab,
                 Keyboard.BrailleFunction.BRAMIGRAPH_SHIFT_TAB: self._shift_tab,
-                }
+            }
             func = switcher.get(bramigraph, None)
             if func is not None:
                 # Execute function
@@ -369,7 +409,9 @@ class UiContainer(UiObject):
             raise ValueError("No root container ?")
         else:
             # Exec input_command on focused child.
-            treated, in_menu = root_container.get_focused_object().exec_command(modifier, key_id)
+            treated, in_menu = root_container.get_focused_object().exec_command(
+                modifier, key_id
+            )
             if not treated:
                 treated, in_menu = root_container.exec_command(modifier, key_id)
         return in_menu
@@ -416,7 +458,9 @@ class UiContainer(UiObject):
             if root_container is None:
                 raise ValueError("No root container ?")
             else:
-                treated, in_menu = root_container.do_interactive(modifier, position, key_type)
+                treated, in_menu = root_container.do_interactive(
+                    modifier, position, key_type
+                )
         return in_menu
 
     def do_interactive(self, modifier, position, key_type) -> (bool, bool):
@@ -424,8 +468,9 @@ class UiContainer(UiObject):
         if self == self.get_root():
             # Determine the clicked object.
             line_pos = position + UiContainer.braille_display.get_start_pos() - 1
-            if (modifier == Keyboard.BrailleModifier.BRAILLE_FLAG_NONE) and \
-                    (line_pos < len(UiContainer.id_array_objects)):
+            if (modifier == Keyboard.BrailleModifier.BRAILLE_FLAG_NONE) and (
+                line_pos < len(UiContainer.id_array_objects)
+            ):
                 object_id = UiContainer.id_array_objects[line_pos]
                 log.info(f"interactive pos={line_pos}, object_id={object_id}")
                 if self.get_id() == object_id:
@@ -445,7 +490,9 @@ class UiContainer(UiObject):
                     if not ui_object.is_focused():
                         self.get_focused_object().on_focus_lost(with_speaking=False)
                         ui_object.on_focus(with_speaking=False)
-                    treated, in_menu = ui_object.exec_interactive(modifier, relative_pos, key_type)
+                    treated, in_menu = ui_object.exec_interactive(
+                        modifier, relative_pos, key_type
+                    )
         return treated, in_menu
 
     def _tab(self, modifier):
@@ -472,7 +519,9 @@ class UiContainer(UiObject):
             # With other flags, the function is not treated.
             return False, True
 
-    def _action_on_focused_object(self, modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE) -> (bool, bool):
+    def _action_on_focused_object(
+        self, modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE
+    ) -> (bool, bool):
         """
         :return: (Treated, stay in menu)
         """

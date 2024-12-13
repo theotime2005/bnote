@@ -4,6 +4,7 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 from pathlib import Path
 
 from bnote.apps.fman.file_manager import BNOTE_FOLDER
@@ -24,6 +25,7 @@ class MasterMindApp(BnoteApp):
     """
     MasterMind application.
     """
+
     def __init__(self, put_in_function_queue):
         """
         Class construtor
@@ -42,7 +44,7 @@ class MasterMindApp(BnoteApp):
         self._current_line = 0
         # Current timer
         self._current_name = ""
-        self._current_level = 'level_1'
+        self._current_level = "level_1"
         self._timer_paused = False
         self._timer_seconds = 0
         # The lines of testing.
@@ -54,9 +56,9 @@ class MasterMindApp(BnoteApp):
     def __create_menu(self):
         # Instantiate menu (A menu bar with 1 sub menu of 2 menu items and one menu item).
         self.level_msg = {
-            'level_1': _("(4 positions, 6 colors, all different)"),
-            'level_2': _("(5 positions, 6 colors, all different)"),
-            'level_3': _("(5 positions, 6 colors, possible duplicate)")
+            "level_1": _("(4 positions, 6 colors, all different)"),
+            "level_2": _("(5 positions, 6 colors, all different)"),
+            "level_3": _("(5 positions, 6 colors, possible duplicate)"),
         }
         return ui.UiMenuBar(
             name=_("mastermind"),
@@ -65,22 +67,45 @@ class MasterMindApp(BnoteApp):
                 ui.UiMenuBar(
                     name=_("&new"),
                     menu_item_list=[
-                        ui.UiMenuItem(name="{}".format(self.level_msg['level_1']), action=self._exec_new_1),
-                        ui.UiMenuItem(name="{}".format(self.level_msg['level_2']), action=self._exec_new_2),
-                        ui.UiMenuItem(name="{}".format(self.level_msg['level_3']), action=self._exec_new_3),
-                    ]),
+                        ui.UiMenuItem(
+                            name="{}".format(self.level_msg["level_1"]),
+                            action=self._exec_new_1,
+                        ),
+                        ui.UiMenuItem(
+                            name="{}".format(self.level_msg["level_2"]),
+                            action=self._exec_new_2,
+                        ),
+                        ui.UiMenuItem(
+                            name="{}".format(self.level_msg["level_3"]),
+                            action=self._exec_new_3,
+                        ),
+                    ],
+                ),
                 ui.UiMenuBar(
                     name=_("&scores"),
                     menu_item_list=[
                         ui.UiMenuBar(
                             name=_("&view"),
                             menu_item_list=[
-                                ui.UiMenuItem(name="{}".format(self.level_msg['level_1']), action=self._exec_view_1),
-                                ui.UiMenuItem(name="{}".format(self.level_msg['level_2']), action=self._exec_view_2),
-                                ui.UiMenuItem(name="{}".format(self.level_msg['level_3']), action=self._exec_view_3),
-                            ]),
-                        ui.UiMenuItem(name=_("&delete"), action=self._exec_delete_high_scores),
-                    ]),
+                                ui.UiMenuItem(
+                                    name="{}".format(self.level_msg["level_1"]),
+                                    action=self._exec_view_1,
+                                ),
+                                ui.UiMenuItem(
+                                    name="{}".format(self.level_msg["level_2"]),
+                                    action=self._exec_view_2,
+                                ),
+                                ui.UiMenuItem(
+                                    name="{}".format(self.level_msg["level_3"]),
+                                    action=self._exec_view_3,
+                                ),
+                            ],
+                        ),
+                        ui.UiMenuItem(
+                            name=_("&delete"), action=self._exec_delete_high_scores
+                        ),
+                    ],
+                ),
             ],
         )
 
@@ -107,37 +132,39 @@ class MasterMindApp(BnoteApp):
     # ---------------
     # Menu functions.
     def _exec_new_1(self):
-        self._current_level = 'level_1'
+        self._current_level = "level_1"
         self._mastermind = MasterMind(4, False)
         self.__start_game()
         self.set_data_line()
 
     def _exec_new_2(self):
-        self._current_level = 'level_2'
+        self._current_level = "level_2"
         self._mastermind = MasterMind(5, False)
         self.__start_game()
         self.set_data_line()
 
     def _exec_new_3(self):
-        self._current_level = 'level_3'
+        self._current_level = "level_3"
         self._mastermind = MasterMind(5, True)
         self.__start_game()
         self.set_data_line()
 
     def _exec_view_1(self):
-        self.__display_scores('level_1')
+        self.__display_scores("level_1")
 
     def _exec_view_2(self):
-        self.__display_scores('level_2')
+        self.__display_scores("level_2")
 
     def _exec_view_3(self):
-        self.__display_scores('level_3')
+        self.__display_scores("level_3")
 
     def _exec_delete_high_scores(self):
         # Ask confirmation to delete scores of one level.
         self._current_dialog = ui.UiMessageDialogBox(
             name=_("information"),
-            message=_("are you sure to delete high score for {}").format(self.level_msg[self._current_level]),
+            message=_("are you sure to delete high score for {}").format(
+                self.level_msg[self._current_level]
+            ),
             buttons=[
                 ui.UiButton(name=_("&ok"), action=self._exec_valid_delete_scores),
                 ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
@@ -163,15 +190,18 @@ class MasterMindApp(BnoteApp):
         self._current_dialog = ui.UiDialogBox(
             name=_("scores"),
             item_list=[
-                ui.UiListBox(name=_("&score"), value=('score', self._high_scores.scores_list(level))),
-                ui.UiButton(name=_("&ok"), action=self._exec_cancel_dialog)
+                ui.UiListBox(
+                    name=_("&score"),
+                    value=("score", self._high_scores.scores_list(level)),
+                ),
+                ui.UiButton(name=_("&ok"), action=self._exec_cancel_dialog),
             ],
             action_cancelable=self._exec_cancel_dialog,
         )
 
     def _exec_valid_proposition_dialog(self):
         kwargs = self._current_dialog.get_values()
-        value = kwargs['value']
+        value = kwargs["value"]
         proposition = []
         if len(value) == self._mastermind.nb_tokens():
             for c in value:
@@ -182,7 +212,9 @@ class MasterMindApp(BnoteApp):
                     break
         if not self._mastermind.check_tokens(proposition):
             self._current_dialog = ui.UiInfoDialogBox(
-                message=_("invalid proposition, proposition must be {} numbers must be between 1 to 6.").format(self._mastermind.nb_tokens()),
+                message=_(
+                    "invalid proposition, proposition must be {} numbers must be between 1 to 6."
+                ).format(self._mastermind.nb_tokens()),
                 action=self._edit_proposition,
             )
         else:
@@ -209,13 +241,18 @@ class MasterMindApp(BnoteApp):
         )
 
     def _exec_valid_win_dialog(self):
-        if self._high_scores.is_better_score(self._current_level, self._current_line) != -1:
+        if (
+            self._high_scores.is_better_score(self._current_level, self._current_line)
+            != -1
+        ):
             self._current_dialog = ui.UiDialogBox(
                 name=_("new score"),
                 item_list=[
-                    ui.UiFileEditBox(name=_("&name"), value=('name', self._current_name)),
+                    ui.UiFileEditBox(
+                        name=_("&name"), value=("name", self._current_name)
+                    ),
                     ui.UiButton(name=_("&ok"), action=self._exec_valid_win_name_dialog),
-                    ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog)
+                    ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
                 ],
                 action_cancelable=self._exec_cancel_dialog,
             )
@@ -224,8 +261,10 @@ class MasterMindApp(BnoteApp):
 
     def _exec_valid_win_name_dialog(self):
         kwargs = self._current_dialog.get_values()
-        self._current_name = kwargs['name']
-        self._high_scores.add_score(self._current_level, self._current_name, self._current_line + 1)
+        self._current_name = kwargs["name"]
+        self._high_scores.add_score(
+            self._current_level, self._current_name, self._current_line + 1
+        )
         self.__display_scores(self._current_level)
 
     # --------------------
@@ -308,7 +347,9 @@ class MasterMindApp(BnoteApp):
         :return: True if command treated, otherwise False
         """
         log.info(f"{modifier=} {position=} {key_type=}")
-        done = super(MasterMindApp, self).input_interactive(modifier, position, key_type)
+        done = super(MasterMindApp, self).input_interactive(
+            modifier, position, key_type
+        )
         if not done:
             # interactive key treatment
             pass
@@ -362,7 +403,7 @@ class MasterMindApp(BnoteApp):
         return False
 
     def __last_line(self):
-        if self._current_line != len(self._mastermind_doc) -1:
+        if self._current_line != len(self._mastermind_doc) - 1:
             self._current_line = len(self._mastermind_doc) - 1
             return True
         return False
@@ -372,11 +413,13 @@ class MasterMindApp(BnoteApp):
             self._current_dialog = ui.UiDialogBox(
                 name=_("cursor"),
                 item_list=[
-                     ui.UiEditBox(name=_("value"),
-                               value=('value', self._last_proposition)
-                               ),
-                     ui.UiButton(name=_("&ok"), action=self._exec_valid_proposition_dialog),
-                     ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog)
+                    ui.UiEditBox(
+                        name=_("value"), value=("value", self._last_proposition)
+                    ),
+                    ui.UiButton(
+                        name=_("&ok"), action=self._exec_valid_proposition_dialog
+                    ),
+                    ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
                 ],
                 action_cancelable=self._exec_cancel_dialog,
             )
@@ -395,15 +438,15 @@ class MasterMindApp(BnoteApp):
             braille_static = BnoteApp.lou.to_dots_8(line)
             braille_blinking = "\u2800" * len(braille_static)
         else:
-            data = self._mastermind.display_proposition(self._mastermind_doc[self._current_line])
-            line = ' '.join([
-                "{:2d}".format(self._current_line + 1),
-                data,
-            ])
+            data = self._mastermind.display_proposition(
+                self._mastermind_doc[self._current_line]
+            )
+            line = " ".join(
+                [
+                    "{:2d}".format(self._current_line + 1),
+                    data,
+                ]
+            )
             braille_static = BnoteApp.lou.to_dots_8(line)
             braille_blinking = "\u2800" * len(braille_static)
         self._braille_display.set_data_line(line, braille_static, braille_blinking, 0)
-
-
-
-

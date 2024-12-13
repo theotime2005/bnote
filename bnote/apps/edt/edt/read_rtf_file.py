@@ -5,7 +5,6 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 import os
 from striprtf.striprtf import rtf_to_text
 
@@ -19,7 +18,7 @@ class ReadRtfFile:
         fp = None
 
         try:
-            fp = open(self._full_file_name, mode='r')
+            fp = open(self._full_file_name, mode="r")
 
             rtf = fp.read()
             text = rtf_to_text(rtf)

@@ -5,7 +5,6 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 import xml.sax
 
 # Setup the logger for this file
@@ -46,8 +45,8 @@ class ReadMbeFile:
                 # Parse span attribute 'title'
                 self.span_title = ""
                 keys = attrs.keys()
-                if 'title' in keys:
-                    self.span_title = attrs.getValue('title')
+                if "title" in keys:
+                    self.span_title = attrs.getValue("title")
                     log.info("SPAN TITLE <{}>".format(self.span_title))
                 self.is_span = True
 
@@ -62,10 +61,18 @@ class ReadMbeFile:
                 self.is_p = False
             elif name == "span":
                 if self.span_data:
-                    if self.span_title == 'Grade1' or self.span_title == 'Grade2' or self.span_title == 'Math':
+                    if (
+                        self.span_title == "Grade1"
+                        or self.span_title == "Grade2"
+                        or self.span_title == "Math"
+                    ):
                         # Transcode braille code to char.
                         text = self.lou.to_text_8(self.span_data)
-                        log.info("{} braille <{}> character <{}>".format(self.span_title, self.span_data, text))
+                        log.info(
+                            "{} braille <{}> character <{}>".format(
+                                self.span_title, self.span_data, text
+                            )
+                        )
                         self.current_data += text
                     else:
                         log.info("text <{}>".format(self.span_data))
@@ -80,8 +87,8 @@ class ReadMbeFile:
                 if self.is_span:
                     self.span_data += content
                 # else:
-                    # store all text external to the span
-                    # !!! this branch generate multiple space before and after span content
+                # store all text external to the span
+                # !!! this branch generate multiple space before and after span content
                 #    self.current_data += content
 
     def read_file(self, lou, write_lines):
@@ -98,6 +105,7 @@ class ReadMbeFile:
 
 # -----------------------------------------------
 # Unitary test
+
 
 def write_line(line):
     print(line)

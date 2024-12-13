@@ -4,6 +4,7 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 import json
 
 from mutagen.asf import ASFUnicodeAttribute
@@ -27,7 +28,7 @@ from bnote.debug.colored_log import ColoredLogger, MP3_APP_LOG
 log = ColoredLogger(__name__)
 log.setLevel(MP3_APP_LOG)
 
-FILE_TYPES = (".wav", ".mp3", ".wma", ".ogg")
+FILE_TYPES = (".wav", ".mp3", ".wma", ".ogg", ".m4a", ".ts")
 FOLDER_PLAYLIST = BNOTE_FOLDER / Path("bnote-playlist")
 
 
@@ -35,6 +36,7 @@ class Mp3App(BnoteApp):
     """
     MP3 player application.
     """
+
     @staticmethod
     def known_extension():
         return FILE_TYPES
@@ -69,18 +71,18 @@ class Mp3App(BnoteApp):
             except OSError as e:
                 log.warning("EXCEPTION Path.mkdir({}) : e={}".format(__root_path, e))
         # Construct a new playlist if 'filename' or 'filenames' parameters is defined.
-        if 'filename' in kwargs.keys() or 'filenames' in kwargs.keys():
+        if "filename" in kwargs.keys() or "filenames" in kwargs.keys():
             self.set_list_and_play(**kwargs)
 
     def set_list_and_play(self, **kwargs):
         log.info(f"{kwargs}")
-        if 'filename' in kwargs.keys() or 'filenames' in kwargs.keys():
+        if "filename" in kwargs.keys() or "filenames" in kwargs.keys():
             # Clean up the list and insert the filename.
             self.__exec_valid_delete_all_items()
-            if 'filename' in kwargs.keys():
-                self._add_to_playlist(Path(kwargs['filename']))
-            elif 'filenames' in kwargs.keys():
-                self._add_list_to_playlist(kwargs['filenames'])
+            if "filename" in kwargs.keys():
+                self._add_to_playlist(Path(kwargs["filename"]))
+            elif "filenames" in kwargs.keys():
+                self._add_list_to_playlist(kwargs["filenames"])
             self.__playlist_index = 0
             # start the first item of the list.
             self._exec_playlist()
@@ -96,54 +98,135 @@ class Mp3App(BnoteApp):
                 ui.UiMenuBar(
                     name=_("play &list"),
                     menu_item_list=[
-                        ui.UiMenuItem(name=_("&open"), action=self._exec_open_playlist,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='O'),
-                        ui.UiMenuItem(name=_("&save"), action=self._exec_save_playlist,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='S'),
-                        ui.UiMenuItem(name=_("&delete"), action=self._exec_delete_playlist),
-                        ui.UiMenuItem(name=_("delete &all"), action=self._exec_delete_all_playlist),
-                    ]),
+                        ui.UiMenuItem(
+                            name=_("&open"),
+                            action=self._exec_open_playlist,
+                            shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                            shortcut_key="O",
+                        ),
+                        ui.UiMenuItem(
+                            name=_("&save"),
+                            action=self._exec_save_playlist,
+                            shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                            shortcut_key="S",
+                        ),
+                        ui.UiMenuItem(
+                            name=_("&delete"), action=self._exec_delete_playlist
+                        ),
+                        ui.UiMenuItem(
+                            name=_("delete &all"), action=self._exec_delete_all_playlist
+                        ),
+                    ],
+                ),
                 ui.UiMenuBar(
                     name=_("item"),
                     menu_item_list=[
-                        ui.UiMenuItem(name=_("&add"), action=self._exec_add_item,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='A'),
+                        ui.UiMenuItem(
+                            name=_("&add"),
+                            action=self._exec_add_item,
+                            shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                            shortcut_key="A",
+                        ),
                         ui.UiMenuItem(name=_("de&lete"), action=self._exec_delete_item),
-                        ui.UiMenuItem(name=_("delete &all"), action=self._exec_delete_all_items),
-                        ui.UiMenuItem(name=_("to the &beginning"), action=self._exec_item_to_beginning,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='H'),
-                        ui.UiMenuItem(name=_("to the &end"), action=self._exec_item_to_end,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='E'),
-                        ui.UiMenuItem(name=_("&up"), action=self._exec_item_up,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='U'),
-                        ui.UiMenuItem(name=_("&down"), action=self._exec_item_down,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='D'),
-                        ui.UiMenuItem(name=_("&properties"), action=self._exec_item_properties),
-                    ]),
+                        ui.UiMenuItem(
+                            name=_("delete &all"), action=self._exec_delete_all_items
+                        ),
+                        ui.UiMenuItem(
+                            name=_("to the &beginning"),
+                            action=self._exec_item_to_beginning,
+                            shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                            shortcut_key="H",
+                        ),
+                        ui.UiMenuItem(
+                            name=_("to the &end"),
+                            action=self._exec_item_to_end,
+                            shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                            shortcut_key="E",
+                        ),
+                        ui.UiMenuItem(
+                            name=_("&up"),
+                            action=self._exec_item_up,
+                            shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                            shortcut_key="U",
+                        ),
+                        ui.UiMenuItem(
+                            name=_("&down"),
+                            action=self._exec_item_down,
+                            shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                            shortcut_key="D",
+                        ),
+                        ui.UiMenuItem(
+                            name=_("&properties"), action=self._exec_item_properties
+                        ),
+                    ],
+                ),
                 ui.UiMenuBar(
                     name=_("&play"),
                     menu_item_list=[
-                        ui.UiMenuItem(name=_("&item"), action=self._exec_play_selected,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='I'),
-                        ui.UiMenuItem(name=_("&list"), action=self._exec_playlist,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='L'),
-                        ui.UiMenuItem(name=_("&next"), action=self._exec_next, is_hide=True,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='F'),
-                        ui.UiMenuItem(name=_("pre&vious"), action=self._exec_previous, is_hide=True,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='B'),
-                        ui.UiMenuItem(name=_("&pause"), action=self._exec_pause_resume, is_hide=True,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='P'),
-                        ui.UiMenuItem(name=_("s&top"), action=self._exec_stop, is_hide=True,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='T'),
-                        ui.UiMenuItem(name=_("&forward (30s)"), action=self._exec_forward, is_hide=False,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='R'),
-                        ui.UiMenuItem(name=_("&backward (10s)"), action=self._exec_backward, is_hide=False,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='C'),
-                        ui.UiMenuItem(name=_("position"), action=self._exec_position, is_hide=True,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                                   shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F2),
+                        ui.UiMenuItem(
+                            name=_("&item"),
+                            action=self._exec_play_selected,
+                            shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                            shortcut_key="I",
+                        ),
+                        ui.UiMenuItem(
+                            name=_("&list"),
+                            action=self._exec_playlist,
+                            shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                            shortcut_key="L",
+                        ),
+                        ui.UiMenuItem(
+                            name=_("&next"),
+                            action=self._exec_next,
+                            is_hide=True,
+                            shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                            shortcut_key="F",
+                        ),
+                        ui.UiMenuItem(
+                            name=_("pre&vious"),
+                            action=self._exec_previous,
+                            is_hide=True,
+                            shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                            shortcut_key="B",
+                        ),
+                        ui.UiMenuItem(
+                            name=_("&pause"),
+                            action=self._exec_pause_resume,
+                            is_hide=True,
+                            shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                            shortcut_key="P",
+                        ),
+                        ui.UiMenuItem(
+                            name=_("s&top"),
+                            action=self._exec_stop,
+                            is_hide=True,
+                            shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                            shortcut_key="T",
+                        ),
+                        ui.UiMenuItem(
+                            name=_("&forward (30s)"),
+                            action=self._exec_forward,
+                            is_hide=False,
+                            shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                            shortcut_key="R",
+                        ),
+                        ui.UiMenuItem(
+                            name=_("&backward (10s)"),
+                            action=self._exec_backward,
+                            is_hide=False,
+                            shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                            shortcut_key="C",
+                        ),
+                        ui.UiMenuItem(
+                            name=_("position"),
+                            action=self._exec_position,
+                            is_hide=True,
+                            shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                            shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F2,
+                        ),
                         ui.UiMenuItem(name=_("volume"), action=self._exec_volume),
-                    ]),
+                    ],
+                ),
             ],
         )
 
@@ -184,9 +267,17 @@ class Mp3App(BnoteApp):
             self._menu.get_object(self._exec_forward).unhide()
             self._menu.get_object(self._exec_backward).unhide()
             if AudioPlayer().is_paused():
-                self._menu.rename_item(_("&resume"), Settings().data['system']['braille_type'], self._exec_pause_resume)
+                self._menu.rename_item(
+                    _("&resume"),
+                    Settings().data["system"]["braille_type"],
+                    self._exec_pause_resume,
+                )
             else:
-                self._menu.rename_item(_("p&ause"), Settings().data['system']['braille_type'], self._exec_pause_resume)
+                self._menu.rename_item(
+                    _("p&ause"),
+                    Settings().data["system"]["braille_type"],
+                    self._exec_pause_resume,
+                )
         else:
             log.info("AudioPlayer() is not playing.")
             self._menu.get_object(self._exec_stop).hide()
@@ -228,7 +319,9 @@ class Mp3App(BnoteApp):
     # Menu functions.
     def _exec_play_selected(self):
         if self.__playlist:
-            AudioPlayer().file_play(self.__playlist[self.__playlist_index], self.__playlist_index)
+            AudioPlayer().file_play(
+                self.__playlist[self.__playlist_index], self.__playlist_index
+            )
 
     @staticmethod
     def _exec_pause_resume():
@@ -242,16 +335,19 @@ class Mp3App(BnoteApp):
             self._current_dialog = ui.UiDialogBox(
                 name=_("editor"),
                 item_list=[
-                    ui.UiListBox(name=_("&position"), value=('position_value', [str(i) for i in range(0, 100, 5)])),
+                    ui.UiListBox(
+                        name=_("&position"),
+                        value=("position_value", [str(i) for i in range(0, 100, 5)]),
+                    ),
                     ui.UiButton(name=_("&ok"), action=self._exec_valid_position_dialog),
                     ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
                 ],
-                action_cancelable=self._exec_cancel_dialog
+                action_cancelable=self._exec_cancel_dialog,
             )
 
     def _exec_valid_position_dialog(self):
         kwargs = self._current_dialog.get_values()
-        pos_value = kwargs['position_value']
+        pos_value = kwargs["position_value"]
         if AudioPlayer().is_playing():
             AudioPlayer().set_media_player_position(int(pos_value) / 100)
 
@@ -311,7 +407,7 @@ class Mp3App(BnoteApp):
             command_switcher = {
                 Keyboard.KeyId.KEY_CARET_UP: self.__previous_line,
                 Keyboard.KeyId.KEY_CARET_DOWN: self.__next_line,
-                Keyboard.KeyId.KEY_START_DOC:  self.__first_line,
+                Keyboard.KeyId.KEY_START_DOC: self.__first_line,
                 Keyboard.KeyId.KEY_END_DOC: self.__last_line,
             }
             function = command_switcher.get(key_id, None)
@@ -403,8 +499,9 @@ class Mp3App(BnoteApp):
         # Here treat the specific FunctionId added by this application.
         if function_id == FunctionId.FUNCTION_SETTINGS_CHANGE:
             # Change radio volume
-            if (kwargs['section'] == 'radio') and \
-                    ((kwargs['key'] == 'volume_headphone') or (kwargs['key'] == 'volume_hp')):
+            if (kwargs["section"] == "radio") and (
+                (kwargs["key"] == "volume_headphone") or (kwargs["key"] == "volume_hp")
+            ):
                 AudioPlayer().set_volume()
                 log.error(f"volume stored <{AudioPlayer().get_volume()}>")
         # call base class decoding.
@@ -423,14 +520,14 @@ class Mp3App(BnoteApp):
         headphone = Gpio().is_head_phone()
         output_change = False
         if headphone:
-            if self.current_output != 'headphone':
+            if self.current_output != "headphone":
                 log.info("switch to headphone")
                 output_change = True
-                self.current_output = 'headphone'
-        elif self.current_output != 'hp':
+                self.current_output = "headphone"
+        elif self.current_output != "hp":
             log.info("switch to hp")
             output_change = True
-            self.current_output = 'hp'
+            self.current_output = "hp"
         # --- SURVEY MENU HIDDEN OR NOT ACCORDING PLAYING
         if AudioPlayer().is_playing() and not self.__timer_param_is_playing:
             self.__timer_param_is_playing = True
@@ -441,7 +538,11 @@ class Mp3App(BnoteApp):
             # Update hidden menu items to allow or not allow shortcuts.
             self._update_menu_items()
         # --- SURVEY LIST AUTO-REFRESH DURING PLAYING
-        if AudioPlayer().is_playing() and not self._in_menu and self._current_dialog is None:
+        if (
+            AudioPlayer().is_playing()
+            and not self._in_menu
+            and self._current_dialog is None
+        ):
             braille_display_offset = self.__ui_line.braille_display.get_start_pos()
             index = AudioPlayer().get_playlist_index()
             if index >= 0:
@@ -462,7 +563,10 @@ class Mp3App(BnoteApp):
             return True
 
     def __next_line(self):
-        if self.__playlist is not None and self.__playlist_index < len(self.__playlist) -1:
+        if (
+            self.__playlist is not None
+            and self.__playlist_index < len(self.__playlist) - 1
+        ):
             self.__playlist_index += 1
             return True
 
@@ -472,7 +576,9 @@ class Mp3App(BnoteApp):
             return True
 
     def __last_line(self):
-        if self.__playlist is not None and self.__playlist_index < (len(self.__playlist) - 1):
+        if self.__playlist is not None and self.__playlist_index < (
+            len(self.__playlist) - 1
+        ):
             self.__playlist_index = len(self.__playlist) - 1
             return True
 
@@ -480,9 +586,11 @@ class Mp3App(BnoteApp):
         self._current_dialog = ui.UiDialogBox(
             name=_("insert file"),
             item_list=[
-                ui.UiFileBox(root=FileManager.get_root_path(), suffix_filter=FILE_TYPES),
+                ui.UiFileBox(
+                    root=FileManager.get_root_path(), suffix_filter=FILE_TYPES
+                ),
                 ui.UiButton(name=_("&ok"), action=self._exec_choose_file),
-                ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog)
+                ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
             ],
             action_cancelable=self._exec_cancel_dialog,
         )
@@ -499,7 +607,9 @@ class Mp3App(BnoteApp):
         self._current_dialog = ui.UiDialogBox(
             name=_("save"),
             item_list=[
-                ui.UiEditBox(name=_('playlist'), value=('playlist_name', playlist_name)),
+                ui.UiEditBox(
+                    name=_("playlist"), value=("playlist_name", playlist_name)
+                ),
                 ui.UiButton(name=_("&save"), action=self.__exec_valid_save_playlist),
                 ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
             ],
@@ -508,19 +618,23 @@ class Mp3App(BnoteApp):
 
     def __exec_valid_save_playlist(self):
         kwargs = self._current_dialog.get_values()
-        playlist_name = Path(FOLDER_PLAYLIST / kwargs['playlist_name'])
+        playlist_name = Path(FOLDER_PLAYLIST / kwargs["playlist_name"])
         if playlist_name.exists():
             # Ask confirmation.
             self._current_dialog = ui.UiMessageDialogBox(
                 name=_("warning"),
                 message=_("playlist name exists, do you want overwrite the playlist?"),
                 buttons=[
-                    ui.UiButton(name=_("&yes"), action=self._exec_save_playlist_yes_dialog),
-                    ui.UiButton(name=_("&no"), action=self._exec_save_playlist_no_dialog),
+                    ui.UiButton(
+                        name=_("&yes"), action=self._exec_save_playlist_yes_dialog
+                    ),
+                    ui.UiButton(
+                        name=_("&no"), action=self._exec_save_playlist_no_dialog
+                    ),
                     ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
                 ],
                 action_cancelable=self._exec_cancel_dialog,
-                extra_parameters={'playlist_name': playlist_name}
+                extra_parameters={"playlist_name": playlist_name},
             )
         else:
             self.__save_playlist_name(playlist_name)
@@ -528,12 +642,12 @@ class Mp3App(BnoteApp):
     def _exec_save_playlist_yes_dialog(self):
         kwargs = self._current_dialog.get_values()
         log.info(f"{kwargs}")
-        self.__save_playlist_name(playlist_name=kwargs['playlist_name'])
+        self.__save_playlist_name(playlist_name=kwargs["playlist_name"])
 
     def _exec_save_playlist_no_dialog(self):
         kwargs = self._current_dialog.get_values()
         # Return to the dialog box to change playlist name.
-        self._exec_save_playlist(playlist_name=kwargs['playlist_name'])
+        self._exec_save_playlist(playlist_name=kwargs["playlist_name"])
 
     def __save_playlist_name(self, playlist_name):
         if self.__playlist:
@@ -546,28 +660,30 @@ class Mp3App(BnoteApp):
                 self.__playlist_name = playlist_name
             except IOError as er:
                 self._current_dialog = ui.UiInfoDialogBox(
-                    message=f"Write file IO exception:{er}", action=self._exec_cancel_dialog)
+                    message=f"Write file IO exception:{er}",
+                    action=self._exec_cancel_dialog,
+                )
 
     def _exec_open_playlist(self):
         """
         Read a playlist.
         and check if files are valid.
         """
-        self.__exec_open_delete_playlist(function='open')
+        self.__exec_open_delete_playlist(function="open")
 
     def _exec_delete_playlist(self):
         """
         Read a playlist.
         and check if files are valid.
         """
-        self.__exec_open_delete_playlist(function='delete')
+        self.__exec_open_delete_playlist(function="delete")
 
     @staticmethod
     def __get_list_of_playlist() -> [str]:
-        return [f.name for f in FOLDER_PLAYLIST.glob('**/*') if f.is_file()]
+        return [f.name for f in FOLDER_PLAYLIST.glob("**/*") if f.is_file()]
 
     def __exec_open_delete_playlist(self, function):
-        if function == 'delete':
+        if function == "delete":
             name = _("delete")
             action_name = _("&delete")
         else:
@@ -575,10 +691,15 @@ class Mp3App(BnoteApp):
             action_name = _("&open")
         self._current_dialog = ui.UiDialogBox(
             name=name,
-            extra_parameters={'function': function},
+            extra_parameters={"function": function},
             item_list=[
-                ui.UiListBox(name=_('playlist'), value=('list_of_playlist', self.__get_list_of_playlist())),
-                ui.UiButton(name=action_name, action=self.__exec_valid_open_delete_playlist),
+                ui.UiListBox(
+                    name=_("playlist"),
+                    value=("list_of_playlist", self.__get_list_of_playlist()),
+                ),
+                ui.UiButton(
+                    name=action_name, action=self.__exec_valid_open_delete_playlist
+                ),
                 ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
             ],
             action_cancelable=self._exec_cancel_dialog,
@@ -589,20 +710,22 @@ class Mp3App(BnoteApp):
         AudioPlayer().stop()
         kwargs = self._current_dialog.get_values()
         log.info(f"{kwargs}")
-        if kwargs['list_of_playlist'] is not None:
-            if kwargs['function'] == 'delete':
+        if kwargs["list_of_playlist"] is not None:
+            if kwargs["function"] == "delete":
                 # Delete the playlist
-                if Path(FOLDER_PLAYLIST / kwargs['list_of_playlist']).exists():
-                    Path(FOLDER_PLAYLIST / kwargs['list_of_playlist']).unlink()
+                if Path(FOLDER_PLAYLIST / kwargs["list_of_playlist"]).exists():
+                    Path(FOLDER_PLAYLIST / kwargs["list_of_playlist"]).unlink()
             else:
                 # Open the playlist
                 try:
-                    with open(Path(FOLDER_PLAYLIST / kwargs['list_of_playlist']), "r") as fp:
+                    with open(
+                        Path(FOLDER_PLAYLIST / kwargs["list_of_playlist"]), "r"
+                    ) as fp:
                         playlist = json.load(fp)
                     self.__playlist = list()
                     for item in playlist:
                         self.__playlist.append(Path(item))
-                    self.__playlist_name = kwargs['list_of_playlist']
+                    self.__playlist_name = kwargs["list_of_playlist"]
                     removed_number = self.__check_playlist()
                     self.__playlist_index = 0
                     # The current item has changed of presentation.
@@ -610,18 +733,23 @@ class Mp3App(BnoteApp):
                     if removed_number != 0:
                         self._current_dialog = ui.UiInfoDialogBox(
                             message=f"{removed_number} items invalid removed from playlist",
-                            action=self._exec_cancel_dialog)
+                            action=self._exec_cancel_dialog,
+                        )
 
                 except IOError as er:
                     self._current_dialog = ui.UiInfoDialogBox(
-                        message=f"Write file IO exception:{er}", action=self._exec_cancel_dialog)
+                        message=f"Write file IO exception:{er}",
+                        action=self._exec_cancel_dialog,
+                    )
 
     def _exec_delete_all_playlist(self):
         self._current_dialog = ui.UiMessageDialogBox(
             name=_("information"),
             message=_("are you sure to delete all saved play list?"),
             buttons=[
-                ui.UiButton(name=_("&ok"), action=self.__exec_valid_delete_all_playlist),
+                ui.UiButton(
+                    name=_("&ok"), action=self.__exec_valid_delete_all_playlist
+                ),
                 ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
             ],
             action_cancelable=self._exec_cancel_dialog,
@@ -629,7 +757,7 @@ class Mp3App(BnoteApp):
 
     @staticmethod
     def __exec_valid_delete_all_playlist():
-        file_list = [f for f in FOLDER_PLAYLIST.glob('**/*') if f.is_file()]
+        file_list = [f for f in FOLDER_PLAYLIST.glob("**/*") if f.is_file()]
         if file_list:
             for file in file_list:
                 file.unlink()
@@ -649,7 +777,7 @@ class Mp3App(BnoteApp):
         # Read parameters of dialog box.
         kwargs = self._current_dialog.get_values()
         log.info(f"{kwargs=}")
-        file_path = kwargs['file']
+        file_path = kwargs["file"]
         self._add_to_playlist(file_path)
 
     def _add_list_to_playlist(self, file_list):
@@ -690,16 +818,20 @@ class Mp3App(BnoteApp):
         if properties is None:
             return 0
         # properties is a dict with keys : album, title, artist, tracknumber, date
-        return properties['tracknumber'][0]
+        return properties["tracknumber"][0]
 
     def _exec_delete_all_items(self):
         if self.__playlist:
             # Ask confirmation to delete scores of one level.
             self._current_dialog = ui.UiMessageDialogBox(
                 name=_("information"),
-                message=_("are you sure to delete the play list {}?").format(self.__playlist[self.__playlist_index]),
+                message=_("are you sure to delete the play list {}?").format(
+                    self.__playlist[self.__playlist_index]
+                ),
                 buttons=[
-                    ui.UiButton(name=_("&ok"), action=self.__exec_valid_delete_all_items),
+                    ui.UiButton(
+                        name=_("&ok"), action=self.__exec_valid_delete_all_items
+                    ),
                     ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
                 ],
                 action_cancelable=self._exec_cancel_dialog,
@@ -750,10 +882,10 @@ class Mp3App(BnoteApp):
             tag = mutagen.File(filename, easy=True)
             log.debug(f"{tag=}")
             # Check properties validity.
-            if 'title' not in tag.keys():
+            if "title" not in tag.keys():
                 return
             # new_tag = dict()
-            for (key, value) in tag.items():
+            for key, value in tag.items():
                 if isinstance(value[0], ASFUnicodeAttribute):
                     log.error(f"({key=}:{value=}) is ASFUnicodeAttribute")
                     # ignore ASFUnicodeAttribute ?
@@ -762,14 +894,14 @@ class Mp3App(BnoteApp):
                 # new_tag[key] = value[0].__str__()
             # print(f"{new_tag}")
             # return EasyID3(filename)
-            if 'tracknumber' not in tag.keys():
-                tag['tracknumber'] = ['0']
-            if 'artist' not in tag.keys():
-                tag['artist'] = ['?']
-            if 'date' not in tag.keys():
-                tag['date'] = ['?']
-            if 'album' not in tag.keys():
-                tag['album'] = ['?']
+            if "tracknumber" not in tag.keys():
+                tag["tracknumber"] = ["0"]
+            if "artist" not in tag.keys():
+                tag["artist"] = ["?"]
+            if "date" not in tag.keys():
+                tag["date"] = ["?"]
+            if "album" not in tag.keys():
+                tag["album"] = ["?"]
             return tag
         # Failed to find file attributes.
         except mutagen.id3.ID3NoHeaderError as er:
@@ -789,23 +921,18 @@ class Mp3App(BnoteApp):
             return
         self._current_dialog = ui.UiDialogBox(
             name=_("properties"),
-            extra_parameters={'properties': properties},
+            extra_parameters={"properties": properties},
             item_list=[
-                ui.UiEditBox(name=_('tracknumber'),
-                          value=('tracknumber', properties['tracknumber'][0])
-                          ),
-                ui.UiEditBox(name=_('title'),
-                          value=('title', properties['title'][0])
-                          ),
-                ui.UiEditBox(name=_('artist'),
-                          value=('artist', properties['artist'][0])
-                          ),
-                ui.UiEditBox(name=_('date'),
-                          value=('date', properties['date'][0])
-                          ),
-                ui.UiEditBox(name=_('album'),
-                          value=('album', properties['album'][0])
-                          ),
+                ui.UiEditBox(
+                    name=_("tracknumber"),
+                    value=("tracknumber", properties["tracknumber"][0]),
+                ),
+                ui.UiEditBox(name=_("title"), value=("title", properties["title"][0])),
+                ui.UiEditBox(
+                    name=_("artist"), value=("artist", properties["artist"][0])
+                ),
+                ui.UiEditBox(name=_("date"), value=("date", properties["date"][0])),
+                ui.UiEditBox(name=_("album"), value=("album", properties["album"][0])),
                 ui.UiButton(name=_("&ok"), action=self._exec_valid_properties_dialog),
                 ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
             ],
@@ -815,22 +942,22 @@ class Mp3App(BnoteApp):
     def _exec_valid_properties_dialog(self):
         # get parameters
         kwargs = self._current_dialog.get_values()
-        properties = kwargs['properties']
+        properties = kwargs["properties"]
         is_changed = False
-        if properties['tracknumber'][0] != kwargs['tracknumber']:
-            properties['tracknumber'][0] = kwargs['tracknumber']
+        if properties["tracknumber"][0] != kwargs["tracknumber"]:
+            properties["tracknumber"][0] = kwargs["tracknumber"]
             is_changed = True
-        if properties['title'][0] != kwargs['title']:
-            properties['title'] = [kwargs['title']]
+        if properties["title"][0] != kwargs["title"]:
+            properties["title"] = [kwargs["title"]]
             is_changed = True
-        if properties['artist'][0] != kwargs['artist']:
-            properties['artist'] = [kwargs['artist']]
+        if properties["artist"][0] != kwargs["artist"]:
+            properties["artist"] = [kwargs["artist"]]
             is_changed = True
-        if properties['date'][0] != kwargs['date']:
-            properties['date'] = [kwargs['date']]
+        if properties["date"][0] != kwargs["date"]:
+            properties["date"] = [kwargs["date"]]
             is_changed = True
-        if properties['album'][0] != kwargs['album']:
-            properties['album'] = [kwargs['album']]
+        if properties["album"][0] != kwargs["album"]:
+            properties["album"] = [kwargs["album"]]
             is_changed = True
         if is_changed:
             log.info("save file properties")
@@ -852,22 +979,28 @@ class Mp3App(BnoteApp):
             if AudioPlayer().is_playing():
                 AudioPlayer().stop()
             else:
-                AudioPlayer().file_play(self.__playlist[self.__playlist_index], self.__playlist_index)
+                AudioPlayer().file_play(
+                    self.__playlist[self.__playlist_index], self.__playlist_index
+                )
 
     def _exec_volume(self):
-        self._current_dialog = VolumeDialogBox(_('volume'), _("&value"), self.__save_the_new_volume, channel='radio')
+        self._current_dialog = VolumeDialogBox(
+            _("volume"), _("&value"), self.__save_the_new_volume, channel="radio"
+        )
 
     def __save_the_new_volume(self, volume):
         # Save the new Volume in settings.
-        Volume().set_volume(volume, channel='radio')
+        Volume().set_volume(volume, channel="radio")
         Settings().save()
         # Alert internal about settings change.
         headphone = Gpio().is_head_phone()
         if headphone:
-            key = 'volume_headphone'
+            key = "volume_headphone"
         else:
-            key = 'volume_hp'
-        self._put_in_function_queue(FunctionId.FUNCTION_SETTINGS_CHANGE, **{'section': 'radio', 'key': key})
+            key = "volume_hp"
+        self._put_in_function_queue(
+            FunctionId.FUNCTION_SETTINGS_CHANGE, **{"section": "radio", "key": key}
+        )
 
     # --------------------
     # Quick search function.
@@ -882,7 +1015,10 @@ class Mp3App(BnoteApp):
             # Search from self.__focused_file_index to end of list
             for index, item in enumerate(playlist_display_lines):
                 # log.info("file={} index={}".format(item, index))
-                if item.lower().find(text_to_find) == 0 and index > self.__playlist_index:
+                if (
+                    item.lower().find(text_to_find) == 0
+                    and index > self.__playlist_index
+                ):
                     # Focus the wanted item
                     self.__playlist_index = index
                     # The current item has changed of presentation.
@@ -891,7 +1027,10 @@ class Mp3App(BnoteApp):
             # Search from 0 to self.__focused_file_index in the list
             for index, item in enumerate(playlist_display_lines):
                 # log.info("file={} index={}".format(item, index))
-                if item.lower().find(text_to_find) == 0 and index < self.__playlist_index:
+                if (
+                    item.lower().find(text_to_find) == 0
+                    and index < self.__playlist_index
+                ):
                     # Focus the wanted item
                     self.__playlist_index = index
                     # The current item has changed of presentation.
@@ -904,7 +1043,7 @@ class Mp3App(BnoteApp):
     @staticmethod
     def __convert_millis(millis: int) -> str:
         seconds = (millis / 1000) % 60
-        minutes = (millis / (1000 * 60))
+        minutes = millis / (1000 * 60)
         return f"{int(minutes):02d}:{int(seconds):02d}"
 
     def __display_file(self, file):
@@ -914,20 +1053,31 @@ class Mp3App(BnoteApp):
             time, duration = AudioPlayer().get_media_player_time()
             pos = AudioPlayer().get_media_player_position()
             time_string = "/".join(
-                (self.__convert_millis(time), self.__convert_millis(duration), f"{int(pos*100):2d}%"))
+                (
+                    self.__convert_millis(time),
+                    self.__convert_millis(duration),
+                    f"{int(pos*100):2d}%",
+                )
+            )
         properties = Mp3App.__get_properties(str(file))
-        if properties is None or len(properties['album']) == 0:
+        if properties is None or len(properties["album"]) == 0:
             if time_string:
-                return '-'.join((time_string, file.name))
+                return "-".join((time_string, file.name))
             else:
                 return file.name
         else:
             # properties is a dict with keys : album, title, artist, tracknumber, date
-            properties_string = '-'.join(
-                (properties['tracknumber'][0], properties['title'][0], properties['artist'][0],
-                 properties['date'][0], properties['album'][0]))
+            properties_string = "-".join(
+                (
+                    properties["tracknumber"][0],
+                    properties["title"][0],
+                    properties["artist"][0],
+                    properties["date"][0],
+                    properties["album"][0],
+                )
+            )
             if time_string:
-                return '-'.join((time_string, properties_string))
+                return "-".join((time_string, properties_string))
             else:
                 return properties_string
 
@@ -952,9 +1102,11 @@ class Mp3App(BnoteApp):
         else:
             list_name = _("empty list...")
         self.__ui_line = ui.UiDocumentList(
-            parent_name=str(self.__playlist_name), parent_action=self._exec_activate_list,
-            list_name=str(list_name), list_action=self._exec_activate_item,
-            )
+            parent_name=str(self.__playlist_name),
+            parent_action=self._exec_activate_list,
+            list_name=str(list_name),
+            list_action=self._exec_activate_item,
+        )
 
     def _exec_activate_list(self):
         log.info("<_exec_activate_list>")

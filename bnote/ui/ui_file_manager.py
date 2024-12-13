@@ -4,6 +4,7 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 import os
 from pathlib import Path
 
@@ -27,26 +28,42 @@ class UiFileManagerLine(UiContainer, UiFileManagerTools):
     Object container line of file manager document.
     """
 
-    def __init__(self, parent_name, parent_action, file_name, file_action, selected, is_selectable):
-        self.braille_type = Settings().data['system']['braille_type']
+    def __init__(
+        self,
+        parent_name,
+        parent_action,
+        file_name,
+        file_action,
+        selected,
+        is_selectable,
+    ):
+        self.braille_type = Settings().data["system"]["braille_type"]
 
         log.info(f"<{file_name=}>-<{selected=}>-<{is_selectable=}>")
-        child = [UiFileManagerObject(filename="not yet defined", name="not yet defined",
-                                     action=file_action, selected=selected,
-                                     is_selectable=is_selectable)]
+        child = [
+            UiFileManagerObject(
+                filename="not yet defined",
+                name="not yet defined",
+                action=file_action,
+                selected=selected,
+                is_selectable=is_selectable,
+            )
+        ]
 
         kwargs = {
-            'braille_type': Settings().data['system']['braille_type'],
-            'name': "not yet defined",
-            'action': parent_action,
-            'ui_objects': child,
-            'focused_object': 0,
-            'is_root': True,
-            'no_grade': True
+            "braille_type": Settings().data["system"]["braille_type"],
+            "name": "not yet defined",
+            "action": parent_action,
+            "ui_objects": child,
+            "focused_object": 0,
+            "is_root": True,
+            "no_grade": True,
         }
         super().__init__(**kwargs)
         # Overload file name
-        friendly_parent_name = self._convert_file_to_braille_text(self.braille_type, UiFileManagerLine.friendly_file_name(parent_name))
+        friendly_parent_name = self._convert_file_to_braille_text(
+            self.braille_type, UiFileManagerLine.friendly_file_name(parent_name)
+        )
         friendly_child_name = self._ui_file_name(self.braille_type, file_name)
         self.rename_without_shortcut(friendly_parent_name)
         self.get_focused_object().rename_without_shortcut(friendly_child_name)
@@ -73,12 +90,13 @@ class UiFileManagerObject(UiObject, UiFileManagerTools):
     """
     Object child of one file of file manager line
     """
+
     def __init__(self, filename, name, action, selected, is_selectable):
         kwargs = {
-            'braille_type': Settings().data["system"]['braille_type'],
-            'name': name,
-            'action': action,
-            'no_grade': True,
+            "braille_type": Settings().data["system"]["braille_type"],
+            "name": name,
+            "action": action,
+            "no_grade": True,
         }
         self._filename = filename
         self._selected = selected
@@ -86,7 +104,9 @@ class UiFileManagerObject(UiObject, UiFileManagerTools):
 
         super().__init__(**kwargs)
         # Overload braille name
-        braille_file_name, self.braille_name = self._convert_file_name_to_braille(self._braille_type, filename)
+        braille_file_name, self.braille_name = self._convert_file_name_to_braille(
+            self._braille_type, filename
+        )
 
     def filename(self):
         return self._filename
@@ -109,12 +129,18 @@ class UiFileManagerObject(UiObject, UiFileManagerTools):
                 else:
                     indicator = _("n")
                 # braille conversion
-                text_indicator, braille_indicator, pos = BnoteApp.lou.convert_to_braille(self._braille_type, indicator, 0)
+                text_indicator, braille_indicator, pos = (
+                    BnoteApp.lou.convert_to_braille(self._braille_type, indicator, 0)
+                )
                 name = "".join([indicator, self._name])
                 braille_name = "".join([braille_indicator, self._braille_name])
             else:
                 # Nothing to add.
                 name = self._name
                 braille_name = self._braille_name
-            return name, braille_name, "\u2800" * len(braille_name), [self._ui_id] * len(braille_name)
-
+            return (
+                name,
+                braille_name,
+                "\u2800" * len(braille_name),
+                [self._ui_id] * len(braille_name),
+            )

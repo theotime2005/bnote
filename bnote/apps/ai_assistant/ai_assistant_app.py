@@ -3,6 +3,7 @@ Copyright (c)2021 eurobraille
 This software is the proprietary of eurobraille and may not be copied,
 distributed, published,or disclosed without express prior written permission.
 """
+
 import random
 import requests
 import time
@@ -42,8 +43,12 @@ class AiAssistantApp(EditorBaseApp):
     USER_PROMPT_MARKER = ":?:"
     AI_REPLY_MARKER = ":-:"
 
-    def __init__(self, put_in_function_queue, file_name=None, language=None, read_only=True):
-        super().__init__(put_in_function_queue, file_name, language, read_only, no_context=True)
+    def __init__(
+        self, put_in_function_queue, file_name=None, language=None, read_only=True
+    ):
+        super().__init__(
+            put_in_function_queue, file_name, language, read_only, no_context=True
+        )
         # Current instance of ai assistant dialog box, with items references.
         self._ui_ai_assistant_dialog = None
         self._ui_server_unavailable_or_no_internet_dialog = None
@@ -65,23 +70,37 @@ class AiAssistantApp(EditorBaseApp):
         self.init_chat_from_editor()
 
         # Instantiates the singleton
-        AiEurobraille(AiEurobrailleCrypto(random.seed).decrypt(Settings().data['ai_eurobraille']['username']),
-                      AiEurobrailleCrypto(random.seed).decrypt(Settings().data['ai_eurobraille']['password']),
-                      AiEurobrailleCrypto(random.seed).decrypt(Settings().data['ai_eurobraille']['token']),)
-        Settings().data['ai_eurobraille']['username'] = AiEurobrailleCrypto(random.seed).encrypt(
-            AiEurobraille().username)
-        Settings().data['ai_eurobraille']['password'] = AiEurobrailleCrypto(random.seed).encrypt(
-            AiEurobraille().password)
-        Settings().data['ai_eurobraille']['token'] = AiEurobrailleCrypto(random.seed).encrypt(AiEurobraille().token)
+        AiEurobraille(
+            AiEurobrailleCrypto(random.seed).decrypt(
+                Settings().data["ai_eurobraille"]["username"]
+            ),
+            AiEurobrailleCrypto(random.seed).decrypt(
+                Settings().data["ai_eurobraille"]["password"]
+            ),
+            AiEurobrailleCrypto(random.seed).decrypt(
+                Settings().data["ai_eurobraille"]["token"]
+            ),
+        )
+        Settings().data["ai_eurobraille"]["username"] = AiEurobrailleCrypto(
+            random.seed
+        ).encrypt(AiEurobraille().username)
+        Settings().data["ai_eurobraille"]["password"] = AiEurobrailleCrypto(
+            random.seed
+        ).encrypt(AiEurobraille().password)
+        Settings().data["ai_eurobraille"]["token"] = AiEurobrailleCrypto(
+            random.seed
+        ).encrypt(AiEurobraille().token)
         Settings().save()
 
     @staticmethod
     def known_extension():
-        return ".ai_txt",
+        return (".ai_txt",)
 
     @staticmethod
     def read_data_file(lou, full_file_name, language, add_line, ended, sheet_name=None):
-        return editor.ReadFile(lou, full_file_name, language, add_line, ended, sheet_name)
+        return editor.ReadFile(
+            lou, full_file_name, language, add_line, ended, sheet_name
+        )
 
     def write_data_file(self, lou, full_file_name, get_line, on_end, function):
         return editor.WriteFile(full_file_name, get_line, on_end, function)
@@ -97,23 +116,36 @@ class AiAssistantApp(EditorBaseApp):
                 ui.UiMenuBar(
                     name=_("&file"),
                     menu_item_list=[
-                        ui.UiMenuItem(name=_("&close"), action=self._exec_close,
-                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
-                                      shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F4),
-                        ui.UiMenuItem(name=_("&save"), action=self._exec_my_save,
-                                      shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL, shortcut_key='S'),
-                        ui.UiMenuItem(name=_("sta&tistics"), action=self._exec_statistics),
-
-                    ]),
+                        ui.UiMenuItem(
+                            name=_("&close"),
+                            action=self._exec_close,
+                            shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                            shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F4,
+                        ),
+                        ui.UiMenuItem(
+                            name=_("&save"),
+                            action=self._exec_my_save,
+                            shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                            shortcut_key="S",
+                        ),
+                        ui.UiMenuItem(
+                            name=_("sta&tistics"), action=self._exec_statistics
+                        ),
+                    ],
+                ),
                 ui.UiMenuBar(
                     name=_("&edit"),
                     menu_item_list=[
                         *self.create_sub_menu_selection(),
                         *[
                             ui.UiMenuItem(name=_("curs&or"), action=self._exec_cursor),
-                            ui.UiMenuItem(name=_("forward in grade2 braille"), action=self._toggle_grade2_from_menu),
+                            ui.UiMenuItem(
+                                name=_("forward in grade2 braille"),
+                                action=self._toggle_grade2_from_menu,
+                            ),
                         ],
-                    ]),
+                    ],
+                ),
                 self.create_sub_menu_goto(),
                 self.create_sub_menu_find(),
                 self.create_sub_menu_bookmark(),
@@ -121,8 +153,12 @@ class AiAssistantApp(EditorBaseApp):
                 ui.UiMenuBar(
                     name=_("a&ccount"),
                     menu_item_list=[
-                        ui.UiMenuItem(name=_("&renew access token"), action=self._exec_renew_access_token),
-                    ]),
+                        ui.UiMenuItem(
+                            name=_("&renew access token"),
+                            action=self._exec_renew_access_token,
+                        ),
+                    ],
+                ),
                 ui.UiMenuItem(name=_("&applications"), action=self._exec_application),
             ],
         )
@@ -159,9 +195,9 @@ class AiAssistantApp(EditorBaseApp):
             BnoteApp.keyboard.decode_braille(
                 BnoteApp.lou,
                 data,
-                (self.braille_type == 'grade1') or (self.braille_type == 'grade2')
+                (self.braille_type == "grade1") or (self.braille_type == "grade2"),
             ),
-            data
+            data,
         )
 
     def input_bramigraph(self, modifier, bramigraph) -> bool:
@@ -211,8 +247,10 @@ class AiAssistantApp(EditorBaseApp):
 
     def _exec_ssl_cert_verification_error(self, e):
         self._ui_server_unavailable_or_no_internet_dialog = ui.UiInfoDialogBox(
-            message=_("unable to verify your certificate. Check if your bnote is on the correct date and time."),
-            action=self._exec_cancel_dialog_and_cleanup_text
+            message=_(
+                "unable to verify your certificate. Check if your bnote is on the correct date and time."
+            ),
+            action=self._exec_cancel_dialog_and_cleanup_text,
         )
         self._current_dialog = self._ui_server_unavailable_or_no_internet_dialog
         self.refresh_app()
@@ -224,22 +262,22 @@ class AiAssistantApp(EditorBaseApp):
             if isinstance(e, requests.exceptions.ConnectTimeout):
                 self._ui_server_unavailable_or_no_internet_dialog = ui.UiInfoDialogBox(
                     message=_("eurobraille server responds too slowly."),
-                    action=self._exec_cancel_dialog_and_cleanup_text
+                    action=self._exec_cancel_dialog_and_cleanup_text,
                 )
             elif isinstance(e, requests.exceptions.ReadTimeout):
                 self._ui_server_unavailable_or_no_internet_dialog = ui.UiInfoDialogBox(
                     message=_("ai server unavailable or responding too slowly."),
-                    action=self._exec_cancel_dialog_and_cleanup_text
+                    action=self._exec_cancel_dialog_and_cleanup_text,
                 )
             else:
                 self._ui_server_unavailable_or_no_internet_dialog = ui.UiInfoDialogBox(
                     message=_("error = ") + f"{e}",
-                    action=self._exec_cancel_dialog_and_cleanup_text
+                    action=self._exec_cancel_dialog_and_cleanup_text,
                 )
         else:
             self._ui_server_unavailable_or_no_internet_dialog = ui.UiInfoDialogBox(
                 message=_("no internet."),
-                action=self._exec_cancel_dialog_and_cleanup_text
+                action=self._exec_cancel_dialog_and_cleanup_text,
             )
         self._current_dialog = self._ui_server_unavailable_or_no_internet_dialog
         self.refresh_app()
@@ -257,13 +295,14 @@ class AiAssistantApp(EditorBaseApp):
             elif response.text == "Unauthorized: quota_4":
                 message = _("you have used your annual quota. Try again next year.")
         elif response.status_code == 503:
-            message=_("eurobraille server unavailable.")
+            message = _("eurobraille server unavailable.")
         else:
-            message = "".join((_("error = "), " ", str(response.status_code), " - ", response.text))
+            message = "".join(
+                (_("error = "), " ", str(response.status_code), " - ", response.text)
+            )
 
         self._ui_server_error_message_dialog = ui.UiInfoDialogBox(
-            message=message,
-            action=self._exec_cancel_dialog_and_cleanup_text
+            message=message, action=self._exec_cancel_dialog_and_cleanup_text
         )
         self._current_dialog = self._ui_server_error_message_dialog
         self.refresh_app()
@@ -274,7 +313,9 @@ class AiAssistantApp(EditorBaseApp):
             # Move the caret to the start of me question (that need to be removed if error)
             self.editor.set_caret(self.start_of_me_question_saved_caret)
             # Select text from the start of the waiting message to the end of the document.
-            self.editor.function(editor.Editor.Functions.MOVE_END, **{'shift': True, 'ctrl': True})
+            self.editor.function(
+                editor.Editor.Functions.MOVE_END, **{"shift": True, "ctrl": True}
+            )
             # Delete the ai waiting message
             self.editor.function(editor.Editor.Functions.BACKSPACE, **{})
             # Remove the empty paragraph.
@@ -292,11 +333,11 @@ class AiAssistantApp(EditorBaseApp):
             self._ui_ai_assistant_dialog = ui.UiDialogBox(
                 name=_("ai assistant"),
                 item_list=[
-                    ui.UiEditBox(name=_("&message"), value=('message', "")),
+                    ui.UiEditBox(name=_("&message"), value=("message", "")),
                     ui.UiButton(name=_("&ok"), action=self._valid_ai_assistant_dialog),
                     ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
                 ],
-                action_cancelable=self._exec_cancel_dialog
+                action_cancelable=self._exec_cancel_dialog,
             )
             self._current_dialog = self._ui_ai_assistant_dialog
         else:
@@ -320,39 +361,68 @@ class AiAssistantApp(EditorBaseApp):
         with self.lock:
             (paragraphs_count, words_count, characters_count) = self.editor.statistics()
             # log.error(f"{words_count=}")
-            if words_count + len(kwargs['message'].split()) > AiAssistantApp.MAX_WORD_COUNT:
+            if (
+                words_count + len(kwargs["message"].split())
+                > AiAssistantApp.MAX_WORD_COUNT
+            ):
                 # Ask confirmation to delete scores of one level.
                 self._current_dialog = ui.UiMessageDialogBox(
                     name=_("warning"),
                     message=_(
-                        "you have reached the maximum chat size. You can start a new one by close this current one."),
-                    buttons=[ui.UiButton(name=_("&ok"), action=self._exec_cancel_dialog), ],
+                        "you have reached the maximum chat size. You can start a new one by close this current one."
+                    ),
+                    buttons=[
+                        ui.UiButton(name=_("&ok"), action=self._exec_cancel_dialog),
+                    ],
                     action_cancelable=self._exec_cancel_dialog,
                 )
                 return
 
-        # Get the question
-        self.message = kwargs['message']
-        self.chat.append({"role": "user", "content": f"{self.message}"}, )
+        # Get the question and convert braille message to text.
+        self.message = self.text_form(kwargs["message"])
+        self.chat.append(
+            {"role": "user", "content": f"{self.message}"},
+        )
 
         # Append the user test
         with self.lock:
             self.editor.read_only = False
             # Move the caret to the end of the document
-            self.editor.function(editor.Editor.Functions.MOVE_END, **{'shift': False, 'ctrl': True})
+            self.editor.function(
+                editor.Editor.Functions.MOVE_END, **{"shift": False, "ctrl": True}
+            )
             # Save the caret pos to revert the user question in the document if an error with the server occurs.
             self.start_of_me_question_saved_caret = Caret(self.editor.caret())
             # Append the user text
-            self.editor.function(editor.Editor.Functions.PUT_STRING,
-                                 **{'text': "".join(("\n", self.USER_PROMPT_MARKER, self.message))})
+            self.editor.function(
+                editor.Editor.Functions.PUT_STRING,
+                **{
+                    "text": "".join(
+                        (
+                            "\n",
+                            self.USER_PROMPT_MARKER,
+                            self._transform_text_to_braille(self.message),
+                        )
+                    )
+                },
+            )
             # Append Carrier return and save the caret position.
-            self.editor.function(editor.Editor.Functions.PUT_STRING,
-                                 **{'text': "\n"})
+            self.editor.function(editor.Editor.Functions.PUT_STRING, **{"text": "\n"})
             # Save the caret pos to replace the waiting message with the response.
             self.start_of_ai_response_saved_caret = Caret(self.editor.caret())
             # Append waiting message
-            self.editor.function(editor.Editor.Functions.PUT_STRING,
-                                 **{'text': "".join(("\n", self.AI_REPLY_MARKER, _("please wait...")))})
+            self.editor.function(
+                editor.Editor.Functions.PUT_STRING,
+                **{
+                    "text": "".join(
+                        (
+                            "\n",
+                            self.AI_REPLY_MARKER,
+                            self._transform_text_to_braille(_("please wait...")),
+                        )
+                    )
+                },
+            )
             # Move the caret to the start of the waiting message
             self.editor.set_caret(self.start_of_ai_response_saved_caret)
             self.editor.read_only = True
@@ -390,8 +460,11 @@ class AiAssistantApp(EditorBaseApp):
             if response is not None:
                 if not success:
                     if isinstance(response, requests.Response):
-                        if (response.status_code == 401 and response.text == "Unauthorized" and
-                                self.renew_token_count < self.RENEW_TOKEN_MAX_RETRY):
+                        if (
+                            response.status_code == 401
+                            and response.text == "Unauthorized"
+                            and self.renew_token_count < self.RENEW_TOKEN_MAX_RETRY
+                        ):
                             # Don't bother user with token renew
                             self.renew_token_count += 1
                             (s, r) = AiEurobraille().get_token()
@@ -399,35 +472,60 @@ class AiAssistantApp(EditorBaseApp):
                                 # Don't bother user with login creation
                                 (s, r) = AiEurobraille().create_login()
                                 if s:
-                                    Settings().data['ai_eurobraille']['username'] = AiEurobrailleCrypto(
-                                        random.seed).encrypt(AiEurobraille().username)
-                                    Settings().data['ai_eurobraille']['password'] = AiEurobrailleCrypto(
-                                        random.seed).encrypt(AiEurobraille().password)
+                                    Settings().data["ai_eurobraille"]["username"] = (
+                                        AiEurobrailleCrypto(random.seed).encrypt(
+                                            AiEurobraille().username
+                                        )
+                                    )
+                                    Settings().data["ai_eurobraille"]["password"] = (
+                                        AiEurobrailleCrypto(random.seed).encrypt(
+                                            AiEurobraille().password
+                                        )
+                                    )
                                     # Try again to get a token
                                     (s, r) = AiEurobraille().get_token()
 
                             # Save the token if success.
                             if s:
-                                Settings().data['ai_eurobraille']['token'] = (AiEurobrailleCrypto(random.seed).
-                                                                              encrypt(AiEurobraille().token))
+                                Settings().data["ai_eurobraille"]["token"] = (
+                                    AiEurobrailleCrypto(random.seed).encrypt(
+                                        AiEurobraille().token
+                                    )
+                                )
                                 Settings().save()
                             return self._exec_get_chat_response()
-                        elif response.status_code == 401 and self.error_401_count < self.ERROR401_MAX_RETRY:
+                        elif (
+                            response.status_code == 401
+                            and self.error_401_count < self.ERROR401_MAX_RETRY
+                        ):
                             # Don't bother user with error 401 if it can be recovered automatically
                             self.error_401_count += 1
                             return self._exec_get_chat_response()
-                        elif (response.status_code == 500 and response.text == "Eurobraille server: User not found" and
-                              self.create_account_count < self.CREATE_ACCOUNT_MAX_RETRY):
+                        elif (
+                            response.status_code == 500
+                            and response.text == "Eurobraille server: User not found"
+                            and self.create_account_count
+                            < self.CREATE_ACCOUNT_MAX_RETRY
+                        ):
                             # Don't bother user with account creation
                             self.create_account_count += 1
                             if AiEurobraille().create_login():
                                 if AiEurobraille().get_token():
-                                    Settings().data['ai_eurobraille']['username'] = AiEurobrailleCrypto(
-                                        random.seed).encrypt(AiEurobraille().username)
-                                    Settings().data['ai_eurobraille']['password'] = AiEurobrailleCrypto(
-                                        random.seed).encrypt(AiEurobraille().password)
-                                    Settings().data['ai_eurobraille']['token'] = AiEurobrailleCrypto(
-                                        random.seed).encrypt(AiEurobraille().token)
+                                    Settings().data["ai_eurobraille"]["username"] = (
+                                        AiEurobrailleCrypto(random.seed).encrypt(
+                                            AiEurobraille().username
+                                        )
+                                    )
+                                    Settings().data["ai_eurobraille"]["password"] = (
+                                        AiEurobrailleCrypto(random.seed).encrypt(
+                                            AiEurobraille().password
+                                        )
+                                    )
+                                    Settings().data["ai_eurobraille"]["token"] = (
+                                        AiEurobrailleCrypto(random.seed).encrypt(
+                                            AiEurobraille().token
+                                        )
+                                    )
                                     Settings().save()
                             return self._exec_get_chat_response()
                         else:
@@ -445,20 +543,40 @@ class AiAssistantApp(EditorBaseApp):
                         # Move the caret to the start of the waiting message
                         self.editor.set_caret(self.start_of_ai_response_saved_caret)
                         # Select text from the start of the waiting message to the end of the document.
-                        self.editor.function(editor.Editor.Functions.MOVE_END, **{'shift': True, 'ctrl': True})
-                        # Append the ai response
-                        self.editor.function(editor.Editor.Functions.PUT_STRING,
-                                             **{'text': "".join((self.AI_REPLY_MARKER, response))})
+                        self.editor.function(
+                            editor.Editor.Functions.MOVE_END,
+                            **{"shift": True, "ctrl": True},
+                        )
+                        # Convert ai response in type of braille chosen.
+                        braille_lines = list()
+                        response_lines = response.replace("\r", "").split("\n")
+                        for line in response_lines:
+                            braille_lines.append(self._transform_text_to_braille(line))
+                        braille_response = "\n".join(braille_lines)
+                        # Append the ai response.
+                        self.editor.function(
+                            editor.Editor.Functions.PUT_STRING,
+                            **{
+                                "text": "".join(
+                                    (self.AI_REPLY_MARKER, braille_response)
+                                )
+                            },
+                        )
                         # Move the caret on the start of the paragraph
                         self.editor.set_caret(self.start_of_ai_response_saved_caret)
                         self.editor.read_only = True
                         # Append Ai response to the chat
-                        self.chat.append({"role": "assistant", "content": f"{response}"}, )
+                        self.chat.append(
+                            {"role": "assistant", "content": f"{response}"},
+                        )
                     else:
                         # Move the caret to the start of the question that failed
                         self.editor.set_caret(self.start_of_me_question_saved_caret)
                         # Select text from the start of the question to the end of the document.
-                        self.editor.function(editor.Editor.Functions.MOVE_END, **{'shift': True, 'ctrl': True})
+                        self.editor.function(
+                            editor.Editor.Functions.MOVE_END,
+                            **{"shift": True, "ctrl": True},
+                        )
                         self.editor.read_only = True
                         # Remove the last question (that have no answer) from the chat
                         self.chat.pop()
@@ -471,23 +589,29 @@ class AiAssistantApp(EditorBaseApp):
 
     def __server_error(self):
         self._current_dialog = ui.UiInfoDialogBox(
-            message=_("unable to communicate with the server. Check your Internet connexion."),
-            action=self._exec_cancel_dialog)
+            message=_(
+                "unable to communicate with the server. Check your Internet connexion."
+            ),
+            action=self._exec_cancel_dialog,
+        )
 
     def _exec_renew_access_token(self):
         # Don't bother user with login creation
         (s, r) = AiEurobraille().create_login()
         if s:
-            Settings().data['ai_eurobraille']['username'] = AiEurobrailleCrypto(
-                random.seed).encrypt(AiEurobraille().username)
-            Settings().data['ai_eurobraille']['password'] = AiEurobrailleCrypto(
-                random.seed).encrypt(AiEurobraille().password)
+            Settings().data["ai_eurobraille"]["username"] = AiEurobrailleCrypto(
+                random.seed
+            ).encrypt(AiEurobraille().username)
+            Settings().data["ai_eurobraille"]["password"] = AiEurobrailleCrypto(
+                random.seed
+            ).encrypt(AiEurobraille().password)
             # Get a new token
             (s, r) = AiEurobraille().get_token()
             # Save the token if success.
             if s:
-                Settings().data['ai_eurobraille']['token'] = (AiEurobrailleCrypto(random.seed).
-                                                              encrypt(AiEurobraille().token))
+                Settings().data["ai_eurobraille"]["token"] = AiEurobrailleCrypto(
+                    random.seed
+                ).encrypt(AiEurobraille().token)
                 Settings().save()
 
         message = _("unable to renew access token.")
@@ -495,8 +619,8 @@ class AiAssistantApp(EditorBaseApp):
             message = _("access token successfully renewed.")
 
         self._current_dialog = ui.UiInfoDialogBox(
-            message=message,
-            action=self._exec_cancel_dialog)
+            message=message, action=self._exec_cancel_dialog
+        )
 
     def init_chat_from_editor(self):
         state = self.ParsingState.NOTHING
@@ -529,25 +653,40 @@ class AiAssistantApp(EditorBaseApp):
         elif state == self.ParsingState.AI:
             self.append_assistant_content_in_chat(current_text)
 
-        if (self.editor.paragraphs_count() == 1) and (len(self.editor.paragraph_text(0)) == 0):
+        if (self.editor.paragraphs_count() == 1) and (
+            len(self.editor.paragraph_text(0)) == 0
+        ):
             self._append_instructions()
 
-    def append_assistant_content_in_chat(self, text):
-        if text.startswith(self.AI_REPLY_MARKER):
-            text = text.replace(self.AI_REPLY_MARKER, "", 1)
-        self.chat.append({"role": "assistant", "content": text})
+    def append_assistant_content_in_chat(self, braille_text):
+        if braille_text.startswith(self.AI_REPLY_MARKER):
+            text = braille_text.replace(self.AI_REPLY_MARKER, "", 1)
+        self.chat.append(
+            {
+                "role": "assistant",
+                "content": self._transform_braille_to_text(braille_text),
+            }
+        )
 
-    def append_user_content_in_chat(self, text):
-        if text.startswith(self.USER_PROMPT_MARKER):
-            text = text.replace(self.USER_PROMPT_MARKER, "", 1)
-        self.chat.append({"role": "user", "content": text})
+    def append_user_content_in_chat(self, braille_text):
+        if braille_text.startswith(self.USER_PROMPT_MARKER):
+            braille_text = braille_text.replace(self.USER_PROMPT_MARKER, "", 1)
+        self.chat.append(
+            {"role": "user", "content": self._transform_braille_to_text(braille_text)}
+        )
 
     def _append_instructions(self):
         with self.lock:
             # If the file is empty, append the short tutorial
             self.editor.read_only = False
-            self.editor.function(editor.Editor.Functions.PUT_STRING,
-                                 **{'text': _("press the Enter key to start a chat with Eurobraille AI...")})
+            self.editor.function(
+                editor.Editor.Functions.PUT_STRING,
+                **{
+                    "text": self._transform_text_to_braille(
+                        _("press the Enter key to start a chat with Eurobraille AI...")
+                    )
+                },
+            )
             # Move the caret on the start of the paragraph
             self.editor.set_caret(self.start_of_ai_response_saved_caret)
             self.editor.read_only = True

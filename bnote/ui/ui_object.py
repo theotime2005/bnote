@@ -4,6 +4,7 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 import unicodedata
 from pathlib import Path
 
@@ -38,7 +39,7 @@ class UiObject:
         self._ui_id = None
         # ui_id is defined by container after object creation.
         self._parent = None
-        # by default, object is unhiden
+        # by default, object is unhidden
         self._is_hide = False
         # by default, ui_object is not a container
         self._is_root = False
@@ -57,16 +58,16 @@ class UiObject:
         # close dialog box or menu when action is done on object
         self._is_auto_close = True
         parameters = {
-            'braille_type': self.set_braille_type,
-            'no_grade': self.__set_no_grade,
-            'shortcut_modifier': self.__set_shortcut_modifier,
-            'shortcut_key': self.__set_shortcut_key,
-            'name': self.set_name,
-            'action': self.__set_action,
-            'action_param': self.__set_action_param,
-            'is_root': self.set_root,
-            'is_hide': self.__set_hide,
-            'is_auto_close': self.__auto_close,
+            "braille_type": self.set_braille_type,
+            "no_grade": self.__set_no_grade,
+            "shortcut_modifier": self.__set_shortcut_modifier,
+            "shortcut_key": self.__set_shortcut_key,
+            "name": self.set_name,
+            "action": self.__set_action,
+            "action_param": self.__set_action_param,
+            "is_root": self.set_root,
+            "is_hide": self.__set_hide,
+            "is_auto_close": self.__auto_close,
         }
         for name, value in parameters.items():
             # log.info(f"{name=}, {value=}")
@@ -96,9 +97,13 @@ class UiObject:
     def _set_shortcut(self, name):
         # '&' treatment, use '\u2800' as temporary character.
         name = name.replace("&&", "\u2800")
-        pos = name.find('&')
+        pos = name.find("&")
         if pos >= 0:
-            self.shortcut = self._unaccented_text(name[pos + 1])
+            try:
+                self.shortcut = self._unaccented_text(name[pos + 1])
+            except IndexError:
+                # car '&' alone at the end of the name ?
+                pos = -1
         name = name.replace("&", "")
         name = name.replace("\u2800", "&")
         return name, pos
@@ -112,17 +117,22 @@ class UiObject:
 
     def _set_name_without_shortcut(self, new_name, pos=-1):
         # braille conversion
-        self._name, self._braille_name, pos = BnoteApp.lou.convert_to_braille(self._braille_type, new_name, pos, self.__no_grade)
+        self._name, self._braille_name, pos = BnoteApp.lou.convert_to_braille(
+            self._braille_type, new_name, pos, self.__no_grade
+        )
         # Replace space in name by dot 8.
-        if not Settings().data['system']['spaces_in_label']:
+        if not Settings().data["system"]["spaces_in_label"]:
             self._braille_name = self._braille_name.replace("\u2800", "\u2880")
         # add dot 8 under shortcut character.
         if pos >= 0:
-            self._braille_name = "".join([self._braille_name[0: pos],
-                                          chr(ord(self._braille_name[pos]) + 0x80),
-                                          self._braille_name[pos + 1:]
-                                          ])
-        #log.info(f"{self._name=}-{self.braille_name=}")
+            self._braille_name = "".join(
+                [
+                    self._braille_name[0:pos],
+                    chr(ord(self._braille_name[pos]) + 0x80),
+                    self._braille_name[pos + 1 :],
+                ]
+            )
+        # log.info(f"{self._name=}-{self.braille_name=}")
 
     def __set_shortcut_modifier(self, shortcut_modifier):
         self._shortcut_modifier = shortcut_modifier
@@ -203,17 +213,28 @@ class UiObject:
             if not self._is_focused:
                 blinking_braille = "\u2800" * len(self._braille_name)
             else:
-                blinking_braille = "".join(["\u28C0", "\u2800" * (len(self._braille_name) - 1)])
-            return self._name, self._braille_name, blinking_braille, [self._ui_id] * len(self._braille_name)
+                blinking_braille = "".join(
+                    ["\u28C0", "\u2800" * (len(self._braille_name) - 1)]
+                )
+            return (
+                self._name,
+                self._braille_name,
+                blinking_braille,
+                [self._ui_id] * len(self._braille_name),
+            )
 
     def check_menu_item_key(self, modifier, key):
         if self._is_hide:
             return False
         else:
             if isinstance(key, str):
-                return (self._shortcut_modifier == modifier) and (self._shortcut_key == self._unaccented_text(key))
+                return (self._shortcut_modifier == modifier) and (
+                    self._shortcut_key == self._unaccented_text(key)
+                )
             else:
-                return (self._shortcut_modifier == modifier) and (self._shortcut_key == key)
+                return (self._shortcut_modifier == modifier) and (
+                    self._shortcut_key == key
+                )
 
     # -------------------------------------
     # Notification
@@ -311,7 +332,7 @@ class UiObject:
         """
         if modifier == 0:
             if bramigraph == Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_SPACE:
-                return self.exec_character(modifier, ' ', b'\x00\x00\x00\x00\x00 ')
+                return self.exec_character(modifier, " ", b"\x00\x00\x00\x00\x00 ")
             elif bramigraph == Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_RETURN:
                 return self.exec_action()
         return False, True
@@ -327,4 +348,10 @@ class UiObject:
     @staticmethod
     def _unaccented_text(character):
         text = character.lower()
-        return ''.join((c for c in unicodedata.normalize('NFD', text) if unicodedata.category(c) != 'Mn'))
+        return "".join(
+            (
+                c
+                for c in unicodedata.normalize("NFD", text)
+                if unicodedata.category(c) != "Mn"
+            )
+        )

@@ -5,7 +5,6 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 # import slate3k as slate
 # import PyPDF2
 import os
@@ -13,6 +12,7 @@ from shlex import quote
 
 # Setup the logger for this file
 from .colored_log import ColoredLogger, READ_ODT_FILE_LOG
+
 log = ColoredLogger(__name__, level=READ_ODT_FILE_LOG)
 
 
@@ -51,12 +51,23 @@ class ReadPdfFile:
         fp = None
         output_file = str(self._full_file_name) + ".tmp.txt"
         if not os.path.exists(output_file):
-            log.info("pdftotext '" + str(self._full_file_name) + "' '" + str(output_file) + "'")
+            log.info(
+                "pdftotext '"
+                + str(self._full_file_name)
+                + "' '"
+                + str(output_file)
+                + "'"
+            )
             # https://stackoverflow.com/questions/35817/how-to-escape-os-system-calls
-            os.system("pdftotext " + quote(str(self._full_file_name)) + " " + quote(str(output_file)))
+            os.system(
+                "pdftotext "
+                + quote(str(self._full_file_name))
+                + " "
+                + quote(str(output_file))
+            )
 
             try:
-                fp = open(output_file, 'r')
+                fp = open(output_file, "r")
 
                 line = fp.readline()
                 cnt = 1

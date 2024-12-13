@@ -21,7 +21,15 @@ log.setLevel(SEND_TO_THREAD_LOG)
 
 
 class SendToThread(threading.Thread):
-    def __init__(self, files, machine, to_mac_address, on_error=None, on_progress=None, on_end=None):
+    def __init__(
+        self,
+        files,
+        machine,
+        to_mac_address,
+        on_error=None,
+        on_progress=None,
+        on_end=None,
+    ):
         threading.Thread.__init__(self)
         self.__running = False
         self.__wait = False
@@ -48,27 +56,37 @@ class SendToThread(threading.Thread):
         while self.__running:
             file_to_send = self.__files[0].resolve()
             if count > 1 or (count == 1 and self.__files[0].is_dir()):
-                file_to_send = FileManager.get_tmp_path() / (self.__files[0].resolve().name + '.zip')
+                file_to_send = FileManager.get_tmp_path() / (
+                    self.__files[0].resolve().name + ".zip"
+                )
                 zip_thread = ZipThread(self.__files, file_to_send)
                 zip_thread.start()
                 zip_thread.join()
 
             if self.__on_progress is not None:
-                self.__on_progress(operation='send to', filename=file_to_send, current_progress=50, max_progress=100)
+                self.__on_progress(
+                    operation="send to",
+                    filename=file_to_send,
+                    current_progress=50,
+                    max_progress=100,
+                )
 
             # Get the channel for OPUSH service.
             channel = find_opush_channel(self.__to_mac_address)
 
             # Ligne de commande pour un W10
-            command_line = "obexftp -b {} -B {} -p \"{}\"".format(self.__to_mac_address, channel, file_to_send)
+            command_line = 'obexftp -b {} -B {} -p "{}"'.format(
+                self.__to_mac_address, channel, file_to_send
+            )
             obexftp_results, error = self.send(command_line)
             log.info("obexftp =>{}".format(obexftp_results))
 
             if error.find("failed: send UUID") != -1:
                 time.sleep(2)
                 # Ligne de commande pour un système android ou W7
-                command_line = "obexftp -b {} --uuid none -B {} -p \"{}\"".format(self.__to_mac_address, channel,
-                                                                                 file_to_send)
+                command_line = 'obexftp -b {} --uuid none -B {} -p "{}"'.format(
+                    self.__to_mac_address, channel, file_to_send
+                )
                 obexftp_results, error = self.send(command_line)
                 log.info("obexftp =>{}".format(obexftp_results))
 
@@ -98,7 +116,11 @@ class SendToThread(threading.Thread):
 
             if self.__on_end is not None:
                 self.__on_end(
-                    operation='send to', machine=self.__machine, send_to_success=send_to_success, filename=file_to_send)
+                    operation="send to",
+                    machine=self.__machine,
+                    send_to_success=send_to_success,
+                    filename=file_to_send,
+                )
 
             self.__running = False
 

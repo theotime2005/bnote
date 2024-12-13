@@ -4,6 +4,7 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 import io
 import os
 import re
@@ -20,7 +21,7 @@ from .daisy_html2text import HTML2Text
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 log_stream = logging.StreamHandler(sys.stdout)
-log_stream.setFormatter(logging.Formatter('%(levelname)s: %(message)s'))
+log_stream.setFormatter(logging.Formatter("%(levelname)s: %(message)s"))
 logger.addHandler(log_stream)
 
 
@@ -40,28 +41,34 @@ class Parser:
 
     def meta(self, with_scheme):
         meta_dict = {}
-        head = self.document.getElementsByTagName('head')[0]
-        metas = head.getElementsByTagName('meta')
+        head = self.document.getElementsByTagName("head")[0]
+        metas = head.getElementsByTagName("meta")
         for meta in metas:
             attributes = meta.attributes
-            name = meta.getAttribute('name')
-            content = meta.getAttribute('content')
+            name = meta.getAttribute("name")
+            content = meta.getAttribute("content")
             if with_scheme:
-                scheme = meta.getAttribute('scheme')
+                scheme = meta.getAttribute("scheme")
             if name == "":
-                http_equiv = meta.getAttribute('http-equiv')
+                http_equiv = meta.getAttribute("http-equiv")
                 if http_equiv == "":
                     continue
             else:
                 names = name.split(":")
                 if with_scheme:
                     if len(names) == 2:
-                        NccParser._add_to_dict_of_dict(meta_dict, names[0], names[1], (content, scheme))
+                        NccParser._add_to_dict_of_dict(
+                            meta_dict, names[0], names[1], (content, scheme)
+                        )
                     else:
-                        NccParser._add_to_dict_of_dict(meta_dict, "", names[0], (content, scheme))
+                        NccParser._add_to_dict_of_dict(
+                            meta_dict, "", names[0], (content, scheme)
+                        )
                 else:
                     if len(names) == 2:
-                        NccParser._add_to_dict_of_dict(meta_dict, names[0], names[1], content)
+                        NccParser._add_to_dict_of_dict(
+                            meta_dict, names[0], names[1], content
+                        )
                     else:
                         NccParser._add_to_dict_of_dict(meta_dict, "", names[0], content)
         return meta_dict
@@ -79,14 +86,15 @@ class Parser:
         for node in nodelist:
             if node.nodeType == node.TEXT_NODE:
                 result.append(node.data)
-        return ''.join(result)
+        return "".join(result)
 
 
 class NccParser(Parser):
     """
     Class to parse a NCC XML file (Navigation Control Center).
     """
-    header_keys = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']
+
+    header_keys = ["h1", "h2", "h3", "h4", "h5", "h6"]
 
     def __init__(self):
         super().__init__()
@@ -95,8 +103,8 @@ class NccParser(Parser):
         """
         Extract the title of the NCC document.
         """
-        head = self.document.getElementsByTagName('head')[0]
-        title = head.getElementsByTagName('title')[0]
+        head = self.document.getElementsByTagName("head")[0]
+        title = head.getElementsByTagName("title")[0]
         return NccParser._node_text(title)
 
     def meta(self):
@@ -163,14 +171,22 @@ class NccParser(Parser):
             ]
         """
         header_list = []
-        body = self.document.getElementsByTagName('body')[0]
+        body = self.document.getElementsByTagName("body")[0]
         for body_element in body.childNodes:
             if body_element.nodeName in NccParser.header_keys:
-                class_elt = body_element.getAttribute('class')
-                id_elt = body_element.getAttribute('id')
-                a = body_element.getElementsByTagName('a')[0]
-                href_elt = a.getAttribute('href')
-                header_list.append({'name': body_element.nodeName, 'text': NccParser._node_text(a), 'class': class_elt, 'id': id_elt, 'href': href_elt})
+                class_elt = body_element.getAttribute("class")
+                id_elt = body_element.getAttribute("id")
+                a = body_element.getElementsByTagName("a")[0]
+                href_elt = a.getAttribute("href")
+                header_list.append(
+                    {
+                        "name": body_element.nodeName,
+                        "text": NccParser._node_text(a),
+                        "class": class_elt,
+                        "id": id_elt,
+                        "href": href_elt,
+                    }
+                )
         return header_list
 
     def body_span(self, header_index):
@@ -186,15 +202,23 @@ class NccParser(Parser):
         # DP FIXME div tag not handle
         span_list = []
         index = -1
-        body = self.document.getElementsByTagName('body')[0]
+        body = self.document.getElementsByTagName("body")[0]
         for body_element in body.childNodes:
             if index == header_index:
-                if body_element.nodeName == 'span':
-                    class_elt = body_element.getAttribute('class')
-                    id_elt = body_element.getAttribute('id')
-                    a = self.document.getElementsByTagName('a')[0]
-                    href_elt = a.getAttribute('href')
-                    span_list.append({'name': body_element.nodeName, 'text': NccParser._node_text(a), 'class': class_elt, 'id': id_elt, 'href': href_elt})
+                if body_element.nodeName == "span":
+                    class_elt = body_element.getAttribute("class")
+                    id_elt = body_element.getAttribute("id")
+                    a = self.document.getElementsByTagName("a")[0]
+                    href_elt = a.getAttribute("href")
+                    span_list.append(
+                        {
+                            "name": body_element.nodeName,
+                            "text": NccParser._node_text(a),
+                            "class": class_elt,
+                            "id": id_elt,
+                            "href": href_elt,
+                        }
+                    )
             if body_element.nodeName in NccParser.header_keys:
                 index += 1
                 if index > header_index:
@@ -234,13 +258,13 @@ class MasterSmilParser(Parser):
             ]
         """
         ref_list = []
-        body = self.document.getElementsByTagName('body')[0]
+        body = self.document.getElementsByTagName("body")[0]
         for body_element in body.childNodes:
-            if body_element.nodeName == 'ref':
-                title_elt = body_element.getAttribute('title')
-                src_elt = body_element.getAttribute('src')
-                id_elt = body_element.getAttribute('id')
-                ref_list.append({'title': title_elt, 'src': src_elt, 'id': id_elt})
+            if body_element.nodeName == "ref":
+                title_elt = body_element.getAttribute("title")
+                src_elt = body_element.getAttribute("src")
+                id_elt = body_element.getAttribute("id")
+                ref_list.append({"title": title_elt, "src": src_elt, "id": id_elt})
         return ref_list
 
 
@@ -271,7 +295,7 @@ class SmilParser(Parser):
         """
         Parse clip_begin or clip_end like 'npt=4.25s"
         """
-        match = re.search(r'[-+]?\d*\.?\d+', clip_string)
+        match = re.search(r"[-+]?\d*\.?\d+", clip_string)
         clip_value = "0"
         if match:
             clip_value = str(float(match.group()))
@@ -295,30 +319,39 @@ class SmilParser(Parser):
             ]
         """
         seq_list = []
-        body = self.document.getElementsByTagName('body')[0]
-        seq = body.getElementsByTagName('seq')[0]
-        duration_str = seq.getAttribute('dur')
-        match = re.search(r'[-+]?\d*\.?\d+', duration_str)
+        body = self.document.getElementsByTagName("body")[0]
+        seq = body.getElementsByTagName("seq")[0]
+        duration_str = seq.getAttribute("dur")
+        match = re.search(r"[-+]?\d*\.?\d+", duration_str)
         duration_value = "0"
         duration_unit = "s"
         if match:
             duration_value = str(float(match.group()))
-            duration_unit = duration_str[match.end():]
-        seq_list.append({'duration_value': duration_value, 'duration_unit': duration_unit})
-        pars = seq.getElementsByTagName('par')
+            duration_unit = duration_str[match.end() :]
+        seq_list.append(
+            {"duration_value": duration_value, "duration_unit": duration_unit}
+        )
+        pars = seq.getElementsByTagName("par")
         for par in pars:
-            endsync = par.getAttribute('endsync')
-            par_id = par.getAttribute('id')
-            par_dict = {'root': {'id': par_id, 'endsync': endsync}}
-            text = par.getElementsByTagName('text')[0]
-            pars_audio = par.getElementsByTagName('audio')
+            endsync = par.getAttribute("endsync")
+            par_id = par.getAttribute("id")
+            par_dict = {"root": {"id": par_id, "endsync": endsync}}
+            text = par.getElementsByTagName("text")[0]
+            pars_audio = par.getElementsByTagName("audio")
             for par_audio in pars_audio:
-                text_attributes = {'text_src': text.getAttribute('src'), 'text_id': text.getAttribute('id'), 'region': text.getAttribute('region'),
-                                   'audio_src': par_audio.getAttribute('src'),
-                                   'clip-begin': SmilParser.__value_from_clip(par_audio.getAttribute('clip-begin')),
-                                   'clip-end': SmilParser.__value_from_clip(par_audio.getAttribute('clip-end')),
-                                   'audio_id': par_audio.getAttribute('id')
-                                   }
+                text_attributes = {
+                    "text_src": text.getAttribute("src"),
+                    "text_id": text.getAttribute("id"),
+                    "region": text.getAttribute("region"),
+                    "audio_src": par_audio.getAttribute("src"),
+                    "clip-begin": SmilParser.__value_from_clip(
+                        par_audio.getAttribute("clip-begin")
+                    ),
+                    "clip-end": SmilParser.__value_from_clip(
+                        par_audio.getAttribute("clip-end")
+                    ),
+                    "audio_id": par_audio.getAttribute("id"),
+                }
                 seq_list.append(text_attributes)
         return seq_list
 
@@ -344,7 +377,7 @@ class DaisyReader:
         self.text_tags_dict = None
 
     def setup(self):
-        with (zipfile.ZipFile(self.zip_file_name) as zip_file):
+        with zipfile.ZipFile(self.zip_file_name) as zip_file:
             files = zip_file.namelist()
             ncc_file = self.__search_ncc_file(files)
             if ncc_file is None:
@@ -360,7 +393,9 @@ class DaisyReader:
             self.ncc_span_list = ncc_parser.body_span(2)
             # Read master_smil file.
             try:
-                self.master_smil_meta_dict, self.master_smil_ref_list = self.__read_master_file(zip_file, files)
+                self.master_smil_meta_dict, self.master_smil_ref_list = (
+                    self.__read_master_file(zip_file, files)
+                )
             except DaisyReaderException:
                 self.master_smil_meta_dict, self.master_smil_ref_list = None, None
             self.text_tags_dict = self.__smil_seq_concatenation(zip_file, files)
@@ -377,7 +412,7 @@ class DaisyReader:
         :return: True if the ncc.html file exists.
         """
         ncc_file = None
-        with (zipfile.ZipFile(zip_file_name) as zip_file):
+        with zipfile.ZipFile(zip_file_name) as zip_file:
             files = zip_file.namelist()
             ncc_file = DaisyReader.__search_ncc_file(files)
         return ncc_file is not None
@@ -400,14 +435,19 @@ class DaisyReader:
 
     def properties(self):
         title = self.ncc_title
-        creator = identifier = total_time = '?'
-        if 'identifier' in self.ncc_meta_dict['dc'].keys():
-            identifier = self.ncc_meta_dict['dc']['identifier'][0]
-        if 'creator' in self.ncc_meta_dict['dc'].keys():
-            creator = self.ncc_meta_dict['dc']['creator'][0]
-        if 'totalTime' in self.ncc_meta_dict['ncc'].keys():
-            total_time = self.ncc_meta_dict['ncc']['totalTime'][0]
-        return {'title': title, 'identifier': identifier, 'creator': creator, 'total_time': total_time}
+        creator = identifier = total_time = "?"
+        if "identifier" in self.ncc_meta_dict["dc"].keys():
+            identifier = self.ncc_meta_dict["dc"]["identifier"][0]
+        if "creator" in self.ncc_meta_dict["dc"].keys():
+            creator = self.ncc_meta_dict["dc"]["creator"][0]
+        if "totalTime" in self.ncc_meta_dict["ncc"].keys():
+            total_time = self.ncc_meta_dict["ncc"]["totalTime"][0]
+        return {
+            "title": title,
+            "identifier": identifier,
+            "creator": creator,
+            "total_time": total_time,
+        }
 
     def mp3_next(self, mp3_file):
         """
@@ -481,8 +521,10 @@ class DaisyReader:
 
     def mp3_file_extract(self, zip_mp3_file):
         (Path(self.temp_folder, self.folder)).mkdir(parents=True, exist_ok=True)
-        with (zipfile.ZipFile(self.zip_file_name) as zip_file):
-            zip_file.extract(Path(self.folder, zip_mp3_file).as_posix(), str(self.temp_folder))
+        with zipfile.ZipFile(self.zip_file_name) as zip_file:
+            zip_file.extract(
+                Path(self.folder, zip_mp3_file).as_posix(), str(self.temp_folder)
+            )
             return Path(self.temp_folder) / Path(self.folder) / Path(zip_mp3_file)
 
     # def mp3_from_tag(self, daisy_tag):
@@ -510,24 +552,31 @@ class DaisyReader:
             smil_parser.parse(smil_contents)
             smil_seq_list = smil_parser.body_seq()
             for index, smil_seq in enumerate(smil_seq_list):
-                if (index != 0) and ('text_src' in smil_seq.keys()) and ('audio_src' in smil_seq.keys()):
-                    text_tag = smil_seq['text_src'].split('#')[1]
+                if (
+                    (index != 0)
+                    and ("text_src" in smil_seq.keys())
+                    and ("audio_src" in smil_seq.keys())
+                ):
+                    text_tag = smil_seq["text_src"].split("#")[1]
                     if text_tag not in text_tags_dict:
-                        text_tags_dict[text_tag] = (smil_seq['audio_src'], smil_seq['clip-begin'])
+                        text_tags_dict[text_tag] = (
+                            smil_seq["audio_src"],
+                            smil_seq["clip-begin"],
+                        )
         return text_tags_dict
 
     @staticmethod
     def __read_file(zip_file, filename):
         # Encoding research
-        encoding = 'utf-8'
+        encoding = "utf-8"
         with zip_file.open(str(filename.as_posix())) as readfile:
             data = readfile.read()
             line = data.splitlines()[0]
             match = re.search('encoding="(.+?)"', str(line))
             if match is not None:
                 encoding = match.group(1).lower()
-                if encoding == 'iso-8859-1':
-                    encoding = 'cp1252'
+                if encoding == "iso-8859-1":
+                    encoding = "cp1252"
         # return document string
         return data.decode(encoding)
 
@@ -548,7 +597,7 @@ class DaisyReader:
         Use callback function append_paragraph to register the paragraph tag and paragraph text.
         Return :
         """
-        with (zipfile.ZipFile(self.zip_file_name) as zip_file):
+        with zipfile.ZipFile(self.zip_file_name) as zip_file:
             files = zip_file.namelist()
             ncc_file = self.__search_ncc_file(files)
             if ncc_file is None:
@@ -598,20 +647,22 @@ class DaisyReader:
 
     def tag_from_smil_name(self, summary_id):
         for item in self.ncc_header_list:
-            if item['id'] == summary_id:
+            if item["id"] == summary_id:
                 # get smil file
-                smil_file = self.extract_file(item, 'href')
-                with (zipfile.ZipFile(self.zip_file_name) as zip_file):
+                smil_file = self.extract_file(item, "href")
+                with zipfile.ZipFile(self.zip_file_name) as zip_file:
                     smil_contents = self.__read_file(zip_file, smil_file)
                     smil_parser = SmilParser()
                     smil_parser.parse(smil_contents)
                     smil_seq_list = smil_parser.body_seq()
-                    return smil_seq_list[1]['text_src'].split('#')[1]
+                    return smil_seq_list[1]["text_src"].split("#")[1]
 
     def __search_text_file(self, zip_file, folder, files):
         if (self.master_smil_ref_list is None) or (len(self.master_smil_ref_list) == 0):
             raise DaisyReaderException("ERROR: master.smil file empty")
-        filename, marker = DaisyReader.__unpack_smil_text_arg(self.master_smil_ref_list[0]['src'])
+        filename, marker = DaisyReader.__unpack_smil_text_arg(
+            self.master_smil_ref_list[0]["src"]
+        )
         smil_file = Path(folder) / Path(filename)
         smil_contents = self.__read_file(zip_file, smil_file)
         smil_parser = SmilParser()
@@ -619,15 +670,15 @@ class DaisyReader:
         smil_seq_list = smil_parser.body_seq()
         if len(smil_seq_list) < 2:
             raise DaisyReaderException("ERROR: invalid smil body")
-        return smil_seq_list[1]['text_src']
+        return smil_seq_list[1]["text_src"]
 
     def __get_summary_from_ncc(self, with_level=False):
         paragraphs = []
         for item in self.ncc_header_list:
             if with_level:
-                paragraph = (item['name'], item['id'], str(item['text']))
+                paragraph = (item["name"], item["id"], str(item["text"]))
             else:
-                paragraph = (item['id'], str(item['text']))
+                paragraph = (item["id"], str(item["text"]))
             paragraphs.append(paragraph)
         return paragraphs
 
@@ -688,7 +739,7 @@ class DaisyReader:
 
         # log ordered smil files
         logger.info(">>>>>>>>>>>>>>>>>>>>>>>> smil files list")
-        with (zipfile.ZipFile(self.zip_file_name) as zip_file):
+        with zipfile.ZipFile(self.zip_file_name) as zip_file:
             files = zip_file.namelist()
             smil_files = self.__search_smil_files(files)
             for smil_file in smil_files:
@@ -702,7 +753,7 @@ class DaisyReader:
 
         # Find the smil files.
         logger.info(">>>>>>>>>>>>>>>>>>>>>>>> smil file example")
-        with (zipfile.ZipFile(self.zip_file_name) as zip_file):
+        with zipfile.ZipFile(self.zip_file_name) as zip_file:
             files = zip_file.namelist()
             smil_files = self.__search_smil_files(files)
 
@@ -720,7 +771,7 @@ class DaisyReader:
                 logger.info(item)
 
         # Read one smil file.
-        with (zipfile.ZipFile(self.zip_file_name) as zip):
+        with zipfile.ZipFile(self.zip_file_name) as zip:
             files = zip.namelist()
             ncc_file = DaisyReader.__search_ncc_file(files)
             if ncc_file is None:
@@ -748,7 +799,7 @@ class DaisyReader:
 
     @staticmethod
     def __unpack_smil_text_arg(smil_text_arg):
-        text_segments = smil_text_arg.split('#')
+        text_segments = smil_text_arg.split("#")
         if len(text_segments) != 2:
             raise DaisyReaderException("ERROR: invalid text arg in smil")
         return text_segments[0], text_segments[1]
@@ -776,7 +827,7 @@ class DaisyReader:
                 return file
 
     def extract_file(self, smil_item, key):
-        smil_file = smil_item[key].split('#')[0]
+        smil_file = smil_item[key].split("#")[0]
         return Path(self.folder) / Path(smil_file)
 
     def __search_smil_files(self, files):
@@ -789,11 +840,11 @@ class DaisyReader:
         if self.master_smil_ref_list is None:
             # Extract smil from ncc.html
             for item in self.ncc_header_list:
-                smil_files.append(self.extract_file(item, 'href'))
+                smil_files.append(self.extract_file(item, "href"))
         else:
             # Extract smil from master.smil
             for item in self.master_smil_ref_list:
-                smil_files.append(self.extract_file(item, 'src'))
+                smil_files.append(self.extract_file(item, "src"))
         return smil_files
 
     def __find_mp3(self, zip_file, smil_files, daisy_tag):
@@ -804,12 +855,14 @@ class DaisyReader:
             smil_seq_list = smil_parser.body_seq()
             for index, smil_seq in enumerate(smil_seq_list):
                 logger.info(f"Processing {smil_seq}")
-                if ((index != 0)
-                    and ('text_src' in smil_seq.keys())
-                    and (smil_seq['text_src'].split('#')[1] == daisy_tag)) \
-                        and ('audio_src' in smil_seq.keys()):
-                    return smil_seq['audio_src'], smil_seq['clip-begin']
+                if (
+                    (index != 0)
+                    and ("text_src" in smil_seq.keys())
+                    and (smil_seq["text_src"].split("#")[1] == daisy_tag)
+                ) and ("audio_src" in smil_seq.keys()):
+                    return smil_seq["audio_src"], smil_seq["clip-begin"]
         raise DaisyReaderException(f"no daisy tag found {daisy_tag}")
+
 
 # logger.info("Start")
 # zip_file = "A_Ceux_qui_revent.zip"
@@ -823,4 +876,3 @@ class DaisyReader:
 #         logger.info(file)
 #         file_info = zip.getinfo(file)
 #         logger.info(file_info)
-

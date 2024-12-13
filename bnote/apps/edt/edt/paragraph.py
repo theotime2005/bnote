@@ -4,22 +4,24 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 import itertools
 from .pos import Pos
+
 # Setup the logger for this file
 from .colored_log import ColoredLogger, EDITOR_PARAGRAPH_LOG, logging
+
 log = ColoredLogger(__name__, level=EDITOR_PARAGRAPH_LOG)
 
 
 class Paragraph(object):
-    '''
+    """
     Un paragraphe possède un identifiant qui lui est propre.
 
     Un paragraphe est découpé en ligne de 2 types
     Les lignes dont la fin remplace un espace
     Les lignes dont la fin ne remplace pas un espace (cas de la dernière ligne)
-    '''
-
+    """
 
     def __init__(self, paragraph, id, width):
         self._id = id
@@ -53,8 +55,8 @@ class Paragraph(object):
 
     def statistics(self) -> (int, int):
         """
-           Characteristics of paragraph.
-           -> (int:words_count, int:characters_count)
+        Characteristics of paragraph.
+        -> (int:words_count, int:characters_count)
         """
         characters_count = 0
         words_count = 0
@@ -67,8 +69,8 @@ class Paragraph(object):
 
     def lines_count(self):
         """
-            Number of lines in paragraph.
-            -> int : Number of lines (1 to n)
+        Number of lines in paragraph.
+        -> int : Number of lines (1 to n)
         """
         if len(self._lines) == 0:
             # An empty paragraph is a paragraph of one empty line.
@@ -78,9 +80,9 @@ class Paragraph(object):
 
     def line(self, index):
         """
-            Return the text of one line of the paragraph.
-            index is the zero based line index in paragraph.
-            -> str (may be "")
+        Return the text of one line of the paragraph.
+        index is the zero based line index in paragraph.
+        -> str (may be "")
         """
         if len(self._lines) > 0:
             return self._lines[index]
@@ -89,9 +91,9 @@ class Paragraph(object):
 
     def characters(self, pos):
         """
-            Get before and after pos input point.
-            pos is char index in paragraph.
-            -> char before, char after (may be None)
+        Get before and after pos input point.
+        pos is char index in paragraph.
+        -> char before, char after (may be None)
         """
         char_after = None
         char_before = None
@@ -105,8 +107,8 @@ class Paragraph(object):
 
     def last_line(self):
         """
-            Returns index of the last line of this paragraph.
-            -> int (zero based)
+        Returns index of the last line of this paragraph.
+        -> int (zero based)
         """
         if len(self._lines) > 0:
             return len(self._lines) - 1
@@ -115,9 +117,9 @@ class Paragraph(object):
 
     def last_column(self, line):
         """
-            Returns index of last character of the line (+1 for cursor position)
-            line is line index (zero based)
-            -> int (zero based)
+        Returns index of last character of the line (+1 for cursor position)
+        line is line index (zero based)
+        -> int (zero based)
         """
         try:
             return len(self._lines[line])
@@ -126,9 +128,9 @@ class Paragraph(object):
 
     def coordinates_from_index(self, index):
         """
-            Calculate coordinates of a character indexed in the paragraph.
-            index is char index (zero based)
-            -> Pos : character position (x, y) in paragraph at given index.
+        Calculate coordinates of a character indexed in the paragraph.
+        index is char index (zero based)
+        -> Pos : character position (x, y) in paragraph at given index.
         """
         pos = Pos(0, 0)
         y = 0
@@ -153,9 +155,9 @@ class Paragraph(object):
 
     def index_from_coordinates(self, pos):
         """
-            Calculate the index in the paragraph from Pos
-            pos:Pos is character position (x, y) in paragraph.
-            -> int: char index in paragraph (zero based)
+        Calculate the index in the paragraph from Pos
+        pos:Pos is character position (x, y) in paragraph.
+        -> int: char index in paragraph (zero based)
         """
         index = 0
         y = 0
@@ -168,8 +170,8 @@ class Paragraph(object):
 
     def concat_paragraph(self):
         """
-            Construct a string with all paragraph lines.
-            -> str where end of line are replaced by space.
+        Construct a string with all paragraph lines.
+        -> str where end of line are replaced by space.
         """
         paragraph = ""
         for index, line in enumerate(self._lines):
@@ -181,9 +183,9 @@ class Paragraph(object):
 
     def move_right(self, pos):
         """
-            move pos to right.
-            pos (x, y) are position in paragraph.
-            -> True (pos is changed), False (pos is at the end of paragraph)
+        move pos to right.
+        pos (x, y) are position in paragraph.
+        -> True (pos is changed), False (pos is at the end of paragraph)
         """
         if pos.y < len(self._lines) and pos.x < len(self._lines[pos.y]):
             pos.x += 1
@@ -198,9 +200,9 @@ class Paragraph(object):
 
     def move_left(self, pos):
         """
-            move pos to left.
-            pos (x, y) are position in paragraph.
-            -> True (pos is changed), False (pos is at the end of paragraph)
+        move pos to left.
+        pos (x, y) are position in paragraph.
+        -> True (pos is changed), False (pos is at the end of paragraph)
         """
         if pos.x == 0:
             if pos.y != 0:
@@ -216,10 +218,10 @@ class Paragraph(object):
     # pos are relative position in paragraph.
     def move_up(self, pos, old_x):
         """
-            move pos to up.
-            pos (x, y) are position in paragraph.
-            old_x is the column position we would like to reach.
-            -> Pos is the new pos in paragraph. Pos(-1, -1) already at the last line.
+        move pos to up.
+        pos (x, y) are position in paragraph.
+        old_x is the column position we would like to reach.
+        -> Pos is the new pos in paragraph. Pos(-1, -1) already at the last line.
         """
         if pos.y != 0:
             pos.y -= 1
@@ -233,10 +235,10 @@ class Paragraph(object):
 
     def move_down(self, pos, old_x):
         """
-            move pos to down.
-            pos (x, y) are position in paragraph.
-            old_x is the column position we would like to reach.
-            -> Pos is the new pos in paragraph. Pos(-1, -1) already at the first line.
+        move pos to down.
+        pos (x, y) are position in paragraph.
+        old_x is the column position we would like to reach.
+        -> Pos is the new pos in paragraph. Pos(-1, -1) already at the first line.
         """
         if pos.y < len(self._lines) - 1:
             pos.y += 1
@@ -250,9 +252,9 @@ class Paragraph(object):
 
     def move_previous_word(self, pos):
         """
-            move to the previous word.
-            pos (x, y) are position in paragraph.
-            -> Pos is the new pos in paragraph. Pos(-1, -1) already at the first position.
+        move to the previous word.
+        pos (x, y) are position in paragraph.
+        -> Pos is the new pos in paragraph. Pos(-1, -1) already at the first position.
         """
         if pos.x == 0 and pos.y == 0:
             # already at the first position in paragraph.
@@ -262,10 +264,10 @@ class Paragraph(object):
         paragraph = self.concat_paragraph()
         index -= 1
         # pass all space
-        while index > 0 and paragraph[index] == ' ':
+        while index > 0 and paragraph[index] == " ":
             index -= 1
         # pass all no space
-        while index > 0 and paragraph[index] != ' ':
+        while index > 0 and paragraph[index] != " ":
             index -= 1
         # forward on the first char of the word.
         if index > 0:
@@ -274,18 +276,18 @@ class Paragraph(object):
 
     def move_next_word(self, pos):
         """
-            move to the next word.
-            pos (x, y) are position in paragraph.
-            -> Pos is the new pos in paragraph. Pos(-1, -1) already at the last position.
+        move to the next word.
+        pos (x, y) are position in paragraph.
+        -> Pos is the new pos in paragraph. Pos(-1, -1) already at the last position.
         """
         index = self.index_from_coordinates(pos)
         paragraph = self.concat_paragraph()
 
         # pass all no space
-        while index < len(paragraph) and paragraph[index] != ' ':
+        while index < len(paragraph) and paragraph[index] != " ":
             index += 1
         # pass all space
-        while index < len(paragraph) and paragraph[index] == ' ':
+        while index < len(paragraph) and paragraph[index] == " ":
             index += 1
         if index == len(paragraph):
             # already on the last word of paragraph.
@@ -295,32 +297,34 @@ class Paragraph(object):
 
     def select_word(self, pos):
         """
-            select the current word at pos.
-            pos (x, y) are position in paragraph.
-            -> (Pos: start index of word in paragraph, Pos: end index of word in paragraph).
+        select the current word at pos.
+        pos (x, y) are position in paragraph.
+        -> (Pos: start index of word in paragraph, Pos: end index of word in paragraph).
         """
         if EDITOR_PARAGRAPH_LOG <= logging.INFO:
             log.info("select word at {}".format(pos))
         index = self.index_from_coordinates(pos)
         paragraph = self.concat_paragraph()
-        if (len(paragraph) < index) or (paragraph[index] == ' '):
+        if (len(paragraph) < index) or (paragraph[index] == " "):
             return None, None
         # backward until space or beginning of the line
-        while index > 0 and paragraph[index] != ' ':
+        while index > 0 and paragraph[index] != " ":
             index -= 1
-        if paragraph[index] == ' ':
+        if paragraph[index] == " ":
             index += 1
         start_index = index
-        while index < len(paragraph) and paragraph[index] != ' ':
+        while index < len(paragraph) and paragraph[index] != " ":
             index += 1
         end_index = index
-        return self.coordinates_from_index(start_index), self.coordinates_from_index(end_index)
+        return self.coordinates_from_index(start_index), self.coordinates_from_index(
+            end_index
+        )
 
     def move_column(self, line, old_x):
         """
-            Try to return the better column in a line of the paragraph.
-            line is the line index (zero based)
-            old_x is the wished position.
+        Try to return the better column in a line of the paragraph.
+        line is the line index (zero based)
+        old_x is the wished position.
         """
         if len(self._lines) == 0:
             # Empty line.
@@ -335,8 +339,8 @@ class Paragraph(object):
 
     def end_of_paragraph(self):
         """
-            Return end of paragraph position.
-            -> Pos (x, y)
+        Return end of paragraph position.
+        -> Pos (x, y)
         """
         if len(self._lines) > 0:
             return Pos(self.last_column(len(self._lines) - 1), len(self._lines) - 1)
@@ -345,22 +349,22 @@ class Paragraph(object):
 
     def is_end(self, pos):
         """
-            Check if position is at the end of the paragraph.
-            pos: Pos(x,y) position in paragraph
-            -> bool True or False
+        Check if position is at the end of the paragraph.
+        pos: Pos(x,y) position in paragraph
+        -> bool True or False
         """
         return pos == self.end_of_paragraph()
 
     def insert_string(self, pos, string):
         """
-            insert a string in the paragraph at pos.
-            pos: Pos(x,y) position in paragraph
-            string: str
-            -> Pos(x,y) position after insertion.
+        insert a string in the paragraph at pos.
+        pos: Pos(x,y) position in paragraph
+        string: str
+        -> Pos(x,y) position after insertion.
         """
         index = self.index_from_coordinates(pos)
         paragraph = self.concat_paragraph()
-        paragraph = paragraph[0:index] + string + paragraph[index:len(paragraph)]
+        paragraph = paragraph[0:index] + string + paragraph[index : len(paragraph)]
         index += len(string)
         self._is_modified = True
         self._justify(paragraph)
@@ -368,26 +372,26 @@ class Paragraph(object):
 
     def delete_char(self, pos):
         """
-            Delete a character at pos
-            pos: Pos(x,y) position in paragraph
-            -> Pos(x,y) after deletion
+        Delete a character at pos
+        pos: Pos(x,y) position in paragraph
+        -> Pos(x,y) after deletion
         """
         index = self.index_from_coordinates(pos)
         paragraph = self.concat_paragraph()
         if index + 1 >= len(paragraph):
             paragraph = paragraph[0:index]
         else:
-            paragraph = paragraph[0:index] + paragraph[index + 1:len(paragraph)]
+            paragraph = paragraph[0:index] + paragraph[index + 1 : len(paragraph)]
         self._is_modified = True
         self._justify(paragraph)
         return self.coordinates_from_index(index)
 
     def delete(self, start, end):
         """
-            Delete a character at pos
-            start: Pos(x,y) start position of deletion in paragraph
-            end: Pos(x,y) end position of deletion in paragraph
-            -> Pos(x,y) after deletion
+        Delete a character at pos
+        start: Pos(x,y) start position of deletion in paragraph
+        end: Pos(x,y) end position of deletion in paragraph
+        -> Pos(x,y) after deletion
         """
         start_index = self.index_from_coordinates(start)
         end_index = self.index_from_coordinates(end)
@@ -395,23 +399,23 @@ class Paragraph(object):
         if end_index > len(paragraph):
             paragraph = paragraph[0:start_index]
         else:
-            paragraph = paragraph[0:start_index] + paragraph[end_index:len(paragraph)]
+            paragraph = paragraph[0:start_index] + paragraph[end_index : len(paragraph)]
         self._is_modified = True
         self._justify(paragraph)
         return self.coordinates_from_index(start_index)
 
     def paragraph_text(self):
         """
-            Return a line of text with all characters of paragraph.
+        Return a line of text with all characters of paragraph.
         """
         return self.concat_paragraph()
 
     def text(self, start, end):
         """
-            Return a part of text between 2 coordinates.
-            start: Pos(x,y) start position of extraction in paragraph
-            end: Pos(x,y) end position of extraction in paragraph
-            -> str: the extracted string.
+        Return a part of text between 2 coordinates.
+        start: Pos(x,y) start position of extraction in paragraph
+        end: Pos(x,y) end position of extraction in paragraph
+        -> str: the extracted string.
         """
         start_index = self.index_from_coordinates(start)
         end_index = self.index_from_coordinates(end)
@@ -420,13 +424,13 @@ class Paragraph(object):
 
     def split_paragraph(self, pos):
         """
-            Reduce the paragraph until pos and return the deleted string
-            pos: Pos(x,y) reduction position in paragraph
-            -> str : The removed string (current paragraph is modified)
+        Reduce the paragraph until pos and return the deleted string
+        pos: Pos(x,y) reduction position in paragraph
+        -> str : The removed string (current paragraph is modified)
         """
         index = self.index_from_coordinates(pos)
         paragraph = self.concat_paragraph()
-        string = paragraph[index:len(paragraph)]
+        string = paragraph[index : len(paragraph)]
         paragraph = paragraph[0:index]
         self._is_modified = True
         self._justify(paragraph)
@@ -434,10 +438,10 @@ class Paragraph(object):
 
     def merge(self, pos, paragraph):
         """
-            add to itself a paragraph at pos
-            pos: Pos(x,y) is the input position
-            paragraph: Paragraph is the paragraph to merge
-            -> pos: Pos(x,y) is the new pos
+        add to itself a paragraph at pos
+        pos: Pos(x,y) is the input position
+        paragraph: Paragraph is the paragraph to merge
+        -> pos: Pos(x,y) is the new pos
         """
         index = self.index_from_coordinates(pos)
         paragraph1 = self.concat_paragraph()
@@ -448,10 +452,10 @@ class Paragraph(object):
 
     def resize_line_length(self, line_length, pos=None):
         """
-            Reformat paragraph with a new line length
-            line_length: int is the new line length
-            pos:Pos(x,y) is the current position (maybe None)
-            -> Pos(x,y) the new position (maybe None)
+        Reformat paragraph with a new line length
+        line_length: int is the new line length
+        pos:Pos(x,y) is the current position (maybe None)
+        -> Pos(x,y) the new position (maybe None)
         """
         index = 0
         if pos:
@@ -467,17 +471,17 @@ class Paragraph(object):
 
     def _justify(self, paragraph):
         """
-            Construct the lines list of a paragraph.
-            The space are used to cut the paragraph in line, if no space are present
-            the line could exceed the line limit.
-            paragraph: str is the text of paragraph
-            self._width is the current line length of the paragraph
-            -> self._lines is construct
+        Construct the lines list of a paragraph.
+        The space are used to cut the paragraph in line, if no space are present
+        the line could exceed the line limit.
+        paragraph: str is the text of paragraph
+        self._width is the current line length of the paragraph
+        -> self._lines is construct
         """
         length = 0
         self._lines = list()
         line = ""
-        words = paragraph.split(' ')
+        words = paragraph.split(" ")
         for index, word in enumerate(words):
             if index == 0:
                 # Insert first word without space
@@ -496,11 +500,11 @@ class Paragraph(object):
 
     def find_next(self, pos, find_parameters):
         """
-            find the FindParameters criteria
-            pos: Pos(x,y) the current position where the search begins
-            find_parameters: an  instance of FindParameters
-            -> (pos: Pos(x,y) the start position, pos: Pos(x,y) the end position)
-            if not found (pos, pos) is the input pos
+        find the FindParameters criteria
+        pos: Pos(x,y) the current position where the search begins
+        find_parameters: an  instance of FindParameters
+        -> (pos: Pos(x,y) the start position, pos: Pos(x,y) the end position)
+        if not found (pos, pos) is the input pos
         """
         start_index = self.index_from_coordinates(pos)
         paragraph = self.concat_paragraph()
@@ -509,15 +513,17 @@ class Paragraph(object):
             return pos, pos
         else:
             pos = self.coordinates_from_index(index)
-            return self.coordinates_from_index(index), self.coordinates_from_index(index + len(find_parameters.edit_seq))
+            return self.coordinates_from_index(index), self.coordinates_from_index(
+                index + len(find_parameters.edit_seq)
+            )
 
     def find_previous(self, pos, find_parameters):
         """
-            reverse find the FindParameters criteria
-            pos: Pos(x,y) the current position where the search begins
-            find_parameters: an  instance of FindParameters
-            -> (pos: Pos(x,y) the start position, pos: Pos(x,y) the end position)
-            if not found (pos, pos) is the input pos
+        reverse find the FindParameters criteria
+        pos: Pos(x,y) the current position where the search begins
+        find_parameters: an  instance of FindParameters
+        -> (pos: Pos(x,y) the start position, pos: Pos(x,y) the end position)
+        if not found (pos, pos) is the input pos
         """
         start_index = self.index_from_coordinates(pos)
         paragraph = self.concat_paragraph()
@@ -532,5 +538,6 @@ class Paragraph(object):
             return pos, pos
         else:
             pos = self.coordinates_from_index(last_index)
-            return self.coordinates_from_index(last_index), self.coordinates_from_index(last_index + len(find_parameters.edit_seq))
-
+            return self.coordinates_from_index(last_index), self.coordinates_from_index(
+                last_index + len(find_parameters.edit_seq)
+            )

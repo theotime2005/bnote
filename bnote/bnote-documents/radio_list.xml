@@ -222,13 +222,11 @@
 			</radio>
 			<radio name="Radio Kiss Kiss">
 				http://wma08.fluidstream.net:4610/
-				http://ice07.fluidstream.net:8080/KissKiss.mp3
 			</radio>
 			<radio name="Radio Kiss Kiss Italia">
 				http://wma07.fluidstream.net:3616/;stream.nsv
 			</radio>
 			<radio name="Radio Kiss Kiss Napoli">
-				http://wma06.fluidstream.net/KissNapoli/KissNapoli.stream/playlist.m3u8
 				http://ice08.fluidstream.net/KKNapoli.aac
 			</radio>
 			<radio name="RDS 100% Grandi Successi">
@@ -277,7 +275,7 @@
 				http://icestreaming.rai.it/7.mp3
 			</radio>
 			<radio name="Radio 105">
-				http://icecast.105.net/105.mp3
+				https://icecast.unitedradio.it/Radio105.mp3
 			</radio>
 			<radio name="RMC Radio Monte Carlo">
 				http://edge.radiomontecarlo.net/RMC.mp3
@@ -361,7 +359,7 @@
 				http://onair20.xdevel.com:8018/
 			</radio>
 			<radio name="Radio Campania">
-				http://159.89.148.251/radio/8000/Onair.mp3
+				http://nr9.newradio.it:9565/stream
 			</radio>
 		</it_IT>
 	   	<!-- :::::::::::::::::: cs_CZ-->

@@ -10,7 +10,7 @@ from bnote.braille.lou import Lou
 import time
 
 # Setup the logger for this file
-#from .colored_log import ColoredLogger, READ_BRF_FILE_LOG
+# from .colored_log import ColoredLogger, READ_BRF_FILE_LOG
 # log = ColoredLogger(__name__, level=READ_BRF_FILE_LOG)
 
 
@@ -29,7 +29,7 @@ class ReadBrfFile:
                 # log.info("transcode brf file with US table")
                 lou_us = Lou("en_US")
 
-            fp = open(self._full_file_name, mode='r', encoding=encoding)
+            fp = open(self._full_file_name, mode="r", encoding=encoding)
 
             line = fp.readline()
             cnt = 1
@@ -72,6 +72,7 @@ class ReadBrfFile:
 
 # -----------------------------------------------
 # Unitary test
+
 
 def write_line(line):
     print(line)

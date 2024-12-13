@@ -4,6 +4,7 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 import os
 import sys
 import gettext
@@ -51,39 +52,40 @@ class Translate(metaclass=SingletonMeta):
     }
 
     # The languages code that bsuite knows and it associated user message
-    languages_dict = {"ar_LB": "Arabic (Lebanon)",
-                      "cs_CZ": "Czech (Czech Republic)",
-                      "da_DK": "Danish (Denmark)",
-                      "de_CH": "German (Switzerland)",
-                      "de_DE": "German (Germany)",
-                      "el_GR": "Greek (Greece)",
-                      "en_GB": "English (United Kingdom)",
-                      "en_US": "English (United States)",
-                      "es_ES": "Spanish (Spain)",
-                      "fr_CH": "French (Switzerland)",
-                      "fr_FR": "French (France)",
-                      "he_IL": "Hebrew (Israel)",
-                      "hr_HR": "Croatian (Croatia)",
-                      "it_CH": "Italian (Switzerland)",
-                      "it_IT": "Italiano (Italy)",
-                      "is_IS": "Islandic (Island)",
-                      "lt_LT": "Lithuanian (Lituania)",
-                      "nb_NO": "Norwegian (Norway)",
-                      "nl_BE": "Dutch (Belgium)",
-                      "nl_NL": "Dutch (Netherlands)",
-                      "pl_PL": "Polish (Poland)",
-                      "pt_PT": "Portuguese (Portugal)",
-                      "ru_RU": "Russian (Russia)",
-                      "sk_SK": "Slovak (Slovakia)",
-                      "sl_SI": "Slovenian (Slovenia)",
-                      "sv_SE": "Swedish (Sweden)",
-                      "af_ZA": "Afrikaans (South Africa)",
-                      "xh_ZA": "Xhosa (South Africa)",
-                      "zu_ZA": "Zulu (South Africa)",
-                      "sw_KE": "Swahili (Kenya)",
-                      "bu_US": "Unified braille (United States)",
-                      "eo_ES": "Esperanto braille",
-                      }
+    languages_dict = {
+        "ar_LB": "Arabic (Lebanon)",
+        "cs_CZ": "Czech (Czech Republic)",
+        "da_DK": "Danish (Denmark)",
+        "de_CH": "German (Switzerland)",
+        "de_DE": "German (Germany)",
+        "el_GR": "Greek (Greece)",
+        "en_GB": "English (United Kingdom)",
+        "en_US": "English (United States)",
+        "es_ES": "Spanish (Spain)",
+        "fr_CH": "French (Switzerland)",
+        "fr_FR": "French (France)",
+        "he_IL": "Hebrew (Israel)",
+        "hr_HR": "Croatian (Croatia)",
+        "it_CH": "Italian (Switzerland)",
+        "it_IT": "Italiano (Italy)",
+        "is_IS": "Islandic (Island)",
+        "lt_LT": "Lithuanian (Lituania)",
+        "nb_NO": "Norwegian (Norway)",
+        "nl_BE": "Dutch (Belgium)",
+        "nl_NL": "Dutch (Netherlands)",
+        "pl_PL": "Polish (Poland)",
+        "pt_PT": "Portuguese (Portugal)",
+        "ru_RU": "Russian (Russia)",
+        "sk_SK": "Slovak (Slovakia)",
+        "sl_SI": "Slovenian (Slovenia)",
+        "sv_SE": "Swedish (Sweden)",
+        "af_ZA": "Afrikaans (South Africa)",
+        "xh_ZA": "Xhosa (South Africa)",
+        "zu_ZA": "Zulu (South Africa)",
+        "sw_KE": "Swahili (Kenya)",
+        "bu_US": "Unified braille (United States)",
+        "eo_ES": "Esperanto braille",
+    }
 
     def __init__(self):
         self.translate = None
@@ -103,29 +105,45 @@ class Translate(metaclass=SingletonMeta):
         try:
             log.info("language_country={}".format(language_country))
             user_translation_folder = BNOTE_FOLDER / Path(DOCUMENTS_FOLDER) / Path("")
-            user_file = user_translation_folder / Path("bnote_{}.mo".format(language_country))
+            user_file = user_translation_folder / Path(
+                "bnote_{}.mo".format(language_country)
+            )
             self.__read_translation_file(user_file)
             # Set the locale according to the wanted language.
             locale.setlocale(locale.LC_ALL, (language_country, "UTF-8"))
-            log.info("current locale is : locale.getlocale() returns {}".format(locale.getlocale()))
+            log.info(
+                "current locale is : locale.getlocale() returns {}".format(
+                    locale.getlocale()
+                )
+            )
             return
         except locale.Error:
-            log.error(f"The language {language_country} mut be installed on the computer to use it as locale")
+            log.error(
+                f"The language {language_country} mut be installed on the computer to use it as locale"
+            )
             log.error("It can be installed with : sudo apt-get install locales-all")
             return
         except IOError:
             pass
         # Start to find translation file in app "bnote" folder.
         try:
-            translation_folder = Path(pkg_resources.resource_filename('bnote', 'translation'))
+            translation_folder = Path(
+                pkg_resources.resource_filename("bnote", "translation")
+            )
             file = translation_folder / Path("bnote_{}.mo".format(language_country))
             log.info(f"*-*-*-* file={file}")
             self.__read_translation_file(file)
             # Set the locale according to the wanted language.
             locale.setlocale(locale.LC_ALL, (language_country, "UTF-8"))
-            log.info("new current locale is : locale.getlocale() returns {}".format(locale.getlocale()))
+            log.info(
+                "new current locale is : locale.getlocale() returns {}".format(
+                    locale.getlocale()
+                )
+            )
         except locale.Error:
-            log.error(f"The language {language_country} mut be installed on the computer to use it as locale")
+            log.error(
+                f"The language {language_country} mut be installed on the computer to use it as locale"
+            )
             log.error("It can be installed with : sudo apt-get install locales-all")
             pass
         except IOError:
@@ -147,7 +165,9 @@ class Translate(metaclass=SingletonMeta):
             if result:
                 languages.append(result.group(1))
 
-        translation_folder = Path(pkg_resources.resource_filename('bnote', 'translation'))
+        translation_folder = Path(
+            pkg_resources.resource_filename("bnote", "translation")
+        )
         mo_files = translation_folder.glob("bnote_*.mo")
         for file in mo_files:
             result = re.search(lang_pattern, file.name)

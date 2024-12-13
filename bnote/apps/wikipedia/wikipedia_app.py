@@ -4,6 +4,7 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 import time
 
 import requests
@@ -18,6 +19,7 @@ from bnote.stm32.braille_device_characteristics import braille_device_characteri
 
 # Setup the logger for this file
 from bnote.debug.colored_log import ColoredLogger, EDITOR_APP_LOG, logging
+
 log = ColoredLogger(__name__)
 log.setLevel(EDITOR_APP_LOG)
 
@@ -26,8 +28,12 @@ class WikipediaApp(EditorBaseApp):
 
     SUMMARY_SENTENCES_COUNT = 10
 
-    def __init__(self, put_in_function_queue, file_name=None, language=None, read_only=True):
-        super().__init__(put_in_function_queue, file_name, language, read_only, no_context=True)
+    def __init__(
+        self, put_in_function_queue, file_name=None, language=None, read_only=True
+    ):
+        super().__init__(
+            put_in_function_queue, file_name, language, read_only, no_context=True
+        )
         # Current instance of wikipedia dialog box, with items references.
         self._ui_wiki_dialog = None
         self._ui_wiki_find = ""
@@ -48,22 +54,32 @@ class WikipediaApp(EditorBaseApp):
                 ui.UiMenuBar(
                     name=_("&file"),
                     menu_item_list=[
-                        ui.UiMenuItem(name=_("&close"), action=self._exec_close,
-                                   shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
-                                   shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F4),
+                        ui.UiMenuItem(
+                            name=_("&close"),
+                            action=self._exec_close,
+                            shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                            shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F4,
+                        ),
                         ui.UiMenuItem(name=_("&research"), action=self._exec_research),
                         ui.UiMenuItem(name=_("clean&up"), action=self._exec_cleanup),
-                        ui.UiMenuItem(name=_("sta&tistics"), action=self._exec_statistics),
-                    ]),
+                        ui.UiMenuItem(
+                            name=_("sta&tistics"), action=self._exec_statistics
+                        ),
+                    ],
+                ),
                 ui.UiMenuBar(
                     name=_("&edit"),
                     menu_item_list=[
                         *self.create_sub_menu_selection(),
                         *[
                             ui.UiMenuItem(name=_("curs&or"), action=self._exec_cursor),
-                            ui.UiMenuItem(name=_("forward in grade2 braille"), action=self._toggle_grade2_from_menu),
-                            ],
-                    ]),
+                            ui.UiMenuItem(
+                                name=_("forward in grade2 braille"),
+                                action=self._toggle_grade2_from_menu,
+                            ),
+                        ],
+                    ],
+                ),
                 self.create_sub_menu_goto(),
                 self.create_sub_menu_find(),
                 self.create_sub_menu_bookmark(),
@@ -129,9 +145,9 @@ class WikipediaApp(EditorBaseApp):
             BnoteApp.keyboard.decode_braille(
                 BnoteApp.lou,
                 data,
-                (self.braille_type == 'grade1') or (self.braille_type == 'grade2')
+                (self.braille_type == "grade1") or (self.braille_type == "grade2"),
             ),
-            data
+            data,
         )
 
     def input_bramigraph(self, modifier, bramigraph) -> bool:
@@ -155,6 +171,7 @@ class WikipediaApp(EditorBaseApp):
             # Specific commands treatment.
             pass
         return done
+
     # <<< End of key events.
 
     def input_function(self, *args, **kwargs) -> bool:
@@ -188,17 +205,19 @@ class WikipediaApp(EditorBaseApp):
         wikipedia.set_lang(language)
         if self._ui_wiki_dialog is None:
             # Create wikipedia dialog box.
-            self._ui_wiki_suggestions = ui.UiListBox(name=_("&suggestions"), value=('suggestions', []), current_index=0)
+            self._ui_wiki_suggestions = ui.UiListBox(
+                name=_("&suggestions"), value=("suggestions", []), current_index=0
+            )
             self._ui_wiki_dialog = ui.UiDialogBox(
                 name=_("wikipedia"),
                 item_list=[
-                    ui.UiEditBox(name=_("&find"), value=('find', "")),
+                    ui.UiEditBox(name=_("&find"), value=("find", "")),
                     self._ui_wiki_suggestions,
                     ui.UiButton(name=_("&ok"), action=self._valid_wikipedia_dialog),
                     ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
                     # ui.UiCheckBox(name=_("summary &only"), value=('summary', False)),
                 ],
-                action_cancelable=self._exec_cancel_dialog
+                action_cancelable=self._exec_cancel_dialog,
             )
             self._current_dialog = self._ui_wiki_dialog
         else:
@@ -218,7 +237,7 @@ class WikipediaApp(EditorBaseApp):
         result = None
         # Get all dialogbox value.
         kwargs = self._ui_wiki_dialog.get_values()
-        find = kwargs['find']
+        find = kwargs["find"]
         if self._ui_wiki_find != find:
             try:
                 if len(find) == 0:
@@ -235,18 +254,22 @@ class WikipediaApp(EditorBaseApp):
     def _valid_wikipedia_dialog(self):
         # Get all dialogbox value.
         kwargs = self._current_dialog.get_values()
-        find = kwargs['find']
-        wiki_page_title = kwargs['suggestions']
+        find = kwargs["find"]
+        wiki_page_title = kwargs["suggestions"]
         # summary = kwargs['summary']
-        lines = ["", ]
+        lines = [
+            "",
+        ]
         # Clean up references
         # self._ui_wiki_dialog = None
         # self._ui_wiki_find = ""
         # self._ui_wiki_suggestions = None
         if (wiki_page_title is not None) and len(wiki_page_title) <= 0:
             # No suggestion.
-            self._current_dialog = ui.UiInfoDialogBox(message=_("there is no text found in the suggestion's combobox."),
-                                                   action=self._exec_cancel_dialog)
+            self._current_dialog = ui.UiInfoDialogBox(
+                message=_("there is no text found in the suggestion's combobox."),
+                action=self._exec_cancel_dialog,
+            )
             return
         try:
             # if summary:
@@ -254,7 +277,11 @@ class WikipediaApp(EditorBaseApp):
             #         wiki_page_title, auto_suggest=True, redirect=True, sentences=WikipediaApp.SUMMARY_SENTENCES_COUNT)
             #     log.critical(f"summary = {content}")
             # else:
-            page = wikipedia.page(wiki_page_title, auto_suggest=False, redirect=True, )
+            page = wikipedia.page(
+                wiki_page_title,
+                auto_suggest=False,
+                redirect=True,
+            )
             content = page.content
             lines = content.split("\n")
 
@@ -279,13 +306,18 @@ class WikipediaApp(EditorBaseApp):
 
     def __not_found_text(self):
         self._current_dialog = ui.UiInfoDialogBox(
-            message=_("the text is not found or is ambiguous."
-                      " try to chose another item in the suggestion's combobox."),
-            action=self._exec_cancel_dialog)
+            message=_(
+                "the text is not found or is ambiguous."
+                " try to chose another item in the suggestion's combobox."
+            ),
+            action=self._exec_cancel_dialog,
+        )
 
     def _exec_close(self):
         self._killed = True
-        self._put_in_function_queue(FunctionId.FUNCTION_CLOSE_WIKIPEDIA, **{'app': self})
+        self._put_in_function_queue(
+            FunctionId.FUNCTION_CLOSE_WIKIPEDIA, **{"app": self}
+        )
 
     def on_close(self):
         """

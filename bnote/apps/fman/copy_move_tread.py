@@ -5,7 +5,6 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-
 import os
 import time
 import threading
@@ -18,7 +17,16 @@ log.setLevel(COPY_MOVE_THREAD_LOG)
 
 
 class CopyMoveThread(threading.Thread):
-    def __init__(self, files, to, copy=True, on_error=None, on_ask_replace=None, on_progress=None, on_end=None):
+    def __init__(
+        self,
+        files,
+        to,
+        copy=True,
+        on_error=None,
+        on_ask_replace=None,
+        on_progress=None,
+        on_end=None,
+    ):
         threading.Thread.__init__(self)
         self.__running = False
         self.__wait = False
@@ -50,24 +58,44 @@ class CopyMoveThread(threading.Thread):
                 if self.__on_progress is not None:
                     index += 1
                     if self.__is_copy:
-                        self.__on_progress(operation='copy', filename=file, current_progress=index, max_progress=count)
+                        self.__on_progress(
+                            operation="copy",
+                            filename=file,
+                            current_progress=index,
+                            max_progress=count,
+                        )
                     else:
-                        self.__on_progress(operation='move', filename=file, current_progress=index, max_progress=count)
+                        self.__on_progress(
+                            operation="move",
+                            filename=file,
+                            current_progress=index,
+                            max_progress=count,
+                        )
 
                 dst_file = os.path.join(self.__destination, os.path.basename(file))
 
-                if os.path.exists(dst_file) and not self.__replace_answer_yes and self.__replace_answer_to_all:
+                if (
+                    os.path.exists(dst_file)
+                    and not self.__replace_answer_yes
+                    and self.__replace_answer_to_all
+                ):
                     # user already said he doesn't want to overwrite the files.
-                    log.info("ignore copy/move for all the existing files {}".format(file))
+                    log.info(
+                        "ignore copy/move for all the existing files {}".format(file)
+                    )
                 else:
                     if os.path.exists(dst_file) and not self.__replace_answer_to_all:
                         # Open a dialog box to ask replace yes / no / yes_to_all / no_to_all
                         self.__replace_answer_yes = False
                         self.__replace_answer_to_all = False
                         if self.__is_copy:
-                            self.__on_ask_replace(operation='copy', filename=dst_file, is_cancelable=False)
+                            self.__on_ask_replace(
+                                operation="copy", filename=dst_file, is_cancelable=False
+                            )
                         else:
-                            self.__on_ask_replace(operation='move', filename=dst_file, is_cancelable=False)
+                            self.__on_ask_replace(
+                                operation="move", filename=dst_file, is_cancelable=False
+                            )
                         self.__wait = True
                         while self.__wait:
                             time.sleep(0.1)
@@ -89,8 +117,8 @@ class CopyMoveThread(threading.Thread):
 
             if self.__on_end is not None:
                 if self.__is_copy:
-                    self.__on_end(operation='copy')
+                    self.__on_end(operation="copy")
                 else:
-                    self.__on_end(operation='move')
+                    self.__on_end(operation="move")
 
             self.__running = False

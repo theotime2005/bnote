@@ -7,10 +7,10 @@
 
 
 class Marker:
-    """ Marker class :
-            A marker is composed with :
-             - An index in the paragraph text
-             - An index in the paragraphs list
+    """Marker class :
+    A marker is composed with :
+     - An index in the paragraph text
+     - An index in the paragraphs list
     """
 
     def __init__(self, index, paragraph):
@@ -70,4 +70,3 @@ class Marker:
             return True
         else:
             return self > other
-

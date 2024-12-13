@@ -8,28 +8,28 @@
 
 class Base:
     # Foreground:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
+    HEADER = "\033[95m"
+    OKBLUE = "\033[94m"
+    OKGREEN = "\033[92m"
+    WARNING = "\033[93m"
+    FAIL = "\033[91m"
     # Formatting
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
+    BOLD = "\033[1m"
+    UNDERLINE = "\033[4m"
     # End colored text
-    END = '\033[0m'
-    NC = '\x1b[0m'  # No Color
+    END = "\033[0m"
+    NC = "\x1b[0m"  # No Color
 
 
 class ANSI_Compatible:
-    END = '\x1b[0m'
+    END = "\x1b[0m"
 
     # If Foreground is False that means color effect on Background
     def Color(ColorNo, Foreground=True):  # 0 - 255
         FB_G = 38  # Effect on foreground
         if not Foreground:
             FB_G = 48  # Effect on background
-        return '\x1b[' + str(FB_G) + ';5;' + str(ColorNo) + 'm'
+        return "\x1b[" + str(FB_G) + ";5;" + str(ColorNo) + "m"
 
 
 class Formatting:

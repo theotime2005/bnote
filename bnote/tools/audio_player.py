@@ -31,7 +31,8 @@ class AudioPlayer(metaclass=SingletonMeta):
         self.__playlist = None
         # Keep an instance of FluidSynth class to avoid lost time loading.
         # self.__fluidsynth = None
-# PLAYLIST API
+
+    # PLAYLIST API
     # def playlist_is_playing(self):
     #     with self.lock:
     #         return self.media_list_index != -1
@@ -112,7 +113,9 @@ class AudioPlayer(metaclass=SingletonMeta):
         self.__media_player = media.player_new_from_media()
         manager = self.__media_player.event_manager()
         # manager.event_attach(vlc.EventType.MediaListPlayerNextItemSet, self.playlist_next_item)
-        manager.event_attach(vlc.EventType.MediaPlayerEndReached, self.cb_song_finished, 1)
+        manager.event_attach(
+            vlc.EventType.MediaPlayerEndReached, self.cb_song_finished, 1
+        )
         self.set_volume()
         self.__media_player.play()
 
@@ -134,7 +137,7 @@ class AudioPlayer(metaclass=SingletonMeta):
         if Path(midi_file).exists():
             # A voir remplacement par :
             # timidity .bnote/bnote-documents/Bass_sample.mid -Ow -o test.wav
-            subprocess.call(['timidity', midi_file, '-Ow', '-o', WAVE_FILE_PATH])
+            subprocess.call(["timidity", midi_file, "-Ow", "-o", WAVE_FILE_PATH])
             # if self.__fluidsynth is None:
             #     self.__fluidsynth = FluidSynth(sound_font="/usr/share/sounds/sf2/FluidR3_GM.sf2")
             # self.__fluidsynth.midi_to_audio('new_song.mid', WAVE_FILE_PATH)
@@ -216,7 +219,7 @@ class AudioPlayer(metaclass=SingletonMeta):
     def __get_interface():
         headphone = Gpio().is_head_phone()
         if headphone:
-            return vlc.Instance('--aout=alsa', '--alsa-audio-device=hw:0,0')
+            return vlc.Instance("--aout=alsa", "--alsa-audio-device=hw:0,0")
         else:
             return vlc.Instance()
 
@@ -224,8 +227,6 @@ class AudioPlayer(metaclass=SingletonMeta):
     def __get_volume():
         headphone = Gpio().is_head_phone()
         if headphone:
-            return Settings().data['radio']['volume_headphone']
+            return Settings().data["radio"]["volume_headphone"]
         else:
-            return Settings().data['radio']['volume_hp']
-
-
+            return Settings().data["radio"]["volume_hp"]

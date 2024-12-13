@@ -4,12 +4,14 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 from pathlib import Path
 
 from bnote.apps.fman.file_manager import FileManager
 
 # Setup the logger for this file
 from .colored_log import ColoredLogger, EDITOR_LOG
+
 log = ColoredLogger(__name__, level=EDITOR_LOG)
 
 
@@ -64,7 +66,9 @@ class Context:
         index = 1
         current_folder = FileManager.get_root_path()
         while True:
-            doc_file = current_folder / "".join([Context.CONTEXT_DOC_EDITOR.format(index), extension])
+            doc_file = current_folder / "".join(
+                [Context.CONTEXT_DOC_EDITOR.format(index), extension]
+            )
             if not doc_file.exists():
                 break
             index += 1
@@ -73,12 +77,27 @@ class Context:
     @staticmethod
     def write_context_file(context_file, modified, focused, file, doc_file):
         if modified:
-            context_file.write_text("{0}\n{1}={4}\n{2}={5}\n{3}={6}".format(Context.KEY_MODIFIED, Context.KEY_FOCUSED,
-                                                                            Context.KEY_FILENAME, Context.KEY_SAVENAME,
-                                                                            focused, file, doc_file))
+            context_file.write_text(
+                "{0}\n{1}={4}\n{2}={5}\n{3}={6}".format(
+                    Context.KEY_MODIFIED,
+                    Context.KEY_FOCUSED,
+                    Context.KEY_FILENAME,
+                    Context.KEY_SAVENAME,
+                    focused,
+                    file,
+                    doc_file,
+                )
+            )
         else:
-            context_file.write_text("{0}\n{1}={3}\n{2}={4}\n".format(Context.KEY_NOT_MODIFIED, Context.KEY_FOCUSED,
-                                                                     Context.KEY_FILENAME, focused, file))
+            context_file.write_text(
+                "{0}\n{1}={3}\n{2}={4}\n".format(
+                    Context.KEY_NOT_MODIFIED,
+                    Context.KEY_FOCUSED,
+                    Context.KEY_FILENAME,
+                    focused,
+                    file,
+                )
+            )
 
     @staticmethod
     def _delete_all_context_files(generic_name):
@@ -101,12 +120,12 @@ class Context:
         # Delete all doc files.
         Context._delete_all_context_files(Context.CONTEXT_DOC_EDITOR)
         # Delete all .doc files
-        Context._delete_all_context_files('.' + Context.CONTEXT_DOC_EDITOR)
+        Context._delete_all_context_files("." + Context.CONTEXT_DOC_EDITOR)
 
     @staticmethod
     def _get_arg(lines, arg_to_find):
         for line in lines:
-            args = line.split('=')
+            args = line.split("=")
             if (len(args) == 2) and (args[0] == arg_to_find):
                 return args[1]
 
@@ -118,15 +137,23 @@ class Context:
         save_name = None
         context = context_file.read_text()
         log.info("context is {}".format(context))
-        lines = context.split('\n')
+        lines = context.split("\n")
         if len(lines) > 1:
             if Context._get_arg(lines, Context.KEY_FOCUSED) == "True":
                 is_focused = True
             if lines[0] == Context.KEY_NOT_MODIFIED:
                 # Restore a not modified file.
                 is_modified = False
-                log.info("file to open is {}".format(Context._get_arg(lines, Context.KEY_FILENAME)))
-                log.info("file focus is {}".format(Context._get_arg(lines, Context.KEY_FOCUSED)))
+                log.info(
+                    "file to open is {}".format(
+                        Context._get_arg(lines, Context.KEY_FILENAME)
+                    )
+                )
+                log.info(
+                    "file focus is {}".format(
+                        Context._get_arg(lines, Context.KEY_FOCUSED)
+                    )
+                )
                 file_name = Context._get_arg(lines, Context.KEY_FILENAME)
             else:
                 # Restore a modified file

@@ -4,9 +4,11 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 import re
 import shlex
 import subprocess
+
 # Set up the logger for this file
 from bnote.debug.colored_log import ColoredLogger, SETTING_APP_LOG
 
@@ -29,19 +31,34 @@ class WifiNmcliCommand:
             # print(f"{results=}")
             # results is a string like this :
             # 'SSID          BSSID              SIGNAL \nHUAWEI_P10    14:9D:09:3D:53:17  100    \nLivebox-5340  D4:F8:29:7E:53:40  60     \nPixel_3441    86:4E:68:6B:D9:A4  59     \nLivebox-5340  D4:F8:29:7E:53:45  59     \n'
-            devices_lines = out.split("\n")
+            devices_lines = out.strip().split("\n")
+            # Find position of SSID and BSSID in first line.
+            header = devices_lines[0]
+            ssid_start = header.find("SSID")
+            bssid_start = header.find("BSSID")
+            signal_start = header.find("SIGNAL")
+            if ssid_start == -1 or bssid_start == -1 or signal_start == -1:
+                log.error(f"nmcli error {ssid_start=} {bssid_start=} {signal_start=}")
+                return desc_device
             if len(devices_lines) >= 2:
+                # Parcourir les lignes suivantes pour extraire les SSID
                 already_seen = set()
-                for device_line in devices_lines[1:]:
-                    device = re.split(r"\s+", device_line)
-                    if len(device) >= 3 and (device[1] not in already_seen):
-                        desc_device.append({
-                            'in-use': device[0],
-                            'ssid': device[1],
-                            'bssid': device[2],
-                            'level': device[3]
-                        })
-                        already_seen.add(device[1])
+                for devices_line in devices_lines[1:]:
+                    if len(devices_line) > signal_start:
+                        in_use = devices_line[:ssid_start].strip()
+                        ssid = devices_line[ssid_start:bssid_start].strip()
+                        bssid = devices_line[bssid_start:signal_start].strip()
+                        level = devices_line[signal_start:].strip()
+                        if ssid not in already_seen:
+                            desc_device.append(
+                                {
+                                    "in-use": in_use,
+                                    "ssid": ssid,
+                                    "bssid": bssid,
+                                    "level": level,
+                                }
+                            )
+                            already_seen.add(ssid)
         return desc_device
 
     @staticmethod
@@ -73,7 +90,7 @@ class WifiNmcliCommand:
         if on is None:
             command_line = f"r wifi"
             err_code, out = WifiNmcliCommand.__execute_command(command_line)
-            if (err_code == 0) and (out.strip() == 'enabled'):
+            if (err_code == 0) and (out.strip() == "enabled"):
                 return True
             else:
                 return False
@@ -93,12 +110,14 @@ class WifiNmcliCommand:
         """
         command = ["nmcli"] + shlex.split(arguments)
         try:
-            with subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE) as x:
+            with subprocess.Popen(
+                command, stdout=subprocess.PIPE, stderr=subprocess.PIPE
+            ) as x:
                 x.wait()
                 if x.returncode != 0:
                     log.error(f"Error nmcli {x.returncode}: {x.stderr}")
-                    return 1, x.stderr.read().decode('utf-8')
-                out = x.stdout.read().decode('utf-8')
+                    return 1, x.stderr.read().decode("utf-8")
+                out = x.stdout.read().decode("utf-8")
                 x.kill()
                 # print(f"nmcli {out}")
                 return 0, out

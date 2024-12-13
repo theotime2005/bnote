@@ -24,6 +24,7 @@ from enum import Enum
 
 # Setup the logger for this file
 from .colored_log import ColoredLogger, EDITOR_LOG, logging
+
 log = ColoredLogger(__name__, level=EDITOR_LOG)
 
 # Arbitrary lines number definition for page up/down and ctrl page up/down.
@@ -58,7 +59,7 @@ class EditorIterator:
                     end = self._end_pos.y
                 else:
                     end = len(paragraph.paragraph_text())
-            elif self._index ==  self._end_pos.x:
+            elif self._index == self._end_pos.x:
                 end = self._end_pos.y
                 start = 0
             # index to next line
@@ -123,16 +124,18 @@ class Editor:
     # Switcher >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
     def function(self, function, **kwarg):
-        '''
-            The entry point in editor for all functions
-            **arg = **{shift=True/False Ctrl=True/False}
-        '''
+        """
+        The entry point in editor for all functions
+        **arg = **{shift=True/False Ctrl=True/False}
+        """
         # Get the function from switcher dictionary
         func = self.__switcher.get(function, None)
         # Execute the function
         if func is not None:
-            if function != Editor.Functions.REPLACE_AND_FIND and \
-                    function != Editor.Functions.REPLACE_ALL:
+            if (
+                function != Editor.Functions.REPLACE_AND_FIND
+                and function != Editor.Functions.REPLACE_ALL
+            ):
                 # Reset selection_by_find indicator for all editor function except replace function.
                 self._is_selection_by_find = False
             if EDITOR_LOG <= logging.INFO:
@@ -149,7 +152,7 @@ class Editor:
     def __init__(self, width, lines, is_read_only=False):
         # One list of lines with a predefined width as integer
         if isinstance(width, bytes):
-            i_width = int.from_bytes(width, 'big')
+            i_width = int.from_bytes(width, "big")
         else:
             i_width = width
         self._paragraphs = Paragraphs(i_width, lines)
@@ -180,7 +183,6 @@ class Editor:
             Editor.Functions.MOVE_END: self._move_end,
             Editor.Functions.PAGE_UP: self._page_up,
             Editor.Functions.PAGE_DOWN: self._page_down,
-
             Editor.Functions.PUT_CARET: self._put_caret,
             # Selection
             Editor.Functions.SELECT_ALL: self._select_all,
@@ -208,11 +210,9 @@ class Editor:
             Editor.Functions.PUT_STRING_BETWEEN_SPACES: self._put_string_between_spaces,
             Editor.Functions.UNDO: self._undo,
             Editor.Functions.REDO: self._redo,
-
             # Debug functions
-            Editor.Functions.PRINT_LINE: self.print_line
+            Editor.Functions.PRINT_LINE: self.print_line,
         }
-
 
     # Returns the Iterator object
     def __iter__(self):
@@ -220,28 +220,28 @@ class Editor:
 
     def paragraph(self, index):
         """
-            Get paragraph at paragraph index.
-            index: int paragraph index
-            -> Paragraph
+        Get paragraph at paragraph index.
+        index: int paragraph index
+        -> Paragraph
         """
         return self._paragraphs.paragraph(index)
 
     def set_is_modified(self, value):
         """
-            Clear or Set is_modified flag for document.
+        Clear or Set is_modified flag for document.
         """
         self._paragraphs.is_modified = value
 
     def set_is_caret_change(self):
         """
-            set caret change state.
+        set caret change state.
         """
         self._is_caret_change = True
 
     def is_caret_change_and_clear(self):
         """
-            Return caret change state and clear the flag.
-            -> bool
+        Return caret change state and clear the flag.
+        -> bool
         """
         value = self._is_caret_change
         self._is_caret_change = False
@@ -249,15 +249,15 @@ class Editor:
 
     def is_modified(self):
         """
-            Return document state.
-            -> bool
+        Return document state.
+        -> bool
         """
         return self._paragraphs.is_modified
 
     def clean_up(self):
         """
-            Remote consecutive blank line, keep only one.
-            -> bool True if at least a remove as been done.
+        Remote consecutive blank line, keep only one.
+        -> bool True if at least a remove as been done.
         """
         if self.read_only:
             return False
@@ -300,7 +300,7 @@ class Editor:
 
     def resize_line_length(self, line_length):
         """
-            Reformat all document according to the new line length.
+        Reformat all document according to the new line length.
         """
         if not self._caret.is_selection_empty():
             # If a selection is done, we forget it.
@@ -311,15 +311,17 @@ class Editor:
 
     def caret_as_paragraph_position(self) -> (Pos, Pos):
         """
-            Get the caret as 2 Pos(paragraph index in document, character index in paragraph)
-            -> Pos(paragraph index in document, character index in paragraph) of start caret (the first)
-               Pos(paragraph index in document, character index in paragraph) of end caret (the last)
+        Get the caret as 2 Pos(paragraph index in document, character index in paragraph)
+        -> Pos(paragraph index in document, character index in paragraph) of start caret (the first)
+           Pos(paragraph index in document, character index in paragraph) of end caret (the last)
         """
         end_pos = self._paragraphs.paragraph_and_character_index(self._caret.last())
         if self._caret.is_selection_empty():
             start_pos = end_pos
         else:
-            start_pos = self._paragraphs.paragraph_and_character_index(self._caret.first())
+            start_pos = self._paragraphs.paragraph_and_character_index(
+                self._caret.first()
+            )
         return start_pos, end_pos
 
     def editor_braille_line(self, line_index=None) -> (str, bytes):
@@ -333,10 +335,10 @@ class Editor:
         if self._caret.is_selection_empty():
             # No selection
             if line_index == self._caret.end.y:
-                if Settings().data['editor']['cursor_visible']:
-                    dots[self._caret.end.x: self._caret.end.x + 1] = b'\xC0'
+                if Settings().data["editor"]["cursor_visible"]:
+                    dots[self._caret.end.x : self._caret.end.x + 1] = b"\xC0"
                 else:
-                    dots[self._caret.end.x: self._caret.end.x + 1] = b'\x00'
+                    dots[self._caret.end.x : self._caret.end.x + 1] = b"\x00"
                 last_x = self._caret.end.x + 1
         else:
             # selection active
@@ -350,7 +352,9 @@ class Editor:
                     first_x = self._caret.first().x
                     last_x = line_length
 
-            elif (self._caret.first().y < line_index) and (line_index < self._caret.last().y):
+            elif (self._caret.first().y < line_index) and (
+                line_index < self._caret.last().y
+            ):
                 first_x = 0
                 last_x = line_length
 
@@ -369,18 +373,22 @@ class Editor:
                 first_x = last_x = 0
 
             # Set flashing dots on all caret cells.
-            dots[first_x: last_x] = b'\xC0' * (last_x - first_x)
+            dots[first_x:last_x] = b"\xC0" * (last_x - first_x)
         # Add markers
         log.info(f"{line_index=}")
         coo = self._paragraphs.coo_from_pos(Pos(0, line_index))
         log.info("coo={}".format(str(coo)))
         # Calculate the index in the paragraph from Pos
-        index = self._paragraphs.paragraph(coo.paragraph).index_from_coordinates(Pos(coo.column, coo.line))
+        index = self._paragraphs.paragraph(coo.paragraph).index_from_coordinates(
+            Pos(coo.column, coo.line)
+        )
         log.info(f"paragraph={coo.paragraph} {index=}")
-        markers = self._markers.markers_list(coo.paragraph, start_index=index, end_index=index + line_length)
+        markers = self._markers.markers_list(
+            coo.paragraph, start_index=index, end_index=index + line_length
+        )
         log.info(f"{markers=}")
         for marker in markers:
-            dots[marker - index] = ord(b'\xFF')
+            dots[marker - index] = ord(b"\xFF")
 
         if last_x > line_length:
             # Add space at the end of the line for caret
@@ -417,44 +425,49 @@ class Editor:
     def print_line(self):
         id, line, first_x, last_x = self.get_line()
 
-        print("Line[{}{}{}{}{}] {}".format(
-            line[0:first_x], Formatting.Underlined, line[first_x:last_x],
-            Formatting.Reset_Underlined, line[last_x:len(line)],
-            self._caret)
+        print(
+            "Line[{}{}{}{}{}] {}".format(
+                line[0:first_x],
+                Formatting.Underlined,
+                line[first_x:last_x],
+                Formatting.Reset_Underlined,
+                line[last_x : len(line)],
+                self._caret,
+            )
         )
 
     def paragraphs_count(self) -> int:
         """
-            Get the number of paragraphs in the document.
-            -> int
+        Get the number of paragraphs in the document.
+        -> int
         """
         return self._paragraphs.paragraphs_count()
 
     def lines_count(self) -> int:
         """
-            get the number of lines in the document.
-            -> int
+        get the number of lines in the document.
+        -> int
         """
         return self._paragraphs.lines_count()
 
     def last_paragraph_lines_count(self) -> int:
         """
-            get the number of lines in the last paragraph.
-            -> int
+        get the number of lines in the last paragraph.
+        -> int
         """
         return self._paragraphs.last_paragraph_lines_count()
 
     def caret(self) -> Caret:
         """
-            get document caret
-            (Editor resources access for write file)
+        get document caret
+        (Editor resources access for write file)
         """
         return self._caret
 
     def set_caret(self, caret):
         """
-            set the caret of document.
-            (check validity)
+        set the caret of document.
+        (check validity)
         """
         # Verify caret position.
         self._caret.start = self._paragraphs.check_pos(caret.start)
@@ -463,9 +476,9 @@ class Editor:
 
     def set_caret_on_paragraph(self, index):
         """
-            put the caret  at the start of a paragraph
-            index: int paragraph index (0 based)
-            -> no return
+        put the caret  at the start of a paragraph
+        index: int paragraph index (0 based)
+        -> no return
         """
         line_index = self._paragraphs.lines_count(paragraph_index=index)
         self._caret.start = Pos(0, line_index)
@@ -474,57 +487,57 @@ class Editor:
 
     def markers(self) -> Markers:
         """
-            get Document's markers
+        get Document's markers
         """
         return self._markers
 
     def set_markers(self, markers):
         """
-            set document's Markers
-            markers : Markers
+        set document's Markers
+        markers : Markers
         """
         self._markers = markers
 
     def paragraph_text(self, index):
         """
-            get the paragraph text.
-            index: paragraph index in document
-            -> str
+        get the paragraph text.
+        index: paragraph index in document
+        -> str
         """
         return self._paragraphs.paragraph_text(index)
 
     def paragraph_pos(self, paragraph_index, offset):
         """
-            compute coordinate from index of paragraph and an offset in paragraph
-            -> pos (column, line in editor)
+        compute coordinate from index of paragraph and an offset in paragraph
+        -> pos (column, line in editor)
         """
         return self._paragraphs.paragraph_pos(paragraph_index, offset)
 
     def start_cursor_paragraph_index(self):
         """
-            get first paragraph index of the selection.
-            -> int (paragraph index in document)
+        get first paragraph index of the selection.
+        -> int (paragraph index in document)
         """
         return self._paragraphs.paragraph_index(self._caret.start)
 
     def end_cursor_paragraph_index(self):
         """
-            get last paragraph index of the selection.
-            -> int (paragraph index in document)
+        get last paragraph index of the selection.
+        -> int (paragraph index in document)
         """
         return self._paragraphs.paragraph_index(self._caret.end)
 
     def current_paragraph_index(self):
         """
-            get first paragraph index of the selection.
-            -> int (paragraph index in document)
+        get first paragraph index of the selection.
+        -> int (paragraph index in document)
         """
         return self._paragraphs.paragraph_index(self._caret.start)
 
     def current_paragraph_and_line_index(self):
         """
-            get paragraph index in document and index of line in paragraph at caret.end.
-            -> Pos(paragraph index and index of line in paragraph)
+        get paragraph index in document and index of line in paragraph at caret.end.
+        -> Pos(paragraph index and index of line in paragraph)
         """
         return self._paragraphs.paragraph_and_line_index(self._caret.end)
 
@@ -538,28 +551,28 @@ class Editor:
 
     def append_paragraph(self, paragraph):
         """
-            add a paragraph at the end of editor.
-            line:str (the paragraph content)
+        add a paragraph at the end of editor.
+        line:str (the paragraph content)
         """
         self._paragraphs.append(paragraph)
 
     def statistics(self):
         """
-            get document information.
-            -> (paragraphs count, words count, characters count)
+        get document information.
+        -> (paragraphs count, words count, characters count)
         """
         return self._paragraphs.statistics()
 
     def _move_up(self, **kwargs):
         """
-            move caret up with trying to keep x caret position.
+        move caret up with trying to keep x caret position.
         """
         # kwarg decoding
         shift = False
-        if 'shift' in kwargs:
-            shift = kwargs['shift']
-        if 'ctrl' in kwargs:
-            if kwargs['ctrl']:
+        if "shift" in kwargs:
+            shift = kwargs["shift"]
+        if "ctrl" in kwargs:
+            if kwargs["ctrl"]:
                 # move up with control.
                 return self._move_previous_paragraph(shift)
         # move up without control.
@@ -567,34 +580,34 @@ class Editor:
 
     def _move_down(self, **kwargs):
         """
-            move caret down with trying to keep x caret position.
-            **kwargs: **{"shift":True/False, "ctrl":True/False}
+        move caret down with trying to keep x caret position.
+        **kwargs: **{"shift":True/False, "ctrl":True/False}
         """
         # start_time = time.time()
         # kwarg decoding
         shift = False
-        if 'shift' in kwargs:
-            shift = kwargs['shift']
-        if 'ctrl' in kwargs:
-            if kwargs['ctrl']:
+        if "shift" in kwargs:
+            shift = kwargs["shift"]
+        if "ctrl" in kwargs:
+            if kwargs["ctrl"]:
                 # move down with control.
                 return self._move_next_paragraph(shift)
         # move down without control.
-        next_line= self._move_next_line(shift)
+        next_line = self._move_next_line(shift)
         # log.critical("--- move down in %s seconds ---" % (time.time() - start_time))
         return next_line
 
     def _move_right(self, **kwargs):
         """
-            move caret to right, line change if necessary.
-            **kwargs: **{"shift":True/False, "ctrl":True/False}
+        move caret to right, line change if necessary.
+        **kwargs: **{"shift":True/False, "ctrl":True/False}
         """
         # kwarg decoding
         shift = False
-        if 'shift' in kwargs:
-            shift = kwargs['shift']
-        if 'ctrl' in kwargs:
-            if kwargs['ctrl']:
+        if "shift" in kwargs:
+            shift = kwargs["shift"]
+        if "ctrl" in kwargs:
+            if kwargs["ctrl"]:
                 # move right with control.
                 return self._move_next_word(shift)
         # move right without control.
@@ -602,15 +615,15 @@ class Editor:
 
     def _move_left(self, **kwargs):
         """
-            move caret to left, line change if necessary
-            **kwargs: **{"shift":True/False, "ctrl":True/False}
+        move caret to left, line change if necessary
+        **kwargs: **{"shift":True/False, "ctrl":True/False}
         """
         # kwarg decoding
         shift = False
-        if 'shift' in kwargs:
-            shift = kwargs['shift']
-        if 'ctrl' in kwargs:
-            if kwargs['ctrl']:
+        if "shift" in kwargs:
+            shift = kwargs["shift"]
+        if "ctrl" in kwargs:
+            if kwargs["ctrl"]:
                 # move left with control.
                 return self._move_previous_word(shift)
         # move left without control.
@@ -618,15 +631,15 @@ class Editor:
 
     def _move_home(self, **kwargs):
         """
-            move caret to home of document
-            **kwargs: **{"shift":True/False, "ctrl":True/False}
+        move caret to home of document
+        **kwargs: **{"shift":True/False, "ctrl":True/False}
         """
         # kwarg decoding
         shift = False
-        if 'shift' in kwargs:
-            shift = kwargs['shift']
-        if 'ctrl' in kwargs:
-            if kwargs['ctrl']:
+        if "shift" in kwargs:
+            shift = kwargs["shift"]
+        if "ctrl" in kwargs:
+            if kwargs["ctrl"]:
                 # move home with control.
                 return self._move_start_of_document(shift)
         # move home without control.
@@ -634,15 +647,15 @@ class Editor:
 
     def _move_end(self, **kwargs):
         """
-            move caret to end of document
-            **kwargs: **{"shift":True/False, "ctrl":True/False}
+        move caret to end of document
+        **kwargs: **{"shift":True/False, "ctrl":True/False}
         """
         # kwarg decoding
         shift = False
-        if 'shift' in kwargs:
-            shift = kwargs['shift']
-        if 'ctrl' in kwargs:
-            if kwargs['ctrl']:
+        if "shift" in kwargs:
+            shift = kwargs["shift"]
+        if "ctrl" in kwargs:
+            if kwargs["ctrl"]:
                 # move end with control.
                 return self._move_end_of_document(shift)
         # move end without control.
@@ -650,21 +663,21 @@ class Editor:
 
     @staticmethod
     def __page_jump(**kwargs):
-        if 'ctrl' in kwargs:
-            if kwargs['ctrl']:
+        if "ctrl" in kwargs:
+            if kwargs["ctrl"]:
                 # page with control.
                 return STEP_FOR_CTRL_PAGE
         return STEP_FOR_PAGE
 
     def _page_up(self, **kwargs):
         """
-            move caret to page up
-            the move is STEP_FOR_PAGE or STEP_FOR_CTRL_PAGE
-            **kwargs: **{"shift":True/False, "ctrl":True/False}
+        move caret to page up
+        the move is STEP_FOR_PAGE or STEP_FOR_CTRL_PAGE
+        **kwargs: **{"shift":True/False, "ctrl":True/False}
         """
         shift = False
-        if 'shift' in kwargs:
-            shift = kwargs['shift']
+        if "shift" in kwargs:
+            shift = kwargs["shift"]
         jump = self.__page_jump(**kwargs)
         while jump != 0:
             if not self._move_previous_line(shift):
@@ -674,13 +687,13 @@ class Editor:
 
     def _page_down(self, **kwargs):
         """
-            move caret to page down
-            the move is STEP_FOR_PAGE or STEP_FOR_CTRL_PAGE
-            **kwargs: **{"shift":True/False, "ctrl":True/False}
+        move caret to page down
+        the move is STEP_FOR_PAGE or STEP_FOR_CTRL_PAGE
+        **kwargs: **{"shift":True/False, "ctrl":True/False}
         """
         shift = False
-        if 'shift' in kwargs:
-            shift = kwargs['shift']
+        if "shift" in kwargs:
+            shift = kwargs["shift"]
         jump = self.__page_jump(**kwargs)
         while jump != 0:
             if not self._move_next_line(shift):
@@ -690,8 +703,8 @@ class Editor:
 
     def _move_next_char(self, shift=None):
         """
-            move caret to the next character.
-            change of line or paragraph if necessary.
+        move caret to the next character.
+        change of line or paragraph if necessary.
         """
         sel = shift or self._is_selection
         if not self._caret.is_selection_empty() and not sel:
@@ -708,8 +721,8 @@ class Editor:
 
     def _move_previous_char(self, shift=None):
         """
-            move caret to the previous character.
-            change of line or paragraph if necessary.
+        move caret to the previous character.
+        change of line or paragraph if necessary.
         """
         sel = shift or self._is_selection
         if not self._caret.is_selection_empty() and not sel:
@@ -725,8 +738,8 @@ class Editor:
 
     def _move_previous_line(self, shift=None):
         """
-            move caret to the previous line.
-            x position is change of line or paragraph if necessary.
+        move caret to the previous line.
+        x position is change of line or paragraph if necessary.
         """
         new_pos = self._paragraphs.move_up(self._caret.end, self._caret.old_x)
         if new_pos == self._caret.end:
@@ -742,8 +755,8 @@ class Editor:
 
     def _move_next_line(self, shift=None):
         """
-            move caret to the next line.
-            x position is change of line or paragraph if necessary.
+        move caret to the next line.
+        x position is change of line or paragraph if necessary.
         """
         new_pos = self._paragraphs.move_down(self._caret.end, self._caret.old_x)
         if new_pos == self._caret.end:
@@ -759,7 +772,7 @@ class Editor:
 
     def _move_start_of_line(self, shift=None):
         """
-            move caret to start of line.
+        move caret to start of line.
         """
         sel = shift or self._is_selection
         if EDITOR_LOG <= logging.INFO:
@@ -772,7 +785,7 @@ class Editor:
 
     def _move_end_of_line(self, shift=None):
         """
-            move caret to end of line.
+        move caret to end of line.
         """
         new_pos = self._paragraphs.move_end_of_line(self._caret.end)
         sel = shift or self._is_selection
@@ -784,7 +797,7 @@ class Editor:
 
     def _move_start_of_document(self, shift=None):
         """
-            move caret to start of document.
+        move caret to start of document.
         """
         sel = shift or self._is_selection
         self._caret.update_caret_after_moving(Pos(0, 0), sel)
@@ -795,7 +808,7 @@ class Editor:
 
     def _move_end_of_document(self, shift=None):
         """
-            move caret to end of document.
+        move caret to end of document.
         """
         new_pos = self._paragraphs.move_end_of_document(self._caret.end)
         sel = shift or self._is_selection
@@ -807,7 +820,7 @@ class Editor:
 
     def _move_previous_paragraph(self, shift=None):
         """
-            move caret to the previous paragraph.
+        move caret to the previous paragraph.
         """
         new_pos = self._paragraphs.move_previous_paragraph(self._caret.end)
         sel = shift or self._is_selection
@@ -819,8 +832,8 @@ class Editor:
 
     def _move_next_paragraph(self, shift=None):
         """
-            move caret to the next paragraph.
-            -> bool : False if no move
+        move caret to the next paragraph.
+        -> bool : False if no move
         """
         res = False
         new_pos = self._paragraphs.move_next_paragraph(self._caret.end)
@@ -837,8 +850,8 @@ class Editor:
 
     def _move_previous_word(self, shift=None):
         """
-            move caret to the previous word.
-            -> bool : always True
+        move caret to the previous word.
+        -> bool : always True
         """
         new_pos = self._paragraphs.move_previous_word(self._caret.end)
         sel = shift or self._is_selection
@@ -850,8 +863,8 @@ class Editor:
 
     def _move_next_word(self, shift=None):
         """
-            move caret to the next word.
-            -> bool : always True
+        move caret to the next word.
+        -> bool : always True
         """
         if EDITOR_LOG <= logging.INFO:
             log.info("move_next_word")
@@ -867,13 +880,13 @@ class Editor:
 
     def _put_caret(self, **kwargs) -> bool:
         """
-            move caret to the position.
-            **kwarg: **{ "pos"=Pos}
-            -> bool False if failed
+        move caret to the position.
+        **kwarg: **{ "pos"=Pos}
+        -> bool False if failed
         """
         # kwarg decoding
-        if 'pos' in kwargs:
-            pos = kwargs['pos']
+        if "pos" in kwargs:
+            pos = kwargs["pos"]
             if EDITOR_LOG <= logging.INFO:
                 log.info("new caret {}".format(pos))
             coo = self._paragraphs.coo_from_pos(pos)
@@ -895,8 +908,8 @@ class Editor:
 
     def _select_all(self, **kwargs):
         """
-            select entire document.
-            -> bool: always true
+        select entire document.
+        -> bool: always true
         """
         if EDITOR_LOG <= logging.INFO:
             log.info("select all")
@@ -906,11 +919,11 @@ class Editor:
 
     def _select_word(self, **kwargs):
         """
-            select the word at position.
-            **kwargs: **{'pos'=Pos}
+        select the word at position.
+        **kwargs: **{'pos'=Pos}
         """
-        if 'pos' in kwargs:
-            pos = kwargs['pos']
+        if "pos" in kwargs:
+            pos = kwargs["pos"]
             if EDITOR_LOG <= logging.INFO:
                 log.info("select word from pos {}".format(pos))
             start_pos, end_pos = self._paragraphs.select_word(pos)
@@ -928,9 +941,9 @@ class Editor:
     # Toggle selection mode and return the new mode.
     def _toggle_selection_mode(self, **kwargs) -> bool:
         """
-            toogle selection mode (F8 and Esc keys)
-            **kwargs= **{}
-            -> bool: True if on
+        toogle selection mode (F8 and Esc keys)
+        **kwargs= **{}
+        -> bool: True if on
         """
         self._is_selection = not self._is_selection
         if self._is_selection:
@@ -943,53 +956,61 @@ class Editor:
 
     def _selection_mode_on(self, **kwargs):
         """
-            set selection mode (F8 and Esc keys)
-            **kwargs= **{}
+        set selection mode (F8 and Esc keys)
+        **kwargs= **{}
         """
         self._is_selection = True
         return True
 
     def _selection_mode_off(self, **kwargs):
         """
-            clear selection mode (F8 and Esc keys)
-            **kwargs= **{}
+        clear selection mode (F8 and Esc keys)
+        **kwargs= **{}
         """
         self._is_selection = False
         return True
 
     def selection_mode(self) -> bool:
         """
-            get selection mode (F8 and Esc keys)
-            -> bool: True if on
+        get selection mode (F8 and Esc keys)
+        -> bool: True if on
         """
         return self._is_selection
 
     def _put_string_between_spaces(self, **kwargs) -> bool:
         """
-            insert string and a space before and after the string.
-            **kwargs= **{'text':str}
-            -> bool if operation done successfully.
+        insert string and a space before and after the string.
+        **kwargs= **{'text':str}
+        -> bool if operation done successfully.
         """
         if EDITOR_LOG <= logging.DEBUG:
             log.debug("Insertion between space of <{}>".format(kwargs))
         if self.read_only:
             return False
         text = str()
-        if 'text' in kwargs:
-            text = kwargs['text']
+        if "text" in kwargs:
+            text = kwargs["text"]
         if text and len(text) > 0:
             new_str = text
             # Delete selection if necessary.
             self._delete_selection_with_undo()
             char_before, char_after = self._paragraphs.characters(self._caret.end)
             if EDITOR_LOG <= logging.INFO:
-                log.info("character before is <{}>, after is <{}>".format(char_before, char_after))
-            if text[0] != ' ' and char_before is not None and char_before != ' ':
+                log.info(
+                    "character before is <{}>, after is <{}>".format(
+                        char_before, char_after
+                    )
+                )
+            if text[0] != " " and char_before is not None and char_before != " ":
                 # Insert a space before insertion point.
-                new_str = ' ' + new_str
-            if text[len(text) - 1] != ' ' and char_after is not None and char_after != ' ':
+                new_str = " " + new_str
+            if (
+                text[len(text) - 1] != " "
+                and char_after is not None
+                and char_after != " "
+            ):
                 # Insert a space after insertion point.
-                new_str += ' '
+                new_str += " "
             return self.__put_string(new_str)
         else:
             return False
@@ -1044,13 +1065,13 @@ class Editor:
 
     def _put_string(self, **kwargs):
         """
-            insert a multi string (separate by \n) or a string or a char in document at caret position.
-            **kwargs= **{'text':str}
-            -> bool if operation done successfully.
+        insert a multi string (separate by \n) or a string or a char in document at caret position.
+        **kwargs= **{'text':str}
+        -> bool if operation done successfully.
         """
         text = str()
-        if 'text' in kwargs:
-            text = kwargs['text']
+        if "text" in kwargs:
+            text = kwargs["text"]
         return self.__put_string(text)
 
     def __put_string(self, text):
@@ -1066,27 +1087,27 @@ class Editor:
 
     def _carriage_return(self, **kwargs):
         """
-            insert a carriage retrun in document at caret position.
-            generally, split a paragraph in two.
-            **kwargs: **{}
-            -> bool if operation done successfully.
+        insert a carriage retrun in document at caret position.
+        generally, split a paragraph in two.
+        **kwargs: **{}
+        -> bool if operation done successfully.
         """
         return self.__put_string("\n")
 
     def _tab(self, **kwargs):
         """
-            insert a tabulation at caret position.
-            spaces_number = 8 - (self._caret.end.x % 8)
-            **kwargs: **{}
-            -> bool if operation done successfully.
+        insert a tabulation at caret position.
+        spaces_number = 8 - (self._caret.end.x % 8)
+        **kwargs: **{}
+        -> bool if operation done successfully.
         """
         return self.__put_string("\t")
 
     def _backspace(self, **kwargs):
         """
-            do backspace in document at caret position.
-            **kwargs: **{}
-            -> bool if operation done successfully.
+        do backspace in document at caret position.
+        **kwargs: **{}
+        -> bool if operation done successfully.
         """
         if EDITOR_LOG <= logging.INFO:
             log.info("backspace with {}".format(kwargs))
@@ -1104,16 +1125,16 @@ class Editor:
 
     def _space(self, **kwargs):
         """
-            insert a space in document at caret position.
-            **kwargs: **{}
-            -> bool if operation done successfully.
+        insert a space in document at caret position.
+        **kwargs: **{}
+        -> bool if operation done successfully.
         """
         return self.__put_string(" ")
 
     def _delete(self, **kwargs):
         """
-            delete char or selection
-            **kwargs: **{}
+        delete char or selection
+        **kwargs: **{}
         """
         return self.__delete()
 
@@ -1132,8 +1153,14 @@ class Editor:
             self._caret = save_caret
             deleted_char = self._paragraphs.selection(self._caret.end, move_caret.end)
             if EDITOR_LOG <= logging.INFO:
-                log.info("add_char_insertion start={}, end={}, char={}".format(self._caret.end, move_caret.end, deleted_char))
-            self.undo_redo.add_char_insertion(start=self._caret.end, end=move_caret.end, text=deleted_char)
+                log.info(
+                    "add_char_insertion start={}, end={}, char={}".format(
+                        self._caret.end, move_caret.end, deleted_char
+                    )
+                )
+            self.undo_redo.add_char_insertion(
+                start=self._caret.end, end=move_caret.end, text=deleted_char
+            )
             # delete a char between 2 paragraph => merge the 2 paragraph
             new_pos = self._paragraphs.delete_char(self._caret.end, self._markers)
             self.set_is_caret_change()
@@ -1142,8 +1169,8 @@ class Editor:
 
     def _copy(self, **kwargs):
         """
-            copy selection into clipboard
-            **kwargs: **{}
+        copy selection into clipboard
+        **kwargs: **{}
         """
         return self.__copy()
 
@@ -1180,10 +1207,16 @@ class Editor:
         self._is_selection = False
         if not self._caret.is_selection_empty():
             if with_undo:
-                deleted_text = self._paragraphs.selection(self._caret.first(), self._caret.last())
-                self.undo_redo.add_insertion(start=self._caret.first(), end=self._caret.last(), text=deleted_text)
+                deleted_text = self._paragraphs.selection(
+                    self._caret.first(), self._caret.last()
+                )
+                self.undo_redo.add_insertion(
+                    start=self._caret.first(), end=self._caret.last(), text=deleted_text
+                )
             # Selection is not empty => Delete it
-            new_pos = self._paragraphs.delete_selection(self._caret.first(), self._caret.last(), self._markers)
+            new_pos = self._paragraphs.delete_selection(
+                self._caret.first(), self._caret.last(), self._markers
+            )
             self._caret.update_caret_after_moving(new_pos, False)
             self.set_is_caret_change()
             return True
@@ -1192,8 +1225,8 @@ class Editor:
 
     def _paste(self, **kwargs):
         """
-            paste clipboard at caret.
-            **kwargs: **{}
+        paste clipboard at caret.
+        **kwargs: **{}
         """
         if self.read_only:
             return False
@@ -1208,9 +1241,9 @@ class Editor:
 
     def _cut(self, **kwargs):
         """
-            copy selection into clipboard and delete it
-            **kwargs: **{}
-            -> bool: False if selection is empty.
+        copy selection into clipboard and delete it
+        **kwargs: **{}
+        -> bool: False if selection is empty.
         """
         if self.read_only:
             return False
@@ -1224,24 +1257,24 @@ class Editor:
 
     def _insert_strings_without_undo(self, strings):
         """
-            insert strings or char without undo
-            strings: str with possible \n
+        insert strings or char without undo
+        strings: str with possible \n
         """
         return self._insert_strings(strings, False)
 
     def _insert_strings_with_undo(self, strings):
         """
-            insert strings or char with undo
-            strings: str with possible \n
+        insert strings or char with undo
+        strings: str with possible \n
         """
         return self._insert_strings(strings, True)
 
     def _insert_strings(self, strings, with_undo):
         """
-            insert strings or char
-            strings: str with possible \n
-            with_undo: True/False
-            -> bool: always True
+        insert strings or char
+        strings: str with possible \n
+        with_undo: True/False
+        -> bool: always True
         """
         if self.read_only:
             return False
@@ -1253,9 +1286,13 @@ class Editor:
         # Handle undo.
         if with_undo:
             if (len(strings) == 1) and (len(strings[0]) == 1):
-                self.undo_redo.add_char_deletion(start=start_insert, end=new_pos, text=strings[0])
+                self.undo_redo.add_char_deletion(
+                    start=start_insert, end=new_pos, text=strings[0]
+                )
             else:
-                self.undo_redo.add_deletion(start=start_insert, end=new_pos, text='\n'.join(strings))
+                self.undo_redo.add_deletion(
+                    start=start_insert, end=new_pos, text="\n".join(strings)
+                )
 
         self._caret.update_caret_after_moving(new_pos, False)
         self.set_is_caret_change()
@@ -1263,21 +1300,21 @@ class Editor:
 
     def _marker(self, **kwargs):
         """
-            marker function :
-            **kwargs: **{"shift":True/False, "ctrl":True/False}
-                | shift | ctrl | function
-                |       |      | goto next marker
-                |   x   |      | goto previous marker
-                |       |   x  | add marker
-                |   x   |   x  | clear marker
-            -> bool: operation done successfully.
+        marker function :
+        **kwargs: **{"shift":True/False, "ctrl":True/False}
+            | shift | ctrl | function
+            |       |      | goto next marker
+            |   x   |      | goto previous marker
+            |       |   x  | add marker
+            |   x   |   x  | clear marker
+        -> bool: operation done successfully.
         """
         # kwarg decoding
         shift = False
-        if 'shift' in kwargs:
-            shift = kwargs['shift']
-        if 'ctrl' in kwargs:
-            if kwargs['ctrl']:
+        if "shift" in kwargs:
+            shift = kwargs["shift"]
+        if "ctrl" in kwargs:
+            if kwargs["ctrl"]:
                 # marker with control.
                 if shift:
                     return self._clear_marker()
@@ -1291,8 +1328,8 @@ class Editor:
 
     def _add_marker(self):
         """
-            add marker from caret position, if marker exists remove it.
-            -> bool: True if added, False if already exists
+        add marker from caret position, if marker exists remove it.
+        -> bool: True if added, False if already exists
         """
         if EDITOR_LOG <= logging.INFO:
             log.info("add marker caret:{}".format(self._caret))
@@ -1306,8 +1343,8 @@ class Editor:
 
     def _remove_marker(self):
         """
-            remove markers at caret position.
-            -> bool: always True
+        remove markers at caret position.
+        -> bool: always True
         """
         if EDITOR_LOG <= logging.INFO:
             log.info("remove marker caret:{}".format(self._caret))
@@ -1317,16 +1354,16 @@ class Editor:
 
     def _clear_marker(self):
         """
-            clear all markers.
-            -> bool: always True
+        clear all markers.
+        -> bool: always True
         """
         self._markers.clear_marker()
         return True
 
     def _next_marker(self):
         """
-            put caret on next marker.
-            -> bool: always True
+        put caret on next marker.
+        -> bool: always True
         """
         if EDITOR_LOG <= logging.INFO:
             log.info("next marker caret:{}".format(self._caret))
@@ -1345,8 +1382,8 @@ class Editor:
 
     def _previous_marker(self):
         """
-            put caret on previous marker.
-            -> bool: always True
+        put caret on previous marker.
+        -> bool: always True
         """
         if EDITOR_LOG <= logging.INFO:
             log.info("previous marker caret:{}".format(self._caret))
@@ -1365,22 +1402,22 @@ class Editor:
 
     def _find(self, **kwargs):
         """
-            put selection on string to find.
-            **kwarg:**{
-                "shift": True for reverse search.
-                "replace_parameters": FindParameters.
-                }
+        put selection on string to find.
+        **kwarg:**{
+            "shift": True for reverse search.
+            "replace_parameters": FindParameters.
+            }
         """
         # kwarg decoding
-        if ('shift' in kwargs) and kwargs['shift']:
-            return self._find_previous(kwargs['replace_parameters'])
-        return self._find_next(kwargs['replace_parameters'])
+        if ("shift" in kwargs) and kwargs["shift"]:
+            return self._find_previous(kwargs["replace_parameters"])
+        return self._find_next(kwargs["replace_parameters"])
 
     def _find_next(self, find_parameters):
         """
-            put selection on string to find.
-                find_parameters: FindParameters.
-            -> True if caret change
+        put selection on string to find.
+            find_parameters: FindParameters.
+        -> True if caret change
         """
         if EDITOR_LOG <= logging.INFO:
             log.info("find next<{}>".format(find_parameters))
@@ -1388,7 +1425,9 @@ class Editor:
         if not self._caret.is_selection_empty():
             # If a selection is done, we forget it.
             self._caret.clear_selection_from_last()
-        (deb_pos, end_pos) = self._paragraphs.find_next(self._caret.end, find_parameters)
+        (deb_pos, end_pos) = self._paragraphs.find_next(
+            self._caret.end, find_parameters
+        )
         if deb_pos != end_pos:
             # New selection found.
             if self._is_selection:
@@ -1412,9 +1451,9 @@ class Editor:
 
     def _find_previous(self, find_parameters) -> bool:
         """
-            put selection on string to find (reverse search).
-                find_parameters: FindParameters.
-            -> True if caret change
+        put selection on string to find (reverse search).
+            find_parameters: FindParameters.
+        -> True if caret change
         """
         if EDITOR_LOG <= logging.INFO:
             log.info("find previous<{}>".format(find_parameters))
@@ -1422,7 +1461,9 @@ class Editor:
         if not self._caret.is_selection_empty():
             # If a selection is done, we forget it.
             self._caret.clear_selection_from_first()
-        (deb_pos, end_pos) = self._paragraphs.find_previous(self._caret.end, find_parameters)
+        (deb_pos, end_pos) = self._paragraphs.find_previous(
+            self._caret.end, find_parameters
+        )
         if deb_pos != end_pos:
             # New selection found.
             if self._is_selection:
@@ -1441,16 +1482,16 @@ class Editor:
 
     def _replace_and_find(self, **kwargs):
         """
-            put selection on string to find.
-            **kwarg:**{
-                "shift": True for reverse search.
-                "replace_parameters": FindParameters.
-                }
+        put selection on string to find.
+        **kwarg:**{
+            "shift": True for reverse search.
+            "replace_parameters": FindParameters.
+            }
         """
         # kwarg decoding
-        if ('shift' in kwargs) and kwargs['shift']:
-            return self._replace_and_previous(kwargs['replace_parameters'])
-        return self._replace_and_next(kwargs['replace_parameters'])
+        if ("shift" in kwargs) and kwargs["shift"]:
+            return self._replace_and_previous(kwargs["replace_parameters"])
+        return self._replace_and_next(kwargs["replace_parameters"])
 
     def _replace_and_next(self, replace_parameters):
         if self.read_only:
@@ -1486,15 +1527,15 @@ class Editor:
 
     def _replace_all(self, **kwargs) -> bool:
         """
-            put selection on string to find.
-            **kwarg:**{
-                "replace_parameters": FindParameters.
-                }
-            -> bool: True if at least one replacement done.
+        put selection on string to find.
+        **kwarg:**{
+            "replace_parameters": FindParameters.
+            }
+        -> bool: True if at least one replacement done.
         """
         if self.read_only:
             return False
-        replace_parameters = kwargs['replace_parameters']
+        replace_parameters = kwargs["replace_parameters"]
         if EDITOR_LOG <= logging.INFO:
             log.info("replace all<{}>".format(replace_parameters))
         if not self._caret.is_selection_empty() and self._is_selection_by_find:

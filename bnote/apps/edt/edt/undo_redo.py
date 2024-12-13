@@ -11,6 +11,7 @@ from .pos import Pos
 
 # Setup the logger for this file
 from .colored_log import ColoredLogger, EDITOR_UNDO_REDO_LOG, logging
+
 log = ColoredLogger(__name__, level=EDITOR_UNDO_REDO_LOG)
 
 # MAXIMUM NUMBER OF OPERATIONS IN UNDO-REDO LIST.
@@ -29,9 +30,9 @@ class Operation:
 
         # For insertion : start is the input position
         # for deletion : Characters to delete are between Start and End
-        self.__start = kwargs.get('start', None)
-        self.__end = kwargs.get('end', None)
-        self.__text = kwargs.get('text', None)
+        self.__start = kwargs.get("start", None)
+        self.__end = kwargs.get("end", None)
+        self.__text = kwargs.get("text", None)
 
         self.__time = time.time()
 
@@ -40,14 +41,19 @@ class Operation:
 
     # For print()
     def __str__(self):
-        return "undo-redo op:[{}] time[{}] start[{}] end[{}] text[{}]".format(self.__type, self.__time, self.__start,
-                                                                              self.__end, self.__text)
+        return "undo-redo op:[{}] time[{}] start[{}] end[{}] text[{}]".format(
+            self.__type, self.__time, self.__start, self.__end, self.__text
+        )
 
     def is_insertion(self):
-        return (self.__type == Operation.Type.INSERTION) or (self.__type == Operation.Type.INSERTION_MERGEABLE)
+        return (self.__type == Operation.Type.INSERTION) or (
+            self.__type == Operation.Type.INSERTION_MERGEABLE
+        )
 
     def is_deletion(self):
-        return (self.__type == Operation.Type.DELETION) or (self.__type == Operation.Type.DELETION_MERGEABLE)
+        return (self.__type == Operation.Type.DELETION) or (
+            self.__type == Operation.Type.DELETION_MERGEABLE
+        )
 
     def type(self):
         return self.__type
@@ -93,7 +99,7 @@ class UndoRedo:
         -> No return
         """
         if self.__current_index < len(self.__operations):
-            del self.__operations[self.__current_index: len(self.__operations)]
+            del self.__operations[self.__current_index : len(self.__operations)]
 
     def _add_new_op(self, op_type, **kwargs):
         """
@@ -107,7 +113,9 @@ class UndoRedo:
         self.__operations.append(Operation(op_type, **kwargs))
         # Control operations number
         if len(self.__operations) > OPERATIONS_MAX_COUNT:
-            self.__operation = self.__operations[len(self.__operations) - (OPERATIONS_MAX_COUNT + 1): -1]
+            self.__operation = self.__operations[
+                len(self.__operations) - (OPERATIONS_MAX_COUNT + 1) : -1
+            ]
         self.__current_index = len(self.__operations)
 
     def add_char_deletion(self, **kwargs):
@@ -121,14 +129,16 @@ class UndoRedo:
         if EDITOR_UNDO_REDO_LOG <= logging.INFO:
             log.info("Add char deletion for undo")
         self._clear_next_op()
-        
+
         # if time between 2 char deletion < 3 sec. concat deletion.
         if self.__current_index > 0:
             op = self.__operations[self.__current_index - 1]
-            if (op.type() == Operation.Type.DELETION_MERGEABLE) and (op.time() + 5 > time.time()):
-                start = kwargs.get('start', None)
-                end = kwargs.get('end', None)
-                text = kwargs.get('text', None)
+            if (op.type() == Operation.Type.DELETION_MERGEABLE) and (
+                op.time() + 5 > time.time()
+            ):
+                start = kwargs.get("start", None)
+                end = kwargs.get("end", None)
+                text = kwargs.get("text", None)
                 # Check if contiguous deletion
                 if op.end() == start:
                     # Merge deletion
@@ -153,10 +163,12 @@ class UndoRedo:
         # if time between 2 char deletion < 3 sec. concat deletion.
         if self.__current_index > 0:
             op = self.__operations[self.__current_index - 1]
-            if (op.type() == Operation.Type.INSERTION_MERGEABLE) and (op.time() + 5 > time.time()):
-                start = kwargs.get('start', None)
-                end = kwargs.get('end', None)
-                text = kwargs.get('text', None)
+            if (op.type() == Operation.Type.INSERTION_MERGEABLE) and (
+                op.time() + 5 > time.time()
+            ):
+                start = kwargs.get("start", None)
+                end = kwargs.get("end", None)
+                text = kwargs.get("text", None)
                 # Check if contiguous deletion
                 if EDITOR_UNDO_REDO_LOG <= logging.DEBUG:
                     log.debug("op:start={} end={}".format(op.start(), op.end()))

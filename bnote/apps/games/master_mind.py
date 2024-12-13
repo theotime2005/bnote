@@ -4,12 +4,15 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 import random
 from bnote.apps.bnote_app import BnoteApp
 
 from bnote.debug.colored_log import ColoredLogger, MASTERMIND_APP_LOG
+
 log = ColoredLogger(__name__)
 log.setLevel(MASTERMIND_APP_LOG)
+
 
 class MasterMind(BnoteApp):
 
@@ -31,12 +34,19 @@ class MasterMind(BnoteApp):
         token_to_find = []
         if is_duplicate:
             token_to_find = [
-                random.randrange(MasterMind.__color_char[0],
-                                 MasterMind.__color_char[len(MasterMind.__color_char) - 1], 1) for i in range(token)]
+                random.randrange(
+                    MasterMind.__color_char[0],
+                    MasterMind.__color_char[len(MasterMind.__color_char) - 1],
+                    1,
+                )
+                for i in range(token)
+            ]
         else:
             while len(token_to_find) < token:
-                new_token = random.randrange(MasterMind.__color_char[0],
-                                             MasterMind.__color_char[len(MasterMind.__color_char) - 1] + 1)
+                new_token = random.randrange(
+                    MasterMind.__color_char[0],
+                    MasterMind.__color_char[len(MasterMind.__color_char) - 1] + 1,
+                )
                 if not (new_token in token_to_find):
                     token_to_find.append(new_token)
         return token_to_find
@@ -62,7 +72,7 @@ class MasterMind(BnoteApp):
             if tokens[index] == token:
                 tokens_in_position += 1
         # Duplicate array
-        tokens_to_check = self._tokens_to_find[0: len(self._tokens_to_find)]
+        tokens_to_check = self._tokens_to_find[0 : len(self._tokens_to_find)]
         for index, token in enumerate(tokens):
             if token in tokens_to_check:
                 tokens_exist += 1
@@ -96,5 +106,5 @@ def print_test():
 
 
 # Press the green button in the gutter to run the script.
-if __name__ == '__main__':
+if __name__ == "__main__":
     print_test()

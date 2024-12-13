@@ -4,6 +4,7 @@
  Date : 2024-07-16
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
+
 import collections
 import configparser
 import datetime
@@ -52,10 +53,13 @@ def create_folder(folder):
         except OSError as e:
             log.warning("EXCEPTION Path.mkdir({}) : e={}".format(folder, e))
 
+
 def create_symlink(real_path, drive_path):
     # Add a symlink to /media.
     if not drive_path.exists():
-        log.info(f"call os.symlink({real_path=}, str({drive_path}), target_is_directory=True)")
+        log.info(
+            f"call os.symlink({real_path=}, str({drive_path}), target_is_directory=True)"
+        )
         os.symlink(real_path, str(drive_path), target_is_directory=True)
 
 
@@ -99,7 +103,6 @@ class FileManager:
         (BNOTE_FOLDER / Path(DOCUMENTS_FOLDER) / Path("bluetooth")).unlink()
     if (BNOTE_FOLDER / Path(DOCUMENTS_FOLDER) / Path("crash")).exists():
         (BNOTE_FOLDER / Path(DOCUMENTS_FOLDER) / Path("crash")).unlink()
-
 
     # Third step : the links are now created in the BNOTE_MAIN_FOLDER (instead of __root_path version before 2024)
     # Note : The trash symlink is created in the Trash class below in this file.
@@ -190,14 +193,19 @@ class FileManager:
                     #     log.error(f"{p=}")
                     for index in range(0, len(path.parents)):
                         # log.error(f"{index=} {path.parents[index]=}")
-                        if path.parents[index] == FileManager.get_usb_flash_drive_path():
+                        if (
+                            path.parents[index]
+                            == FileManager.get_usb_flash_drive_path()
+                        ):
                             mount_point = path.parents[index - 1]
                             break
                 # log.error(f"{mount_point=}")
                 # umount
                 command_line = "sudo umount {}".format(str(mount_point))
                 args = shlex.split(command_line)
-                x = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                x = subprocess.Popen(
+                    args, stdout=subprocess.PIPE, stderr=subprocess.PIPE
+                )
                 x.wait()
                 umount_results = x.stderr.read().decode("utf-8")
                 # log.error(f"{umount_results=}")
@@ -212,7 +220,9 @@ class FileManager:
                 if umount_results == "" or umount_results.find("not mounted") != -1:
                     command_line = "sudo rmdir {}".format(str(mount_point))
                     args = shlex.split(command_line)
-                    x = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                    x = subprocess.Popen(
+                        args, stdout=subprocess.PIPE, stderr=subprocess.PIPE
+                    )
                     x.wait()
                     return True
         except ValueError as err:
@@ -222,7 +232,7 @@ class FileManager:
         log.debug(" Return False !!!!!!!!!!!!!!!")
         return False
 
-# Return the list of the filenames for path (alpha sorted with folder first) or None if path does not exits.
+    # Return the list of the filenames for path (alpha sorted with folder first) or None if path does not exits.
     # See https://stackoverflow.com/questions/136097/difference-between-staticmethod-and-classmethod
     @staticmethod
     def listdir(path, hide_hidden_file=True):
@@ -236,7 +246,9 @@ class FileManager:
             folder_list = []
 
             for file in all_files:
-                if not hide_hidden_file or (hide_hidden_file and not file.name.startswith('.')):
+                if not hide_hidden_file or (
+                    hide_hidden_file and not file.name.startswith(".")
+                ):
                     if file.is_dir():
                         folder_list.append(file.name)
                     elif file.is_file():
@@ -252,8 +264,14 @@ class FileManager:
             # Folders first and then files.
             sorted_file_and_folder_list = folder_list + file_list
 
-            log.debug("sorted_file_and_folder_list={}".format(sorted_file_and_folder_list))
-            log.debug("len(sorted_file_and_folder_list)={}".format(len(sorted_file_and_folder_list)))
+            log.debug(
+                "sorted_file_and_folder_list={}".format(sorted_file_and_folder_list)
+            )
+            log.debug(
+                "len(sorted_file_and_folder_list)={}".format(
+                    len(sorted_file_and_folder_list)
+                )
+            )
             sorted_file_and_folder_path = []
             for txt in sorted_file_and_folder_list:
                 sorted_file_and_folder_path.append(path / txt)
@@ -265,7 +283,7 @@ class FileManager:
     @staticmethod
     def sorted_alphanumeric(data):
         convert = lambda text: int(text) if text.isdigit() else text.lower()
-        alphanum_key = lambda key: [convert(c) for c in re.split('([0-9]+)', key)]
+        alphanum_key = lambda key: [convert(c) for c in re.split("([0-9]+)", key)]
         return sorted(data, key=alphanum_key)
 
     # Create the file name. It can be relative to self.__current_path or absolute
@@ -315,7 +333,7 @@ class FileManager:
         if str(name).startswith(str(FileManager.get_bluetooth_path())):
             real_name = name.resolve()
             # Use the shell to make the delete the file in bluetooth folder (root access)
-            os.popen("sudo rm \"{}\"".format(str(real_name)))
+            os.popen('sudo rm "{}"'.format(str(real_name)))
             time.sleep(0.5)
             return True
 
@@ -360,7 +378,9 @@ class FileManager:
             if real_src.is_dir():
                 try:
                     # Use the shell to make the copy of the folder
-                    return_dst = shutil.copytree(str(real_src), str(real_dst), dirs_exist_ok=dirs_exist_ok)
+                    return_dst = shutil.copytree(
+                        str(real_src), str(real_dst), dirs_exist_ok=dirs_exist_ok
+                    )
                     log.info("{} copytree to {}".format(str(real_src), str(real_dst)))
                 except PermissionError as error:
                     log.warning("PermissionError ={}".format(error))
@@ -396,9 +416,15 @@ class FileManager:
             if real_src.is_dir():
                 # Use the shell to make the copy and remove of the file/folder
                 try:
-                    return_dst = shutil.copytree(str(real_src), str(real_dst), dirs_exist_ok=dirs_exist_ok)
+                    return_dst = shutil.copytree(
+                        str(real_src), str(real_dst), dirs_exist_ok=dirs_exist_ok
+                    )
                     shutil.rmtree(str(real_src))
-                    log.info("{} copytree + rmtree to {}".format(str(real_src), str(real_dst)))
+                    log.info(
+                        "{} copytree + rmtree to {}".format(
+                            str(real_src), str(real_dst)
+                        )
+                    )
                 except PermissionError as error:
                     log.warning("PermissionError in rmtree ={}".format(error))
                     pass
@@ -414,11 +440,13 @@ class FileManager:
                     # It works well on Rpi, but on PC only a copy is done (file remains in /bluetooth)
                     # PB on Rpi : sudo mv conserve les droits et on se retrouve avec un fichier appartenant à root.
                     # os.popen("sudo mv \"{}\" \"{}\"".format(real_src, real_dst))
-                    log.info("shutil.copy2(\"{}\" \"{}\")".format(str(real_src), str(real_dst)))
+                    log.info(
+                        'shutil.copy2("{}" "{}")'.format(str(real_src), str(real_dst))
+                    )
                     # le fichier copié se retrouve avec pi:pi comme propriétaire.
                     return_dst = shutil.copy2(str(real_src), str(real_dst))
-                    log.info("utilisation de sudo rm \"{}\"".format(str(real_src)))
-                    os.popen("sudo rm \"{}\"".format(str(real_src)))
+                    log.info('utilisation de sudo rm "{}"'.format(str(real_src)))
+                    os.popen('sudo rm "{}"'.format(str(real_src)))
                 else:
                     # Use the shell to make the move of the file
                     try:
@@ -463,7 +491,7 @@ class FileManager:
             return False
 
         # https://www.phonandroid.com/pourquoi-windows-10-interdit-dutiliser-certains-noms-de-fichiers-comme-aux-mp3-ou-con-jpg.html
-        p = re.compile("[\\\:\?\*\"<>\|/]")
+        p = re.compile('[\\\:\?\*"<>\|/]')
         if filename.name != "" and p.search(filename.name) is None:
             return True
         return False
@@ -485,7 +513,9 @@ class FileManager:
         while filename.exists():
             index += 1
 
-            filename = filename.parent / (filename.stem + generic_pattern.format(index) + filename.suffix)
+            filename = filename.parent / (
+                filename.stem + generic_pattern.format(index) + filename.suffix
+            )
             if index == 100:
                 return None
 
@@ -509,8 +539,10 @@ class FileManager:
         return False
 
     @staticmethod
-    def files_and_folders_count(paths: Union[str, Path, List[str], List[Path]],
-                                exclude_paths: Union[List[str], List[Path]] = [""]) -> int:
+    def files_and_folders_count(
+        paths: Union[str, Path, List[str], List[Path]],
+        exclude_paths: Union[List[str], List[Path]] = [""],
+    ) -> int:
         count = 0
 
         # Convert into list
@@ -526,7 +558,9 @@ class FileManager:
             for item in path.glob("*"):
                 if item not in exclude_paths:
                     if item.is_dir():
-                        count += FileManager.files_and_folders_count(item, exclude_paths)
+                        count += FileManager.files_and_folders_count(
+                            item, exclude_paths
+                        )
                         log.debug(f"{count=} {item=}")
                     elif item.is_file():
                         count += 1
@@ -545,7 +579,11 @@ class FileManager:
                 log.warning("call os.mkdir({})".format(FileManager.get_tmp_path()))
                 Path.mkdir(FileManager.get_tmp_path())
             except OSError as e:
-                log.warning("EXCEPTION Path.mkdir({}) : e={}".format(FileManager.get_tmp_path(), e))
+                log.warning(
+                    "EXCEPTION Path.mkdir({}) : e={}".format(
+                        FileManager.get_tmp_path(), e
+                    )
+                )
 
 
 # Trash.__real_trash_path "/home/pi/bnote-trash" : Contient les 2 dossiers files et info
@@ -591,7 +629,11 @@ class Trash:
     # symlink to trash folder will be in BNOTE_MAIN_FOLDER
     __trash_path = FileManager.get_main_folder_path() / BNOTE_TRASH
     if not __trash_path.exists():
-        log.info("call os.symlink({}, {}, target_is_directory=True)".format(__real_trash_path, __trash_path))
+        log.info(
+            "call os.symlink({}, {}, target_is_directory=True)".format(
+                __real_trash_path, __trash_path
+            )
+        )
         os.symlink(str(__trash_files_path), str(__trash_path), target_is_directory=True)
 
     # Return the symlink on the trash folder.
@@ -615,22 +657,26 @@ class Trash:
             try:
                 file_in_trash = Trash.__trash_files_path / src.name
                 if file_in_trash.exists():
-                    file_in_trash = FileManager.create_generic_filename(file_in_trash, ".{}")
+                    file_in_trash = FileManager.create_generic_filename(
+                        file_in_trash, ".{}"
+                    )
 
                 # Move the src into the __trash_files_path
                 file_in_trash = FileManager.move(src, file_in_trash)
                 log.info("file_in_trash={}".format(file_in_trash))
 
-                trash_info_filename = Trash.__trash_info_path / (file_in_trash.name + Trash.__TRASH_INFO_EXTENSION)
+                trash_info_filename = Trash.__trash_info_path / (
+                    file_in_trash.name + Trash.__TRASH_INFO_EXTENSION
+                )
                 log.info("trash_info_filename={}".format(trash_info_filename))
 
                 # https: // deusyss.developpez.com / tutoriels / Python / les - modules - de - configuration /
                 trash_info = configparser.ConfigParser()
-                trash_info['Trash Info'] = {}
-                trash_info['Trash Info']['Path'] = str(src)
-                trash_info['Trash Info']['DeletionDate'] = str(datetime.datetime.now())
+                trash_info["Trash Info"] = {}
+                trash_info["Trash Info"]["Path"] = str(src)
+                trash_info["Trash Info"]["DeletionDate"] = str(datetime.datetime.now())
                 # Create a trashinfo file in the __trash_info_path
-                with open(trash_info_filename, 'w') as configfile:
+                with open(trash_info_filename, "w") as configfile:
                     trash_info.write(configfile)
                 return True
 
@@ -647,7 +693,9 @@ class Trash:
         if name.is_file():
             try:
                 os.remove(str(name))
-                trash_info_file = Trash.__trash_info_path / (name.name + Trash.__TRASH_INFO_EXTENSION)
+                trash_info_file = Trash.__trash_info_path / (
+                    name.name + Trash.__TRASH_INFO_EXTENSION
+                )
                 if trash_info_file.exists():
                     os.remove(str(trash_info_file))
 
@@ -656,7 +704,9 @@ class Trash:
                 log.info("hidden_filename={}".format(hidden_filename))
                 if hidden_filename.exists():
                     os.remove(str(hidden_filename))
-                    trash_info_file = Trash.__trash_info_path / (hidden_filename.name + Trash.__TRASH_INFO_EXTENSION)
+                    trash_info_file = Trash.__trash_info_path / (
+                        hidden_filename.name + Trash.__TRASH_INFO_EXTENSION
+                    )
                     if trash_info_file.exists():
                         os.remove(str(trash_info_file))
                 return True
@@ -665,7 +715,9 @@ class Trash:
         if name.is_dir() and not name.is_symlink():
             try:
                 shutil.rmtree(str(name))
-                trash_info_file = Trash.__trash_info_path / (name.name + Trash.__TRASH_INFO_EXTENSION)
+                trash_info_file = Trash.__trash_info_path / (
+                    name.name + Trash.__TRASH_INFO_EXTENSION
+                )
                 if trash_info_file.exists():
                     os.remove(str(trash_info_file))
 
@@ -690,7 +742,7 @@ class Trash:
         if not relative_path:
             trash_info.read(Trash.trash_info_file(file))
             try:
-                original_path = trash_info['Trash Info']['path']
+                original_path = trash_info["Trash Info"]["path"]
             except KeyError:
                 log.warning("KeyError exception !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
                 original_path = os.path.basename(file)
@@ -699,8 +751,10 @@ class Trash:
         else:
             trash_info.read(Trash.trash_info_file(file))
             try:
-                original_path = os.path.join(trash_info['Trash Info']['path'],
-                                             relative_file[relative_file.find(os.path.sep) + 1:])
+                original_path = os.path.join(
+                    trash_info["Trash Info"]["path"],
+                    relative_file[relative_file.find(os.path.sep) + 1 :],
+                )
             except KeyError:
                 original_path = os.path.basename(file)
                 pass
@@ -714,20 +768,26 @@ class Trash:
         trash_info.read(Trash.trash_info_file(file))
         deletion_date_str = ""
         try:
-            deletion_date_str = trash_info['Trash Info']['DeletionDate']
+            deletion_date_str = trash_info["Trash Info"]["DeletionDate"]
         except KeyError:
             log.warning("KeyError exception !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
             pass
 
         log.info("deletion_date_str={}".format(deletion_date_str))
         # from https://stackabuse.com/converting-strings-to-datetime-in-python/
-        return datetime.datetime.strptime(deletion_date_str, '%Y-%m-%d %H:%M:%S.%f')
+        return datetime.datetime.strptime(deletion_date_str, "%Y-%m-%d %H:%M:%S.%f")
 
     @staticmethod
     def trash_info_file(file):
         if file.parent.samefile(Trash.get_trash_path()):
-            return Trash.get_trash_info_path() / (file.name + Trash.__TRASH_INFO_EXTENSION)
+            return Trash.get_trash_info_path() / (
+                file.name + Trash.__TRASH_INFO_EXTENSION
+            )
         else:
-            relative_dir_name = str(file.parent).replace(str(Trash.get_trash_path()) + os.path.sep, "")
+            relative_dir_name = str(file.parent).replace(
+                str(Trash.get_trash_path()) + os.path.sep, ""
+            )
             trash_info_basename = Path(relative_dir_name).parts[0]
-            return Trash.get_trash_info_path() / (trash_info_basename + Trash.__TRASH_INFO_EXTENSION)
+            return Trash.get_trash_info_path() / (
+                trash_info_basename + Trash.__TRASH_INFO_EXTENSION
+            )
