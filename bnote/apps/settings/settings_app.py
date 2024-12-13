@@ -559,11 +559,18 @@ class SettingsApp(BnoteApp):
                 "action": self.__dialog_set_stm32,
                 "action_param": {"section": "stm32", "key": "standby_shutdown"},
             },
-            ('update', 'auto_check'): {'action': self.__dialog_set_settings, 'action_param': {'section': 'update', 'key': 'auto_check'}},
-            ('update', 'search_update_to'): {'action': self._exec_change_update_source,
-                                             'action_param': {'section': 'update, source'}},
-            ('version', 'application'): {'action': self.__dialog_application_version,
-                                         'action_param': {'section': 'version', 'key': 'application'}},
+            ("update", "auto_check"): {
+                "action": self.__dialog_set_settings,
+                "action_param": {"section": "update", "key": "auto_check"},
+            },
+            ("update", "search_update_to"): {
+                "action": self._exec_change_update_source,
+                "action_param": {"section": "update, source"},
+            },
+            ("version", "application"): {
+                "action": self.__dialog_application_version,
+                "action_param": {"section": "version", "key": "application"},
+            },
         }
 
     def __action(self, section, key):
@@ -1162,11 +1169,21 @@ class SettingsApp(BnoteApp):
                         ui.UiMenuItem(
                             name=_("check update"), action=self._exec_check_update
                         ),
-                        ui.UiMenuItem(name=_("&auto check"), **self.__action_and_action_param[('update', 'auto_check')]),
-                        ui.UiMenuItem(name=_("&install an other version"), action=self._exec_get_update_history),
-                        ui.UiMenuItem(name=_("&search update to"),
-                                      **self.__action_and_action_param[('update', 'search_update_to')]),
-                    ]
+                        ui.UiMenuItem(
+                            name=_("&auto check"),
+                            **self.__action_and_action_param[("update", "auto_check")],
+                        ),
+                        ui.UiMenuItem(
+                            name=_("&install an other version"),
+                            action=self._exec_get_update_history,
+                        ),
+                        ui.UiMenuItem(
+                            name=_("&search update to"),
+                            **self.__action_and_action_param[
+                                ("update", "search_update_to")
+                            ],
+                        ),
+                    ],
                 ),
                 ui.UiMenuItem(name=_("about"), action=self._exec_about_bnote),
                 ui.UiMenuItem(name=_("&test"), action=self._exec_test),
@@ -2188,10 +2205,14 @@ class SettingsApp(BnoteApp):
             )
         else:
             self.__append_line_in_document(param_label=_("your b.note is up to date"))
-        self.__append_line_in_document(param_label=_("update source"),
-                                       param_value=Settings().data['update']['search_update_to'],
-                                       dialog_box_name=_("update"), dialog_box_param_name=_("source"), section='update',
-                                       key='search_update_to')
+        self.__append_line_in_document(
+            param_label=_("update source"),
+            param_value=Settings().data["update"]["search_update_to"],
+            dialog_box_name=_("update"),
+            dialog_box_param_name=_("source"),
+            section="update",
+            key="search_update_to",
+        )
         # Versions
         self.__append_line_in_document()
         self.__append_line_in_document(param_label=_("versions"), is_tab_stop=True)
@@ -3958,23 +3979,28 @@ class SettingsApp(BnoteApp):
         self.__test_step()
 
     def _exec_check_update(self):
-        self._current_dialog = ui.UiInfoDialogBox(
-            message=_("searching update..."))
+        self._current_dialog = ui.UiInfoDialogBox(message=_("searching update..."))
         self.__check_update()
 
     def __check_update(self):
-        self.update = YAUpdaterFinder(Settings().data['system']['developer'], self.end_thread_check_update)
+        self.update = YAUpdaterFinder(
+            Settings().data["system"]["developer"], self.end_thread_check_update
+        )
 
     def end_thread_check_update(self):
         self._put_in_function_queue(FunctionId.FUNCTION_CHECK_UPDATE_ENDED)
 
     def _thread_check_update_ended(self, **kwargs):
-        if self.update.version_to_install == 'up_to_date':
-            self._current_dialog = ui.UiInfoDialogBox(message=_("your b.note is up to date"), action=self._exec_cancel_dialog)
+        if self.update.version_to_install == "up_to_date":
+            self._current_dialog = ui.UiInfoDialogBox(
+                message=_("your b.note is up to date"), action=self._exec_cancel_dialog
+            )
             return
-        elif self.update.version_to_install == 'failed':
-            self._current_dialog = ui.UiInfoDialogBox(message=_("connexion failed, try again."),
-                                                      action=self._exec_cancel_dialog)
+        elif self.update.version_to_install == "failed":
+            self._current_dialog = ui.UiInfoDialogBox(
+                message=_("connexion failed, try again."),
+                action=self._exec_cancel_dialog,
+            )
             return
         else:
             self._exec_ask_download()
@@ -4004,7 +4030,12 @@ class SettingsApp(BnoteApp):
         else:
             file = self.update.file_to_install
             self._current_dialog = ui.UiInfoDialogBox(_("downloading..."))
-            YAUpdater(file, "/home/pi/all_bnotes/", self.refresh_install_message, self.yaupdater_ended)
+            YAUpdater(
+                file,
+                "/home/pi/all_bnotes/",
+                self.refresh_install_message,
+                self.yaupdater_ended,
+            )
 
     def refresh_install_message(self, msg):
         log.info(f"!!!refresh_install_message:{threading.get_ident()=}-{msg=}")
@@ -4045,43 +4076,62 @@ class SettingsApp(BnoteApp):
 
     def _exec_get_update_history(self):
         self._current_dialog = ui.UiInfoDialogBox(message=_("searching update..."))
-        self.update = YAUpdaterFinder(Settings().data['system']['developer'], self._end_get_update_history)
+        self.update = YAUpdaterFinder(
+            Settings().data["system"]["developer"], self._end_get_update_history
+        )
 
     def _end_get_update_history(self):
-        if self.update.version_to_install == 'failed':
+        if self.update.version_to_install == "failed":
             self._current_dialog = ui.UiInfoDialogBox(
                 message=_("connexion failed, try again."),
-                action=self._exec_cancel_dialog)
+                action=self._exec_cancel_dialog,
+            )
             return
         elif not self.update.files:
-            self._current_dialog = ui.UiInfoDialogBox(message=_("No version available through this source."),
-                                                   action=self._exec_cancel_dialog)
+            self._current_dialog = ui.UiInfoDialogBox(
+                message=_("No version available through this source."),
+                action=self._exec_cancel_dialog,
+            )
             return
         update_list = []
         for version in self.update.files:
-            update_list.append(version['version'])
+            update_list.append(version["version"])
         self._current_dialog = ui.UiDialogBox(
             name=_("version history"),
             item_list=[
-                ui.UiListBox(name=_("&select a version to install"), value=("version", update_list)),
-                ui.UiButton(name=_("&install"), action=self._exec_valid_install_other_version),
-                ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog)
+                ui.UiListBox(
+                    name=_("&select a version to install"),
+                    value=("version", update_list),
+                ),
+                ui.UiButton(
+                    name=_("&install"), action=self._exec_valid_install_other_version
+                ),
+                ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
             ],
-            action_cancelable=self._exec_cancel_dialog
+            action_cancelable=self._exec_cancel_dialog,
         )
 
     def _exec_valid_install_other_version(self):
         kwargs = self._current_dialog.get_values()
-        if kwargs['version'] == YAUpdater.get_version_from_running_project("pyproject.toml"):
-            self._current_dialog = ui.UiInfoDialogBox(message=_("this version is already installed"),
-                                                      action=self._exec_cancel_dialog)
+        if kwargs["version"] == YAUpdater.get_version_from_running_project(
+            "pyproject.toml"
+        ):
+            self._current_dialog = ui.UiInfoDialogBox(
+                message=_("this version is already installed"),
+                action=self._exec_cancel_dialog,
+            )
             return
         for version in self.update.files:
-            if version['version'] == kwargs['version']:
-                file = version['link']
+            if version["version"] == kwargs["version"]:
+                file = version["link"]
                 break
         self._current_dialog = ui.UiInfoDialogBox(_("downloading..."))
-        YAUpdater(file, "/home/pi/all_bnotes/", self.refresh_install_message, self.yaupdater_ended)
+        YAUpdater(
+            file,
+            "/home/pi/all_bnotes/",
+            self.refresh_install_message,
+            self.yaupdater_ended,
+        )
 
     def _exec_about_bnote(self):
         bnote_list = [
@@ -4772,38 +4822,49 @@ class SettingsApp(BnoteApp):
         pass
 
     def _exec_change_update_source(self, **kwargs):
-        actual_source = Settings().data['update']['search_update_to']
+        actual_source = Settings().data["update"]["search_update_to"]
         self._current_dialog = ui.UiDialogBox(
             name=_("update source"),
             item_list=[
                 ui.UiEditBox(name=_("source &url"), value=("url", actual_source)),
-                ui.UiButton(name=_("&ok"), action=self._exec_valid_change_update_source),
-                ui.UiButton(name=_("&set default"), action=self._exec_set_default_source),
+                ui.UiButton(
+                    name=_("&ok"), action=self._exec_valid_change_update_source
+                ),
+                ui.UiButton(
+                    name=_("&set default"), action=self._exec_set_default_source
+                ),
                 ui.UiButton(name=_("&cancel"), action=self._exec_cancel_dialog),
             ],
-            action_cancelable=self._exec_cancel_dialog
+            action_cancelable=self._exec_cancel_dialog,
         )
 
     def _exec_set_default_source(self):
-        Settings().data['update']['search_update_to'] = Settings().DEFAULT_VALUES['update']['search_update_to']
+        Settings().data["update"]["search_update_to"] = Settings().DEFAULT_VALUES[
+            "update"
+        ]["search_update_to"]
         Settings().save()
-        self._put_in_function_queue(FunctionId.FUNCTION_SETTINGS_CHANGE,
-                                    **{'section': 'update', 'key': 'search_update_to'})
+        self._put_in_function_queue(
+            FunctionId.FUNCTION_SETTINGS_CHANGE,
+            **{"section": "update", "key": "search_update_to"},
+        )
         change_update_source()
 
     def _exec_valid_change_update_source(self):
         kwargs = self._current_dialog.get_values()
-        new_source = kwargs['url']
+        new_source = kwargs["url"]
         if test_new_source(new_source):
-            Settings().data['update']['search_update_to'] = new_source
+            Settings().data["update"]["search_update_to"] = new_source
             Settings().save()
-            self._put_in_function_queue(FunctionId.FUNCTION_SETTINGS_CHANGE,
-                                        **{'section': 'update', 'key': 'search_update_to'})
+            self._put_in_function_queue(
+                FunctionId.FUNCTION_SETTINGS_CHANGE,
+                **{"section": "update", "key": "search_update_to"},
+            )
             change_update_source()
             return True
         else:
-            self._current_dialog = ui.UiInfoDialogBox(message=_("source not valid..."),
-                                                   action=self._exec_change_update_source)
+            self._current_dialog = ui.UiInfoDialogBox(
+                message=_("source not valid..."), action=self._exec_change_update_source
+            )
 
     def __dialog_application_version(self, section, key, **kwargs):
         versions = YAVersionFinder.find_versions()
