@@ -18,7 +18,7 @@ import bnote.__init__ as version
 from bnote.apps.bnote_app import BnoteApp, FunctionId
 from bnote.apps.fman.file_manager import FileManager
 
-from datetime import datetime
+from datetime import datetime, timezone
 
 from bnote.speech.speech import SpeechManager
 from bnote.stm32 import stm32_keys
