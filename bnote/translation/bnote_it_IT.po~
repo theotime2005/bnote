@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Bnote traduzione in italiano\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-08 17:09+0200\n"
-"PO-Revision-Date: 2024-07-17 08:42+0200\n"
+"PO-Revision-Date: 2024-10-18 13:53+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it_IT\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: pygettext.py 1.5\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Poedit-Basepath: bnote_dev\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: apps/braille_learning\n"
@@ -32,7 +32,7 @@ msgstr "&tabella braille"
 #: ../apps/translator/translator_app.py:91 ../apps/fman/file_manager_app.py:139
 #: ../apps/fman/file_manager_app.py:172 ../apps/fman/file_manager_app.py:354
 msgid "&send to"
-msgstr "&invia a "
+msgstr "&invia a"
 
 #: ../apps/translator/translator_app.py:92 ../apps/timer/timer_app.py:66
 msgid "&clear"
@@ -549,7 +549,7 @@ msgstr "&aggiorna lista da internet"
 
 #: ../apps/media/radio_app.py:77 ../apps/timer/timer_app.py:193
 msgid "&start"
-msgstr "&ascolta"
+msgstr "&avvia"
 
 #: ../apps/media/radio_app.py:79 ../apps/music/music_app.py:136
 #: ../apps/daisy/daisy_app.py:100
@@ -669,7 +669,7 @@ msgstr "&aggiorna"
 
 #: ../apps/fman/file_manager_app.py:155 ../apps/fman/file_manager_app.py:188
 msgid "o&pen to read"
-msgstr "a&pri e leggi"
+msgstr "a&pri in sola lettura"
 
 #: ../apps/fman/file_manager_app.py:159 ../apps/fman/file_manager_app.py:192
 msgid "re&cents"
@@ -724,7 +724,7 @@ msgstr "seleziona &tutto"
 #: ../apps/fman/file_manager_app.py:228 ../apps/edt/editor_base_app.py:195
 #: ../apps/agenda/agenda_app.py:82
 msgid "&goto"
-msgstr "&vai a "
+msgstr "&vai a"
 
 #: ../apps/fman/file_manager_app.py:230 ../apps/agenda/agenda_app.py:549
 #: ../apps/agenda/agenda_app.py:618 ../apps/agenda/agenda_app.py:623
@@ -745,6 +745,7 @@ msgid "&trash"
 msgstr "&cestino"
 
 #: ../apps/fman/file_manager_app.py:234
+#, fuzzy
 msgid "my back&ups"
 msgstr "back&up"
 
@@ -770,7 +771,7 @@ msgstr "&ripristina dal cestino"
 
 #: ../apps/fman/file_manager_app.py:256
 msgid "permanently &delete"
-msgstr "cancellazione &permanente"
+msgstr "cancellazione &definitiva"
 
 #: ../apps/fman/file_manager_app.py:257
 msgid "&empty the trash"
@@ -786,7 +787,7 @@ msgstr "fine &selezione"
 
 #: ../apps/fman/file_manager_app.py:350
 msgid "&open to read"
-msgstr "&apri e leggi"
+msgstr "&apri in sola lettura"
 
 #: ../apps/fman/file_manager_app.py:372 ../apps/fman/file_manager_app.py:385
 #: ../apps/fman/file_manager_app.py:399 ../apps/fman/file_manager_app.py:435
@@ -884,8 +885,8 @@ msgid ""
 "do you confirm permanently deletion? if you delete, it will be permanently "
 "lost."
 msgstr ""
-"confermi la cancellazione permanente? Se elimini, perderai definitivamente "
-"il contenuto."
+"confermi la cancellazione definitiva? Se confermi non potrai ripristinare "
+"questi dati."
 
 #: ../apps/fman/file_manager_app.py:747 ../apps/fman/file_manager_app.py:2505
 msgid "deleting {}% {}"
@@ -939,7 +940,7 @@ msgstr "file trovato {}"
 
 #: ../apps/fman/file_manager_app.py:879 ../apps/daisy/daisy_app.py:414
 msgid "file"
-msgstr "&file"
+msgstr "file"
 
 #: ../apps/fman/file_manager_app.py:880
 msgid "&show in folder"
@@ -974,7 +975,7 @@ msgstr "files recenti"
 
 #: ../apps/fman/file_manager_app.py:930
 msgid "file list"
-msgstr "Lista files"
+msgstr "lista files"
 
 #: ../apps/fman/file_manager_app.py:932
 msgid "c&lear list"
@@ -1051,11 +1052,11 @@ msgstr "impossibile spostare il file aperto nell'editor."
 
 #: ../apps/fman/file_manager_app.py:1232 ../apps/fman/file_manager_app.py:2511
 msgid "moving {}% {}"
-msgstr "spostamento di {}% {}"
+msgstr "spostamento di {} {}%"
 
 #: ../apps/fman/file_manager_app.py:1238 ../apps/fman/file_manager_app.py:2513
 msgid "copying {}% {}"
-msgstr "copia di {}% {}"
+msgstr "copia di {} {}%"
 
 #: ../apps/fman/file_manager_app.py:1317
 msgid "backup %Y %m %d.zip"
@@ -1077,7 +1078,7 @@ msgstr "ripristina"
 #: ../apps/fman/file_manager_app.py:1474 ../apps/fman/file_manager_app.py:1576
 #: ../apps/fman/file_manager_app.py:1629
 msgid "the following characters are invalid "
-msgstr "i seguenti caratteri non sono validi"
+msgstr "i seguenti caratteri non sono validi "
 
 #: ../apps/fman/file_manager_app.py:1397 ../apps/fman/file_manager_app.py:1796
 msgid "file {} exists. do you want to replace it?"
@@ -1159,7 +1160,7 @@ msgstr "non è possibile aprire ulteriori documenti."
 
 #: ../apps/fman/file_manager_app.py:2201
 msgid "unzip"
-msgstr "&unzip"
+msgstr "unzip"
 
 #: ../apps/fman/file_manager_app.py:2202
 msgid "Unzip file {}?"
@@ -1177,7 +1178,7 @@ msgid ""
 "please, switch audio application visible in menu in settings to play audio "
 "file."
 msgstr ""
-"Imposta l'applicazione 'audio visibile' in impostazioni per riprodurre il "
+"imposta l'applicazione 'audio visibile' in impostazioni per riprodurre il "
 "file audio."
 
 #: ../apps/fman/file_manager_app.py:2244 ../apps/settings/settings_app.py:2484
@@ -1190,7 +1191,7 @@ msgstr "installazione in corso, attendere..."
 
 #: ../apps/fman/file_manager_app.py:2264 ../apps/settings/settings_app.py:2511
 msgid "unable to update."
-msgstr "non posso aggiornare"
+msgstr "non posso aggiornare."
 
 #: ../apps/fman/file_manager_app.py:2282 ../apps/settings/settings_app.py:3198
 msgid "failed to import the file, check the source and try again."
@@ -1198,11 +1199,11 @@ msgstr "impossibile importare il file, controlla l'origine e riprova."
 
 #: ../apps/fman/file_manager_app.py:2285
 msgid "imported settings."
-msgstr "impostazioni importate"
+msgstr "impostazioni importate."
 
 #: ../apps/fman/file_manager_app.py:2416 ../ui/ui_file_box.py:40
 msgid "empty directory..."
-msgstr "cartella vuota"
+msgstr "cartella vuota..."
 
 #: ../apps/fman/file_manager_app.py:2519
 msgid "sending {}% {}"
@@ -1218,7 +1219,7 @@ msgstr "errore durante la cancellazione."
 
 #: ../apps/bt/bluetooth_app.py:32
 msgid "bluetooth listening"
-msgstr "Ricerca bluetooth"
+msgstr "ricerca bluetooth"
 
 #: ../apps/timer/timer_app.py:52 ../apps/settings/settings_app.py:855
 msgid "timer"
@@ -1230,15 +1231,15 @@ msgstr "start/stop"
 
 #: ../apps/timer/timer_app.py:59
 msgid "&marker"
-msgstr "&segnalibro"
+msgstr "&marcatore"
 
 #: ../apps/timer/timer_app.py:61
 msgid "add &marker"
-msgstr "aggiungi &segnalibro"
+msgstr "aggiungi &marcatore"
 
 #: ../apps/timer/timer_app.py:63
 msgid "&show markers"
-msgstr "&visualizza segnalibri"
+msgstr "&visualizza marcatori"
 
 #: ../apps/timer/timer_app.py:68
 msgid "&launch timer"
@@ -1268,7 +1269,7 @@ msgstr "in questa posizione esiste già un marcatore, vuoi sostituirlo?"
 
 #: ../apps/timer/timer_app.py:143
 msgid "&marker list"
-msgstr "&lista segnalibri"
+msgstr "&lista marcatori"
 
 #: ../apps/timer/timer_app.py:147
 msgid "show &name"
@@ -1276,11 +1277,11 @@ msgstr "mostra &nome"
 
 #: ../apps/timer/timer_app.py:155
 msgid "marker list"
-msgstr "lista segnalibri"
+msgstr "lista marcatori"
 
 #: ../apps/timer/timer_app.py:164
 msgid "rename marker"
-msgstr "rinomina segnalibro"
+msgstr "rinomina marcatore"
 
 #: ../apps/timer/timer_app.py:188
 msgid "create timer"
@@ -1457,7 +1458,7 @@ msgstr "sola lettura"
 
 #: ../apps/edt/editor_app.py:60 ../apps/wikipedia/wikipedia_app.py:55
 msgid "clean&up"
-msgstr "pulisci&avvia"
+msgstr "pulisci &avvia"
 
 #: ../apps/edt/editor_app.py:61 ../apps/wikipedia/wikipedia_app.py:56
 #: ../apps/music/music_app.py:113 ../apps/daisy/daisy_app.py:84
@@ -1506,11 +1507,11 @@ msgstr "&matematica"
 
 #: ../apps/edt/editor_app.py:81
 msgid "&line evaluation"
-msgstr "&valutazione della linea"
+msgstr "&valutazione riga"
 
 #: ../apps/edt/editor_app.py:83
 msgid "&bloc evaluation"
-msgstr "&valutazione del blocco"
+msgstr "&valutazione blocco"
 
 #: ../apps/edt/editor_app.py:142
 msgid "export to braille"
@@ -1519,7 +1520,7 @@ msgstr "esporta in braille"
 #: ../apps/edt/editor_app.py:145 ../apps/settings/settings_app.py:535
 #: ../apps/settings/settings_app.py:813 ../apps/settings/settings_app.py:901
 msgid "&braille type"
-msgstr "& tabella braille"
+msgstr "&tipo braille"
 
 #: ../apps/edt/editor_app.py:145 ../apps/edt/editor_app.py:159
 #: ../apps/skeleton/skeleton_app.py:150 ../apps/settings/settings_app.py:1594
@@ -1589,7 +1590,7 @@ msgstr ""
 
 #: ../apps/edt/editor_app.py:222
 msgid "you must be in computer braille to use the translation."
-msgstr "Devi essere in braille informatico per usare la conversione."
+msgstr "devi essere in braille informatico per usare la conversione."
 
 #: ../apps/edt/editor_app.py:303
 msgid "nan value"
@@ -1609,9 +1610,10 @@ msgstr "Errore:{} alla pos:{}"
 
 #: ../apps/edt/editor_app.py:368
 msgid "error:{} at pos:{}"
-msgstr "Errore:{} alla pos:{}"
+msgstr "errore:{} alla pos:{}"
 
 #: ../apps/edt/editor_app.py:371
+#, fuzzy
 msgid "error forgotten formula start marks"
 msgstr "Errore contrassegni iniziali della formula dimenticati"
 
@@ -1629,13 +1631,14 @@ msgstr "firma.txt non trovato."
 
 #: ../apps/edt/edt/read_xlsx_file.py:41
 msgid "select sheet."
-msgstr "Seleziona foglio."
+msgstr "seleziona foglio."
 
 #: ../apps/edt/edt/read_xlsx_file.py:53
 msgid "sheet {} type not found."
 msgstr "foglio {} tipo non trovato."
 
 #: ../apps/edt/edt/read_file.py:72
+#, fuzzy
 msgid ""
 "the original file has already been converted. Please open the converted file "
 "or rename/delete it if you want to try again this conversion."
@@ -1656,11 +1659,11 @@ msgstr "volume {}"
 
 #: ../apps/edt/editor_base_app.py:118
 msgid "&undo"
-msgstr "&disfare"
+msgstr "&annulla"
 
 #: ../apps/edt/editor_base_app.py:120
 msgid "&redo"
-msgstr "&rifare"
+msgstr "&ripristina"
 
 #: ../apps/edt/editor_base_app.py:125 ../apps/wikipedia/wikipedia_app.py:63
 #: ../apps/daisy/daisy_app.py:89 ../apps/ai_assistant/ai_assistant_app.py:113
@@ -1713,11 +1716,11 @@ msgstr "sostituisci &tutti"
 
 #: ../apps/edt/editor_base_app.py:197
 msgid "&beginning of document"
-msgstr "&inizio del documento"
+msgstr "&inizio documento"
 
 #: ../apps/edt/editor_base_app.py:198
 msgid "&end of document"
-msgstr "&fine del documento"
+msgstr "&fine documento"
 
 #: ../apps/edt/editor_base_app.py:199
 msgid "&previous paragraphe"
@@ -1737,11 +1740,11 @@ msgstr "&inserisci/cancella"
 
 #: ../apps/edt/editor_base_app.py:216
 msgid "clear &all"
-msgstr "cancella &tutto"
+msgstr "cancella &tutti"
 
 #: ../apps/edt/editor_base_app.py:223 ../apps/settings/settings_app.py:440
 msgid "&vocalize"
-msgstr "&vocalizza"
+msgstr "&vocalizzazione"
 
 #: ../apps/edt/editor_base_app.py:225
 msgid "&document"
@@ -1821,11 +1824,11 @@ msgstr "&ignora maiuscole"
 
 #: ../apps/edt/editor_base_app.py:866 ../apps/edt/editor_base_app.py:897
 msgid "&mask accent"
-msgstr "&maschera accenti"
+msgstr "&ignora accenti"
 
 #: ../apps/edt/editor_base_app.py:869 ../apps/edt/editor_base_app.py:900
 msgid "&entire word"
-msgstr "&gioco di parole"
+msgstr "&parola intera"
 
 #: ../apps/edt/editor_base_app.py:879 ../apps/edt/editor_base_app.py:884
 msgid "replace"
@@ -1846,7 +1849,7 @@ msgstr "numero di riga non valido."
 
 #: ../apps/edt/editor_base_app.py:1090
 msgid "invalid column number."
-msgstr "numero di colonna non valido"
+msgstr "numero di colonna non valido."
 
 #: ../apps/edt/editor_base_app.py:1101
 msgid "coordinates apart from document."
@@ -1866,7 +1869,7 @@ msgstr "raggiunto l'inizio del documento, stringa non trovata."
 
 #: ../apps/edt/editor_base_app.py:1197
 msgid "end of document reached, string not found."
-msgstr "raggiunta la fine del documento, stringa non trovata"
+msgstr "raggiunta la fine del documento, stringa non trovata."
 
 #: ../apps/edt/editor_base_app.py:1264
 msgid "&sheet"
@@ -1952,7 +1955,7 @@ msgstr "s&cheletro"
 
 #: ../apps/internal.py:247
 msgid "m&ore apps..."
-msgstr "A&ltre apps..."
+msgstr "a&ltre apps..."
 
 #: ../apps/internal.py:287
 msgid "usb_&a"
@@ -2023,7 +2026,7 @@ msgstr "&mostra a questo livello"
 
 #: ../apps/braille_learning/write_word_app.py:91
 msgid "&delete to this level"
-msgstr "&elimina a questo livello "
+msgstr "&elimina a questo livello"
 
 #: ../apps/braille_learning/write_word_app.py:94
 msgid "&switch to the next word"
@@ -2035,6 +2038,7 @@ msgid "&change to level"
 msgstr "&Passa al livello"
 
 #: ../apps/braille_learning/write_word_app.py:96
+#, fuzzy
 msgid "switch &language"
 msgstr "&lingua"
 
@@ -2045,7 +2049,7 @@ msgstr "&resetta applicazione"
 
 #: ../apps/braille_learning/write_word_app.py:129
 msgid "&select a level"
-msgstr "&seleziona un livello "
+msgstr "&seleziona un livello"
 
 #: ../apps/braille_learning/write_word_app.py:188
 msgid "good, you have found the good word!!!"
@@ -2103,15 +2107,15 @@ msgstr "gioco di matematica"
 
 #: ../apps/braille_learning/operation_app.py:64
 msgid "&show to this table"
-msgstr "&mostra a questa tabella"
+msgstr "&mostra per questa tabellina"
 
 #: ../apps/braille_learning/operation_app.py:65
 msgid "&delete to this table"
-msgstr "&elimina in questa tabella"
+msgstr "&elimina per questa tabellina"
 
 #: ../apps/braille_learning/operation_app.py:68
 msgid "&table"
-msgstr "&tabella"
+msgstr "&tabellina"
 
 #: ../apps/braille_learning/operation_app.py:99
 msgid "&change to table"
@@ -2158,7 +2162,7 @@ msgstr "&vedi la soluzione"
 
 #: ../apps/braille_learning/operation_app.py:244
 msgid "for the table of {}, the score is {}"
-msgstr "per la tabella di {}, il punteggio è di {}"
+msgstr "per la tabellina del {}, il punteggio è di {}"
 
 #: ../apps/braille_learning/operation_app.py:411
 msgid "you must select a table from the menu"
@@ -2178,6 +2182,7 @@ msgid "&suggestions"
 msgstr "&domanda"
 
 #: ../apps/wikipedia/wikipedia_app.py:195
+#, fuzzy
 msgid "&find"
 msgstr "cerca"
 
@@ -2214,9 +2219,8 @@ msgid "&say hello"
 msgstr "&di Ciao"
 
 #: ../apps/skeleton/skeleton_app.py:51
-#, fuzzy
 msgid "parameters list"
-msgstr "lista segnalibri"
+msgstr "lista marcatori"
 
 #: ../apps/skeleton/skeleton_app.py:92
 msgid "example"
@@ -2256,7 +2260,6 @@ msgid "braille type"
 msgstr "tipo braille"
 
 #: ../apps/skeleton/skeleton_app.py:143
-#, fuzzy
 msgid "dot78_visible"
 msgstr "punti 7 e 8 visibili"
 
@@ -2272,7 +2275,6 @@ msgid "dot 8"
 msgstr "8 punti"
 
 #: ../apps/skeleton/skeleton_app.py:156
-#, fuzzy
 msgid "parameters"
 msgstr "caratteri"
 
@@ -2336,12 +2338,12 @@ msgstr "&compositore"
 
 #: ../apps/music/music_app.py:178 ../apps/music/music_app.py:482
 msgid "&lyricist"
-msgstr "&testo canzone "
+msgstr "&testo canzone"
 
 #: ../apps/music/music_app.py:180 ../apps/settings/settings_app.py:1001
 #: ../apps/settings/settings_app.py:1066
 msgid "&credit words"
-msgstr "&crediti "
+msgstr "&crediti"
 
 #: ../apps/music/music_app.py:182
 msgid "&part"
@@ -2351,7 +2353,7 @@ msgstr "&parte"
 #: ../apps/settings/settings_app.py:380 ../apps/settings/settings_app.py:417
 #: ../apps/settings/settings_app.py:1005 ../apps/settings/settings_app.py:1070
 msgid "&lyrics"
-msgstr "&testo canzone "
+msgstr "&testo canzone"
 
 #: ../apps/music/music_app.py:186 ../apps/music/music_app.py:600
 #: ../apps/settings/settings_app.py:419 ../apps/settings/settings_app.py:1074
@@ -2513,7 +2515,7 @@ msgstr "definire & l'alterazione di nota"
 
 #: ../apps/music/music_app.py:680 ../apps/music/music_app.py:691
 msgid "flat"
-msgstr " &bemolle"
+msgstr "bemolle"
 
 #: ../apps/music/music_app.py:680 ../apps/music/music_app.py:692
 msgid "natural"
@@ -2711,7 +2713,7 @@ msgstr "semibreve"
 
 #: ../apps/music/music_app.py:904 ../apps/music/music_app.py:925
 msgid "half"
-msgstr "minima,"
+msgstr "minima"
 
 #: ../apps/music/music_app.py:904 ../apps/music/music_app.py:926
 msgid "quarter"
@@ -2799,7 +2801,7 @@ msgstr "ripetere il frammento con prima e seconda volta"
 
 #: ../apps/music/music_app.py:982 ../apps/music/music_app.py:993
 msgid "do you want to save your document now?"
-msgstr "Vuoi salvare il documento adesso?"
+msgstr "vuoi salvare il documento adesso?"
 
 #: ../apps/music/music_app.py:1009
 msgid ""
@@ -2823,7 +2825,7 @@ msgstr "seleziona &intervallo"
 
 #: ../apps/music/music_app.py:1040 ../apps/music/music_app.py:1050
 msgid "seconde"
-msgstr " seconda"
+msgstr "seconda"
 
 #: ../apps/music/music_app.py:1040 ../apps/music/music_app.py:1051
 msgid "third"
@@ -2859,25 +2861,25 @@ msgstr "& misura completa in accordo"
 
 #: ../apps/music/music_app.py:1084
 msgid "you must enter an integer."
-msgstr "Devi  inserire un numero intero."
+msgstr "devi  inserire un numero intero."
 
 #: ../apps/music/music_app.py:1098
 msgid "you must insert a minimum of 2 voices."
-msgstr "Devi inserire almeno 2 voci."
+msgstr "devi inserire almeno 2 voci."
 
 #: ../apps/music/music_app.py:1114
 msgid ""
 "the cursor is place before the accord sign, don't forget to put an octave "
 "sign after all measure in-accord signs."
 msgstr ""
-"Il cursore viene posizionato prima del segno dell'accordo. Non dimenticare "
+"il cursore viene posizionato prima del segno dell'accordo. Non dimenticare "
 "di inserire un segno di ottava dopo tutte le misure dei segni interni "
 "all'accordo."
 
 #: ../apps/music/music_app.py:1133
 msgid "sorry, but part-measure in-accord is not suported for the moment."
 msgstr ""
-"Siamo spiacenti, ma la misura parziale in accordo non è supportata al "
+"siamo spiacenti, ma la misura parziale in accordo non è supportata al "
 "momento."
 
 #: ../apps/music/music_app.py:1145
@@ -2945,7 +2947,7 @@ msgstr "sopra"
 #: ../apps/music/music_app.py:1181 ../apps/music/music_app.py:1202
 msgid "you cant select this options. This settings does not exist."
 msgstr ""
-"Non è possibile selezionare queste opzioni. Questa impostazione non esiste."
+"non è possibile selezionare queste opzioni. Questa impostazione non esiste."
 
 #: ../apps/music/music_app.py:1191
 msgid ""
@@ -3017,7 +3019,7 @@ msgstr "autore"
 
 #: ../apps/daisy/daisy_app.py:423
 msgid "identifier"
-msgstr "identificatore "
+msgstr "identificatore"
 
 #: ../apps/eole/eole_search_dialog_box.py:29
 msgid "Human voice and Full daisy (braille + synthesis voice)"
@@ -3059,7 +3061,7 @@ msgstr "da 13 anni in poi"
 
 #: ../apps/eole/eole_search_dialog_box.py:47
 msgid "result"
-msgstr "&risultato"
+msgstr "risultato"
 
 #: ../apps/eole/eole_search_dialog_box.py:51
 #: ../apps/eole/eole_search_dialog_box.py:62
@@ -3103,7 +3105,7 @@ msgstr "la libreria eole non è disponibile..."
 
 #: ../apps/eole/eole_search_dialog_box.py:142
 msgid "no internet..."
-msgstr "Connessione internet non disponibile..."
+msgstr "connessione internet non disponibile..."
 
 #: ../apps/eole/eole_search_dialog_box.py:147
 msgid "unexpected error ({})"
@@ -3115,7 +3117,7 @@ msgstr "troppi risultati (trovato {} e massimo è {})"
 
 #: ../apps/eole/eole_search_dialog_box.py:167
 msgid "no results..."
-msgstr "nessun risultato"
+msgstr "nessun risultato..."
 
 #: ../apps/ai_assistant/ai_assistant_app.py:91
 #: ../apps/ai_assistant/ai_assistant_app.py:293
@@ -3124,13 +3126,13 @@ msgstr ""
 
 #: ../apps/ai_assistant/ai_assistant_app.py:122
 #, fuzzy
+#| msgid "country"
 msgid "a&ccount"
 msgstr "paese"
 
 #: ../apps/ai_assistant/ai_assistant_app.py:124
-#, fuzzy
 msgid "&renew access token"
-msgstr "impossibile acquisire il token di accesso. errore: {}"
+msgstr ""
 
 #: ../apps/ai_assistant/ai_assistant_app.py:214
 msgid ""
@@ -3139,9 +3141,8 @@ msgid ""
 msgstr ""
 
 #: ../apps/ai_assistant/ai_assistant_app.py:226
-#, fuzzy
 msgid "eurobraille server responds too slowly."
-msgstr "la libreria eole non è disponibile..."
+msgstr ""
 
 #: ../apps/ai_assistant/ai_assistant_app.py:231
 msgid "ai server unavailable or responding too slowly."
@@ -3150,11 +3151,13 @@ msgstr ""
 #: ../apps/ai_assistant/ai_assistant_app.py:236
 #: ../apps/ai_assistant/ai_assistant_app.py:262
 #, fuzzy
+#| msgid "error"
 msgid "error = "
 msgstr "errore"
 
 #: ../apps/ai_assistant/ai_assistant_app.py:241
 #, fuzzy
+#| msgid "no internet..."
 msgid "no internet."
 msgstr "Connessione internet non disponibile..."
 
@@ -3181,11 +3184,13 @@ msgstr ""
 
 #: ../apps/ai_assistant/ai_assistant_app.py:260
 #, fuzzy
+#| msgid "eole library is unavailable..."
 msgid "eurobraille server unavailable."
 msgstr "la libreria eole non è disponibile..."
 
 #: ../apps/ai_assistant/ai_assistant_app.py:295
 #, fuzzy
+#| msgid "message"
 msgid "&message"
 msgstr "messaggio"
 
@@ -3205,6 +3210,7 @@ msgstr ""
 
 #: ../apps/ai_assistant/ai_assistant_app.py:493
 #, fuzzy
+#| msgid "unable to grab access token. error : {}"
 msgid "unable to renew access token."
 msgstr "impossibile acquisire il token di accesso. errore: {}"
 
@@ -3228,7 +3234,7 @@ msgstr "fatto"
 #: ../apps/settings/settings_app.py:839 ../apps/settings/settings_app.py:1078
 #: ../apps/settings/settings_app.py:1081 ../apps/settings/settings_app.py:1085
 msgid "agenda"
-msgstr "Agenda"
+msgstr "agenda"
 
 #: ../apps/agenda/agenda_app.py:65
 msgid "&event"
@@ -3257,7 +3263,7 @@ msgstr "eventi cancellati e completati"
 
 #: ../apps/agenda/agenda_app.py:84
 msgid "&previous week"
-msgstr "&Settimana precedente"
+msgstr "&Settimana scorsa"
 
 #: ../apps/agenda/agenda_app.py:87
 msgid "&next week"
@@ -3269,19 +3275,20 @@ msgstr "&Giorno precedente"
 
 #: ../apps/agenda/agenda_app.py:91
 msgid "next &day"
-msgstr "Giorno&successivo"
+msgstr "giorno &successivo"
 
 #: ../apps/agenda/agenda_app.py:97
 msgid "find &date"
 msgstr "trova da&ta"
 
 #: ../apps/agenda/agenda_app.py:99
+#, fuzzy
 msgid "find in a&genda"
 msgstr "trova in &agenda"
 
 #: ../apps/agenda/agenda_app.py:104
 msgid "agenda &gestion"
-msgstr "agenda &gestione"
+msgstr "&gestione agenda"
 
 #: ../apps/agenda/agenda_app.py:106
 msgid "&import agenda file"
@@ -3293,13 +3300,14 @@ msgstr "&esporta file agenda"
 
 #: ../apps/agenda/agenda_app.py:110
 msgid "e&mpty agenda"
-msgstr "agenda v&uota"
+msgstr "sv&uota agenda"
 
 #: ../apps/agenda/agenda_app.py:113
 msgid "a&bout"
 msgstr "a&proposito"
 
 #: ../apps/agenda/agenda_app.py:197
+#, fuzzy
 msgid ""
 "your agenda file is corrupt. You can copy the file in your document folder, "
 "but app can't open it. What do you want to do?"
@@ -3320,26 +3328,32 @@ msgid "agenda saving"
 msgstr "salvataggio agenda"
 
 #: ../apps/agenda/agenda_app.py:213
+#, fuzzy
 msgid "the file has been correctly copy and the agenda has clear"
 msgstr "Il file è stato copiato e l'agenda è stata svuotata "
 
 #: ../apps/agenda/agenda_app.py:344
+#, fuzzy
 msgid "from today's ({})"
 msgstr "Da oggi ({})"
 
 #: ../apps/agenda/agenda_app.py:344
+#, fuzzy
 msgid "for today ({})"
 msgstr "Per oggi ({})"
 
 #: ../apps/agenda/agenda_app.py:344
+#, fuzzy
 msgid "not done ({})"
 msgstr "Non fatto ({})"
 
 #: ../apps/agenda/agenda_app.py:344
+#, fuzzy
 msgid "all agenda ({})"
 msgstr "tutte le agende ({})"
 
 #: ../apps/agenda/agenda_app.py:344
+#, fuzzy
 msgid "calendar {}"
 msgstr "calendario"
 
@@ -3349,9 +3363,10 @@ msgstr "titolo evento"
 
 #: ../apps/agenda/agenda_app.py:377
 msgid "content of event"
-msgstr "Contenuto evento"
+msgstr "contenuto evento"
 
 #: ../apps/agenda/agenda_app.py:379
+#, fuzzy
 msgid "new event"
 msgstr "Nuovo evento"
 
@@ -3380,9 +3395,10 @@ msgstr "co&ntenuto"
 
 #: ../apps/agenda/agenda_app.py:397
 msgid "do you really want to delete this event of your agenda?"
-msgstr "Vuoi veramente cancellare questo evento dalla tua agenda?"
+msgstr "vuoi veramente cancellare questo evento dall'agenda?"
 
 #: ../apps/agenda/agenda_app.py:431
+#, fuzzy
 msgid "modify event"
 msgstr "Modifica evento"
 
@@ -3392,11 +3408,11 @@ msgstr "&fatto"
 
 #: ../apps/agenda/agenda_app.py:448
 msgid "do you really want to erase these events?"
-msgstr "Vuoi davvero cancellare questi eventi?"
+msgstr "vuoi veramente cancellare questi eventi?"
 
 #: ../apps/agenda/agenda_app.py:459
 msgid "do you really want to delete the done events?"
-msgstr "Vuoi davvero cancellare l'evento compiuto?"
+msgstr "vuoi davvero cancellare l'evento compiuto?"
 
 #: ../apps/agenda/agenda_app.py:489
 msgid "find date"
@@ -3413,17 +3429,17 @@ msgstr "cri&terio"
 #: ../apps/agenda/agenda_app.py:505 ../apps/agenda/agenda_app.py:789
 #: ../apps/agenda/agenda_app.py:794 ../apps/agenda/agenda_app.py:1509
 msgid "all"
-msgstr "Tutti"
+msgstr "tutti"
 
 #: ../apps/agenda/agenda_app.py:505 ../apps/agenda/agenda_app.py:790
 #: ../apps/agenda/agenda_app.py:795
 msgid "subject"
-msgstr "Oggetto"
+msgstr "oggetto"
 
 #: ../apps/agenda/agenda_app.py:505 ../apps/agenda/agenda_app.py:791
 #: ../apps/agenda/agenda_app.py:796
 msgid "content"
-msgstr "Contenuto"
+msgstr "contenuto"
 
 #: ../apps/agenda/agenda_app.py:506
 msgid "&not done"
@@ -3472,10 +3488,12 @@ msgid "select a destination folder"
 msgstr "seleziona cartella di destinazione"
 
 #: ../apps/agenda/agenda_app.py:637
+#, fuzzy
 msgid "are you sure you want to delete all content of the agenda?"
 msgstr "Sei sicuro di voler eliminare tutto il contenuto dell'agenda?"
 
 #: ../apps/agenda/agenda_app.py:647
+#, fuzzy
 msgid "about agenda"
 msgstr "Aproposito dell'agenda"
 
@@ -3486,7 +3504,7 @@ msgid ""
 "For suggestions or problems, contact Eurobraille or directly the application "
 "developer to {}."
 msgstr ""
-"Agenda, versione {}, copyright (C){} Theotime Berthod.\n"
+"agenda, versione {}, copyright (C){} Theotime Berthod.\n"
 "In collaborazione con Eurobraille.\n"
 "Per suggerimenti o problemi,  contattate direttamente Eurobraille o lo "
 "sviluppatore dell'applicazione a {}."
@@ -3496,10 +3514,12 @@ msgid "you can't use the ';' in text"
 msgstr "non puoi usare il ';' nel testo"
 
 #: ../apps/agenda/agenda_app.py:699
+#, fuzzy
 msgid "the agenda has been correctly deleted."
 msgstr "L'agenda è stata cancellata correttamente"
 
 #: ../apps/agenda/agenda_app.py:703
+#, fuzzy
 msgid "unable to delete the file, an unexpected error occurred."
 msgstr "Impossibile eliminare il file, si è verificato un errore imprevisto."
 
@@ -3520,6 +3540,7 @@ msgid "importing..."
 msgstr "importazione..."
 
 #: ../apps/agenda/agenda_app.py:826
+#, fuzzy
 msgid ""
 "the file {} does not comply with the application's convention. Refer to the "
 "documentation for more information."
@@ -3528,6 +3549,7 @@ msgstr ""
 "informazioni, fate riferimento alla documentazione."
 
 #: ../apps/agenda/agenda_app.py:840
+#, fuzzy
 msgid ""
 "the file was correctly imported, with the exception of 1 event that already "
 "existed."
@@ -3536,6 +3558,7 @@ msgstr ""
 "esistente."
 
 #: ../apps/agenda/agenda_app.py:842
+#, fuzzy
 msgid ""
 "the file was correctly imported, with the exception of {} events that "
 "already existed."
@@ -3553,48 +3576,55 @@ msgstr "seleziona cartella"
 
 #: ../apps/agenda/agenda_app.py:868
 msgid "the file has been correctly exported in {} folder"
-msgstr "il file è stato esportato correttamente nella cartella {} "
+msgstr "il file è stato esportato correttamente nella cartella {}"
 
 #: ../apps/agenda/agenda_app.py:875
+#, fuzzy
 msgid ""
 "this file already exists, try with another name or delete the previous file"
 msgstr ""
 "Questo file esiste già, prova con un altro nome o elimina il file precedente"
 
 #: ../apps/agenda/agenda_app.py:887
+#, fuzzy
 msgid "error during the exportation, verify your agenda and try again"
 msgstr "Errore durante l'esportazione, verifica la tua agenda e riprova"
 
 #: ../apps/agenda/agenda_app.py:900
 msgid "you have 1 event not done for today."
-msgstr "Hai 1 evento non completato per oggi."
+msgstr "hai 1 evento non fatto per oggi."
 
 #: ../apps/agenda/agenda_app.py:902
 msgid "you have {} events not done for today."
-msgstr "Hai {} eventi non completati per oggi."
+msgstr "hai {} eventi non fatti per oggi."
 
 #: ../apps/agenda/agenda_app.py:907 ../apps/agenda/agenda_app.py:942
 msgid "&display"
-msgstr "&mostray"
+msgstr "&mostra"
 
 #: ../apps/agenda/agenda_app.py:935
+#, fuzzy
 msgid "you have 1 event not done for tomorrow."
 msgstr "Hai 1 evento da completare per domani."
 
 #: ../apps/agenda/agenda_app.py:937
+#, fuzzy
 msgid "you have {} events not done for tomorrow."
 msgstr "Hai {} eventi da completare per domani."
 
 #: ../apps/agenda/agenda_app.py:1000 ../apps/agenda/agenda_app.py:1003
 #: ../apps/agenda/agenda_app.py:1006
+#, fuzzy
 msgid "a date is composed of a day, a month and a year."
 msgstr "Una data è composta da un giorno, un mese e da un anno."
 
 #: ../apps/agenda/agenda_app.py:1011
+#, fuzzy
 msgid "a date is composed of numbers, seperate with /"
 msgstr "Una data è composta da numeri, separati da /"
 
 #: ../apps/agenda/agenda_app.py:1013
+#, fuzzy
 msgid "the days range from 01 to 31."
 msgstr "I giorni vanno da 01 a 31."
 
@@ -3603,30 +3633,37 @@ msgid "12 months ago, numbered from 01 to 12."
 msgstr "12 mesi fa, numerati da 01 a 12."
 
 #: ../apps/agenda/agenda_app.py:1204
+#, fuzzy
 msgid "monday"
 msgstr "Lunedì"
 
 #: ../apps/agenda/agenda_app.py:1205
+#, fuzzy
 msgid "tuesday"
 msgstr "Martedì"
 
 #: ../apps/agenda/agenda_app.py:1206
+#, fuzzy
 msgid "wednesday"
 msgstr "Mercoledì"
 
 #: ../apps/agenda/agenda_app.py:1207
+#, fuzzy
 msgid "thursday"
 msgstr "Giovedì"
 
 #: ../apps/agenda/agenda_app.py:1208
+#, fuzzy
 msgid "friday"
 msgstr "Venerdì"
 
 #: ../apps/agenda/agenda_app.py:1209
+#, fuzzy
 msgid "saturday"
 msgstr "Sabato"
 
 #: ../apps/agenda/agenda_app.py:1210
+#, fuzzy
 msgid "sunday"
 msgstr "Domenica"
 
@@ -3700,22 +3737,26 @@ msgid "Show"
 msgstr "Mostra"
 
 #: ../apps/agenda/agenda_app.py:1495
+#, fuzzy
 msgid "no event..."
 msgstr "Nessun evento..."
 
 #: ../apps/agenda/agenda_app.py:1507
 msgid "event not done"
-msgstr "Evento non fatto"
+msgstr "evento non fatto"
 
 #: ../apps/agenda/agenda_app.py:1511
+#, fuzzy
 msgid "to do for {}"
 msgstr "Da fare per {}"
 
 #: ../apps/agenda/agenda_app.py:1513
+#, fuzzy
 msgid "to do for tomorrow"
 msgstr "Da fare per domani"
 
 #: ../apps/agenda/agenda_app.py:1515
+#, fuzzy
 msgid "to do for today"
 msgstr "Da fare per oggi"
 
@@ -3724,10 +3765,12 @@ msgid "calendar"
 msgstr "calendario"
 
 #: ../apps/agenda/agenda_app.py:1519
+#, fuzzy
 msgid "find {}"
 msgstr "Trova {}"
 
 #: ../apps/agenda/agenda_app.py:1521
+#, fuzzy
 msgid "select the display"
 msgstr "Seleziona lo schermo"
 
@@ -3785,6 +3828,7 @@ msgid "value"
 msgstr "valore"
 
 #: ../apps/games/master_mind_app.py:394
+#, fuzzy
 msgid "hit enter (b9A)"
 msgstr "Premi invio (b9A)"
 
@@ -3814,7 +3858,7 @@ msgstr "vinci in {} secondi"
 
 #: ../apps/games/mines_app.py:416
 msgid "no bomb here !"
-msgstr "Nessuna bomba qui!"
+msgstr "nessuna bomba qui!"
 
 #: ../apps/settings/settings_app.py:90 ../apps/settings/settings_app.py:1267
 #: ../apps/settings/settings_app.py:1508 ../apps/settings/settings_app.py:1520
@@ -3850,7 +3894,7 @@ msgstr "&parti"
 #: ../apps/settings/settings_app.py:365 ../apps/settings/settings_app.py:401
 #: ../apps/settings/settings_app.py:973 ../apps/settings/settings_app.py:1037
 msgid "&measure b123"
-msgstr " separatore di battuta B123"
+msgstr "separatore di battuta B123"
 
 #: ../apps/settings/settings_app.py:367 ../apps/settings/settings_app.py:403
 msgid "measure &number"
@@ -3950,7 +3994,7 @@ msgstr "localizzazio&ne"
 
 #: ../apps/settings/settings_app.py:479
 msgid "user &interface"
-msgstr "Interfaccia &utente"
+msgstr "interfaccia &utente"
 
 #: ../apps/settings/settings_app.py:481
 msgid "&message language"
@@ -3962,7 +4006,7 @@ msgstr "&tabella braille"
 
 #: ../apps/settings/settings_app.py:487 ../apps/settings/settings_app.py:817
 msgid "spaces in &label"
-msgstr "spazi nelle  &etichette"
+msgstr "spazi tra le &etichette"
 
 #: ../apps/settings/settings_app.py:489 ../apps/settings/settings_app.py:822
 msgid "visible &shortcuts"
@@ -3982,7 +4026,7 @@ msgstr "&esporta impostazioni"
 
 #: ../apps/settings/settings_app.py:498
 msgid "main me&nu"
-msgstr "Me&nù principale"
+msgstr "me&nù principale"
 
 #: ../apps/settings/settings_app.py:506 ../apps/settings/settings_app.py:849
 msgid "&audio"
@@ -3997,12 +4041,13 @@ msgid "&operation"
 msgstr "&gioco delle tabelline"
 
 #: ../apps/settings/settings_app.py:517 ../apps/settings/settings_app.py:877
+#, fuzzy
 msgid "ma&stermind"
 msgstr "mente"
 
 #: ../apps/settings/settings_app.py:522
 msgid "e&xplorer"
-msgstr "Explorer"
+msgstr "explorer"
 
 #: ../apps/settings/settings_app.py:524
 msgid "empty the &bluetooth folder once shutdown"
@@ -4042,7 +4087,7 @@ msgstr "&punti   7 e 8 visibili"
 
 #: ../apps/settings/settings_app.py:550
 msgid "mat&h"
-msgstr "mat&h"
+msgstr "matematica"
 
 #: ../apps/settings/settings_app.py:552 ../apps/settings/settings_app.py:927
 msgid "&format"
@@ -4050,7 +4095,7 @@ msgstr "&formato"
 
 #: ../apps/settings/settings_app.py:553 ../apps/settings/settings_app.py:931
 msgid "&precision"
-msgstr "&precisione"
+msgstr "&decimali"
 
 #: ../apps/settings/settings_app.py:554
 msgid "f&raction"
@@ -4070,15 +4115,15 @@ msgstr "&presentazione predefinita"
 
 #: ../apps/settings/settings_app.py:570
 msgid "&report events not done"
-msgstr "&segnala eventi non completati"
+msgstr "&segnala eventi non fatti"
 
 #: ../apps/settings/settings_app.py:576 ../apps/settings/settings_app.py:1089
 msgid "write word and operation"
-msgstr "Scrivere parola e operazione"
+msgstr "giochi delle parole e di calcolo"
 
 #: ../apps/settings/settings_app.py:578
 msgid "use the &vocalize"
-msgstr "&usa il sistema di vocalizzazione sistema "
+msgstr "&usa la sintesi vocale"
 
 #: ../apps/settings/settings_app.py:580
 msgid "&keep the spaces"
@@ -4098,7 +4143,7 @@ msgstr "&modalità"
 
 #: ../apps/settings/settings_app.py:591 ../apps/settings/settings_app.py:1109
 msgid "b78"
-msgstr " punti Braille 7 e 8"
+msgstr "punti Braille 7 e 8"
 
 #: ../apps/settings/settings_app.py:592
 msgid "&invertion"
@@ -4145,6 +4190,7 @@ msgid "check update"
 msgstr "ricerca aggiornamenti"
 
 #: ../apps/settings/settings_app.py:625 ../apps/settings/settings_app.py:2550
+#, fuzzy
 msgid "about"
 msgstr "&a proposito"
 
@@ -4163,7 +4209,7 @@ msgstr "ora"
 
 #: ../apps/settings/settings_app.py:658 ../apps/settings/settings_app.py:707
 msgid "battery"
-msgstr "Batteria"
+msgstr "batteria"
 
 #: ../apps/settings/settings_app.py:662 ../apps/settings/settings_app.py:718
 #: ../apps/settings/settings_app.py:719 ../apps/settings/settings_app.py:803
@@ -4173,7 +4219,7 @@ msgstr "lingua"
 
 #: ../apps/settings/settings_app.py:664 ../apps/settings/settings_app.py:730
 msgid "jack"
-msgstr "jack"
+msgstr "cuffie"
 
 #: ../apps/settings/settings_app.py:666 ../apps/settings/settings_app.py:735
 msgid "keyboard USB-A-HID"
@@ -4213,6 +4259,7 @@ msgid "auto sync date"
 msgstr "sincronizzazione data automatica"
 
 #: ../apps/settings/settings_app.py:703
+#, fuzzy
 msgid "clock"
 msgstr "&orologio"
 
@@ -4223,7 +4270,7 @@ msgstr "&sinc data automatica"
 #: ../apps/settings/settings_app.py:711 ../apps/settings/settings_app.py:721
 #: ../apps/settings/settings_app.py:723
 msgid "synthesis"
-msgstr "Sintesi vocale"
+msgstr "sintesi vocale"
 
 #: ../apps/settings/settings_app.py:723
 msgid "&synthesis"
@@ -4266,7 +4313,7 @@ msgstr "acceso"
 
 #: ../apps/settings/settings_app.py:753 ../apps/settings/settings_app.py:1952
 msgid "bluetooth power"
-msgstr "Bluetooth accensione"
+msgstr "bluetooth acceso"
 
 #: ../apps/settings/settings_app.py:753 ../apps/settings/settings_app.py:787
 msgid "&powered"
@@ -4290,7 +4337,7 @@ msgstr "rilevazioe automatica blututh"
 
 #: ../apps/settings/settings_app.py:785
 msgid "wifi"
-msgstr "Wireless"
+msgstr "wireless"
 
 #: ../apps/settings/settings_app.py:787 ../apps/settings/settings_app.py:1973
 msgid "wifi power"
@@ -4310,7 +4357,7 @@ msgstr "paese"
 
 #: ../apps/settings/settings_app.py:796
 msgid "wlan country"
-msgstr "wlan paese"
+msgstr "imposta paese"
 
 #: ../apps/settings/settings_app.py:800 ../apps/settings/settings_app.py:813
 #: ../apps/settings/settings_app.py:817 ../apps/settings/settings_app.py:821
@@ -4362,7 +4409,7 @@ msgstr "&gioco di parole"
 
 #: ../apps/settings/settings_app.py:867
 msgid "operation"
-msgstr "Gioco delle tabelline"
+msgstr "gioco delle tabelline"
 
 #: ../apps/settings/settings_app.py:882
 msgid "empty the bluetooth folder once shutdown"
@@ -4394,7 +4441,7 @@ msgstr "lunghezza riga"
 
 #: ../apps/settings/settings_app.py:905
 msgid "lines &length"
-msgstr "righe &lunghezza"
+msgstr "lunghezza &righe"
 
 #: ../apps/settings/settings_app.py:907
 msgid "forward display"
@@ -4420,7 +4467,7 @@ msgstr "&punti 7 e 8 visibili"
 #: ../apps/settings/settings_app.py:931 ../apps/settings/settings_app.py:935
 #: ../apps/settings/settings_app.py:938
 msgid "math"
-msgstr "Matematica"
+msgstr "matematica"
 
 #: ../apps/settings/settings_app.py:926
 msgid "format"
@@ -4428,7 +4475,7 @@ msgstr "formato"
 
 #: ../apps/settings/settings_app.py:929
 msgid "precision"
-msgstr "precisione"
+msgstr "decimali"
 
 #: ../apps/settings/settings_app.py:933
 msgid "fraction"
@@ -4436,7 +4483,7 @@ msgstr "frazione"
 
 #: ../apps/settings/settings_app.py:935
 msgid "&fraction result"
-msgstr "&risultato frazione "
+msgstr "&risultato frazione"
 
 #: ../apps/settings/settings_app.py:937
 msgid "angle"
@@ -4463,7 +4510,7 @@ msgstr "tipo braille musica xml"
 
 #: ../apps/settings/settings_app.py:951
 msgid "musicxml notes dots"
-msgstr "punti note musicxml"
+msgstr "punti note musica xml"
 
 #: ../apps/settings/settings_app.py:953 ../apps/settings/settings_app.py:1017
 msgid "&notes dots"
@@ -4623,7 +4670,7 @@ msgstr "&presentazione"
 
 #: ../apps/settings/settings_app.py:1083
 msgid "at startup, report events not done"
-msgstr "all'avvio segnala gli eventi non fatti"
+msgstr "all'avvio segnala eventi non fatti"
 
 #: ../apps/settings/settings_app.py:1085
 msgid "report events"
@@ -4672,15 +4719,15 @@ msgstr "modalità tastiera braille"
 
 #: ../apps/settings/settings_app.py:1111
 msgid "braille keyboard b78"
-msgstr "tastiera braille b7 e 8"
+msgstr "punti braille 7 e 8"
 
 #: ../apps/settings/settings_app.py:1113
 msgid "invertion"
-msgstr "inversione"
+msgstr "inverti tastierini"
 
 #: ../apps/settings/settings_app.py:1115
 msgid "inversion"
-msgstr "inversione"
+msgstr "inversione tastierini"
 
 #: ../apps/settings/settings_app.py:1117 ../apps/settings/settings_app.py:1119
 msgid "light press"
@@ -4743,7 +4790,7 @@ msgstr "versioni"
 
 #: ../apps/settings/settings_app.py:1175
 msgid "device type"
-msgstr "Modello prodotto"
+msgstr "modello prodotto"
 
 #: ../apps/settings/settings_app.py:1177
 msgid "applications"
@@ -5003,7 +5050,7 @@ msgstr "menù contestuale"
 
 #: ../apps/settings/settings_app.py:1735
 msgid "auto switch"
-msgstr "cambio automatico"
+msgstr "connessione automatica"
 
 #: ../apps/settings/settings_app.py:1735
 msgid "do nothing"
@@ -5041,11 +5088,11 @@ msgstr "comando fallito"
 #: ../apps/settings/settings_app.py:2019 ../apps/settings/settings_app.py:2093
 #: ../apps/settings/settings_app.py:2132
 msgid "ssid"
-msgstr "ssid"
+msgstr "nome rete"
 
 #: ../apps/settings/settings_app.py:2027
 msgid "&set first"
-msgstr "&imposta prima"
+msgstr "&imposta come predefinita"
 
 #: ../apps/settings/settings_app.py:2036
 msgid "wifi adapter is not powered"
@@ -5084,7 +5131,7 @@ msgstr "secondi"
 #: ../apps/settings/settings_app.py:2637 ../apps/settings/settings_app.py:2717
 #: ../apps/settings/settings_app.py:2742
 msgid "value not valid..."
-msgstr "valore non valido"
+msgstr "valore non valido..."
 
 #: ../apps/settings/settings_app.py:2267
 msgid "day"
@@ -5100,11 +5147,11 @@ msgstr "anno"
 
 #: ../apps/settings/settings_app.py:2445
 msgid "searching update..."
-msgstr "Ricerca aggiornamenti in corso..."
+msgstr "ricerca di aggiornamenti in corso..."
 
 #: ../apps/settings/settings_app.py:2461
 msgid "connexion failed, try again."
-msgstr "connessione fallita, riprova"
+msgstr "connessione fallita, riprova."
 
 #: ../apps/settings/settings_app.py:2467
 msgid "the version {} of applications is available. Do you want to install it?"
@@ -5131,6 +5178,7 @@ msgid "subtype: {}"
 msgstr "sottotipo: {}"
 
 #: ../apps/settings/settings_app.py:2532
+#, fuzzy
 msgid "line length: {}"
 msgstr "lunghezza riga"
 
@@ -5139,14 +5187,17 @@ msgid "option: esysuite"
 msgstr "opzione: esysuite"
 
 #: ../apps/settings/settings_app.py:2537
+#, fuzzy
 msgid "applications: {}"
 msgstr "applicazioni"
 
 #: ../apps/settings/settings_app.py:2538
+#, fuzzy
 msgid "firmware: {}"
 msgstr "firmware"
 
 #: ../apps/settings/settings_app.py:2539
+#, fuzzy
 msgid "sdcard: {}"
 msgstr "sdcard"
 
@@ -5182,11 +5233,11 @@ msgstr "&passa a"
 
 #: ../apps/settings/settings_app.py:3096
 msgid "bnote version cannot be deleted."
-msgstr "La versione Bnote non può essere eliminata."
+msgstr "la versione Bnote non può essere eliminata."
 
 #: ../apps/settings/settings_app.py:3101
 msgid "bnote version is the default one and cannot be deleted."
-msgstr "La versione di bnote è quella predefinita e non può essere eliminata."
+msgstr "la versione di bnote è quella predefinita e non può essere eliminata."
 
 #: ../apps/settings/settings_app.py:3103
 msgid "bnote version deleted."
@@ -5194,7 +5245,7 @@ msgstr "versione bnote cancellata."
 
 #: ../apps/settings/settings_app.py:3105
 msgid "deletion failed."
-msgstr "cancellazione non riuscita"
+msgstr "cancellazione non riuscita."
 
 #: ../apps/settings/settings_app.py:3123
 msgid "export settings"
@@ -5220,7 +5271,7 @@ msgstr "questo file sostituirà le impostazioni esistenti. Vuoi continuare?"
 
 #: ../ui/ui_list_box.py:78
 msgid "empty list"
-msgstr "Lista vuota"
+msgstr "lista vuota"
 
 #: ../ui/ui_file_manager.py:108
 msgid "s"
@@ -5232,17 +5283,20 @@ msgstr "n"
 
 #: ../ui/ui_parameters_list.py:151
 #, fuzzy
+#| msgid "&ok"
 msgid "ok"
 msgstr "&ok"
 
 #: ../ui/ui_parameters_list.py:151
 #, fuzzy
+#| msgid "&cancel"
 msgid "cancel"
 msgstr "&annulla"
 
 #: ../ui/ui_parameters_list.py:250 ../ui/ui_parameters_list.py:260
 #: ../ui/ui_parameters_list.py:272
 #, fuzzy
+#| msgid "undefined parameters"
 msgid "parameter"
 msgstr "parametri non definiti"
 
@@ -5256,13 +5310,14 @@ msgstr "%A %d %B %Y %H:%M:%S"
 
 #: ../ui/ui_file_manager_tools.py:31 ../ui/ui_file_manager_tools.py:44
 msgid "d "
-msgstr "d"
+msgstr "d "
 
 #: ../ui/ui_file_manager_tools.py:51 ../ui/ui_file_manager_tools.py:55
 msgid "f "
-msgstr "f"
+msgstr "f "
 
 #: ../ui/ui_file_manager_tools.py:180
+#, fuzzy
 msgid "my backups"
 msgstr "backups"
 
@@ -5312,7 +5367,7 @@ msgstr "errore: nessun file .whl nell'aggiornamento"
 
 #: ../tools/yaupdater.py:201
 msgid "install packages..."
-msgstr "installazione pacchetti"
+msgstr "installazione pacchetti..."
 
 #: ../tools/yaupdater.py:212
 msgid "install dependencies done"
@@ -5338,7 +5393,7 @@ msgstr "errore: {error_string}"
 #: ../tools/yaupdater.py:360
 #, python-brace-format
 msgid "error: {erreur}"
-msgstr "errore:{erreur}"
+msgstr "errore: {erreur}"
 
 #: ../tools/volume_speed_dialog_box.py:19
 msgid "volume &up"
@@ -5403,34 +5458,6 @@ msgstr "velocità massima"
 #: ../tools/volume_speed_dialog_box.py:168
 msgid "speed up {}"
 msgstr "più veloce {}"
-
-#, fuzzy
-#~ msgid "No internet."
-#~ msgstr "Connessione internet non disponibile..."
-
-#, fuzzy
-#~ msgid "Error"
-#~ msgstr "errore"
-
-#, fuzzy
-#~ msgid "Me"
-#~ msgstr "mi"
-
-#, fuzzy
-#~ msgid "length"
-#~ msgstr "lunghezza riga"
-
-#, fuzzy
-#~ msgid "blonde"
-#~ msgstr " seconda"
-
-#, fuzzy
-#~ msgid "blue"
-#~ msgstr "bluetooth"
-
-#, fuzzy
-#~ msgid "green"
-#~ msgstr "gradi"
 
 #~ msgid "Done"
 #~ msgstr "Fatto"
