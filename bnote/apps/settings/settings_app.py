@@ -3539,7 +3539,9 @@ class SettingsApp(BnoteApp):
             path = ui_files.get_extra_parameters()[ui_files.get_index()]
             self._current_dialog = ui.UiMessageDialogBox(
                 name=_("warning"),
-                message=_("this file will be replace the existing settings file. Do you want to continue?"),
+                message=_(
+                    "this file will be replace the existing settings file. Do you want to continue? B.note will be restarted."
+                ),
                 buttons=[
                     ui.UiButton(name=_("&yes"), action=self._exec_yes_import, action_param={'path': path}),
                     ui.UiButton(name=_("&no"), action=self._exec_cancel_dialog),
