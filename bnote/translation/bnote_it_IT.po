@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Bnote traduzione in italiano\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-23 00:51+0100\n"
+"POT-Creation-Date: 2024-12-23 00:59+0100\n"
 "PO-Revision-Date: 2024-10-18 13:53+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -907,7 +907,7 @@ msgstr ""
 #: ../apps/music/music_app.py:1352 ../apps/music/music_app.py:1376
 #: ../apps/music/music_app.py:1606 ../apps/settings/settings_app.py:2726
 #: ../apps/settings/settings_app.py:2877 ../apps/settings/settings_app.py:3499
-#: ../apps/settings/settings_app.py:3544 ../apps/edt/editor_base_app.py:866
+#: ../apps/settings/settings_app.py:3546 ../apps/edt/editor_base_app.py:866
 #: ../apps/timer/timer_app.py:167 ../apps/braille_learning/operation_app.py:201
 #: ../apps/braille_learning/operation_app.py:212
 #: ../apps/braille_learning/write_word_app.py:283
@@ -932,7 +932,7 @@ msgstr "&si"
 #: ../apps/music/music_app.py:1353 ../apps/music/music_app.py:1377
 #: ../apps/music/music_app.py:1607 ../apps/settings/settings_app.py:2727
 #: ../apps/settings/settings_app.py:2878 ../apps/settings/settings_app.py:3501
-#: ../apps/settings/settings_app.py:3545 ../apps/edt/editor_base_app.py:867
+#: ../apps/settings/settings_app.py:3547 ../apps/edt/editor_base_app.py:867
 #: ../apps/timer/timer_app.py:171 ../apps/braille_learning/operation_app.py:202
 #: ../apps/braille_learning/operation_app.py:213
 #: ../apps/braille_learning/write_word_app.py:284
@@ -2718,7 +2718,7 @@ msgid "bnote must restart for the name change to take effect."
 msgstr ""
 "bnote deve essere riavviato affinché la modifica del nome abbia effetto."
 
-#: ../apps/settings/settings_app.py:2146 ../apps/settings/settings_app.py:3559
+#: ../apps/settings/settings_app.py:2146 ../apps/settings/settings_app.py:3561
 #: ../apps/fman/file_manager_app.py:2825
 msgid "restarting..."
 msgstr "stò riavviando..."
@@ -2984,13 +2984,15 @@ msgstr "impostazione"
 msgid "&import"
 msgstr "&importa"
 
-#: ../apps/settings/settings_app.py:3542
+#: ../apps/settings/settings_app.py:3543
+#, fuzzy
 msgid ""
 "this file will be replace the existing settings file. Do you want to "
-"continue?"
-msgstr "questo file sostituirà le impostazioni esistenti. Vuoi continuare?"
+"continue? B.note will be restarted."
+msgstr ""
+"questo file sostituirà il file delle impostazioni esistenti, vuoi continuare?"
 
-#: ../apps/settings/settings_app.py:3555 ../apps/fman/file_manager_app.py:2820
+#: ../apps/settings/settings_app.py:3557 ../apps/fman/file_manager_app.py:2820
 msgid "failed to import the file, check the source and try again."
 msgstr "impossibile importare il file, controlla l'origine e riprova."
 
@@ -5527,6 +5529,11 @@ msgstr "vuoi veramente sostituire la radio {}"
 #: ../apps/media/radio_app.py:417
 msgid "are you sure to delete the radio {}"
 msgstr "vuoi veramente cancellare radio {}"
+
+#~ msgid ""
+#~ "this file will be replace the existing settings file. Do you want to "
+#~ "continue?"
+#~ msgstr "questo file sostituirà le impostazioni esistenti. Vuoi continuare?"
 
 #~ msgid "imported settings."
 #~ msgstr "impostazioni importate."
