@@ -3232,7 +3232,7 @@ class SettingsApp(BnoteApp):
             self.__check_update()
             done = True
         elif function_id == FunctionId.FUNCTION_CHECK_UPDATE_ENDED:
-            self._thread_check_update_ended(**kwargs)
+            self._thread_check_update_ended()
             done = True
         else:
             # Call base class decoding.
