@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-23 00:59+0100\n"
+"POT-Creation-Date: 2024-12-23 12:58+0100\n"
 "PO-Revision-Date: 2024-02-20 14:02+0100\n"
 "Last-Translator: AccessMind voice manager <adi@accessmind.net>\n"
 "Language-Team: \n"
@@ -3007,11 +3007,11 @@ msgstr "הגדרות"
 msgid "&import"
 msgstr "&יבוא"
 
-#: ../apps/settings/settings_app.py:3543
+#: ../apps/settings/settings_app.py:3543 ../apps/fman/file_manager_app.py:2736
 #, fuzzy
 msgid ""
-"this file will be replace the existing settings file. Do you want to "
-"continue? B.note will be restarted."
+"this file will be replace the existing settings file, do you want to "
+"continue? B;note will be restarted."
 msgstr "הקובץ יישמר בתיקיית המסמכים שלי. האם להמשיך?"
 
 #: ../apps/settings/settings_app.py:3557 ../apps/fman/file_manager_app.py:2820
@@ -5257,13 +5257,6 @@ msgstr "חילוץ מ-ZIP"
 msgid "Unzip file {}?"
 msgstr "חילוץ קובץ {}?"
 
-#: ../apps/fman/file_manager_app.py:2736
-#, fuzzy
-msgid ""
-"this file will be replace the existing settings file, do you want to "
-"continue? B;note will be restarted."
-msgstr "הקובץ יישמר בתיקיית המסמכים שלי. האם להמשיך?"
-
 #: ../apps/fman/file_manager_app.py:2751
 msgid ""
 "please, switch audio application visible in menu in settings to play audio "
@@ -5508,6 +5501,12 @@ msgstr "האם להחליף את הרדיו {}"
 #: ../apps/media/radio_app.py:417
 msgid "are you sure to delete the radio {}"
 msgstr "האם למחוק את הרדיו {}"
+
+#, fuzzy
+#~ msgid ""
+#~ "this file will be replace the existing settings file. Do you want to "
+#~ "continue? B.note will be restarted."
+#~ msgstr "הקובץ יישמר בתיקיית המסמכים שלי. האם להמשיך?"
 
 #, fuzzy
 #~ msgid ""

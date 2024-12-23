@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-23 00:59+0100\n"
+"POT-Creation-Date: 2024-12-23 12:58+0100\n"
 "PO-Revision-Date: 2024-07-15 09:49+0200\n"
 "Last-Translator: Zlatko Sobočan <zlatko.sobocan@tifloglobus.hr>\n"
 "Language-Team: \n"
@@ -2976,11 +2976,11 @@ msgstr "postavka"
 msgid "&import"
 msgstr "&uvoz"
 
-#: ../apps/settings/settings_app.py:3543
+#: ../apps/settings/settings_app.py:3543 ../apps/fman/file_manager_app.py:2736
 #, fuzzy
 msgid ""
-"this file will be replace the existing settings file. Do you want to "
-"continue? B.note will be restarted."
+"this file will be replace the existing settings file, do you want to "
+"continue? B;note will be restarted."
 msgstr "ova će datoteka zamijeniti postojeću datoteku postavki, nastaviti?"
 
 #: ../apps/settings/settings_app.py:3557 ../apps/fman/file_manager_app.py:2820
@@ -5213,13 +5213,6 @@ msgstr "izdvoji"
 msgid "Unzip file {}?"
 msgstr "Izdvojiti zip {}?"
 
-#: ../apps/fman/file_manager_app.py:2736
-#, fuzzy
-msgid ""
-"this file will be replace the existing settings file, do you want to "
-"continue? B;note will be restarted."
-msgstr "ova će datoteka zamijeniti postojeću datoteku postavki, nastaviti?"
-
 #: ../apps/fman/file_manager_app.py:2751
 msgid ""
 "please, switch audio application visible in menu in settings to play audio "
@@ -5467,6 +5460,12 @@ msgstr "zaista zamijeniti radio {}"
 #: ../apps/media/radio_app.py:417
 msgid "are you sure to delete the radio {}"
 msgstr "zaista izbrisati radio {}"
+
+#, fuzzy
+#~ msgid ""
+#~ "this file will be replace the existing settings file. Do you want to "
+#~ "continue? B.note will be restarted."
+#~ msgstr "ova će datoteka zamijeniti postojeću datoteku postavki, nastaviti?"
 
 #~ msgid ""
 #~ "this file will be replace the existing settings file. Do you want to "
