@@ -2693,15 +2693,15 @@ class SettingsApp(BnoteApp):
     def _exec_check_update(self):
         self._current_dialog = ui.UiInfoDialogBox(
             message=_("searching update..."))
-        self.__check_update(True)
+        self.__check_update()
 
-    def __check_update(self, with_dlg):
+    def __check_update(self):
         self.update = YAUpdaterFinder(Settings().data['system']['developer'], self.end_thread_check_update)
 
     def end_thread_check_update(self):
         self._put_in_function_queue(FunctionId.FUNCTION_CHECK_UPDATE_ENDED)
 
-    def _thread_check_update_ended(self, **kwargs):
+    def _thread_check_update_ended(self):
         if self.update.version_to_install == 'up_to_date':
             self._current_dialog = ui.UiInfoDialogBox(
                 message=_("your b.note is up to date"), action=self._exec_cancel_dialog
