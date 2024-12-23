@@ -25,7 +25,7 @@ jobs:
               # Install zip and set up Python environment
               apt-get update && apt-get install -y zip && \
           apt-get install -y gettext && \
-              python3 -m venv venv && venv/bin/pip install --no-index --find-links whl bnote-3.1.0-py3-none-any.whl && \
+              python3 -m venv venv && venv/bin/pip install whl/*.whl && \
           
               # Run the generate script
               sh generate.sh
