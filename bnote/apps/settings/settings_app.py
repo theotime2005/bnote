@@ -882,8 +882,9 @@ class SettingsApp(BnoteApp):
                         ),
                         ui.UiMenuItem(
                             name=_("&developer mode"),
-                            **self.__action_and_action_param[("system", "developer")],
+                            **self.__action_and_action_param[("system", "developer")]
                         ),
+                        ui.UiMenuItem(name=_("debug mode"), action=self._exec_debug),
                         ui.UiMenuItem(
                             name=_("&import settings"),
                             action=self._exec_import_settings,
@@ -4904,3 +4905,40 @@ class SettingsApp(BnoteApp):
                     FunctionId.FUNCTION_SETTINGS_CHANGE,
                     **{"section": section, "key": key},
                 )
+
+    def _exec_enable_debug(self):
+        self._current_dialog=ui.UiInfoDialogBox(_("restarting..."))
+        time.sleep(1.0)
+        Settings().data["system"]["debug"] = True
+        Settings().save()
+        self._put_in_function_queue(FunctionId.ASK_TERMINATE_BNOTE_AND_RESTART_SERVICE)
+
+    def _exec_disable_debug(self):
+        self._current_dialog=ui.UiInfoDialogBox(_("restarting..."))
+        time.sleep(1.0)
+        Settings().data["system"]["debug"] = False
+        Settings().save()
+        self._put_in_function_queue(FunctionId.ASK_TERMINATE_BNOTE_AND_RESTART_SERVICE)
+
+    def _exec_debug(self):
+        # Change message and action with setting
+        if Settings().data["system"]["debug"]:
+            self._current_dialog = ui.UiMessageDialogBox(
+                name=_("warning"),
+                message=_("do you want to disable debug mode?"),
+                buttons=[
+                    ui.UiButton(name=_("&yes"), action=self._exec_disable_debug),
+                    ui.UiButton(name=_("&no"), action=self._exec_cancel_dialog),
+                ],
+                action_cancelable=self._exec_cancel_dialog,
+            )
+        else:
+            self._current_dialog = ui.UiMessageDialogBox(
+                name=_("warning"),
+                message=_("do you want to enable debug mode?"),
+                buttons=[
+                    ui.UiButton(name=_("&yes"), action=self._exec_enable_debug),
+                    ui.UiButton(name=_("&no"), action=self._exec_cancel_dialog),
+                ],
+                action_cancelable=self._exec_cancel_dialog,
+            )
