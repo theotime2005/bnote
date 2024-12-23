@@ -16,6 +16,24 @@ fi
 if [ -d "build" ]; then
   rm -r build/*
 fi
+# Install gettext if not install
+if ! dpkg -l | grep -q gettext; then
+  echo "gettext is not installed."
+  echo "Installing gettext..."
+  sudo apt update
+  sudo apt install -y gettext
+  if [ $? -eq 0 ]; then
+      echo "gettext installed successfully."
+  else
+      echo "Failed to install gettext."
+      exit 1
+  fi
+fi
+# Compile translation files
+cd bnote/translation || { echo "Failed to change directory to bnote/translations"; exit 1; }
+sh update.sh mo
+cd ../../ || { echo "Failed to change directory to project root"; exit 1; }
+# Start building
 venv/bin/python3 -m build --wheel --sdist
 WHL_FILE_PATH=$(ls dist/*.whl)
 TAR_GZ_FILE_PATH=$(ls dist/*.tar.gz)
