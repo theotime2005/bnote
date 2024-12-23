@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-23 00:59+0100\n"
+"POT-Creation-Date: 2024-12-23 12:58+0100\n"
 "PO-Revision-Date: 2023-11-20 09:38+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2945,10 +2945,10 @@ msgstr ""
 msgid "&import"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3543
+#: ../apps/settings/settings_app.py:3543 ../apps/fman/file_manager_app.py:2736
 msgid ""
-"this file will be replace the existing settings file. Do you want to "
-"continue? B.note will be restarted."
+"this file will be replace the existing settings file, do you want to "
+"continue? B;note will be restarted."
 msgstr ""
 
 #: ../apps/settings/settings_app.py:3557 ../apps/fman/file_manager_app.py:2820
@@ -5143,12 +5143,6 @@ msgstr ""
 
 #: ../apps/fman/file_manager_app.py:2724
 msgid "Unzip file {}?"
-msgstr ""
-
-#: ../apps/fman/file_manager_app.py:2736
-msgid ""
-"this file will be replace the existing settings file, do you want to "
-"continue? B;note will be restarted."
 msgstr ""
 
 #: ../apps/fman/file_manager_app.py:2751
