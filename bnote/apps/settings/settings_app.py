@@ -35,6 +35,7 @@ from bnote.tools.yaupdater import (
     YAUpdaterFinder,
     YAVersionFinder,
     change_update_source,
+    test_new_source,
 )
 from bnote.tools.volume import Volume
 from bnote.tools.volume_speed_dialog_box import VolumeDialogBox, SpeedDialogBox
