@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-23 00:59+0100\n"
+"POT-Creation-Date: 2024-12-23 12:58+0100\n"
 "PO-Revision-Date: 2024-04-29 11:11+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -3003,11 +3003,11 @@ msgstr "instellingen"
 msgid "&import"
 msgstr "&importeren"
 
-#: ../apps/settings/settings_app.py:3543
+#: ../apps/settings/settings_app.py:3543 ../apps/fman/file_manager_app.py:2736
 #, fuzzy
 msgid ""
-"this file will be replace the existing settings file. Do you want to "
-"continue? B.note will be restarted."
+"this file will be replace the existing settings file, do you want to "
+"continue? B;note will be restarted."
 msgstr ""
 "het bestand word geïmporteerd in de map van mijn documenten, wil je "
 "verdergaan?"
@@ -5285,15 +5285,6 @@ msgstr "uitpakken"
 msgid "Unzip file {}?"
 msgstr "Bestand uitpakken {}?"
 
-#: ../apps/fman/file_manager_app.py:2736
-#, fuzzy
-msgid ""
-"this file will be replace the existing settings file, do you want to "
-"continue? B;note will be restarted."
-msgstr ""
-"het bestand word geïmporteerd in de map van mijn documenten, wil je "
-"verdergaan?"
-
 #: ../apps/fman/file_manager_app.py:2751
 msgid ""
 "please, switch audio application visible in menu in settings to play audio "
@@ -5541,6 +5532,14 @@ msgstr "ben je zeker dat je radio {} wilt vervangen?"
 #: ../apps/media/radio_app.py:417
 msgid "are you sure to delete the radio {}"
 msgstr "ben je zeker dat je radio {} wilt verwijderen?"
+
+#, fuzzy
+#~ msgid ""
+#~ "this file will be replace the existing settings file. Do you want to "
+#~ "continue? B.note will be restarted."
+#~ msgstr ""
+#~ "het bestand word geïmporteerd in de map van mijn documenten, wil je "
+#~ "verdergaan?"
 
 #, fuzzy
 #~ msgid ""
