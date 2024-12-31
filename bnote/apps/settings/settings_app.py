@@ -4096,6 +4096,8 @@ class SettingsApp(BnoteApp):
                     value=("eurobraille", document_eurobraille),
                     is_read_only=True,
                 ),
+                # Add a button to switch version
+                ui.UiButton(name=_("&switch version"), action=self.__dialog_application_version, action_param={'section': 'version', 'key': 'application'}),
                 ui.UiButton(name=_("&close"), action=self._exec_cancel_dialog),
             ],
             action_cancelable=self._exec_cancel_dialog,
