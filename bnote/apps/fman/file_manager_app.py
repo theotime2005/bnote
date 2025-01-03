@@ -5,7 +5,7 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-import datetime
+from datetime import datetime
 import os
 import threading
 import time
@@ -203,6 +203,12 @@ class FileManagerApp(BnoteApp):
                     action=self._exec_find_file,
                     shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
                     shortcut_key="F",
+                ),
+                ui.UiMenuItem(
+                    name=_("pro&perties"),
+                    action=self._exec_properties_1,
+                    shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                    shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F1
                 ),
             ],
         )
@@ -1122,6 +1128,41 @@ class FileManagerApp(BnoteApp):
         if file_lst:
             return file_lst
         return False
+
+
+    def _exec_properties_1(self):
+        focused_file = self.__files[self.__focused_file_index]
+        properties = focused_file.stat()
+
+        # Calcul de la taille en Mo, Go
+        size_bytes = properties.st_size
+        if size_bytes < 1024:
+            size_formatted = "".join((f"{size_bytes} ", _("bytes")))
+        elif size_bytes < 1024 ** 2:
+            size_formatted = "".join((f"{size_bytes / 1024:.2f} ", _("Kb")))
+        elif size_bytes < 1024 ** 3:
+            size_formatted = "".join((f"{size_bytes / 1024 ** 2:.2f} ", _("Mb")))
+        else:
+            size_formatted = "".join((f"{size_bytes / 1024 ** 3:.2f} ", _("Gb")))
+
+        properties_infos = {
+            "name": focused_file.name,  # Nom du fichier ou dossier
+            "size": size_formatted,  # Taille formatée
+            "last_modification": datetime.fromtimestamp(properties.st_mtime),  # Date de dernière modification
+            "creation_date": datetime.fromtimestamp(properties.st_ctime)  # Date de création
+        }
+
+        self._current_dialog=ui.UiDialogBox(
+            name=_("properties"),
+            item_list=[
+                ui.UiLabel(("".join((_("name"), ": ", f"{properties_infos['name']}")))),
+                ui.UiLabel(("".join((_("size"), ": ", f"{properties_infos['size']}")))),
+                ui.UiLabel(("".join((_("creation date"), ": ", f"{str(properties_infos['creation_date'])}")))),
+                ui.UiLabel(("".join((_("last modified"), ": ", f"{str(properties_infos['last_modification'])}")))),
+                ui.UiButton(name=_("&close"), action=self._exec_cancel_dialog)
+            ],
+            action_cancelable=self._exec_cancel_dialog
+        )
 
     def _exec_show_in_folder(self, folder, open=False):
         kwargs = self._current_dialog.get_values()
