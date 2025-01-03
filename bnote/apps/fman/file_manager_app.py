@@ -205,10 +205,16 @@ class FileManagerApp(BnoteApp):
                     shortcut_key="F",
                 ),
                 ui.UiMenuItem(
-                    name=_("pro&perties"),
+                    name=_("pro&perties 1"),
                     action=self._exec_properties_1,
-                    shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
-                    shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F1
+                    # shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                    # shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F1
+                ),
+                ui.UiMenuItem(
+                    name=_("pro&perties 2"),
+                    action=self._exec_properties_2,
+                    # shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                    # shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F1
                 ),
             ],
         )
@@ -1162,6 +1168,47 @@ class FileManagerApp(BnoteApp):
                 ui.UiButton(name=_("&close"), action=self._exec_cancel_dialog)
             ],
             action_cancelable=self._exec_cancel_dialog
+        )
+
+    def _exec_properties_2(self):
+        focused_file = self.__files[self.__focused_file_index]
+        properties = focused_file.stat()
+
+        # Calcul de la taille en Mo, Go
+        size_bytes = properties.st_size
+        if size_bytes < 1024:
+            size_formatted = "".join((f"{size_bytes} ", _("bytes")))
+        elif size_bytes < 1024 ** 2:
+            size_formatted = "".join((f"{size_bytes / 1024:.2f} ", _("Kb")))
+        elif size_bytes < 1024 ** 3:
+            size_formatted = "".join((f"{size_bytes / 1024 ** 2:.2f} ", _("Mb")))
+        else:
+            size_formatted = "".join((f"{size_bytes / 1024 ** 3:.2f} ", _("Gb")))
+
+        properties_infos = {
+            "name": focused_file.name,  # Nom du fichier ou dossier
+            "size": size_formatted,  # Taille formatée
+            "last_modification": datetime.fromtimestamp(properties.st_mtime),  # Date de dernière modification
+            "creation_date": datetime.fromtimestamp(properties.st_ctime)  # Date de création
+        }
+        translation = {
+            "name": _("name"),
+            "size": _("size"),
+            "last_modification": _("last modification"),
+            "creation_date": _("creation date")
+        }
+
+        properties_documens = ""
+        for item in properties_infos:
+            properties_documens+=f"{translation[item]}: {properties_infos[item]}\n"
+        # Retirer le dernier \n du document
+        properties_documens=properties_documens[:-1]
+        self._current_dialog=ui.UiDialogBox(
+            name=_("properties"),
+            item_list=[
+                ui.UiMultiLinesBox(name=_("Click to show properties"), value=("properties", properties_documens), no_grade=True, is_read_only=True),
+                ui.UiButton(name=_("&close"), action=self._exec_cancel_dialog)
+            ],
         )
 
     def _exec_show_in_folder(self, folder, open=False):
