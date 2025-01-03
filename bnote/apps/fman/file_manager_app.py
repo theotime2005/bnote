@@ -10,7 +10,6 @@ import os
 import threading
 import time
 from pathlib import Path
-
 from bnote.apps.ai_assistant.ai_assistant_app import AiAssistantApp
 from bnote.apps.edt.editor_app import EditorApp
 from bnote.apps.eole.eole_api import EoleApi
@@ -203,6 +202,12 @@ class FileManagerApp(BnoteApp):
                     action=self._exec_find_file,
                     shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
                     shortcut_key="F",
+                ),
+                ui.UiMenuItem(
+                    name=_("pro&perties"),
+                    action=self._exec_properties,
+                    shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_NONE,
+                    shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F1,
                 ),
             ],
         )
@@ -1122,6 +1127,78 @@ class FileManagerApp(BnoteApp):
         if file_lst:
             return file_lst
         return False
+
+    def _exec_properties(self):
+        if not os.listdir(self.__current_folder) or self.__selected_files:
+            return
+        focused_file = self.__files[self.__focused_file_index]
+        properties = focused_file.stat()
+
+        # Calcul de la taille en Mo, Go
+        size_bytes = properties.st_size
+        if size_bytes < 1024:
+            size_formatted = "".join((f"{size_bytes} ", _("bytes")))
+        elif size_bytes < 1024**2:
+            size_formatted = "".join((f"{size_bytes / 1024:.2f} ", _("Kb")))
+        elif size_bytes < 1024**3:
+            size_formatted = "".join((f"{size_bytes / 1024 ** 2:.2f} ", _("Mb")))
+        else:
+            size_formatted = "".join((f"{size_bytes / 1024 ** 3:.2f} ", _("Gb")))
+
+        # Determined type
+        extension = ""
+        if focused_file.is_dir():
+            item_type = _("folder")
+        else:
+            extension = focused_file.suffix
+            if extension in EditorApp.known_extension():
+                item_type = _("editor file")
+            elif extension in Mp3App.known_extension():
+                item_type = _("audio file")
+            elif extension in MusicApp.known_extension():
+                item_type = _("music file")
+            else:
+                item_type = _("file not suported")
+
+        properties_infos = {
+            "name": focused_file.name,
+            "type": item_type if focused_file.is_dir() else f"{item_type} {extension}",
+            "size": size_formatted,
+            "last_modification": datetime.datetime.fromtimestamp(properties.st_mtime),
+            "creation_date": datetime.datetime.fromtimestamp(properties.st_ctime),
+        }
+        translation = {
+            "name": _("name"),
+            "type": _("type"),
+            "size": _("size"),
+            "last_modification": _("last modification"),
+            "creation_date": _("creation date"),
+            "child_number": _("child"),
+        }
+        # Add child number if it's a folder
+        if focused_file.is_dir():
+            properties_infos["child_number"] = len(
+                FileManagerApp.__list_dir(focused_file)
+            )
+
+        properties_documens = ""
+        for item in properties_infos:
+            properties_documens += f"{translation[item]}: {properties_infos[item]}\n"
+        # Retirer le dernier \n du document
+        properties_documens = properties_documens[:-1]
+        self._current_dialog = ui.UiDialogBox(
+            name=_("properties"),
+            item_list=[
+                ui.UiMultiLinesBox(
+                    name=_("Click to show properties"),
+                    value=("properties", properties_documens),
+                    no_grade=True,
+                    is_read_only=True,
+                ),
+                ui.UiButton(name=_("&close"), action=self._exec_cancel_dialog),
+            ],
+            action_cancelable=self._exec_cancel_dialog,
+        )
 
     def _exec_show_in_folder(self, folder, open=False):
         kwargs = self._current_dialog.get_values()
