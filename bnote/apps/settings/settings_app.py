@@ -232,6 +232,10 @@ class SettingsApp(BnoteApp):
                 "action": self.__dialog_set_settings,
                 "action_param": {"section": "system", "key": "spaces_in_label"},
             },
+            ("system", "button_in_first"): {
+                "action": self.__dialog_set_settings,
+                "action_param": {"section": "system", "key": "button_in_first"},
+            },
             ("system", "shortcuts_visible"): {
                 "action": self.__dialog_set_settings,
                 "action_param": {"section": "system", "key": "shortcuts_visible"},
@@ -884,6 +888,12 @@ class SettingsApp(BnoteApp):
                             name=_("spaces in &label"),
                             **self.__action_and_action_param[
                                 ("system", "spaces_in_label")
+                            ],
+                        ),
+                        ui.UiMenuItem(
+                            name=_("&button in first"),
+                            **self.__action_and_action_param[
+                                ("system", "button_in_first")
                             ],
                         ),
                         ui.UiMenuItem(
@@ -1560,6 +1570,14 @@ class SettingsApp(BnoteApp):
             dialog_box_param_name=_("spaces in &label"),
             section="system",
             key="spaces_in_label",
+        )
+        self.__append_line_in_document(
+            param_label=_("button in first in message dialog box"),
+            param_value=self.__get_settings_value("system", "button_in_first"),
+            dialog_box_name=_("user interface"),
+            dialog_box_param_name=_("button in first"),
+            section="system",
+            key="button_in_first",
         )
         self.__append_line_in_document(
             param_label=_("visible shortcuts"),
