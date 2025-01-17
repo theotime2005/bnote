@@ -5,7 +5,6 @@
  Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
-from bnote.tools.settings import Settings
 from .ui_button import UiButton
 from .ui_dialog_box import UiDialogBox
 from .ui_label import UiLabel
@@ -29,10 +28,7 @@ class UiMessageDialogBox(UiDialogBox):
     ):
         # Duplicate buttons before and after other items.
         if buttons:
-            if Settings().data["system"]["button_in_first"]:
-                objects_list = buttons + [UiLabel(name=message)] + buttons
-            else:
-                objects_list = [UiLabel(name=message)] + buttons
+            objects_list = buttons + [UiLabel(name=message)] + buttons
         else:
             objects_list = [UiLabel(name=message)]
         kwargs = {
