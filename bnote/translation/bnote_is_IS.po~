@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-31 21:25+0100\n"
+"POT-Creation-Date: 2024-12-23 12:58+0100\n"
 "PO-Revision-Date: 2024-04-29 08:25+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -47,11 +47,11 @@ msgstr "óskilgreindar breytur"
 #: ../apps/music/music_app.py:1456 ../apps/music/music_app.py:1470
 #: ../apps/music/music_app.py:1491 ../apps/music/music_app.py:1512
 #: ../apps/music/music_app.py:1587 ../apps/music/music_app.py:1619
-#: ../apps/settings/settings_app.py:3278 ../apps/settings/settings_app.py:3355
-#: ../apps/settings/settings_app.py:3420 ../apps/settings/settings_app.py:3443
-#: ../apps/settings/settings_app.py:3499 ../apps/settings/settings_app.py:3635
-#: ../apps/settings/settings_app.py:3718 ../apps/settings/settings_app.py:3786
-#: ../apps/settings/settings_app.py:4844 ../apps/settings/settings_app.py:4932
+#: ../apps/settings/settings_app.py:2071 ../apps/settings/settings_app.py:2140
+#: ../apps/settings/settings_app.py:2203 ../apps/settings/settings_app.py:2224
+#: ../apps/settings/settings_app.py:2275 ../apps/settings/settings_app.py:2387
+#: ../apps/settings/settings_app.py:2459 ../apps/settings/settings_app.py:2526
+#: ../apps/settings/settings_app.py:3385 ../apps/settings/settings_app.py:3467
 #: ../apps/edt/editor_app.py:275 ../apps/edt/editor_app.py:295
 #: ../apps/edt/editor_base_app.py:945 ../apps/edt/editor_base_app.py:1006
 #: ../apps/edt/editor_base_app.py:1577 ../apps/wikipedia/wikipedia_app.py:216
@@ -70,12 +70,12 @@ msgstr "óskilgreindar breytur"
 #: ../apps/braille_learning/write_word_app.py:308
 #: ../apps/ai_assistant/ai_assistant_app.py:337
 #: ../apps/ai_assistant/ai_assistant_app.py:375
-#: ../apps/agenda/agenda_app.py:503 ../apps/agenda/agenda_app.py:554
-#: ../apps/agenda/agenda_app.py:820 ../apps/agenda/agenda_app.py:840
-#: ../apps/agenda/agenda_app.py:859 ../apps/agenda/agenda_app.py:891
-#: ../apps/agenda/agenda_app.py:906 ../apps/agenda/agenda_app.py:926
-#: ../apps/agenda/agenda_app.py:973 ../apps/agenda/agenda_app.py:1049
-#: ../apps/agenda/agenda_app.py:1072 ../apps/agenda/agenda_app.py:1109
+#: ../apps/agenda/agenda_app.py:388 ../apps/agenda/agenda_app.py:439
+#: ../apps/agenda/agenda_app.py:650 ../apps/agenda/agenda_app.py:670
+#: ../apps/agenda/agenda_app.py:682 ../apps/agenda/agenda_app.py:708
+#: ../apps/agenda/agenda_app.py:722 ../apps/agenda/agenda_app.py:734
+#: ../apps/agenda/agenda_app.py:771 ../apps/agenda/agenda_app.py:832
+#: ../apps/agenda/agenda_app.py:851 ../apps/agenda/agenda_app.py:877
 #: ../apps/fman/file_manager_app.py:788 ../apps/fman/file_manager_app.py:819
 #: ../apps/fman/file_manager_app.py:853 ../apps/fman/file_manager_app.py:877
 #: ../apps/fman/file_manager_app.py:988 ../apps/fman/file_manager_app.py:1259
@@ -107,13 +107,13 @@ msgstr "&í lagi"
 #: ../apps/music/music_app.py:1209 ../apps/music/music_app.py:1265
 #: ../apps/music/music_app.py:1306 ../apps/music/music_app.py:1406
 #: ../apps/music/music_app.py:1438 ../apps/music/music_app.py:1551
-#: ../apps/music/music_app.py:1658 ../apps/settings/settings_app.py:3421
-#: ../apps/settings/settings_app.py:3444 ../apps/settings/settings_app.py:3501
-#: ../apps/settings/settings_app.py:3592 ../apps/settings/settings_app.py:3638
-#: ../apps/settings/settings_app.py:3719 ../apps/settings/settings_app.py:3787
-#: ../apps/settings/settings_app.py:4120 ../apps/settings/settings_app.py:4209
-#: ../apps/settings/settings_app.py:4849 ../apps/settings/settings_app.py:4901
-#: ../apps/settings/settings_app.py:4953 ../apps/settings/settings_app.py:5005
+#: ../apps/music/music_app.py:1658 ../apps/settings/settings_app.py:2204
+#: ../apps/settings/settings_app.py:2225 ../apps/settings/settings_app.py:2276
+#: ../apps/settings/settings_app.py:2350 ../apps/settings/settings_app.py:2388
+#: ../apps/settings/settings_app.py:2460 ../apps/settings/settings_app.py:2527
+#: ../apps/settings/settings_app.py:2812 ../apps/settings/settings_app.py:2879
+#: ../apps/settings/settings_app.py:3390 ../apps/settings/settings_app.py:3435
+#: ../apps/settings/settings_app.py:3484 ../apps/settings/settings_app.py:3523
 #: ../apps/edt/editor_app.py:197 ../apps/edt/editor_app.py:276
 #: ../apps/edt/editor_app.py:297 ../apps/edt/editor_base_app.py:868
 #: ../apps/edt/editor_base_app.py:1007 ../apps/edt/editor_base_app.py:1085
@@ -128,13 +128,13 @@ msgstr "&í lagi"
 #: ../apps/braille_learning/operation_app.py:191
 #: ../apps/braille_learning/write_word_app.py:268
 #: ../apps/ai_assistant/ai_assistant_app.py:338
-#: ../apps/agenda/agenda_app.py:504 ../apps/agenda/agenda_app.py:555
-#: ../apps/agenda/agenda_app.py:610 ../apps/agenda/agenda_app.py:629
-#: ../apps/agenda/agenda_app.py:676 ../apps/agenda/agenda_app.py:709
-#: ../apps/agenda/agenda_app.py:738 ../apps/agenda/agenda_app.py:757
-#: ../apps/agenda/agenda_app.py:848 ../apps/agenda/agenda_app.py:867
-#: ../apps/agenda/agenda_app.py:915 ../apps/agenda/agenda_app.py:935
-#: ../apps/agenda/agenda_app.py:981 ../apps/agenda/agenda_app.py:1113
+#: ../apps/agenda/agenda_app.py:389 ../apps/agenda/agenda_app.py:440
+#: ../apps/agenda/agenda_app.py:495 ../apps/agenda/agenda_app.py:508
+#: ../apps/agenda/agenda_app.py:552 ../apps/agenda/agenda_app.py:578
+#: ../apps/agenda/agenda_app.py:596 ../apps/agenda/agenda_app.py:609
+#: ../apps/agenda/agenda_app.py:672 ../apps/agenda/agenda_app.py:684
+#: ../apps/agenda/agenda_app.py:724 ../apps/agenda/agenda_app.py:736
+#: ../apps/agenda/agenda_app.py:773 ../apps/agenda/agenda_app.py:879
 #: ../apps/fman/file_manager_app.py:789 ../apps/fman/file_manager_app.py:820
 #: ../apps/fman/file_manager_app.py:854 ../apps/fman/file_manager_app.py:878
 #: ../apps/fman/file_manager_app.py:989 ../apps/fman/file_manager_app.py:1043
@@ -158,32 +158,32 @@ msgid "empty list"
 msgstr "tómur listi"
 
 #: ../ui/ui_message_dialog_box.py:56 ../ui/ui_message_dialog_box.py:66
-#: ../apps/music/music_app.py:1601 ../apps/settings/settings_app.py:3353
-#: ../apps/settings/settings_app.py:4930 ../apps/skeleton/skeleton_app.py:209
+#: ../apps/music/music_app.py:1601 ../apps/settings/settings_app.py:2137
+#: ../apps/settings/settings_app.py:3464 ../apps/skeleton/skeleton_app.py:209
 #: ../apps/timer/timer_app.py:244 ../apps/braille_learning/operation_app.py:167
 #: ../apps/braille_learning/operation_app.py:221
 #: ../apps/braille_learning/write_word_app.py:303
-#: ../apps/agenda/agenda_app.py:720 ../apps/agenda/agenda_app.py:855
-#: ../apps/agenda/agenda_app.py:888 ../apps/agenda/agenda_app.py:922
-#: ../apps/agenda/agenda_app.py:1055 ../apps/agenda/agenda_app.py:1065
-#: ../apps/agenda/agenda_app.py:1140 ../apps/fman/file_manager_app.py:2627
+#: ../apps/agenda/agenda_app.py:589 ../apps/agenda/agenda_app.py:679
+#: ../apps/agenda/agenda_app.py:705 ../apps/agenda/agenda_app.py:731
+#: ../apps/agenda/agenda_app.py:838 ../apps/agenda/agenda_app.py:844
+#: ../apps/agenda/agenda_app.py:904 ../apps/fman/file_manager_app.py:2627
 #: ../apps/games/mines_app.py:165 ../apps/games/master_mind_app.py:164
 #: ../apps/media/mp3_app.py:747 ../apps/media/mp3_app.py:827
 #: ../apps/media/radio_app.py:197 ../apps/media/radio_app.py:416
 msgid "information"
 msgstr "upplýsingar"
 
-#: ../ui/ui_checkbox.py:23 ../apps/settings/settings_app.py:3368
-#: ../apps/settings/settings_app.py:3375 ../apps/skeleton/skeleton_app.py:166
+#: ../ui/ui_checkbox.py:23 ../apps/settings/settings_app.py:2153
+#: ../apps/settings/settings_app.py:2160 ../apps/skeleton/skeleton_app.py:166
 msgid "yes"
 msgstr "já"
 
 #: ../ui/ui_checkbox.py:23 ../apps/music/music_app.py:1545
 #: ../apps/music/music_app.py:1571 ../apps/music/music_app.py:1577
 #: ../apps/music/music_app.py:1579 ../apps/music/music_app.py:1612
-#: ../apps/settings/settings_app.py:2888 ../apps/settings/settings_app.py:2922
-#: ../apps/settings/settings_app.py:3058 ../apps/settings/settings_app.py:3066
-#: ../apps/settings/settings_app.py:3370 ../apps/settings/settings_app.py:3377
+#: ../apps/settings/settings_app.py:1850 ../apps/settings/settings_app.py:1861
+#: ../apps/settings/settings_app.py:1922 ../apps/settings/settings_app.py:1924
+#: ../apps/settings/settings_app.py:2155 ../apps/settings/settings_app.py:2162
 #: ../apps/skeleton/skeleton_app.py:167
 #: ../apps/braille_learning/operation_app.py:457
 #: ../apps/braille_learning/write_word_app.py:487
@@ -210,9 +210,9 @@ msgstr "f "
 msgid "trash"
 msgstr "rusl"
 
-#: ../ui/ui_file_manager_tools.py:286 ../apps/settings/settings_app.py:1425
-#: ../apps/settings/settings_app.py:1437 ../apps/settings/settings_app.py:1445
-#: ../apps/settings/settings_app.py:1453 ../apps/fman/file_manager_app.py:573
+#: ../ui/ui_file_manager_tools.py:286 ../apps/settings/settings_app.py:993
+#: ../apps/settings/settings_app.py:998 ../apps/settings/settings_app.py:1001
+#: ../apps/settings/settings_app.py:1004 ../apps/fman/file_manager_app.py:573
 msgid "bluetooth"
 msgstr "bluetooth"
 
@@ -234,8 +234,8 @@ msgstr "skjölin mín"
 msgid "crash"
 msgstr "&hrun"
 
-#: ../ui/ui_file_manager_tools.py:301 ../apps/settings/settings_app.py:741
-#: ../apps/settings/settings_app.py:1592 ../apps/settings/settings_app.py:4951
+#: ../ui/ui_file_manager_tools.py:301 ../apps/settings/settings_app.py:655
+#: ../apps/settings/settings_app.py:1077 ../apps/settings/settings_app.py:3482
 msgid "settings"
 msgstr "stillingar"
 
@@ -395,7 +395,7 @@ msgstr "stillingar"
 msgid "file {} type not supported."
 msgstr "skráar {} gerð er ekki studd."
 
-#: ../apps/music/music_app.py:110 ../apps/settings/settings_app.py:1796
+#: ../apps/music/music_app.py:110 ../apps/settings/settings_app.py:1184
 msgid "music"
 msgstr "tónlist"
 
@@ -409,12 +409,12 @@ msgstr "tónlist"
 msgid "&file"
 msgstr "&skrá"
 
-#: ../apps/music/music_app.py:118 ../apps/settings/settings_app.py:4196
+#: ../apps/music/music_app.py:118 ../apps/settings/settings_app.py:2866
 #: ../apps/edt/editor_app.py:59 ../apps/wikipedia/wikipedia_app.py:58
 #: ../apps/daisy/daisy_app.py:82 ../apps/eole/eole_search_dialog_box.py:83
 #: ../apps/eole/eole_search_dialog_box.py:110 ../apps/timer/timer_app.py:191
 #: ../apps/ai_assistant/ai_assistant_app.py:120
-#: ../apps/agenda/agenda_app.py:1144 ../apps/agenda/agenda_app.py:1184
+#: ../apps/agenda/agenda_app.py:908 ../apps/agenda/agenda_app.py:943
 #: ../apps/fman/file_manager_app.py:1101
 msgid "&close"
 msgstr "&loka"
@@ -425,16 +425,16 @@ msgstr "&loka"
 msgid "&save"
 msgstr "&vista"
 
-#: ../apps/music/music_app.py:130 ../apps/settings/settings_app.py:4952
-#: ../apps/edt/editor_app.py:196 ../apps/agenda/agenda_app.py:748
+#: ../apps/music/music_app.py:130 ../apps/settings/settings_app.py:3483
+#: ../apps/edt/editor_app.py:196 ../apps/agenda/agenda_app.py:605
 msgid "&export"
 msgstr "&útflutningur"
 
-#: ../apps/music/music_app.py:134 ../apps/settings/settings_app.py:588
+#: ../apps/music/music_app.py:134 ../apps/settings/settings_app.py:579
 msgid "&musicxml"
 msgstr "&tónlistxml"
 
-#: ../apps/music/music_app.py:140 ../apps/settings/settings_app.py:661
+#: ../apps/music/music_app.py:140 ../apps/settings/settings_app.py:614
 msgid "&bxml"
 msgstr "&bxml"
 
@@ -467,9 +467,9 @@ msgstr "set&ja inn"
 msgid "&key signature"
 msgstr "&undirskrift lykla"
 
-#: ../apps/music/music_app.py:165 ../apps/settings/settings_app.py:611
-#: ../apps/settings/settings_app.py:686 ../apps/settings/settings_app.py:1841
-#: ../apps/settings/settings_app.py:1969
+#: ../apps/music/music_app.py:165 ../apps/settings/settings_app.py:591
+#: ../apps/settings/settings_app.py:626 ../apps/settings/settings_app.py:1207
+#: ../apps/settings/settings_app.py:1271
 msgid "&clef"
 msgstr "klaf&i"
 
@@ -481,7 +481,7 @@ msgstr "&bar"
 msgid "&octave sign"
 msgstr "&áttundarmerki"
 
-#: ../apps/music/music_app.py:179 ../apps/internal.py:483
+#: ../apps/music/music_app.py:179 ../apps/internal.py:250
 #: ../apps/daisy/daisy_app.py:109
 msgid "au&dio"
 msgstr "&hljóð"
@@ -501,23 +501,23 @@ msgstr "&stopp"
 msgid "pa&use"
 msgstr ""
 
-#: ../apps/music/music_app.py:202 ../apps/settings/settings_app.py:768
+#: ../apps/music/music_app.py:202 ../apps/settings/settings_app.py:671
 #: ../apps/edt/editor_base_app.py:350 ../apps/daisy/daisy_app.py:132
 #: ../apps/media/radio_app.py:104
 msgid "&volume"
 msgstr "&hljóðstyrkur"
 
-#: ../apps/music/music_app.py:203 ../apps/settings/settings_app.py:772
+#: ../apps/music/music_app.py:203 ../apps/settings/settings_app.py:672
 #: ../apps/edt/editor_base_app.py:351
 msgid "&speed"
 msgstr "h&raði"
 
-#: ../apps/music/music_app.py:206 ../apps/settings/settings_app.py:1195
+#: ../apps/music/music_app.py:206 ../apps/settings/settings_app.py:871
 #: ../apps/edt/editor_app.py:120 ../apps/wikipedia/wikipedia_app.py:87
 #: ../apps/daisy/daisy_app.py:135 ../apps/braille_learning/operation_app.py:90
 #: ../apps/braille_learning/write_word_app.py:133
 #: ../apps/ai_assistant/ai_assistant_app.py:162
-#: ../apps/agenda/agenda_app.py:172 ../apps/fman/file_manager_app.py:531
+#: ../apps/agenda/agenda_app.py:115 ../apps/fman/file_manager_app.py:531
 #: ../apps/fman/file_manager_app.py:544 ../apps/fman/file_manager_app.py:554
 #: ../apps/fman/file_manager_app.py:566 ../apps/fman/file_manager_app.py:580
 #: ../apps/fman/file_manager_app.py:593 ../apps/fman/file_manager_app.py:603
@@ -553,8 +553,8 @@ msgstr "&tónskáld"
 msgid "&lyricist"
 msgstr "&textahöfundur"
 
-#: ../apps/music/music_app.py:264 ../apps/settings/settings_app.py:1913
-#: ../apps/settings/settings_app.py:2041
+#: ../apps/music/music_app.py:264 ../apps/settings/settings_app.py:1243
+#: ../apps/settings/settings_app.py:1308
 msgid "&credit words"
 msgstr "&heiðurs orð"
 
@@ -563,13 +563,13 @@ msgid "&part"
 msgstr "&partur"
 
 #: ../apps/music/music_app.py:278 ../apps/music/music_app.py:748
-#: ../apps/settings/settings_app.py:653 ../apps/settings/settings_app.py:728
-#: ../apps/settings/settings_app.py:1921 ../apps/settings/settings_app.py:2049
+#: ../apps/settings/settings_app.py:609 ../apps/settings/settings_app.py:646
+#: ../apps/settings/settings_app.py:1247 ../apps/settings/settings_app.py:1312
 msgid "&lyrics"
 msgstr "te&xtar"
 
 #: ../apps/music/music_app.py:285 ../apps/music/music_app.py:777
-#: ../apps/settings/settings_app.py:732 ../apps/settings/settings_app.py:2057
+#: ../apps/settings/settings_app.py:648 ../apps/settings/settings_app.py:1316
 msgid "&karaoke"
 msgstr "&karókí"
 
@@ -577,9 +577,9 @@ msgstr "&karókí"
 msgid "&keyboard signs"
 msgstr "&lyklaborðsmerki"
 
-#: ../apps/music/music_app.py:299 ../apps/settings/settings_app.py:607
-#: ../apps/settings/settings_app.py:682 ../apps/settings/settings_app.py:1833
-#: ../apps/settings/settings_app.py:1961
+#: ../apps/music/music_app.py:299 ../apps/settings/settings_app.py:589
+#: ../apps/settings/settings_app.py:624 ../apps/settings/settings_app.py:1203
+#: ../apps/settings/settings_app.py:1267
 msgid "&fingering"
 msgstr "&fingrasetning"
 
@@ -880,8 +880,8 @@ msgstr "diminuendo"
 #: ../apps/music/music_app.py:1453 ../apps/music/music_app.py:1467
 #: ../apps/music/music_app.py:1486 ../apps/music/music_app.py:1507
 #: ../apps/music/music_app.py:1582 ../apps/music/music_app.py:1614
-#: ../apps/settings/settings_app.py:4204 ../apps/settings/settings_app.py:4967
-#: ../apps/settings/settings_app.py:5023 ../apps/edt/editor_app.py:289
+#: ../apps/settings/settings_app.py:2874 ../apps/settings/settings_app.py:3496
+#: ../apps/settings/settings_app.py:3541 ../apps/edt/editor_app.py:289
 #: ../apps/edt/editor_base_app.py:863 ../apps/timer/timer_app.py:161
 #: ../apps/braille_learning/operation_app.py:198
 #: ../apps/braille_learning/operation_app.py:209
@@ -889,12 +889,12 @@ msgstr "diminuendo"
 #: ../apps/braille_learning/write_word_app.py:280
 #: ../apps/braille_learning/write_word_app.py:291
 #: ../apps/ai_assistant/ai_assistant_app.py:370
-#: ../apps/agenda/agenda_app.py:253 ../apps/agenda/agenda_app.py:511
-#: ../apps/agenda/agenda_app.py:562 ../apps/agenda/agenda_app.py:573
-#: ../apps/agenda/agenda_app.py:802 ../apps/agenda/agenda_app.py:836
-#: ../apps/agenda/agenda_app.py:902 ../apps/agenda/agenda_app.py:969
-#: ../apps/agenda/agenda_app.py:1040 ../apps/agenda/agenda_app.py:1103
-#: ../apps/agenda/agenda_app.py:1120 ../apps/agenda/agenda_app.py:1180
+#: ../apps/agenda/agenda_app.py:196 ../apps/agenda/agenda_app.py:396
+#: ../apps/agenda/agenda_app.py:447 ../apps/agenda/agenda_app.py:458
+#: ../apps/agenda/agenda_app.py:636 ../apps/agenda/agenda_app.py:667
+#: ../apps/agenda/agenda_app.py:719 ../apps/agenda/agenda_app.py:768
+#: ../apps/agenda/agenda_app.py:825 ../apps/agenda/agenda_app.py:874
+#: ../apps/agenda/agenda_app.py:886 ../apps/agenda/agenda_app.py:939
 #: ../apps/fman/file_manager_app.py:2734 ../apps/games/mines_app.py:445
 #: ../apps/games/master_mind_app.py:234 ../apps/media/mp3_app.py:625
 msgid "warning"
@@ -917,16 +917,16 @@ msgstr ""
 #: ../apps/music/music_app.py:1149 ../apps/music/music_app.py:1168
 #: ../apps/music/music_app.py:1322 ../apps/music/music_app.py:1333
 #: ../apps/music/music_app.py:1352 ../apps/music/music_app.py:1376
-#: ../apps/music/music_app.py:1606 ../apps/settings/settings_app.py:4027
-#: ../apps/settings/settings_app.py:4207 ../apps/settings/settings_app.py:4973
-#: ../apps/settings/settings_app.py:5029 ../apps/edt/editor_base_app.py:866
+#: ../apps/music/music_app.py:1606 ../apps/settings/settings_app.py:2726
+#: ../apps/settings/settings_app.py:2877 ../apps/settings/settings_app.py:3499
+#: ../apps/settings/settings_app.py:3546 ../apps/edt/editor_base_app.py:866
 #: ../apps/timer/timer_app.py:167 ../apps/braille_learning/operation_app.py:201
 #: ../apps/braille_learning/operation_app.py:212
 #: ../apps/braille_learning/write_word_app.py:283
 #: ../apps/braille_learning/write_word_app.py:294
-#: ../apps/agenda/agenda_app.py:514 ../apps/agenda/agenda_app.py:565
-#: ../apps/agenda/agenda_app.py:576 ../apps/agenda/agenda_app.py:726
-#: ../apps/agenda/agenda_app.py:805 ../apps/fman/file_manager_app.py:896
+#: ../apps/agenda/agenda_app.py:399 ../apps/agenda/agenda_app.py:450
+#: ../apps/agenda/agenda_app.py:461 ../apps/agenda/agenda_app.py:592
+#: ../apps/agenda/agenda_app.py:639 ../apps/fman/file_manager_app.py:896
 #: ../apps/fman/file_manager_app.py:955 ../apps/fman/file_manager_app.py:1347
 #: ../apps/fman/file_manager_app.py:1756 ../apps/fman/file_manager_app.py:1987
 #: ../apps/fman/file_manager_app.py:2052 ../apps/fman/file_manager_app.py:2243
@@ -942,16 +942,16 @@ msgstr "&já"
 #: ../apps/music/music_app.py:1150 ../apps/music/music_app.py:1169
 #: ../apps/music/music_app.py:1323 ../apps/music/music_app.py:1334
 #: ../apps/music/music_app.py:1353 ../apps/music/music_app.py:1377
-#: ../apps/music/music_app.py:1607 ../apps/settings/settings_app.py:4028
-#: ../apps/settings/settings_app.py:4208 ../apps/settings/settings_app.py:4977
-#: ../apps/settings/settings_app.py:5033 ../apps/edt/editor_base_app.py:867
+#: ../apps/music/music_app.py:1607 ../apps/settings/settings_app.py:2727
+#: ../apps/settings/settings_app.py:2878 ../apps/settings/settings_app.py:3501
+#: ../apps/settings/settings_app.py:3547 ../apps/edt/editor_base_app.py:867
 #: ../apps/timer/timer_app.py:171 ../apps/braille_learning/operation_app.py:202
 #: ../apps/braille_learning/operation_app.py:213
 #: ../apps/braille_learning/write_word_app.py:284
 #: ../apps/braille_learning/write_word_app.py:295
-#: ../apps/agenda/agenda_app.py:515 ../apps/agenda/agenda_app.py:566
-#: ../apps/agenda/agenda_app.py:577 ../apps/agenda/agenda_app.py:734
-#: ../apps/agenda/agenda_app.py:806 ../apps/fman/file_manager_app.py:898
+#: ../apps/agenda/agenda_app.py:400 ../apps/agenda/agenda_app.py:451
+#: ../apps/agenda/agenda_app.py:462 ../apps/agenda/agenda_app.py:594
+#: ../apps/agenda/agenda_app.py:640 ../apps/fman/file_manager_app.py:898
 #: ../apps/fman/file_manager_app.py:957 ../apps/fman/file_manager_app.py:1356
 #: ../apps/fman/file_manager_app.py:1764 ../apps/fman/file_manager_app.py:1991
 #: ../apps/fman/file_manager_app.py:2059 ../apps/fman/file_manager_app.py:2248
@@ -1301,133 +1301,133 @@ msgstr "hópur 9 nótna"
 msgid "group of 10 notes"
 msgstr "hópur 10 nótna"
 
-#: ../apps/settings/settings_app.py:100 ../apps/settings/settings_app.py:2360
-#: ../apps/settings/settings_app.py:2731 ../apps/settings/settings_app.py:2753
-#: ../apps/settings/settings_app.py:2819 ../apps/settings/settings_app.py:2837
+#: ../apps/settings/settings_app.py:96 ../apps/settings/settings_app.py:1517
+#: ../apps/settings/settings_app.py:1758 ../apps/settings/settings_app.py:1770
+#: ../apps/settings/settings_app.py:1809 ../apps/settings/settings_app.py:1823
 msgid "unknown"
 msgstr "óþekkt"
 
-#: ../apps/settings/settings_app.py:591 ../apps/settings/settings_app.py:664
-#: ../apps/settings/settings_app.py:1801 ../apps/settings/settings_app.py:1929
+#: ../apps/settings/settings_app.py:581 ../apps/settings/settings_app.py:616
+#: ../apps/settings/settings_app.py:1187 ../apps/settings/settings_app.py:1251
 msgid "&edit and play mode"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:595 ../apps/settings/settings_app.py:668
-#: ../apps/settings/settings_app.py:878 ../apps/settings/settings_app.py:1809
-#: ../apps/settings/settings_app.py:1937
+#: ../apps/settings/settings_app.py:583 ../apps/settings/settings_app.py:618
+#: ../apps/settings/settings_app.py:714 ../apps/settings/settings_app.py:1191
+#: ../apps/settings/settings_app.py:1255
 msgid "braille &type"
 msgstr "blindraleturs&gerð"
 
-#: ../apps/settings/settings_app.py:599 ../apps/settings/settings_app.py:672
+#: ../apps/settings/settings_app.py:585 ../apps/settings/settings_app.py:620
 msgid "notes d&ots"
 msgstr "nótna &punktar"
 
-#: ../apps/settings/settings_app.py:603 ../apps/settings/settings_app.py:676
-#: ../apps/settings/settings_app.py:1825 ../apps/settings/settings_app.py:1953
+#: ../apps/settings/settings_app.py:587 ../apps/settings/settings_app.py:622
+#: ../apps/settings/settings_app.py:1199 ../apps/settings/settings_app.py:1263
 msgid "&ascending chords"
 msgstr "hækkandi hl&jómar"
 
-#: ../apps/settings/settings_app.py:615 ../apps/settings/settings_app.py:690
-#: ../apps/settings/settings_app.py:1849 ../apps/settings/settings_app.py:1977
+#: ../apps/settings/settings_app.py:592 ../apps/settings/settings_app.py:628
+#: ../apps/settings/settings_app.py:1211 ../apps/settings/settings_app.py:1275
 msgid "&parts"
 msgstr "&hlutar"
 
-#: ../apps/settings/settings_app.py:619 ../apps/settings/settings_app.py:694
-#: ../apps/settings/settings_app.py:1857 ../apps/settings/settings_app.py:1985
+#: ../apps/settings/settings_app.py:594 ../apps/settings/settings_app.py:630
+#: ../apps/settings/settings_app.py:1215 ../apps/settings/settings_app.py:1279
 msgid "&measure b123"
 msgstr "&mál b123"
 
-#: ../apps/settings/settings_app.py:623 ../apps/settings/settings_app.py:698
+#: ../apps/settings/settings_app.py:596 ../apps/settings/settings_app.py:632
 msgid "measure &number"
 msgstr "mál &tala"
 
-#: ../apps/settings/settings_app.py:627 ../apps/settings/settings_app.py:702
+#: ../apps/settings/settings_app.py:598 ../apps/settings/settings_app.py:634
 msgid "measure &every"
 msgstr "mæla h&vert"
 
-#: ../apps/settings/settings_app.py:631 ../apps/settings/settings_app.py:706
-#: ../apps/settings/settings_app.py:1881 ../apps/settings/settings_app.py:2009
+#: ../apps/settings/settings_app.py:600 ../apps/settings/settings_app.py:636
+#: ../apps/settings/settings_app.py:1227 ../apps/settings/settings_app.py:1291
 #: ../apps/games/mines_app.py:89 ../apps/games/master_mind_app.py:88
 msgid "&view"
 msgstr "&sýn"
 
-#: ../apps/settings/settings_app.py:635 ../apps/settings/settings_app.py:710
-#: ../apps/settings/settings_app.py:1889 ../apps/settings/settings_app.py:2017
+#: ../apps/settings/settings_app.py:601 ../apps/settings/settings_app.py:638
+#: ../apps/settings/settings_app.py:1231 ../apps/settings/settings_app.py:1295
 msgid "&section"
 msgstr "kafl&a"
 
-#: ../apps/settings/settings_app.py:639 ../apps/settings/settings_app.py:714
+#: ../apps/settings/settings_app.py:603 ../apps/settings/settings_app.py:640
 msgid "measures per sec&tion"
 msgstr "mæla á hvern kaf&la"
 
-#: ../apps/settings/settings_app.py:645 ../apps/settings/settings_app.py:720
-#: ../apps/settings/settings_app.py:1905 ../apps/settings/settings_app.py:2033
+#: ../apps/settings/settings_app.py:605 ../apps/settings/settings_app.py:642
+#: ../apps/settings/settings_app.py:1239 ../apps/settings/settings_app.py:1304
 msgid "&words"
 msgstr "&orð"
 
-#: ../apps/settings/settings_app.py:649 ../apps/settings/settings_app.py:724
+#: ../apps/settings/settings_app.py:607 ../apps/settings/settings_app.py:644
 msgid "cre&dit words"
 msgstr "heið&urs orð"
 
-#: ../apps/settings/settings_app.py:746
+#: ../apps/settings/settings_app.py:660
 msgid "&clock"
 msgstr "&klukka"
 
-#: ../apps/settings/settings_app.py:749
+#: ../apps/settings/settings_app.py:662
 msgid "&time"
 msgstr "&tími"
 
-#: ../apps/settings/settings_app.py:753 ../apps/edt/editor_app.py:94
+#: ../apps/settings/settings_app.py:663 ../apps/edt/editor_app.py:94
 msgid "&date"
 msgstr "&dagsetning"
 
-#: ../apps/settings/settings_app.py:757
+#: ../apps/settings/settings_app.py:664
 #, fuzzy
 msgid "&auto sync"
 msgstr "sjálfvirk skipting"
 
-#: ../apps/settings/settings_app.py:765 ../apps/edt/editor_base_app.py:336
+#: ../apps/settings/settings_app.py:669 ../apps/edt/editor_base_app.py:336
 msgid "&vocalize"
 msgstr "ra&dda"
 
-#: ../apps/settings/settings_app.py:776
+#: ../apps/settings/settings_app.py:673
 msgid "&language"
 msgstr "&tungumál"
 
-#: ../apps/settings/settings_app.py:780
+#: ../apps/settings/settings_app.py:674
 msgid "s&ynthesis"
 msgstr "talgervill"
 
-#: ../apps/settings/settings_app.py:784
+#: ../apps/settings/settings_app.py:675
 msgid "voi&ce"
 msgstr "rödd"
 
-#: ../apps/settings/settings_app.py:790
+#: ../apps/settings/settings_app.py:679
 msgid "&usb"
 msgstr "&usb"
 
-#: ../apps/settings/settings_app.py:793
+#: ../apps/settings/settings_app.py:681
 msgid "usb-&a-hid keyboard"
 msgstr "usb-&a-hid lyklaborð"
 
-#: ../apps/settings/settings_app.py:799
+#: ../apps/settings/settings_app.py:683
 msgid "usb-&b-hid keyboard"
 msgstr "usb-&b-hid lyklaborð"
 
-#: ../apps/settings/settings_app.py:805 ../apps/settings/settings_app.py:838
-#: ../apps/settings/settings_app.py:1485
+#: ../apps/settings/settings_app.py:685 ../apps/settings/settings_app.py:697
+#: ../apps/settings/settings_app.py:1023
 msgid "simulation &esys"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:813 ../apps/fman/file_manager_app.py:321
+#: ../apps/settings/settings_app.py:689 ../apps/fman/file_manager_app.py:321
 msgid "&bluetooth"
 msgstr "&bluetooth"
 
-#: ../apps/settings/settings_app.py:816 ../apps/settings/settings_app.py:849
+#: ../apps/settings/settings_app.py:691 ../apps/settings/settings_app.py:703
 msgid "&power"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:820 ../apps/fman/file_manager_app.py:787
+#: ../apps/settings/settings_app.py:692 ../apps/fman/file_manager_app.py:787
 #: ../apps/fman/file_manager_app.py:818 ../apps/fman/file_manager_app.py:875
 #: ../apps/fman/file_manager_app.py:987 ../apps/fman/file_manager_app.py:1676
 #: ../apps/fman/file_manager_app.py:1695 ../apps/games/mines_app.py:194
@@ -1435,1533 +1435,1531 @@ msgstr ""
 msgid "&name"
 msgstr "&nafn"
 
-#: ../apps/settings/settings_app.py:826
+#: ../apps/settings/settings_app.py:693
 msgid "&visibility"
 msgstr "&sýnileiki"
 
-#: ../apps/settings/settings_app.py:832 ../apps/settings/settings_app.py:1454
+#: ../apps/settings/settings_app.py:695 ../apps/settings/settings_app.py:1005
 msgid "&paired devices"
 msgstr "&pöruð tæki"
 
-#: ../apps/settings/settings_app.py:846
+#: ../apps/settings/settings_app.py:701
 msgid "&wifi"
 msgstr "&wifi"
 
-#: ../apps/settings/settings_app.py:853 ../apps/settings/settings_app.py:1513
+#: ../apps/settings/settings_app.py:704 ../apps/settings/settings_app.py:1035
 msgid "&favorites"
 msgstr "&uppáhalds"
 
-#: ../apps/settings/settings_app.py:857
+#: ../apps/settings/settings_app.py:705
 msgid "countr&y"
 msgstr "lan&d"
 
-#: ../apps/settings/settings_app.py:863
+#: ../apps/settings/settings_app.py:708
 msgid "user &interface"
 msgstr "notanda &viðmót"
 
-#: ../apps/settings/settings_app.py:866
+#: ../apps/settings/settings_app.py:710
 msgid "&message language"
 msgstr "&skilaboð tungumál"
 
-#: ../apps/settings/settings_app.py:872
+#: ../apps/settings/settings_app.py:712
 msgid "&braille language"
 msgstr "&blindraletursmál"
 
-#: ../apps/settings/settings_app.py:884 ../apps/settings/settings_app.py:1560
+#: ../apps/settings/settings_app.py:716 ../apps/settings/settings_app.py:1059
 msgid "spaces in &label"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:890 ../apps/settings/settings_app.py:1568
+#: ../apps/settings/settings_app.py:718 ../apps/settings/settings_app.py:1064
 msgid "visible &shortcuts"
 msgstr "sýnilegar &flýtivísar"
 
-#: ../apps/settings/settings_app.py:896 ../apps/settings/settings_app.py:1576
+#: ../apps/settings/settings_app.py:720 ../apps/settings/settings_app.py:1068
 msgid "&developer mode"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:900
+#: ../apps/settings/settings_app.py:722
 #, fuzzy
 msgid "&import settings"
 msgstr "&stillingar"
 
-#: ../apps/settings/settings_app.py:904
+#: ../apps/settings/settings_app.py:723
 #, fuzzy
 msgid "&export settings"
 msgstr "&stillingar"
 
-#: ../apps/settings/settings_app.py:910
+#: ../apps/settings/settings_app.py:727
 msgid "main me&nu"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:913 ../apps/settings/settings_app.py:1587
-#: ../apps/internal.py:479
+#: ../apps/settings/settings_app.py:729 ../apps/settings/settings_app.py:1075
+#: ../apps/internal.py:246
 msgid "&explorer"
 msgstr "&könnuður"
 
-#: ../apps/settings/settings_app.py:919 ../apps/settings/settings_app.py:1595
-#: ../apps/internal.py:480
+#: ../apps/settings/settings_app.py:731 ../apps/settings/settings_app.py:1079
+#: ../apps/internal.py:247
 msgid "&settings"
 msgstr "&stillingar"
 
-#: ../apps/settings/settings_app.py:925 ../apps/settings/settings_app.py:1065
-#: ../apps/settings/settings_app.py:1603 ../apps/internal.py:481
+#: ../apps/settings/settings_app.py:733 ../apps/settings/settings_app.py:795
+#: ../apps/settings/settings_app.py:1083 ../apps/internal.py:248
 msgid "a&genda"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:929 ../apps/settings/settings_app.py:1611
-#: ../apps/internal.py:482 ../apps/media/radio_app.py:66
+#: ../apps/settings/settings_app.py:734 ../apps/settings/settings_app.py:1087
+#: ../apps/internal.py:249 ../apps/media/radio_app.py:66
 msgid "&radio"
 msgstr "&útvarp"
 
-#: ../apps/settings/settings_app.py:933 ../apps/settings/settings_app.py:1619
+#: ../apps/settings/settings_app.py:735 ../apps/settings/settings_app.py:1091
 msgid "&audio"
 msgstr "&hljóð"
 
-#: ../apps/settings/settings_app.py:937 ../apps/settings/settings_app.py:1627
-#: ../apps/internal.py:484
+#: ../apps/settings/settings_app.py:736 ../apps/settings/settings_app.py:1095
+#: ../apps/internal.py:251
 msgid "wi&kipedia"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:943 ../apps/settings/settings_app.py:1635
-#: ../apps/internal.py:485
+#: ../apps/settings/settings_app.py:738 ../apps/settings/settings_app.py:1099
+#: ../apps/internal.py:252
 #, fuzzy
 msgid "&timer"
 msgstr "&tími"
 
-#: ../apps/settings/settings_app.py:947 ../apps/settings/settings_app.py:1643
-#: ../apps/internal.py:173 ../apps/internal.py:271 ../apps/internal.py:486
+#: ../apps/settings/settings_app.py:739 ../apps/settings/settings_app.py:1103
+#: ../apps/internal.py:90 ../apps/internal.py:104 ../apps/internal.py:253
 #, fuzzy
 msgid "trans&lator"
 msgstr "flytja"
 
-#: ../apps/settings/settings_app.py:953
+#: ../apps/settings/settings_app.py:741
 #, fuzzy
 msgid "write &word"
 msgstr "&heiðurs orð"
 
-#: ../apps/settings/settings_app.py:959 ../apps/settings/settings_app.py:1659
+#: ../apps/settings/settings_app.py:743 ../apps/settings/settings_app.py:1111
 #, fuzzy
 msgid "&operation"
 msgstr "&breyting"
 
-#: ../apps/settings/settings_app.py:965 ../apps/settings/settings_app.py:1667
-#: ../apps/internal.py:489
+#: ../apps/settings/settings_app.py:745 ../apps/settings/settings_app.py:1115
+#: ../apps/internal.py:256
 msgid "&mines"
 msgstr "&jarðsprengjur"
 
-#: ../apps/settings/settings_app.py:969 ../apps/settings/settings_app.py:1675
+#: ../apps/settings/settings_app.py:746 ../apps/settings/settings_app.py:1119
 #, fuzzy
 msgid "ma&stermind"
 msgstr "snillingur"
 
-#: ../apps/settings/settings_app.py:977
+#: ../apps/settings/settings_app.py:751
 #, fuzzy
 msgid "e&xplorer"
 msgstr "kanna"
 
-#: ../apps/settings/settings_app.py:980
+#: ../apps/settings/settings_app.py:753
 msgid "empty the &bluetooth folder once shutdown"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:986
+#: ../apps/settings/settings_app.py:755
 msgid "empty the &trash folder once shutdown"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:992
+#: ../apps/settings/settings_app.py:757
 msgid "&number of recent files"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1000
+#: ../apps/settings/settings_app.py:762
 msgid "&editor"
 msgstr "rit&stjóri"
 
-#: ../apps/settings/settings_app.py:1003 ../apps/settings/settings_app.py:1552
-#: ../apps/settings/settings_app.py:1715 ../apps/edt/editor_app.py:185
+#: ../apps/settings/settings_app.py:764 ../apps/settings/settings_app.py:1055
+#: ../apps/settings/settings_app.py:1143 ../apps/edt/editor_app.py:185
 msgid "&braille type"
 msgstr "blindraleturs&gerð"
 
-#: ../apps/settings/settings_app.py:1009
+#: ../apps/settings/settings_app.py:766
 msgid "&line length"
 msgstr "&línulengd"
 
-#: ../apps/settings/settings_app.py:1013 ../apps/settings/settings_app.py:1731
+#: ../apps/settings/settings_app.py:768 ../apps/settings/settings_app.py:1151
 msgid "&forward display"
 msgstr "&áfram á skjá"
 
-#: ../apps/settings/settings_app.py:1019 ../apps/settings/settings_app.py:1739
+#: ../apps/settings/settings_app.py:770 ../apps/settings/settings_app.py:1155
 #, fuzzy
 msgid "&autoscroll display"
 msgstr "&áfram á skjá"
 
-#: ../apps/settings/settings_app.py:1023 ../apps/settings/settings_app.py:1747
+#: ../apps/settings/settings_app.py:772 ../apps/settings/settings_app.py:1159
 msgid "&cursor visible"
 msgstr "&bendill sýnilegur"
 
-#: ../apps/settings/settings_app.py:1029
+#: ../apps/settings/settings_app.py:774
 msgid "&dot78 visible"
 msgstr "&punktur 78 sýnilegur"
 
-#: ../apps/settings/settings_app.py:1037
+#: ../apps/settings/settings_app.py:779
 msgid "mat&h"
 msgstr "stærð&fræði"
 
-#: ../apps/settings/settings_app.py:1040 ../apps/settings/settings_app.py:1766
+#: ../apps/settings/settings_app.py:781 ../apps/settings/settings_app.py:1169
 msgid "&format"
 msgstr "&snið"
 
-#: ../apps/settings/settings_app.py:1044 ../apps/settings/settings_app.py:1774
+#: ../apps/settings/settings_app.py:782 ../apps/settings/settings_app.py:1173
 msgid "&precision"
 msgstr "&nákvæmni"
 
-#: ../apps/settings/settings_app.py:1048
+#: ../apps/settings/settings_app.py:783
 msgid "f&raction"
 msgstr "b&rot"
 
-#: ../apps/settings/settings_app.py:1052 ../apps/settings/settings_app.py:1790
+#: ../apps/settings/settings_app.py:784 ../apps/settings/settings_app.py:1180
 msgid "&angle"
 msgstr "&horn"
 
-#: ../apps/settings/settings_app.py:1058
+#: ../apps/settings/settings_app.py:788
 msgid "&music"
 msgstr "&tónlist"
 
-#: ../apps/settings/settings_app.py:1068
+#: ../apps/settings/settings_app.py:797
 msgid "default &presentation"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1074
+#: ../apps/settings/settings_app.py:799
 #, fuzzy
 msgid "&report events not done"
 msgstr "ekki er hægt að skipta út."
 
-#: ../apps/settings/settings_app.py:1080 ../apps/settings/settings_app.py:2082
+#: ../apps/settings/settings_app.py:805 ../apps/settings/settings_app.py:1331
 #, fuzzy
 msgid "write word and operation"
 msgstr "&orð"
 
-#: ../apps/settings/settings_app.py:1083
+#: ../apps/settings/settings_app.py:807
 #, fuzzy
 msgid "use the &vocalize"
 msgstr "ra&dda"
 
-#: ../apps/settings/settings_app.py:1089
+#: ../apps/settings/settings_app.py:809
 #, fuzzy
 msgid "&keep the spaces"
 msgstr "&tæma ruslið"
 
-#: ../apps/settings/settings_app.py:1095
+#: ../apps/settings/settings_app.py:811
 #, fuzzy
 msgid "&allow all characters"
 msgstr "stafir"
 
-#: ../apps/settings/settings_app.py:1103
+#: ../apps/settings/settings_app.py:817
 msgid "&keyboard"
 msgstr "&lyklaborð"
 
-#: ../apps/settings/settings_app.py:1106
+#: ../apps/settings/settings_app.py:819
 msgid "&mode"
 msgstr "&hamur"
 
-#: ../apps/settings/settings_app.py:1112 ../apps/settings/settings_app.py:2119
+#: ../apps/settings/settings_app.py:820 ../apps/settings/settings_app.py:1351
 msgid "b78"
 msgstr "b78"
 
-#: ../apps/settings/settings_app.py:1116
+#: ../apps/settings/settings_app.py:821
 msgid "&invertion"
 msgstr "h&volfi"
 
-#: ../apps/settings/settings_app.py:1122
+#: ../apps/settings/settings_app.py:823
 msgid "&light press"
 msgstr "&létt pressa"
 
-#: ../apps/settings/settings_app.py:1128
+#: ../apps/settings/settings_app.py:825
 msgid "&strong press"
 msgstr "&sterk pressa"
 
-#: ../apps/settings/settings_app.py:1134
+#: ../apps/settings/settings_app.py:827
 msgid "&consecutive press"
 msgstr "&jöfn pressa"
 
-#: ../apps/settings/settings_app.py:1140
+#: ../apps/settings/settings_app.py:829
 msgid "&double light press"
 msgstr "&tvöföld létt pressa"
 
-#: ../apps/settings/settings_app.py:1146
+#: ../apps/settings/settings_app.py:831
 msgid "double st&rong press"
 msgstr "tvöföld st&erk pressa"
 
-#: ../apps/settings/settings_app.py:1154
+#: ../apps/settings/settings_app.py:836
 msgid "&standby"
 msgstr "b&iðstaða"
 
-#: ../apps/settings/settings_app.py:1157
+#: ../apps/settings/settings_app.py:838
 msgid "&transport"
 msgstr "&flytja"
 
-#: ../apps/settings/settings_app.py:1163
+#: ../apps/settings/settings_app.py:840
 msgid "&shutdown"
 msgstr "&Slökkva á"
 
-#: ../apps/settings/settings_app.py:1171
+#: ../apps/settings/settings_app.py:845
 #, fuzzy
 msgid "u&pdate"
 msgstr "&dagsetning"
 
-#: ../apps/settings/settings_app.py:1174
+#: ../apps/settings/settings_app.py:848
 msgid "check update"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1177
+#: ../apps/settings/settings_app.py:851
 #, fuzzy
 msgid "&auto check"
 msgstr "sjálfvirk skipting"
 
-#: ../apps/settings/settings_app.py:1181
+#: ../apps/settings/settings_app.py:855
 #, fuzzy
 msgid "&install an other version"
 msgstr "útgáfur"
 
-#: ../apps/settings/settings_app.py:1185
+#: ../apps/settings/settings_app.py:859
 #, fuzzy
 msgid "&search update to"
 msgstr "&vefuppfærslulisti"
 
-#: ../apps/settings/settings_app.py:1192 ../apps/settings/settings_app.py:4182
+#: ../apps/settings/settings_app.py:867 ../apps/settings/settings_app.py:2862
 #, fuzzy
 msgid "about"
 msgstr "&um"
 
-#: ../apps/settings/settings_app.py:1193
+#: ../apps/settings/settings_app.py:869
 msgid "&test"
 msgstr "&próf"
 
-#: ../apps/settings/settings_app.py:1194
+#: ../apps/settings/settings_app.py:870
 msgid "&reset"
 msgstr "&endursetja"
 
-#: ../apps/settings/settings_app.py:1241 ../apps/settings/settings_app.py:1308
-#: ../apps/settings/settings_app.py:1310 ../apps/settings/settings_app.py:1311
+#: ../apps/settings/settings_app.py:896 ../apps/settings/settings_app.py:937
+#: ../apps/settings/settings_app.py:938
 msgid "time"
 msgstr "tími"
 
-#: ../apps/settings/settings_app.py:1245 ../apps/settings/settings_app.py:1318
-#: ../apps/settings/settings_app.py:1320 ../apps/settings/settings_app.py:1321
-#: ../apps/media/mp3_app.py:934
+#: ../apps/settings/settings_app.py:898 ../apps/settings/settings_app.py:940
+#: ../apps/settings/settings_app.py:941 ../apps/media/mp3_app.py:934
 msgid "date"
 msgstr "dagsetning"
 
-#: ../apps/settings/settings_app.py:1249 ../apps/settings/settings_app.py:1337
+#: ../apps/settings/settings_app.py:900 ../apps/settings/settings_app.py:949
 msgid "battery"
 msgstr "rafhlaða"
 
-#: ../apps/settings/settings_app.py:1253 ../apps/settings/settings_app.py:1346
-#: ../apps/settings/settings_app.py:1348 ../apps/edt/editor_base_app.py:1279
+#: ../apps/settings/settings_app.py:902 ../apps/settings/settings_app.py:954
+#: ../apps/settings/settings_app.py:955 ../apps/edt/editor_base_app.py:1279
 #: ../apps/media/mp3_app.py:227 ../apps/media/mp3_app.py:988
 #: ../apps/media/radio_app.py:441
 msgid "volume"
 msgstr "hljóðstyrkur"
 
-#: ../apps/settings/settings_app.py:1257 ../apps/settings/settings_app.py:1363
-#: ../apps/settings/settings_app.py:1365 ../apps/settings/settings_app.py:1366
-#: ../apps/settings/settings_app.py:1533 ../apps/settings/settings_app.py:1542
+#: ../apps/settings/settings_app.py:904 ../apps/settings/settings_app.py:960
+#: ../apps/settings/settings_app.py:961 ../apps/settings/settings_app.py:1045
+#: ../apps/settings/settings_app.py:1050
 msgid "language"
 msgstr "tungumál"
 
-#: ../apps/settings/settings_app.py:1261 ../apps/settings/settings_app.py:1390
+#: ../apps/settings/settings_app.py:906 ../apps/settings/settings_app.py:972
 msgid "jack"
 msgstr "jack"
 
-#: ../apps/settings/settings_app.py:1265 ../apps/settings/settings_app.py:1398
+#: ../apps/settings/settings_app.py:908 ../apps/settings/settings_app.py:977
 msgid "keyboard USB-A-HID"
 msgstr "lyklaborð USB-A-HID"
 
-#: ../apps/settings/settings_app.py:1270 ../apps/settings/settings_app.py:1407
+#: ../apps/settings/settings_app.py:911 ../apps/settings/settings_app.py:982
 msgid "keyboard USB-B-HID"
 msgstr "lyklaborð USB-B-HID"
 
-#: ../apps/settings/settings_app.py:1276 ../apps/settings/settings_app.py:1451
+#: ../apps/settings/settings_app.py:915 ../apps/settings/settings_app.py:1003
 msgid "paired devices"
 msgstr "pöruð tæki"
 
-#: ../apps/settings/settings_app.py:1280 ../apps/settings/settings_app.py:1501
-#: ../apps/settings/settings_app.py:1503
+#: ../apps/settings/settings_app.py:917 ../apps/settings/settings_app.py:1031
+#: ../apps/settings/settings_app.py:1032
 msgid "connected to"
 msgstr "tengt við"
 
-#: ../apps/settings/settings_app.py:1284 ../apps/settings/settings_app.py:1531
+#: ../apps/settings/settings_app.py:919 ../apps/settings/settings_app.py:1043
 msgid "message language"
 msgstr "skilaboð tungumál"
 
-#: ../apps/settings/settings_app.py:1288 ../apps/settings/settings_app.py:1540
+#: ../apps/settings/settings_app.py:922 ../apps/settings/settings_app.py:1048
 msgid "braille language"
 msgstr "blindraletursmál"
 
-#: ../apps/settings/settings_app.py:1292 ../apps/settings/settings_app.py:2179
+#: ../apps/settings/settings_app.py:925 ../apps/settings/settings_app.py:1383
 msgid "transport timeout minute (0 none)"
 msgstr "flutnings hlé mínútur (0 enginn)"
 
-#: ../apps/settings/settings_app.py:1297 ../apps/settings/settings_app.py:2188
+#: ../apps/settings/settings_app.py:928 ../apps/settings/settings_app.py:1388
 msgid "shutdown timeout minute (0 none)"
 msgstr "slökkva á hlé mínútur (0 enginn)"
 
-#: ../apps/settings/settings_app.py:1327
+#: ../apps/settings/settings_app.py:943
 msgid "auto sync date"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1329
+#: ../apps/settings/settings_app.py:945
 msgid "clock"
 msgstr "klukka"
 
-#: ../apps/settings/settings_app.py:1330
+#: ../apps/settings/settings_app.py:945
 msgid "auto &sync date"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1344 ../apps/settings/settings_app.py:1372
-#: ../apps/settings/settings_app.py:1374
+#: ../apps/settings/settings_app.py:953 ../apps/settings/settings_app.py:963
+#: ../apps/settings/settings_app.py:965
 msgid "synthesis"
 msgstr "talgervill"
 
-#: ../apps/settings/settings_app.py:1349 ../apps/settings/settings_app.py:1358
+#: ../apps/settings/settings_app.py:955 ../apps/settings/settings_app.py:958
 #: ../apps/edt/editor_base_app.py:1279 ../apps/edt/editor_base_app.py:1312
 #: ../apps/media/mp3_app.py:988 ../apps/media/radio_app.py:441
 msgid "&value"
 msgstr "&gildi"
 
-#: ../apps/settings/settings_app.py:1355 ../apps/settings/settings_app.py:1357
+#: ../apps/settings/settings_app.py:957 ../apps/settings/settings_app.py:958
 #: ../apps/edt/editor_base_app.py:1311
 msgid "speed"
 msgstr "hraði"
 
-#: ../apps/settings/settings_app.py:1375
+#: ../apps/settings/settings_app.py:965
 msgid "&synthesis"
 msgstr "&talgervill"
 
-#: ../apps/settings/settings_app.py:1380 ../apps/settings/settings_app.py:1382
+#: ../apps/settings/settings_app.py:967 ../apps/settings/settings_app.py:968
 msgid "voice"
 msgstr "rödd"
 
-#: ../apps/settings/settings_app.py:1383
+#: ../apps/settings/settings_app.py:968
 msgid "&voice"
 msgstr "%rödd"
 
-#: ../apps/settings/settings_app.py:1396
+#: ../apps/settings/settings_app.py:976
 msgid "usb"
 msgstr "usb"
 
-#: ../apps/settings/settings_app.py:1400 ../apps/settings/settings_app.py:1409
-#: ../apps/settings/settings_app.py:2113 ../apps/settings/settings_app.py:2121
-#: ../apps/settings/settings_app.py:2129 ../apps/settings/settings_app.py:2768
+#: ../apps/settings/settings_app.py:979 ../apps/settings/settings_app.py:984
+#: ../apps/settings/settings_app.py:1349 ../apps/settings/settings_app.py:1353
+#: ../apps/settings/settings_app.py:1357 ../apps/settings/settings_app.py:1775
 msgid "keyboard"
 msgstr "lyklaborð"
 
-#: ../apps/settings/settings_app.py:1401
+#: ../apps/settings/settings_app.py:979
 msgid "usb-a hid mode"
 msgstr "usb-a hid ham"
 
-#: ../apps/settings/settings_app.py:1410
+#: ../apps/settings/settings_app.py:984
 msgid "usb-b hid mode"
 msgstr "usb-b hid ham"
 
-#: ../apps/settings/settings_app.py:1416 ../apps/settings/settings_app.py:1418
-#: ../apps/settings/settings_app.py:1419 ../apps/settings/settings_app.py:1482
-#: ../apps/settings/settings_app.py:1484
+#: ../apps/settings/settings_app.py:987 ../apps/settings/settings_app.py:989
+#: ../apps/settings/settings_app.py:1020 ../apps/settings/settings_app.py:1022
 msgid "simulation esys"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1427 ../apps/settings/settings_app.py:1493
+#: ../apps/settings/settings_app.py:994 ../apps/settings/settings_app.py:1028
 msgid "power"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1429 ../apps/settings/settings_app.py:3419
+#: ../apps/settings/settings_app.py:995 ../apps/settings/settings_app.py:2202
 #, fuzzy
 msgid "bluetooth power"
 msgstr "bluetooth"
 
-#: ../apps/settings/settings_app.py:1430 ../apps/settings/settings_app.py:1496
+#: ../apps/settings/settings_app.py:995 ../apps/settings/settings_app.py:1029
 msgid "&powered"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1435 ../apps/settings/settings_app.py:2875
-#: ../apps/settings/settings_app.py:2909 ../apps/skeleton/skeleton_app.py:160
+#: ../apps/settings/settings_app.py:997 ../apps/settings/settings_app.py:1847
+#: ../apps/settings/settings_app.py:1858 ../apps/skeleton/skeleton_app.py:160
 #: ../apps/media/radio_app.py:171
 msgid "name"
 msgstr "nafn"
 
-#: ../apps/settings/settings_app.py:1438
+#: ../apps/settings/settings_app.py:998
 msgid "&bnote name"
 msgstr "&bnote nafn"
 
-#: ../apps/settings/settings_app.py:1443
+#: ../apps/settings/settings_app.py:1000
 msgid "visible"
 msgstr "sýnilegt"
 
-#: ../apps/settings/settings_app.py:1446
+#: ../apps/settings/settings_app.py:1001
 msgid "&bnote visible"
 msgstr "&bnote sýnileg"
 
-#: ../apps/settings/settings_app.py:1470
+#: ../apps/settings/settings_app.py:1014
 msgid "bluetooth auto switch"
 msgstr "bluetooth sjálfvirk skipting"
 
-#: ../apps/settings/settings_app.py:1491
+#: ../apps/settings/settings_app.py:1027
 msgid "wifi"
 msgstr "wifi"
 
-#: ../apps/settings/settings_app.py:1495 ../apps/settings/settings_app.py:3442
+#: ../apps/settings/settings_app.py:1029 ../apps/settings/settings_app.py:2223
 msgid "wifi power"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1504
+#: ../apps/settings/settings_app.py:1032
 msgid "&connected"
 msgstr "&tengdur"
 
-#: ../apps/settings/settings_app.py:1510 ../apps/settings/settings_app.py:1512
+#: ../apps/settings/settings_app.py:1034 ../apps/settings/settings_app.py:1035
 msgid "favorites"
 msgstr "uppáhalds"
 
-#: ../apps/settings/settings_app.py:1518
+#: ../apps/settings/settings_app.py:1037
 msgid "country"
 msgstr "land"
 
-#: ../apps/settings/settings_app.py:1520 ../apps/settings/settings_app.py:1521
+#: ../apps/settings/settings_app.py:1038
 msgid "wlan country"
 msgstr "wlan landi"
 
-#: ../apps/settings/settings_app.py:1528 ../apps/settings/settings_app.py:1551
-#: ../apps/settings/settings_app.py:1559 ../apps/settings/settings_app.py:1567
-#: ../apps/settings/settings_app.py:1575 ../apps/settings/settings_app.py:1586
-#: ../apps/settings/settings_app.py:1594 ../apps/settings/settings_app.py:1602
-#: ../apps/settings/settings_app.py:1610 ../apps/settings/settings_app.py:1618
-#: ../apps/settings/settings_app.py:1626 ../apps/settings/settings_app.py:1634
-#: ../apps/settings/settings_app.py:1642 ../apps/settings/settings_app.py:1650
-#: ../apps/settings/settings_app.py:1658 ../apps/settings/settings_app.py:1666
-#: ../apps/settings/settings_app.py:1674
+#: ../apps/settings/settings_app.py:1042 ../apps/settings/settings_app.py:1055
+#: ../apps/settings/settings_app.py:1059 ../apps/settings/settings_app.py:1063
+#: ../apps/settings/settings_app.py:1068 ../apps/settings/settings_app.py:1075
+#: ../apps/settings/settings_app.py:1079 ../apps/settings/settings_app.py:1083
+#: ../apps/settings/settings_app.py:1087 ../apps/settings/settings_app.py:1091
+#: ../apps/settings/settings_app.py:1095 ../apps/settings/settings_app.py:1099
+#: ../apps/settings/settings_app.py:1103 ../apps/settings/settings_app.py:1107
+#: ../apps/settings/settings_app.py:1111 ../apps/settings/settings_app.py:1115
+#: ../apps/settings/settings_app.py:1119
 msgid "user interface"
 msgstr "notanda viðmót"
 
-#: ../apps/settings/settings_app.py:1534
+#: ../apps/settings/settings_app.py:1045
 msgid "message"
 msgstr "skilaboð"
 
-#: ../apps/settings/settings_app.py:1543
+#: ../apps/settings/settings_app.py:1050
 msgid "braille"
 msgstr "blindraletur"
 
-#: ../apps/settings/settings_app.py:1549 ../apps/settings/settings_app.py:1712
+#: ../apps/settings/settings_app.py:1053 ../apps/settings/settings_app.py:1141
 #: ../apps/skeleton/skeleton_app.py:161
 msgid "braille type"
 msgstr "blindraletursgerð"
 
-#: ../apps/settings/settings_app.py:1557
+#: ../apps/settings/settings_app.py:1057
 msgid "spaces in label"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1565
+#: ../apps/settings/settings_app.py:1061
 msgid "visible shortcuts"
 msgstr "sýnilegar flýtivísar"
 
-#: ../apps/settings/settings_app.py:1573
+#: ../apps/settings/settings_app.py:1066
 msgid "developer mode"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1582
+#: ../apps/settings/settings_app.py:1072
 msgid "main menu"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1584 ../apps/settings/settings_app.py:1681
-#: ../apps/settings/settings_app.py:1687 ../apps/settings/settings_app.py:1695
-#: ../apps/settings/settings_app.py:1703 ../apps/fman/file_manager_app.py:523
+#: ../apps/settings/settings_app.py:1073 ../apps/settings/settings_app.py:1123
+#: ../apps/settings/settings_app.py:1126 ../apps/settings/settings_app.py:1131
+#: ../apps/settings/settings_app.py:1136 ../apps/fman/file_manager_app.py:523
 #: ../apps/fman/file_manager_app.py:536 ../apps/fman/file_manager_app.py:550
 #: ../apps/fman/file_manager_app.py:586 ../apps/fman/file_manager_app.py:598
 #: ../apps/fman/file_manager_app.py:609
 msgid "explorer"
 msgstr "kanna"
 
-#: ../apps/settings/settings_app.py:1600 ../apps/settings/settings_app.py:2063
-#: ../apps/settings/settings_app.py:2067 ../apps/settings/settings_app.py:2075
-#: ../apps/agenda/agenda_app.py:67 ../apps/agenda/agenda_app.py:1892
+#: ../apps/settings/settings_app.py:1081 ../apps/settings/settings_app.py:1320
+#: ../apps/settings/settings_app.py:1323 ../apps/settings/settings_app.py:1327
+#: ../apps/agenda/agenda_app.py:61 ../apps/agenda/agenda_app.py:1509
 msgid "agenda"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1608 ../apps/media/radio_app.py:61
+#: ../apps/settings/settings_app.py:1085 ../apps/media/radio_app.py:61
 msgid "radio"
 msgstr "útvarp"
 
-#: ../apps/settings/settings_app.py:1616
+#: ../apps/settings/settings_app.py:1089
 msgid "audio"
 msgstr "hljóð"
 
-#: ../apps/settings/settings_app.py:1624 ../apps/wikipedia/wikipedia_app.py:48
+#: ../apps/settings/settings_app.py:1093 ../apps/wikipedia/wikipedia_app.py:48
 #: ../apps/wikipedia/wikipedia_app.py:212
 msgid "wikipedia"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1632 ../apps/timer/timer_app.py:55
+#: ../apps/settings/settings_app.py:1097 ../apps/timer/timer_app.py:55
 #, fuzzy
 msgid "timer"
 msgstr "tími"
 
-#: ../apps/settings/settings_app.py:1640
+#: ../apps/settings/settings_app.py:1101
 #: ../apps/translator/translator_app.py:88
 #, fuzzy
 msgid "translator"
 msgstr "flytja"
 
-#: ../apps/settings/settings_app.py:1648
+#: ../apps/settings/settings_app.py:1105
 #, fuzzy
 msgid "write_word"
 msgstr "&heiðurs orð"
 
-#: ../apps/settings/settings_app.py:1651
+#: ../apps/settings/settings_app.py:1107
 #, fuzzy
 msgid "&write word"
 msgstr "&heiðurs orð"
 
-#: ../apps/settings/settings_app.py:1656
+#: ../apps/settings/settings_app.py:1109
 #, fuzzy
 msgid "operation"
 msgstr "brot"
 
-#: ../apps/settings/settings_app.py:1664 ../apps/games/mines_app.py:64
+#: ../apps/settings/settings_app.py:1113 ../apps/games/mines_app.py:64
 msgid "mines"
 msgstr "jarðsprengjur"
 
-#: ../apps/settings/settings_app.py:1672 ../apps/games/master_mind_app.py:64
+#: ../apps/settings/settings_app.py:1117 ../apps/games/master_mind_app.py:64
 msgid "mastermind"
 msgstr "snillingur"
 
-#: ../apps/settings/settings_app.py:1683
+#: ../apps/settings/settings_app.py:1124
 msgid "empty the bluetooth folder once shutdown"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1688
+#: ../apps/settings/settings_app.py:1127
 msgid "&empty the bluetooth once shutdown"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1693
+#: ../apps/settings/settings_app.py:1129
 msgid "empty the trash folder once shutdown"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1696
+#: ../apps/settings/settings_app.py:1132
 #, fuzzy
 msgid "&empty the trash once shutdown"
 msgstr "&tæma ruslið"
 
-#: ../apps/settings/settings_app.py:1701
+#: ../apps/settings/settings_app.py:1134
 msgid "number of recent files"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:1704
+#: ../apps/settings/settings_app.py:1136
 #, fuzzy
 msgid "files &number"
 msgstr "mál &tala"
 
-#: ../apps/settings/settings_app.py:1710 ../apps/settings/settings_app.py:1714
-#: ../apps/settings/settings_app.py:1722 ../apps/settings/settings_app.py:1730
-#: ../apps/settings/settings_app.py:1738 ../apps/settings/settings_app.py:1746
-#: ../apps/settings/settings_app.py:1754 ../apps/edt/editor_app.py:47
+#: ../apps/settings/settings_app.py:1140 ../apps/settings/settings_app.py:1143
+#: ../apps/settings/settings_app.py:1147 ../apps/settings/settings_app.py:1151
+#: ../apps/settings/settings_app.py:1155 ../apps/settings/settings_app.py:1159
+#: ../apps/settings/settings_app.py:1163 ../apps/edt/editor_app.py:47
 #: ../apps/edt/editor_base_app.py:1572
 #: ../apps/eole/eole_search_dialog_box.py:94 ../apps/media/mp3_app.py:336
 msgid "editor"
 msgstr "ritstjóri"
 
-#: ../apps/settings/settings_app.py:1720
+#: ../apps/settings/settings_app.py:1145
 msgid "line length"
 msgstr "línulengd"
 
-#: ../apps/settings/settings_app.py:1723
+#: ../apps/settings/settings_app.py:1147
 msgid "lines &length"
 msgstr "lengd &lína"
 
-#: ../apps/settings/settings_app.py:1728
+#: ../apps/settings/settings_app.py:1149
 msgid "forward display"
 msgstr "áfram á skjá"
 
-#: ../apps/settings/settings_app.py:1736
+#: ../apps/settings/settings_app.py:1153
 #, fuzzy
 msgid "autoscroll display"
 msgstr "áfram á skjá"
 
-#: ../apps/settings/settings_app.py:1744
+#: ../apps/settings/settings_app.py:1157
 msgid "cursor visible"
 msgstr "bendill sýnilegur"
 
-#: ../apps/settings/settings_app.py:1752
+#: ../apps/settings/settings_app.py:1161
 msgid "dot78 visible"
 msgstr "punktur 78 sýnilegur"
 
-#: ../apps/settings/settings_app.py:1755
+#: ../apps/settings/settings_app.py:1163
 msgid "&dot 78 visible"
 msgstr "&punktur 78 sýnilegur"
 
-#: ../apps/settings/settings_app.py:1761 ../apps/settings/settings_app.py:1765
-#: ../apps/settings/settings_app.py:1773 ../apps/settings/settings_app.py:1781
-#: ../apps/settings/settings_app.py:1789
+#: ../apps/settings/settings_app.py:1167 ../apps/settings/settings_app.py:1169
+#: ../apps/settings/settings_app.py:1173 ../apps/settings/settings_app.py:1177
+#: ../apps/settings/settings_app.py:1180
 msgid "math"
 msgstr "stærðfræði"
 
-#: ../apps/settings/settings_app.py:1763
+#: ../apps/settings/settings_app.py:1168
 msgid "format"
 msgstr "snið"
 
-#: ../apps/settings/settings_app.py:1771
+#: ../apps/settings/settings_app.py:1171
 msgid "precision"
 msgstr "nákvæmni"
 
-#: ../apps/settings/settings_app.py:1779
+#: ../apps/settings/settings_app.py:1175
 msgid "fraction"
 msgstr "brot"
 
-#: ../apps/settings/settings_app.py:1782
+#: ../apps/settings/settings_app.py:1177
 msgid "&fraction result"
 msgstr "&brot niðurstaða"
 
-#: ../apps/settings/settings_app.py:1787
+#: ../apps/settings/settings_app.py:1179
 msgid "angle"
 msgstr "horn"
 
-#: ../apps/settings/settings_app.py:1798
+#: ../apps/settings/settings_app.py:1185
 #, fuzzy
 msgid "musicxml edit and play mode"
 msgstr "tónlistxml heiður orð"
 
-#: ../apps/settings/settings_app.py:1800 ../apps/settings/settings_app.py:1808
-#: ../apps/settings/settings_app.py:1816 ../apps/settings/settings_app.py:1824
-#: ../apps/settings/settings_app.py:1832 ../apps/settings/settings_app.py:1840
-#: ../apps/settings/settings_app.py:1848 ../apps/settings/settings_app.py:1856
-#: ../apps/settings/settings_app.py:1864 ../apps/settings/settings_app.py:1872
-#: ../apps/settings/settings_app.py:1880 ../apps/settings/settings_app.py:1888
-#: ../apps/settings/settings_app.py:1896 ../apps/settings/settings_app.py:1904
-#: ../apps/settings/settings_app.py:1912 ../apps/settings/settings_app.py:1920
+#: ../apps/settings/settings_app.py:1187 ../apps/settings/settings_app.py:1191
+#: ../apps/settings/settings_app.py:1195 ../apps/settings/settings_app.py:1199
+#: ../apps/settings/settings_app.py:1203 ../apps/settings/settings_app.py:1207
+#: ../apps/settings/settings_app.py:1211 ../apps/settings/settings_app.py:1215
+#: ../apps/settings/settings_app.py:1219 ../apps/settings/settings_app.py:1223
+#: ../apps/settings/settings_app.py:1227 ../apps/settings/settings_app.py:1231
+#: ../apps/settings/settings_app.py:1235 ../apps/settings/settings_app.py:1239
+#: ../apps/settings/settings_app.py:1243 ../apps/settings/settings_app.py:1247
 msgid "music xml"
 msgstr "tónlist xml"
 
-#: ../apps/settings/settings_app.py:1806
+#: ../apps/settings/settings_app.py:1189
 #, fuzzy
 msgid "musicxml braille type"
 msgstr "blindraletursgerð"
 
-#: ../apps/settings/settings_app.py:1814
+#: ../apps/settings/settings_app.py:1193
 msgid "musicxml notes dots"
 msgstr "tónlistxml tónlistar punktar"
 
-#: ../apps/settings/settings_app.py:1817 ../apps/settings/settings_app.py:1945
+#: ../apps/settings/settings_app.py:1195 ../apps/settings/settings_app.py:1259
 msgid "&notes dots"
 msgstr "&tónlistar punktar"
 
-#: ../apps/settings/settings_app.py:1822
+#: ../apps/settings/settings_app.py:1197
 msgid "musicxml ascending chords"
 msgstr "tónlistxml ascending chords"
 
-#: ../apps/settings/settings_app.py:1830
+#: ../apps/settings/settings_app.py:1201
 msgid "musicxml fingering"
 msgstr "tónlistxml fingrasetning"
 
-#: ../apps/settings/settings_app.py:1838
+#: ../apps/settings/settings_app.py:1205
 msgid "musicxml clef"
 msgstr "tónlistxml klafi"
 
-#: ../apps/settings/settings_app.py:1846
+#: ../apps/settings/settings_app.py:1209
 msgid "musicxml parts"
 msgstr "tónlistxml partur"
 
-#: ../apps/settings/settings_app.py:1854
+#: ../apps/settings/settings_app.py:1213
 msgid "musicxml measure b123"
 msgstr "tónlistxml mál b123"
 
-#: ../apps/settings/settings_app.py:1862
+#: ../apps/settings/settings_app.py:1217
 msgid "musicxml measure number"
 msgstr "tónlistxml mál tala"
 
-#: ../apps/settings/settings_app.py:1865 ../apps/settings/settings_app.py:1993
+#: ../apps/settings/settings_app.py:1219 ../apps/settings/settings_app.py:1283
 msgid "&measure number"
 msgstr "&mál tala"
 
-#: ../apps/settings/settings_app.py:1870
+#: ../apps/settings/settings_app.py:1221
 msgid "musicxml measure every"
 msgstr "tónlistxml mæla hvert"
 
-#: ../apps/settings/settings_app.py:1873 ../apps/settings/settings_app.py:2001
+#: ../apps/settings/settings_app.py:1223 ../apps/settings/settings_app.py:1287
 msgid "&measure every"
 msgstr "&mæla hvert"
 
-#: ../apps/settings/settings_app.py:1878
+#: ../apps/settings/settings_app.py:1225
 #, fuzzy
 msgid "musicxml view"
 msgstr "tónlistxml klafi"
 
-#: ../apps/settings/settings_app.py:1886
+#: ../apps/settings/settings_app.py:1229
 msgid "musicxml section"
 msgstr "tónlistxml kafla"
 
-#: ../apps/settings/settings_app.py:1894
+#: ../apps/settings/settings_app.py:1233
 msgid "musicxml measures per section"
 msgstr "tónlistxml mæla á hvern kafla"
 
-#: ../apps/settings/settings_app.py:1897 ../apps/settings/settings_app.py:2025
+#: ../apps/settings/settings_app.py:1235 ../apps/settings/settings_app.py:1300
 msgid "&measures per section"
 msgstr "& mæla á hvern kafla"
 
-#: ../apps/settings/settings_app.py:1902
+#: ../apps/settings/settings_app.py:1237
 msgid "musicxml words"
 msgstr "tónlistxml orð"
 
-#: ../apps/settings/settings_app.py:1910
+#: ../apps/settings/settings_app.py:1241
 msgid "musicxml credit words"
 msgstr "tónlistxml heiður orð"
 
-#: ../apps/settings/settings_app.py:1918
+#: ../apps/settings/settings_app.py:1245
 msgid "musicxml lyrics"
 msgstr "tónlistxml textar"
 
-#: ../apps/settings/settings_app.py:1926
+#: ../apps/settings/settings_app.py:1249
 #, fuzzy
 msgid "bxml edit and play mode"
 msgstr "bxml heiður orð"
 
-#: ../apps/settings/settings_app.py:1928 ../apps/settings/settings_app.py:1936
-#: ../apps/settings/settings_app.py:1944 ../apps/settings/settings_app.py:1952
-#: ../apps/settings/settings_app.py:1960 ../apps/settings/settings_app.py:1968
-#: ../apps/settings/settings_app.py:1976 ../apps/settings/settings_app.py:1984
-#: ../apps/settings/settings_app.py:1992 ../apps/settings/settings_app.py:2000
-#: ../apps/settings/settings_app.py:2008 ../apps/settings/settings_app.py:2016
-#: ../apps/settings/settings_app.py:2024 ../apps/settings/settings_app.py:2032
-#: ../apps/settings/settings_app.py:2040 ../apps/settings/settings_app.py:2048
-#: ../apps/settings/settings_app.py:2056
+#: ../apps/settings/settings_app.py:1251 ../apps/settings/settings_app.py:1255
+#: ../apps/settings/settings_app.py:1259 ../apps/settings/settings_app.py:1263
+#: ../apps/settings/settings_app.py:1267 ../apps/settings/settings_app.py:1271
+#: ../apps/settings/settings_app.py:1275 ../apps/settings/settings_app.py:1279
+#: ../apps/settings/settings_app.py:1283 ../apps/settings/settings_app.py:1287
+#: ../apps/settings/settings_app.py:1291 ../apps/settings/settings_app.py:1295
+#: ../apps/settings/settings_app.py:1299 ../apps/settings/settings_app.py:1304
+#: ../apps/settings/settings_app.py:1308 ../apps/settings/settings_app.py:1312
+#: ../apps/settings/settings_app.py:1316
 msgid "music bxml"
 msgstr "tónlist bxml"
 
-#: ../apps/settings/settings_app.py:1934
+#: ../apps/settings/settings_app.py:1253
 #, fuzzy
 msgid "bxml braille type"
 msgstr "blindraletursgerð"
 
-#: ../apps/settings/settings_app.py:1942
+#: ../apps/settings/settings_app.py:1257
 msgid "bxml notes dots"
 msgstr "bxml nótu punktar"
 
-#: ../apps/settings/settings_app.py:1950
+#: ../apps/settings/settings_app.py:1261
 msgid "bxml ascending chords"
 msgstr "bxml hækkandi hljómar"
 
-#: ../apps/settings/settings_app.py:1958
+#: ../apps/settings/settings_app.py:1265
 msgid "bxml fingering"
 msgstr "bxml fingrasetning"
 
-#: ../apps/settings/settings_app.py:1966
+#: ../apps/settings/settings_app.py:1269
 msgid "bxml clef"
 msgstr "bxml klafi"
 
-#: ../apps/settings/settings_app.py:1974
+#: ../apps/settings/settings_app.py:1273
 msgid "bxml parts"
 msgstr "bxml hlutar"
 
-#: ../apps/settings/settings_app.py:1982
+#: ../apps/settings/settings_app.py:1277
 msgid "bxml measure b123"
 msgstr "bxml mál b123"
 
-#: ../apps/settings/settings_app.py:1990
+#: ../apps/settings/settings_app.py:1281
 msgid "bxml measure number"
 msgstr "bxml mál tala"
 
-#: ../apps/settings/settings_app.py:1998
+#: ../apps/settings/settings_app.py:1285
 msgid "bxml measure every"
 msgstr "bxml mæla hvert"
 
-#: ../apps/settings/settings_app.py:2006
+#: ../apps/settings/settings_app.py:1289
 #, fuzzy
 msgid "bxml view"
 msgstr "bxml klafi"
 
-#: ../apps/settings/settings_app.py:2014
+#: ../apps/settings/settings_app.py:1293
 msgid "bxml section"
 msgstr "bxml kafla"
 
-#: ../apps/settings/settings_app.py:2022
+#: ../apps/settings/settings_app.py:1297
 msgid "bxml measures per section"
 msgstr "bxml mæla á hvern kafla"
 
-#: ../apps/settings/settings_app.py:2030
+#: ../apps/settings/settings_app.py:1302
 msgid "bxml words"
 msgstr "bxml orð"
 
-#: ../apps/settings/settings_app.py:2038
+#: ../apps/settings/settings_app.py:1306
 msgid "bxml credit words"
 msgstr "bxml heiður orð"
 
-#: ../apps/settings/settings_app.py:2046
+#: ../apps/settings/settings_app.py:1310
 msgid "bxml lyrics"
 msgstr "bxml textar"
 
-#: ../apps/settings/settings_app.py:2054
+#: ../apps/settings/settings_app.py:1314
 msgid "bxml karaoke"
 msgstr "bxml karókí"
 
-#: ../apps/settings/settings_app.py:2065
+#: ../apps/settings/settings_app.py:1321
 msgid "default presentation"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2068
+#: ../apps/settings/settings_app.py:1323
 #, fuzzy
 msgid "&presentation"
 msgstr "&skipting"
 
-#: ../apps/settings/settings_app.py:2073
+#: ../apps/settings/settings_app.py:1325
 msgid "at startup, report events not done"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2076
+#: ../apps/settings/settings_app.py:1327
 #, fuzzy
 msgid "report events"
 msgstr "sjöund"
 
-#: ../apps/settings/settings_app.py:2084
+#: ../apps/settings/settings_app.py:1332
 msgid "use the vocal synthesis"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2086 ../apps/settings/settings_app.py:2094
-#: ../apps/settings/settings_app.py:2102
+#: ../apps/settings/settings_app.py:1334 ../apps/settings/settings_app.py:1338
+#: ../apps/settings/settings_app.py:1342
 #, fuzzy
 msgid "braille learning"
 msgstr "blindraletursmál"
 
-#: ../apps/settings/settings_app.py:2087
+#: ../apps/settings/settings_app.py:1334
 #, fuzzy
 msgid "&vocal"
 msgstr "hljóðgjafi"
 
-#: ../apps/settings/settings_app.py:2092
+#: ../apps/settings/settings_app.py:1336
 msgid "keeping spaces"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2095
+#: ../apps/settings/settings_app.py:1338
 msgid "&spaces"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2100
+#: ../apps/settings/settings_app.py:1340
 msgid "allow the wrong hit"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2103
+#: ../apps/settings/settings_app.py:1342
 msgid "&allow all"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2109
+#: ../apps/settings/settings_app.py:1346
 msgid "keyboards"
 msgstr "lyklaborð"
 
-#: ../apps/settings/settings_app.py:2111
+#: ../apps/settings/settings_app.py:1347
 msgid "mode"
 msgstr "hamur"
 
-#: ../apps/settings/settings_app.py:2114
+#: ../apps/settings/settings_app.py:1349
 msgid "braille keyboard mode"
 msgstr "punktaleturslyklaborðshamur"
 
-#: ../apps/settings/settings_app.py:2122
+#: ../apps/settings/settings_app.py:1353
 msgid "braille keyboard b78"
 msgstr "blindraleturslyklaborð b78"
 
-#: ../apps/settings/settings_app.py:2127
+#: ../apps/settings/settings_app.py:1355
 msgid "invertion"
 msgstr "snúningur"
 
-#: ../apps/settings/settings_app.py:2130
+#: ../apps/settings/settings_app.py:1357
 msgid "inversion"
 msgstr "umsnúning"
 
-#: ../apps/settings/settings_app.py:2135 ../apps/settings/settings_app.py:2138
+#: ../apps/settings/settings_app.py:1359 ../apps/settings/settings_app.py:1361
 msgid "light press"
 msgstr "létt pressa"
 
-#: ../apps/settings/settings_app.py:2137 ../apps/settings/settings_app.py:2145
-#: ../apps/settings/settings_app.py:2153 ../apps/settings/settings_app.py:2161
-#: ../apps/settings/settings_app.py:2169
+#: ../apps/settings/settings_app.py:1361 ../apps/settings/settings_app.py:1365
+#: ../apps/settings/settings_app.py:1369 ../apps/settings/settings_app.py:1373
+#: ../apps/settings/settings_app.py:1377
 msgid "routing keyboard"
 msgstr "leiðarlyklaborð"
 
-#: ../apps/settings/settings_app.py:2143 ../apps/settings/settings_app.py:2146
+#: ../apps/settings/settings_app.py:1363 ../apps/settings/settings_app.py:1365
 msgid "strong press"
 msgstr "sterk pressa"
 
-#: ../apps/settings/settings_app.py:2151
+#: ../apps/settings/settings_app.py:1367
 msgid "consecutive press"
 msgstr "jöfn pressa"
 
-#: ../apps/settings/settings_app.py:2154
+#: ../apps/settings/settings_app.py:1369
 msgid "consecutive"
 msgstr "í röð"
 
-#: ../apps/settings/settings_app.py:2159
+#: ../apps/settings/settings_app.py:1371
 msgid "double light press"
 msgstr "tvöföld létt pressa"
 
-#: ../apps/settings/settings_app.py:2162
+#: ../apps/settings/settings_app.py:1373
 msgid "double light"
 msgstr "tvöföld létt"
 
-#: ../apps/settings/settings_app.py:2167
+#: ../apps/settings/settings_app.py:1375
 msgid "double strong press"
 msgstr "tvöföld sterk pressa"
 
-#: ../apps/settings/settings_app.py:2170
+#: ../apps/settings/settings_app.py:1377
 msgid "double strong"
 msgstr "tvöföld sterk"
 
-#: ../apps/settings/settings_app.py:2177 ../apps/settings/settings_app.py:2181
-#: ../apps/settings/settings_app.py:2190
+#: ../apps/settings/settings_app.py:1382 ../apps/settings/settings_app.py:1385
+#: ../apps/settings/settings_app.py:1390
 msgid "standby"
 msgstr "biðstaða"
 
-#: ../apps/settings/settings_app.py:2182 ../apps/internal.py:354
-#: ../apps/internal.py:523
+#: ../apps/settings/settings_app.py:1385 ../apps/internal.py:144
+#: ../apps/internal.py:283
 msgid "transport"
 msgstr "flytja"
 
-#: ../apps/settings/settings_app.py:2191 ../apps/internal.py:357
-#: ../apps/internal.py:524
+#: ../apps/settings/settings_app.py:1390 ../apps/internal.py:145
+#: ../apps/internal.py:284
 msgid "shutdown"
 msgstr "slökkva á"
 
-#: ../apps/settings/settings_app.py:2199 ../apps/settings/settings_app.py:2203
-#: ../apps/settings/settings_app.py:2222 ../apps/settings/settings_app.py:4024
+#: ../apps/settings/settings_app.py:1396 ../apps/settings/settings_app.py:1397
+#: ../apps/settings/settings_app.py:1406 ../apps/settings/settings_app.py:2723
 #, fuzzy
 msgid "update"
 msgstr "dagsetning"
 
-#: ../apps/settings/settings_app.py:2201
+#: ../apps/settings/settings_app.py:1397
 msgid "automatically check for updates"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2204
+#: ../apps/settings/settings_app.py:1397
 #, fuzzy
 msgid "&auto checking"
 msgstr "sjálfvirk skipting"
 
-#: ../apps/settings/settings_app.py:2215
+#: ../apps/settings/settings_app.py:1400
 msgid "update available"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2218 ../apps/settings/settings_app.py:4007
+#: ../apps/settings/settings_app.py:1402 ../apps/settings/settings_app.py:2707
 msgid "your b.note is up to date"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2220 ../apps/settings/settings_app.py:4840
+#: ../apps/settings/settings_app.py:1404 ../apps/settings/settings_app.py:3381
 #, fuzzy
 msgid "update source"
 msgstr "dagsetning"
 
-#: ../apps/settings/settings_app.py:2223
+#: ../apps/settings/settings_app.py:1407
 msgid "source"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2229
+#: ../apps/settings/settings_app.py:1413
 msgid "versions"
 msgstr "útgáfur"
 
-#: ../apps/settings/settings_app.py:2242
+#: ../apps/settings/settings_app.py:1425
 msgid "device type"
 msgstr "gerð tækis"
 
-#: ../apps/settings/settings_app.py:2246
+#: ../apps/settings/settings_app.py:1427
 msgid "applications"
 msgstr "forrit"
 
-#: ../apps/settings/settings_app.py:2248
+#: ../apps/settings/settings_app.py:1428
 #, fuzzy
 msgid "application versions"
 msgstr "forrit"
 
-#: ../apps/settings/settings_app.py:2249 ../apps/settings/settings_app.py:4889
+#: ../apps/settings/settings_app.py:1428 ../apps/settings/settings_app.py:3429
 #, fuzzy
 msgid "version"
 msgstr "útgáfur"
 
-#: ../apps/settings/settings_app.py:2255
+#: ../apps/settings/settings_app.py:1431
 msgid "firmware"
 msgstr "vélbúnaðar"
 
-#: ../apps/settings/settings_app.py:2260
+#: ../apps/settings/settings_app.py:1434
 msgid "sdcard"
 msgstr "sd kort"
 
-#: ../apps/settings/settings_app.py:2263
+#: ../apps/settings/settings_app.py:1435
 msgid "sdcard space"
 msgstr "sdkort pláss"
 
-#: ../apps/settings/settings_app.py:2267
+#: ../apps/settings/settings_app.py:1437
 msgid "generation 2"
 msgstr "kynslóð 2"
 
-#: ../apps/settings/settings_app.py:2635
+#: ../apps/settings/settings_app.py:1681
 msgid "Total: {:.1f} GiB, Used: {:.1f} GiB, Free: {:.1f} GiB"
 msgstr "Samtals: {:.1f} GiB, notað: {:.1f} GiB, laust: {:.1f} GiB"
 
-#: ../apps/settings/settings_app.py:2734
+#: ../apps/settings/settings_app.py:1759
 msgid "inactive"
 msgstr "óvirkur"
 
-#: ../apps/settings/settings_app.py:2737
+#: ../apps/settings/settings_app.py:1761
 msgid "discharging"
 msgstr "afhleðsla"
 
-#: ../apps/settings/settings_app.py:2740
+#: ../apps/settings/settings_app.py:1762
 msgid "charging"
 msgstr "hleðsla"
 
-#: ../apps/settings/settings_app.py:2743
+#: ../apps/settings/settings_app.py:1764
 msgid "fast charging"
 msgstr "hraðhleðsla"
 
-#: ../apps/settings/settings_app.py:2746
+#: ../apps/settings/settings_app.py:1766
 msgid "out of order"
 msgstr "bilað"
 
-#: ../apps/settings/settings_app.py:2756 ../apps/settings/settings_app.py:2856
-#: ../apps/settings/settings_app.py:3020 ../apps/settings/settings_app.py:3052
+#: ../apps/settings/settings_app.py:1771 ../apps/settings/settings_app.py:1841
+#: ../apps/settings/settings_app.py:1900 ../apps/settings/settings_app.py:1920
 msgid "standard"
 msgstr "staðlaður"
 
-#: ../apps/settings/settings_app.py:2759
+#: ../apps/settings/settings_app.py:1772
 msgid "light"
 msgstr "létt"
 
-#: ../apps/settings/settings_app.py:2762
+#: ../apps/settings/settings_app.py:1773
 msgid "basic"
 msgstr "grunn"
 
-#: ../apps/settings/settings_app.py:2765
+#: ../apps/settings/settings_app.py:1774
 msgid "basic light"
 msgstr "grunn létt"
 
-#: ../apps/settings/settings_app.py:2854
+#: ../apps/settings/settings_app.py:1840
 msgid "degree"
 msgstr "gráða"
 
-#: ../apps/settings/settings_app.py:2854
+#: ../apps/settings/settings_app.py:1840
 msgid "radian"
 msgstr "radían"
 
-#: ../apps/settings/settings_app.py:2857
+#: ../apps/settings/settings_app.py:1841
 msgid "scientific"
 msgstr "vísindaleg"
 
-#: ../apps/settings/settings_app.py:2860 ../apps/settings/settings_app.py:2894
+#: ../apps/settings/settings_app.py:1842 ../apps/settings/settings_app.py:1853
 msgid "expert"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2861 ../apps/settings/settings_app.py:2895
+#: ../apps/settings/settings_app.py:1842 ../apps/settings/settings_app.py:1853
 msgid "read"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2862 ../apps/settings/settings_app.py:2896
+#: ../apps/settings/settings_app.py:1842 ../apps/settings/settings_app.py:1853
 msgid "edit"
 msgstr "breyta"
 
-#: ../apps/settings/settings_app.py:2863 ../apps/settings/settings_app.py:2897
+#: ../apps/settings/settings_app.py:1843 ../apps/settings/settings_app.py:1854
 #, fuzzy
 msgid "listen"
 msgstr "&listi"
 
-#: ../apps/settings/settings_app.py:2866 ../apps/settings/settings_app.py:2900
-#: ../apps/settings/settings_app.py:2928 ../apps/settings/settings_app.py:2992
+#: ../apps/settings/settings_app.py:1844 ../apps/settings/settings_app.py:1855
+#: ../apps/settings/settings_app.py:1864 ../apps/settings/settings_app.py:1889
 #: ../apps/skeleton/skeleton_app.py:168
 msgid "dot 8"
 msgstr "punktur 8"
 
-#: ../apps/settings/settings_app.py:2867 ../apps/settings/settings_app.py:2901
-#: ../apps/settings/settings_app.py:2929 ../apps/settings/settings_app.py:2993
+#: ../apps/settings/settings_app.py:1844 ../apps/settings/settings_app.py:1855
+#: ../apps/settings/settings_app.py:1864 ../apps/settings/settings_app.py:1889
 #: ../apps/edt/editor_app.py:186 ../apps/edt/editor_app.py:205
 #: ../apps/skeleton/skeleton_app.py:169
 msgid "grade 1"
 msgstr "námstig 1"
 
-#: ../apps/settings/settings_app.py:2870 ../apps/settings/settings_app.py:2904
+#: ../apps/settings/settings_app.py:1845 ../apps/settings/settings_app.py:1856
 msgid "8 dots"
 msgstr "8 punktar"
 
-#: ../apps/settings/settings_app.py:2871 ../apps/settings/settings_app.py:2905
+#: ../apps/settings/settings_app.py:1845 ../apps/settings/settings_app.py:1856
 msgid "6 dots"
 msgstr "6 punktar"
 
-#: ../apps/settings/settings_app.py:2872 ../apps/settings/settings_app.py:2906
+#: ../apps/settings/settings_app.py:1846 ../apps/settings/settings_app.py:1857
 msgid "6 dots with group"
 msgstr "6 punktar með hóp"
 
-#: ../apps/settings/settings_app.py:2876 ../apps/settings/settings_app.py:2910
+#: ../apps/settings/settings_app.py:1847 ../apps/settings/settings_app.py:1858
 msgid "abbreviation"
 msgstr "skammstöfun"
 
-#: ../apps/settings/settings_app.py:2879 ../apps/settings/settings_app.py:2913
+#: ../apps/settings/settings_app.py:1848 ../apps/settings/settings_app.py:1859
 #, fuzzy
 msgid "by section"
 msgstr "bxml kafla"
 
-#: ../apps/settings/settings_app.py:2880 ../apps/settings/settings_app.py:2914
+#: ../apps/settings/settings_app.py:1848 ../apps/settings/settings_app.py:1859
 #, fuzzy
 msgid "by part"
 msgstr "bxml hlutar"
 
-#: ../apps/settings/settings_app.py:2883 ../apps/settings/settings_app.py:2917
+#: ../apps/settings/settings_app.py:1849 ../apps/settings/settings_app.py:1860
 msgid "total part"
 msgstr "heildarhluti"
 
-#: ../apps/settings/settings_app.py:2884 ../apps/settings/settings_app.py:2918
+#: ../apps/settings/settings_app.py:1849 ../apps/settings/settings_app.py:1860
 msgid "system"
 msgstr "kerfi"
 
-#: ../apps/settings/settings_app.py:2885 ../apps/settings/settings_app.py:2919
+#: ../apps/settings/settings_app.py:1849 ../apps/settings/settings_app.py:1860
 msgid "number"
 msgstr "númer"
 
-#: ../apps/settings/settings_app.py:2889 ../apps/settings/settings_app.py:2923
+#: ../apps/settings/settings_app.py:1850 ../apps/settings/settings_app.py:1861
 msgid "after each note"
 msgstr "eftir hverja nótu"
 
-#: ../apps/settings/settings_app.py:2890 ../apps/settings/settings_app.py:2924
+#: ../apps/settings/settings_app.py:1851 ../apps/settings/settings_app.py:1862
 msgid "before each section"
 msgstr "á undan hverjum kafla"
 
-#: ../apps/settings/settings_app.py:2891 ../apps/settings/settings_app.py:2925
+#: ../apps/settings/settings_app.py:1852 ../apps/settings/settings_app.py:1863
 msgid "after each section"
 msgstr "eftir hvern kafla"
 
-#: ../apps/settings/settings_app.py:2930 ../apps/settings/settings_app.py:2994
+#: ../apps/settings/settings_app.py:1864 ../apps/settings/settings_app.py:1889
 #: ../apps/edt/editor_app.py:186 ../apps/edt/editor_app.py:205
 #: ../apps/skeleton/skeleton_app.py:170
 msgid "grade 2"
 msgstr "námstig 2"
 
-#: ../apps/settings/settings_app.py:2933 ../apps/settings/settings_app.py:2942
-#: ../apps/settings/settings_app.py:2947 ../apps/settings/settings_app.py:2952
-#: ../apps/settings/settings_app.py:2957 ../apps/settings/settings_app.py:2962
-#: ../apps/settings/settings_app.py:2967 ../apps/settings/settings_app.py:2972
-#: ../apps/settings/settings_app.py:2977 ../apps/settings/settings_app.py:2982
-#: ../apps/settings/settings_app.py:2987
+#: ../apps/settings/settings_app.py:1865 ../apps/settings/settings_app.py:1869
+#: ../apps/settings/settings_app.py:1871 ../apps/settings/settings_app.py:1873
+#: ../apps/settings/settings_app.py:1875 ../apps/settings/settings_app.py:1877
+#: ../apps/settings/settings_app.py:1879 ../apps/settings/settings_app.py:1881
+#: ../apps/settings/settings_app.py:1883 ../apps/settings/settings_app.py:1885
+#: ../apps/settings/settings_app.py:1887
 #, fuzzy
 msgid "invisible"
 msgstr "sýnilegt"
 
-#: ../apps/settings/settings_app.py:2934 ../apps/settings/settings_app.py:2938
-#: ../apps/settings/settings_app.py:2943 ../apps/settings/settings_app.py:2948
-#: ../apps/settings/settings_app.py:2953 ../apps/settings/settings_app.py:2958
-#: ../apps/settings/settings_app.py:2963 ../apps/settings/settings_app.py:2968
-#: ../apps/settings/settings_app.py:2973 ../apps/settings/settings_app.py:2978
-#: ../apps/settings/settings_app.py:2983 ../apps/settings/settings_app.py:2988
+#: ../apps/settings/settings_app.py:1865 ../apps/settings/settings_app.py:1867
+#: ../apps/settings/settings_app.py:1869 ../apps/settings/settings_app.py:1871
+#: ../apps/settings/settings_app.py:1873 ../apps/settings/settings_app.py:1875
+#: ../apps/settings/settings_app.py:1877 ../apps/settings/settings_app.py:1879
+#: ../apps/settings/settings_app.py:1881 ../apps/settings/settings_app.py:1883
+#: ../apps/settings/settings_app.py:1885 ../apps/settings/settings_app.py:1887
 msgid "in main apps menu"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:2935 ../apps/settings/settings_app.py:2939
-#: ../apps/settings/settings_app.py:2944 ../apps/settings/settings_app.py:2949
-#: ../apps/settings/settings_app.py:2954 ../apps/settings/settings_app.py:2959
-#: ../apps/settings/settings_app.py:2964 ../apps/settings/settings_app.py:2969
-#: ../apps/settings/settings_app.py:2974 ../apps/settings/settings_app.py:2979
-#: ../apps/settings/settings_app.py:2984 ../apps/settings/settings_app.py:2989
+#: ../apps/settings/settings_app.py:1866 ../apps/settings/settings_app.py:1868
+#: ../apps/settings/settings_app.py:1870 ../apps/settings/settings_app.py:1872
+#: ../apps/settings/settings_app.py:1874 ../apps/settings/settings_app.py:1876
+#: ../apps/settings/settings_app.py:1878 ../apps/settings/settings_app.py:1880
+#: ../apps/settings/settings_app.py:1882 ../apps/settings/settings_app.py:1884
+#: ../apps/settings/settings_app.py:1886 ../apps/settings/settings_app.py:1888
 #, fuzzy
 msgid "in more apps menu"
 msgstr "&hunsa atvik"
 
-#: ../apps/settings/settings_app.py:2997
+#: ../apps/settings/settings_app.py:1890
 msgid "normal"
 msgstr "eðlilegt"
 
-#: ../apps/settings/settings_app.py:2998
+#: ../apps/settings/settings_app.py:1890
 msgid "significative"
 msgstr "marktæk"
 
-#: ../apps/settings/settings_app.py:3003 ../apps/settings/settings_app.py:3011
+#: ../apps/settings/settings_app.py:1893 ../apps/settings/settings_app.py:1896
 msgid "send to screen reader"
 msgstr "senda til skjálesara"
 
-#: ../apps/settings/settings_app.py:3006 ../apps/settings/settings_app.py:3014
+#: ../apps/settings/settings_app.py:1894 ../apps/settings/settings_app.py:1897
 msgid "active"
 msgstr "virkur"
 
-#: ../apps/settings/settings_app.py:3022
+#: ../apps/settings/settings_app.py:1901
 msgid "unimanual1"
 msgstr "unihandbók1"
 
-#: ../apps/settings/settings_app.py:3025
+#: ../apps/settings/settings_app.py:1902
 msgid "unimanual2"
 msgstr "unihandbók2"
 
-#: ../apps/settings/settings_app.py:3028
+#: ../apps/settings/settings_app.py:1903
 msgid "unimanual3"
 msgstr "unihandbók3"
 
-#: ../apps/settings/settings_app.py:3031
+#: ../apps/settings/settings_app.py:1904
 msgid "unimanual4"
 msgstr "unihandbók4"
 
-#: ../apps/settings/settings_app.py:3036
+#: ../apps/settings/settings_app.py:1906
 msgid "character"
 msgstr "stafir"
 
-#: ../apps/settings/settings_app.py:3037
+#: ../apps/settings/settings_app.py:1907
 msgid "function"
 msgstr "aðgerð"
 
-#: ../apps/settings/settings_app.py:3053 ../apps/agenda/agenda_app.py:45
+#: ../apps/settings/settings_app.py:1920 ../apps/agenda/agenda_app.py:42
 msgid "not done"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3054 ../apps/agenda/agenda_app.py:1840
-#: ../apps/agenda/agenda_app.py:1894
+#: ../apps/settings/settings_app.py:1921 ../apps/agenda/agenda_app.py:1457
+#: ../apps/agenda/agenda_app.py:1511
 msgid "today"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3055 ../apps/agenda/agenda_app.py:1910
+#: ../apps/settings/settings_app.py:1921 ../apps/agenda/agenda_app.py:1523
 #, fuzzy
 msgid "calendar"
 msgstr "staðlaður"
 
-#: ../apps/settings/settings_app.py:3059
+#: ../apps/settings/settings_app.py:1922
 msgid "for the same day"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3060
+#: ../apps/settings/settings_app.py:1922
 msgid "for the next day"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3061
+#: ../apps/settings/settings_app.py:1923
 msgid "for the same day and the next day"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3064
+#: ../apps/settings/settings_app.py:1924
 msgid "auto"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3065
+#: ../apps/settings/settings_app.py:1924
 msgid "ask"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3081
+#: ../apps/settings/settings_app.py:1937
 msgid "none"
 msgstr "enginn"
 
-#: ../apps/settings/settings_app.py:3083
+#: ../apps/settings/settings_app.py:1938
 msgid "backward-forward"
 msgstr "aftur á bak-áfram"
 
-#: ../apps/settings/settings_app.py:3085
+#: ../apps/settings/settings_app.py:1939
 msgid "click"
 msgstr "smella"
 
-#: ../apps/settings/settings_app.py:3086
+#: ../apps/settings/settings_app.py:1940
 msgid "double click"
 msgstr "tvísmella"
 
-#: ../apps/settings/settings_app.py:3087
+#: ../apps/settings/settings_app.py:1941
 msgid "windows key"
 msgstr "windows takki"
 
-#: ../apps/settings/settings_app.py:3088
+#: ../apps/settings/settings_app.py:1942
 msgid "context menu"
 msgstr "samhengisvalmynd"
 
-#: ../apps/settings/settings_app.py:3151
+#: ../apps/settings/settings_app.py:1985
 msgid "auto switch"
 msgstr "sjálfvirk skipting"
 
-#: ../apps/settings/settings_app.py:3151
+#: ../apps/settings/settings_app.py:1985
 msgid "do nothing"
 msgstr "gera ekkert"
 
-#: ../apps/settings/settings_app.py:3282 ../apps/settings/settings_app.py:3507
+#: ../apps/settings/settings_app.py:2072 ../apps/settings/settings_app.py:2278
 msgid "&remove"
 msgstr "&fjarlægja"
 
-#: ../apps/settings/settings_app.py:3290
+#: ../apps/settings/settings_app.py:2078
 #, fuzzy
 msgid "bluetooth adapter is not powered"
 msgstr "bluetooth"
 
-#: ../apps/settings/settings_app.py:3354
+#: ../apps/settings/settings_app.py:2138
 msgid "bnote must restart for the name change to take effect."
 msgstr "bnote verður að endurræsast til að nafnbreytingin taki gildi."
 
-#: ../apps/settings/settings_app.py:3361 ../apps/settings/settings_app.py:5048
+#: ../apps/settings/settings_app.py:2146 ../apps/settings/settings_app.py:3561
 #: ../apps/fman/file_manager_app.py:2825
 msgid "restarting..."
 msgstr "endurræsing..."
 
-#: ../apps/settings/settings_app.py:3389
+#: ../apps/settings/settings_app.py:2174
 #, fuzzy
 msgid "not connected"
 msgstr "&tengdur"
 
-#: ../apps/settings/settings_app.py:3391 ../apps/settings/settings_app.py:3408
+#: ../apps/settings/settings_app.py:2176 ../apps/settings/settings_app.py:2193
 msgid "power off"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3461 ../apps/settings/settings_app.py:3546
+#: ../apps/settings/settings_app.py:2242 ../apps/settings/settings_app.py:2311
 #, fuzzy
 msgid "command failed"
 msgstr "ný skrá"
 
-#: ../apps/settings/settings_app.py:3492 ../apps/settings/settings_app.py:3586
-#: ../apps/settings/settings_app.py:3629
+#: ../apps/settings/settings_app.py:2269 ../apps/settings/settings_app.py:2343
+#: ../apps/settings/settings_app.py:2382
 msgid "ssid"
 msgstr "ssid"
 
-#: ../apps/settings/settings_app.py:3503
+#: ../apps/settings/settings_app.py:2277
 msgid "&set first"
 msgstr "&setja fyrst"
 
-#: ../apps/settings/settings_app.py:3511 ../apps/settings/settings_app.py:3589
+#: ../apps/settings/settings_app.py:2279 ../apps/settings/settings_app.py:2349
 #: ../apps/media/mp3_app.py:125
 msgid "&add"
 msgstr "&bæta"
 
-#: ../apps/settings/settings_app.py:3520
+#: ../apps/settings/settings_app.py:2286
 msgid "wifi adapter is not powered"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:3564
+#: ../apps/settings/settings_app.py:2327
 #, fuzzy
 msgid "deletion failed"
 msgstr "eyða &öllu"
 
-#: ../apps/settings/settings_app.py:3584
+#: ../apps/settings/settings_app.py:2342
 msgid "&scan"
 msgstr "&skanna"
 
-#: ../apps/settings/settings_app.py:3587 ../apps/fman/file_manager_app.py:1258
+#: ../apps/settings/settings_app.py:2346 ../apps/fman/file_manager_app.py:1258
 msgid "password"
 msgstr "lykilorð"
 
-#: ../apps/settings/settings_app.py:3603
+#: ../apps/settings/settings_app.py:2359
 msgid "scanning..."
 msgstr "skanna..."
 
-#: ../apps/settings/settings_app.py:3675
+#: ../apps/settings/settings_app.py:2421
 #, fuzzy
 msgid "add failed"
 msgstr "bæta við útvarpi"
 
-#: ../apps/settings/settings_app.py:3709
+#: ../apps/settings/settings_app.py:2450
 msgid "hours"
 msgstr "klukkustundir"
 
-#: ../apps/settings/settings_app.py:3711
+#: ../apps/settings/settings_app.py:2453
 msgid "minutes"
 msgstr "mínútur"
 
-#: ../apps/settings/settings_app.py:3715
+#: ../apps/settings/settings_app.py:2456
 msgid "seconds"
 msgstr "sekúndur"
 
-#: ../apps/settings/settings_app.py:3734 ../apps/settings/settings_app.py:3748
-#: ../apps/settings/settings_app.py:3802 ../apps/settings/settings_app.py:3816
-#: ../apps/settings/settings_app.py:4285 ../apps/settings/settings_app.py:4385
-#: ../apps/settings/settings_app.py:4412
+#: ../apps/settings/settings_app.py:2475 ../apps/settings/settings_app.py:2489
+#: ../apps/settings/settings_app.py:2542 ../apps/settings/settings_app.py:2556
+#: ../apps/settings/settings_app.py:2949 ../apps/settings/settings_app.py:3029
+#: ../apps/settings/settings_app.py:3054
 msgid "value not valid..."
 msgstr "gildi ekki gilt..."
 
-#: ../apps/settings/settings_app.py:3778
+#: ../apps/settings/settings_app.py:2517
 msgid "day"
 msgstr "dagur"
 
-#: ../apps/settings/settings_app.py:3780
+#: ../apps/settings/settings_app.py:2520
 msgid "month"
 msgstr "mánuður"
 
-#: ../apps/settings/settings_app.py:3784
+#: ../apps/settings/settings_app.py:2523
 msgid "year"
 msgstr "ár"
 
-#: ../apps/settings/settings_app.py:3993 ../apps/settings/settings_app.py:4089
+#: ../apps/settings/settings_app.py:2695 ../apps/settings/settings_app.py:2781
 msgid "searching update..."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:4012 ../apps/settings/settings_app.py:4097
+#: ../apps/settings/settings_app.py:2712 ../apps/settings/settings_app.py:2789
 msgid "connexion failed, try again."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:4021
+#: ../apps/settings/settings_app.py:2720
 msgid "the version {} of applications is available. Do you want to install it?"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:4038 ../apps/fman/file_manager_app.py:2771
+#: ../apps/settings/settings_app.py:2737 ../apps/fman/file_manager_app.py:2771
 msgid "set the date and time before updating bnote."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:4043 ../apps/settings/settings_app.py:4139
+#: ../apps/settings/settings_app.py:2742 ../apps/settings/settings_app.py:2831
 #, fuzzy
 msgid "downloading..."
 msgstr "lestur..."
 
-#: ../apps/settings/settings_app.py:4072 ../apps/fman/file_manager_app.py:2800
+#: ../apps/settings/settings_app.py:2764 ../apps/fman/file_manager_app.py:2800
 #, fuzzy
 msgid "unable to update."
 msgstr "Viltu setja upp uppfærslu?"
 
-#: ../apps/settings/settings_app.py:4085 ../apps/settings/settings_app.py:4940
+#: ../apps/settings/settings_app.py:2777 ../apps/settings/settings_app.py:3474
 msgid "install done, restart new version..."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:4103
+#: ../apps/settings/settings_app.py:2795
 msgid "No version available through this source."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:4111
+#: ../apps/settings/settings_app.py:2803
 #, fuzzy
 msgid "version history"
 msgstr "útgáfur"
 
-#: ../apps/settings/settings_app.py:4114
+#: ../apps/settings/settings_app.py:2806
 #, fuzzy
 msgid "&select a version to install"
 msgstr "veldu &breytingu á nótu"
 
-#: ../apps/settings/settings_app.py:4118
+#: ../apps/settings/settings_app.py:2810
 #, fuzzy
 msgid "&install"
 msgstr "set&ja inn"
 
-#: ../apps/settings/settings_app.py:4131
+#: ../apps/settings/settings_app.py:2823
 msgid "this version is already installed"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:4149
+#: ../apps/settings/settings_app.py:2841
 #, fuzzy
 msgid "device: {}"
 msgstr "gerð tækis"
 
-#: ../apps/settings/settings_app.py:4150
+#: ../apps/settings/settings_app.py:2842
 msgid "serial number: {}"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:4153
+#: ../apps/settings/settings_app.py:2843
 msgid "subtype: {}"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:4158
+#: ../apps/settings/settings_app.py:2844
 #, fuzzy
 msgid "line length: {}"
 msgstr "línulengd"
 
-#: ../apps/settings/settings_app.py:4163
+#: ../apps/settings/settings_app.py:2847
 #, fuzzy
 msgid "option: esysuite"
 msgstr "esysuite"
 
-#: ../apps/settings/settings_app.py:4165
+#: ../apps/settings/settings_app.py:2849
 #, fuzzy
 msgid "applications: {}"
 msgstr "forrit"
 
-#: ../apps/settings/settings_app.py:4166
+#: ../apps/settings/settings_app.py:2850
 #, fuzzy
 msgid "firmware: {}"
 msgstr "vélbúnaðar"
 
-#: ../apps/settings/settings_app.py:4169
+#: ../apps/settings/settings_app.py:2851
 #, fuzzy
 msgid "sdcard: {}"
 msgstr "sd kort"
 
-#: ../apps/settings/settings_app.py:4171
+#: ../apps/settings/settings_app.py:2853
 msgid ""
 "{}\n"
 "{}\n"
@@ -2970,147 +2968,142 @@ msgid ""
 "Website: {}"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:4195
-#, fuzzy
-msgid "&switch version"
-msgstr "umsnúning"
-
-#: ../apps/settings/settings_app.py:4205
+#: ../apps/settings/settings_app.py:2875
 msgid "do you want to reset parameters?"
 msgstr "viltu endurstilla breytur?"
 
-#: ../apps/settings/settings_app.py:4289
+#: ../apps/settings/settings_app.py:2952
 msgid "value not valid. It must be between {} and {}."
 msgstr "gildi ekki gilt. Það verður að vera á milli {} og {}."
 
-#: ../apps/settings/settings_app.py:4842
+#: ../apps/settings/settings_app.py:3383
 msgid "source &url"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:4847
+#: ../apps/settings/settings_app.py:3388
 #, fuzzy
 msgid "&set default"
 msgstr "sjálfgefið"
 
-#: ../apps/settings/settings_app.py:4879
+#: ../apps/settings/settings_app.py:3420
 #, fuzzy
 msgid "source not valid..."
 msgstr "gildi ekki gilt..."
 
-#: ../apps/settings/settings_app.py:4886
+#: ../apps/settings/settings_app.py:3427
 #, fuzzy
 msgid "bnote versions"
 msgstr "útgáfur"
 
-#: ../apps/settings/settings_app.py:4895
+#: ../apps/settings/settings_app.py:3433
 msgid "&switch to"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:4899 ../apps/settings/settings_app.py:5003
-#: ../apps/timer/timer_app.py:188 ../apps/agenda/agenda_app.py:90
+#: ../apps/settings/settings_app.py:3434 ../apps/settings/settings_app.py:3522
+#: ../apps/timer/timer_app.py:188 ../apps/agenda/agenda_app.py:72
 #: ../apps/games/mines_app.py:106 ../apps/games/master_mind_app.py:105
 #: ../apps/media/mp3_app.py:114 ../apps/media/mp3_app.py:688
 msgid "&delete"
 msgstr "&eyða"
 
-#: ../apps/settings/settings_app.py:4919
+#: ../apps/settings/settings_app.py:3453
 msgid "bnote version cannot be deleted."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:4924
+#: ../apps/settings/settings_app.py:3458
 msgid "bnote version is the default one and cannot be deleted."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:4926
+#: ../apps/settings/settings_app.py:3460
 #, fuzzy
 msgid "bnote version deleted."
 msgstr "&bnote sýnileg"
 
-#: ../apps/settings/settings_app.py:4928
+#: ../apps/settings/settings_app.py:3462
 msgid "deletion failed."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:4949
+#: ../apps/settings/settings_app.py:3480
 #, fuzzy
 msgid "export settings"
 msgstr "stillingar"
 
-#: ../apps/settings/settings_app.py:4951 ../apps/skeleton/skeleton_app.py:121
-#: ../apps/agenda/agenda_app.py:698 ../apps/fman/file_manager_app.py:1036
+#: ../apps/settings/settings_app.py:3482 ../apps/skeleton/skeleton_app.py:121
+#: ../apps/agenda/agenda_app.py:574 ../apps/fman/file_manager_app.py:1036
 #, fuzzy
 msgid "&file name"
 msgstr "&endurnefna"
 
-#: ../apps/settings/settings_app.py:4969
+#: ../apps/settings/settings_app.py:3497
 #, fuzzy
 msgid "the settings file already exists. Do you want to replace it?"
 msgstr "{} er þegar til. viltu skipta út núverandi skrá?"
 
-#: ../apps/settings/settings_app.py:4993
+#: ../apps/settings/settings_app.py:3517
 #, fuzzy
 msgid "import a settings file"
 msgstr "ný skrá"
 
-#: ../apps/settings/settings_app.py:4996
+#: ../apps/settings/settings_app.py:3519
 #, fuzzy
 msgid "setting"
 msgstr "stillingar"
 
-#: ../apps/settings/settings_app.py:5001 ../apps/agenda/agenda_app.py:661
+#: ../apps/settings/settings_app.py:3521 ../apps/agenda/agenda_app.py:540
 #, fuzzy
 msgid "&import"
 msgstr "&útflutningur"
 
-#: ../apps/settings/settings_app.py:5025
+#: ../apps/settings/settings_app.py:3543 ../apps/fman/file_manager_app.py:2736
 msgid ""
-"this file will be replace the existing settings file. Do you want to "
-"continue? B.note will be restarted."
+"this file will be replace the existing settings file, do you want to "
+"continue? B;note will be restarted."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:5043 ../apps/fman/file_manager_app.py:2820
+#: ../apps/settings/settings_app.py:3557 ../apps/fman/file_manager_app.py:2820
 msgid "failed to import the file, check the source and try again."
 msgstr ""
 
-#: ../apps/internal.py:74
+#: ../apps/internal.py:72
 msgid "usb-&a"
 msgstr "usb-&a"
 
-#: ../apps/internal.py:77
+#: ../apps/internal.py:73
 msgid "usb-&b"
 msgstr "usb-&b"
 
-#: ../apps/internal.py:361 ../apps/internal.py:509
+#: ../apps/internal.py:148 ../apps/internal.py:276
 msgid "applications-"
 msgstr "forrit-"
 
-#: ../apps/internal.py:487
+#: ../apps/internal.py:254
 #, fuzzy
 msgid "&word game"
 msgstr "&orð"
 
-#: ../apps/internal.py:488
+#: ../apps/internal.py:255
 #, fuzzy
 msgid "mat&h game"
 msgstr "stærð&fræði"
 
-#: ../apps/internal.py:490
+#: ../apps/internal.py:257
 #, fuzzy
 msgid "mas&termind"
 msgstr "snillingur"
 
-#: ../apps/internal.py:491
+#: ../apps/internal.py:258
 msgid "s&keleton"
 msgstr "b&einagrind"
 
-#: ../apps/internal.py:492
+#: ../apps/internal.py:259
 msgid "m&ore apps..."
 msgstr ""
 
-#: ../apps/internal.py:540
+#: ../apps/internal.py:299
 msgid "usb_&a"
 msgstr "usb_&a"
 
-#: ../apps/internal.py:548
+#: ../apps/internal.py:303
 msgid "usb_&b"
 msgstr "usb_&b"
 
@@ -3480,8 +3473,8 @@ msgstr "lí&ma"
 
 #: ../apps/edt/editor_base_app.py:210 ../apps/edt/editor_base_app.py:213
 #: ../apps/edt/editor_base_app.py:235 ../apps/edt/editor_base_app.py:238
-#: ../apps/agenda/agenda_app.py:130 ../apps/agenda/agenda_app.py:609
-#: ../apps/agenda/agenda_app.py:628 ../apps/fman/file_manager_app.py:202
+#: ../apps/agenda/agenda_app.py:95 ../apps/agenda/agenda_app.py:494
+#: ../apps/agenda/agenda_app.py:507 ../apps/fman/file_manager_app.py:202
 #: ../apps/fman/file_manager_app.py:256 ../apps/fman/file_manager_app.py:1042
 msgid "fi&nd"
 msgstr "fi&nna"
@@ -3513,7 +3506,7 @@ msgstr "skipta út og fyr&ri"
 msgid "replace &all"
 msgstr "skipta út &öllu"
 
-#: ../apps/edt/editor_base_app.py:284 ../apps/agenda/agenda_app.py:108
+#: ../apps/edt/editor_base_app.py:284 ../apps/agenda/agenda_app.py:82
 #: ../apps/fman/file_manager_app.py:311
 msgid "&goto"
 msgstr "fara &til"
@@ -3606,12 +3599,12 @@ msgid "the file is not completely read"
 msgstr "uppfærsluskráin er skemmd."
 
 #: ../apps/edt/editor_base_app.py:1072 ../apps/edt/editor_base_app.py:1075
-#: ../apps/edt/editor_base_app.py:1118 ../apps/agenda/agenda_app.py:617
+#: ../apps/edt/editor_base_app.py:1118 ../apps/agenda/agenda_app.py:502
 msgid "find"
 msgstr "finna"
 
 #: ../apps/edt/editor_base_app.py:1079 ../apps/edt/editor_base_app.py:1126
-#: ../apps/agenda/agenda_app.py:705 ../apps/media/mp3_app.py:179
+#: ../apps/agenda/agenda_app.py:576 ../apps/media/mp3_app.py:179
 msgid "&next"
 msgstr "&næst"
 
@@ -4413,298 +4406,298 @@ msgstr ""
 msgid "bluetooth listening"
 msgstr "bluetooth hlustun"
 
-#: ../apps/agenda/agenda_app.py:46
+#: ../apps/agenda/agenda_app.py:43
 #, fuzzy
 msgid "done"
 msgstr "&tónlistar punktar"
 
-#: ../apps/agenda/agenda_app.py:71
+#: ../apps/agenda/agenda_app.py:65
 #, fuzzy
 msgid "&event"
 msgstr "sjöund"
 
-#: ../apps/agenda/agenda_app.py:75 ../apps/games/mines_app.py:69
+#: ../apps/agenda/agenda_app.py:67 ../apps/games/mines_app.py:69
 #: ../apps/games/master_mind_app.py:68
 msgid "&new"
 msgstr "&nýr"
 
-#: ../apps/agenda/agenda_app.py:81
+#: ../apps/agenda/agenda_app.py:69
 #, fuzzy
 msgid "&modify"
 msgstr "&hamur"
 
-#: ../apps/agenda/agenda_app.py:84
+#: ../apps/agenda/agenda_app.py:70
 msgid "&change status"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:96
+#: ../apps/agenda/agenda_app.py:75
 msgid "delete e&xpired events"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:102
+#: ../apps/agenda/agenda_app.py:78
 msgid "delete &completed events"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:112
+#: ../apps/agenda/agenda_app.py:84
 #, fuzzy
 msgid "&previous week"
 msgstr "&fyrri"
 
-#: ../apps/agenda/agenda_app.py:118
+#: ../apps/agenda/agenda_app.py:87
 #, fuzzy
 msgid "&next week"
 msgstr "&næst"
 
-#: ../apps/agenda/agenda_app.py:124
+#: ../apps/agenda/agenda_app.py:90
 #, fuzzy
 msgid "previous d&ay"
 msgstr "&fyrri"
 
-#: ../apps/agenda/agenda_app.py:126
+#: ../apps/agenda/agenda_app.py:91
 msgid "next &day"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:133
+#: ../apps/agenda/agenda_app.py:97
 #, fuzzy
 msgid "find &date"
 msgstr "&dagsetning"
 
-#: ../apps/agenda/agenda_app.py:139
+#: ../apps/agenda/agenda_app.py:99
 #, fuzzy
 msgid "find in a&genda"
 msgstr "&dagsetning"
 
-#: ../apps/agenda/agenda_app.py:147
+#: ../apps/agenda/agenda_app.py:104
 #, fuzzy
 msgid "agenda &gestion"
 msgstr "enda &val"
 
-#: ../apps/agenda/agenda_app.py:150
+#: ../apps/agenda/agenda_app.py:106
 msgid "&import agenda file"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:156
+#: ../apps/agenda/agenda_app.py:108
 #, fuzzy
 msgid "&export agenda file"
 msgstr "ný skrá"
 
-#: ../apps/agenda/agenda_app.py:162
+#: ../apps/agenda/agenda_app.py:110
 #, fuzzy
 msgid "e&mpty agenda"
 msgstr "tóm rök"
 
-#: ../apps/agenda/agenda_app.py:167
+#: ../apps/agenda/agenda_app.py:113
 #, fuzzy
 msgid "a&bout"
 msgstr "&um"
 
-#: ../apps/agenda/agenda_app.py:255
+#: ../apps/agenda/agenda_app.py:197
 msgid ""
 "your agenda file is corrupt. You can copy the file in your document folder, "
 "but app can't open it. What do you want to do?"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:258
+#: ../apps/agenda/agenda_app.py:199
 msgid "&save and delete file"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:259
+#: ../apps/agenda/agenda_app.py:200
 msgid "&erase agenda"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:269
+#: ../apps/agenda/agenda_app.py:209
 msgid "agenda saving"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:277
+#: ../apps/agenda/agenda_app.py:213
 msgid "the file has been correctly copy and the agenda has clear"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:450
+#: ../apps/agenda/agenda_app.py:344
 msgid "from today's ({})"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:451
+#: ../apps/agenda/agenda_app.py:344
 msgid "for today ({})"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:452
+#: ../apps/agenda/agenda_app.py:344
 #, fuzzy
 msgid "not done ({})"
 msgstr "&tónlistar punktar"
 
-#: ../apps/agenda/agenda_app.py:453
+#: ../apps/agenda/agenda_app.py:344
 msgid "all agenda ({})"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:454
+#: ../apps/agenda/agenda_app.py:344
 #, fuzzy
 msgid "calendar {}"
 msgstr "staðlaður"
 
-#: ../apps/agenda/agenda_app.py:490
+#: ../apps/agenda/agenda_app.py:375
 msgid "title of event"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:492
+#: ../apps/agenda/agenda_app.py:377
 #, fuzzy
 msgid "content of event"
 msgstr "samhengisvalmynd"
 
-#: ../apps/agenda/agenda_app.py:494
+#: ../apps/agenda/agenda_app.py:379
 #, fuzzy
 msgid "new event"
 msgstr "sjöund"
 
-#: ../apps/agenda/agenda_app.py:497 ../apps/agenda/agenda_app.py:548
-#: ../apps/agenda/agenda_app.py:606
+#: ../apps/agenda/agenda_app.py:382 ../apps/agenda/agenda_app.py:433
+#: ../apps/agenda/agenda_app.py:491
 msgid "&day"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:498 ../apps/agenda/agenda_app.py:549
-#: ../apps/agenda/agenda_app.py:607
+#: ../apps/agenda/agenda_app.py:383 ../apps/agenda/agenda_app.py:434
+#: ../apps/agenda/agenda_app.py:492
 #, fuzzy
 msgid "&month"
 msgstr "mánuður"
 
-#: ../apps/agenda/agenda_app.py:499 ../apps/agenda/agenda_app.py:550
-#: ../apps/agenda/agenda_app.py:608
+#: ../apps/agenda/agenda_app.py:384 ../apps/agenda/agenda_app.py:435
+#: ../apps/agenda/agenda_app.py:493
 #, fuzzy
 msgid "&year"
 msgstr "ár"
 
-#: ../apps/agenda/agenda_app.py:501 ../apps/agenda/agenda_app.py:551
+#: ../apps/agenda/agenda_app.py:386 ../apps/agenda/agenda_app.py:436
 msgid "&subject"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:502 ../apps/agenda/agenda_app.py:552
+#: ../apps/agenda/agenda_app.py:387 ../apps/agenda/agenda_app.py:437
 msgid "co&ntent"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:512
+#: ../apps/agenda/agenda_app.py:397
 #, fuzzy
 msgid "do you really want to delete this event of your agenda?"
 msgstr "viltu endurstilla breytur?"
 
-#: ../apps/agenda/agenda_app.py:546
+#: ../apps/agenda/agenda_app.py:431
 #, fuzzy
 msgid "modify event"
 msgstr "&hamur"
 
-#: ../apps/agenda/agenda_app.py:553
+#: ../apps/agenda/agenda_app.py:438
 msgid "&is done"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:563
+#: ../apps/agenda/agenda_app.py:448
 #, fuzzy
 msgid "do you really want to erase these events?"
 msgstr "viltu endurstilla breytur?"
 
-#: ../apps/agenda/agenda_app.py:574
+#: ../apps/agenda/agenda_app.py:459
 #, fuzzy
 msgid "do you really want to delete the done events?"
 msgstr "viltu endurstilla breytur?"
 
-#: ../apps/agenda/agenda_app.py:604
+#: ../apps/agenda/agenda_app.py:489
 #, fuzzy
 msgid "find date"
 msgstr "finna"
 
-#: ../apps/agenda/agenda_app.py:620
+#: ../apps/agenda/agenda_app.py:504
 msgid "&element to find"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:623
+#: ../apps/agenda/agenda_app.py:505
 msgid "cri&terion"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:624 ../apps/agenda/agenda_app.py:997
-#: ../apps/agenda/agenda_app.py:1002 ../apps/agenda/agenda_app.py:1898
+#: ../apps/agenda/agenda_app.py:505 ../apps/agenda/agenda_app.py:789
+#: ../apps/agenda/agenda_app.py:794 ../apps/agenda/agenda_app.py:1515
 #, fuzzy
 msgid "all"
 msgstr "blindraletur"
 
-#: ../apps/agenda/agenda_app.py:624 ../apps/agenda/agenda_app.py:998
-#: ../apps/agenda/agenda_app.py:1003
+#: ../apps/agenda/agenda_app.py:505 ../apps/agenda/agenda_app.py:790
+#: ../apps/agenda/agenda_app.py:795
 msgid "subject"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:624 ../apps/agenda/agenda_app.py:999
-#: ../apps/agenda/agenda_app.py:1004
+#: ../apps/agenda/agenda_app.py:505 ../apps/agenda/agenda_app.py:791
+#: ../apps/agenda/agenda_app.py:796
 #, fuzzy
 msgid "content"
 msgstr "samhengisvalmynd"
 
-#: ../apps/agenda/agenda_app.py:627
+#: ../apps/agenda/agenda_app.py:506
 #, fuzzy
 msgid "&not done"
 msgstr "&tónlistar punktar"
 
-#: ../apps/agenda/agenda_app.py:666 ../apps/agenda/agenda_app.py:762
-#: ../apps/agenda/agenda_app.py:786 ../apps/fman/file_manager_app.py:317
+#: ../apps/agenda/agenda_app.py:544 ../apps/agenda/agenda_app.py:613
+#: ../apps/agenda/agenda_app.py:625 ../apps/fman/file_manager_app.py:317
 msgid "usb &key"
 msgstr "usb &lykill"
 
-#: ../apps/agenda/agenda_app.py:673 ../apps/agenda/agenda_app.py:773
-#: ../apps/agenda/agenda_app.py:781 ../apps/fman/file_manager_app.py:314
+#: ../apps/agenda/agenda_app.py:549 ../apps/agenda/agenda_app.py:618
+#: ../apps/agenda/agenda_app.py:623 ../apps/fman/file_manager_app.py:314
 msgid "my &documents"
 msgstr "skjölin &mín"
 
-#: ../apps/agenda/agenda_app.py:679
+#: ../apps/agenda/agenda_app.py:555
 msgid "import agenda"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:690
+#: ../apps/agenda/agenda_app.py:566
 msgid "My agenda {}"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:696
+#: ../apps/agenda/agenda_app.py:572
 #, fuzzy
 msgid "export agenda"
 msgstr "&útflutningur"
 
-#: ../apps/agenda/agenda_app.py:700
+#: ../apps/agenda/agenda_app.py:575
 #, fuzzy
 msgid "file &location"
 msgstr "enda &val"
 
-#: ../apps/agenda/agenda_app.py:701 ../apps/agenda/agenda_app.py:718
+#: ../apps/agenda/agenda_app.py:575 ../apps/agenda/agenda_app.py:587
 #, fuzzy
 msgid "my documents"
 msgstr "skjölin &mín"
 
-#: ../apps/agenda/agenda_app.py:701
+#: ../apps/agenda/agenda_app.py:575
 #, fuzzy
 msgid "choose folder"
 msgstr "veldu &fingur"
 
-#: ../apps/agenda/agenda_app.py:722
+#: ../apps/agenda/agenda_app.py:590
 msgid ""
 "the file will be exported to the my documents folder. Do you want to "
 "continue?"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:753
+#: ../apps/agenda/agenda_app.py:607
 #, fuzzy
 msgid "&back"
 msgstr "&afrit"
 
-#: ../apps/agenda/agenda_app.py:795
+#: ../apps/agenda/agenda_app.py:629
 #, fuzzy
 msgid "select a destination folder"
 msgstr "veldu &breytingu á nótu"
 
-#: ../apps/agenda/agenda_app.py:803
+#: ../apps/agenda/agenda_app.py:637
 #, fuzzy
 msgid "are you sure you want to delete all content of the agenda?"
 msgstr "ertu viss um að eyða öllum vistuðum spilunarlistum?"
 
-#: ../apps/agenda/agenda_app.py:813
+#: ../apps/agenda/agenda_app.py:647
 #, fuzzy
 msgid "about agenda"
 msgstr "&útflutningur"
 
-#: ../apps/agenda/agenda_app.py:815
+#: ../apps/agenda/agenda_app.py:648
 msgid ""
 "agenda, version {}, copyright (C){} Theotime Berthod.\n"
 "In collaboration with Eurobraille.\n"
@@ -4712,239 +4705,239 @@ msgid ""
 "developer to {}."
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:856 ../apps/agenda/agenda_app.py:923
+#: ../apps/agenda/agenda_app.py:680 ../apps/agenda/agenda_app.py:732
 msgid "you can't use the ';' in text"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:882
+#: ../apps/agenda/agenda_app.py:699
 msgid "the agenda has been correctly deleted."
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:886
+#: ../apps/agenda/agenda_app.py:703
 msgid "unable to delete the file, an unexpected error occurred."
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1012
+#: ../apps/agenda/agenda_app.py:804
 msgid "1 event found"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1014
+#: ../apps/agenda/agenda_app.py:806
 #, fuzzy
 msgid "{} events found"
 msgstr "blaða {} gerð fannst ekki."
 
-#: ../apps/agenda/agenda_app.py:1022
+#: ../apps/agenda/agenda_app.py:812
 msgid "no event found"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1035
+#: ../apps/agenda/agenda_app.py:820
 #, fuzzy
 msgid "importing..."
 msgstr "endurræsing..."
 
-#: ../apps/agenda/agenda_app.py:1042
+#: ../apps/agenda/agenda_app.py:826
 msgid ""
 "the file {} does not comply with the application's convention. Refer to the "
 "documentation for more information."
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1058
+#: ../apps/agenda/agenda_app.py:840
 msgid ""
 "the file was correctly imported, with the exception of 1 event that already "
 "existed."
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1062
+#: ../apps/agenda/agenda_app.py:842
 msgid ""
 "the file was correctly imported, with the exception of {} events that "
 "already existed."
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1066
+#: ../apps/agenda/agenda_app.py:845
 msgid "the file has been correctly imported"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1084
+#: ../apps/agenda/agenda_app.py:862
 #, fuzzy
 msgid "select folder"
 msgstr "veldu &nótu"
 
-#: ../apps/agenda/agenda_app.py:1093
+#: ../apps/agenda/agenda_app.py:868
 msgid "the file has been correctly exported in {} folder"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1105
+#: ../apps/agenda/agenda_app.py:875
 msgid ""
 "this file already exists, try with another name or delete the previous file"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1122
+#: ../apps/agenda/agenda_app.py:887
 msgid "error during the exportation, verify your agenda and try again"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1136
+#: ../apps/agenda/agenda_app.py:900
 msgid "you have 1 event not done for today."
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1138
+#: ../apps/agenda/agenda_app.py:902
 msgid "you have {} events not done for today."
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1143 ../apps/agenda/agenda_app.py:1183
+#: ../apps/agenda/agenda_app.py:907 ../apps/agenda/agenda_app.py:942
 #, fuzzy
 msgid "&display"
 msgstr "&spila"
 
-#: ../apps/agenda/agenda_app.py:1174
+#: ../apps/agenda/agenda_app.py:935
 msgid "you have 1 event not done for tomorrow."
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1176
+#: ../apps/agenda/agenda_app.py:937
 msgid "you have {} events not done for tomorrow."
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1247 ../apps/agenda/agenda_app.py:1250
-#: ../apps/agenda/agenda_app.py:1253
+#: ../apps/agenda/agenda_app.py:1006 ../apps/agenda/agenda_app.py:1009
+#: ../apps/agenda/agenda_app.py:1012
 msgid "a date is composed of a day, a month and a year."
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1258
+#: ../apps/agenda/agenda_app.py:1017
 msgid "a date is composed of numbers, seperate with /"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1260
+#: ../apps/agenda/agenda_app.py:1019
 msgid "the days range from 01 to 31."
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1262
+#: ../apps/agenda/agenda_app.py:1021
 msgid "12 months ago, numbered from 01 to 12."
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1489
+#: ../apps/agenda/agenda_app.py:1210
 msgid "monday"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1490
+#: ../apps/agenda/agenda_app.py:1211
 msgid "tuesday"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1491
+#: ../apps/agenda/agenda_app.py:1212
 msgid "wednesday"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1492
+#: ../apps/agenda/agenda_app.py:1213
 msgid "thursday"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1493
+#: ../apps/agenda/agenda_app.py:1214
 msgid "friday"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1494
+#: ../apps/agenda/agenda_app.py:1215
 #, fuzzy
 msgid "saturday"
 msgstr "hreinn"
 
-#: ../apps/agenda/agenda_app.py:1495
+#: ../apps/agenda/agenda_app.py:1216
 msgid "sunday"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1498
+#: ../apps/agenda/agenda_app.py:1219
 msgid "january"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1499
+#: ../apps/agenda/agenda_app.py:1220
 msgid "february"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1500
+#: ../apps/agenda/agenda_app.py:1221
 msgid "march"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1501
+#: ../apps/agenda/agenda_app.py:1222
 msgid "april"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1502
+#: ../apps/agenda/agenda_app.py:1223
 #, fuzzy
 msgid "may"
 msgstr "dagur"
 
-#: ../apps/agenda/agenda_app.py:1503
+#: ../apps/agenda/agenda_app.py:1224
 msgid "june"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1504
+#: ../apps/agenda/agenda_app.py:1225
 msgid "july"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1505
+#: ../apps/agenda/agenda_app.py:1226
 msgid "august"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1506
+#: ../apps/agenda/agenda_app.py:1227
 msgid "september"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1507
+#: ../apps/agenda/agenda_app.py:1228
 msgid "october"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1508
+#: ../apps/agenda/agenda_app.py:1229
 #, fuzzy
 msgid "november"
 msgstr "númer"
 
-#: ../apps/agenda/agenda_app.py:1509
+#: ../apps/agenda/agenda_app.py:1230
 msgid "december"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1844
+#: ../apps/agenda/agenda_app.py:1461
 #, fuzzy
 msgid "1 event"
 msgstr "sjöund"
 
-#: ../apps/agenda/agenda_app.py:1846
+#: ../apps/agenda/agenda_app.py:1463
 #, fuzzy
 msgid "{} events"
 msgstr "sjöund"
 
-#: ../apps/agenda/agenda_app.py:1852
+#: ../apps/agenda/agenda_app.py:1469
 msgid "{} not done"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1875
+#: ../apps/agenda/agenda_app.py:1492
 msgid "Show"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1884
+#: ../apps/agenda/agenda_app.py:1501
 #, fuzzy
 msgid "no event..."
 msgstr "sjöund"
 
-#: ../apps/agenda/agenda_app.py:1896
+#: ../apps/agenda/agenda_app.py:1513
 #, fuzzy
 msgid "event not done"
 msgstr "&tónlistar punktar"
 
-#: ../apps/agenda/agenda_app.py:1900
+#: ../apps/agenda/agenda_app.py:1517
 msgid "to do for {}"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1906
+#: ../apps/agenda/agenda_app.py:1519
 msgid "to do for tomorrow"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1908
+#: ../apps/agenda/agenda_app.py:1521
 msgid "to do for today"
 msgstr ""
 
-#: ../apps/agenda/agenda_app.py:1912
+#: ../apps/agenda/agenda_app.py:1525
 #, fuzzy
 msgid "find {}"
 msgstr "finna"
 
-#: ../apps/agenda/agenda_app.py:1914
+#: ../apps/agenda/agenda_app.py:1527
 #, fuzzy
 msgid "select the display"
 msgstr "veldu &nótu"
@@ -5397,12 +5390,6 @@ msgstr "&unzip"
 
 #: ../apps/fman/file_manager_app.py:2724
 msgid "Unzip file {}?"
-msgstr ""
-
-#: ../apps/fman/file_manager_app.py:2736
-msgid ""
-"this file will be replace the existing settings file, do you want to "
-"continue? B;note will be restarted."
 msgstr ""
 
 #: ../apps/fman/file_manager_app.py:2751
