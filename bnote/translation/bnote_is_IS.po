@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-31 21:25+0100\n"
+"POT-Creation-Date: 2025-03-08 13:51+0100\n"
 "PO-Revision-Date: 2024-04-29 08:25+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -76,12 +76,12 @@ msgstr "óskilgreindar breytur"
 #: ../apps/agenda/agenda_app.py:906 ../apps/agenda/agenda_app.py:926
 #: ../apps/agenda/agenda_app.py:973 ../apps/agenda/agenda_app.py:1049
 #: ../apps/agenda/agenda_app.py:1072 ../apps/agenda/agenda_app.py:1109
-#: ../apps/fman/file_manager_app.py:788 ../apps/fman/file_manager_app.py:819
-#: ../apps/fman/file_manager_app.py:853 ../apps/fman/file_manager_app.py:877
-#: ../apps/fman/file_manager_app.py:988 ../apps/fman/file_manager_app.py:1259
-#: ../apps/fman/file_manager_app.py:1453 ../apps/fman/file_manager_app.py:1474
-#: ../apps/fman/file_manager_app.py:1677 ../apps/fman/file_manager_app.py:1697
-#: ../apps/fman/file_manager_app.py:1890 ../apps/fman/file_manager_app.py:2691
+#: ../apps/fman/file_manager_app.py:793 ../apps/fman/file_manager_app.py:824
+#: ../apps/fman/file_manager_app.py:858 ../apps/fman/file_manager_app.py:882
+#: ../apps/fman/file_manager_app.py:993 ../apps/fman/file_manager_app.py:1334
+#: ../apps/fman/file_manager_app.py:1528 ../apps/fman/file_manager_app.py:1549
+#: ../apps/fman/file_manager_app.py:1752 ../apps/fman/file_manager_app.py:1772
+#: ../apps/fman/file_manager_app.py:1965 ../apps/fman/file_manager_app.py:2766
 #: ../apps/games/mines_app.py:170 ../apps/games/mines_app.py:196
 #: ../apps/games/mines_app.py:224 ../apps/games/mines_app.py:448
 #: ../apps/games/master_mind_app.py:169 ../apps/games/master_mind_app.py:197
@@ -135,12 +135,12 @@ msgstr "&í lagi"
 #: ../apps/agenda/agenda_app.py:848 ../apps/agenda/agenda_app.py:867
 #: ../apps/agenda/agenda_app.py:915 ../apps/agenda/agenda_app.py:935
 #: ../apps/agenda/agenda_app.py:981 ../apps/agenda/agenda_app.py:1113
-#: ../apps/fman/file_manager_app.py:789 ../apps/fman/file_manager_app.py:820
-#: ../apps/fman/file_manager_app.py:854 ../apps/fman/file_manager_app.py:878
-#: ../apps/fman/file_manager_app.py:989 ../apps/fman/file_manager_app.py:1043
-#: ../apps/fman/file_manager_app.py:1160 ../apps/fman/file_manager_app.py:1261
-#: ../apps/fman/file_manager_app.py:1678 ../apps/fman/file_manager_app.py:1698
-#: ../apps/fman/file_manager_app.py:1897 ../apps/fman/file_manager_app.py:2696
+#: ../apps/fman/file_manager_app.py:794 ../apps/fman/file_manager_app.py:825
+#: ../apps/fman/file_manager_app.py:859 ../apps/fman/file_manager_app.py:883
+#: ../apps/fman/file_manager_app.py:994 ../apps/fman/file_manager_app.py:1048
+#: ../apps/fman/file_manager_app.py:1235 ../apps/fman/file_manager_app.py:1336
+#: ../apps/fman/file_manager_app.py:1753 ../apps/fman/file_manager_app.py:1773
+#: ../apps/fman/file_manager_app.py:1972 ../apps/fman/file_manager_app.py:2771
 #: ../apps/games/mines_app.py:171 ../apps/games/mines_app.py:197
 #: ../apps/games/mines_app.py:449 ../apps/games/master_mind_app.py:170
 #: ../apps/games/master_mind_app.py:238 ../apps/games/master_mind_app.py:255
@@ -166,7 +166,7 @@ msgstr "tómur listi"
 #: ../apps/agenda/agenda_app.py:720 ../apps/agenda/agenda_app.py:855
 #: ../apps/agenda/agenda_app.py:888 ../apps/agenda/agenda_app.py:922
 #: ../apps/agenda/agenda_app.py:1055 ../apps/agenda/agenda_app.py:1065
-#: ../apps/agenda/agenda_app.py:1140 ../apps/fman/file_manager_app.py:2627
+#: ../apps/agenda/agenda_app.py:1140 ../apps/fman/file_manager_app.py:2702
 #: ../apps/games/mines_app.py:165 ../apps/games/master_mind_app.py:164
 #: ../apps/media/mp3_app.py:747 ../apps/media/mp3_app.py:827
 #: ../apps/media/radio_app.py:197 ../apps/media/radio_app.py:416
@@ -206,13 +206,13 @@ msgstr "d "
 msgid "f "
 msgstr "f "
 
-#: ../ui/ui_file_manager_tools.py:284 ../apps/fman/file_manager_app.py:560
+#: ../ui/ui_file_manager_tools.py:284 ../apps/fman/file_manager_app.py:565
 msgid "trash"
 msgstr "rusl"
 
 #: ../ui/ui_file_manager_tools.py:286 ../apps/settings/settings_app.py:1425
 #: ../apps/settings/settings_app.py:1437 ../apps/settings/settings_app.py:1445
-#: ../apps/settings/settings_app.py:1453 ../apps/fman/file_manager_app.py:573
+#: ../apps/settings/settings_app.py:1453 ../apps/fman/file_manager_app.py:578
 msgid "bluetooth"
 msgstr "bluetooth"
 
@@ -245,22 +245,23 @@ msgid "bnote"
 msgstr "&bnote nafn"
 
 #: ../ui/ui_file_manager_tools.py:317 ../ui/ui_file_manager_tools.py:327
+#: ../apps/fman/file_manager_app.py:1138
 msgid "bytes"
 msgstr "bæti"
 
-#: ../ui/ui_file_manager_tools.py:319
+#: ../ui/ui_file_manager_tools.py:319 ../apps/fman/file_manager_app.py:1140
 msgid "Kb"
 msgstr "Kb"
 
-#: ../ui/ui_file_manager_tools.py:321
+#: ../ui/ui_file_manager_tools.py:321 ../apps/fman/file_manager_app.py:1142
 msgid "Mb"
 msgstr "Mb"
 
-#: ../ui/ui_file_manager_tools.py:324
+#: ../ui/ui_file_manager_tools.py:324 ../apps/fman/file_manager_app.py:1144
 msgid "Gb"
 msgstr "Gb"
 
-#: ../ui/ui_file_box.py:42 ../apps/fman/file_manager_app.py:2966
+#: ../ui/ui_file_box.py:42 ../apps/fman/file_manager_app.py:3041
 msgid "empty directory..."
 msgstr "tæma efnisskrá..."
 
@@ -272,7 +273,7 @@ msgstr "s"
 msgid "n"
 msgstr "n"
 
-#: ../tools/yaupdater.py:111 ../apps/fman/file_manager_app.py:1370
+#: ../tools/yaupdater.py:111 ../apps/fman/file_manager_app.py:1445
 #, fuzzy
 msgid "download in progress..."
 msgstr "lestur..."
@@ -402,10 +403,10 @@ msgstr "tónlist"
 #: ../apps/music/music_app.py:115 ../apps/edt/editor_app.py:56
 #: ../apps/wikipedia/wikipedia_app.py:55 ../apps/daisy/daisy_app.py:79
 #: ../apps/ai_assistant/ai_assistant_app.py:117
-#: ../apps/fman/file_manager_app.py:164 ../apps/fman/file_manager_app.py:212
-#: ../apps/fman/file_manager_app.py:345 ../apps/fman/file_manager_app.py:391
-#: ../apps/fman/file_manager_app.py:442 ../apps/fman/file_manager_app.py:462
-#: ../apps/fman/file_manager_app.py:475
+#: ../apps/fman/file_manager_app.py:163 ../apps/fman/file_manager_app.py:217
+#: ../apps/fman/file_manager_app.py:350 ../apps/fman/file_manager_app.py:396
+#: ../apps/fman/file_manager_app.py:447 ../apps/fman/file_manager_app.py:467
+#: ../apps/fman/file_manager_app.py:480
 msgid "&file"
 msgstr "&skrá"
 
@@ -415,7 +416,7 @@ msgstr "&skrá"
 #: ../apps/eole/eole_search_dialog_box.py:110 ../apps/timer/timer_app.py:191
 #: ../apps/ai_assistant/ai_assistant_app.py:120
 #: ../apps/agenda/agenda_app.py:1144 ../apps/agenda/agenda_app.py:1184
-#: ../apps/fman/file_manager_app.py:1101
+#: ../apps/fman/file_manager_app.py:1106 ../apps/fman/file_manager_app.py:1196
 msgid "&close"
 msgstr "&loka"
 
@@ -517,15 +518,16 @@ msgstr "h&raði"
 #: ../apps/daisy/daisy_app.py:135 ../apps/braille_learning/operation_app.py:90
 #: ../apps/braille_learning/write_word_app.py:133
 #: ../apps/ai_assistant/ai_assistant_app.py:162
-#: ../apps/agenda/agenda_app.py:172 ../apps/fman/file_manager_app.py:531
-#: ../apps/fman/file_manager_app.py:544 ../apps/fman/file_manager_app.py:554
-#: ../apps/fman/file_manager_app.py:566 ../apps/fman/file_manager_app.py:580
-#: ../apps/fman/file_manager_app.py:593 ../apps/fman/file_manager_app.py:603
-#: ../apps/fman/file_manager_app.py:614
+#: ../apps/agenda/agenda_app.py:172 ../apps/fman/file_manager_app.py:536
+#: ../apps/fman/file_manager_app.py:549 ../apps/fman/file_manager_app.py:559
+#: ../apps/fman/file_manager_app.py:571 ../apps/fman/file_manager_app.py:585
+#: ../apps/fman/file_manager_app.py:598 ../apps/fman/file_manager_app.py:608
+#: ../apps/fman/file_manager_app.py:619
 msgid "&applications"
 msgstr "fo&rrit"
 
-#: ../apps/music/music_app.py:212 ../apps/media/mp3_app.py:923
+#: ../apps/music/music_app.py:212 ../apps/fman/file_manager_app.py:1188
+#: ../apps/media/mp3_app.py:923
 msgid "properties"
 msgstr "eiginleikar"
 
@@ -895,7 +897,7 @@ msgstr "diminuendo"
 #: ../apps/agenda/agenda_app.py:902 ../apps/agenda/agenda_app.py:969
 #: ../apps/agenda/agenda_app.py:1040 ../apps/agenda/agenda_app.py:1103
 #: ../apps/agenda/agenda_app.py:1120 ../apps/agenda/agenda_app.py:1180
-#: ../apps/fman/file_manager_app.py:2734 ../apps/games/mines_app.py:445
+#: ../apps/fman/file_manager_app.py:2809 ../apps/games/mines_app.py:445
 #: ../apps/games/master_mind_app.py:234 ../apps/media/mp3_app.py:625
 msgid "warning"
 msgstr "viðvörun"
@@ -926,12 +928,12 @@ msgstr ""
 #: ../apps/braille_learning/write_word_app.py:294
 #: ../apps/agenda/agenda_app.py:514 ../apps/agenda/agenda_app.py:565
 #: ../apps/agenda/agenda_app.py:576 ../apps/agenda/agenda_app.py:726
-#: ../apps/agenda/agenda_app.py:805 ../apps/fman/file_manager_app.py:896
-#: ../apps/fman/file_manager_app.py:955 ../apps/fman/file_manager_app.py:1347
-#: ../apps/fman/file_manager_app.py:1756 ../apps/fman/file_manager_app.py:1987
-#: ../apps/fman/file_manager_app.py:2052 ../apps/fman/file_manager_app.py:2243
-#: ../apps/fman/file_manager_app.py:2633 ../apps/fman/file_manager_app.py:2726
-#: ../apps/fman/file_manager_app.py:2739 ../apps/media/mp3_app.py:629
+#: ../apps/agenda/agenda_app.py:805 ../apps/fman/file_manager_app.py:901
+#: ../apps/fman/file_manager_app.py:960 ../apps/fman/file_manager_app.py:1422
+#: ../apps/fman/file_manager_app.py:1831 ../apps/fman/file_manager_app.py:2062
+#: ../apps/fman/file_manager_app.py:2127 ../apps/fman/file_manager_app.py:2318
+#: ../apps/fman/file_manager_app.py:2708 ../apps/fman/file_manager_app.py:2801
+#: ../apps/fman/file_manager_app.py:2814 ../apps/media/mp3_app.py:629
 #: ../apps/media/radio_app.py:202
 msgid "&yes"
 msgstr "&já"
@@ -951,12 +953,12 @@ msgstr "&já"
 #: ../apps/braille_learning/write_word_app.py:295
 #: ../apps/agenda/agenda_app.py:515 ../apps/agenda/agenda_app.py:566
 #: ../apps/agenda/agenda_app.py:577 ../apps/agenda/agenda_app.py:734
-#: ../apps/agenda/agenda_app.py:806 ../apps/fman/file_manager_app.py:898
-#: ../apps/fman/file_manager_app.py:957 ../apps/fman/file_manager_app.py:1356
-#: ../apps/fman/file_manager_app.py:1764 ../apps/fman/file_manager_app.py:1991
-#: ../apps/fman/file_manager_app.py:2059 ../apps/fman/file_manager_app.py:2248
-#: ../apps/fman/file_manager_app.py:2638 ../apps/fman/file_manager_app.py:2727
-#: ../apps/fman/file_manager_app.py:2740 ../apps/media/mp3_app.py:632
+#: ../apps/agenda/agenda_app.py:806 ../apps/fman/file_manager_app.py:903
+#: ../apps/fman/file_manager_app.py:962 ../apps/fman/file_manager_app.py:1431
+#: ../apps/fman/file_manager_app.py:1839 ../apps/fman/file_manager_app.py:2066
+#: ../apps/fman/file_manager_app.py:2134 ../apps/fman/file_manager_app.py:2323
+#: ../apps/fman/file_manager_app.py:2713 ../apps/fman/file_manager_app.py:2802
+#: ../apps/fman/file_manager_app.py:2815 ../apps/media/mp3_app.py:632
 #: ../apps/media/radio_app.py:203
 msgid "&no"
 msgstr "&nei"
@@ -1419,7 +1421,7 @@ msgstr "usb-&b-hid lyklaborð"
 msgid "simulation &esys"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:813 ../apps/fman/file_manager_app.py:321
+#: ../apps/settings/settings_app.py:813 ../apps/fman/file_manager_app.py:326
 msgid "&bluetooth"
 msgstr "&bluetooth"
 
@@ -1427,10 +1429,10 @@ msgstr "&bluetooth"
 msgid "&power"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:820 ../apps/fman/file_manager_app.py:787
-#: ../apps/fman/file_manager_app.py:818 ../apps/fman/file_manager_app.py:875
-#: ../apps/fman/file_manager_app.py:987 ../apps/fman/file_manager_app.py:1676
-#: ../apps/fman/file_manager_app.py:1695 ../apps/games/mines_app.py:194
+#: ../apps/settings/settings_app.py:820 ../apps/fman/file_manager_app.py:792
+#: ../apps/fman/file_manager_app.py:823 ../apps/fman/file_manager_app.py:880
+#: ../apps/fman/file_manager_app.py:992 ../apps/fman/file_manager_app.py:1751
+#: ../apps/fman/file_manager_app.py:1770 ../apps/games/mines_app.py:194
 #: ../apps/games/master_mind_app.py:252
 msgid "&name"
 msgstr "&nafn"
@@ -1883,7 +1885,7 @@ msgstr ""
 
 #: ../apps/settings/settings_app.py:1435 ../apps/settings/settings_app.py:2875
 #: ../apps/settings/settings_app.py:2909 ../apps/skeleton/skeleton_app.py:160
-#: ../apps/media/radio_app.py:171
+#: ../apps/fman/file_manager_app.py:1169 ../apps/media/radio_app.py:171
 msgid "name"
 msgstr "nafn"
 
@@ -1970,10 +1972,10 @@ msgstr ""
 
 #: ../apps/settings/settings_app.py:1584 ../apps/settings/settings_app.py:1681
 #: ../apps/settings/settings_app.py:1687 ../apps/settings/settings_app.py:1695
-#: ../apps/settings/settings_app.py:1703 ../apps/fman/file_manager_app.py:523
-#: ../apps/fman/file_manager_app.py:536 ../apps/fman/file_manager_app.py:550
-#: ../apps/fman/file_manager_app.py:586 ../apps/fman/file_manager_app.py:598
-#: ../apps/fman/file_manager_app.py:609
+#: ../apps/settings/settings_app.py:1703 ../apps/fman/file_manager_app.py:528
+#: ../apps/fman/file_manager_app.py:541 ../apps/fman/file_manager_app.py:555
+#: ../apps/fman/file_manager_app.py:591 ../apps/fman/file_manager_app.py:603
+#: ../apps/fman/file_manager_app.py:614
 msgid "explorer"
 msgstr "kanna"
 
@@ -2781,7 +2783,7 @@ msgid "bnote must restart for the name change to take effect."
 msgstr "bnote verður að endurræsast til að nafnbreytingin taki gildi."
 
 #: ../apps/settings/settings_app.py:3361 ../apps/settings/settings_app.py:5048
-#: ../apps/fman/file_manager_app.py:2825
+#: ../apps/fman/file_manager_app.py:2900
 msgid "restarting..."
 msgstr "endurræsing..."
 
@@ -2826,7 +2828,7 @@ msgstr "eyða &öllu"
 msgid "&scan"
 msgstr "&skanna"
 
-#: ../apps/settings/settings_app.py:3587 ../apps/fman/file_manager_app.py:1258
+#: ../apps/settings/settings_app.py:3587 ../apps/fman/file_manager_app.py:1333
 msgid "password"
 msgstr "lykilorð"
 
@@ -2882,7 +2884,7 @@ msgstr ""
 msgid "the version {} of applications is available. Do you want to install it?"
 msgstr ""
 
-#: ../apps/settings/settings_app.py:4038 ../apps/fman/file_manager_app.py:2771
+#: ../apps/settings/settings_app.py:4038 ../apps/fman/file_manager_app.py:2846
 msgid "set the date and time before updating bnote."
 msgstr ""
 
@@ -2891,7 +2893,7 @@ msgstr ""
 msgid "downloading..."
 msgstr "lestur..."
 
-#: ../apps/settings/settings_app.py:4072 ../apps/fman/file_manager_app.py:2800
+#: ../apps/settings/settings_app.py:4072 ../apps/fman/file_manager_app.py:2875
 #, fuzzy
 msgid "unable to update."
 msgstr "Viltu setja upp uppfærslu?"
@@ -3036,7 +3038,7 @@ msgid "export settings"
 msgstr "stillingar"
 
 #: ../apps/settings/settings_app.py:4951 ../apps/skeleton/skeleton_app.py:121
-#: ../apps/agenda/agenda_app.py:698 ../apps/fman/file_manager_app.py:1036
+#: ../apps/agenda/agenda_app.py:698 ../apps/fman/file_manager_app.py:1041
 #, fuzzy
 msgid "&file name"
 msgstr "&endurnefna"
@@ -3067,7 +3069,7 @@ msgid ""
 "continue? B.note will be restarted."
 msgstr ""
 
-#: ../apps/settings/settings_app.py:5043 ../apps/fman/file_manager_app.py:2820
+#: ../apps/settings/settings_app.py:5043 ../apps/fman/file_manager_app.py:2895
 msgid "failed to import the file, check the source and try again."
 msgstr ""
 
@@ -3417,8 +3419,8 @@ msgstr "undirskrift.txt fannst ekki."
 
 #: ../apps/edt/editor_base_app.py:128 ../apps/wikipedia/wikipedia_app.py:71
 #: ../apps/daisy/daisy_app.py:96 ../apps/ai_assistant/ai_assistant_app.py:137
-#: ../apps/fman/file_manager_app.py:266 ../apps/fman/file_manager_app.py:365
-#: ../apps/fman/file_manager_app.py:410
+#: ../apps/fman/file_manager_app.py:271 ../apps/fman/file_manager_app.py:370
+#: ../apps/fman/file_manager_app.py:415
 msgid "&edit"
 msgstr "&breyta"
 
@@ -3444,11 +3446,11 @@ msgstr "áfram í grade2 blindraletri"
 msgid "&selection"
 msgstr "&val"
 
-#: ../apps/edt/editor_base_app.py:161 ../apps/fman/file_manager_app.py:269
+#: ../apps/edt/editor_base_app.py:161 ../apps/fman/file_manager_app.py:274
 msgid "&start selection"
 msgstr "&hefja val"
 
-#: ../apps/edt/editor_base_app.py:167 ../apps/fman/file_manager_app.py:275
+#: ../apps/edt/editor_base_app.py:167 ../apps/fman/file_manager_app.py:280
 msgid "&end selection"
 msgstr "&enda val"
 
@@ -3460,29 +3462,29 @@ msgstr "til u&pphafs skjals"
 msgid "to the e&nd of doc"
 msgstr "til e&nda skjals"
 
-#: ../apps/edt/editor_base_app.py:181 ../apps/fman/file_manager_app.py:300
-#: ../apps/fman/file_manager_app.py:381 ../apps/fman/file_manager_app.py:432
+#: ../apps/edt/editor_base_app.py:181 ../apps/fman/file_manager_app.py:305
+#: ../apps/fman/file_manager_app.py:386 ../apps/fman/file_manager_app.py:437
 msgid "select &all"
 msgstr "velja all&t"
 
-#: ../apps/edt/editor_base_app.py:189 ../apps/fman/file_manager_app.py:282
-#: ../apps/fman/file_manager_app.py:426
+#: ../apps/edt/editor_base_app.py:189 ../apps/fman/file_manager_app.py:287
+#: ../apps/fman/file_manager_app.py:431
 msgid "cu&t"
 msgstr "kli&ppa"
 
-#: ../apps/edt/editor_base_app.py:195 ../apps/fman/file_manager_app.py:288
+#: ../apps/edt/editor_base_app.py:195 ../apps/fman/file_manager_app.py:293
 msgid "&copy"
 msgstr "a&frita"
 
-#: ../apps/edt/editor_base_app.py:201 ../apps/fman/file_manager_app.py:294
+#: ../apps/edt/editor_base_app.py:201 ../apps/fman/file_manager_app.py:299
 msgid "&paste"
 msgstr "lí&ma"
 
 #: ../apps/edt/editor_base_app.py:210 ../apps/edt/editor_base_app.py:213
 #: ../apps/edt/editor_base_app.py:235 ../apps/edt/editor_base_app.py:238
 #: ../apps/agenda/agenda_app.py:130 ../apps/agenda/agenda_app.py:609
-#: ../apps/agenda/agenda_app.py:628 ../apps/fman/file_manager_app.py:202
-#: ../apps/fman/file_manager_app.py:256 ../apps/fman/file_manager_app.py:1042
+#: ../apps/agenda/agenda_app.py:628 ../apps/fman/file_manager_app.py:201
+#: ../apps/fman/file_manager_app.py:261 ../apps/fman/file_manager_app.py:1047
 msgid "fi&nd"
 msgstr "fi&nna"
 
@@ -3514,7 +3516,7 @@ msgid "replace &all"
 msgstr "skipta út &öllu"
 
 #: ../apps/edt/editor_base_app.py:284 ../apps/agenda/agenda_app.py:108
-#: ../apps/fman/file_manager_app.py:311
+#: ../apps/fman/file_manager_app.py:316
 msgid "&goto"
 msgstr "fara &til"
 
@@ -3668,7 +3670,7 @@ msgid "&sheet"
 msgstr "&blað"
 
 #: ../apps/edt/editor_base_app.py:1626 ../apps/edt/editor_base_app.py:1635
-#: ../apps/fman/file_manager_app.py:1387
+#: ../apps/fman/file_manager_app.py:1462
 msgid "unknown error"
 msgstr "óþekkt villa"
 
@@ -3716,7 +3718,7 @@ msgstr "&halda áfram"
 msgid "duration"
 msgstr "brot"
 
-#: ../apps/daisy/daisy_app.py:472 ../apps/fman/file_manager_app.py:1090
+#: ../apps/daisy/daisy_app.py:472 ../apps/fman/file_manager_app.py:1095
 msgid "file"
 msgstr "skrá"
 
@@ -3886,7 +3888,7 @@ msgid "&download"
 msgstr "&niður"
 
 #: ../apps/eole/eole_search_dialog_box.py:95
-#: ../apps/fman/file_manager_app.py:1450
+#: ../apps/fman/file_manager_app.py:1525
 msgid "summary"
 msgstr ""
 
@@ -3979,8 +3981,8 @@ msgstr ""
 msgid "show &name"
 msgstr "ekkert nafn"
 
-#: ../apps/timer/timer_app.py:187 ../apps/fman/file_manager_app.py:169
-#: ../apps/fman/file_manager_app.py:223 ../apps/fman/file_manager_app.py:498
+#: ../apps/timer/timer_app.py:187 ../apps/fman/file_manager_app.py:168
+#: ../apps/fman/file_manager_app.py:228 ../apps/fman/file_manager_app.py:503
 msgid "&rename"
 msgstr "&endurnefna"
 
@@ -4054,8 +4056,8 @@ msgstr "&skilaboð tungumál"
 msgid "&invert languages"
 msgstr "&blindraletursmál"
 
-#: ../apps/translator/translator_app.py:98 ../apps/fman/file_manager_app.py:167
-#: ../apps/fman/file_manager_app.py:221 ../apps/fman/file_manager_app.py:496
+#: ../apps/translator/translator_app.py:98 ../apps/fman/file_manager_app.py:166
+#: ../apps/fman/file_manager_app.py:226 ../apps/fman/file_manager_app.py:501
 msgid "&send to"
 msgstr "sen&da til"
 
@@ -4641,12 +4643,12 @@ msgid "&not done"
 msgstr "&tónlistar punktar"
 
 #: ../apps/agenda/agenda_app.py:666 ../apps/agenda/agenda_app.py:762
-#: ../apps/agenda/agenda_app.py:786 ../apps/fman/file_manager_app.py:317
+#: ../apps/agenda/agenda_app.py:786 ../apps/fman/file_manager_app.py:322
 msgid "usb &key"
 msgstr "usb &lykill"
 
 #: ../apps/agenda/agenda_app.py:673 ../apps/agenda/agenda_app.py:773
-#: ../apps/agenda/agenda_app.py:781 ../apps/fman/file_manager_app.py:314
+#: ../apps/agenda/agenda_app.py:781 ../apps/fman/file_manager_app.py:319
 msgid "my &documents"
 msgstr "skjölin &mín"
 
@@ -4949,196 +4951,201 @@ msgstr "finna"
 msgid "select the display"
 msgstr "veldu &nótu"
 
-#: ../apps/fman/file_manager_app.py:101
+#: ../apps/fman/file_manager_app.py:100
 msgid ""
 "bnote restarts after a crash. More information available in crash folder."
 msgstr "bnote endurræsir eftir hrun. Nánari upplýsingar fáanlegar í hrunmöppu."
 
-#: ../apps/fman/file_manager_app.py:113
+#: ../apps/fman/file_manager_app.py:112
 msgid "&New"
 msgstr "&Nýtt"
 
-#: ../apps/fman/file_manager_app.py:116
+#: ../apps/fman/file_manager_app.py:115
 msgid "text(.&txt)"
 msgstr "texti(.&txt)"
 
-#: ../apps/fman/file_manager_app.py:122
+#: ../apps/fman/file_manager_app.py:121
 msgid "music(.&bxml)"
 msgstr "tónlist(.&bxml)"
 
-#: ../apps/fman/file_manager_app.py:128
+#: ../apps/fman/file_manager_app.py:127
 msgid "music(.music&xml)"
 msgstr "tónlist (.music&xml)"
 
-#: ../apps/fman/file_manager_app.py:134
+#: ../apps/fman/file_manager_app.py:133
 msgid "ai assistant(.&ai_txt)"
 msgstr ""
 
-#: ../apps/fman/file_manager_app.py:140
+#: ../apps/fman/file_manager_app.py:139
 msgid "&folder"
 msgstr "&mappa"
 
-#: ../apps/fman/file_manager_app.py:150
+#: ../apps/fman/file_manager_app.py:149
 msgid "&eole library"
 msgstr ""
 
-#: ../apps/fman/file_manager_app.py:153
+#: ../apps/fman/file_manager_app.py:152
 msgid "&simplified search"
 msgstr ""
 
-#: ../apps/fman/file_manager_app.py:157
+#: ../apps/fman/file_manager_app.py:156
 msgid "&advanced search"
 msgstr ""
 
-#: ../apps/fman/file_manager_app.py:175 ../apps/fman/file_manager_app.py:229
-#: ../apps/fman/file_manager_app.py:394 ../apps/fman/file_manager_app.py:504
+#: ../apps/fman/file_manager_app.py:174 ../apps/fman/file_manager_app.py:234
+#: ../apps/fman/file_manager_app.py:399 ../apps/fman/file_manager_app.py:509
 msgid "dele&te"
 msgstr "ey&ða"
 
-#: ../apps/fman/file_manager_app.py:180 ../apps/fman/file_manager_app.py:234
-#: ../apps/fman/file_manager_app.py:509
+#: ../apps/fman/file_manager_app.py:179 ../apps/fman/file_manager_app.py:239
+#: ../apps/fman/file_manager_app.py:514
 msgid "&zip"
 msgstr "&zip"
 
-#: ../apps/fman/file_manager_app.py:181 ../apps/fman/file_manager_app.py:235
-#: ../apps/fman/file_manager_app.py:510
+#: ../apps/fman/file_manager_app.py:180 ../apps/fman/file_manager_app.py:240
+#: ../apps/fman/file_manager_app.py:515
 msgid "&unzip"
 msgstr "&unzip"
 
-#: ../apps/fman/file_manager_app.py:183 ../apps/fman/file_manager_app.py:237
-#: ../apps/fman/file_manager_app.py:355 ../apps/fman/file_manager_app.py:400
-#: ../apps/fman/file_manager_app.py:451 ../apps/fman/file_manager_app.py:465
-#: ../apps/fman/file_manager_app.py:512
+#: ../apps/fman/file_manager_app.py:182 ../apps/fman/file_manager_app.py:242
+#: ../apps/fman/file_manager_app.py:360 ../apps/fman/file_manager_app.py:405
+#: ../apps/fman/file_manager_app.py:456 ../apps/fman/file_manager_app.py:470
+#: ../apps/fman/file_manager_app.py:517
 msgid "&actualize"
 msgstr "&framkvæma"
 
-#: ../apps/fman/file_manager_app.py:189 ../apps/fman/file_manager_app.py:243
-#: ../apps/fman/file_manager_app.py:485 ../apps/fman/file_manager_app.py:1155
-#: ../apps/fman/file_manager_app.py:1197 ../apps/media/mp3_app.py:102
+#: ../apps/fman/file_manager_app.py:188 ../apps/fman/file_manager_app.py:248
+#: ../apps/fman/file_manager_app.py:490 ../apps/fman/file_manager_app.py:1230
+#: ../apps/fman/file_manager_app.py:1272 ../apps/media/mp3_app.py:102
 #: ../apps/media/mp3_app.py:691
 msgid "&open"
 msgstr "&opna"
 
-#: ../apps/fman/file_manager_app.py:195 ../apps/fman/file_manager_app.py:249
+#: ../apps/fman/file_manager_app.py:194 ../apps/fman/file_manager_app.py:254
 msgid "o&pen to read"
 msgstr ""
 
-#: ../apps/fman/file_manager_app.py:200 ../apps/fman/file_manager_app.py:254
+#: ../apps/fman/file_manager_app.py:199 ../apps/fman/file_manager_app.py:259
 msgid "re&cents"
 msgstr ""
 
-#: ../apps/fman/file_manager_app.py:216 ../apps/fman/file_manager_app.py:445
-#: ../apps/fman/file_manager_app.py:478
+#: ../apps/fman/file_manager_app.py:207
+#, fuzzy
+msgid "pro&perties"
+msgstr "eiginleikar"
+
+#: ../apps/fman/file_manager_app.py:221 ../apps/fman/file_manager_app.py:450
+#: ../apps/fman/file_manager_app.py:483
 msgid "safely &unmount usb stick"
 msgstr "aftengja &usb kubb á öruggan hátt"
 
-#: ../apps/fman/file_manager_app.py:322
+#: ../apps/fman/file_manager_app.py:327
 msgid "&trash"
 msgstr "&rusl"
 
-#: ../apps/fman/file_manager_app.py:323
+#: ../apps/fman/file_manager_app.py:328
 #, fuzzy
 msgid "my back&ups"
 msgstr "öryggis&afrit"
 
-#: ../apps/fman/file_manager_app.py:324
+#: ../apps/fman/file_manager_app.py:329
 msgid "c&rash"
 msgstr "&hrun"
 
-#: ../apps/fman/file_manager_app.py:326
+#: ../apps/fman/file_manager_app.py:331
 msgid "p&arent directory"
 msgstr "k&erfis skrá"
 
-#: ../apps/fman/file_manager_app.py:336 ../apps/fman/file_manager_app.py:338
+#: ../apps/fman/file_manager_app.py:341 ../apps/fman/file_manager_app.py:343
 msgid "back&up"
 msgstr "öryggis&afrit"
 
-#: ../apps/fman/file_manager_app.py:339
+#: ../apps/fman/file_manager_app.py:344
 msgid "&restore"
 msgstr "&endurheimta"
 
-#: ../apps/fman/file_manager_app.py:348
+#: ../apps/fman/file_manager_app.py:353
 msgid "&restore from trash"
 msgstr "&endurheimta úr rusli"
 
-#: ../apps/fman/file_manager_app.py:350
+#: ../apps/fman/file_manager_app.py:355
 msgid "permanently &delete"
 msgstr "endanlega &eyða"
 
-#: ../apps/fman/file_manager_app.py:352
+#: ../apps/fman/file_manager_app.py:357
 msgid "&empty the trash"
 msgstr "&tæma ruslið"
 
-#: ../apps/fman/file_manager_app.py:368 ../apps/fman/file_manager_app.py:413
+#: ../apps/fman/file_manager_app.py:373 ../apps/fman/file_manager_app.py:418
 msgid "start &selection"
 msgstr "hefja va&l"
 
-#: ../apps/fman/file_manager_app.py:374 ../apps/fman/file_manager_app.py:419
+#: ../apps/fman/file_manager_app.py:379 ../apps/fman/file_manager_app.py:424
 msgid "end &selection"
 msgstr "enda &val"
 
-#: ../apps/fman/file_manager_app.py:491
+#: ../apps/fman/file_manager_app.py:496
 msgid "&open to read"
 msgstr ""
 
-#: ../apps/fman/file_manager_app.py:740
+#: ../apps/fman/file_manager_app.py:745
 msgid "you can now unplug safely the usb flash disk."
 msgstr "þú getur nú aftengt usb kubbinn á öruggan hátt."
 
-#: ../apps/fman/file_manager_app.py:745
+#: ../apps/fman/file_manager_app.py:750
 msgid "unable to unplug safely the usb flash disk."
 msgstr "ekki hægt að aftengja usb kubbinn á öruggan hátt."
 
-#: ../apps/fman/file_manager_app.py:750
+#: ../apps/fman/file_manager_app.py:755
 msgid ".bxml"
 msgstr ".bxml"
 
-#: ../apps/fman/file_manager_app.py:753
+#: ../apps/fman/file_manager_app.py:758
 msgid ".txt"
 msgstr ".txt"
 
-#: ../apps/fman/file_manager_app.py:756
+#: ../apps/fman/file_manager_app.py:761
 msgid ".musicxml"
 msgstr ".musicxml"
 
-#: ../apps/fman/file_manager_app.py:759
+#: ../apps/fman/file_manager_app.py:764
 msgid ".ai_txt"
 msgstr ""
 
-#: ../apps/fman/file_manager_app.py:779 ../apps/fman/file_manager_app.py:785
+#: ../apps/fman/file_manager_app.py:784 ../apps/fman/file_manager_app.py:790
 msgid "new file"
 msgstr "ný skrá"
 
-#: ../apps/fman/file_manager_app.py:811
+#: ../apps/fman/file_manager_app.py:816
 msgid "new folder"
 msgstr "ný mappa"
 
-#: ../apps/fman/file_manager_app.py:816
+#: ../apps/fman/file_manager_app.py:821
 msgid "new directory"
 msgstr "ný efnisskrá"
 
-#: ../apps/fman/file_manager_app.py:850
+#: ../apps/fman/file_manager_app.py:855
 msgid "send to"
 msgstr "senda til"
 
-#: ../apps/fman/file_manager_app.py:852
+#: ../apps/fman/file_manager_app.py:857
 msgid "co&mputer"
 msgstr "tö&lva"
 
-#: ../apps/fman/file_manager_app.py:860
+#: ../apps/fman/file_manager_app.py:865
 msgid "no bluetooth computer visible..."
 msgstr "engin bluetooth tölva sýnileg ..."
 
-#: ../apps/fman/file_manager_app.py:872
+#: ../apps/fman/file_manager_app.py:877
 msgid "rename"
 msgstr "endurnefna"
 
-#: ../apps/fman/file_manager_app.py:890 ../apps/fman/file_manager_app.py:949
+#: ../apps/fman/file_manager_app.py:895 ../apps/fman/file_manager_app.py:954
 #: ../apps/media/mp3_app.py:687
 msgid "delete"
 msgstr "eyða"
 
-#: ../apps/fman/file_manager_app.py:892
+#: ../apps/fman/file_manager_app.py:897
 msgid ""
 "do you confirm permanently deletion? if you delete, it will be permanently "
 "lost."
@@ -5146,266 +5153,316 @@ msgstr ""
 "staðfestirðu endanlega eyðingu? ef þú eyðir, þá glatast það fyrir fullt og "
 "allt."
 
-#: ../apps/fman/file_manager_app.py:916 ../apps/fman/file_manager_app.py:3061
+#: ../apps/fman/file_manager_app.py:921 ../apps/fman/file_manager_app.py:3136
 msgid "deleting {}% {}"
 msgstr "eyða {}% {}"
 
-#: ../apps/fman/file_manager_app.py:932 ../apps/fman/file_manager_app.py:2116
-#: ../apps/fman/file_manager_app.py:3085
+#: ../apps/fman/file_manager_app.py:937 ../apps/fman/file_manager_app.py:2191
+#: ../apps/fman/file_manager_app.py:3160
 msgid "restoring {}% {}"
 msgstr "endurheimta {}% {}"
 
-#: ../apps/fman/file_manager_app.py:951
+#: ../apps/fman/file_manager_app.py:956
 msgid "do you want to empty the trash? all files will be permanently lost."
 msgstr "viltu tæma ruslið? allar skrár munu glatast fyrir fullt og allt."
 
-#: ../apps/fman/file_manager_app.py:984
+#: ../apps/fman/file_manager_app.py:989
 msgid "zip"
 msgstr "zip"
 
-#: ../apps/fman/file_manager_app.py:1009 ../apps/fman/file_manager.py:373
+#: ../apps/fman/file_manager_app.py:1014 ../apps/fman/file_manager.py:373
 msgid "({})"
 msgstr "({})"
 
-#: ../apps/fman/file_manager_app.py:1016 ../apps/fman/file_manager_app.py:3065
+#: ../apps/fman/file_manager_app.py:1021 ../apps/fman/file_manager_app.py:3140
 msgid "extracting {}% {}"
 msgstr "draga út {}% {}"
 
-#: ../apps/fman/file_manager_app.py:1034
+#: ../apps/fman/file_manager_app.py:1039
 #, fuzzy
 msgid "find file"
 msgstr "ný skrá"
 
-#: ../apps/fman/file_manager_app.py:1038
+#: ../apps/fman/file_manager_app.py:1043
 #, fuzzy
 msgid "find &in"
 msgstr "&dagsetning"
 
-#: ../apps/fman/file_manager_app.py:1039 ../apps/fman/file_manager_app.py:1050
+#: ../apps/fman/file_manager_app.py:1044 ../apps/fman/file_manager_app.py:1055
 #, fuzzy
 msgid "current folder"
 msgstr "ný mappa"
 
-#: ../apps/fman/file_manager_app.py:1039
+#: ../apps/fman/file_manager_app.py:1044
 #, fuzzy
 msgid "in the b.note"
 msgstr "setja inn &athugasemd"
 
-#: ../apps/fman/file_manager_app.py:1088
+#: ../apps/fman/file_manager_app.py:1093
 msgid "file found {}"
 msgstr ""
 
-#: ../apps/fman/file_manager_app.py:1092
+#: ../apps/fman/file_manager_app.py:1097
 #, fuzzy
 msgid "&show in folder"
 msgstr "ný mappa"
 
-#: ../apps/fman/file_manager_app.py:1097
+#: ../apps/fman/file_manager_app.py:1102
 #, fuzzy
 msgid "&open file"
 msgstr "ný skrá"
 
-#: ../apps/fman/file_manager_app.py:1107
+#: ../apps/fman/file_manager_app.py:1112
 msgid "no file found"
 msgstr ""
 
-#: ../apps/fman/file_manager_app.py:1142
+#: ../apps/fman/file_manager_app.py:1149
+#, fuzzy
+msgid "folder"
+msgstr "&mappa"
+
+#: ../apps/fman/file_manager_app.py:1153
+#, fuzzy
+msgid "editor file"
+msgstr "ritstjóri"
+
+#: ../apps/fman/file_manager_app.py:1155
+#, fuzzy
+msgid "audio file"
+msgstr "hljóð"
+
+#: ../apps/fman/file_manager_app.py:1157
+#, fuzzy
+msgid "music file"
+msgstr "tónlist xml"
+
+#: ../apps/fman/file_manager_app.py:1159
+#, fuzzy
+msgid "file not suported"
+msgstr "skráar {} gerð er ekki studd."
+
+#: ../apps/fman/file_manager_app.py:1170
+msgid "type"
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:1171
+msgid "size"
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:1172
+msgid "last modification"
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:1173
+#, fuzzy
+msgid "creation date"
+msgstr "&breyting"
+
+#: ../apps/fman/file_manager_app.py:1174
+msgid "child"
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:1191
+msgid "Click to show properties"
+msgstr ""
+
+#: ../apps/fman/file_manager_app.py:1217
 #, fuzzy
 msgid "not recent file"
 msgstr "setja inn skrá"
 
-#: ../apps/fman/file_manager_app.py:1149
+#: ../apps/fman/file_manager_app.py:1224
 #, fuzzy
 msgid "recent files"
 msgstr "setja inn skrá"
 
-#: ../apps/fman/file_manager_app.py:1152
+#: ../apps/fman/file_manager_app.py:1227
 #, fuzzy
 msgid "file list"
 msgstr "tómur listi"
 
-#: ../apps/fman/file_manager_app.py:1159
+#: ../apps/fman/file_manager_app.py:1234
 #, fuzzy
 msgid "c&lear list"
 msgstr "hreinsa &allt"
 
-#: ../apps/fman/file_manager_app.py:1172
+#: ../apps/fman/file_manager_app.py:1247
 msgid "this file does not exist, it will be removed from the list."
 msgstr ""
 
-#: ../apps/fman/file_manager_app.py:1193 ../apps/media/mp3_app.py:690
+#: ../apps/fman/file_manager_app.py:1268 ../apps/media/mp3_app.py:690
 msgid "open"
 msgstr "opna"
 
-#: ../apps/fman/file_manager_app.py:1195
+#: ../apps/fman/file_manager_app.py:1270
 msgid "&read only"
 msgstr ""
 
-#: ../apps/fman/file_manager_app.py:1251
+#: ../apps/fman/file_manager_app.py:1326
 msgid "eole"
 msgstr ""
 
-#: ../apps/fman/file_manager_app.py:1255
+#: ../apps/fman/file_manager_app.py:1330
 msgid "login"
 msgstr ""
 
-#: ../apps/fman/file_manager_app.py:1294
+#: ../apps/fman/file_manager_app.py:1369
 msgid "unable to grab access token. error : {}"
 msgstr ""
 
-#: ../apps/fman/file_manager_app.py:1341 ../apps/fman/file_manager_app.py:1750
-#: ../apps/fman/file_manager_app.py:1884 ../apps/fman/file_manager_app.py:1981
-#: ../apps/fman/file_manager_app.py:2046 ../apps/fman/file_manager_app.py:2239
+#: ../apps/fman/file_manager_app.py:1416 ../apps/fman/file_manager_app.py:1825
+#: ../apps/fman/file_manager_app.py:1959 ../apps/fman/file_manager_app.py:2056
+#: ../apps/fman/file_manager_app.py:2121 ../apps/fman/file_manager_app.py:2314
 msgid "question"
 msgstr "spurning"
 
-#: ../apps/fman/file_manager_app.py:1342 ../apps/fman/file_manager_app.py:1982
-#: ../apps/fman/file_manager_app.py:2047
+#: ../apps/fman/file_manager_app.py:1417 ../apps/fman/file_manager_app.py:2057
+#: ../apps/fman/file_manager_app.py:2122
 msgid "{} already exists. do you want to replace it?"
 msgstr "{} er þegar til. viltu skipta út núverandi skrá?"
 
-#: ../apps/fman/file_manager_app.py:1421
+#: ../apps/fman/file_manager_app.py:1496
 #, fuzzy
 msgid "error can't download the file. error is {}."
 msgstr "villa getur ekki þjappað skrám í {}."
 
-#: ../apps/fman/file_manager_app.py:1426
+#: ../apps/fman/file_manager_app.py:1501
 msgid ""
 "unable to download the book, your access token is invalid, check your login "
 "password."
 msgstr ""
 
-#: ../apps/fman/file_manager_app.py:1471
+#: ../apps/fman/file_manager_app.py:1546
 msgid "error"
 msgstr "villa"
 
-#: ../apps/fman/file_manager_app.py:1536
+#: ../apps/fman/file_manager_app.py:1611
 msgid "unable to move the opened file in the editor."
 msgstr "ekki hægt að færa opnuðu skrána í ritlinum."
 
-#: ../apps/fman/file_manager_app.py:1565 ../apps/fman/file_manager_app.py:3073
+#: ../apps/fman/file_manager_app.py:1640 ../apps/fman/file_manager_app.py:3148
 msgid "moving {}% {}"
 msgstr "færa {}% {}"
 
-#: ../apps/fman/file_manager_app.py:1579 ../apps/fman/file_manager_app.py:3077
+#: ../apps/fman/file_manager_app.py:1654 ../apps/fman/file_manager_app.py:3152
 msgid "copying {}% {}"
 msgstr "afrita {}% {}"
 
-#: ../apps/fman/file_manager_app.py:1669
+#: ../apps/fman/file_manager_app.py:1744
 msgid "backup %Y %m %d.zip"
 msgstr "öryggisafrita %Y %m %d.zip"
 
-#: ../apps/fman/file_manager_app.py:1673
+#: ../apps/fman/file_manager_app.py:1748
 msgid "backup"
 msgstr "öryggisafrit"
 
-#: ../apps/fman/file_manager_app.py:1686
+#: ../apps/fman/file_manager_app.py:1761
 msgid "no backup files to restore !"
 msgstr "engar öryggisafritaskrár til að endurheimta!"
 
-#: ../apps/fman/file_manager_app.py:1691
+#: ../apps/fman/file_manager_app.py:1766
 msgid "restore"
 msgstr "endurheimta"
 
-#: ../apps/fman/file_manager_app.py:1742 ../apps/fman/file_manager_app.py:1804
-#: ../apps/fman/file_manager_app.py:1843 ../apps/fman/file_manager_app.py:1972
-#: ../apps/fman/file_manager_app.py:2037
+#: ../apps/fman/file_manager_app.py:1817 ../apps/fman/file_manager_app.py:1879
+#: ../apps/fman/file_manager_app.py:1918 ../apps/fman/file_manager_app.py:2047
+#: ../apps/fman/file_manager_app.py:2112
 msgid "the following characters are invalid "
 msgstr "eftirfarandi stafir eru ógildir "
 
-#: ../apps/fman/file_manager_app.py:1751 ../apps/fman/file_manager_app.py:2240
+#: ../apps/fman/file_manager_app.py:1826 ../apps/fman/file_manager_app.py:2315
 msgid "file {} exists. do you want to replace it?"
 msgstr "skrá {} er til. viltu skipta henni út?"
 
-#: ../apps/fman/file_manager_app.py:1813
+#: ../apps/fman/file_manager_app.py:1888
 msgid "folder {} already exists."
 msgstr "mappa {} er þegar til."
 
-#: ../apps/fman/file_manager_app.py:1851
+#: ../apps/fman/file_manager_app.py:1926
 msgid "{} already exists."
 msgstr "{} er þegar til."
 
-#: ../apps/fman/file_manager_app.py:1885
+#: ../apps/fman/file_manager_app.py:1960
 msgid "put {} into Bluetooth reception mode (Windows 10 only)."
 msgstr "settu {} í Bluetooth móttökustillingu (aðeins Windows 10)."
 
-#: ../apps/fman/file_manager_app.py:1911
+#: ../apps/fman/file_manager_app.py:1986
 msgid "sending {}"
 msgstr "sendir {}"
 
-#: ../apps/fman/file_manager_app.py:1933
+#: ../apps/fman/file_manager_app.py:2008
 msgid "{} successfully sent to {}."
 msgstr "{} tókst að sendast til {}."
 
-#: ../apps/fman/file_manager_app.py:1940
+#: ../apps/fman/file_manager_app.py:2015
 msgid "error can't be sent {} to {}."
 msgstr "villa ekki er hægt að senda {} til {}."
 
-#: ../apps/fman/file_manager_app.py:2000 ../apps/fman/file_manager_app.py:3069
+#: ../apps/fman/file_manager_app.py:2075 ../apps/fman/file_manager_app.py:3144
 msgid "compressing {}% {}"
 msgstr "þjappa saman {}% {}"
 
-#: ../apps/fman/file_manager_app.py:2068 ../apps/fman/file_manager_app.py:3081
+#: ../apps/fman/file_manager_app.py:2143 ../apps/fman/file_manager_app.py:3156
 msgid "backuping {}% {}"
 msgstr "afritun {}% {}"
 
-#: ../apps/fman/file_manager_app.py:2098
+#: ../apps/fman/file_manager_app.py:2173
 msgid "error backup can't be created to {}."
 msgstr "villa ekki er hægt að búa til afrit til {}."
 
-#: ../apps/fman/file_manager_app.py:2176
+#: ../apps/fman/file_manager_app.py:2251
 msgid "error can't compress files in {}."
 msgstr "villa getur ekki þjappað skrám í {}."
 
-#: ../apps/fman/file_manager_app.py:2222
+#: ../apps/fman/file_manager_app.py:2297
 msgid "error during restoration from trash."
 msgstr "villa við endurheimt úr rusli."
 
-#: ../apps/fman/file_manager_app.py:2253
+#: ../apps/fman/file_manager_app.py:2328
 msgid "yes for &all"
 msgstr "já við &öllu"
 
-#: ../apps/fman/file_manager_app.py:2258
+#: ../apps/fman/file_manager_app.py:2333
 msgid "no for a&ll"
 msgstr "nei við ö&llu"
 
-#: ../apps/fman/file_manager_app.py:2495
+#: ../apps/fman/file_manager_app.py:2570
 msgid "operation not allowed in this directory."
 msgstr "aðgerð ekki leyfð í þessari skrá."
 
-#: ../apps/fman/file_manager_app.py:2628
+#: ../apps/fman/file_manager_app.py:2703
 #, fuzzy
 msgid "do you want to install the version {} ?"
 msgstr "Viltu setja upp uppfærslu?"
 
-#: ../apps/fman/file_manager_app.py:2657
+#: ../apps/fman/file_manager_app.py:2732
 msgid "unable to open file in this directory. move it in document directory."
 msgstr "ekki hægt að opna skrá í þessari efnisskrá. færa það í skjalaskrá."
 
-#: ../apps/fman/file_manager_app.py:2682 ../apps/fman/file_manager_app.py:2686
+#: ../apps/fman/file_manager_app.py:2757 ../apps/fman/file_manager_app.py:2761
 msgid "langue"
 msgstr "tungumál"
 
-#: ../apps/fman/file_manager_app.py:2715
+#: ../apps/fman/file_manager_app.py:2790
 msgid "you cannot open more documents."
 msgstr "þú getur ekki opnað fleiri skjöl."
 
-#: ../apps/fman/file_manager_app.py:2723
+#: ../apps/fman/file_manager_app.py:2798
 #, fuzzy
 msgid "unzip"
 msgstr "&unzip"
 
-#: ../apps/fman/file_manager_app.py:2724
+#: ../apps/fman/file_manager_app.py:2799
 msgid "Unzip file {}?"
 msgstr ""
 
-#: ../apps/fman/file_manager_app.py:2736
+#: ../apps/fman/file_manager_app.py:2811
 msgid ""
 "this file will be replace the existing settings file, do you want to "
 "continue? B;note will be restarted."
 msgstr ""
 
-#: ../apps/fman/file_manager_app.py:2751
+#: ../apps/fman/file_manager_app.py:2826
 #, fuzzy
 msgid ""
 "please, switch audio application visible in menu in settings to play audio "
@@ -5414,19 +5471,19 @@ msgstr ""
 "vinsamlegast farðu í „sýnilegt hljóð“ breytur í stillingar til að spila "
 "hljóðskrá."
 
-#: ../apps/fman/file_manager_app.py:2776
+#: ../apps/fman/file_manager_app.py:2851
 msgid "installation in progres..."
 msgstr ""
 
-#: ../apps/fman/file_manager_app.py:3089
+#: ../apps/fman/file_manager_app.py:3164
 msgid "sending {}% {}"
 msgstr "sendir {}% {}"
 
-#: ../apps/fman/file_manager_app.py:3093
+#: ../apps/fman/file_manager_app.py:3168
 msgid "in progress {}%"
 msgstr "í vinnslu {}%"
 
-#: ../apps/fman/file_manager_app.py:3115
+#: ../apps/fman/file_manager_app.py:3190
 msgid "error during deletion."
 msgstr "villa við eyðingu."
 
@@ -5694,10 +5751,6 @@ msgstr "ertu viss um að eyða útvarpi {}"
 #, fuzzy
 #~ msgid "&translate selection"
 #~ msgstr "&hefja val"
-
-#, fuzzy
-#~ msgid "&operation game"
-#~ msgstr "&breyting"
 
 #, fuzzy
 #~ msgid "Settings apply."
