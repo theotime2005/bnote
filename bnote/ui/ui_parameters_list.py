@@ -1,8 +1,8 @@
 """
- bnote project
- Author : Eurobraille
- Date : 2024-08-05
- Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
+bnote project
+Author : Eurobraille
+Date : 2024-08-05
+Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
 from enum import Enum, auto

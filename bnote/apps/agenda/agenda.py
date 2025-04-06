@@ -1,8 +1,8 @@
 """
- bnote project
- Author : Theotime Berthod
- Date : 2022-11-28
- Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
+bnote project
+Author : Theotime Berthod
+Date : 2022-11-28
+Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
 import datetime

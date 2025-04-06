@@ -1,8 +1,8 @@
 """
- bnote project
- Author : Eurobraille
- Date : 2024-07-16
- Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
+bnote project
+Author : Eurobraille
+Date : 2024-07-16
+Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
 from bnote.apps.bnote_app import BnoteApp
@@ -157,7 +157,7 @@ class UiEditBox(UiObject):
                 begin_not_blinking = "\u2800" * (
                     len(braille_separator) + self._caret.first()
                 )
-                blinking = "\u28C0" * (self._caret.last() + 1 - self._caret.first())
+                blinking = "\u28c0" * (self._caret.last() + 1 - self._caret.first())
                 end_not_blinking = "\u2800" * (
                     len(braille_value) - (self._caret.last() + 1)
                 )

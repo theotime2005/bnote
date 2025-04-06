@@ -1,8 +1,8 @@
 """
- bnote project
- Author : Eurobraille
- Date : 2024-07-16
- Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
+bnote project
+Author : Eurobraille
+Date : 2024-07-16
+Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
 import unicodedata
@@ -214,7 +214,7 @@ class UiObject:
                 blinking_braille = "\u2800" * len(self._braille_name)
             else:
                 blinking_braille = "".join(
-                    ["\u28C0", "\u2800" * (len(self._braille_name) - 1)]
+                    ["\u28c0", "\u2800" * (len(self._braille_name) - 1)]
                 )
             return (
                 self._name,

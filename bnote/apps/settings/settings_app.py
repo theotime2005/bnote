@@ -1,8 +1,8 @@
 """
- bnote project
- Author : Eurobraille
- Date : 2024-07-16
- Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
+bnote project
+Author : Eurobraille
+Date : 2024-07-16
+Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
 import _thread
@@ -3967,7 +3967,7 @@ class SettingsApp(BnoteApp):
 
         if (self.__test_step_value % 2) == 0:
             static_dots = (
-                "\u28FF" * braille_device_characteristics.get_braille_display_length()
+                "\u28ff" * braille_device_characteristics.get_braille_display_length()
             )
             braille_blinking = "\u2800" * len(static_dots)
             self.set_braille_display_dots_line(static_dots, braille_blinking, 0)
@@ -4192,7 +4192,11 @@ class SettingsApp(BnoteApp):
                     is_read_only=True,
                 ),
                 # Add a button to switch version
-                ui.UiButton(name=_("&switch version"), action=self.__dialog_application_version, action_param={'section': 'version', 'key': 'application'}),
+                ui.UiButton(
+                    name=_("&switch version"),
+                    action=self.__dialog_application_version,
+                    action_param={"section": "version", "key": "application"},
+                ),
                 ui.UiButton(name=_("&close"), action=self._exec_cancel_dialog),
             ],
             action_cancelable=self._exec_cancel_dialog,

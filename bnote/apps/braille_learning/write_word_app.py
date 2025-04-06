@@ -1,8 +1,8 @@
 """
- bnote project
- Author : Eurobraille
- Date : 2024-07-16
- Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
+bnote project
+Author : Eurobraille
+Date : 2024-07-16
+Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
 import os
@@ -563,7 +563,7 @@ class WriteWordApp(BnoteApp):
             braille_blinking = "".join(
                 [
                     "\u2800" * (int(self.length / 2) + self.position),
-                    "\u28C0",
+                    "\u28c0",
                     "\u2800" * (len(braille_static) - (self.length) + self.position),
                 ]
             )

@@ -1,8 +1,8 @@
 """
- bnote project
- Author : Eurobraille
- Date : 2024-07-16
- Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
+bnote project
+Author : Eurobraille
+Date : 2024-07-16
+Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
 from enum import Enum
@@ -42,7 +42,7 @@ STM32_MAX_BLUETOOTH_CHANNEL_NAME = 32  # The maximum length of the bluetooth ada
 class Stm32Frame(object):
     escaped_char = (STX, ETX, ESC)
     # Frame number (from 0 to 255)
-    send_frame_number = b"\xFF"
+    send_frame_number = b"\xff"
 
     def __init__(self, *args, **kwargs):
         if len(args) == 1:

@@ -178,7 +178,7 @@ class MathTextTable:
         "*": (l1l1lll11_opy_, l11lll1l_opy_.l1111l_opy_),
         "/": (l1l1lll11_opy_, l11lll1l_opy_.l1l1l1l1_opy_),
         "%": (l1l1lll11_opy_, l11lll1l_opy_.l11l1111_opy_),
-        "\u00D7": (l1l1lll11_opy_, l11lll1l_opy_.l1111l_opy_),
+        "\u00d7": (l1l1lll11_opy_, l11lll1l_opy_.l1111l_opy_),
         "^": (l1l1lll11_opy_, l11lll1l_opy_.l111111ll_opy_),
         "ln": (l1ll11111_opy_, l1l11111l_opy_.l1l1ll11_opy_),
         "log": (l1ll11111_opy_, l1l11111l_opy_.l1l11lll_opy_),
@@ -346,7 +346,7 @@ class MathParser:
                         l111lll11l_opy_.l1ll1111_opy_, index=-1
                     )
                 else:
-                    l111ll1_opy_ = l1lll11ll_opy_("\u00D7", index=-1)
+                    l111ll1_opy_ = l1lll11ll_opy_("\u00d7", index=-1)
                 l1lll11l_opy_ = l1l11l11l_opy_[index + 1 : len(l1l11l11l_opy_)]
                 l1l11l11l_opy_ = l1l111l1l_opy_ + l111ll1_opy_ + l1lll11l_opy_
                 continue
@@ -618,7 +618,7 @@ class MathParser:
             l111l1lll1_opy_ = len(l1l11l1l1_opy_)
             length = 0
             while (length < l111l1lll1_opy_) and (
-                "\u2800" <= l1l11l1l1_opy_[length] <= "\u28FF"
+                "\u2800" <= l1l11l1l1_opy_[length] <= "\u28ff"
             ):
                 length += 1
             l111l1l11l_opy_ = l1l11l1l1_opy_[0:length]

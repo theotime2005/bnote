@@ -1,8 +1,8 @@
 """
- bnote project
- Author : Eurobraille
- Date : 2024-07-16
- Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
+bnote project
+Author : Eurobraille
+Date : 2024-07-16
+Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
 # -----------------------------------------------
@@ -336,7 +336,7 @@ class Editor:
             # No selection
             if line_index == self._caret.end.y:
                 if Settings().data["editor"]["cursor_visible"]:
-                    dots[self._caret.end.x : self._caret.end.x + 1] = b"\xC0"
+                    dots[self._caret.end.x : self._caret.end.x + 1] = b"\xc0"
                 else:
                     dots[self._caret.end.x : self._caret.end.x + 1] = b"\x00"
                 last_x = self._caret.end.x + 1
@@ -373,7 +373,7 @@ class Editor:
                 first_x = last_x = 0
 
             # Set flashing dots on all caret cells.
-            dots[first_x:last_x] = b"\xC0" * (last_x - first_x)
+            dots[first_x:last_x] = b"\xc0" * (last_x - first_x)
         # Add markers
         log.info(f"{line_index=}")
         coo = self._paragraphs.coo_from_pos(Pos(0, line_index))
@@ -388,7 +388,7 @@ class Editor:
         )
         log.info(f"{markers=}")
         for marker in markers:
-            dots[marker - index] = ord(b"\xFF")
+            dots[marker - index] = ord(b"\xff")
 
         if last_x > line_length:
             # Add space at the end of the line for caret
