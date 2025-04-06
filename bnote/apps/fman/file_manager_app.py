@@ -1,8 +1,8 @@
 """
- bnote project
- Author : Eurobraille
- Date : 2024-07-16
- Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
+bnote project
+Author : Eurobraille
+Date : 2024-07-16
+Licence : Ce fichier est libre de droit. Vous pouvez le modifier et le redistribuer à votre guise.
 """
 
 import datetime
@@ -1129,6 +1129,8 @@ class FileManagerApp(BnoteApp):
         return False
 
     def _exec_properties(self):
+        if not self.__files:
+            return
         focused_file = self.__files[self.__focused_file_index]
         properties = focused_file.stat()
 
