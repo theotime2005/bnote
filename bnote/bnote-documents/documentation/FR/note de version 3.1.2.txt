@@ -1,3 +1,18 @@
+b.note version 3.1.2
+ Musique :
+- Correction d'un bug qui empêchait de sauvegarder les documents dans la version 3.1.1.
+- Signe d'octave avant chaque section et gestion des pauses multiples.
+- L'indication d'octave n'est plus mise quand on est en section partie complète.
+
+ Wikipédia:
+- Corrige le crash quand on appuie sur le bouton Cancel lors de la première recherche.
+
+ Lecteur Audio:
+- Correctif pour éviter le crash avec les fichiers .ts
+
+ Préférence :
+- Correction crash lors de la suppression d'un favoris WiFi sur une liste vide
+
 b.note version 3.1.1
 - Gestion des extensions .ts et .m4a depuis l'explorateur de fichiers
 - Réparation de la synchro de la date depuis internet

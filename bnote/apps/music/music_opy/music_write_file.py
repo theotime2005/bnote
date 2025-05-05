@@ -6,9 +6,9 @@ distributed, published,or disclosed without express prior written permission.
 
 import os
 import threading
-from .l1ll1ll1l_opy_ import l1ll11lll_opy_
-from .l1ll1111l_opy_ import l1ll11l11_opy_
-from .l1lll111l_opy_ import l1ll1lll1_opy_
+from .l1111llll1l_opy_ import l1111lll11l_opy_
+from .l1lllllll1ll_opy_ import l1llllll1l11_opy_
+from .l1lllllll1l1_opy_ import l1llllll1l1l_opy_
 
 
 class BadExtensionFile(Exception):
@@ -16,71 +16,71 @@ class BadExtensionFile(Exception):
 
 
 class MusicWriteFile(threading.Thread):
-    l1ll1l1l1_opy_ = 0
-    l1l1lllll_opy_ = 1
-    l1ll11111_opy_ = 2
+    l11111llll_opy_ = 0
+    l111111lll_opy_ = 1
+    l111111l11_opy_ = 2
 
     def __init__(
         self,
         lou,
         settings,
-        l1l1lll1l_opy_,
-        l1ll1l1ll_opy_,
-        l1ll1ll11_opy_,
-        l1l1llll1_opy_,
+        l11111l1ll_opy_,
+        l1ll1111l1_opy_,
+        l1111ll1l1l_opy_,
+        l1llllllll1l_opy_,
         function,
         extension=None,
     ):
         threading.Thread.__init__(self)
-        self._1ll111ll_opy_ = lou
-        self._1l1lll11_opy_ = settings
-        self._1ll1llll_opy_ = l1l1lll1l_opy_
-        self._1ll1l11l_opy_ = l1ll1l1ll_opy_
-        self._1ll111l1_opy_ = l1ll1ll11_opy_
-        self._1ll11ll1_opy_ = l1l1llll1_opy_
-        self._1ll1l111_opy_ = function
+        self._1lllllll11l_opy_ = lou
+        self._1llllll1ll1_opy_ = settings
+        self._11111ll11_opy_ = l11111l1ll_opy_
+        self._1l1l1l1l_opy_ = l1ll1111l1_opy_
+        self._1llllllll11_opy_ = l1111ll1l1l_opy_
+        self._1lllllll111_opy_ = l1llllllll1l_opy_
+        self._1llllll1lll_opy_ = function
         self.extension = extension
-        self.state = MusicWriteFile.l1ll1l1l1_opy_
+        self.state = MusicWriteFile.l11111llll_opy_
         self.error = None
 
     def run(self):
-        self.state = MusicWriteFile.l1l1lllll_opy_
-        l1l1ll1ll_opy_, l1l1ll1l1_opy_ = os.path.splitext(self._1ll1llll_opy_)
-        if l1l1ll1l1_opy_:
-            l1l1ll1l1_opy_ = l1l1ll1l1_opy_.lower()
+        self.state = MusicWriteFile.l111111lll_opy_
+        file_name, l1111111ll_opy_ = os.path.splitext(self._11111ll11_opy_)
+        if l1111111ll_opy_:
+            l1111111ll_opy_ = l1111111ll_opy_.lower()
         try:
-            if l1l1ll1l1_opy_ == ".bxml":
-                l1lll1111_opy_ = l1ll11lll_opy_(
-                    self._1ll111ll_opy_,
-                    self._1ll1llll_opy_,
-                    self._1ll1l11l_opy_,
-                    self._1l1lll11_opy_,
+            if l1111111ll_opy_ == ".bxml":
+                l1lllllllll1_opy_ = l1111lll11l_opy_(
+                    self._1lllllll11l_opy_,
+                    self._11111ll11_opy_,
+                    self._1l1l1l1l_opy_,
+                    self._1llllll1ll1_opy_,
                 )
-                self.error = l1lll1111_opy_.l1ll11l1l_opy_(self._1ll111l1_opy_)
-            elif l1l1ll1l1_opy_ == ".musicxml":
-                l1lll1111_opy_ = l1ll11l11_opy_(
-                    self._1ll111ll_opy_,
-                    self._1ll1llll_opy_,
-                    self._1ll1l11l_opy_,
-                    self._1l1lll11_opy_,
+                self.error = l1lllllllll1_opy_.l1111ll1lll_opy_(self._1llllllll11_opy_)
+            elif l1111111ll_opy_ == ".musicxml":
+                l1lllllllll1_opy_ = l1llllll1l11_opy_(
+                    self._1lllllll11l_opy_,
+                    self._11111ll11_opy_,
+                    self._1l1l1l1l_opy_,
+                    self._1llllll1ll1_opy_,
                 )
-                self.error = l1lll1111_opy_.l1ll11l1l_opy_(self._1ll111l1_opy_)
-            elif l1l1ll1l1_opy_ == ".midi" or l1l1ll1l1_opy_ == ".mid":
-                l1lll1111_opy_ = l1ll1lll1_opy_(
-                    self._1ll111ll_opy_,
-                    self._1ll1llll_opy_,
-                    self._1ll1l11l_opy_,
-                    self._1l1lll11_opy_,
+                self.error = l1lllllllll1_opy_.l1111ll1lll_opy_(self._1llllllll11_opy_)
+            elif l1111111ll_opy_ == ".midi" or l1111111ll_opy_ == ".mid":
+                l1lllllllll1_opy_ = l1llllll1l1l_opy_(
+                    self._1lllllll11l_opy_,
+                    self._11111ll11_opy_,
+                    self._1l1l1l1l_opy_,
+                    self._1llllll1ll1_opy_,
                     self.extension,
                 )
-                self.error = l1lll1111_opy_.l1ll11l1l_opy_(self._1ll111l1_opy_)
+                self.error = l1lllllllll1_opy_.l1111ll1lll_opy_(self._1llllllll11_opy_)
             else:
                 raise BadExtensionFile(
-                    _("file {} type not supported.").format(self._1ll1llll_opy_)
+                    _("file {} type not supported.").format(self._11111ll11_opy_)
                 )
         except IOError as error:
             self.error = error
             log.error("Write file IO exception:{}".format(self.error))
-        self.state = MusicWriteFile.l1ll11111_opy_
-        if self._1ll11ll1_opy_ is not None:
-            self._1ll11ll1_opy_(self.error, self._1ll1l111_opy_)
+        self.state = MusicWriteFile.l111111l11_opy_
+        if self._1lllllll111_opy_ is not None:
+            self._1lllllll111_opy_(self.error, self._1llllll1lll_opy_)

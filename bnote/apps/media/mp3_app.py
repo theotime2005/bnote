@@ -882,7 +882,7 @@ class Mp3App(BnoteApp):
             tag = mutagen.File(filename, easy=True)
             log.debug(f"{tag=}")
             # Check properties validity.
-            if "title" not in tag.keys():
+            if tag is None or "title" not in tag.keys():
                 return
             # new_tag = dict()
             for key, value in tag.items():

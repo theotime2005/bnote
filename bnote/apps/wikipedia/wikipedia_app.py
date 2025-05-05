@@ -34,6 +34,8 @@ class WikipediaApp(EditorBaseApp):
         super().__init__(
             put_in_function_queue, file_name, language, read_only, no_context=True
         )
+        # Instantiate an empty editor in case the user presses the cancel button.
+        self.editor = self._create_editor([""])
         # Current instance of wikipedia dialog box, with items references.
         self._ui_wiki_dialog = None
         self._ui_wiki_find = ""

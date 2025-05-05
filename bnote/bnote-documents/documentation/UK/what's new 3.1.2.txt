@@ -1,3 +1,18 @@
+b.note version 3.1.2
+ Music:
+- Fixed a bug that prevented saving documents in version 3.1.1.
+- Added octave signs before each section and improved handling of multiple rests.
+- Octave indication is no longer displayed when in full-section mode.
+
+ Wikipedia:
+- Fixed a crash when pressing the Cancel button during the first search.
+
+ Audio Player:
+- Fixed a crash occurring with .ts files.
+
+ Preferences:
+- Fixed a crash when deleting a WiFi favorite from an empty list.
+
 b.note version 3.1.1
 - Management of .ts and .m4a extensions from the file explorer
 - Fix for date synchronization from the internet

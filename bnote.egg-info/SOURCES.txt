@@ -1,9 +1,9 @@
 MANIFEST.in
 README.md
 pyproject.toml
+setup.cfg
 bnote/__init__.py
 bnote/bnote_start.py
-bnote/libraries.txt
 bnote/run.py
 bnote/stop_bnote_service.py
 bnote/test.py
@@ -18,6 +18,8 @@ bnote/apps/internal.py
 bnote/apps/repeated_timer.py
 bnote/apps/agenda/agenda.py
 bnote/apps/agenda/agenda_app.py
+bnote/apps/ai_assistant/ai_assistant_app.py
+bnote/apps/ai_assistant/ai_eurobraille.py
 bnote/apps/braille_learning/__init__.py
 bnote/apps/braille_learning/error.wav
 bnote/apps/braille_learning/level_manage.py
@@ -137,82 +139,47 @@ bnote/apps/music/braille_dots.py
 bnote/apps/music/music_app.py
 bnote/apps/music/music_opy/__init__.py
 bnote/apps/music/music_opy/braille_dots.py
-bnote/apps/music/music_opy/l11111111ll_opy_.py
-bnote/apps/music/music_opy/l1111111l11_opy_.py
-bnote/apps/music/music_opy/l1111l1111l_opy_.py
-bnote/apps/music/music_opy/l1111l111l1_opy_.py
-bnote/apps/music/music_opy/l1111l111ll_opy_.py
-bnote/apps/music/music_opy/l1111l11l11_opy_.py
-bnote/apps/music/music_opy/l1111l11l1l_opy_.py
-bnote/apps/music/music_opy/l1111l11lll_opy_.py
-bnote/apps/music/music_opy/l1111l1l11l_opy_.py
-bnote/apps/music/music_opy/l1111l1l1ll_opy_.py
-bnote/apps/music/music_opy/l111_opy_.py
-bnote/apps/music/music_opy/l111l11ll1_opy_.py
-bnote/apps/music/music_opy/l111l11ll_opy_.py
-bnote/apps/music/music_opy/l111l1ll_opy_.py
-bnote/apps/music/music_opy/l11l111l11_opy_.py
-bnote/apps/music/music_opy/l11l111l1l_opy_.py
-bnote/apps/music/music_opy/l11l11l11l_opy_.py
-bnote/apps/music/music_opy/l11ll11llll_opy_.py
-bnote/apps/music/music_opy/l11lll11l_opy_.py
-bnote/apps/music/music_opy/l11llll11_opy_.py
-bnote/apps/music/music_opy/l11lllll1_opy_.py
-bnote/apps/music/music_opy/l1l111111_opy_.py
-bnote/apps/music/music_opy/l1l1111lll_opy_.py
-bnote/apps/music/music_opy/l1l111l1l_opy_.py
-bnote/apps/music/music_opy/l1l111lll_opy_.py
-bnote/apps/music/music_opy/l1l111llll_opy_.py
-bnote/apps/music/music_opy/l1l11l111_opy_.py
-bnote/apps/music/music_opy/l1l11l11l_opy_.py
-bnote/apps/music/music_opy/l1l11l1l1_opy_.py
-bnote/apps/music/music_opy/l1l11l1ll11_opy_.py
-bnote/apps/music/music_opy/l1l11ll1l_opy_.py
-bnote/apps/music/music_opy/l1l1l1111_opy_.py
-bnote/apps/music/music_opy/l1l1l1ll1l1_opy_.py
-bnote/apps/music/music_opy/l1l1ll111_opy_.py
-bnote/apps/music/music_opy/l1l1ll11l_opy_.py
-bnote/apps/music/music_opy/l1l1ll1l1_opy_.py
-bnote/apps/music/music_opy/l1l1ll1ll_opy_.py
-bnote/apps/music/music_opy/l1l1lll1llll_opy_.py
-bnote/apps/music/music_opy/l1l1llll11ll_opy_.py
-bnote/apps/music/music_opy/l1l1llll1ll1_opy_.py
-bnote/apps/music/music_opy/l1l1llll_opy_.py
-bnote/apps/music/music_opy/l1l1lllll_opy_.py
-bnote/apps/music/music_opy/l1ll1111l_opy_.py
-bnote/apps/music/music_opy/l1ll111l1_opy_.py
-bnote/apps/music/music_opy/l1ll1l1l1l1_opy_.py
-bnote/apps/music/music_opy/l1ll1l1l1ll_opy_.py
-bnote/apps/music/music_opy/l1ll1ll1111_opy_.py
-bnote/apps/music/music_opy/l1ll1ll11l1_opy_.py
-bnote/apps/music/music_opy/l1ll1llll11_opy_.py
-bnote/apps/music/music_opy/l1ll1llll1l_opy_.py
-bnote/apps/music/music_opy/l1ll1llllll_opy_.py
-bnote/apps/music/music_opy/l1lll111111_opy_.py
-bnote/apps/music/music_opy/l1lll11l1_opy_.py
-bnote/apps/music/music_opy/l1lll_opy_.py
-bnote/apps/music/music_opy/l1llll_opy_.py
-bnote/apps/music/music_opy/l1llllll111l_opy_.py
-bnote/apps/music/music_opy/l1lllllll111_opy_.py
+bnote/apps/music/music_opy/l1111111111_opy_.py
+bnote/apps/music/music_opy/l11111l1l1_opy_.py
+bnote/apps/music/music_opy/l1111llll1l_opy_.py
+bnote/apps/music/music_opy/l1111lllll1_opy_.py
+bnote/apps/music/music_opy/l11l111111_opy_.py
+bnote/apps/music/music_opy/l11l1l1l111_opy_.py
+bnote/apps/music/music_opy/l11ll11l111_opy_.py
+bnote/apps/music/music_opy/l1l11l11l1l_opy_.py
+bnote/apps/music/music_opy/l1l11lll1l1_opy_.py
+bnote/apps/music/music_opy/l1l1l11111l_opy_.py
+bnote/apps/music/music_opy/l1l1l111l_opy_.py
+bnote/apps/music/music_opy/l1l1l1ll11_opy_.py
+bnote/apps/music/music_opy/l1l1ll111l1_opy_.py
+bnote/apps/music/music_opy/l1l1lll11l11_opy_.py
+bnote/apps/music/music_opy/l1ll111l111_opy_.py
+bnote/apps/music/music_opy/l1lll111ll_opy_.py
+bnote/apps/music/music_opy/l1lllllll1l1_opy_.py
+bnote/apps/music/music_opy/l1lllllll1ll_opy_.py
+bnote/apps/music/music_opy/l1lllllllll_opy_.py
 bnote/apps/music/music_opy/music_read_file.py
 bnote/apps/music/music_opy/music_write_file.py
 bnote/apps/settings/settings_app.py
 bnote/apps/skeleton/skeleton_app.py
 bnote/apps/timer/sound.mp3
 bnote/apps/timer/timer_app.py
+bnote/apps/translator/translator_app.py
 bnote/apps/wikipedia/wikipedia_app.py
 bnote/bnote-documents/radio_list.xml
 bnote/bnote-documents/signature.txt
-bnote/bnote-documents/documentation/FR/bnote - Manuel - 3.0.0 - FR.txt
+bnote/bnote-documents/documentation/FR/bnote - Manuel - 3.1.0 - FR.txt
 bnote/bnote-documents/documentation/FR/bnote - Manuel du développeur - 3.0.0 - FR.pdf.ref
 bnote/bnote-documents/documentation/FR/bnote - Manuel du développeur - 3.0.0 - FR.txt
-bnote/bnote-documents/documentation/FR/bnote - Musique - 2.5.txt
-bnote/bnote-documents/documentation/FR/note de version 3.0.0.txt
+bnote/bnote-documents/documentation/FR/bnote - Musique - 3.0.0 - FR.txt
+bnote/bnote-documents/documentation/FR/note de version 3.1.2.txt
 bnote/bnote-documents/documentation/HR/Eurobraille B.Note Korisnicki prirucnik v1.2.0 HR.txt
-bnote/bnote-documents/documentation/UK/bnote - Developper manual - 2.0.0- UK.pdf.ref
-bnote/bnote-documents/documentation/UK/bnote - Manual - 2.5.0 - UK.txt
-bnote/bnote-documents/documentation/UK/bnote - music 2.5.0.txt
-bnote/bnote-documents/documentation/UK/what's new 2.5.0.txt
+bnote/bnote-documents/documentation/UK/bnote - Developper manual - 3.0.0- UK.pdf
+bnote/bnote-documents/documentation/UK/bnote - Developper manual - 3.0.0- UK.pdf.ref
+bnote/bnote-documents/documentation/UK/bnote - Developper manual - 3.0.0- UK.txt
+bnote/bnote-documents/documentation/UK/bnote - Manual - 3.1.0 - EN.txt
+bnote/bnote-documents/documentation/UK/bnote - music 3.0.0 - EN.txt
+bnote/bnote-documents/documentation/UK/what's new 3.1.2.txt
 bnote/bnote-documents/tests/abc.txt
 bnote/bnote-documents/tests/HR/math (hr-hr).txt
 bnote/bnote-documents/tests/brf/Les 63 symboles braille US.brf
@@ -282,6 +249,7 @@ bnote/tools/settings.py
 bnote/tools/singleton_meta.py
 bnote/tools/speech_wrapper.py
 bnote/tools/swap_file.py
+bnote/tools/sync_date.py
 bnote/tools/translate.py
 bnote/tools/volume.py
 bnote/tools/volume_speed_dialog_box.py
@@ -331,6 +299,7 @@ bnote/ui/ui_menu_item.py
 bnote/ui/ui_message_dialog_box.py
 bnote/ui/ui_multi_lines_box.py
 bnote/ui/ui_object.py
+bnote/ui/ui_parameters_list.py
 bnote/ui/ui_settings_dialog_box.py
 bnote/wifi/__init__.py
 bnote/wifi/subprocess_compat.py

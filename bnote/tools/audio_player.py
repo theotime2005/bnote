@@ -219,9 +219,11 @@ class AudioPlayer(metaclass=SingletonMeta):
     def __get_interface():
         headphone = Gpio().is_head_phone()
         if headphone:
-            return vlc.Instance("--aout=alsa", "--alsa-audio-device=hw:0,0")
+            return vlc.Instance(
+                "--aout=alsa", "--alsa-audio-device=hw:0,0", "--no-video"
+            )
         else:
-            return vlc.Instance()
+            return vlc.Instance("--no-video")
 
     @staticmethod
     def __get_volume():

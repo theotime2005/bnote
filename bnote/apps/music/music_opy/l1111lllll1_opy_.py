@@ -5,5 +5,5 @@ distributed, published,or disclosed without express prior written permission.
 """
 
 
-class l11ll11lll1_opy_:
-    l11ll11ll11_opy_ = True
+class l1111llllll_opy_:
+    l111l111111_opy_ = True

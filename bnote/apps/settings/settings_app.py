@@ -3512,7 +3512,11 @@ class SettingsApp(BnoteApp):
 
     def _exec_remove_wifi_favorites_dialog(self):
         index, favorites = self.__wifi_favorites_dialog_parameters()
-        if WifiNmcliCommand.network_remove(favorites[index]["ssid"]):
+        if (
+            favorites
+            and len(favorites) > index
+            and WifiNmcliCommand.network_remove(favorites[index]["ssid"])
+        ):
             del favorites[index]
             if index > len(favorites):
                 index -= 1

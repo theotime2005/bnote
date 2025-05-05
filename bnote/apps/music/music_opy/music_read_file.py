@@ -8,8 +8,8 @@ import codecs
 import os
 import threading
 import xml.sax
-from .l11ll1l11ll_opy_ import l11ll1l1l1l_opy_
-from .l11l1l1l1ll_opy_ import l11l1l1l1l1_opy_
+from .l11111l1l1_opy_ import l111111111_opy_
+from .l1lllllllll_opy_ import l11111ll1l_opy_
 from zipfile import BadZipFile
 
 
@@ -18,89 +18,89 @@ class BadExtensionFile(Exception):
 
 
 class MusicReadFile(threading.Thread):
-    l1ll1l1l1_opy_ = 0
-    l1l1lllll_opy_ = 1
-    l1ll11111_opy_ = 2
+    l11111llll_opy_ = 0
+    l111111lll_opy_ = 1
+    l111111l11_opy_ = 2
 
     def __init__(
         self,
         lou,
-        l1l1lll1l_opy_,
-        l11l1l11l11_opy_,
-        l1l111lll_opy_,
-        l11l1l11l1l_opy_,
-        l11l1l11ll1_opy_,
+        l11111l1ll_opy_,
+        language,
+        l111111l1l_opy_,
+        l11111l111_opy_,
+        l11111l11l_opy_,
     ):
         threading.Thread.__init__(self)
-        self.l11l1l11l11_opy_ = l11l1l11l11_opy_
+        self.language = language
         self.lou = lou
-        self.l1l111lll_opy_ = l1l111lll_opy_
-        self._1ll1llll_opy_ = l1l1lll1l_opy_
-        self.l11l1l11l1l_opy_ = l11l1l11l1l_opy_
-        self.l11l1l11ll1_opy_ = l11l1l11ll1_opy_
-        self.state = self.l1ll1l1l1_opy_
-        self.l11l1l111l1_opy_ = None
+        self.l111111l1l_opy_ = l111111l1l_opy_
+        self._11111ll11_opy_ = l11111l1ll_opy_
+        self.l11111l111_opy_ = l11111l111_opy_
+        self.l11111l11l_opy_ = l11111l11l_opy_
+        self.state = self.l11111llll_opy_
+        self.l11111lll1_opy_ = None
         self.error = None
 
-    def l1l1llll1ll_opy_(self, line):
-        self.l11l1l11l1l_opy_(line)
+    def l1l1l111_opy_(self, line):
+        self.l11111l111_opy_(line)
 
     def run(self):
-        self.state = self.l1l1lllll_opy_
-        l1l1ll1ll_opy_, l1l1ll1l1_opy_ = os.path.splitext(self._1ll1llll_opy_)
-        if l1l1ll1l1_opy_:
-            l1l1ll1l1_opy_ = l1l1ll1l1_opy_.lower()
-        l1ll1l1ll_opy_ = None
+        self.state = self.l111111lll_opy_
+        file_name, l1111111ll_opy_ = os.path.splitext(self._11111ll11_opy_)
+        if l1111111ll_opy_:
+            l1111111ll_opy_ = l1111111ll_opy_.lower()
+        l1ll1111l1_opy_ = None
         try:
-            if l1l1ll1l1_opy_ == ".bxml":
-                l11l1l1l111_opy_ = ["utf-8", "latin-1"]
+            if l1111111ll_opy_ == ".bxml":
+                encodings = ["utf-8", "latin-1"]
                 e = None
-                for e in l11l1l1l111_opy_:
+                for e in encodings:
                     try:
-                        l11l1l111ll_opy_ = codecs.open(
-                            self._1ll1llll_opy_, "r", encoding=e
+                        l11111111l_opy_ = codecs.open(
+                            self._11111ll11_opy_, "r", encoding=e
                         )
-                        l11l1l111ll_opy_.readlines()
-                        l11l1l111ll_opy_.seek(0)
+                        l11111111l_opy_.readlines()
+                        l11111111l_opy_.seek(0)
                     except UnicodeDecodeError:
                         # log.warning('got unicode error with %s , trying different encoding' % e)
                         pass
                     else:
                         # log.warning('opening the file with encoding:  %s ' % e)
                         break
-                self.l11l1l111l1_opy_ = self._1ll1llll_opy_
-                l11l1l11lll_opy_ = l11ll1l1l1l_opy_(
-                    self.lou, self._1ll1llll_opy_, self.l1l111lll_opy_
+                self.l11111lll1_opy_ = self._11111ll11_opy_
+                l111111ll1_opy_ = l111111111_opy_(
+                    self.lou, self._11111ll11_opy_, self.l111111l1l_opy_
                 )
-                l1ll1l1ll_opy_ = l11l1l11lll_opy_.l1ll1l11l1l_opy_(
-                    self.l1l1llll1ll_opy_, encoding=e
+                l1ll1111l1_opy_ = l111111ll1_opy_.l1111111l1_opy_(
+                    self.l1l1l111_opy_, encoding=e
                 )
-            elif l1l1ll1l1_opy_ == ".musicxml":
-                l11l1l1l111_opy_ = ["utf-8", "latin-1"]
+            elif l1111111ll_opy_ == ".musicxml":
+                encodings = ["utf-8", "latin-1"]
                 e = None
-                for e in l11l1l1l111_opy_:
+                for e in encodings:
                     try:
-                        l11l1l111ll_opy_ = codecs.open(
-                            self._1ll1llll_opy_, "r", encoding=e
+                        l11111111l_opy_ = codecs.open(
+                            self._11111ll11_opy_, "r", encoding=e
                         )
-                        l11l1l111ll_opy_.readlines()
-                        l11l1l111ll_opy_.seek(0)
+                        l11111111l_opy_.readlines()
+                        l11111111l_opy_.seek(0)
                     except UnicodeDecodeError:
                         pass
                         # log.warning('got unicode error with %s , trying different encoding' % e)
                     else:
                         # log.warning('opening the file with encoding:  %s ' % e)
                         break
-                self.l11l1l111l1_opy_ = self._1ll1llll_opy_
-                l11l1l1l1ll_opy_ = l11l1l1l1l1_opy_(
-                    self.lou, self._1ll1llll_opy_, self.l1l111lll_opy_
+                self.l11111lll1_opy_ = self._11111ll11_opy_
+                l1lllllllll_opy_ = l11111ll1l_opy_(
+                    self.lou, self._11111ll11_opy_, self.l111111l1l_opy_
                 )
-                l1ll1l1ll_opy_ = l11l1l1l1ll_opy_.l1ll1l11l1l_opy_(
-                    self.l1l1llll1ll_opy_, encoding=e
+                l1ll1111l1_opy_ = l1lllllllll_opy_.l1111111l1_opy_(
+                    self.l1l1l111_opy_, encoding=e
                 )
             else:
                 raise BadExtensionFile(
-                    _("file {} type not supported.").format(self._1ll1llll_opy_)
+                    _("file {} type not supported.").format(self._11111ll11_opy_)
                 )
         except AttributeError as error:
             self.error = error
@@ -115,8 +115,8 @@ class MusicReadFile(threading.Thread):
         except xml.sax.SAXException as error:
             self.error = error
         finally:
-            self.l11l1l11ll1_opy_(
-                self.error, self.l11l1l111l1_opy_, None, l1ll1l1ll_opy_
+            self.l11111l11l_opy_(
+                self.error, self.l11111lll1_opy_, None, l1ll1111l1_opy_
             )
-            self.state = self.l1ll11111_opy_
+            self.state = self.l111111l11_opy_
             # log.info("End reading file")

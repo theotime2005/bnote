@@ -1,6 +1,6 @@
-Metadata-Version: 2.1
+Metadata-Version: 2.4
 Name: bnote
-Version: 3.0.4
+Version: 3.1.2
 Summary: bnote application
 Author: Eurobraille team
 Requires-Python: <3.12,>=3.11
@@ -27,3 +27,5 @@ Requires-Dist: sdbus==0.11.1
 Requires-Dist: pyproject_hooks==1.1.0
 Requires-Dist: build==1.2.1
 Requires-Dist: translate==3.6.1
+Requires-Dist: pytz==2024.2
+Requires-Dist: ntplib==0.4.0
