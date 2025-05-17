@@ -17,7 +17,7 @@ import re
 import tomllib
 import threading
 import requests
-from bnote.tools.settings import Settings
+from bs4 import BeautifulSoup
 import pkg_resources
 
 
@@ -26,24 +26,29 @@ from bnote.debug.colored_log import ColoredLogger, YAUPDATER_LOG
 log = ColoredLogger(__name__)
 log.setLevel(YAUPDATER_LOG)
 
-# UPDATE_FOLDER_URL = 'https://update.eurobraille.fr/radio/download/bnote/bnote3.x.x/bnote3.0.5_next'
-UPDATE_FOLDER_URL = Settings().data['update']['search_update_to']
+UPDATE_FOLDER_URL = (
+    "https://update.eurobraille.fr/radio/download/bnote/bnote3.x.x/bnote3.0.5_next"
+)
 INSTALL_FOLDER = Path("/home/pi/all_bnotes")
 
-def test_new_source(source) -> bool:
-    """
-    Return True if the link is a valid source.
-    :param source: the link to test.
-    :return: Boolean
-    """
-    response = requests.get(source)
-    if response.status_code == 200 and "bnote" in source:
-        return True
-    return False
 
-def change_update_source():
-    global UPDATE_FOLDER_URL
-    UPDATE_FOLDER_URL = Settings().data['update']['search_update_to']
+# Objectifs :
+# - Installer une version de bnote à partir d'un tar.gz créé par poetry
+# - Possibilité de télécharger le tar.gz ou d'utiliser un tar.gz déja sur bnote.
+# -
+
+# Génération du tar.gz sur une machine de dev :
+# pi@raspberrypi:~/bnote $ poetry build
+# Building bnote (3.0.0-beta.5)
+#   - Building sdist
+#   - Built bnote-3.0.0b5.tar.gz
+#   - Building wheel
+#   - Built bnote-3.0.0b5-py3-none-any.whl
+# pi@raspberrypi:~/bnote $ ls
+# bnote  dist  PKG-INFO  poetry.lock  pyproject.toml  README.md  tests
+# pi@raspberrypi:~/bnote $ ls dist
+# bnote-3.0.0b5-py3-none-any.whl  bnote-3.0.0b5.tar.gz
+# Remarque : Le nom du fichier tar.gz est créé sous la forme name-version.tar.gz (name et version issus du fichier pyproject.toml)
 
 
 class YAUpdater:
@@ -424,33 +429,55 @@ class YAUpdaterFinder:
         file_to_install = None
         try:
             response = requests.get(UPDATE_FOLDER_URL)
+            # Raise exceptions for 4xx and 5xx responses.
             response.raise_for_status()
-            releases = response.json()
-            current_version = YAUpdater.get_version_from_running_project("pyproject.toml")
-
-            file_link = None
-            for release in releases:
-                # Get the link only for the update
-                for asset in release['assets']:
-                    if asset['content_type'] == "application/zip":
-                        file_link = asset['browser_download_url']
-                if not file_link:
-                    self.version_to_install = "failed"
-                    return
-                file_version = release['tag_name']
-                if file_version.startswith('v'):
-                    file_version = file_version[1:]
-                if self.is_allowed_version(file_version):
-                    files.append({'version': file_version, 'link': file_link})
-                    if not self.is_first_str_version_greater_or_equal(current_version, file_version):
-                        if file_to_install is None or not self.is_first_str_version_greater_or_equal(version_to_install,
-                                                                                                     file_version):
-                            version_to_install = file_version
-                            file_to_install = file_link
+            soup = BeautifulSoup(response.text, "html.parser")
+            # Find all links and filter them with pattern.
+            files = [
+                link.get("href")
+                for link in soup.find_all("a")
+                if re.match(pattern, link.get("href"))
+            ]
+            log.error(f"Updates found: {files}")
+            current_version = YAUpdater.get_version_from_running_project(
+                "pyproject.toml"
+            )
+            for file in files:
+                match = re.match(pattern_version, file)
+                if match:
+                    # print(f"{match}")
+                    # print(f"{match.groupdict()=}")
+                    # print(f"{match.group('major')=}-{match.group('minor')=}-{match.group('fix')=}")
+                    if "version" in match.groupdict().keys() and match.group("version"):
+                        file_version = match.group("version")
+                        log.info(f"Compare {current_version=} to {file_version=}")
+                        if self.is_allowed_version(
+                            file_version
+                        ) and not YAUpdaterFinder.is_first_str_version_greater_or_equal(
+                            current_version, file_version
+                        ):
+                            if (
+                                file_to_install is None
+                                or not YAUpdaterFinder.is_first_str_version_greater_or_equal(
+                                    version_to_install, file_version
+                                )
+                            ):
+                                version_to_install = file_version
+                                file_to_install = file
+        except requests.exceptions.HTTPError as errh:
+            log.error(f"Erreur HTTP: {errh}")
+            version_to_install = "failed"
+        except requests.exceptions.ConnectionError as errc:
+            log.error(f"Erreur de connexion: {errc}")
+            version_to_install = "failed"
+        except requests.exceptions.Timeout as errt:
+            log.error(f"Temps d'attente dépassé: {errt}")
+            version_to_install = "failed"
         except requests.exceptions.RequestException as err:
-            print(f"Request error: {err}")
-            version_to_install = 'failed'
+            log.error(f"Erreur de requête: {err}")
+            version_to_install = "failed"
         finally:
+            log.error(f"{version_to_install=}")
             self.__on_end_thread(files, version_to_install, file_to_install)
 
     def is_allowed_version(self, version):
