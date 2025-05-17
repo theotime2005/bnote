@@ -65,7 +65,7 @@ class SettingsApp(BnoteApp):
     Setting application.
     """
 
-    def __init__(self, put_in_function_queue, put_in_stm32_tx_queue, test=False):
+    def __init__(self, put_in_function_queue, put_in_stm32_tx_queue, test=False, new_update=False):
         """
         test is True to avoid document construction when instance is done by test_translate to check menu shortcut.
         """
@@ -121,8 +121,8 @@ class SettingsApp(BnoteApp):
         # Fill the document.
         if not self.test:
             self.__update_document(update_computers_and_paired_device=True)
-            # Check update if settings agree.
-            if Settings().data["update"]["auto_check"]:
+            # Check update if new_update is True
+            if new_update:
                 self._put_in_function_queue(FunctionId.FUNCTION_CHECK_UPDATE)
             # Sync date if setting agree.
             if Settings().data["system"]["auto_sync_date"]:
@@ -560,7 +560,7 @@ class SettingsApp(BnoteApp):
                 "action": self.__dialog_set_stm32,
                 "action_param": {"section": "stm32", "key": "standby_shutdown"},
             },
-            # ('update', 'auto_check'): {'action': self.__dialog_set_settings, 'action_param': {'section': 'update', 'key': 'auto_check'}},
+            ('update', 'auto_check'): {'action': self.__dialog_set_settings, 'action_param': {'section': 'update', 'key': 'auto_check'}},
             ('update', 'search_update_to'): {'action': self._exec_change_update_source,
                                              'action_param': {'section': 'update, source'}},
             ('version', 'application'): {'action': self.__dialog_application_version,
@@ -1163,9 +1163,7 @@ class SettingsApp(BnoteApp):
                         ui.UiMenuItem(
                             name=_("check update"), action=self._exec_check_update
                         ),
-                        # FIXME auto_check affiche un message à chaque fois que l'on rentre dans les préférences pour dire "système à jour", il est trop bavard.
-                        # FIXME Il faudrait que ce soit fait dans internal pour que quelqu'un qui ne rentre pas dans les préférences soit prévenu.
-                        # ui.UiMenuItem(name=_("&auto check"), **self.__action_and_action_param[('update', 'auto_check')]),
+                        ui.UiMenuItem(name=_("&auto check"), **self.__action_and_action_param[('update', 'auto_check')]),
                         ui.UiMenuItem(name=_("&install an other version"), action=self._exec_get_update_history),
                         ui.UiMenuItem(name=_("&search update to"),
                                       **self.__action_and_action_param[('update', 'search_update_to')]),
@@ -2179,7 +2177,7 @@ class SettingsApp(BnoteApp):
         self.__append_line_in_document()
         # Update
         self.__append_line_in_document(param_label=_("update"), is_tab_stop=True)
-        # self.__append_line_in_document(param_label=_("automatically check for updates"), param_value=self.__get_settings_value('update', 'auto_check'), dialog_box_name=_("update"), dialog_box_param_name=_("&auto checking"), section='update', key='auto_check')
+        self.__append_line_in_document(param_label=_("automatically check for updates"), param_value=self.__get_settings_value('update', 'auto_check'), dialog_box_name=_("update"), dialog_box_param_name=_("&auto checking"), section='update', key='auto_check')
         version_to_install = self.update.version_to_install
         if (
             version_to_install
