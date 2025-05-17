@@ -63,7 +63,7 @@ class SettingsApp(BnoteApp):
     Setting application.
     """
 
-    def __init__(self, put_in_function_queue, put_in_stm32_tx_queue, test=False):
+    def __init__(self, put_in_function_queue, put_in_stm32_tx_queue, test=False, new_update=False):
         """
         test is True to avoid document construction when instance is done by test_translate to check menu shortcut.
         """
@@ -119,8 +119,8 @@ class SettingsApp(BnoteApp):
         # Fill the document.
         if not self.test:
             self.__update_document(update_computers_and_paired_device=True)
-            # Check update if settings agree.
-            if Settings().data["update"]["auto_check"]:
+            # Check update if new_update is True
+            if new_update:
                 self._put_in_function_queue(FunctionId.FUNCTION_CHECK_UPDATE)
             # Sync date if setting agree.
             if Settings().data["system"]["auto_sync_date"]:
