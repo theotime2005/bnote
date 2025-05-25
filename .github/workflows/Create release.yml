@@ -15,7 +15,7 @@ jobs:
 
       - name: Install QEMU for ARM
         run: |
-          sudo apt-get update && sudo apt-get install -y qemu qemu-user-static binfmt-support
+          sudo apt-get update && sudo apt-get install -y qemu qemu-user-static binfmt-support gcc
           docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 
       - name: Setup Python and Zip in ARM environment, Generate build, and Create release
