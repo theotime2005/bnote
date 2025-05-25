@@ -1,0 +1,41 @@
+beautifulsoup4 @ file:///home/pi/develop/bnote/whl/beautifulsoup4-4.12.3-py3-none-any.whl
+# Editable install with no version control (bnote==3.1.204b2)
+-e /home/pi/develop/bnote
+bs4 @ file:///home/pi/develop/bnote/whl/bs4-0.0.2-py2.py3-none-any.whl
+build @ file:///home/pi/develop/bnote/whl/build-1.2.1-py3-none-any.whl
+certifi @ file:///home/pi/develop/bnote/whl/certifi-2024.2.2-py3-none-any.whl
+cffi @ file:///home/pi/develop/bnote/whl/cffi-1.16.0-cp311-cp311-linux_armv7l.whl
+charset-normalizer @ file:///home/pi/develop/bnote/whl/charset_normalizer-3.3.2-py3-none-any.whl
+click==8.1.8
+cryptography @ file:///home/pi/develop/bnote/whl/cryptography-42.0.7-cp311-cp311-linux_armv7l.whl
+dbus-python @ file:///home/pi/develop/bnote/whl/dbus_python-1.3.2-cp311-cp311-linux_armv7l.whl
+EbookLib @ file:///home/pi/develop/bnote/whl/EbookLib-0.18-py3-none-any.whl
+idna @ file:///home/pi/develop/bnote/whl/idna-3.7-py3-none-any.whl
+libretranslatepy==2.1.1
+lxml @ file:///home/pi/develop/bnote/whl/lxml-5.2.2-cp311-cp311-linux_armv7l.whl
+mido @ file:///home/pi/develop/bnote/whl/mido-1.3.2-py3-none-any.whl
+mutagen @ file:///home/pi/develop/bnote/whl/mutagen-1.47.0-py3-none-any.whl
+ntplib==0.4.0
+oauthlib @ file:///home/pi/develop/bnote/whl/oauthlib-3.2.2-py3-none-any.whl
+packaging @ file:///home/pi/develop/bnote/whl/packaging-23.2-py3-none-any.whl
+pbkdf2 @ file:///home/pi/develop/bnote/whl/pbkdf2-1.3-py3-none-any.whl
+py-machineid @ file:///home/pi/develop/bnote/whl/py_machineid-0.5.1-py3-none-any.whl
+pycparser @ file:///home/pi/develop/bnote/whl/pycparser-2.22-py3-none-any.whl
+pyproject_hooks==1.1.0
+pyrtitions @ file:///home/pi/develop/bnote/whl/pyrtitions-0.2.3-py3-none-any.whl
+pyserial @ file:///home/pi/develop/bnote/whl/pyserial-3.5-py2.py3-none-any.whl
+python-vlc @ file:///home/pi/develop/bnote/whl/python_vlc-3.0.20123-py3-none-any.whl
+pytz==2024.2
+requests @ file:///home/pi/develop/bnote/whl/requests-2.31.0-py3-none-any.whl
+requests-oauthlib @ file:///home/pi/develop/bnote/whl/requests_oauthlib-2.0.0-py2.py3-none-any.whl
+RPi.GPIO @ file:///home/pi/develop/bnote/whl/RPi.GPIO-0.7.1-cp311-cp311-linux_armv7l.whl
+sdbus @ file:///home/pi/develop/bnote/whl/sdbus-0.11.1-cp311-cp311-linux_armv7l.whl
+sdbus-networkmanager @ file:///home/pi/develop/bnote/whl/sdbus_networkmanager-2.0.0-py3-none-any.whl
+six @ file:///home/pi/develop/bnote/whl/six-1.16.0-py2.py3-none-any.whl
+soupsieve @ file:///home/pi/develop/bnote/whl/soupsieve-2.5-py3-none-any.whl
+striprtf @ file:///home/pi/develop/bnote/whl/striprtf-0.0.26-py3-none-any.whl
+translate==3.6.1
+Unidecode @ file:///home/pi/develop/bnote/whl/Unidecode-1.3.8-py3-none-any.whl
+urllib3 @ file:///home/pi/develop/bnote/whl/urllib3-2.2.1-py3-none-any.whl
+wikipedia @ file:///home/pi/develop/bnote/whl/wikipedia-1.4.0-py3-none-any.whl
+xlrd3 @ file:///home/pi/develop/bnote/whl/xlrd3-1.1.0-py2.py3-none-any.whl
