@@ -15,31 +15,32 @@ jobs:
 
       - name: Install QEMU for ARM
         run: |
-          sudo apt-get update && sudo apt-get install -y qemu qemu-user-static binfmt-support
+          sudo apt-get update && \
+          sudo apt-get install -y qemu qemu-user-static binfmt-support && \
           docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 
-      - name: Setup Python et Zip dans un environnement Raspberry Pi simulé, Générer le build et Créer la release
-          run: |
-            docker run --platform linux/arm/v7 -v $PWD:/workspace -w /workspace \
-              --rm raspbian/buster \
-              bash -c "
-                apt-get update && \
-                apt-get install -y python3 python3-venv python3-pip zip && \
-                python3 -m venv venv && venv/bin/pip install -r requirements.txt
-            
-                # Exécuter le script de génération
-                sh generate.sh
-              "
+      - name: Setup Python and Zip in Raspberry Pi environment, Build project
+        run: |
+          docker run --platform linux/arm/v7 \
+            -v ${{ github.workspace }}:/workspace \
+            -w /workspace \
+            --rm raspbian/buster \
+            bash -c "
+              apt-get update && \
+              apt-get install -y python3 python3-venv python3-pip zip && \
+              python3 -m venv venv && \
+              venv/bin/pip install -r requirements.txt && \
+              sh generate.sh
+            "
 
       - name: Determine release type
         run: |
-          if [[ "${GITHUB_REF##*/}" == *"beta"* || "${GITHUB_REF##*/}" == *"alpha"* || "${GITHUB_REF##*/}" == *"rc"* || "${GITHUB_REF##*/}" == *"a"* || "${GITHUB_REF##*/}" == *"b"* || "${GITHUB_REF##*/}" == *"r"* ]]; then
+          if [[ "$GITHUB_REF_NAME" == *"beta"* || "$GITHUB_REF_NAME" == *"alpha"* || "$GITHUB_REF_NAME" == *"rc"* || "$GITHUB_REF_NAME" == *"a"* || "$GITHUB_REF_NAME" == *"b"* || "$GITHUB_REF_NAME" == *"r"* ]]; then
             echo "prerelease=true" >> $GITHUB_ENV
           else
             echo "prerelease=false" >> $GITHUB_ENV
           fi
-          ref_name="${GITHUB_REF_NAME:1}"
-          echo "file_tag=$ref_name" >> $GITHUB_ENV
+          echo "file_tag=${GITHUB_REF_NAME}" >> $GITHUB_ENV
 
       - name: Create release
         id: create_release
@@ -58,6 +59,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: bnote-${{env.file_tag}}-py3-none-any.whl.zip
-          asset_name: bnote-installer-${{env.file_tag}}.whl.zip
+          asset_path: bnote-${{ env.file_tag }}-py3-none-any.whl.zip
+          asset_name: bnote-installer-${{ env.file_tag }}.whl.zip
           asset_content_type: application/zip
