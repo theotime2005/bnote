@@ -23,7 +23,7 @@ jobs:
           docker run --platform linux/arm/v7 -v $PWD:/workspace -w /workspace python:3.11-slim-buster \
           bash -c "
           apt-get update && \
-          apt-get install -y zip gcc libdbus-1-dev libffi-dev libssl-dev build-essential python3-dev glib-2.0 cmake pkg-config && \
+          apt-get install -y zip gcc libdbus-1-dev libffi-dev libssl-dev build-essential python3-dev glib-2.0-dev cmake pkg-config && \
           python3 -m venv venv && \
           ./venv/bin/pip install --upgrade pip setuptools wheel && \
           ./venv/bin/pip install -r requirements.txt && \
