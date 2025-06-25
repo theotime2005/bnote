@@ -29,6 +29,27 @@ jobs:
           ./venv/bin/pip install -r requirements.txt && \
           sh generate.sh "
 
+      - name: Debug - List generated files
+        run: |
+          echo "=== Files in current directory ==="
+          ls -la
+          echo "=== Files matching bnote*.whl.zip ==="
+          ls -la bnote*.whl.zip || echo "No .whl.zip files found"
+          echo "=== All .zip files ==="
+          ls -la *.zip || echo "No .zip files found"
+
+      - name: Find and set release file
+        run: |
+          # Find the .whl.zip file
+          WHL_ZIP_FILE=$(ls bnote-*.whl.zip 2>/dev/null | head -1)
+          if [ -n "$WHL_ZIP_FILE" ]; then
+            echo "Found release file: $WHL_ZIP_FILE"
+            echo "RELEASE_FILE=$WHL_ZIP_FILE" >> $GITHUB_ENV
+          else
+            echo "No .whl.zip file found!"
+            exit 1
+          fi
+
       - name: Determine release type
         run: |
           if [[ "${GITHUB_REF##*/}" == *"beta"* || "${GITHUB_REF##*/}" == *"alpha"* || "${GITHUB_REF##*/}" == *"rc"* || "${GITHUB_REF##*/}" == *"a"* || "${GITHUB_REF##*/}" == *"b"* || "${GITHUB_REF##*/}" == *"r"* ]]; then
@@ -36,7 +57,7 @@ jobs:
           else
             echo "prerelease=false" >> $GITHUB_ENV
           fi
-          ref_name="${GITHUB_REF_NAME:1}"
+          ref_name="${GITHUB_REF_NAME}"
           echo "file_tag=$ref_name" >> $GITHUB_ENV
 
       - name: Create release
@@ -49,4 +70,4 @@ jobs:
           name: Release ${{ github.ref_name }}
           draft: false
           prerelease: ${{ env.prerelease }}
-          files: bnote-${{ env.file_tag }}-py3-none-any.whl.zip
+          files: "bnote-*.whl.zip"
