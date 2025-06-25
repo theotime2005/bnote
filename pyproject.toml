@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools >= 61.0"]
+requires = ["setuptools >= 61.0", "wheel", "build"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -8,5 +8,6 @@ version = "3.1.2005a12"
 description = "bnote application"
 authors = [{name = "Eurobraille team"}]
 requires-python = ">=3.11, <3.12"
+
 [tool.setuptools.package-dir]
 bnote = "bnote"
