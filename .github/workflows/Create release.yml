@@ -13,22 +13,32 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install QEMU for ARM
-        run: |
-          sudo apt-get update && sudo apt-get install -y qemu qemu-user-static binfmt-support
-          docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
-      - name: Setup Python and Zip in ARM environment, Generate build, and Create release
+      - name: Install dependencies
         run: |
-          docker run --platform linux/arm/v7 -v $PWD:/workspace -w /workspace python:3.11-slim-buster \
-            bash -c "
-              # Install zip and set up Python environment
-              apt-get update && apt-get install -y zip && \
-              python3 -m venv venv && venv/bin/pip install -r requirements.txt
+          # Install system dependencies
+          sudo apt-get update
+          sudo apt-get install -y zip gcc libdbus-1-dev libffi-dev libssl-dev build-essential python3-dev libglib2.0-dev cmake pkg-config
           
-              # Run the generate script
-              sh generate.sh
-            "
+          # Install Python dependencies
+          pip install --upgrade pip setuptools wheel build
+          pip install -r requirements.txt
+
+      - name: Run script to generate version
+        run: sh generate.sh
+
+      - name: Debug - List generated files
+        run: |
+          echo "=== Files in current directory ==="
+          ls -la
+          echo "=== Files matching bnote*.whl.zip ==="
+          ls -la bnote*.whl.zip || echo "No .whl.zip files found"
+          echo "=== All .zip files ==="
+          ls -la *.zip || echo "No .zip files found"
 
       - name: Determine release type
         run: |
@@ -37,26 +47,16 @@ jobs:
           else
             echo "prerelease=false" >> $GITHUB_ENV
           fi
-          ref_name="${GITHUB_REF_NAME:1}"
+          ref_name="${GITHUB_REF_NAME#v}"
           echo "file_tag=$ref_name" >> $GITHUB_ENV
 
       - name: Create release
-        id: create_release
-        uses: actions/create-release@v1
+        uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
           tag_name: ${{ github.ref_name }}
-          release_name: Release ${{ github.ref_name }}
+          name: Release ${{ github.ref_name }}
           draft: false
           prerelease: ${{ env.prerelease }}
-
-      - name: Upload release asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: bnote-${{env.file_tag}}-py3-none-any.whl.zip
-          asset_name: bnote-installer-${{env.file_tag}}.whl.zip
-          asset_content_type: application/zip
+          files: "bnote-${{ env.file_tag }}-py3-none-any.whl.zip"
