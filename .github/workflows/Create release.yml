@@ -13,22 +13,92 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install QEMU for ARM
-        run: |
-          sudo apt-get update && sudo apt-get install -y qemu qemu-user-static binfmt-support
-          docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+      - name: Set up Python 3.11 for Raspberry Pi simulation
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
 
-      - name: Setup Python and Zip in ARM environment, Generate build, and Create release
+      - name: Install system dependencies for Raspberry Pi simulation
         run: |
-          docker run --platform linux/arm/v7 -v $PWD:/workspace -w /workspace python:3.11-slim-buster \
-            bash -c "
-              # Install zip and set up Python environment
-              apt-get update && apt-get install -y zip && \
-              python3 -m venv venv && venv/bin/pip install --no-index --find-links whl bnote-3.1.0-py3-none-any.whl && \
-          
-              # Run the generate script
-              sh generate.sh
-            "
+          sudo apt-get update
+          sudo apt-get install -y \
+            build-essential \
+            python3-dev \
+            python3-pip \
+            python3-venv \
+            libdbus-1-dev \
+            libdbus-glib-1-dev \
+            pkg-config \
+            libasound2-dev \
+            portaudio19-dev \
+            libportaudio2 \
+            libportaudiocpp0 \
+            ffmpeg \
+            vlc \
+            libvlc-dev \
+            zip \
+            gzip \
+            tar
+
+      - name: Create virtual environment
+        run: |
+          python3 -m venv venv
+
+      - name: Activate virtual environment and upgrade pip
+        run: |
+          source venv/bin/activate
+          pip install --upgrade pip setuptools wheel
+
+      - name: Install dependencies from requirements.txt
+        run: |
+          source venv/bin/activate
+          # Installer les dépendances système spécifiques d'abord
+          pip install setuptools wheel build
+
+          # Installer les dépendances avec gestion des erreurs pour les packages spécifiques à Raspberry Pi
+          pip install -r requirements.txt || {
+            echo "❌ Erreur lors de l'installation de requirements.txt"
+            echo "🔧 Tentative d'installation sans les packages spécifiques à Raspberry Pi..."
+
+            # Créer un fichier requirements temporaire sans les packages problématiques
+            grep -v "RPi.GPIO\|dbus-python\|sdbus" requirements.txt > requirements_temp.txt || true
+
+            # Installer les autres dépendances
+            pip install -r requirements_temp.txt
+
+            # Installer des alternatives pour les packages Raspberry Pi
+            pip install fake-rpi || echo "⚠️ fake-rpi non installé"
+
+            echo "✅ Installation adaptée pour l'environnement CI"
+          }
+
+      - name: Verify Python environment
+        run: |
+          source venv/bin/activate
+          echo "🐍 Version Python:"
+          python --version
+          echo ""
+          echo "📦 Packages installés:"
+          pip list
+
+      - name: Make generate.sh executable
+        run: chmod +x generate.sh
+
+      - name: Run generate.sh to build BNote
+        run: |
+          echo "🚀 Lancement de la compilation BNote..."
+          ./generate.sh
+
+      - name: List generated artifacts
+        run: |
+          echo "📁 Contenu du répertoire après build:"
+          ls -la
+          echo ""
+          echo "📦 Contenu du répertoire dist:"
+          ls -la dist/ || echo "Pas de répertoire dist"
+          echo ""
+          echo "🎯 Fichiers générés (*.whl.zip et *.tar.gz):"
+          find . -name "*.whl.zip" -o -name "*.tar.gz" | head -10
 
       - name: Determine release type
         run: |
