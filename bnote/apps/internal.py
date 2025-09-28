@@ -34,6 +34,7 @@ from bnote.apps.braille_learning.operation_app import OperationApp
 from bnote.apps.media.radio_app import RadioApp
 from bnote.apps.translator.translator_app import TranslatorApp
 from bnote.tools.audio_player import AudioPlayer
+from bnote.tools.diagnostic_mode import DiagnosticMode
 from bnote.tools.keyboard import Keyboard
 from bnote.apps.bnote_app import BnoteApp, FunctionId
 from bnote.tools import crash_report
@@ -391,6 +392,9 @@ class Internal:
         # Start the MidiPlayer
         # MidiPlayer()
 
+        # appel le diagnostique
+        self.diagnosticker=DiagnosticMode()
+
         print(f"{braille_device_characteristics.get_serial_number()=}")
         # Save braille_device_caracteristics into settings
         Settings().data["stm32"]["name"] = braille_device_characteristics.get_name()
@@ -407,6 +411,8 @@ class Internal:
 
         # Verify agenda events only if not crash
         if not report_a_crash:
+            if Settings().data["system"]["diagnostic_mode"]:
+                self.diagnosticker.start()
             self.verify_agenda_or_restore_editor()
 
     def verify_agenda_or_restore_editor(self):
@@ -1191,6 +1197,8 @@ class Internal:
         # Write integrity file to specify successfull shutdown.
         editor.Context.write_integrity_file()
         log.info("Shutdown process ended")
+        # Stop diagnosticker
+        self.diagnosticker.stop()
 
     @staticmethod
     def __exec_shutdown():
