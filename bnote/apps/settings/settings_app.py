@@ -283,6 +283,10 @@ class SettingsApp(BnoteApp):
                 "action": self.__dialog_set_settings,
                 "action_param": {"section": "system", "key": "app_mastermind"},
             },
+            ("system", "diagnostic_mode"): {
+                "action": self.__dialog_set_settings,
+                "action_param": {"section": "system", "key": "diagnostic_mode"},
+            },
             ("explorer", "empty_bluetooth_shutdown"): {
                 "action": self.__dialog_set_settings,
                 "action_param": {
@@ -891,6 +895,12 @@ class SettingsApp(BnoteApp):
                         ui.UiMenuItem(
                             name=_("&export settings"),
                             action=self._exec_export_settings,
+                        ),
+                        ui.UiMenuItem(
+                            name=_("&diagnostic mode"),
+                            **self.__action_and_action_param[
+                                ("system", "diagnostic_mode")
+                            ],
                         ),
                     ],
                 ),
@@ -1553,6 +1563,14 @@ class SettingsApp(BnoteApp):
             dialog_box_param_name=_("&developer mode"),
             section="system",
             key="developer",
+        )
+        self.__append_line_in_document(
+            param_label=_("diagnostic mode"),
+            param_value=self.__get_settings_value("system", "diagnostic_mode"),
+            dialog_box_name=_("user interface"),
+            dialog_box_param_name=_("&diagnostic mode"),
+            section="system",
+            key="diagnostic_mode",
         )
 
         self.__append_line_in_document()

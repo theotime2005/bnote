@@ -50,6 +50,7 @@ class Settings(metaclass=SingletonMeta):
                 "app_mines": "invisible",
                 "app_mastermind": "invisible",
                 "developer": False,
+                "diagnostic_mode": False,
             },
             "explorer": {
                 "empty_bluetooth_shutdown": False,
@@ -163,6 +164,7 @@ class Settings(metaclass=SingletonMeta):
                 "app_mines": ("invisible", "main_apps_menu", "more_apps_menu"),
                 "app_mastermind": ("invisible", "main_apps_menu", "more_apps_menu"),
                 "developer": (True, False),
+                "diagnostic_mode": (True, False),
             },
             "explorer": {
                 "empty_bluetooth_shutdown": (True, False),
