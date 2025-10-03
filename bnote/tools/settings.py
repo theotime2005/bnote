@@ -46,6 +46,7 @@ class Settings(metaclass=SingletonMeta):
                                           'app_operation': 'invisible',
                                           'app_mines': 'invisible',
                                           'app_mastermind': 'invisible',
+                                          'diagnostic_mode': False,
                                           'developer': False},
                                'explorer': {'empty_bluetooth_shutdown': False,
                                             'empty_trash_shutdown': False,
@@ -123,7 +124,6 @@ class Settings(metaclass=SingletonMeta):
                                          },
                                'ai_eurobraille': {'username': '', 'password': '', 'token': '', },
                                }
-
         self.VALID_VALUES = {'system': {'braille_type': ('dot-8', 'grade1', 'grade2'),
                                         'auto_sync_date': (False, True),
                                         'spaces_in_label': (True, False),
@@ -140,6 +140,7 @@ class Settings(metaclass=SingletonMeta):
                                         'app_operation': ('invisible', 'main_apps_menu', 'more_apps_menu'),
                                         'app_mines': ('invisible', 'main_apps_menu', 'more_apps_menu'),
                                         'app_mastermind': ('invisible', 'main_apps_menu', 'more_apps_menu'),
+                                        'diagnostic_mode': (True, False),
                                         'developer': (True, False)},
                              'explorer': {'empty_bluetooth_shutdown': (True, False),
                                           'empty_trash_shutdown': (True, False),
