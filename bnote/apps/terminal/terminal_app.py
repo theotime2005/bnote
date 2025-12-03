@@ -6,11 +6,9 @@
 """
 
 import subprocess
-import threading
 from pathlib import Path
-from bnote.apps.bnote_app import BnoteApp, FunctionId
+from bnote.apps.bnote_app import BnoteApp
 from bnote.tools.keyboard import Keyboard
-from bnote.tools.settings import Settings
 import bnote.ui as ui
 
 # Set up the logger for this file
