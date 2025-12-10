@@ -285,6 +285,10 @@ class SettingsApp(BnoteApp):
                 "action": self.__dialog_set_settings,
                 "action_param": {"section": "system", "key": "app_mastermind"},
             },
+            ("system", "app_terminal"): {
+                "action": self.__dialog_set_settings,
+                "action_param": {"section": "system", "key": "app_terminal"},
+            },
             ("system", "diagnostic_mode"): {
                 "action": self.__dialog_set_settings,
                 "action_param": {"section": "system", "key": "diagnostic_mode"},
@@ -969,6 +973,12 @@ class SettingsApp(BnoteApp):
                             name=_("ma&stermind"),
                             **self.__action_and_action_param[
                                 ("system", "app_mastermind")
+                            ],
+                        ),
+                        ui.UiMenuItem(
+                            name=_("ter&minal"),
+                            **self.__action_and_action_param[
+                                ("system", "app_terminal")
                             ],
                         ),
                     ],
@@ -1673,6 +1683,14 @@ class SettingsApp(BnoteApp):
             dialog_box_param_name=_("ma&stermind"),
             section="system",
             key="app_mastermind",
+        )
+        self.__append_line_in_document(
+            param_label=_("terminal"),
+            param_value=self.__get_settings_value("system", "app_terminal"),
+            dialog_box_name=_("user interface"),
+            dialog_box_param_name=_("ter&minal"),
+            section="system",
+            key="app_terminal",
         )
 
         self.__append_line_in_document()
@@ -2971,6 +2989,11 @@ class SettingsApp(BnoteApp):
                 "more_apps_menu": _("in more apps menu"),
             },
             ("system", "app_mastermind"): {
+                "invisible": _("invisible"),
+                "main_apps_menu": _("in main apps menu"),
+                "more_apps_menu": _("in more apps menu"),
+            },
+            ("system", "app_terminal"): {
                 "invisible": _("invisible"),
                 "main_apps_menu": _("in main apps menu"),
                 "more_apps_menu": _("in more apps menu"),

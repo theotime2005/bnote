@@ -349,12 +349,12 @@ class TerminalApp(BnoteApp):
             
             # Navigation through output
             if not done:
-                if key_id == Keyboard.KeyId.KEY_CURSOR_UP:
+                if key_id == Keyboard.KeyId.KEY_CARET_UP:
                     if self._current_line_index > 0:
                         self._current_line_index -= 1
                         self.set_data_line()
                         done = True
-                elif key_id == Keyboard.KeyId.KEY_CURSOR_DOWN:
+                elif key_id == Keyboard.KeyId.KEY_CARET_DOWN:
                     if self._current_line_index < len(self._output_lines) - 1:
                         self._current_line_index += 1
                         self.set_data_line()
