@@ -9,12 +9,10 @@ import json
 import socket
 import ssl
 import threading
-import time
 from enum import Enum
 
-from bnote.apps.bnote_app import BnoteApp, FunctionId
+from bnote.apps.bnote_app import BnoteApp
 from bnote.tools.keyboard import Keyboard
-from bnote.braille.lou import Lou
 import bnote.ui as ui
 
 # Set up the logger for this file
@@ -22,6 +20,11 @@ from bnote.debug.colored_log import ColoredLogger, REMOTE_APP_LOG
 
 log = ColoredLogger(__name__)
 log.setLevel(REMOTE_APP_LOG)
+
+# Constants
+DEFAULT_BRAILLE_DISPLAY_SIZE = 40
+RECEIVE_BUFFER_SIZE = 4096
+BRAILLE_DOT_BYTE_SHIFT = 8
 
 
 class ConnectionMode(Enum):
@@ -325,7 +328,7 @@ class RemoteApp(BnoteApp):
         
         while self._running and self._connected:
             try:
-                data = self._ssl_socket.recv(4096)
+                data = self._ssl_socket.recv(RECEIVE_BUFFER_SIZE)
                 if not data:
                     log.info("Connection closed by remote")
                     break
@@ -375,7 +378,7 @@ class RemoteApp(BnoteApp):
                 # Send braille display info
                 display_size = len(self._braille_display.get_data_line()[1] or "")
                 if display_size == 0:
-                    display_size = 40  # Default size
+                    display_size = DEFAULT_BRAILLE_DISPLAY_SIZE
                 self._send_message(
                     "set_braille_info",
                     name="bnote",
@@ -493,9 +496,10 @@ class RemoteApp(BnoteApp):
         
         if not done and self._connected and self._connection_mode == ConnectionMode.MASTER:
             # Forward character input to remote when in master mode
-            # Convert braille to dots value for sending
+            # Convert braille data to dots value for sending
+            # Data format: byte[0] and byte[1] contain braille dot pattern
             if len(data) >= 2:
-                dots = data[0] | (data[1] << 8)
+                dots = data[0] | (data[1] << BRAILLE_DOT_BYTE_SHIFT)
                 self._send_braille_input(dots)
             done = True
             
