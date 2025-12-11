@@ -289,6 +289,8 @@ class RemoteApp(BnoteApp):
             context = ssl.create_default_context()
             context.check_hostname = False
             context.verify_mode = ssl.CERT_NONE
+            # Explicitly set minimum TLS version for security
+            context.minimum_version = ssl.TLSVersion.TLSv1_2
             
             self._ssl_socket = context.wrap_socket(self._socket, server_hostname=self._host)
             self._ssl_socket.connect((self._host, self._port))
