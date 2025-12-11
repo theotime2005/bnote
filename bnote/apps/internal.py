@@ -20,6 +20,7 @@ from bnote.apps.music.music_app import MusicApp
 from bnote.apps.daisy.daisy_app import DaisyApp
 from bnote.apps.settings.settings_app import SettingsApp
 from bnote.apps.skeleton.skeleton_app import SkeletonApp
+from bnote.apps.remote.remote_app import RemoteApp
 from bnote.apps.timer.timer_app import TimerApp
 from bnote.apps.wikipedia.wikipedia_app import WikipediaApp
 from bnote.apps.ai_assistant.ai_assistant_app import AiAssistantApp
@@ -206,6 +207,13 @@ class Internal:
                 "",
                 self.__app_translate("skeleton"),
                 self._exec_skeleton,
+                is_hide=False,
+                is_auto_switch=True,
+            ),
+            "remote": self.AppDescriptor(
+                "",
+                self.__app_translate("remote"),
+                self._exec_remote,
                 is_hide=False,
                 is_auto_switch=True,
             ),
@@ -472,6 +480,7 @@ class Internal:
             "mines": _("&mines"),
             "mastermind": _("mas&termind"),
             "skeleton": _("s&keleton"),
+            "remote": _("&remote"),
             "more_apps_menu": _("m&ore apps..."),
         }
         # Handle keys ending with "_2" the same way
@@ -681,6 +690,14 @@ class Internal:
                 self._put_in_function_queue
             )
         self.set_current_app(self.apps_descriptor["skeleton"].instance)
+
+    def _exec_remote(self):
+        log.info("exec_remote")
+        if not self.apps_descriptor["remote"].instance:
+            self.apps_descriptor["remote"].instance = RemoteApp(
+                self._put_in_function_queue
+            )
+        self.set_current_app(self.apps_descriptor["remote"].instance)
 
     def _exec_timer(self):
         if not self.apps_descriptor["timer"].instance:
