@@ -26,6 +26,55 @@ DEFAULT_BRAILLE_DISPLAY_SIZE = 40
 RECEIVE_BUFFER_SIZE = 4096
 BRAILLE_DOT_BYTE_SHIFT = 8
 
+# Windows Virtual Key Codes for NVDA Remote
+VK_BACK = 0x08
+VK_TAB = 0x09
+VK_RETURN = 0x0D
+VK_SHIFT = 0x10
+VK_CONTROL = 0x11
+VK_MENU = 0x12  # ALT key
+VK_ESCAPE = 0x1B
+VK_SPACE = 0x20
+VK_PRIOR = 0x21  # PAGE UP
+VK_NEXT = 0x22   # PAGE DOWN
+VK_END = 0x23
+VK_HOME = 0x24
+VK_LEFT = 0x25
+VK_UP = 0x26
+VK_RIGHT = 0x27
+VK_DOWN = 0x28
+VK_INSERT = 0x2D
+VK_DELETE = 0x2E
+VK_LWIN = 0x5B
+VK_APPS = 0x5D
+VK_NUMPAD0 = 0x60
+VK_NUMPAD1 = 0x61
+VK_NUMPAD2 = 0x62
+VK_NUMPAD3 = 0x63
+VK_NUMPAD4 = 0x64
+VK_NUMPAD5 = 0x65
+VK_NUMPAD6 = 0x66
+VK_NUMPAD7 = 0x67
+VK_NUMPAD8 = 0x68
+VK_NUMPAD9 = 0x69
+VK_MULTIPLY = 0x6A
+VK_ADD = 0x6B
+VK_SUBTRACT = 0x6D
+VK_DECIMAL = 0x6E
+VK_DIVIDE = 0x6F
+VK_F1 = 0x70
+VK_F2 = 0x71
+VK_F3 = 0x72
+VK_F4 = 0x73
+VK_F5 = 0x74
+VK_F6 = 0x75
+VK_F7 = 0x76
+VK_F8 = 0x77
+VK_F9 = 0x78
+VK_F10 = 0x79
+VK_F11 = 0x7A
+VK_F12 = 0x7B
+
 
 class ConnectionMode(Enum):
     """Connection mode for NVDA Remote"""
@@ -68,6 +117,9 @@ class RemoteApp(BnoteApp):
         self._braille_cells = []
         self._braille_display_text = ""
         
+        # Remote control state
+        self._remote_control_enabled = False
+        
         # Menu creation
         self._menu = self.__create_menu()
         
@@ -87,6 +139,12 @@ class RemoteApp(BnoteApp):
                 ui.UiMenuItem(
                     name=_("&disconnect"),
                     action=self._exec_disconnect_menu
+                ),
+                ui.UiMenuItem(
+                    name=_("&toggle remote control"),
+                    action=self._exec_toggle_remote_control,
+                    shortcut_modifier=Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL,
+                    shortcut_key=Keyboard.BrailleFunction.BRAMIGRAPH_F2,
                 ),
                 ui.UiMenuItem(
                     name=_("&about"),
@@ -192,6 +250,30 @@ class RemoteApp(BnoteApp):
         self._current_dialog = ui.UiMessageDialogBox(
             name=_("information"),
             message=_("NVDA Remote application V1.0.0\nControl computers with NVDA Remote"),
+            buttons=[
+                ui.UiButton(name=_("&ok"), action=self._exec_cancel_dialog),
+            ],
+            action_cancelable=self._exec_cancel_dialog,
+        )
+
+    def _exec_toggle_remote_control(self):
+        """Toggle remote control on/off"""
+        if not self._connected:
+            self._current_dialog = ui.UiMessageDialogBox(
+                name=_("information"),
+                message=_("not connected"),
+                buttons=[
+                    ui.UiButton(name=_("&ok"), action=self._exec_cancel_dialog),
+                ],
+                action_cancelable=self._exec_cancel_dialog,
+            )
+            return
+        
+        self._remote_control_enabled = not self._remote_control_enabled
+        status = _("enabled") if self._remote_control_enabled else _("disabled")
+        self._current_dialog = ui.UiMessageDialogBox(
+            name=_("information"),
+            message=f"{_('remote control')} {status}",
             buttons=[
                 ui.UiButton(name=_("&ok"), action=self._exec_cancel_dialog),
             ],
@@ -451,6 +533,81 @@ class RemoteApp(BnoteApp):
             pressed=pressed
         )
 
+    def _map_key_to_vk(self, key_id):
+        """Map bnote KeyId to Windows VK code"""
+        mapping = {
+            Keyboard.KeyId.KEY_CARET_UP: VK_UP,
+            Keyboard.KeyId.KEY_CARET_DOWN: VK_DOWN,
+            Keyboard.KeyId.KEY_CARET_LEFT: VK_LEFT,
+            Keyboard.KeyId.KEY_CARET_RIGHT: VK_RIGHT,
+            Keyboard.KeyId.KEY_START_DOC: VK_HOME,
+            Keyboard.KeyId.KEY_END_DOC: VK_END,
+        }
+        return mapping.get(key_id, None)
+
+    def _map_bramigraph_to_vk(self, bramigraph):
+        """Map bnote BrailleFunction to Windows VK code"""
+        mapping = {
+            Keyboard.BrailleFunction.BRAMIGRAPH_ESCAPE: VK_ESCAPE,
+            Keyboard.BrailleFunction.BRAMIGRAPH_TAB: VK_TAB,
+            Keyboard.BrailleFunction.BRAMIGRAPH_HOME: VK_HOME,
+            Keyboard.BrailleFunction.BRAMIGRAPH_END: VK_END,
+            Keyboard.BrailleFunction.BRAMIGRAPH_PRIOR: VK_PRIOR,
+            Keyboard.BrailleFunction.BRAMIGRAPH_NEXT: VK_NEXT,
+            Keyboard.BrailleFunction.BRAMIGRAPH_LEFT: VK_LEFT,
+            Keyboard.BrailleFunction.BRAMIGRAPH_RIGHT: VK_RIGHT,
+            Keyboard.BrailleFunction.BRAMIGRAPH_UP: VK_UP,
+            Keyboard.BrailleFunction.BRAMIGRAPH_DOWN: VK_DOWN,
+            Keyboard.BrailleFunction.BRAMIGRAPH_INSERT: VK_INSERT,
+            Keyboard.BrailleFunction.BRAMIGRAPH_DELETE: VK_DELETE,
+            Keyboard.BrailleFunction.BRAMIGRAPH_F1: VK_F1,
+            Keyboard.BrailleFunction.BRAMIGRAPH_F2: VK_F2,
+            Keyboard.BrailleFunction.BRAMIGRAPH_F3: VK_F3,
+            Keyboard.BrailleFunction.BRAMIGRAPH_F4: VK_F4,
+            Keyboard.BrailleFunction.BRAMIGRAPH_F5: VK_F5,
+            Keyboard.BrailleFunction.BRAMIGRAPH_F6: VK_F6,
+            Keyboard.BrailleFunction.BRAMIGRAPH_F7: VK_F7,
+            Keyboard.BrailleFunction.BRAMIGRAPH_F8: VK_F8,
+            Keyboard.BrailleFunction.BRAMIGRAPH_F9: VK_F9,
+            Keyboard.BrailleFunction.BRAMIGRAPH_F10: VK_F10,
+            Keyboard.BrailleFunction.BRAMIGRAPH_F11: VK_F11,
+            Keyboard.BrailleFunction.BRAMIGRAPH_F12: VK_F12,
+            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD0: VK_NUMPAD0,
+            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD1: VK_NUMPAD1,
+            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD2: VK_NUMPAD2,
+            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD3: VK_NUMPAD3,
+            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD4: VK_NUMPAD4,
+            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD5: VK_NUMPAD5,
+            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD6: VK_NUMPAD6,
+            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD7: VK_NUMPAD7,
+            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD8: VK_NUMPAD8,
+            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD9: VK_NUMPAD9,
+            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD_DIVIDE: VK_DIVIDE,
+            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD_MULTIPLY: VK_MULTIPLY,
+            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD_SUBSTRACT: VK_SUBTRACT,
+            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD_ADD: VK_ADD,
+            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD_COMMA: VK_DECIMAL,
+            Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_BACKSPACE: VK_BACK,
+            Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_SPACE: VK_SPACE,
+            Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_RETURN: VK_RETURN,
+            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD_RETURN: VK_RETURN,
+            Keyboard.BrailleFunction.BRAMIGRAPH_LWIN: VK_LWIN,
+            Keyboard.BrailleFunction.BRAMIGRAPH_APPS: VK_APPS,
+            Keyboard.BrailleFunction.BRAMIGRAPH_MENU: VK_MENU,
+        }
+        return mapping.get(bramigraph, None)
+
+    def _send_modifier_keys(self, modifier, pressed):
+        """Send modifier key state to remote"""
+        if modifier & Keyboard.BrailleModifier.BRAILLE_FLAG_SHIFT:
+            self._send_key(VK_SHIFT, 0, False, pressed)
+        if modifier & Keyboard.BrailleModifier.BRAILLE_FLAG_CTRL:
+            self._send_key(VK_CONTROL, 0, False, pressed)
+        if modifier & Keyboard.BrailleModifier.BRAILLE_FLAG_ALT:
+            self._send_key(VK_MENU, 0, False, pressed)
+        if modifier & Keyboard.BrailleModifier.BRAILLE_FLAG_WIN:
+            self._send_key(VK_LWIN, 0, False, pressed)
+
     # --------------------
     # Key event functions
 
@@ -472,10 +629,20 @@ class RemoteApp(BnoteApp):
         # Pass the command to DialogBox / Menu / BrailleDisplay
         done = super(RemoteApp, self).input_command(data, modifier, key_id)
         
-        if not done and self._connected and self._connection_mode == ConnectionMode.MASTER:
-            # Forward command keys to remote when in master mode
-            # This would need proper key code translation
-            done = True
+        if not done and self._connected and self._remote_control_enabled:
+            # Forward command keys to remote when remote control is enabled
+            vk_code = self._map_key_to_vk(key_id)
+            if vk_code:
+                # Send modifiers first
+                if modifier:
+                    self._send_modifier_keys(modifier, True)
+                # Send key press and release
+                self._send_key(vk_code, 0, False, True)
+                self._send_key(vk_code, 0, False, False)
+                # Release modifiers
+                if modifier:
+                    self._send_modifier_keys(modifier, False)
+                done = True
             
         if not done:
             # Decoding key command for braille display line
@@ -496,8 +663,8 @@ class RemoteApp(BnoteApp):
         # Pass the command to DialogBox / Menu / BrailleDisplay
         done = super(RemoteApp, self).input_character(modifier, character, data)
         
-        if not done and self._connected and self._connection_mode == ConnectionMode.MASTER:
-            # Forward character input to remote when in master mode
+        if not done and self._connected and self._remote_control_enabled:
+            # Forward character input to remote when remote control is enabled
             # Convert braille data to dots value for sending
             # Data format: byte[0] and byte[1] contain braille dot pattern
             if len(data) >= 2:
@@ -519,6 +686,21 @@ class RemoteApp(BnoteApp):
         # Pass the command to DialogBox / Menu / BrailleDisplay
         done = super(RemoteApp, self).input_bramigraph(modifier, bramigraph)
         
+        if not done and self._connected and self._remote_control_enabled:
+            # Forward bramigraph keys to remote when remote control is enabled
+            vk_code = self._map_bramigraph_to_vk(bramigraph)
+            if vk_code:
+                # Send modifiers first
+                if modifier:
+                    self._send_modifier_keys(modifier, True)
+                # Send key press and release
+                self._send_key(vk_code, 0, False, True)
+                self._send_key(vk_code, 0, False, False)
+                # Release modifiers
+                if modifier:
+                    self._send_modifier_keys(modifier, False)
+                done = True
+        
         return done
 
     def input_interactive(self, modifier, position, key_type) -> bool:
@@ -534,7 +716,7 @@ class RemoteApp(BnoteApp):
         # Pass the command to DialogBox / Menu / BrailleDisplay
         done = super(RemoteApp, self).input_interactive(modifier, position, key_type)
         
-        if not done and self._connected and self._connection_mode == ConnectionMode.MASTER:
+        if not done and self._connected and self._remote_control_enabled:
             # Send cursor routing to remote
             if key_type == Keyboard.InteractiveKeyType.CURSOR:
                 self._send_braille_input(0, False, position - 1)
@@ -572,13 +754,15 @@ class RemoteApp(BnoteApp):
         :return: None (self._braille_display.set_data_line is done)
         """
         if self._braille_display_text:
-            # Display braille from remote
-            text = self._braille_display_text
-            braille_static = text if text.startswith("\u2800") else BnoteApp.lou.to_dots_8(text)
+            # Display original braille from remote (no translation)
+            braille_static = self._braille_display_text
         else:
-            # Display default message
+            # Display default message (these need translation)
             if self._connected:
-                text = _("remote connected")
+                if self._remote_control_enabled:
+                    text = _("remote control enabled")
+                else:
+                    text = _("remote connected")
             elif self._connecting:
                 text = _("connecting...")
             else:
