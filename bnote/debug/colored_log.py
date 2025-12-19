@@ -164,6 +164,8 @@ if LOG == 0:
     TIMER_APP_LOG = logging.ERROR
     # Translator
     TRANSLATOR_APP_LOG = logging.ERROR
+    # Remote
+    REMOTE_APP_LOG = logging.ERROR
     # wifi
     WIFI_LOG = logging.ERROR
     # yaupdater
@@ -245,6 +247,8 @@ else:
     TIMER_APP_LOG = logging.WARNING
     # Translator
     TRANSLATOR_APP_LOG = logging.ERROR
+    # Remote
+    REMOTE_APP_LOG = logging.WARNING
     # wifi
     WIFI_LOG = logging.WARNING
     # yaupdater
