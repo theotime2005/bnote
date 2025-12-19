@@ -89,6 +89,66 @@ class RemoteApp(BnoteApp):
     """
 
     PROTOCOL_VERSION = 2
+    
+    # Key mapping from bnote KeyId to Windows VK codes
+    KEY_TO_VK_MAP = {
+        Keyboard.KeyId.KEY_CARET_UP: VK_UP,
+        Keyboard.KeyId.KEY_CARET_DOWN: VK_DOWN,
+        Keyboard.KeyId.KEY_CARET_LEFT: VK_LEFT,
+        Keyboard.KeyId.KEY_CARET_RIGHT: VK_RIGHT,
+        Keyboard.KeyId.KEY_START_DOC: VK_HOME,
+        Keyboard.KeyId.KEY_END_DOC: VK_END,
+    }
+    
+    # Key mapping from bnote BrailleFunction to Windows VK codes
+    BRAMIGRAPH_TO_VK_MAP = {
+        Keyboard.BrailleFunction.BRAMIGRAPH_ESCAPE: VK_ESCAPE,
+        Keyboard.BrailleFunction.BRAMIGRAPH_TAB: VK_TAB,
+        Keyboard.BrailleFunction.BRAMIGRAPH_HOME: VK_HOME,
+        Keyboard.BrailleFunction.BRAMIGRAPH_END: VK_END,
+        Keyboard.BrailleFunction.BRAMIGRAPH_PRIOR: VK_PRIOR,
+        Keyboard.BrailleFunction.BRAMIGRAPH_NEXT: VK_NEXT,
+        Keyboard.BrailleFunction.BRAMIGRAPH_LEFT: VK_LEFT,
+        Keyboard.BrailleFunction.BRAMIGRAPH_RIGHT: VK_RIGHT,
+        Keyboard.BrailleFunction.BRAMIGRAPH_UP: VK_UP,
+        Keyboard.BrailleFunction.BRAMIGRAPH_DOWN: VK_DOWN,
+        Keyboard.BrailleFunction.BRAMIGRAPH_INSERT: VK_INSERT,
+        Keyboard.BrailleFunction.BRAMIGRAPH_DELETE: VK_DELETE,
+        Keyboard.BrailleFunction.BRAMIGRAPH_F1: VK_F1,
+        Keyboard.BrailleFunction.BRAMIGRAPH_F2: VK_F2,
+        Keyboard.BrailleFunction.BRAMIGRAPH_F3: VK_F3,
+        Keyboard.BrailleFunction.BRAMIGRAPH_F4: VK_F4,
+        Keyboard.BrailleFunction.BRAMIGRAPH_F5: VK_F5,
+        Keyboard.BrailleFunction.BRAMIGRAPH_F6: VK_F6,
+        Keyboard.BrailleFunction.BRAMIGRAPH_F7: VK_F7,
+        Keyboard.BrailleFunction.BRAMIGRAPH_F8: VK_F8,
+        Keyboard.BrailleFunction.BRAMIGRAPH_F9: VK_F9,
+        Keyboard.BrailleFunction.BRAMIGRAPH_F10: VK_F10,
+        Keyboard.BrailleFunction.BRAMIGRAPH_F11: VK_F11,
+        Keyboard.BrailleFunction.BRAMIGRAPH_F12: VK_F12,
+        Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD0: VK_NUMPAD0,
+        Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD1: VK_NUMPAD1,
+        Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD2: VK_NUMPAD2,
+        Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD3: VK_NUMPAD3,
+        Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD4: VK_NUMPAD4,
+        Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD5: VK_NUMPAD5,
+        Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD6: VK_NUMPAD6,
+        Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD7: VK_NUMPAD7,
+        Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD8: VK_NUMPAD8,
+        Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD9: VK_NUMPAD9,
+        Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD_DIVIDE: VK_DIVIDE,
+        Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD_MULTIPLY: VK_MULTIPLY,
+        Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD_SUBTRACT: VK_SUBTRACT,
+        Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD_ADD: VK_ADD,
+        Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD_COMMA: VK_DECIMAL,
+        Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_BACKSPACE: VK_BACK,
+        Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_SPACE: VK_SPACE,
+        Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_RETURN: VK_RETURN,
+        Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD_RETURN: VK_RETURN,
+        Keyboard.BrailleFunction.BRAMIGRAPH_LWIN: VK_LWIN,
+        Keyboard.BrailleFunction.BRAMIGRAPH_APPS: VK_APPS,
+        Keyboard.BrailleFunction.BRAMIGRAPH_MENU: VK_MENU,
+    }
 
     def __init__(self, put_in_function_queue):
         """
@@ -533,70 +593,6 @@ class RemoteApp(BnoteApp):
             pressed=pressed
         )
 
-    def _map_key_to_vk(self, key_id):
-        """Map bnote KeyId to Windows VK code"""
-        mapping = {
-            Keyboard.KeyId.KEY_CARET_UP: VK_UP,
-            Keyboard.KeyId.KEY_CARET_DOWN: VK_DOWN,
-            Keyboard.KeyId.KEY_CARET_LEFT: VK_LEFT,
-            Keyboard.KeyId.KEY_CARET_RIGHT: VK_RIGHT,
-            Keyboard.KeyId.KEY_START_DOC: VK_HOME,
-            Keyboard.KeyId.KEY_END_DOC: VK_END,
-        }
-        return mapping.get(key_id, None)
-
-    def _map_bramigraph_to_vk(self, bramigraph):
-        """Map bnote BrailleFunction to Windows VK code"""
-        mapping = {
-            Keyboard.BrailleFunction.BRAMIGRAPH_ESCAPE: VK_ESCAPE,
-            Keyboard.BrailleFunction.BRAMIGRAPH_TAB: VK_TAB,
-            Keyboard.BrailleFunction.BRAMIGRAPH_HOME: VK_HOME,
-            Keyboard.BrailleFunction.BRAMIGRAPH_END: VK_END,
-            Keyboard.BrailleFunction.BRAMIGRAPH_PRIOR: VK_PRIOR,
-            Keyboard.BrailleFunction.BRAMIGRAPH_NEXT: VK_NEXT,
-            Keyboard.BrailleFunction.BRAMIGRAPH_LEFT: VK_LEFT,
-            Keyboard.BrailleFunction.BRAMIGRAPH_RIGHT: VK_RIGHT,
-            Keyboard.BrailleFunction.BRAMIGRAPH_UP: VK_UP,
-            Keyboard.BrailleFunction.BRAMIGRAPH_DOWN: VK_DOWN,
-            Keyboard.BrailleFunction.BRAMIGRAPH_INSERT: VK_INSERT,
-            Keyboard.BrailleFunction.BRAMIGRAPH_DELETE: VK_DELETE,
-            Keyboard.BrailleFunction.BRAMIGRAPH_F1: VK_F1,
-            Keyboard.BrailleFunction.BRAMIGRAPH_F2: VK_F2,
-            Keyboard.BrailleFunction.BRAMIGRAPH_F3: VK_F3,
-            Keyboard.BrailleFunction.BRAMIGRAPH_F4: VK_F4,
-            Keyboard.BrailleFunction.BRAMIGRAPH_F5: VK_F5,
-            Keyboard.BrailleFunction.BRAMIGRAPH_F6: VK_F6,
-            Keyboard.BrailleFunction.BRAMIGRAPH_F7: VK_F7,
-            Keyboard.BrailleFunction.BRAMIGRAPH_F8: VK_F8,
-            Keyboard.BrailleFunction.BRAMIGRAPH_F9: VK_F9,
-            Keyboard.BrailleFunction.BRAMIGRAPH_F10: VK_F10,
-            Keyboard.BrailleFunction.BRAMIGRAPH_F11: VK_F11,
-            Keyboard.BrailleFunction.BRAMIGRAPH_F12: VK_F12,
-            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD0: VK_NUMPAD0,
-            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD1: VK_NUMPAD1,
-            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD2: VK_NUMPAD2,
-            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD3: VK_NUMPAD3,
-            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD4: VK_NUMPAD4,
-            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD5: VK_NUMPAD5,
-            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD6: VK_NUMPAD6,
-            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD7: VK_NUMPAD7,
-            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD8: VK_NUMPAD8,
-            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD9: VK_NUMPAD9,
-            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD_DIVIDE: VK_DIVIDE,
-            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD_MULTIPLY: VK_MULTIPLY,
-            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD_SUBSTRACT: VK_SUBTRACT,
-            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD_ADD: VK_ADD,
-            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD_COMMA: VK_DECIMAL,
-            Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_BACKSPACE: VK_BACK,
-            Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_SPACE: VK_SPACE,
-            Keyboard.BrailleFunction.BRAMIGRAPH_SIMPLE_RETURN: VK_RETURN,
-            Keyboard.BrailleFunction.BRAMIGRAPH_NUMPAD_RETURN: VK_RETURN,
-            Keyboard.BrailleFunction.BRAMIGRAPH_LWIN: VK_LWIN,
-            Keyboard.BrailleFunction.BRAMIGRAPH_APPS: VK_APPS,
-            Keyboard.BrailleFunction.BRAMIGRAPH_MENU: VK_MENU,
-        }
-        return mapping.get(bramigraph, None)
-
     def _send_modifier_keys(self, modifier, pressed):
         """Send modifier key state to remote"""
         if modifier & Keyboard.BrailleModifier.BRAILLE_FLAG_SHIFT:
@@ -607,6 +603,18 @@ class RemoteApp(BnoteApp):
             self._send_key(VK_MENU, 0, False, pressed)
         if modifier & Keyboard.BrailleModifier.BRAILLE_FLAG_WIN:
             self._send_key(VK_LWIN, 0, False, pressed)
+
+    def _forward_key_to_remote(self, vk_code, modifier):
+        """Helper method to forward a key with modifiers to remote"""
+        # Send modifiers first
+        if modifier:
+            self._send_modifier_keys(modifier, True)
+        # Send key press and release
+        self._send_key(vk_code, 0, False, True)
+        self._send_key(vk_code, 0, False, False)
+        # Release modifiers
+        if modifier:
+            self._send_modifier_keys(modifier, False)
 
     # --------------------
     # Key event functions
@@ -631,17 +639,9 @@ class RemoteApp(BnoteApp):
         
         if not done and self._connected and self._remote_control_enabled:
             # Forward command keys to remote when remote control is enabled
-            vk_code = self._map_key_to_vk(key_id)
+            vk_code = self.KEY_TO_VK_MAP.get(key_id)
             if vk_code:
-                # Send modifiers first
-                if modifier:
-                    self._send_modifier_keys(modifier, True)
-                # Send key press and release
-                self._send_key(vk_code, 0, False, True)
-                self._send_key(vk_code, 0, False, False)
-                # Release modifiers
-                if modifier:
-                    self._send_modifier_keys(modifier, False)
+                self._forward_key_to_remote(vk_code, modifier)
                 done = True
             
         if not done:
@@ -688,17 +688,9 @@ class RemoteApp(BnoteApp):
         
         if not done and self._connected and self._remote_control_enabled:
             # Forward bramigraph keys to remote when remote control is enabled
-            vk_code = self._map_bramigraph_to_vk(bramigraph)
+            vk_code = self.BRAMIGRAPH_TO_VK_MAP.get(bramigraph)
             if vk_code:
-                # Send modifiers first
-                if modifier:
-                    self._send_modifier_keys(modifier, True)
-                # Send key press and release
-                self._send_key(vk_code, 0, False, True)
-                self._send_key(vk_code, 0, False, False)
-                # Release modifiers
-                if modifier:
-                    self._send_modifier_keys(modifier, False)
+                self._forward_key_to_remote(vk_code, modifier)
                 done = True
         
         return done
