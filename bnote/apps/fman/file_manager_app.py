@@ -1129,7 +1129,7 @@ class FileManagerApp(BnoteApp):
         return False
 
     def _exec_properties(self):
-        if not os.listdir(self.__current_folder) or self.__selected_files:
+        if not os.listdir(self.__current_folder) or len(self.__selected_files)!=1:
             return
         focused_file = self.__files[self.__focused_file_index]
         properties = focused_file.stat()
