@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Bnote traduzione in italiano\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-03 14:01+0200\n"
+"POT-Creation-Date: 2026-04-22 22:03+0200\n"
 "PO-Revision-Date: 2024-10-18 13:53+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -45,7 +45,7 @@ msgstr "parametri non definiti"
 #: ../apps/settings/settings_app.py:3486 ../apps/settings/settings_app.py:3626
 #: ../apps/settings/settings_app.py:3709 ../apps/settings/settings_app.py:3777
 #: ../apps/settings/settings_app.py:4809 ../apps/settings/settings_app.py:4887
-#: ../apps/edt/editor_app.py:275 ../apps/edt/editor_app.py:295
+#: ../apps/edt/editor_app.py:279 ../apps/edt/editor_app.py:299
 #: ../apps/edt/editor_base_app.py:945 ../apps/edt/editor_base_app.py:1006
 #: ../apps/edt/editor_base_app.py:1577 ../apps/wikipedia/wikipedia_app.py:218
 #: ../apps/daisy/daisy_app.py:329 ../apps/daisy/daisy_app.py:498
@@ -107,8 +107,8 @@ msgstr "&ok"
 #: ../apps/settings/settings_app.py:4095 ../apps/settings/settings_app.py:4175
 #: ../apps/settings/settings_app.py:4811 ../apps/settings/settings_app.py:4856
 #: ../apps/settings/settings_app.py:4908 ../apps/settings/settings_app.py:4960
-#: ../apps/edt/editor_app.py:197 ../apps/edt/editor_app.py:276
-#: ../apps/edt/editor_app.py:297 ../apps/edt/editor_base_app.py:868
+#: ../apps/edt/editor_app.py:197 ../apps/edt/editor_app.py:280
+#: ../apps/edt/editor_app.py:301 ../apps/edt/editor_base_app.py:868
 #: ../apps/edt/editor_base_app.py:1007 ../apps/edt/editor_base_app.py:1085
 #: ../apps/edt/editor_base_app.py:1144 ../apps/edt/editor_base_app.py:1578
 #: ../apps/wikipedia/wikipedia_app.py:219 ../apps/daisy/daisy_app.py:330
@@ -857,7 +857,7 @@ msgstr "diminuendo"
 #: ../apps/music/music_app.py:1486 ../apps/music/music_app.py:1507
 #: ../apps/music/music_app.py:1582 ../apps/music/music_app.py:1614
 #: ../apps/settings/settings_app.py:4170 ../apps/settings/settings_app.py:4922
-#: ../apps/settings/settings_app.py:4978 ../apps/edt/editor_app.py:289
+#: ../apps/settings/settings_app.py:4978 ../apps/edt/editor_app.py:293
 #: ../apps/edt/editor_base_app.py:863 ../apps/timer/timer_app.py:161
 #: ../apps/braille_learning/operation_app.py:198
 #: ../apps/braille_learning/operation_app.py:209
@@ -3052,7 +3052,7 @@ msgstr "seleziona foglio."
 msgid "sheet {} type not found."
 msgstr "foglio {} tipo non trovato."
 
-#: ../apps/edt/edt/write_brf_file.py:146 ../apps/edt/edt/write_brf_file.py:173
+#: ../apps/edt/edt/write_brf_file.py:176 ../apps/edt/edt/write_brf_file.py:204
 #, python-brace-format
 msgid "Volume {}"
 msgstr "volume {}"
@@ -3140,7 +3140,7 @@ msgstr "errore sqrt negativo"
 #: ../apps/edt/math_opy/l1l1l1ll1_opy_.py:314
 #: ../apps/edt/math_opy/l1l1l1ll1_opy_.py:346
 #: ../apps/edt/math_opy/l1llllll_opy_.py:314
-#: ../apps/edt/math_opy/l1llllll_opy_.py:346 ../apps/edt/editor_app.py:406
+#: ../apps/edt/math_opy/l1llllll_opy_.py:346 ../apps/edt/editor_app.py:410
 msgid "infinite value"
 msgstr "valore infinito"
 
@@ -3255,10 +3255,16 @@ msgid "click &here to enter the first page"
 msgstr "clicca &qui per inserire la prima pagina"
 
 #: ../apps/edt/editor_app.py:217
-msgid "exporting..."
-msgstr "esportazione in corso..."
+#, fuzzy
+msgid "loading..."
+msgstr "scaricamento in corso..."
 
-#: ../apps/edt/editor_app.py:242
+#: ../apps/edt/editor_app.py:241
+#, fuzzy, python-brace-format
+msgid "exporting {}%"
+msgstr "estrazione di {}% {}"
+
+#: ../apps/edt/editor_app.py:246
 msgid ""
 "the value of character per line, line per page and page per file must be an "
 "integer."
@@ -3266,31 +3272,31 @@ msgstr ""
 "il valore di carattere per riga, riga per pagina e pagina per file deve "
 "essere un numero intero."
 
-#: ../apps/edt/editor_app.py:244
+#: ../apps/edt/editor_app.py:248
 msgid "exporting was successful."
 msgstr "esportazione avvenuta correttamente."
 
-#: ../apps/edt/editor_app.py:246
+#: ../apps/edt/editor_app.py:250
 msgid "an element of the same name already exists, remove it and try again."
 msgstr "esiste già un elemento con lo stesso nome, rimuovilo e riprova."
 
-#: ../apps/edt/editor_app.py:257 ../apps/translator/translator_app.py:203
+#: ../apps/edt/editor_app.py:261 ../apps/translator/translator_app.py:203
 msgid "not device connected"
 msgstr "dispositivo non collegato"
 
-#: ../apps/edt/editor_app.py:262
+#: ../apps/edt/editor_app.py:266
 msgid "you must select text to send"
 msgstr "devi selezionare il testo da inviare"
 
-#: ../apps/edt/editor_app.py:268 ../apps/translator/translator_app.py:208
+#: ../apps/edt/editor_app.py:272 ../apps/translator/translator_app.py:208
 msgid "send text to"
 msgstr "invia testo a"
 
-#: ../apps/edt/editor_app.py:271 ../apps/translator/translator_app.py:211
+#: ../apps/edt/editor_app.py:275 ../apps/translator/translator_app.py:211
 msgid "&device"
 msgstr "&modello prodotto"
 
-#: ../apps/edt/editor_app.py:291
+#: ../apps/edt/editor_app.py:295
 msgid ""
 "check that the braille type of the document corresponds to the braille type "
 "of the screen reader."
@@ -3298,47 +3304,47 @@ msgstr ""
 "verifica che il tipo di braille del documento sia lo stesso tipo di braille "
 "dello screen reader."
 
-#: ../apps/edt/editor_app.py:306
+#: ../apps/edt/editor_app.py:310
 msgid "you must be in computer braille to use the translation."
 msgstr "devi essere in braille informatico per usare la conversione."
 
-#: ../apps/edt/editor_app.py:400
+#: ../apps/edt/editor_app.py:404
 msgid "nan value"
 msgstr "nan valore"
 
-#: ../apps/edt/editor_app.py:412 ../apps/edt/editor_app.py:480
+#: ../apps/edt/editor_app.py:416 ../apps/edt/editor_app.py:484
 #, python-brace-format
 msgid "result:{}"
 msgstr "risultato:{}"
 
-#: ../apps/edt/editor_app.py:418
+#: ../apps/edt/editor_app.py:422
 msgid "Error forgotten formula start marks"
 msgstr "Errore contrassegni iniziali della formula dimenticati"
 
-#: ../apps/edt/editor_app.py:431
+#: ../apps/edt/editor_app.py:435
 #, python-brace-format
 msgid "Error:{} at pos:{}"
 msgstr "Errore:{} alla pos:{}"
 
-#: ../apps/edt/editor_app.py:494
+#: ../apps/edt/editor_app.py:498
 #, python-brace-format
 msgid "error:{} at pos:{}"
 msgstr "errore:{} alla pos:{}"
 
-#: ../apps/edt/editor_app.py:499
+#: ../apps/edt/editor_app.py:503
 #, fuzzy
 msgid "error forgotten formula start marks"
 msgstr "Errore contrassegni iniziali della formula dimenticati"
 
-#: ../apps/edt/editor_app.py:538
+#: ../apps/edt/editor_app.py:542
 msgid "no result"
 msgstr "nessun risultato"
 
-#: ../apps/edt/editor_app.py:548
+#: ../apps/edt/editor_app.py:552
 msgid "%A %d %B %Y"
 msgstr "%A %d %B %Y"
 
-#: ../apps/edt/editor_app.py:576
+#: ../apps/edt/editor_app.py:580
 msgid "signature.txt not found."
 msgstr "firma.txt non trovato."
 
@@ -5652,6 +5658,9 @@ msgstr "vuoi veramente sostituire la radio {}"
 #, python-brace-format
 msgid "are you sure to delete the radio {}"
 msgstr "vuoi veramente cancellare radio {}"
+
+#~ msgid "exporting..."
+#~ msgstr "esportazione in corso..."
 
 #, python-brace-format
 #~ msgid "file {file_name.name} already exists, do you want to overwrite it ?"
