@@ -214,7 +214,7 @@ class EditorApp(EditorBaseApp):
             braille_language = (
                 braille_device_characteristics.get_keyboard_language_country()
             )
-        self._current_dialog = ui.UiInfoDialogBox(_("exporting..."))
+        self._current_dialog = ui.UiInfoDialogBox(_("loading..."))
         try:
             line_length = int(kwargs["line"])
             page_line = int(kwargs["page"])
@@ -232,9 +232,13 @@ class EditorApp(EditorBaseApp):
             file,
             first_page,
             language_encoding,
+            self._exec_on_export_progress,
             self._exec_end_export,
         )
         export.start()
+
+    def _exec_on_export_progress(self, progress):
+        self._current_dialog=ui.UiInfoDialogBox(_("exporting {}%").format(progress))
 
     def _exec_end_export(self, activity):
         messages = {

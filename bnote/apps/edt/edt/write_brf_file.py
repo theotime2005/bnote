@@ -24,7 +24,8 @@ class WriteBrfFile(threading.Thread):
         max_page,
         first_page,
         braille_table,
-        on_end,
+        on_progress_function=None,
+        on_end=None,
     ):
         threading.Thread.__init__(self)
         self._get_line = get_line
@@ -41,14 +42,33 @@ class WriteBrfFile(threading.Thread):
         self.first_page = []
         self.page_document = []
         self.braille_table = braille_table
-        self.on_end = on_end
+        # Backward compatibility: old callers passed only the end callback here.
+        if on_end is None and callable(on_progress_function):
+            self.on_progress_function = None
+            self.on_end = on_progress_function
+        else:
+            self.on_progress_function = on_progress_function
+            self.on_end = on_end
+        self._last_progress = -1
 
     def run(self) -> None:
+        self._notify_progress_if_increased(0)
         self.get_title(self.first_origine_first_page)
+        self._notify_progress_if_increased(5)
         document_original = self.import_and_convert_file()
         self.page_document = self._cut_document(document_original)
+        self._notify_progress_if_increased(90)
         self._get_volume()
+        self._notify_progress_if_increased(95)
         self.construct_document()
+
+    def _notify_progress_if_increased(self, percent):
+        percent = max(0, min(100, int(percent)))
+        if percent <= self._last_progress:
+            return
+        self._last_progress = percent
+        if callable(self.on_progress_function):
+            self.on_progress_function(percent)
 
     def get_title(self, first_page):
         page = first_page.split("\n")[1:]
@@ -62,22 +82,32 @@ class WriteBrfFile(threading.Thread):
         file_convert = []
         if self._get_line is None:
             raise IOError("Error during editor access")
+        raw_lines = []
         cnt = 0
         while True:
             line = self._get_line(cnt)
             if line is None:
                 # last line reached.
                 break
-            line_convert = self.delete_strange_characters(line)
+            raw_lines.append(self.delete_strange_characters(line))
+            # Next line.
+            cnt += 1
+
+        total_lines = len(raw_lines)
+        if total_lines == 0:
+            self._notify_progress_if_increased(85)
+            return file_convert
+
+        for index, line_convert in enumerate(raw_lines, start=1):
             file_convert.append(
                 Lou(self.language).convert_to_braille(self.braille_type, line_convert)[
                     1
                 ]
             )
+            progress = 5 + int((index * 80) / total_lines)
+            self._notify_progress_if_increased(progress)
             # Just to let others threads running.
             time.sleep(0.001)
-            # Next line.
-            cnt += 1
         return file_convert
 
     @staticmethod
@@ -169,16 +199,20 @@ class WriteBrfFile(threading.Thread):
                 self.on_end("exist")
                 return False
             cpt = 1
+            total_volumes = len(self.braille_document)
             for volume in self.braille_document:
                 name_file = _("Volume {}").format(cpt)
                 self._create_file(volume, "{}/{}.brf".format(folder_name, name_file))
+                self._notify_progress_if_increased(95 + int((cpt * 5) / total_volumes))
                 cpt += 1
+            self._notify_progress_if_increased(100)
             self.on_end("success")
         else:
             if not self.braille_document:
                 return
             book = self.braille_document[0]
             self._create_file(book, "{}_braille.brf".format(self.path_name))
+            self._notify_progress_if_increased(100)
             self.on_end("success")
 
     def _create_file(self, file, name):
