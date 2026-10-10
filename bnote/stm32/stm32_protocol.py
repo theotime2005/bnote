@@ -29,6 +29,7 @@ STM32_COMMAND_KEY = object()
 STM32_INTERACTIVE_KEY = object()
 STM32_SHUTDOWN_PI = object()
 STM32_USB_APP_NAME_CHANGED = object()
+STM32_BATTERY_STATE = object()
 
 
 STX = b"\x02"  # Start of Frame
@@ -317,9 +318,9 @@ class Stm32Protocol:
         self.send_event(STM32_DATE_AND_TIME, data)
         # self._change_date_and_time(str(data, "utf-8"))
 
-    @staticmethod
-    def _treat_battery(data):
+    def _treat_battery(self, data):
         braille_device_characteristics.set_battery_raw_data(data)
+        self.send_event(STM32_BATTERY_STATE, data)
 
     @staticmethod
     def _treat_standby(data):

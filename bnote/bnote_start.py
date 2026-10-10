@@ -20,10 +20,12 @@ import bnote.apps.edt.math_opy as math
 from bnote.debug.colored_log import ColoredLogger
 from bnote.tools import bt_util
 from bnote.apps.internal import Internal
+import bnote.bt.bt_protocol as bt_protocol
 from bnote.stm32.braille_device_characteristics import braille_device_characteristics
 import bnote.tools.crash_report as crash_report
 from bnote.bt.bt_thread import bluetooth_thread_pool
 import bnote.stm32.stm32_protocol as stm32_protocol
+from bnote.stm32 import stm32_keys
 from bnote.stm32.stm32_thread import Stm32Thread
 from bnote.apps.bnote_app import BnoteApp, FunctionId
 from bnote.braille.lou import Lou
@@ -108,6 +110,11 @@ class BnoteThread(threading.Thread):
                         if add:
                             self._internal.input_function(
                                 FunctionId.FUNCTION_APPEND_BLUETOOTH, id=id_, name=name
+                            )
+                            self._stm32_thread.put_in_tx_frame_queue(
+                                stm32_protocol.Stm32Frame(
+                                    key=stm32_keys.KEY_BATTERY, data=b""
+                                )
                             )
                         else:
                             self._internal.input_function(
@@ -252,6 +259,7 @@ class BnoteThread(threading.Thread):
             stm32_protocol.STM32_INTERACTIVE_KEY: self._interactive_key,
             stm32_protocol.STM32_SHUTDOWN_PI: self._shutdown_pi,
             stm32_protocol.STM32_USB_APP_NAME_CHANGED: self._usb_app_name_changed,
+            stm32_protocol.STM32_BATTERY_STATE: self._battery_state,
         }
         func = switcher.get(key, None)
         if func is not None:
@@ -370,3 +378,15 @@ class BnoteThread(threading.Thread):
         # log.error(f"usb name changed {usb_a_name=} {usb_b_name=}")
         if self._internal:
             self._internal.usb_app_name_changed(data)
+
+    @staticmethod
+    def _battery_state(data):
+        bluetooth_thread_pool.put_message_in_tx_queue_to_all(
+            bt_protocol.Frame(
+                bt_protocol.Message(
+                    key=bt_protocol.Message.KEY_SYSTEM,
+                    subkey=bt_protocol.Message.SUBKEY_SYSTEM_BATTERY_STATE,
+                    data=braille_device_characteristics.get_battery_raw_data(),
+                )
+            )
+        )

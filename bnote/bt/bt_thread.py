@@ -140,6 +140,10 @@ class BluetoothThreadPool:
         if self.active_thread is not None:
             self.active_thread.put_message_in_tx_queue(message)
 
+    def put_message_in_tx_queue_to_all(self, message):
+        for bt_thread in list(self._thread_ids.values()):
+            bt_thread.put_message_in_tx_queue(message)
+
     def get_active_thread(self):
         return self.active_thread
 
@@ -396,6 +400,15 @@ class BluetoothThread(threading.Thread):
                         key=bt_protocol.Message.KEY_SYSTEM,
                         subkey=bt_protocol.Message.SUBKEY_SYSTEM_MAX_FRAME_LENGTH,
                         data=255,
+                    )
+                )
+            )
+            self._tx_message_queue.put(
+                bt_protocol.Frame(
+                    bt_protocol.Message(
+                        key=bt_protocol.Message.KEY_SYSTEM,
+                        subkey=bt_protocol.Message.SUBKEY_SYSTEM_BATTERY_STATE,
+                        data=braille_device_characteristics.get_battery_raw_data(),
                     )
                 )
             )
